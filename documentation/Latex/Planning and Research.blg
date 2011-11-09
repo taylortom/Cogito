@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Planning and Research.aux
+The style file: abbrv.bst
+Database file #1: main.bib
+Warning--entry type for "mccarthy:2007fk" isn't style-file defined
+--line 106 of file main.bib
+Warning--to sort, need editor, organization, or key in Gold:2005fk
+Warning--empty journal in Miikkulainen:2006ys
+You've used 5 entries,
+            2118 wiz_defined-function locations,
+            530 strings with 4551 characters,
+and the built_in function-call counts, 1190 in all, are:
+= -- 106
+> -- 45
+< -- 1
++ -- 19
+- -- 14
+* -- 69
+:= -- 203
+add.period$ -- 12
+call.type$ -- 5
+change.case$ -- 21
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 56
+empty$ -- 109
+format.name$ -- 14
+if$ -- 250
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 3
+newline$ -- 25
+num.names$ -- 8
+pop$ -- 29
+preamble$ -- 1
+purify$ -- 17
+quote$ -- 0
+skip$ -- 40
+stack$ -- 0
+substring$ -- 35
+swap$ -- 9
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 19
+warning$ -- 2
+while$ -- 11
+width$ -- 6
+write$ -- 48
+(There were 3 warnings)
