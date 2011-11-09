@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage{geometry}         
+\usepackage{geometry}
 \geometry{a4paper}
 
 \title{Planning and Research\\
@@ -11,6 +11,12 @@
 
 \begin{document}
 \maketitle
+
+%%%%%%%%%%%%%%%%%%%%%
+%                    					        %
+%   PROJECT AIMS AND OBJECTIVES  %
+%							        %
+%%%%%%%%%%%%%%%%%%%%%
 
 \section{Project Aims and Objectives}
 
@@ -29,7 +35,14 @@ The AI system should be able to:
 	\item Apply this knowledge-base in order to traverse the world
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%
+%                    					        %
+%   PROBLEM DOMAIN			        %
+%							        %
+%%%%%%%%%%%%%%%%%%%%%
+
 \section{Problem Domain}
+
 According to John McCarthy, the computer scientist who first coined the term in the 1950's, artificial intelligence is "the science and engineering of making intelligent machines"\cite{mccarthy:2007fk}. An important aspect to creating an 'intelligent machine' is the ability to learn from experience, and modify behaviour accordingly when faced with similar scenarios in the future. This is a problem which has been extensively researched, and techniques have been developed to tackle a variety of learning problems. In fact, machine learning techniques are already in use in a number of commercial applications such as speech recognition, robotic control and machine vision, proving that it can be a very useful solution, especially in solving problems which may have unexpected outcomes that cannot be predicted by the software developer. 
 
 There has been substantial research into using machine learning in First-Person Shooter (FPS), Real-Time Strategy (RTS), and more traditional board games. CBRetaliate, a case-based reinforcement learning (RL) system has been developed at Lehigh University Pennsylvania, which utilises case-based reasoning in a team-based FPS game to allow the system to react much quicker than if it were merely using RL\cite{Auslander:2008kx}. Similarly, NeuroEvolving Robotic Operatives (NERO), a system which uses neuroevolution (i.e. the use of genetic algorithms to evolve a neural network) in real-time to train and battle robotic armies was developed by The Digital Media Collaboratory at the University of Texas\cite{Gold:2005fk}.
@@ -38,7 +51,14 @@ Despite this promising research, the AI systems used in even the most cutting-ed
 
 That being said, there are a few examples where AI has been used in commercial games quite effectively in less 'out-of-the-box' scenarios than merely creating highly efficient teamwork-capable enemies in shooting games. One of these is Lionhead Studios' 2001 'god' game Black and White. In it, the player is given a pet 'Creature' to do their bidding, which has the capacity to learn from the player's actions, as well as the actions of the various computer-controlled characters in the game (including other Creatures). For example, the creature learns what objects are suitable to eat based on taste, and what it sees others eating. This can mean that the Creature learns to eat the player's followers, which may require the player to punish the Creature for doing so. This learning is achieved with a combination of decision trees and neural networks, and uses a modified version of Ross Quinlan's decision tree generation algorithm (ID3) to do so. 
 
+%%%%%%%%%%%%%%%%%%%%%
+%                    					        %
+%   SOLUTION					        %
+%							        %
+%%%%%%%%%%%%%%%%%%%%%
+
 \section{Solution}
+
 For the main deliverable of my project, I have chosen to create a game similar to the popular puzzle game Lemmings, and replace the human control element with my AI system. Originally released in 1991 for the PC and Commodore Amiga, the game has a very simple premise: to guide a group of computer-controlled 'lemmings' across a level from the entrance-point to the exit. The lemmings themselves, although computer controlled, have no AI to speak of, and merely walk in one direction until they reach an immovable object (such as a wall) or a trap (water, spikes, big drops etc.), the latter resulting in the demise of the lemming. Each level requires that a certain number of lemmings reach the exit in order for the player to progress.
 I felt that it would be an interesting challenge to see if I could design a system which was capable of guiding a group of AI characters across a game environment safely, 
 My project can be separated into two distinct parts/deliverables: the game component, and the AI system controlling the agents' behaviour.
@@ -65,26 +85,63 @@ In addition to this basic functionality, there are also a number of other featur
 
 As a final consideration, my system needs to be able to perform all of the above for multiple agents in real-time, so performance will need to be a serious consideration so as not to affect the gameplay or frame-rate, and my system will need to be appropriately designed with this in mind.
 
+%%%%%%%%%%%%%%%%%%%%%
+%                    					        %
+%   SOFTWARE AND FRAMEWORKS     %
+%							        %
+%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Software and Frameworks}
+
 In this section, I will briefly discuss the development of my project with regard to the software and frameworks that I intend to use, as well as my reasoning behind them.
+
+\subsubsection{Programming Language}
 The first choice I was faced with was the language that I would use to program my system in. As a significant chunk of my project is a game, the obvious choice would be to use C++, as it offers the best performance, and has a lot of useful memory management features. I eventually decided to use Objective C for my project, as I wanted to set myself the challenge of learning a new programming language. Objective C also has many benefits including most of the performance and memory management features of C++ (both languages being C based); performance obviously being a serious consideration when developing a game. Another benefit to using Objective C is having the option to use Apple's Xcode as a development environment, as well as the incredibly useful performance profiling program Instruments to help catch any memory issues. Xcode also features some nice source control integration. Another benefit to using Objective C and Xcode is the ability to develop my project as an iOS application to work on iPhone and iPad devices.
 
+\subsubsection{Game Engine}
 As I am essentially creating a game for part of my project, I would need to be able to load character models/sprites and their accompanying textures, animations and bone-structures (if applicable), be able to realistically calculate physics, have a user interface, and so on. Implementing all of this myself would require a considerable amount of programming time, time which could be better spent working on my AI engine. Because of this, and the fact that my project has a clear focus on the AI behind the game, it was an obvious decision to use an existing game engine. There are a number of free game engines currently available, some popular examples being Unity, which uses JavaScript, and is cross-platform (with publishing to iOS and Android  also available), Epic Games' Unreal Engine (used in Unreal Tournament,  Gears of War and Bioshock among others) which is similarly cross-platform, and Crytek's CryEngine (used for the Crysis game franchise). My choice of engine would also dictate the language that I would need to use to develop my project.
 Another advantage of programming my project in Objective C is that I would be able to use the popular open source CocoS2D 2D game engine. Cocos2D is perfectly suited to 2D games such as Lemmings, and includes support for asset loading, integrated physics (using the Box2D engine), a particle system and scene management among other things. It also has integration with a high score server, which would be interesting to use during user testing, to compare users results. Cocos2D also includes support for all iOS touch gestures as expected. 
 
+\subsubsection{Source Code Control}
 I will be using a Git server hosted on GitHub to store the source code and documentation for my project. Using source control is critical for any software development project, as it not only provides a way for multiple users to work on a single project (or even  a single file) without the worry of file corruption, but more importantly, it also provides a way to track the incremental development of a project, with the ability to revert certain changes to an earlier version if need be. A big benefit of using GitHub is that it has a very intuitive online interface, and includes some nicely integrated bug tracking.
 
+%%%%%%%%%%%%%%%%%%%%%
+%                    					        %
+%   RESEARCH				        %
+%							        %
+%%%%%%%%%%%%%%%%%%%%%
+
 \section{Research}
-I have documented my initial research in the form of an annotated bibliography. Along with each source's basic information, I have included a basic summary and any other notes where appropriate. 
+
+I have documented my initial research in the form of an annotated bibliography. Along with each source's basic information, I have included a basic summary and any other notes where appropriate.
+
+% NEW SOURCE %
 
 \subsection{Artificial Stupidity: The Art of Intentional Mistakes (article)}
-\paragraph{Author:}Lars Liden
-\paragraph{Journal:}AI Game Programming Wisdom
-\paragraph{Year:} 2004
+
+\textbf{Author}: Lars Liden\\
+\textbf{Journal}: AI Game Programming Wisdom\\
+\textbf{Year}: 2004
 
 \subsubsection{Summary and Notes}
 
 Discusses the technique of building intentional flaws into AI systems to add to the entertainment value of the game. Largely focussed around the standard shooter genre.
+
+Tricks to building 'stupid' AI:
+\begin{itemize}
+	\item Move Before Firing
+	\item Be Visible
+	\item Have Horrible Aim
+	\item Miss the First Time
+	\item Warn the Player
+	\item Attack 'Kung-fu' Style
+	\item Tell the Player What You Are Doing
+	\item React to Mistakes
+	\item Pull Back at the Last Minute
+	\item Intentional Vulnerabilities
+\end{itemize}
+
+\subsubsection{Quotations}
 
 \begin{quotation}
 Fun can be maximized when mistakes made by computer opponents are intentional
@@ -102,44 +159,281 @@ The hallmark of a good AI programmer is the ability to resist the temptation of 
 The hallmark of a good AI programmer is the ability to resist the temptation of adding intelligence where none is needed and to recognize when a cheaper, less complex solution will suffice. The challenge lies in demonstrating the NPC’s skills to the player, while still allowing the player to win
 \end{quotation}
 
-Tricks to building 'stupid' AI:
-- Move Before Firing
-- Be Visible
-- Have Horrible Aim
-- Miss the First Time
-- Warn the Player
-- Attack “Kung-fu” Style
-- Tell the Player What You Are Doing
-- React to Mistakes
-- Pull Back at the Last Minute
-- Intentional Vulnerabilities
+% NEW SOURCE %
 
+\subsection{Types of Machine Learning Algorithms (book)}
 
+\textbf{Author}: Taiwo Oladipupo Ayodele
 
+\subsubsection{Summary and Notes}
+Gives some nice information on the differenct types of learning:
 
+\begin{itemize}
+	\item Supervised learning
+	\item Unsupervised learning
+	\item Semi-supervised learning
+	\item Reinforcement learning
+	\item Transduction
+	\item Learning to learn
+\end{itemize}
 
+with examples of algorithms for each, as well as background information.
 
+\subsection{The Complete History of Lemmings (webpage)}
+\textbf{Url}: http://www.javalemmings.com/DMA/Lem\_1.htm\\
+\textbf{Last checked}: 2011-10-21\\
+\textbf{Author}: Mike Dailly
 
+\subsubsection{Summary and Notes}
 
+The history of Lemmings, as documented by one of the developers.
+
+% NEW SOURCE %
+
+\subsection{CS229: Machine Learning (webpage)}
+
+\textbf{Url}: http://cs229.stanford.edu/\\
+\textbf{Last checked}: 2011-10-21\\
+\textbf{Organization}: Stanford University
+
+\subsubsection{Summary and Notes}
+Homepage of the CS229 module: Machine Learning. Contains all of the lecture slides and handouts etc.
+
+% NEW SOURCE %
+
+\subsection{Machine Learning (webpage)}
+
+\textbf{Url}: http://www.youtube.com/view\_play\_list?p=A89DCFA6ADACE599\\
+\textbf{Lastchecked}: 2011-10-21\\
+\textbf{Author}: Andrew Ng\\
+\textbf{Organization}: Stanford University
+
+\subsubsection{Summary and Notes}
+A YouTube playlist of the lectures for the CS229 module: Machine Learning. Lots of useful information about the different types of learning, algorithms etc.
+
+% NEW SOURCE %
+
+\subsection{Recognizing the Enemy: Combining Reinforcement Learning with Strategy Selection using Case-Based Reasoning (article)}
+
+\textbf{Author}: Bryan Auslander, Stephen Lee-Urban, Chad Hogg and Hector Munoz-Avila
+\textbf{Journal}: ECCBR '08 Proceedings of the 9th European conference on Advances in Case-Based Reasoning
+\textbf{Year}: 2008
+
+\subsubsection{Abstract}
+This paper presents CBRetaliate, an agent that combines Case-Based Reasoning (CBR) and Reinforcement Learning (RL) algorithms. Unlike most previous work where RL is used to improve accuracy in the action selection process, CBRetaliate uses CBR to allow RL to respond more quickly to changing conditions. CBRetaliate combines two key features: it uses a time window to compute similarity and stores and reuses complete Q-tables for continuous problem solving. We demon- strate CBRetaliate on a team-based first-person shooter game, where our combined CBR+RL approach adapts quicker to changing tactics by an opponent than standalone RL.
+
+\subsubsection{Summary and Notes}
+
+Research into using case-based reasoning to allow reinforcement learning to respond more quickly to to changing conditions. A definite focus on the implementation.
+
+Gives a nice introduction to the use of reinforcement learning in games.
+
+If the system is doing 'well', it stores the current case for later reference.
+
+Some nice, in-depth discussion of the algorithms used in the research, as well as the reasoning behind them - could be useful for designing my own algorithms later (also some pseudocode examples).
+
+\subsubsection{Quotations}
+
+\begin{quotation}
+In this paper we present CBRetaliate, an agent that uses Case-Based Reasoning (CBR) techniques to enhance the Retaliate RL agent. Unlike most previous work where RL is used to improve accuracy in the case selection process, CBRetaliate uses CBR to jump quickly to previously stored policies rather than slowly adapting to changing conditions
+\end{quotation}
+
+% NEW SOURCE %
+
+\subsection{Rapid and Reliable Adaptation of Rapid and Reliable Adaptation of Video Game AI (article)}
+\textbf{Author}: Sander Bakkes, Pieter Spronck, Jaap van den Herik\\
+\textbf{Journal}: Transactions on Computational Intelligence and AI in Games\\
+\textbf{Year}: 2009\\
+\textbf{Volume}: 1\\
+\textbf{Number}: 2
+
+\subsubsection{Abstract}
+Current approaches to adaptive game AI typically require numerous trials to learn effective behaviour (i.e., game adaptation is not rapid). In addition, game developers are concerned that applying adaptive game AI may result in un- controllable and unpredictable behaviour (i.e., game adaptation is not reliable). These characteristics hamper the incorporation of adaptive game AI in commercially available video games. In this article, we discuss an alternative to these current approaches. Our alternative approach to adaptive game AI has as its goal adapting rapidly and reliably to game circumstances. Our approach can be classified in the area of case-based adaptive game AI. In the approach, domain knowledge required to adapt to game circumstances is gathered automatically by the game AI, and is exploited immediately (i.e., without trials and without resource- intensive learning) to evoke effective behaviour in a controlled manner in online play. We performed experiments that test case- based adaptive game AI on three different maps in a commercial RTS game. From our results we may conclude that case-based adaptive game AI provides a strong basis for effectively adapting game AI in video games.
+
+\subsubsection{Summary and Notes}
+Discusses an alternative method to learning which functions without trials and without resource- intensive learning. Uses a downoaded 'case base' of previously played games to develop a strategy.
+
+Some nice discussion on the different types of learning found in games (adaptive AI, difficulty scaling etc.)
+
+Very nice in-depth descriptions (with examples) of the implementation of the learning. However, the paper is mostly focussed towards Real-Time Strategy games.
+
+\subsubsection{Quotations}
+
+Nice description of what constitutes an entertaining game:
+\begin{quotation}
+The purpose of a typical video game is to provide en- tertainment [1], [4]. Naturally, the criteria of what makes a game entertaining is dependent on who is playing the game. The literature suggests the concept of immersion as a general measure of entertainment [5], [6]. Immersion is the state of consciousness where an immersant's awareness of physical self is diminished or lost by being surrounded in an engrossing, often artificial environment [7]. Taylor argues that evoking an immersed feeling by a video game is essential for retaining a player's interest in the game [6]. As such, an entertaining game should at the very least not repel the feeling of immersion from the player [8]. Aesthetical elements of a video game such as graphical and auditory presentation are instrumental in establishing an immersive game environment.
+\end{quotation}
+
+\begin{quotation}
+it is not uncommon that a game has finished before any effective behaviour could be established, or that game characters in a game do not live sufficiently long to benefit from learning
+\end{quotation}
+
+\begin{quotation}
+in our approach we consider that the challenge that is provided by the game AI should be adaptable to fit individual players
+\end{quotation}
+
+\begin{quotation}
+Adaptation mechanism:\\
+// Offline processing\\
+A1. Game indexing; calculate indexes for all stored games.\\
+A2. Clustering of observations; group together similar observations.\\
+// Initialisation of game AI\\
+B1. Establish the (most likely) strategy of the opponent player.\\
+B2. Determine to which parameter?band values this opponent strategy can be abstracted.\\
+B3. Initialise game AI with an effective strategy observed against the opponent with the most similar parameter?band values.\\
+// Online strategy selection\\
+C1. Use game indexes to select the N most similar games.\\
+C2. Of the selected N games , select the M games that best satisfy the goal criterion.\\
+C3. Of the selected M games , select the most similar observation.\\
+C4. Perform the game strategy stored for the selected observation.
+\end{quotation}
+
+% NEW SOURCE %
+
+\subsection{Evolutionary Entertainment with Intelligent Agents (article)}
+
+\textbf{Author}: David B. Fogel\\
+\textbf{Journal}: Computer\\
+\textbf{Year}: 2003\\
+\textbf{Volume}: 36\\
+\textbf{Number}: 6
+
+\subsubsection{Abstract}
+A common limitation of conventional video games is that players quickly learn the positions and behavior of computer-controlled characters, which usually take the form of monsters. 
+
+Software developers pre-program these characteristics so, after playing the game several times, the player comes to know exactly how and when the monsters will act.
+
+\subsubsection{Summary and Notes}
+Author is CEO of Natural Selection Inc.
+
+Interesting article documenting an experiment into using neural networks to devvelop a checkers playing program.
+
+The system was run for about 6 months (840 generations of its evolution) and tested on www.zone.com against real players, where it gained a 'master' rating awarded to the top 500 players out of 120,000.
+
+\subsection{Creating Intelligent Agents in Games (article)}
+
+\textbf{Author}: Risto Miikkulainen\\
+\textbf{Year}: 2006\\
+\textbf{Volume}: Winter\\
+
+\subsubsection{Abstract}
+Video games provide an ideal platform for the development and testing of machine-learning techniques.
+
+\subsubsection{Summary and Notes}
+Article Focuses on neuroevolution, and gives some examples of where machine learning has been used recently (early 00s). It also has a nice summary of research in the area including NEAT and NERO.
+
+Describes the NeuroEvolution of Augmenting Topologies (NEAT) - evolving neural network appropriate for video games
+
+\subsubsection{Quotations}
+
+\begin{quotation}
+…a large part of AI development is devoted to path-finding algorithms
+\end{quotation}
+
+\begin{quotation}
+a large part of the gameplay in many games is figuring out what the AI is programmed to do and learning to defeat it
+\end{quotation}
+
+Evolutionary computation: 
+\begin{quotation}
+Each solution is evaluated in the task and assigned a fit- ness based on how well it performs. Individuals with high fitness are then reproduced (by crossing over their encodings) and mutated (by randomly changing components of their encodings with a low probability). The offspring of the high-fitness individuals replace the low-fitness individuals in the population, and over time, solutions that can solve the task are discovered
+\end{quotation}
+
+\begin{quotation}
+Neuroevolution is particularly well suited to video games because (1) it works well in high-dimensional spaces; (2) diverse populations can be maintained; (3) individual networks behave consistently; (4) adaptation takes place in real time; and (5) memory can be implemented through recurrency (Gomez et al., 2006; Stanley et al., 2005)
+\end{quotation}
+
+\begin{quotation}
+Entirely new game genres can be developed, such as machine-learning games, in which the player explicitly trains game agents to perform various tasks
+\end{quotation}
+
+\begin{quotation}
+To rtNEAT, [the sliders] represent coefficients for fitness components. For exam- ple, the sliders specify how much to reward or punish agents for approaching enemies, hitting targets, getting hit, following friends, dispersing, etc.
+\end{quotation}
+
+% NEW SOURCE %
+
+\subsection{AI Game Programmers Guild (webpage)}
+\textbf{Url}: http://gameai.com/\\
+\textbf{Last checked}: 2011-11-6
+
+\subsubsection{Abstract}
+Founded in 2008, the AI Game Programmers Guild currently consists of over 200 professional game AI developers from all across the industry and from around the world. Our mission is to develop and promote excellence in game AI through education, community, and recognition.
+
+\subsubsection{Summary and Notes}
+Blogs, papers, presentations, videos etc. posted by industry professionals in the area of game AI.
+
+% NEW SOURCE %
+
+\subsection{Artificial Intelligence in Games (unpublished, possibly undergraduate assignment)}
+
+\textbf{Author}: James Wexler\\
+\textbf{Year}: 2002
+
+\subsubsection{Abstract}
+With its latest release 'Black and White', Lionhead Studios has set the new standard for artificial intelligence in games. Creatures in this game have an incredible ability to learn that is implemented through a variety of AI algorithms and techniques. There is much that could be added to the game given ample time and computing resources. These additions include a partial order planner for creatures' actions, a game-state search algorithm and planner for a computer-controlled opponent, and a dynamic lookup table to create better battling creatures.
+
+\subsubsection{Summary and Notes}
+Gives a nice history of video games with respect to their use of AI. Started in the mid-sixties with Pong (and similar).
+
+Also has a nice description of the type of AI techniques used in Black and White - an example of a decision tree/weighting of actions
+
+\begin{itemize}
+	\item Poorly written in places
+	\item Needs more references
+	\item Numerous subjective statements ("wonders of AI", "incredible")
+\end{itemize}
+
+\subsubsection{Quotations}
+
+\begin{quotation}
+A decision tree is built by looking at the attributes which best divide the learning episodes into groups with similar feedback values. The best decision tree is the one that minimizes entropy, a measure of how disordered the feedbacks are. The algorithm used to dynamically construct decision-treesto minimize entropy is based on (Ross) Quinlan's ID3 system
+\end{quotation}
+Richard Evens (Black and White AI developer)
+
+% NEW SOURCE %
+
+\subsection{Playing Smart - Artificial Intelligence in Computer Games (article)}
+\textbf{Author}: Eike F Anderson\\
+\textbf{Year}: 2003\\
+\textbf{Organization}: The National Centre for Computer Animation (NCCA)\\
+\textbf{Publisher}: ZFX 3D Entertainment
+
+\subsubsection{Abstract}
+With this document we will present an overview of artificial intelligence in general and artificial intelligence in the context of its use in modern computer games in particular. To this end we will firstly provide an introduction to the terminology of artificial intelligence, followed by a brief history of this field of computer science and finally we will discuss the impact which this science has had on the development of computer games. This will be further illustrated by a number of case studies, looking at how artificially intelligent behaviour has been achieved in selected games.
+
+\subsubsection{Summary and Notes}
+Section 2 gives quite a nice overview of the history of AI, and some major developments/events in AI from 1931-1997.
+
+Section 4 gives a nice summary of the main game AI techniques (rule-based, machine learning, extensible AI, knowledge-based) Black and While uses decision trees to implement reinforcement  learning.
+
+\begin{itemize}
+	\item Not particularly well written
+	\item Some unsubstantiated claims
+\end{itemize}
+
+% NEW SOURCE %
 
 \subsection{Academic AI and Video games: a case study of incorporating innovative academic research into a video game prototype (proceedings)}
-\paragraph{Author:}Aliza Gold
-\paragraph{Journal:}IEEE - Symposium on Computational Intelligence and Games (CIG'05)
-\paragraph{Year:} 2005
+
+\textbf{Author:} Aliza Gold\\
+\textbf{Journal:} IEEE - Symposium on Computational Intelligence and Games (CIG'05)\\
+\textbf{Year:} 2005
 
 \subsubsection{Abstract}
 Artificial intelligence research and video games are a natural match, and academia is a fertile place to blend game production and academic research. Game development tools and processes are valuable for applied AI research projects, and university departments can create opportunities for student-led, team-based project work that draws on students' interest in video games. The Digital Media Collaboratory at the University of Texas at Austin has developed a project in which academic AI research was incorporated into a video game production process that is repeatable in other universities. This process has yielded results that advance the field of machine learning as well as the state of the art in video games. This is a case study of the process and the project that originated it, outlining methods, results, and benefits in order to encourage the use of the model elsewhere.
 
 \subsubsection{Summary and Notes}
-Outlines a university-led AI project at University of Texas. NeuroEvolving Robotic Operatives (NERO) project looks at the evolution of neural networks with a genetic algorithm.
+Outlines a university-led AI project at University of Texas. NeuroEvolving Robotic Operatives (NERO) project looks at the evolution of neural networks with a genetic algorithm. Paper nicely documents the development process.
 
 NERO has a real-time training stage which is carried out before the actual game. Player can 'save' the team, and start the game, when learning is no longer taking place.
 
-Documents the development process
+\begin{itemize}
+	\item Used the Torque game engine (Garage Games)
+	\item Use a 'spiral' method of development (design choices made iteratively)
+\end{itemize}
 
-Used the Torque game engine (Garage Games)
-
-Use a 'spiral' method of development (design choices made iteratively)
+\subsubsection{Quotations}
 
 \begin{quotation}
 In NERO, a player trains a group of ignorant robot soldiers by setting learning objectives for the group through an interface. After the objective is set, the robots learn in real time to achieve their goal
