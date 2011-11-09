@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  9 NOV 2011 12:44
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  9 NOV 2011 14:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -68,18 +68,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (./Planning and Research.aux)
 \openout1 = `"Planning and Research.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -116,49 +116,81 @@ LaTeX Font Info:    ... okay on input line 12.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 13.
+(Font)              <12> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 13.
+(Font)              <8> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 13.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 32.
+(Font)              <6> on input line 14.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 33.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 32.
- [1
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
 
-{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
- [4] [5]
-[6]
-Missing character: There is no Õ in font cmr10!
- [7] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 315--318
+
+LaTeX Warning: Citation `mccarthy:2007fk' on page 1 undefined on input line 47.
+
+
+
+LaTeX Warning: Citation `Auslander:2008kx' on page 1 undefined on input line 49
+.
+
+
+LaTeX Warning: Citation `Gold:2005fk' on page 1 undefined on input line 49.
+
+[1
+
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `Liden:2004fk' on page 2 undefined on input line 51.
+
+
+LaTeX Warning: Citation `Miikkulainen:2006ys' on page 2 undefined on input line
+ 51.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
-[11]
+[2] [3] [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+
+ []
+
+Missing character: There is no Õ in font cmr10!
+[7] [8] [9] [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 350--353
+
+ []
+
 Missing character: There is no É in font cmr10!
- [12] [13] [14] (./Planning and Research.bbl [15]) [16]
-(./Planning and Research.aux) ) 
+[12] [13] [14] [15] (./Planning and Research.bbl) [16]
+(./Planning and Research.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  783 strings out of 493633
  10936 string characters out of 3143378
- 68825 words of memory out of 3000000
+ 68819 words of memory out of 3000000
  4132 multiletter control sequences out of 15000+200000
  8798 words of font info for 31 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 23i,6n,19p,1708b,203s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2011/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmti10.pfb>
-Output written on "Planning and Research.pdf" (16 pages, 141176 bytes).
+ 23i,6n,19p,1700b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "Planning and Research.pdf" (16 pages, 144101 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
