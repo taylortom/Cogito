@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>blowingUpAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>5,6,7,8,9,10,11,12,13,14,15,16,17</string>
+		<key>delay</key>
+		<real>0.2</real>
+		<key>filenamePrefix</key>
+		<string>radar_</string>
+	</dict>
+</dict>
+</plist>
