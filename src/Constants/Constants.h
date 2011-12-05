@@ -13,8 +13,5 @@
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
 #define kLemmingIdleTimer       3.0f
-#define kLemmingFistDamage      10
-#define kLemmingMalletDamage    40
-#define kRadarDishTagValue      10
 
 #endif

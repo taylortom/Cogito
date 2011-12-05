@@ -12,6 +12,4 @@
 
 @interface GameScene : CCScene
 
--(id)init;
-
 @end

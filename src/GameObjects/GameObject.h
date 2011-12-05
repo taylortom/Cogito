@@ -2,6 +2,8 @@
 //  GameObject.h
 //  Author: Thomas Taylor
 //
+//  A base class for all game objects
+//
 //  21/11/2011: Created class
 //
 

@@ -14,53 +14,38 @@
 
 typedef enum
 {
+    kAxisHorizontal,
+    kAxisVertical,
+} Axis;
+
+typedef enum
+{
     kDirectionLeft,
     kDirectionRight,
-} PhaserDirection;
+} Direction;
 
 typedef enum
 {
     kStateSpawning,
     kStateIdle,
-    kStateCrouching,
-    kStateStandingUp,
     kStateWalking,
-    kStateAttacking,
-    kStateJumping,
-    kStateAfterJumping,
-    kStateBreathing,
-    kStateTakingDamage,
     kStateDead,
-    kStateTravelling,
-    kStateRotating,
-    kStateDrilling,
 } CharacterStates;
 
 typedef enum
 {
     kObjectTypeNone,
-    kPowerUpTypeHealth,
-    kPowerUpTypeMallet,
-    kEnemyTypeRadarDish,
-    kEnemyTypeSpaceCargoShip,
-    kEnemyTypeAlienRobot,
-    kEnemyTypePhaser,
-    kVikingType,
-    kSkullType,
-    kRockType,
-    kMeteorType,
-    kFrozenVikingType,
-    kIceType,
-    kLongBlockType,
-    kCartType,
-    kSpikesType,
-    kDiggerType,
-    kGroundType
+    kToolHelmet,
+    kToolUmbrella,
+    kLemmingType,
+    kObstaclePit,
+    kObstacleCage,
+    kObstacleWater,
+    kObstacleStamper
 } GameObjectType;
 
 @protocol GameplayLayerDelegate
 
--(void)createObjectOfType:(GameObjectType)objectType withHealth:(int)initialHealth atLocation:(CGPoint)spawnLocation withZValue:(int)zValue;
--(void)createPhaserWithDirection:(PhaserDirection)phaserDirection andPosition:(CGPoint)spawnPosition;
+-(void)createObjectOfType:(GameObjectType)objectType atLocation:(CGPoint)spawnLocation withZValue:(int)zValue;
 
 @end

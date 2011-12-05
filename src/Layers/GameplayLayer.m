@@ -6,10 +6,14 @@
 //
 
 #import "GameplayLayer.h"
+#import "Obstacle.h"
 
 @implementation GameplayLayer
 
 float buttonDimensions = 64.0f;
+Lemming *lemming;
+bool countDown = NO;
+int frameCount = 0;
 
 -(id)init 
 {    
@@ -22,35 +26,27 @@ float buttonDimensions = 64.0f;
         // enable touches
         self.isTouchEnabled = YES;                                                               
         
-        // load the sprite atlas
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"lemming_atlas.plist"];
-        spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"lemming_atlas.png"];
-        
-        // create the lemming sprite
-        lemmingSprite = [CCSprite spriteWithSpriteFrameName:@"pixel_lemming_anim_1.png"];
-        [spriteBatchNode addChild:lemmingSprite];
-        [self addChild:spriteBatchNode];
-        [lemmingSprite setPosition:CGPointMake(50, 90)];
-        
-        /**
+        /*
          * TEST ANIMATION - REMOVE
          */
-        CCAnimation *exampleAnim = [CCAnimation animation];
-        [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"pixel_lemming_anim_2.png"]];
-        [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"pixel_lemming_anim_3.png"]];
-        [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"pixel_lemming_anim_4.png"]];
-        id animateAction = [CCAnimate actionWithDuration:0.5f animation:exampleAnim restoreOriginalFrame:YES];
-        id repeatAction = [CCRepeatForever actionWithAction:animateAction];
-        [lemmingSprite runAction:repeatAction];
+        
+        lemming = [[Lemming alloc] init];
+        [self addChild:[lemming getSpriteBatchNode]];
         
         /*// to add to the animation cache:
         [[CCAnimationCache sharedAnimationCache] addAnimation:animationToCache name:@"animationName"];
         // to access the animation:
         CCAnimation *myAnimaition = [[CCAnimationCache sharedAnimationCache] animationByName:@"animationName"];*/
-         
+
+        /*
+         * END OF TEST ANIMATION
+         */
+        
         // set up the buttons
         [self initButtons];
         [self scheduleUpdate];
+        
+        Obstacle *testObstacle = [[Obstacle alloc] init:kObstaclePit];
     }
     
     return self;
@@ -79,8 +75,8 @@ float buttonDimensions = 64.0f;
 
 -(void)update:(ccTime)deltaTime
 {
+    [lemming move: 0.35f: kAxisHorizontal];
     [self checkButtons];
-    [lemmingSprite setPosition:ccp(lemmingSprite.position.x+0.35, lemmingSprite.position.y)];
 }
 
 -(void)checkButtons
@@ -88,7 +84,9 @@ float buttonDimensions = 64.0f;
     if (settingsButton.active) 
     {
         CCLOG(@"Settings button pressed...");
-        [lemmingSprite setPosition:ccp(50, lemmingSprite.position.y)];
+        //[lemmingSprite setPosition:ccp(50, lemmingSprite.position.y)];
+        
+        [lemming flip: kAxisVertical];
         
         /*
          * Need to open settings screen
@@ -96,7 +94,6 @@ float buttonDimensions = 64.0f;
          * based on which settings have been changed (if any)
          */
     }
-        
 }
 
 @end

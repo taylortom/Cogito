@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 #import "SneakyButton.h"
 #import "SneakyButtonSkinnedBase.h"
+#import "Lemming.h"
 
 float buttonDimensions;
 
@@ -16,12 +17,10 @@ float buttonDimensions;
 SneakyButton *settingsButton;
 
 // sprites
-CCSprite *lemmingSprite;
-CCSpriteBatchNode *spriteBatchNode;
+Lemming *lemming;
 
 @interface GameplayLayer : CCLayer
 
--(id)init;
 -(void)initButtons;
 -(void)update:(ccTime)deltaTime;
 -(void)checkButtons;

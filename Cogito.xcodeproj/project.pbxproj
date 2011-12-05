@@ -8,15 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E21FA5611479B7B300519BF6 /* Lemming.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21FA5601479B7B300519BF6 /* Lemming.plist */; };
-		E25D33EF1481A2E600046D17 /* fps_images2.png in Resources */ = {isa = PBXBuildFile; fileRef = E25D33EE1481A2E600046D17 /* fps_images2.png */; };
 		E26A0E901481B10C00EE990D /* lemming_atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E8E1481B10C00EE990D /* lemming_atlas-hd.plist */; };
 		E26A0E911481B10C00EE990D /* lemming_atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E8F1481B10C00EE990D /* lemming_atlas-hd.png */; };
 		E26A0E931481CA8F00EE990D /* basic_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E921481CA8F00EE990D /* basic_background-hd.png */; };
 		E26A0E951481CAD900EE990D /* basic_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E941481CAD900EE990D /* basic_background.png */; };
-		E283960C1481A04E005275A7 /* Earth_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E283960B1481A04E005275A7 /* Earth_background-hd.png */; };
+		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
+		E274A213148CF8B000917EA7 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A212148CF8B000917EA7 /* CogitoAgent.m */; };
 		E28C12AC147A535500385DF6 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AB147A535500385DF6 /* GameObject.m */; };
-		E28C12AF147A6B0D00385DF6 /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AE147A6B0D00385DF6 /* GameCharacter.m */; };
-		E28C12B2147A814300385DF6 /* Lemming.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12B1147A814300385DF6 /* Lemming.m */; };
+		E28C12AF147A6B0D00385DF6 /* Lemming.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AE147A6B0D00385DF6 /* Lemming.m */; };
 		E294A06314785248007C087E /* settings_down-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E294A06114785247007C087E /* settings_down-hd.png */; };
 		E294A06414785248007C087E /* settings-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E294A06214785247007C087E /* settings-hd.png */; };
 		E2ABCEF314706AE600E14474 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF214706AE600E14474 /* QuartzCore.framework */; };
@@ -144,20 +143,20 @@
 
 /* Begin PBXFileReference section */
 		E21FA5601479B7B300519BF6 /* Lemming.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming.plist; sourceTree = "<group>"; };
-		E25D33EE1481A2E600046D17 /* fps_images2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images2.png; path = Resources/fps_images2.png; sourceTree = "<group>"; };
 		E26A0E8E1481B10C00EE990D /* lemming_atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lemming_atlas-hd.plist"; path = "../../Assets/Texture Atlases/lemming_atlas-hd.plist"; sourceTree = "<group>"; };
 		E26A0E8F1481B10C00EE990D /* lemming_atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lemming_atlas-hd.png"; sourceTree = "<group>"; };
 		E26A0E921481CA8F00EE990D /* basic_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic_background-hd.png"; sourceTree = "<group>"; };
 		E26A0E941481CAD900EE990D /* basic_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basic_background.png; sourceTree = "<group>"; };
-		E283960B1481A04E005275A7 /* Earth_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Earth_background-hd.png"; sourceTree = "<group>"; };
+		E274A20E148CF88800917EA7 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
+		E274A20F148CF88800917EA7 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
+		E274A211148CF8B000917EA7 /* CogitoAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CogitoAgent.h; sourceTree = "<group>"; };
+		E274A212148CF8B000917EA7 /* CogitoAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CogitoAgent.m; sourceTree = "<group>"; };
 		E28C12A8147A4B3B00385DF6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E28C12A9147A4EAE00385DF6 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		E28C12AA147A535500385DF6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E28C12AB147A535500385DF6 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		E28C12AD147A6B0D00385DF6 /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
-		E28C12AE147A6B0D00385DF6 /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
-		E28C12B0147A814300385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lemming.h; sourceTree = "<group>"; };
-		E28C12B1147A814300385DF6 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
+		E28C12AD147A6B0D00385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lemming.h; sourceTree = "<group>"; };
+		E28C12AE147A6B0D00385DF6 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
 		E294A06114785247007C087E /* settings_down-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_down-hd.png"; sourceTree = "<group>"; };
 		E294A06214785247007C087E /* settings-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-hd.png"; sourceTree = "<group>"; };
 		E2ABCEEE14706AE600E14474 /* Cogito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogito.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -438,12 +437,14 @@
 		E2133A3F1479C14B00845938 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				E274A211148CF8B000917EA7 /* CogitoAgent.h */,
+				E274A212148CF8B000917EA7 /* CogitoAgent.m */,
 				E28C12AA147A535500385DF6 /* GameObject.h */,
 				E28C12AB147A535500385DF6 /* GameObject.m */,
-				E28C12AD147A6B0D00385DF6 /* GameCharacter.h */,
-				E28C12AE147A6B0D00385DF6 /* GameCharacter.m */,
-				E28C12B0147A814300385DF6 /* Lemming.h */,
-				E28C12B1147A814300385DF6 /* Lemming.m */,
+				E28C12AD147A6B0D00385DF6 /* Lemming.h */,
+				E28C12AE147A6B0D00385DF6 /* Lemming.m */,
+				E274A20E148CF88800917EA7 /* Obstacle.h */,
+				E274A20F148CF88800917EA7 /* Obstacle.m */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -531,7 +532,6 @@
 		E2ABCF0314706AE600E14474 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E25D33EE1481A2E600046D17 /* fps_images2.png */,
 				E2ABCF0614706AE600E14474 /* fps_images.png */,
 				E2ABCF1414706AE600E14474 /* Info.plist */,
 				E2ABCF1514706AE600E14474 /* iTunesArtwork */,
@@ -893,7 +893,6 @@
 			isa = PBXGroup;
 			children = (
 				E26A0E921481CA8F00EE990D /* basic_background-hd.png */,
-				E283960B1481A04E005275A7 /* Earth_background-hd.png */,
 				E26A0E941481CAD900EE990D /* basic_background.png */,
 			);
 			path = Backgrounds;
@@ -1004,8 +1003,6 @@
 				E294A06314785248007C087E /* settings_down-hd.png in Resources */,
 				E294A06414785248007C087E /* settings-hd.png in Resources */,
 				E21FA5611479B7B300519BF6 /* Lemming.plist in Resources */,
-				E283960C1481A04E005275A7 /* Earth_background-hd.png in Resources */,
-				E25D33EF1481A2E600046D17 /* fps_images2.png in Resources */,
 				E26A0E901481B10C00EE990D /* lemming_atlas-hd.plist in Resources */,
 				E26A0E911481B10C00EE990D /* lemming_atlas-hd.png in Resources */,
 				E26A0E931481CA8F00EE990D /* basic_background-hd.png in Resources */,
@@ -1123,8 +1120,9 @@
 				E2AD755E147720CC00ECF7CB /* SneakyButton.m in Sources */,
 				E2AD755F147720CC00ECF7CB /* SneakyButtonSkinnedBase.m in Sources */,
 				E28C12AC147A535500385DF6 /* GameObject.m in Sources */,
-				E28C12AF147A6B0D00385DF6 /* GameCharacter.m in Sources */,
-				E28C12B2147A814300385DF6 /* Lemming.m in Sources */,
+				E28C12AF147A6B0D00385DF6 /* Lemming.m in Sources */,
+				E274A210148CF88800917EA7 /* Obstacle.m in Sources */,
+				E274A213148CF8B000917EA7 /* CogitoAgent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
