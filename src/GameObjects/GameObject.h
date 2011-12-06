@@ -29,7 +29,7 @@
 -(void)changeState:(CharacterStates)newState;
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray*)listOfGameObjects;
 -(CGRect)adjustedBoundingBox;
--(CCAnimation*)loadPlistForAnimationWithName:(NSString*)className;
--(CCAnimation*)cachePlistForAnimationWithName:(NSString*)className;
+-(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className;
+-(CCAnimation*)cacheAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className;
 
 @end

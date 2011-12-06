@@ -29,12 +29,15 @@ typedef enum
     kStateSpawning,
     kStateIdle,
     kStateWalking,
+    kStateFloating,
     kStateDead,
+    kStateWin
 } CharacterStates;
 
 typedef enum
 {
     kObjectTypeNone,
+    kObjectExit,
     kToolHelmet,
     kToolUmbrella,
     kLemmingType,

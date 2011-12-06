@@ -12,10 +12,9 @@
 
 @interface Lemming : CogitoAgent
 {
-    int characterHealth;
-    CharacterStates characterState; 
+    int health;
+    CharacterStates state; 
     CCSpriteFrame *standingFrame;
-    float millisecondsIdle;
     Direction direction;
     bool isUsingHelmet;
 
@@ -34,11 +33,11 @@
     
     // misc
     CCAnimation *floatUmbrellaAnim;
-    CCAnimation *goalReachedAnim;
+    CCAnimation *winAnim;
 }
 
-@property (readwrite) int characterHealth;
-@property (readwrite) CharacterStates characterState; 
+@property (readwrite) int health;
+@property (readwrite) CharacterStates state; 
 
 /*
  * Animation stuff
@@ -55,11 +54,11 @@
 
 //misc
 @property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
-@property (nonatomic, retain) CCAnimation *goalReachedAnim;
+@property (nonatomic, retain) CCAnimation *winAnim;
 
+-(void)initAnimations;
 -(void)checkAndClampSpritePosition;
 -(void)flip: (Axis)axis;
 -(void)move: (float)amountToMove: (Axis)axis;
--(CCSpriteBatchNode*)getSpriteBatchNode;
 
 @end

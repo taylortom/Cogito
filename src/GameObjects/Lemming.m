@@ -11,8 +11,8 @@
 
 @implementation Lemming
 
-@synthesize characterHealth;
-@synthesize characterState;
+@synthesize health;
+@synthesize state;
 
 // animation
 @synthesize idleAnim;
@@ -23,7 +23,9 @@
 @synthesize deathAnim;
 // misc
 @synthesize floatUmbrellaAnim;
-@synthesize goalReachedAnim;
+@synthesize winAnim;
+
+#pragma mark -
 
 /**
  * Releases any used storage
@@ -34,40 +36,46 @@
     [idleHelmetAnim release];
     [walkingAnim release];
     [walkingHelmetAnim release];
-    [deathAnim release];
     [floatUmbrellaAnim release];
-    [goalReachedAnim release];
+    [deathAnim release];
+    [winAnim release];
     
     [super dealloc];
 }
 
+#pragma mark -
+
+/**
+ * Initialisation
+ */
 -(id) init
 {
     self = [super init];
     
     if (self != nil) 
     {
-//        // load the sprite atlas
-//        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"lemming_atlas.plist"];
-//        spriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"lemming_atlas.png"];
-//        
-//        // create the lemming sprite
-//        lemmingSprite = [CCSprite spriteWithSpriteFrameName:@"pixel_lemming_anim_1.png"];
-//        [spriteBatchNode addChild:lemmingSprite];
-//        [lemmingSprite setPosition:CGPointMake(50, 90)];
-//        
-//        direction = kDirectionRight;
-//        
-//        CCAnimation *exampleAnim = [CCAnimation animation];
-//        [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"pixel_lemming_anim_2.png"]];
-//        [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"pixel_lemming_anim_3.png"]];
-//        [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"pixel_lemming_anim_4.png"]];
-//        id animateAction = [CCAnimate actionWithDuration:0.5f animation:exampleAnim restoreOriginalFrame:YES];
-//        id repeatAction = [CCRepeatForever actionWithAction:animateAction];
-//        [lemmingSprite runAction:repeatAction];
+        self.gameObjectType = kLemmingType;
+        isUsingHelmet = NO;
+        [self initAnimations];
     }
     return self;
 }
+
+/**
+ * Loads all of the animations
+ */
+-(void) initAnimations
+{    
+    [self setIdleAnim:[self loadAnimationFromPlistWthName:@"idleAnim" andClassName:NSStringFromClass([self class])]];
+    [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:NSStringFromClass([self class])]];
+    [self setWalkingAnim:[self loadAnimationFromPlistWthName:@"walkingAnim" andClassName:NSStringFromClass([self class])]];
+    [self setWalkingHelmetAnim:[self loadAnimationFromPlistWthName:@"walkingHelmetAnim" andClassName:NSStringFromClass([self class])]];
+    [self setFloatUmbrellaAnim:[self loadAnimationFromPlistWthName:@"floatUmbrellaAnim" andClassName:NSStringFromClass([self class])]];
+    [self setDeathAnim:[self loadAnimationFromPlistWthName:@"deathAnim" andClassName:NSStringFromClass([self class])]];
+    [self setWinAnim:[self loadAnimationFromPlistWthName:@"winAnim" andClassName:NSStringFromClass([self class])]];
+}
+
+#pragma mark -
 
 /**
  * Clamp for iPhone to make sure object stays onscreen
@@ -108,13 +116,14 @@
     else self.flipY = TRUE;    
 }
 
-#pragma mark -
-
+/**
+ * Changes the current state
+ */
 -(void) changeState: (CharacterStates)newState
 {
     [self stopAllActions];
     id action = nil;
-    [self setCharacterState:newState];
+    self.state = newState;
     
     switch (newState) 
     {
@@ -126,14 +135,78 @@
             if(isUsingHelmet) action = [CCAnimate actionWithAnimation:walkingHelmetAnim restoreOriginalFrame:NO];
             else action = [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
             break;   
+        case kStateFloating:
+            action = [CCAnimate actionWithAnimation:floatUmbrellaAnim restoreOriginalFrame:NO];
+            break;
         case kStateDead:
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
+            break;
+        case kStateWin:
+            action = [CCAnimate actionWithAnimation:winAnim restoreOriginalFrame:NO];
             break;
         default:
             break;
     }
     
     if(action != nil) [self runAction:action];
+}
+
+/**
+ * Update function called every frame
+ */
+-(void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
+{
+    if(self.state == kStateDead) return; // don't need to do anything if lemming's dead
+
+    /*
+     * check for collisions
+     */
+    
+    CGRect selfBBox = [self adjustedBoundingBox];
+    
+    for (GameObject *gameObject in listOfGameObjects) 
+    {
+        // no need to check self with self
+        if(gameObject == self) continue;
+        
+        CGRect objectBBox = [gameObject adjustedBoundingBox];
+        
+        if(CGRectIntersectsRect(selfBBox, objectBBox))
+        {
+            GameObjectType objectType = [gameObject gameObjectType];
+            
+            if(objectType == kObstaclePit || 
+               objectType == kObstacleStamper || 
+               objectType == kObstacleWater || 
+               objectType == kObstacleCage) [self changeState:kStateDead];
+            else if(objectType == kObjectExit) [self changeState:kStateWin]; 
+            else if(objectType == kLemmingType); // do nothing 
+        }
+    }
+    
+    if([self numberOfRunningActions] == 0) // no anims running
+    {
+        if([self health] <= 0.0f) [self changeState:kStateDead];
+    }
+}
+
+/**
+ * Adjusts the bounding box to the size of the sprite
+ */
+-(CGRect) adjustedBoundingBox
+{
+    CGRect bBox = [self boundingBox];
+    float xOffset;
+    float xCropAmount = bBox.size.width * 0.5482f;
+    float yCropAmount = bBox.size.height * 0.095f;
+    
+    // get the xOffset based on direction of sprite
+    if(![self flipX]) xOffset = bBox.size.width * 0.1566f;
+    else xOffset = bBox.size.width * 0.4217f;
+    
+    bBox = CGRectMake(bBox.origin.x, bBox.origin.y, bBox.size.width-xCropAmount, bBox.size.height-yCropAmount);
+    
+    return bBox;
 }
 
 @end
