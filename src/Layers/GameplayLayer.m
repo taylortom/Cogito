@@ -21,26 +21,8 @@ int frameCount = 0;
  
     if (self != nil) 
     {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;                            
-        
         // enable touches
         self.isTouchEnabled = YES;                                                               
-        
-        /*
-         * TEST ANIMATION - REMOVE
-         */
-        
-        lemming = [[Lemming alloc] init];
-        [self addChild:[lemming getSpriteBatchNode]];
-        
-        /*// to add to the animation cache:
-        [[CCAnimationCache sharedAnimationCache] addAnimation:animationToCache name:@"animationName"];
-        // to access the animation:
-        CCAnimation *myAnimaition = [[CCAnimationCache sharedAnimationCache] animationByName:@"animationName"];*/
-
-        /*
-         * END OF TEST ANIMATION
-         */
         
         // set up the buttons
         [self initButtons];
