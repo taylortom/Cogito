@@ -2,14 +2,59 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>blowingUpAnim</key>
+	<key>walkingAnim</key>
 	<dict>
 		<key>animationFrames</key>
-		<string>5,6,7,8,9,10,11,12,13,14,15,16,17</string>
+		<string>1,2,3,4,5,6,7,8</string>
 		<key>delay</key>
-		<real>0.2</real>
+		<real>0.25</real>
 		<key>filenamePrefix</key>
-		<string>radar_</string>
+		<string>Lemming_walk_</string>
+	</dict>
+	<key>walkingHelmetAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2,3,4,5,6,7,8</string>
+		<key>delay</key>
+		<real>0.25</real>
+		<key>filenamePrefix</key>
+		<string>Lemming_helmet_</string>
+	</dict>
+	<key>deathAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2,3,4,5,6,7,8</string>
+		<key>delay</key>
+		<real>0.1</real>
+		<key>filenamePrefix</key>
+		<string>Lemming_death_</string>
+	</dict>
+	<key>idleAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2</string>
+		<key>delay</key>
+		<real>0.25</real>
+		<key>filenamePrefix</key>
+		<string>Lemming_idle_</string>
+	</dict>
+	<key>idleHelmetAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2</string>
+		<key>delay</key>
+		<real>0.25</real>
+		<key>filenamePrefix</key>
+		<string>Lemming_idle_helmet_</string>
+	</dict>
+	<key>floatUmbrellaAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2,3,4,5,4,3,2,1</string>
+		<key>delay</key>
+		<real>0.25</real>
+		<key>filenamePrefix</key>
+		<string>Lemming_umbrellaFloat_</string>
 	</dict>
 </dict>
 </plist>

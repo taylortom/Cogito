@@ -23,7 +23,6 @@
 @synthesize deathAnim;
 // misc
 @synthesize floatUmbrellaAnim;
-@synthesize winAnim;
 
 #pragma mark -
 
@@ -38,7 +37,6 @@
     [walkingHelmetAnim release];
     [floatUmbrellaAnim release];
     [deathAnim release];
-    [winAnim release];
     
     [super dealloc];
 }
@@ -66,13 +64,14 @@
  */
 -(void) initAnimations
 {    
+    CCLOG(@"Lemming.initAnimations");
+    
     [self setIdleAnim:[self loadAnimationFromPlistWthName:@"idleAnim" andClassName:NSStringFromClass([self class])]];
     [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:NSStringFromClass([self class])]];
     [self setWalkingAnim:[self loadAnimationFromPlistWthName:@"walkingAnim" andClassName:NSStringFromClass([self class])]];
     [self setWalkingHelmetAnim:[self loadAnimationFromPlistWthName:@"walkingHelmetAnim" andClassName:NSStringFromClass([self class])]];
     [self setFloatUmbrellaAnim:[self loadAnimationFromPlistWthName:@"floatUmbrellaAnim" andClassName:NSStringFromClass([self class])]];
     [self setDeathAnim:[self loadAnimationFromPlistWthName:@"deathAnim" andClassName:NSStringFromClass([self class])]];
-    [self setWinAnim:[self loadAnimationFromPlistWthName:@"winAnim" andClassName:NSStringFromClass([self class])]];
 }
 
 #pragma mark -
@@ -140,9 +139,6 @@
             break;
         case kStateDead:
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
-            break;
-        case kStateWin:
-            action = [CCAnimate actionWithAnimation:winAnim restoreOriginalFrame:NO];
             break;
         default:
             break;

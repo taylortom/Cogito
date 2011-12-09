@@ -33,7 +33,6 @@
     
     // misc
     CCAnimation *floatUmbrellaAnim;
-    CCAnimation *winAnim;
 }
 
 @property (readwrite) int health;
@@ -54,7 +53,6 @@
 
 //misc
 @property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
-@property (nonatomic, retain) CCAnimation *winAnim;
 
 -(void)initAnimations;
 -(void)checkAndClampSpritePosition;

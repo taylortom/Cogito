@@ -111,7 +111,7 @@
     
     NSString *animationFramePrefix = [animationSettings objectForKey:@"filenamePrefix"];
     NSString *animationFrames = [animationSettings objectForKey:@"animationFrames"];
-    NSArray *animationFrameNumbers = [animationFrames componentsSeparatedByString:@", "];
+    NSArray *animationFrameNumbers = [animationFrames componentsSeparatedByString:@","];
     
     for (NSString *frameNumber in animationFrameNumbers) 
     {

@@ -18,7 +18,7 @@
         CCSprite *backgroundImage;
         
         // Set background image depending on device
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) backgroundImage = [CCSprite spriteWithFile:@"basic_background.png"];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) backgroundImage = [CCSprite spriteWithFile:@"blue_background.png"];
      
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         [backgroundImage setPosition:CGPointMake(screenSize.width/2, screenSize.height/2)];
