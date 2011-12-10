@@ -7,7 +7,7 @@
 		<key>animationFrames</key>
 		<string>1,2,3,4,5,6,7,8</string>
 		<key>delay</key>
-		<real>0.25</real>
+		<real>0.13</real>
 		<key>filenamePrefix</key>
 		<string>Lemming_walk_</string>
 	</dict>
@@ -16,7 +16,7 @@
 		<key>animationFrames</key>
 		<string>1,2,3,4,5,6,7,8</string>
 		<key>delay</key>
-		<real>0.25</real>
+		<real>0.13</real>
 		<key>filenamePrefix</key>
 		<string>Lemming_helmet_</string>
 	</dict>
@@ -50,9 +50,9 @@
 	<key>floatUmbrellaAnim</key>
 	<dict>
 		<key>animationFrames</key>
-		<string>1,2,3,4,5,4,3,2,1</string>
+		<string>1,2,3,4,5,3,2,1</string>
 		<key>delay</key>
-		<real>0.25</real>
+		<real>0.15</real>
 		<key>filenamePrefix</key>
 		<string>Lemming_umbrellaFloat_</string>
 	</dict>

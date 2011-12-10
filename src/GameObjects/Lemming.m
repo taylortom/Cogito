@@ -19,9 +19,7 @@
 @synthesize idleHelmetAnim;
 @synthesize walkingAnim;
 @synthesize walkingHelmetAnim;
-// taking damage and dying
 @synthesize deathAnim;
-// misc
 @synthesize floatUmbrellaAnim;
 
 #pragma mark -
@@ -54,6 +52,8 @@
     {
         self.gameObjectType = kLemmingType;
         isUsingHelmet = NO;
+        health = 100;
+        [self changeState:kStateIdle];
         [self initAnimations];
     }
     return self;
@@ -63,9 +63,7 @@
  * Loads all of the animations
  */
 -(void) initAnimations
-{    
-    CCLOG(@"Lemming.initAnimations");
-    
+{        
     [self setIdleAnim:[self loadAnimationFromPlistWthName:@"idleAnim" andClassName:NSStringFromClass([self class])]];
     [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:NSStringFromClass([self class])]];
     [self setWalkingAnim:[self loadAnimationFromPlistWthName:@"walkingAnim" andClassName:NSStringFromClass([self class])]];
@@ -119,7 +117,7 @@
  * Changes the current state
  */
 -(void) changeState: (CharacterStates)newState
-{
+{    
     [self stopAllActions];
     id action = nil;
     self.state = newState;
@@ -127,8 +125,10 @@
     switch (newState) 
     {
         case kStateIdle:
-            if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lemming_helm_1"]];
-            else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lemming_anim_1"]];
+            if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
+            else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+//            if (isUsingHelmet) action = [CCAnimate actionWithAnimation:idleHelmetAnim restoreOriginalFrame:NO];
+//            else action = [CCAnimate actionWithAnimation:idleAnim restoreOriginalFrame:YES];
             break;
         case kStateWalking:
             if(isUsingHelmet) action = [CCAnimate actionWithAnimation:walkingHelmetAnim restoreOriginalFrame:NO];
@@ -144,7 +144,11 @@
             break;
     }
     
-    if(action != nil) [self runAction:action];
+    if(action != nil) 
+    {
+        if(newState != kStateDead) action = [CCRepeatForever actionWithAction:action];
+        [self runAction:action];
+    }
 }
 
 /**
@@ -180,10 +184,10 @@
         }
     }
     
-    if([self numberOfRunningActions] == 0) // no anims running
-    {
-        if([self health] <= 0.0f) [self changeState:kStateDead];
-    }
+   /* if([self numberOfRunningActions] == 0) // no anims running
+    * { }
+    */
+    if([self health] <= 0) [self changeState:kStateDead];
 }
 
 /**

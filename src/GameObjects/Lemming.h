@@ -28,10 +28,8 @@
     CCAnimation *walkingAnim;
     CCAnimation *walkingHelmetAnim;
 
-    // taking damage and dying
-    CCAnimation *deathAnim;
-    
     // misc
+    CCAnimation *deathAnim;    
     CCAnimation *floatUmbrellaAnim;
 }
 
@@ -48,10 +46,8 @@
 @property (nonatomic, retain) CCAnimation *walkingAnim;
 @property (nonatomic, retain) CCAnimation *walkingHelmetAnim;
 
-// taking damage and dying
-@property (nonatomic, retain) CCAnimation *deathAnim;
-
 //misc
+@property (nonatomic, retain) CCAnimation *deathAnim;
 @property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
 
 -(void)initAnimations;
