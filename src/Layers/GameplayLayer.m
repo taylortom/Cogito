@@ -22,6 +22,10 @@
 #pragma mark -
 #pragma mark Initialisation
 
+/**
+ * Initialises the layer
+ * @return self
+ */
 -(id)init 
 {    
     self = [super init];
@@ -62,6 +66,9 @@
     return self;
 }
 
+/**
+ * Initialises any buttons in the layer
+ */
 -(void)initButtons
 {
     CCLOG(@"GameplayLayer.initButtons");
@@ -86,6 +93,9 @@
 #pragma mark -
 #pragma mark Update
 
+/**
+ * Method called every frame
+ */ 
 -(void)update:(ccTime)deltaTime
 {
     CCArray *gameObjects = [sceneSpriteBatchNode children];
@@ -99,11 +109,19 @@
 #pragma mark -
 #pragma mark Object Creation
 
+/**
+ * Creates a new object
+ * @param objectType
+ * @param withHealth
+ * @param atLocation
+ * @param withZvalue
+ */
 -(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue
 {
     if(objectType == kLemmingType)
     {
         Lemming *lemming = [[Lemming alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+        lemming.health = health;
         [lemming setPosition:spawnLocation]; 
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];
         [lemming release];
@@ -113,6 +131,9 @@
 
 #pragma mark -
 
+/**
+ * Checks if any buttons are being pressed
+ */
 -(void)checkButtons
 {
     if (settingsButton.active) 

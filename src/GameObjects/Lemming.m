@@ -42,6 +42,10 @@
 #pragma mark -
 #pragma mark Initialisation
 
+/**
+ * Initialises the lemming object
+ * @return self
+ */
 -(id) init
 {
     self = [super init];
@@ -75,7 +79,7 @@
 #pragma mark -
 
 /**
- * Clamp for iPhone to make sure object stays onscreen
+ * Makes sure the lemming stays onscreen
  */
 -(void)checkAndClampSpritePosition
 {
@@ -89,6 +93,7 @@
 
 /**
  * Changes the current state
+ * @param state to change to
  */
 -(void) changeState: (CharacterStates)newState
 {    
@@ -178,6 +183,7 @@
 
 /**
  * Adjusts the bounding box to the size of the sprite
+ * @return the new bounding box
  */
 -(CGRect) adjustedBoundingBox
 {

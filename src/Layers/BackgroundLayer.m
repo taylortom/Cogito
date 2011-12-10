@@ -11,6 +11,13 @@
 
 @implementation BackgroundLayer
 
+#pragma mark -
+#pragma mark Initialisation
+
+/**
+ * Initialises the layer
+ * @return self
+ */
 -(id)init 
 {
     self = [super init];

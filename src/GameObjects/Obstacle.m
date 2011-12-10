@@ -18,6 +18,10 @@
 #pragma mark -
 #pragma mark Initialisation
 
+/**
+ * Initialises the object
+ * @return self
+ */
 - (id) init: (GameObjectType)_obstacleType
 {
     CCLOG(@"Obstacle.init");
@@ -51,7 +55,6 @@
         
         obstacleType = _obstacleType;
     }
-    
     return self;
 }
 

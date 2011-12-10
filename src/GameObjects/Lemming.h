@@ -45,7 +45,5 @@
 
 -(void)initAnimations;
 -(void)checkAndClampSpritePosition;
--(void)flip: (Axis)axis;
--(void)move: (float)amountToMove: (Axis)axis;
 
 @end

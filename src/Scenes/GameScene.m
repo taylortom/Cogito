@@ -11,6 +11,13 @@
 
 @implementation GameScene
 
+#pragma mark -
+#pragma mark Initialisation
+
+/**
+ * Initialises the scene
+ * @return self
+ */
 -(id)init 
 {
     self = [super init];

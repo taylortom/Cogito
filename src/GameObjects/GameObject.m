@@ -18,7 +18,7 @@
 
 /**
  * Initialises default values
- * returns: self
+ * @return self
  */
 -(id)init
 {
@@ -36,7 +36,7 @@
 
 /**
  * Transforms objects from one state to another
- * newState: the state to transition to
+ * @param the state to transition to
  */
 -(void)changeState:(CharacterStates)newState
 {
@@ -45,6 +45,8 @@
 
 /**
  * Updates the object, called every frame
+ * @param deltaTime
+ * @param listOfGameObjects
  */
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
 {
@@ -53,7 +55,7 @@
 
 /**
  * Compensates for any transparent space
- * returns: the 'trimmed' bounding box
+ * @return the new bounding box
  */
 -(CGRect)adjustedBoundingBox
 {
@@ -64,7 +66,9 @@
 
 /**
  * Sets up an animation from its .plist file
- * returns: the animation
+ * @param animationName
+ * @param className
+ * @return the animation
  */
 -(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className
 {
@@ -126,6 +130,9 @@
 /**
  * Creates an animation from a .plist file and 
  * adds it to the cache
+ * @param animationName
+ * @param className
+ * @return the animation
  */
 -(CCAnimation*)cacheAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className
 {
