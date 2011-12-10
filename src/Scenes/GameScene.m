@@ -2,6 +2,8 @@
 //  GameScene.m
 //  Author: Thomas Taylor
 //
+//  The main 'scene' in the game
+//
 //  13/11/2011: Created class
 //
 

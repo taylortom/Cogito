@@ -34,7 +34,7 @@
 		<key>animationFrames</key>
 		<string>1,2</string>
 		<key>delay</key>
-		<real>0.25</real>
+		<real>0.2</real>
 		<key>filenamePrefix</key>
 		<string>Lemming_idle_</string>
 	</dict>

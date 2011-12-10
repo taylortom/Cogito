@@ -2,6 +2,9 @@
 //  GameplayLayer.h
 //  Author: Thomas Taylor
 //
+//  The main layer in the game, handles 
+//  the main 'gameplay' elements
+//
 //  13/11/2011: Created class
 //
 

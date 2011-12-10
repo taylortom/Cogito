@@ -15,20 +15,17 @@
     int health;
     CharacterStates state; 
     CCSpriteFrame *standingFrame;
-    Direction direction;
+    Direction movementDirection;
+    int movementAmount;
     bool isUsingHelmet;
-
-    /*
-     * Animation stuff
-     */
     
-    // idle and walking
+    // idle and walking animations
     CCAnimation *idleAnim;
     CCAnimation *idleHelmetAnim;
     CCAnimation *walkingAnim;
     CCAnimation *walkingHelmetAnim;
 
-    // misc
+    // misc animations
     CCAnimation *deathAnim;    
     CCAnimation *floatUmbrellaAnim;
 }
@@ -36,17 +33,13 @@
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
 
-/*
- * Animation stuff
- */
-
-// idle and walking
+// idle and walking animations
 @property (nonatomic, retain) CCAnimation *idleAnim;
 @property (nonatomic, retain) CCAnimation *idleHelmetAnim;
 @property (nonatomic, retain) CCAnimation *walkingAnim;
 @property (nonatomic, retain) CCAnimation *walkingHelmetAnim;
 
-//misc
+//misc animations
 @property (nonatomic, retain) CCAnimation *deathAnim;
 @property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
 

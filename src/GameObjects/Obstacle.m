@@ -15,6 +15,9 @@
 @synthesize damage;
 @synthesize animation;
 
+#pragma mark -
+#pragma mark Initialisation
+
 - (id) init: (GameObjectType)_obstacleType
 {
     CCLOG(@"Obstacle.init");
@@ -23,6 +26,10 @@
     
     if (self != nil) 
     {        
+        /*
+         * damage represents a percentage
+         * (i.e 0.5 represents 50%)
+         */
         switch (_obstacleType) 
         {
             case kObstacleCage:

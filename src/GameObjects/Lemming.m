@@ -40,10 +40,8 @@
 }
 
 #pragma mark -
+#pragma mark Initialisation
 
-/**
- * Initialisation
- */
 -(id) init
 {
     self = [super init];
@@ -53,6 +51,8 @@
         self.gameObjectType = kLemmingType;
         isUsingHelmet = NO;
         health = 100;
+        movementAmount = 20;
+        movementDirection = kDirectionRight;
         [self changeState:kStateIdle];
         [self initAnimations];
     }
@@ -87,32 +87,6 @@
     else if(currentSpritePosition.x > 456.0f) [self setPosition:ccp(456.0f, currentSpritePosition.y)];
 }
 
--(void)move: (float)amountToMove: (Axis)axis;
-{    
-    if(direction == kDirectionLeft) amountToMove = amountToMove*-1;
-        
-    CGFloat xPos = self.position.x;
-    CGFloat yPos = self.position.y;
-    
-    if(axis == kAxisVertical) yPos += amountToMove;
-    else xPos += amountToMove;
-        
-    [self setPosition:ccp(xPos, yPos)];
-}
-
-/**
- * Flips the lemming on the supplied axis
- */
--(void)flip: (Axis)axis
-{
-    if (axis == kAxisVertical) 
-    {
-        self.flipX = TRUE;
-        direction = (direction == kDirectionLeft) ? kDirectionRight : kDirectionLeft;
-    }
-    else self.flipY = TRUE;    
-}
-
 /**
  * Changes the current state
  */
@@ -127,23 +101,32 @@
         case kStateIdle:
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
-//            if (isUsingHelmet) action = [CCAnimate actionWithAnimation:idleHelmetAnim restoreOriginalFrame:NO];
-//            else action = [CCAnimate actionWithAnimation:idleAnim restoreOriginalFrame:YES];
             break;
-        case kStateWalking:
+            
+        case kStateWalking:            
+            //if (colliding with viking) break;
             if(isUsingHelmet) action = [CCAnimate actionWithAnimation:walkingHelmetAnim restoreOriginalFrame:NO];
             else action = [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
-            break;   
+            // make the lemming move
+            id movementAction = [CCMoveBy actionWithDuration:1.04f position:ccp((movementDirection == kDirectionLeft) ? movementAmount * -1 : movementAmount, 0.0f)];
+            // merge the two actions
+            action = [CCSpawn actions: movementAction, action, nil];         
+            break;  
+            
         case kStateFloating:
             action = [CCAnimate actionWithAnimation:floatUmbrellaAnim restoreOriginalFrame:NO];
             break;
+            
         case kStateDead:
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
             break;
+            
         default:
+            CCLOG(@"Lemming.changeState: unknown state '%d'", newState);
             break;
     }
     
+    // run the animations
     if(action != nil) 
     {
         if(newState != kStateDead) action = [CCRepeatForever actionWithAction:action];
@@ -189,6 +172,9 @@
     */
     if([self health] <= 0) [self changeState:kStateDead];
 }
+
+#pragma mark -
+#pragma mark Getters/Setters
 
 /**
  * Adjusts the bounding box to the size of the sprite

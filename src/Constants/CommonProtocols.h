@@ -2,7 +2,8 @@
 //  CommonProtocols.h
 //  Author: Thomas Taylor
 //
-//  Some common protocols...
+//  Some enums and protocols used 
+//  throughout the game
 //
 //  21/11/2011: Created class
 //
@@ -47,6 +48,9 @@ typedef enum
     kObstacleStamper
 } GameObjectType;
 
+/*
+ * MAY NOT BE NEEDED
+ */
 @protocol GameplayLayerDelegate
 
 -(void)createObjectOfType:(GameObjectType)objectType atLocation:(CGPoint)spawnLocation withZValue:(int)zValue;

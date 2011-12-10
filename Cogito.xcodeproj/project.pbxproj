@@ -156,7 +156,7 @@
 		E28C12A9147A4EAE00385DF6 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		E28C12AA147A535500385DF6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E28C12AB147A535500385DF6 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		E28C12AD147A6B0D00385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lemming.h; sourceTree = "<group>"; };
+		E28C12AD147A6B0D00385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Lemming.h; sourceTree = "<group>"; };
 		E28C12AE147A6B0D00385DF6 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
 		E294A06114785247007C087E /* settings_down-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_down-hd.png"; sourceTree = "<group>"; };
 		E294A06214785247007C087E /* settings-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-hd.png"; sourceTree = "<group>"; };

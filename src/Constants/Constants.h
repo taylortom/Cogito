@@ -2,7 +2,7 @@
 //  Constants.h
 //  Author: Thomas Taylor
 //
-//  Constants used in the game.
+//  Constants used in the game
 //
 //  21/11/2011: Created class
 //

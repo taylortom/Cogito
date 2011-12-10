@@ -2,6 +2,9 @@
 //  GameplayLayer.m
 //  Author: Thomas Taylor
 //
+//  The main layer in the game, handles 
+//  the main 'gameplay' elements
+//
 //  13/11/2011: Created class
 //
 
@@ -45,29 +48,13 @@
         //
         //
         
-        
-        
-        
-        
-        float xPos = windowSize.width*0.07f;
-        float yPos = windowSize.height*0.14f;
-        
-        for (int i = 0; i < 5; i++) 
-        {
-            for (int j = 0; j < 15; j++) 
-            {
-                [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(xPos, yPos) withZValue: 10];
-                xPos += (windowSize.width*0.05f);
-            }
-            xPos = windowSize.width*0.07f;
-            yPos += (windowSize.height*0.10f);
-        }                
+        /*
+         * Create a few lemmings...
+         */
+        for (int i = 0; i < 25; i++) 
+            [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(windowSize.width*0.07f, windowSize.height*0.90f) withZValue: (i+10)];
         
         //Obstacle *testObstacle = [[Obstacle alloc] init:kObstaclePit];
-        
-        
-        
-        
         
         [self scheduleUpdate]; // set the update method to be called every frame
     }
