@@ -20,14 +20,19 @@
 
 @interface GameplayLayer : CCLayer
 
-{    
+{
+    int lemmingCount;
+    int totalNumberOfLemmings;
+    
     SneakyButton *settingsButton; // input    
     CCSpriteBatchNode *sceneSpriteBatchNode;
 }
 
 -(void)initButtons;
+-(void)addLemming;
 -(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue;
 -(void)update:(ccTime)deltaTime;
 -(void)checkButtons;
+-(void)listAvailableFonts;
 
 @end

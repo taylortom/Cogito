@@ -32,9 +32,9 @@
  
     if (self != nil) 
     {
-        CGSize windowSize = [CCDirector sharedDirector].winSize;
-    
         self.isTouchEnabled = YES; // enable touch
+        totalNumberOfLemmings = 25;
+        lemmingCount = 0;
     
         srandom(time(NULL)); // set up a random number generator
         
@@ -52,17 +52,12 @@
         //
         //
         
-        /*
-         * Create a few lemmings...
-         */
-        for (int i = 0; i < 25; i++) 
-            [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(windowSize.width*0.07f, windowSize.height*0.90f) withZValue: (i+10)];
-        
         //Obstacle *testObstacle = [[Obstacle alloc] init:kObstaclePit];
         
+        [self schedule:@selector(addLemming) interval:1.0f]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
     }
-    
+        
     return self;
 }
 
@@ -108,6 +103,21 @@
 
 #pragma mark -
 #pragma mark Object Creation
+
+/**
+ * Adds a lemming to the scene provided
+ * there aren't already the max number 
+ */
+-(void)addLemming
+{
+    if(lemmingCount < totalNumberOfLemmings) 
+    {
+        CGSize windowSize = [CCDirector sharedDirector].winSize;
+        [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(windowSize.width*0.07f, windowSize.height*0.90f) withZValue: (lemmingCount+10)];
+        lemmingCount++;
+    }
+    else [self unschedule:@selector(addLemming)];
+}
 
 /**
  * Creates a new object
@@ -159,6 +169,25 @@
          * based on which settings have been changed (if any)
          */
     }
+}
+
+#pragma mark -
+#pragma mark Util methods
+
+-(void)listAvailableFonts
+{
+    NSMutableArray *fontNames = [[NSMutableArray alloc] init];
+    NSArray *fontFamilyNames = [UIFont familyNames];
+    
+    for (NSString *familyName in fontFamilyNames) 
+    {
+        NSLog(@"Font Family Name = %@", familyName);
+        NSArray *names = [UIFont fontNamesForFamilyName:familyName];
+        NSLog(@"Font Names = %@", fontNames);
+        [fontNames addObjectsFromArray:names];
+    }
+    
+    [fontNames release];
 }
 
 @end
