@@ -16,7 +16,10 @@
     CharacterStates state; 
     CCSpriteFrame *standingFrame;
     Direction movementDirection;
+    // number of pixels moved per animation cycle
     int movementAmount;
+    // how many respawns the character has
+    int respawns;
     bool isUsingHelmet;
     
     // idle and walking animations
@@ -44,6 +47,7 @@
 @property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
 
 -(void)initAnimations;
+-(void)respawn;
 -(void)checkAndClampSpritePosition;
 
 @end

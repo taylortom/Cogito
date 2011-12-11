@@ -53,11 +53,13 @@
     if (self != nil) 
     {
         self.gameObjectType = kLemmingType;
-        isUsingHelmet = NO;
         health = 100;
         movementAmount = 20;
         movementDirection = kDirectionRight;
-        [self changeState:kStateIdle];
+        respawns = 5;
+        isUsingHelmet = NO;
+        self.state = kStateIdle;
+        
         [self initAnimations];
     }
     return self;
@@ -79,24 +81,13 @@
 #pragma mark -
 
 /**
- * Makes sure the lemming stays onscreen
- */
--(void)checkAndClampSpritePosition
-{
-    CGPoint currentSpritePosition = [self position];
-    
-    if (currentSpritePosition.y > 110) [self setPosition:ccp(currentSpritePosition.x, currentSpritePosition.y)];    
-    
-    if(currentSpritePosition.x < 24.0f) [self setPosition:ccp(24.0f, currentSpritePosition.y)];     
-    else if(currentSpritePosition.x > 456.0f) [self setPosition:ccp(456.0f, currentSpritePosition.y)];
-}
-
-/**
  * Changes the current state
  * @param state to change to
  */
 -(void) changeState: (CharacterStates)newState
 {    
+//    if(self.state == kStateDead) return; 
+    
     [self stopAllActions];
     id action = nil;
     self.state = newState;
@@ -109,21 +100,30 @@
             break;
             
         case kStateWalking:            
-            //if (colliding with viking) break;
             if(isUsingHelmet) action = [CCAnimate actionWithAnimation:walkingHelmetAnim restoreOriginalFrame:NO];
             else action = [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
             // make the lemming move
-            id movementAction = [CCMoveBy actionWithDuration:1.04f position:ccp((movementDirection == kDirectionLeft) ? movementAmount * -1 : movementAmount, 0.0f)];
+            id walkingAction = [CCMoveBy actionWithDuration:1.04f position:ccp((movementDirection == kDirectionLeft) ? movementAmount * -1 : movementAmount, 0.0f)];
             // merge the two actions
-            action = [CCSpawn actions: movementAction, action, nil];         
+            action = [CCSpawn actions: walkingAction, action, nil];         
             break;  
             
         case kStateFloating:
             action = [CCAnimate actionWithAnimation:floatUmbrellaAnim restoreOriginalFrame:NO];
+            // make the lemming move
+            id floatingAction = [CCMoveBy actionWithDuration:0.75f position:ccp(0.0f, movementAmount*-1)];
+            // merge the two actions
+            action = [CCSpawn actions: floatingAction, action, nil];         
             break;
             
         case kStateDead:
-            action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
+            if(respawns > 1) 
+            {
+                action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
+                [self respawn];
+            }
+            // remove the character
+            else [self removeFromParentAndCleanup:YES];
             break;
             
         default:
@@ -140,12 +140,24 @@
 }
 
 /**
+ * Moves the sprite to the spawn-point
+ */
+-(void)respawn
+{
+    self.visible = YES;
+    
+    // do some stuff
+    
+    respawns--;
+}
+
+/**
  * Update function called every frame
  */
 -(void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
 {
     if(self.state == kStateDead) return; // don't need to do anything if lemming's dead
-
+    
     /*
      * check for collisions
      */
@@ -172,10 +184,32 @@
         }
     }
     
-   /* if([self numberOfRunningActions] == 0) // no anims running
-    * { }
-    */
-    if([self health] <= 0) [self changeState:kStateDead];
+    if([self numberOfRunningActions] == 0)
+    {
+        if(self.state == kStateDead)
+        {
+            // do stuff
+        }
+        /*else if(other check)
+        {
+            // do other stuff
+        }*/
+    }
+    
+    if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
+}
+
+/**
+ * Makes sure the lemming stays onscreen
+ */
+-(void)checkAndClampSpritePosition
+{
+    CGPoint currentSpritePosition = [self position];
+    
+    if (currentSpritePosition.y > 110) [self setPosition:ccp(currentSpritePosition.x, currentSpritePosition.y)];    
+    
+    if(currentSpritePosition.x < 24.0f) [self setPosition:ccp(24.0f, currentSpritePosition.y)];     
+    else if(currentSpritePosition.x > 456.0f) [self setPosition:ccp(456.0f, currentSpritePosition.y)];
 }
 
 #pragma mark -
@@ -183,18 +217,14 @@
 
 /**
  * Adjusts the bounding box to the size of the sprite
+ * (25% width, 9.5% height)
  * @return the new bounding box
  */
 -(CGRect) adjustedBoundingBox
 {
     CGRect bBox = [self boundingBox];
-    float xOffset;
-    float xCropAmount = bBox.size.width * 0.5482f;
+    float xCropAmount = bBox.size.width * 0.25;
     float yCropAmount = bBox.size.height * 0.095f;
-    
-    // get the xOffset based on direction of sprite
-    if(![self flipX]) xOffset = bBox.size.width * 0.1566f;
-    else xOffset = bBox.size.width * 0.4217f;
     
     bBox = CGRectMake(bBox.origin.x, bBox.origin.y, bBox.size.width-xCropAmount, bBox.size.height-yCropAmount);
     
