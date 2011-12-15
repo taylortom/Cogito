@@ -10,8 +10,13 @@
 #ifndef Cogito_Constants_h
 #define Cogito_Constants_h
 
+#define DEBUG_MODE              YES
+
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
 #define kLemmingIdleTimer       3.0f
+
+#define kLemmingSpawnXPos       0.07f 
+#define kLemmingSpawnYPos       0.90f
 
 #endif

@@ -51,7 +51,6 @@
         //
         //
         //
-        
         //Obstacle *testObstacle = [[Obstacle alloc] init:kObstaclePit];
         
         [self schedule:@selector(addLemming) interval:1.0f]; // create some lemmings
@@ -113,7 +112,7 @@
     if(lemmingCount < totalNumberOfLemmings) 
     {
         CGSize windowSize = [CCDirector sharedDirector].winSize;
-        [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(windowSize.width*0.07f, windowSize.height*0.90f) withZValue: (lemmingCount+10)];
+        [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(windowSize.width*kLemmingSpawnXPos, windowSize.height*kLemmingSpawnYPos) withZValue: (lemmingCount+10) withID: lemmingCount];
         lemmingCount++;
     }
     else [self unschedule:@selector(addLemming)];
@@ -126,12 +125,18 @@
  * @param atLocation
  * @param withZvalue
  */
--(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue
+-(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue withID:(int)id 
 {
     if(objectType == kLemmingType)
     {
         Lemming *lemming = [[Lemming alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+        lemming.id = id;
         lemming.health = health;
+        
+        CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"NoneNone" fntFile:@"helvetica_blue_small.fnt"];
+        [self addChild:debugLabel];
+        [lemming setDebugLabel:debugLabel];
+        
         [lemming setPosition:spawnLocation]; 
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];
         [lemming release];

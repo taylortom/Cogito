@@ -16,11 +16,12 @@
     CharacterStates state; 
     CCSpriteFrame *standingFrame;
     Direction movementDirection;
-    // number of pixels moved per animation cycle
-    int movementAmount;
-    // how many respawns the character has
-    int respawns;
+    int movementAmount;             // number of pixels moved per animation cycle
+    int respawns;                   // number of respawns
     bool isUsingHelmet;
+    
+    int id;                         // a unique ID, used for debugging
+    CCLabelBMFont *debugLabel;      // text label used for debugging 
     
     // idle and walking animations
     CCAnimation *idleAnim;
@@ -36,6 +37,9 @@
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
 
+@property (readwrite) int id; 
+@property (nonatomic, retain) CCLabelBMFont *debugLabel;
+
 // idle and walking animations
 @property (nonatomic, retain) CCAnimation *idleAnim;
 @property (nonatomic, retain) CCAnimation *idleHelmetAnim;
@@ -47,7 +51,7 @@
 @property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
 
 -(void)initAnimations;
--(void)respawn;
 -(void)checkAndClampSpritePosition;
+-(void)updateDebugLabel;
 
 @end

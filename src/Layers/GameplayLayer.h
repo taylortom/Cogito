@@ -30,7 +30,7 @@
 
 -(void)initButtons;
 -(void)addLemming;
--(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue;
+-(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue withID:(int)id;
 -(void)update:(ccTime)deltaTime;
 -(void)checkButtons;
 -(void)listAvailableFonts;

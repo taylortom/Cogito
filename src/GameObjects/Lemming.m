@@ -14,6 +14,9 @@
 @synthesize health;
 @synthesize state;
 
+@synthesize id;
+@synthesize debugLabel;
+
 // animation
 @synthesize idleAnim;
 @synthesize idleHelmetAnim;
@@ -35,6 +38,7 @@
     [walkingHelmetAnim release];
     [floatUmbrellaAnim release];
     [deathAnim release];
+    debugLabel = nil;
     
     [super dealloc];
 }
@@ -58,7 +62,7 @@
         movementDirection = kDirectionRight;
         respawns = 5;
         isUsingHelmet = NO;
-        self.state = kStateIdle;
+        [self changeState:kStateSpawning];
         
         [self initAnimations];
     }
@@ -94,7 +98,19 @@
     
     switch (newState) 
     {
+            
+        case kStateSpawning:
+            CCLOG(@"Lemming.changeState: kStateSpawning");
+            [self setPosition:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos)];
+            if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
+            else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+            id fallingAction = [CCMoveBy actionWithDuration:0.20f position:ccp(0.0f, movementAmount*-1)];
+            action = [CCSpawn actions: fallingAction, action, nil];         
+            respawns--;
+            break;
+            
         case kStateIdle:
+            CCLOG(@"Lemming.changeState: kStateIdle");
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             break;
@@ -115,12 +131,12 @@
             // merge the two actions
             action = [CCSpawn actions: floatingAction, action, nil];         
             break;
-            
+           
         case kStateDead:
             if(respawns > 1) 
             {
                 action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
-                [self respawn];
+                [self changeState:kStateSpawning];
             }
             // remove the character
             else [self removeFromParentAndCleanup:YES];
@@ -140,28 +156,17 @@
 }
 
 /**
- * Moves the sprite to the spawn-point
- */
--(void)respawn
-{
-    self.visible = YES;
-    
-    // do some stuff
-    
-    respawns--;
-}
-
-/**
  * Update function called every frame
  */
 -(void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
 {
     if(self.state == kStateDead) return; // don't need to do anything if lemming's dead
     
+    [self updateDebugLabel];
+    
     /*
      * check for collisions
      */
-    
     CGRect selfBBox = [self adjustedBoundingBox];
     
     for (GameObject *gameObject in listOfGameObjects) 
@@ -229,6 +234,47 @@
     bBox = CGRectMake(bBox.origin.x, bBox.origin.y, bBox.size.width-xCropAmount, bBox.size.height-yCropAmount);
     
     return bBox;
+}
+
+#pragma mark -
+
+-(void)updateDebugLabel
+{
+    CGPoint newPosition = [self position];
+    NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.id, self.health];
+    //NSString *debugString = [NSString stringWithFormat:@"X: %.2f \n Y: %.2f \n", newPosition.x, newPosition.y];
+    
+    switch (state) 
+    {
+            
+        case kStateSpawning:
+            [debugLabel setString: [debugString stringByAppendingString:@" [spawning]"]];
+            break;
+            
+        case kStateIdle:
+            [debugLabel setString: [debugString stringByAppendingString:@" [idle]"]];
+            break;
+            
+        case kStateWalking:            
+            [debugLabel setString: [debugString stringByAppendingString:@" [walking]"]];
+            break;  
+            
+        case kStateFloating:
+            [debugLabel setString: [debugString stringByAppendingString:@" [floating]"]];
+            break;
+            
+        case kStateDead:
+            [debugLabel setString: [debugString stringByAppendingString:@" [dead]"]];
+            break;
+            
+        default:
+            CCLOG(@"Lemming.changeState: unknown state '%d'", state);
+            break;
+    }
+
+    float yOffset = screenSize.height*0.1f;
+    newPosition = ccp(newPosition.x, newPosition.y+yOffset);
+    [debugLabel setPosition:newPosition];
 }
 
 @end

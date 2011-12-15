@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2613FCF149A96A200356C98 /* helvetica_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E2613FCD149A96A200356C98 /* helvetica_white.png */; };
+		E2613FD0149A96A200356C98 /* helvetica_white.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2613FCE149A96A200356C98 /* helvetica_white.fnt */; };
+		E2613FDB149AA9B000356C98 /* helvetica_blue_small.png in Resources */ = {isa = PBXBuildFile; fileRef = E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */; };
+		E2613FDC149AA9B000356C98 /* helvetica_blue_small.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2613FDA149AA9B000356C98 /* helvetica_blue_small.fnt */; };
+		E2613FDF149AA9C000356C98 /* helvetica_blue.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */; };
+		E2613FE0149AA9C000356C98 /* helvetica_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E2613FDE149AA9C000356C98 /* helvetica_blue.png */; };
 		E26A0E931481CA8F00EE990D /* basic_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E921481CA8F00EE990D /* basic_background-hd.png */; };
 		E26A0E951481CAD900EE990D /* basic_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E941481CAD900EE990D /* basic_background.png */; };
 		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
@@ -146,6 +152,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2613FCD149A96A200356C98 /* helvetica_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helvetica_white.png; sourceTree = "<group>"; };
+		E2613FCE149A96A200356C98 /* helvetica_white.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helvetica_white.fnt; sourceTree = "<group>"; };
+		E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helvetica_blue_small.png; sourceTree = "<group>"; };
+		E2613FDA149AA9B000356C98 /* helvetica_blue_small.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helvetica_blue_small.fnt; sourceTree = "<group>"; };
+		E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helvetica_blue.fnt; sourceTree = "<group>"; };
+		E2613FDE149AA9C000356C98 /* helvetica_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helvetica_blue.png; sourceTree = "<group>"; };
 		E26A0E921481CA8F00EE990D /* basic_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic_background-hd.png"; sourceTree = "<group>"; };
 		E26A0E941481CAD900EE990D /* basic_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basic_background.png; sourceTree = "<group>"; };
 		E274A20E148CF88800917EA7 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
@@ -156,7 +168,7 @@
 		E28C12A9147A4EAE00385DF6 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		E28C12AA147A535500385DF6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E28C12AB147A535500385DF6 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		E28C12AD147A6B0D00385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Lemming.h; sourceTree = "<group>"; };
+		E28C12AD147A6B0D00385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lemming.h; sourceTree = "<group>"; };
 		E28C12AE147A6B0D00385DF6 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
 		E294A06114785247007C087E /* settings_down-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_down-hd.png"; sourceTree = "<group>"; };
 		E294A06214785247007C087E /* settings-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-hd.png"; sourceTree = "<group>"; };
@@ -477,6 +489,20 @@
 			path = src/Plists;
 			sourceTree = "<group>";
 		};
+		E2613FC0149A6D3D00356C98 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */,
+				E2613FDE149AA9C000356C98 /* helvetica_blue.png */,
+				E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */,
+				E2613FDA149AA9B000356C98 /* helvetica_blue_small.fnt */,
+				E2613FCD149A96A200356C98 /* helvetica_white.png */,
+				E2613FCE149A96A200356C98 /* helvetica_white.fnt */,
+			);
+			name = Fonts;
+			path = Assets/Fonts;
+			sourceTree = "<group>";
+		};
 		E294A0561478061E007C087E /* Texture Atlases */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +515,7 @@
 		E2ABCEE314706AE600E14474 = {
 			isa = PBXGroup;
 			children = (
+				E2613FC0149A6D3D00356C98 /* Fonts */,
 				E21FA55E1479B66800519BF6 /* Plists */,
 				E2ABD06514706B1100E14474 /* Images */,
 				E2ABCF0214706AE600E14474 /* Classes */,
@@ -1023,6 +1050,12 @@
 				E2FC25F71492D6A90064B9DA /* Lemming_atlas.png in Resources */,
 				E2FC25FA1492D6C30064B9DA /* Lemming_atlas-hd.png in Resources */,
 				E2FC25FB1492D6C30064B9DA /* Lemming_atlas-hd.plist in Resources */,
+				E2613FCF149A96A200356C98 /* helvetica_white.png in Resources */,
+				E2613FD0149A96A200356C98 /* helvetica_white.fnt in Resources */,
+				E2613FDB149AA9B000356C98 /* helvetica_blue_small.png in Resources */,
+				E2613FDC149AA9B000356C98 /* helvetica_blue_small.fnt in Resources */,
+				E2613FDF149AA9C000356C98 /* helvetica_blue.fnt in Resources */,
+				E2613FE0149AA9C000356C98 /* helvetica_blue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
