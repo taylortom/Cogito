@@ -28,6 +28,8 @@
  */
 -(id)init 
 {    
+    CCLOG(@"GameplayLayer.init: %i", COCOS2D_DEBUG);
+    
     self = [super init];
  
     if (self != nil) 
@@ -133,10 +135,13 @@
         lemming.id = id;
         lemming.health = health;
         
-        CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"NoneNone" fntFile:@"helvetica_blue_small.fnt"];
-        [self addChild:debugLabel];
-        [lemming setDebugLabel:debugLabel];
-        
+        if(COCOS2D_DEBUG > 1)
+        {
+            CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"NoneNone" fntFile:@"helvetica_blue_small.fnt"];
+            [self addChild:debugLabel];
+            [lemming setDebugLabel:debugLabel];
+        }
+            
         [lemming setPosition:spawnLocation]; 
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];
         [lemming release];

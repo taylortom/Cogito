@@ -10,7 +10,7 @@
 #ifndef Cogito_Constants_h
 #define Cogito_Constants_h
 
-#define DEBUG_MODE              YES
+#define COCOS2D_DEBUG           2
 
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
