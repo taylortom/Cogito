@@ -16,8 +16,11 @@
 @synthesize isActive;
 @synthesize gameObjectType;
 
+#pragma mark -
+#pragma mark Initialisation
+
 /**
- * Initialises default values
+ * Initialises the object
  * @return self
  */
 -(id)init
@@ -33,6 +36,8 @@
     
     return self;
 }
+
+#pragma mark -
 
 /**
  * Transforms objects from one state to another
@@ -63,6 +68,9 @@
     
     return [self boundingBox];
 }
+
+#pragma mark -
+#pragma mark Animation Loading
 
 /**
  * Sets up an animation from its .plist file

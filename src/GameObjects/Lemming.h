@@ -11,6 +11,7 @@
 #import "CogitoAgent.h"
 
 @interface Lemming : CogitoAgent
+
 {
     int health;
     CharacterStates state; 
@@ -38,17 +39,17 @@
 @property (readwrite) CharacterStates state; 
 
 @property (readwrite) int id; 
-@property (nonatomic, retain) CCLabelBMFont *debugLabel;
+@property (nonatomic,retain) CCLabelBMFont *debugLabel;
 
 // idle and walking animations
-@property (nonatomic, retain) CCAnimation *idleAnim;
-@property (nonatomic, retain) CCAnimation *idleHelmetAnim;
-@property (nonatomic, retain) CCAnimation *walkingAnim;
-@property (nonatomic, retain) CCAnimation *walkingHelmetAnim;
+@property (nonatomic,retain) CCAnimation *idleAnim;
+@property (nonatomic,retain) CCAnimation *idleHelmetAnim;
+@property (nonatomic,retain) CCAnimation *walkingAnim;
+@property (nonatomic,retain) CCAnimation *walkingHelmetAnim;
 
 //misc animations
-@property (nonatomic, retain) CCAnimation *deathAnim;
-@property (nonatomic, retain) CCAnimation *floatUmbrellaAnim;
+@property (nonatomic,retain) CCAnimation *deathAnim;
+@property (nonatomic,retain) CCAnimation *floatUmbrellaAnim;
 
 -(void)initAnimations;
 -(void)checkAndClampSpritePosition;

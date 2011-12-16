@@ -11,8 +11,6 @@
 #import "GameConfig.h"
 #import "RootViewController.h"
 
-#import "GameScene.h"
-
 @implementation AppDelegate
 
 @synthesize window;
@@ -108,8 +106,8 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
-	// Run the intro Scene
-    [[CCDirector sharedDirector] runWithScene:[GameScene node]];
+	// Start the main menu
+    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
     
 }
 

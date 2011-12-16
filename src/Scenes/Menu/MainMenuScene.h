@@ -7,8 +7,13 @@
 //  16/12/2011: Created class
 //
 
-#import "CCScene.h"
+#import <Foundation/Foundation.h>
+#import "MainMenuLayer.h"
 
 @interface MainMenuScene : CCScene
+
+{
+    MainMenuLayer *mainMenuLayer;
+}
 
 @end

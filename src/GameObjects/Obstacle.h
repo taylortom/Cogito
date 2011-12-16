@@ -19,6 +19,6 @@
 
 @property (readwrite) GameObjectType obstacleType;
 @property (readonly) float damage;
-@property (nonatomic, retain) CCAnimation *animation;
+@property (nonatomic,retain) CCAnimation *animation;
 
 @end

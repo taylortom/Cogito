@@ -7,7 +7,9 @@
 //  16/12/2011: Created class
 //
 
-#import "CCScene.h"
+#import "cocos2d.h"
+#import <Foundation/Foundation.h>
+#import "SettingsLayer.h"
 
 @interface SettingsScene : CCScene
 

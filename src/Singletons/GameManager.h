@@ -11,6 +11,7 @@
 #import "Constants.h"
 
 @interface GameManager : NSObject
+
 {
     SceneTypes currentScene;
 }

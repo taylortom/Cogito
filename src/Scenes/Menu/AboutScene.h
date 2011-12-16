@@ -7,8 +7,15 @@
 //  16/12/2011: Created class
 //
 
-#import "CCScene.h"
+#import "AboutLayer.h"
+#import "cocos2d.h"
+#import "Constants.h"
+#import <Foundation/Foundation.h>
 
 @interface AboutScene : CCScene
+
+{
+    AboutLayer *aboutLayer;
+}
 
 @end

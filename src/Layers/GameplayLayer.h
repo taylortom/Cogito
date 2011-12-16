@@ -11,8 +11,8 @@
 #import "cocos2d.h"
 #import "CommonProtocols.h"
 #import "Constants.h"
-#import "CCLayer.h"
 #import <Foundation/Foundation.h>
+#import "GameManager.h"
 #import "Lemming.h"
 #import "SneakyButton.h"
 #import "SneakyButtonSkinnedBase.h"

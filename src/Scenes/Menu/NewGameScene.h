@@ -1,15 +1,16 @@
 //
-//  GameCompleteScene.h
+//  NewGameScene.m
 //  Author: Thomas Taylor
 //
-//  The game complete scene
+//  The 'new game' scene
 //
 //  16/12/2011: Created class
 //
 
 #import "cocos2d.h"
 #import <Foundation/Foundation.h>
+#import "NewGameLayer.h"
 
-@interface GameCompleteScene : CCScene
+@interface NewGameScene : CCScene
 
 @end

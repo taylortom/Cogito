@@ -13,6 +13,9 @@
 
 @implementation GameplayLayer
 
+#pragma mark -
+#pragma mark Memory Allocation
+
 -(void)dealloc
 {
     [settingsButton release];
@@ -96,8 +99,16 @@
 {
     CCArray *gameObjects = [sceneSpriteBatchNode children];
     
+    int lemmingsLeft = 0;
+    
     for (Lemming *tempLemming in gameObjects) 
+    {
         [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];
+        lemmingsLeft++;
+    }
+    
+    // if all lemmings are dead and there are no respawns, game is over
+    if (lemmingsLeft == 0) [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
     
     [self checkButtons];
 }

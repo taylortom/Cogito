@@ -22,7 +22,7 @@
  * Initialises the object
  * @return self
  */
-- (id) init: (GameObjectType)_obstacleType
+- (id)init: (GameObjectType)_obstacleType
 {
     CCLOG(@"Obstacle.init");
     

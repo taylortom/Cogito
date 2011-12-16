@@ -26,6 +26,7 @@
 @synthesize floatUmbrellaAnim;
 
 #pragma mark -
+#pragma mark Memory Allocation
 
 /**
  * Releases any used storage
@@ -50,7 +51,7 @@
  * Initialises the lemming object
  * @return self
  */
--(id) init
+-(id)init
 {
     self = [super init];
     
@@ -72,7 +73,7 @@
 /**
  * Loads all of the animations
  */
--(void) initAnimations
+-(void)initAnimations
 {        
     [self setIdleAnim:[self loadAnimationFromPlistWthName:@"idleAnim" andClassName:NSStringFromClass([self class])]];
     [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:NSStringFromClass([self class])]];
@@ -88,7 +89,7 @@
  * Changes the current state
  * @param state to change to
  */
--(void) changeState: (CharacterStates)newState
+-(void)changeState: (CharacterStates)newState
 {    
 //    if(self.state == kStateDead) return; 
     
@@ -96,7 +97,7 @@
     id action = nil;
     self.state = newState;
     
-    switch (newState) 
+    switch(newState) 
     {
             
         case kStateSpawning:
@@ -156,9 +157,22 @@
 }
 
 /**
+ * Makes sure the lemming stays onscreen
+ */
+-(void)checkAndClampSpritePosition
+{
+    CGPoint currentSpritePosition = [self position];
+    
+    if (currentSpritePosition.y > 110) [self setPosition:ccp(currentSpritePosition.x, currentSpritePosition.y)];    
+    
+    if(currentSpritePosition.x < 24.0f) [self setPosition:ccp(24.0f, currentSpritePosition.y)];     
+    else if(currentSpritePosition.x > 456.0f) [self setPosition:ccp(456.0f, currentSpritePosition.y)];
+}
+
+/**
  * Update function called every frame
  */
--(void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
+-(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
 {
     if(self.state == kStateDead) return; // don't need to do anything if lemming's dead
     
@@ -204,40 +218,6 @@
     if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
 }
 
-/**
- * Makes sure the lemming stays onscreen
- */
--(void)checkAndClampSpritePosition
-{
-    CGPoint currentSpritePosition = [self position];
-    
-    if (currentSpritePosition.y > 110) [self setPosition:ccp(currentSpritePosition.x, currentSpritePosition.y)];    
-    
-    if(currentSpritePosition.x < 24.0f) [self setPosition:ccp(24.0f, currentSpritePosition.y)];     
-    else if(currentSpritePosition.x > 456.0f) [self setPosition:ccp(456.0f, currentSpritePosition.y)];
-}
-
-#pragma mark -
-#pragma mark Getters/Setters
-
-/**
- * Adjusts the bounding box to the size of the sprite
- * (25% width, 9.5% height)
- * @return the new bounding box
- */
--(CGRect) adjustedBoundingBox
-{
-    CGRect bBox = [self boundingBox];
-    float xCropAmount = bBox.size.width * 0.25;
-    float yCropAmount = bBox.size.height * 0.095f;
-    
-    bBox = CGRectMake(bBox.origin.x, bBox.origin.y, bBox.size.width-xCropAmount, bBox.size.height-yCropAmount);
-    
-    return bBox;
-}
-
-#pragma mark -
-
 -(void)updateDebugLabel
 {
     CGPoint newPosition = [self position];
@@ -271,10 +251,29 @@
             CCLOG(@"Lemming.changeState: unknown state '%d'", state);
             break;
     }
-
+    
     float yOffset = screenSize.height*0.1f;
     newPosition = ccp(newPosition.x, newPosition.y+yOffset);
     [debugLabel setPosition:newPosition];
+}
+
+#pragma mark -
+#pragma mark Getters/Setters
+
+/**
+ * Adjusts the bounding box to the size of the sprite
+ * (25% width, 9.5% height)
+ * @return the new bounding box
+ */
+-(CGRect)adjustedBoundingBox
+{
+    CGRect bBox = [self boundingBox];
+    float xCropAmount = bBox.size.width * 0.25;
+    float yCropAmount = bBox.size.height * 0.095f;
+    
+    bBox = CGRectMake(bBox.origin.x, bBox.origin.y, bBox.size.width-xCropAmount, bBox.size.height-yCropAmount);
+    
+    return bBox;
 }
 
 @end
