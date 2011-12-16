@@ -24,9 +24,7 @@
  * @return self
  */
 -(id)init
-{
-    CCLOG(@"GameObject.init");
-    
+{    
     if(self = [super init])
     {
         screenSize = [CCDirector sharedDirector].winSize;

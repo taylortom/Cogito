@@ -86,8 +86,6 @@ static GameManager* _instance = nil;
  */
 -(void)runSceneWithID:(SceneTypes)sceneID
 {
-    CCLOG(@"GameManager.runSceneWithID: %i", sceneID);
-    
     SceneTypes oldScene = currentScene;
     currentScene = sceneID;
     id sceneToRun = nil;

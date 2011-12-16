@@ -8,6 +8,7 @@
 //  13/11/2011: Created class
 //
 
+#import "AgentManager.h"
 #import "cocos2d.h"
 #import "CommonProtocols.h"
 #import "Constants.h"
@@ -21,15 +22,11 @@
 @interface GameplayLayer : CCLayer
 
 {
-    int lemmingCount;
-    int totalNumberOfLemmings;
-    
     SneakyButton *settingsButton; // input    
     CCSpriteBatchNode *sceneSpriteBatchNode;
 }
 
 -(void)initButtons;
--(void)addLemming;
 -(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue withID:(int)id;
 -(void)update:(ccTime)deltaTime;
 -(void)checkButtons;

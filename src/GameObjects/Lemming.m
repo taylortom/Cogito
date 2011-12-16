@@ -101,7 +101,6 @@
     {
             
         case kStateSpawning:
-            CCLOG(@"Lemming.changeState: kStateSpawning");
             [self setPosition:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos)];
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
@@ -111,7 +110,6 @@
             break;
             
         case kStateIdle:
-            CCLOG(@"Lemming.changeState: kStateIdle");
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             break;

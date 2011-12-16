@@ -16,6 +16,8 @@
     SceneTypes currentScene;
 }
 
+@property (readonly) SceneTypes currentScene;
+
 +(GameManager*)sharedGameManager;
 -(void)runSceneWithID:(SceneTypes)sceneID;
 

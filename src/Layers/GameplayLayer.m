@@ -30,16 +30,12 @@
  * @return self
  */
 -(id)init 
-{    
-    CCLOG(@"GameplayLayer.init: %i", COCOS2D_DEBUG);
-    
+{        
     self = [super init];
  
     if (self != nil) 
     {
         self.isTouchEnabled = YES; // enable touch
-        totalNumberOfLemmings = 25;
-        lemmingCount = 0;
     
         srandom(time(NULL)); // set up a random number generator
         
@@ -56,6 +52,8 @@
         //
         //
         //
+//        [[AgentManager sharedAgentManager] setData];
+        
         //Obstacle *testObstacle = [[Obstacle alloc] init:kObstaclePit];
         
         [self schedule:@selector(addLemming) interval:1.0f]; // create some lemmings
@@ -69,9 +67,7 @@
  * Initialises any buttons in the layer
  */
 -(void)initButtons
-{
-    CCLOG(@"GameplayLayer.initButtons");
-    
+{    
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     CGRect settingsButtonDimensions = CGRectMake(0, 0, 64.0f, 64.0f);
     CGPoint settingsButtonPosition = ccp(screenSize.width*0.90, screenSize.width*0.10f);
@@ -114,18 +110,17 @@
 #pragma mark Object Creation
 
 /**
- * Adds a lemming to the scene provided
- * there aren't already the max number 
+ * Adds a lemming to the scene
  */
 -(void)addLemming
 {
-    if(lemmingCount < totalNumberOfLemmings) 
+    if (![[AgentManager sharedAgentManager] agentsMaxed]) 
     {
-        CGSize windowSize = [CCDirector sharedDirector].winSize;
-        [self createObjectofType:kLemmingType withHealth: 100 atLocation:ccp(windowSize.width*kLemmingSpawnXPos, windowSize.height*kLemmingSpawnYPos) withZValue: (lemmingCount+10) withID: lemmingCount];
-        lemmingCount++;
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
+        int lemmingCount = [AgentManager sharedAgentManager].agentCount;
+        
+        [self createObjectofType:kLemmingType withHealth:100 atLocation:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos) withZValue:(lemmingCount+10) withID:lemmingCount];
     }
-    else [self unschedule:@selector(addLemming)];
 }
 
 /**
@@ -149,7 +144,9 @@
             [self addChild:debugLabel];
             [lemming setDebugLabel:debugLabel];
         }
-            
+        
+        [[AgentManager sharedAgentManager] addAgent:lemming]; 
+        
         [lemming setPosition:spawnLocation]; 
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];
         [lemming release];
