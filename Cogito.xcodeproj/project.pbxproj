@@ -13,6 +13,11 @@
 		E2613FDC149AA9B000356C98 /* helvetica_blue_small.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2613FDA149AA9B000356C98 /* helvetica_blue_small.fnt */; };
 		E2613FDF149AA9C000356C98 /* helvetica_blue.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */; };
 		E2613FE0149AA9C000356C98 /* helvetica_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E2613FDE149AA9C000356C98 /* helvetica_blue.png */; };
+		E2613FE3149ABD5300356C98 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE2149ABD5300356C98 /* GameManager.m */; };
+		E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE5149AC2E000356C98 /* MainMenuScene.m */; };
+		E2613FE9149AC36400356C98 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE8149AC36400356C98 /* AboutScene.m */; };
+		E2613FEC149AC3C200356C98 /* GameCompleteScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEB149AC3C200356C98 /* GameCompleteScene.m */; };
+		E2613FEF149ACBB000356C98 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEE149ACBB000356C98 /* SettingsScene.m */; };
 		E26A0E931481CA8F00EE990D /* basic_background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E921481CA8F00EE990D /* basic_background-hd.png */; };
 		E26A0E951481CAD900EE990D /* basic_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E26A0E941481CAD900EE990D /* basic_background.png */; };
 		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
@@ -158,6 +163,16 @@
 		E2613FDA149AA9B000356C98 /* helvetica_blue_small.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helvetica_blue_small.fnt; sourceTree = "<group>"; };
 		E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helvetica_blue.fnt; sourceTree = "<group>"; };
 		E2613FDE149AA9C000356C98 /* helvetica_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helvetica_blue.png; sourceTree = "<group>"; };
+		E2613FE1149ABD5300356C98 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		E2613FE2149ABD5300356C98 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		E2613FE4149AC2E000356C98 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../MainMenuScene.h; sourceTree = "<group>"; };
+		E2613FE5149AC2E000356C98 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuScene.m; path = ../MainMenuScene.m; sourceTree = "<group>"; };
+		E2613FE7149AC36400356C98 /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutScene.h; path = ../AboutScene.h; sourceTree = "<group>"; };
+		E2613FE8149AC36400356C98 /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutScene.m; path = ../AboutScene.m; sourceTree = "<group>"; };
+		E2613FEA149AC3C200356C98 /* GameCompleteScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompleteScene.h; sourceTree = "<group>"; };
+		E2613FEB149AC3C200356C98 /* GameCompleteScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompleteScene.m; sourceTree = "<group>"; };
+		E2613FED149ACBB000356C98 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsScene.h; path = ../SettingsScene.h; sourceTree = "<group>"; };
+		E2613FEE149ACBB000356C98 /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsScene.m; path = ../SettingsScene.m; sourceTree = "<group>"; };
 		E26A0E921481CA8F00EE990D /* basic_background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic_background-hd.png"; sourceTree = "<group>"; };
 		E26A0E941481CAD900EE990D /* basic_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basic_background.png; sourceTree = "<group>"; };
 		E274A20E148CF88800917EA7 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
@@ -474,6 +489,8 @@
 			children = (
 				E2ABD05414706AE900E14474 /* AppDelegate.h */,
 				E2ABD05514706AE900E14474 /* AppDelegate.m */,
+				E2613FE1149ABD5300356C98 /* GameManager.h */,
+				E2613FE2149ABD5300356C98 /* GameManager.m */,
 			);
 			path = Singletons;
 			sourceTree = "<group>";
@@ -501,6 +518,19 @@
 			);
 			name = Fonts;
 			path = Assets/Fonts;
+			sourceTree = "<group>";
+		};
+		E2613FF0149AD0CB00356C98 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E2613FED149ACBB000356C98 /* SettingsScene.h */,
+				E2613FEE149ACBB000356C98 /* SettingsScene.m */,
+				E2613FE4149AC2E000356C98 /* MainMenuScene.h */,
+				E2613FE5149AC2E000356C98 /* MainMenuScene.m */,
+				E2613FE7149AC36400356C98 /* AboutScene.h */,
+				E2613FE8149AC36400356C98 /* AboutScene.m */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		E294A0561478061E007C087E /* Texture Atlases */ = {
@@ -972,8 +1002,11 @@
 		E2E8C78814706EF7004D07E1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E2613FF0149AD0CB00356C98 /* Menu */,
 				E2E8C78B14706F54004D07E1 /* GameScene.h */,
 				E2E8C78C14706F54004D07E1 /* GameScene.m */,
+				E2613FEA149AC3C200356C98 /* GameCompleteScene.h */,
+				E2613FEB149AC3C200356C98 /* GameCompleteScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1172,6 +1205,11 @@
 				E28C12AF147A6B0D00385DF6 /* Lemming.m in Sources */,
 				E274A210148CF88800917EA7 /* Obstacle.m in Sources */,
 				E274A213148CF8B000917EA7 /* CogitoAgent.m in Sources */,
+				E2613FE3149ABD5300356C98 /* GameManager.m in Sources */,
+				E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */,
+				E2613FE9149AC36400356C98 /* AboutScene.m in Sources */,
+				E2613FEC149AC3C200356C98 /* GameCompleteScene.m in Sources */,
+				E2613FEF149ACBB000356C98 /* SettingsScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
