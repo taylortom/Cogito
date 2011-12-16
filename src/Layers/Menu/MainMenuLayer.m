@@ -101,7 +101,8 @@
  */
 -(void)displayNewGameScreen
 {
-    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
+//    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
+    [[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
 }
 
 /**

@@ -86,6 +86,8 @@ static GameManager* _instance = nil;
  */
 -(void)runSceneWithID:(SceneTypes)sceneID
 {
+    CCLOG(@"GameManager.runSceneWithID: %i", sceneID);
+    
     SceneTypes oldScene = currentScene;
     currentScene = sceneID;
     id sceneToRun = nil;
@@ -127,17 +129,10 @@ static GameManager* _instance = nil;
         return;
     }
     
-    
-    // dont think I need this resizing stuff
-    /*if(sceneID < 100) // must be menu scene
-    {        
-        [sceneToRun setScaleX:0.4688f];
-        [sceneToRun setScaleY:0.4166f];
-    }*/
-    
     // do we need to replace the scene?
     if([[CCDirector sharedDirector] runningScene] == nil) [[CCDirector sharedDirector] runWithScene:sceneToRun];
-    else [[CCDirector sharedDirector] replaceScene:sceneToRun];
+    else if(sceneID == kMainMenuScene) [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:0.75 scene:sceneToRun]];
+    else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];
 }
 
 @end
