@@ -47,6 +47,7 @@ static AgentManager* _instance = nil;
     if (self != nil) 
     {
         totalNumberOfAgents = 3;
+        agentsAdded = 0;
         agents = [[NSMutableArray alloc] init];
     }
     
@@ -78,8 +79,9 @@ static AgentManager* _instance = nil;
  */
 -(void)addAgent:(CogitoAgent*)agentToAdd
 {
-    CCLOG(@"AgentManager.agentToAdd");
+    CCLOG(@"AgentManager.agentToAdd: %i", [agents count]);
     [agents addObject:agentToAdd];
+    agentsAdded++;
 }
 
 /**
@@ -88,13 +90,10 @@ static AgentManager* _instance = nil;
  */
 -(void)removeAgent:(CogitoAgent*)agentToRemove
 {
-    CCLOG(@"AgentManager.removeAgent");
+    CCLOG(@"AgentManager.removeAgent: %i", [agents count]);
     
-    @synchronized([AgentManager class])
-    {
-        [agents removeObject:agentToRemove];
-        [agentToRemove removeFromParentAndCleanup:YES];
-    }
+    [agents removeObject:agentToRemove];
+    [agentToRemove removeFromParentAndCleanup:YES];
 }
 
 #pragma mark -
@@ -107,7 +106,7 @@ static AgentManager* _instance = nil;
  */
 -(BOOL)agentsMaxed
 {
-    return [agents count] == totalNumberOfAgents;
+    return agentsAdded == totalNumberOfAgents;
 }
 
 /**
@@ -118,6 +117,16 @@ static AgentManager* _instance = nil;
 -(int)agentCount
 {
     return [agents count];
+}
+
+/**
+ * Returns the number of agents which have been added
+ * to the game (not the same as agentCount)
+ * @return number of agents which have been added
+ */
+-(int)agentsAdded
+{
+    return agentsAdded;
 }
 
 @end

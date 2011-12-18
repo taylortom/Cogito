@@ -64,6 +64,7 @@
 {
     CCLOG(@"GameObject.changeState should be overridden");
     
+    // return standard bounding box for now
     return [self boundingBox];
 }
 
@@ -82,6 +83,7 @@
     NSString *filename = [NSString stringWithFormat:@"%.plist",className];
     NSString *plistPath;
     
+    
     // Get path to plist file
     
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -89,9 +91,11 @@
     
     if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:className ofType:@"plist"];
     
+    
     // Read plist file
     
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    
     
     // if plistDictionary is empty, throw file not found error
     
@@ -100,6 +104,7 @@
         CCLOG(@"Error reading plist: %@.plist", className);
         return nil;
     }
+    
     
     // get the mini-dictionary for the animation
     
@@ -111,11 +116,13 @@
         return nil;
     }
     
+    
     // get the delay value for the animation
     
     float animationDelay = [[animationSettings objectForKey:@"delay"] floatValue];
     animationToReturn = [CCAnimation animation];
     [animationToReturn setDelay:animationDelay];
+    
     
     // add the frames to the animation
     
@@ -129,6 +136,7 @@
         [animationToReturn addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
 
+    
     // return the animation
     return animationToReturn;
 }

@@ -18,6 +18,7 @@
 
 {
     int totalNumberOfAgents;
+    int agentsAdded;
     NSMutableArray *agents;
 }
 
