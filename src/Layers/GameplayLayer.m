@@ -11,13 +11,15 @@
 #import "GameplayLayer.h"
 #import "Obstacle.h"
 
+#import "Utils.h"
+
 @interface GameplayLayer()
 
 -(void)initButtons;
--(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
 -(void)update:(ccTime)deltaTime;
+-(void)addLemming;
+-(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
 -(void)onSettingsButtonPressed;
--(void)listAvailableFonts;
 
 @end
 
@@ -57,7 +59,7 @@
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
     }
-        
+            
     return self;
 }
 
@@ -160,25 +162,6 @@
             [tempLemming changeState:kStateIdle];
         }
     }
-}
-
-#pragma mark -
-#pragma mark Util methods
-
--(void)listAvailableFonts
-{
-    NSMutableArray *fontNames = [[NSMutableArray alloc] init];
-    NSArray *fontFamilyNames = [UIFont familyNames];
-    
-    for (NSString *familyName in fontFamilyNames) 
-    {
-        NSLog(@"Font Family Name = %@", familyName);
-        NSArray *names = [UIFont fontNamesForFamilyName:familyName];
-        NSLog(@"Font Names = %@", fontNames);
-        [fontNames addObjectsFromArray:names];
-    }
-    
-    [fontNames release];
 }
 
 @end

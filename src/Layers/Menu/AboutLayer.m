@@ -11,7 +11,7 @@
 
 @interface AboutLayer()
 
--(void)returnToMainMenu ;
+-(void)returnToMainMenu;
 
 @end
 

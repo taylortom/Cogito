@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21E4459149E545A00D6EF24 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E21E4458149E545A00D6EF24 /* Utils.m */; };
 		E2389A1F149B7175004DCA32 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A1E149B7175004DCA32 /* MainMenuLayer.m */; };
 		E2389A22149B89F7004DCA32 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A21149B89F7004DCA32 /* AboutLayer.m */; };
 		E2389A25149B8A04004DCA32 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A24149B8A04004DCA32 /* SettingsLayer.m */; };
@@ -182,6 +183,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E21E4457149E545A00D6EF24 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		E21E4458149E545A00D6EF24 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		E2389A1D149B7175004DCA32 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E2389A1E149B7175004DCA32 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E2389A20149B89F7004DCA32 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
@@ -550,6 +553,8 @@
 				E2ABD05514706AE900E14474 /* AppDelegate.m */,
 				E2613FE1149ABD5300356C98 /* GameManager.h */,
 				E2613FE2149ABD5300356C98 /* GameManager.m */,
+				E21E4457149E545A00D6EF24 /* Utils.h */,
+				E21E4458149E545A00D6EF24 /* Utils.m */,
 			);
 			path = Singletons;
 			sourceTree = "<group>";
@@ -1333,6 +1338,7 @@
 				E2389A4F149BA2AF004DCA32 /* NewGameScene.m in Sources */,
 				E2389A52149BA328004DCA32 /* NewGameLayer.m in Sources */,
 				E2389A5D149BF524004DCA32 /* AgentManager.m in Sources */,
+				E21E4459149E545A00D6EF24 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
