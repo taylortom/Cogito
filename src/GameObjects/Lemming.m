@@ -14,6 +14,7 @@
 -(void)initAnimations;
 -(void)updateDebugLabel;
 -(void)onObstacleCollision:(GameObjectType)obstacleType;
+-(void)checkLemmingWithinScreenBounds;
 
 @end
 
@@ -30,8 +31,9 @@
 @synthesize idleHelmetAnim;
 @synthesize walkingAnim;
 @synthesize walkingHelmetAnim;
-@synthesize deathAnim;
+@synthesize openUmbrellaAnim;
 @synthesize floatUmbrellaAnim;
+@synthesize deathAnim;
 
 #pragma mark -
 #pragma mark Memory Allocation
@@ -46,9 +48,10 @@
     [idleHelmetAnim release];
     [walkingAnim release];
     [walkingHelmetAnim release];
+    [openUmbrellaAnim release];
     [floatUmbrellaAnim release];
     [deathAnim release];
-    debugLabel = nil;
+    if(COCOS2D_DEBUG > 1) debugLabel = nil;
     
     [super dealloc];
 }
@@ -88,6 +91,7 @@
     [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:NSStringFromClass([self class])]];
     [self setWalkingAnim:[self loadAnimationFromPlistWthName:@"walkingAnim" andClassName:NSStringFromClass([self class])]];
     [self setWalkingHelmetAnim:[self loadAnimationFromPlistWthName:@"walkingHelmetAnim" andClassName:NSStringFromClass([self class])]];
+    [self setOpenUmbrellaAnim:[self loadAnimationFromPlistWthName:@"openUmbrellaAnim" andClassName:NSStringFromClass([self class])]];
     [self setFloatUmbrellaAnim:[self loadAnimationFromPlistWthName:@"floatUmbrellaAnim" andClassName:NSStringFromClass([self class])]];
     [self setDeathAnim:[self loadAnimationFromPlistWthName:@"deathAnim" andClassName:NSStringFromClass([self class])]];
 }
@@ -111,7 +115,7 @@
             [self setPosition:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos)];
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
-            id fallingAction = [CCMoveBy actionWithDuration:0.20f position:ccp(0.0f, movementAmount*-1)];
+            id fallingAction = [CCMoveBy actionWithDuration:0.15f position:ccp(0.0f, movementAmount*-1)];
             action = [CCSpawn actions: fallingAction, action, nil];         
             respawns--;
             break;
@@ -131,11 +135,7 @@
             break;  
             
         case kStateFloating:
-            action = [CCAnimate actionWithAnimation:floatUmbrellaAnim restoreOriginalFrame:NO];
-            // make the lemming move
-            id floatingAction = [CCMoveBy actionWithDuration:0.75f position:ccp(0.0f, movementAmount*-1)];
-            // merge the two actions
-            action = [CCSpawn actions: floatingAction, action, nil];         
+            action = [CCAnimate actionWithAnimation:openUmbrellaAnim restoreOriginalFrame:NO];
             break;
            
         case kStateDead:
@@ -150,9 +150,30 @@
     // run the animations
     if(action != nil) 
     {
-        if(newState != kStateDead) action = [CCRepeatForever actionWithAction:action];
+        if(newState != kStateDead && newState != kStateFloating) action = [CCRepeatForever actionWithAction:action];
         [self runAction:action];
     }
+}
+
+/**
+ * Changes the direction of the lemming
+ */
+-(void)changeDirection
+{   
+    if(movementDirection == kDirectionRight)
+    {
+        self.flipX = YES;
+        movementDirection = kDirectionLeft;
+        [self setPosition:ccp(self.position.x-1, self.position.y)];
+    }
+    else
+    {
+        self.flipX = NO;
+        movementDirection = kDirectionRight;
+        [self setPosition:ccp(self.position.x+1, self.position.y)];
+    }
+    
+    [self changeState:kStateWalking];
 }
 
 /**
@@ -185,7 +206,8 @@
  */
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
 {    
-    [self updateDebugLabel];
+    if(COCOS2D_DEBUG > 1) [self updateDebugLabel];
+    if (state != kStateDead) [self checkLemmingWithinScreenBounds];
     
     /*
      * check for collisions
@@ -210,10 +232,24 @@
         }
     }
     
-    // wait until actions have finished running before respawning or
+    // if actions have finished running...
     if([self numberOfRunningActions] == 0)
     {
-        if(self.state == kStateDead)
+        if(self.state == kStateFloating) // lemming has opened umbrella, now to make it float
+        {
+            id animAction = [CCAnimate actionWithAnimation:floatUmbrellaAnim restoreOriginalFrame:NO];
+            
+            // make the lemming move
+            id floatingAction = [CCMoveBy actionWithDuration:0.75f position:ccp(0.0f, movementAmount*-1)];
+            
+            // merge the two actions
+            
+            animAction = [CCSpawn actions: floatingAction, animAction, nil];         
+            animAction = [CCRepeatForever actionWithAction:animAction];
+            
+            [self runAction:animAction];
+        }
+        else if(self.state == kStateDead) // lemming has played death anim, respawn or remove
         {
             if(respawns > 0) [self changeState:kStateSpawning];
             else [[AgentManager sharedAgentManager] removeAgent:self];
@@ -226,7 +262,8 @@
 -(void)updateDebugLabel
 {
     CGPoint newPosition = [self position];
-    NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
+    //NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
+    NSString *debugString = [NSString stringWithFormat:@"x: %f y: %f \n Health: %i \n", newPosition.x, newPosition.y, self.health];
     
     switch (state) 
     {
@@ -259,6 +296,17 @@
     float yOffset = screenSize.height*0.1f;
     newPosition = ccp(newPosition.x, newPosition.y+yOffset);
     [debugLabel setPosition:newPosition];
+}
+
+/**
+ * if the lemming falls of the bottom of the screen, change to dead
+ */
+-(void)checkLemmingWithinScreenBounds
+{
+    CGPoint position = [self position];
+    
+    if (position.y <= 20) [self changeState:kStateDead];
+    if (position.x <= 10 || position.x >= 470) [self changeDirection];
 }
 
 #pragma mark -

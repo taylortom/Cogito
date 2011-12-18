@@ -47,6 +47,15 @@
 		<key>filenamePrefix</key>
 		<string>Lemming_idle_helmet_</string>
 	</dict>
+	<key>openUmbrellaAnim</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2,3</string>
+		<key>delay</key>
+		<real>0.15</real>
+		<key>filenamePrefix</key>
+		<string>Lemming_umbrellaOpen_</string>
+	</dict>
 	<key>floatUmbrellaAnim</key>
 	<dict>
 		<key>animationFrames</key>

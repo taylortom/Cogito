@@ -32,8 +32,9 @@
     CCAnimation *walkingHelmetAnim;
 
     // misc animations
-    CCAnimation *deathAnim;    
+    CCAnimation *openUmbrellaAnim;
     CCAnimation *floatUmbrellaAnim;
+    CCAnimation *deathAnim;    
 }
 
 @property (readwrite) int health;
@@ -49,7 +50,11 @@
 @property (nonatomic,retain) CCAnimation *walkingHelmetAnim;
 
 //misc animations
-@property (nonatomic,retain) CCAnimation *deathAnim;
+@property (nonatomic,retain) CCAnimation *openUmbrellaAnim;
 @property (nonatomic,retain) CCAnimation *floatUmbrellaAnim;
+@property (nonatomic,retain) CCAnimation *deathAnim;
+
+-(void)changeState: (CharacterStates)newState;
+-(void)changeDirection;
 
 @end
