@@ -572,8 +572,8 @@
 				E2389A21149B89F7004DCA32 /* AboutLayer.m */,
 				E2389A1D149B7175004DCA32 /* MainMenuLayer.h */,
 				E2389A1E149B7175004DCA32 /* MainMenuLayer.m */,
-				E2389A50149BA328004DCA32 /* NewGameLayer.m */,
 				E2389A51149BA328004DCA32 /* NewGameLayer.h */,
+				E2389A50149BA328004DCA32 /* NewGameLayer.m */,
 				E2389A23149B8A04004DCA32 /* SettingsLayer.h */,
 				E2389A24149B8A04004DCA32 /* SettingsLayer.m */,
 			);

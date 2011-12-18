@@ -9,6 +9,12 @@
 
 #import "AboutLayer.h"
 
+@interface AboutLayer()
+
+-(void)returnToMainMenu ;
+
+@end
+
 @implementation AboutLayer
 
 #pragma mark -

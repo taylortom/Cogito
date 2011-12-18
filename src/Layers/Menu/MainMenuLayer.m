@@ -14,7 +14,11 @@
 
 @interface MainMenuLayer()
 
+-(void)playScene: (CCMenuItemFont*)menuItemToPlay;
 -(void)displayMainMenu;
+-(void)onNewGameButtonPressed;
+-(void)onSettingsButtonPressed;
+-(void)onAboutButtonPressed;
 
 @end
 
@@ -43,14 +47,6 @@
 #pragma mark -
 
 /**
- * Shows the settings screen
- */
--(void)showSettings
-{
-    [[GameManager sharedGameManager] runSceneWithID:kSettingsScene];
-}
-
-/**
  * Plays the specified scene
  * @param scene to play
  */
@@ -76,9 +72,9 @@
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     //create the menu buttons
-    CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"Menu_NewGame.png" selectedImage:@"Menu_NewGame_down.png" disabledImage:nil target:self selector:@selector(displayNewGameScreen)];
-    CCMenuItemImage *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Settings.png" selectedImage:@"Menu_Settings_down.png" disabledImage:nil target:self selector:@selector(displaySettingsScreen)];
-    CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"Menu_About.png" selectedImage:@"Menu_About_down.png" disabledImage:nil target:self selector:@selector(displayAboutScreen)];
+    CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"Menu_NewGame.png" selectedImage:@"Menu_NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
+    CCMenuItemImage *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Settings.png" selectedImage:@"Menu_Settings_down.png" disabledImage:nil target:self selector:@selector(onSettingsButtonPressed)];
+    CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"Menu_About.png" selectedImage:@"Menu_About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items
     mainMenu = [CCMenu menuWithItems:newGameButton, settingsButton, aboutButton, nil];
@@ -96,10 +92,13 @@
     [self addChild:mainMenu z:0 tag:kMainMenuTagValue];
 }
 
+#pragma mark -
+#pragma mark Button release handlers
+
 /**
  * Displays the new game screen
  */
--(void)displayNewGameScreen
+-(void)onNewGameButtonPressed
 {
 //    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
     [[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
@@ -108,7 +107,7 @@
 /**
  * Displays the settings screen
  */
--(void)displaySettingsScreen
+-(void)onSettingsButtonPressed
 {
     [[GameManager sharedGameManager] runSceneWithID:kSettingsScene];
 }
@@ -116,7 +115,7 @@
 /**
  * Displays the about screen
  */
--(void)displayAboutScreen
+-(void)onAboutButtonPressed
 {
     [[GameManager sharedGameManager] runSceneWithID:kAboutScene];
 }

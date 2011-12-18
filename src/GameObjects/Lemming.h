@@ -7,8 +7,9 @@
 //  21/11/2011: Created class
 //
 
-#import <Foundation/Foundation.h>
+#import "AgentManager.h"
 #import "CogitoAgent.h"
+#import <Foundation/Foundation.h>
 
 @interface Lemming : CogitoAgent
 
@@ -21,7 +22,7 @@
     int respawns;                   // number of respawns
     bool isUsingHelmet;
     
-    int id;                         // a unique ID, used for debugging
+    int ID;                         // a unique ID, used for debugging
     CCLabelBMFont *debugLabel;      // text label used for debugging 
     
     // idle and walking animations
@@ -38,7 +39,7 @@
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
 
-@property (readwrite) int id; 
+@property (readwrite) int ID; 
 @property (nonatomic,retain) CCLabelBMFont *debugLabel;
 
 // idle and walking animations
@@ -50,9 +51,5 @@
 //misc animations
 @property (nonatomic,retain) CCAnimation *deathAnim;
 @property (nonatomic,retain) CCAnimation *floatUmbrellaAnim;
-
--(void)initAnimations;
--(void)checkAndClampSpritePosition;
--(void)updateDebugLabel;
 
 @end

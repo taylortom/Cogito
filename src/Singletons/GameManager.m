@@ -18,6 +18,8 @@
 
 @implementation GameManager
 
+@synthesize currentScene;
+
 static GameManager* _instance = nil;
 
 #pragma mark -

@@ -15,21 +15,12 @@
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
 #import "Lemming.h"
-#import "SneakyButton.h"
-#import "SneakyButtonSkinnedBase.h"
-
 
 @interface GameplayLayer : CCLayer
 
 {
-    SneakyButton *settingsButton; // input    
+    CCMenu *gameplayMenu;
     CCSpriteBatchNode *sceneSpriteBatchNode;
 }
-
--(void)initButtons;
--(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue withID:(int)id;
--(void)update:(ccTime)deltaTime;
--(void)checkButtons;
--(void)listAvailableFonts;
 
 @end

@@ -133,18 +133,4 @@
     return animationToReturn;
 }
 
-/**
- * Creates an animation from a .plist file and 
- * adds it to the cache
- * @param animationName
- * @param className
- * @return the animation
- */
--(CCAnimation*)cacheAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className
-{
-    CCAnimation *animation = [self loadAnimationFromPlistWthName:animationName andClassName:className]; 
-    [[CCAnimationCache sharedAnimationCache] addAnimation:animation name:animationName];
-    return animation;
-}
-
 @end

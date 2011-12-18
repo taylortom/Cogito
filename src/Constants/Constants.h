@@ -10,7 +10,7 @@
 #ifndef Cogito_Constants_h
 #define Cogito_Constants_h
 
-#define COCOS2D_DEBUG           2
+//#define COCOS2D_DEBUG           2
 
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
@@ -18,6 +18,7 @@
 
 #define kLemmingSpawnXPos       0.07f 
 #define kLemmingSpawnYPos       0.90f
+#define kLemmingSpawnSpeed      1.0f     
 
 #define kMainMenuTagValue       10
 #define kSceneMenuTagValue      20

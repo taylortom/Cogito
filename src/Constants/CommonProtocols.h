@@ -47,12 +47,3 @@ typedef enum
     kObstacleWater,
     kObstacleStamper
 } GameObjectType;
-
-/*
- * MAY NOT BE NEEDED
- */
-@protocol GameplayLayerDelegate
-
--(void)createObjectOfType:(GameObjectType)objectType atLocation:(CGPoint)spawnLocation withZValue:(int)zValue;
-
-@end

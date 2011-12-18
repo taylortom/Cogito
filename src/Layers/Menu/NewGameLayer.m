@@ -9,6 +9,12 @@
 
 #import "NewGameLayer.h"
 
+@interface NewGameLayer()
+
+-(void)returnToMainMenu;
+
+@end
+
 @implementation NewGameLayer
 
 #pragma mark -

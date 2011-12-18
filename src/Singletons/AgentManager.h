@@ -23,6 +23,7 @@
 
 +(AgentManager*)sharedAgentManager;
 -(void)addAgent:(CogitoAgent*)agentToAdd;
+-(void)removeAgent:(CogitoAgent*)agentToRemove;
 -(BOOL)agentsMaxed;
 -(int)agentCount;
 

@@ -46,10 +46,8 @@ static AgentManager* _instance = nil;
     
     if (self != nil) 
     {
-        totalNumberOfAgents = 25;
+        totalNumberOfAgents = 3;
         agents = [[NSMutableArray alloc] init];
-        
-        // will probably initialise all lemmings here, then access them in GameplayLayer
     }
     
     return self;
@@ -80,19 +78,23 @@ static AgentManager* _instance = nil;
  */
 -(void)addAgent:(CogitoAgent*)agentToAdd
 {
-    if(![self agentsMaxed]) [agents addObject:agentToAdd];
-    else CCLOG(@"Max number of agents reached");
+    CCLOG(@"AgentManager.agentToAdd");
+    [agents addObject:agentToAdd];
 }
 
 /**
  * Removes an agent from the agents list
  * @param the agent to remove
  */
--(void)removeAgent:(CogitoAgent*)agentToAdd
+-(void)removeAgent:(CogitoAgent*)agentToRemove
 {
     CCLOG(@"AgentManager.removeAgent");
     
-    // doesn't do anything yet
+    @synchronized([AgentManager class])
+    {
+        [agents removeObject:agentToRemove];
+        [agentToRemove removeFromParentAndCleanup:YES];
+    }
 }
 
 #pragma mark -

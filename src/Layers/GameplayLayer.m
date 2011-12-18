@@ -11,6 +11,16 @@
 #import "GameplayLayer.h"
 #import "Obstacle.h"
 
+@interface GameplayLayer()
+
+-(void)initButtons;
+-(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
+-(void)update:(ccTime)deltaTime;
+-(void)onSettingsButtonPressed;
+-(void)listAvailableFonts;
+
+@end
+
 @implementation GameplayLayer
 
 #pragma mark -
@@ -18,7 +28,6 @@
 
 -(void)dealloc
 {
-    [settingsButton release];
     [super dealloc];
 }
 
@@ -44,19 +53,8 @@
         
         [self addChild:sceneSpriteBatchNode z:0];
         [self initButtons]; // set up the buttons
-    
-        //
-        //
-        //
-        // instantiate lemming manager
-        //
-        //
-        //
-//        [[AgentManager sharedAgentManager] setData];
         
-        //Obstacle *testObstacle = [[Obstacle alloc] init:kObstaclePit];
-        
-        [self schedule:@selector(addLemming) interval:1.0f]; // create some lemmings
+        [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
     }
         
@@ -64,25 +62,20 @@
 }
 
 /**
+ * Creates the in-game 'menu'
  * Initialises any buttons in the layer
  */
 -(void)initButtons
 {    
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-    CGRect settingsButtonDimensions = CGRectMake(0, 0, 64.0f, 64.0f);
-    CGPoint settingsButtonPosition = ccp(screenSize.width*0.90, screenSize.width*0.10f);
     
-    SneakyButtonSkinnedBase *settingsButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
-    settingsButtonBase.position = settingsButtonPosition;
-    settingsButtonBase.defaultSprite = [CCSprite spriteWithFile:@"settings.png"];
-    settingsButtonBase.activatedSprite = [CCSprite spriteWithFile:@"settings.png"];
-    settingsButtonBase.pressSprite = [CCSprite spriteWithFile:@"settings_down.png"];
-    settingsButtonBase.button = [[SneakyButton alloc] initWithRect:settingsButtonDimensions];
+    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings.png" selectedImage:@"settings_down.png" target:self selector:@selector(onSettingsButtonPressed)];
+    settingsButton.position = ccp(screenSize.width*0.90, screenSize.width*0.10f);
     
-    settingsButton = [settingsButtonBase.button retain];
-    settingsButton.isToggleable = YES;
+    gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];
+    gameplayMenu.position = CGPointZero;
     
-    [self addChild:settingsButtonBase];
+    [self addChild:gameplayMenu];
 }
 
 #pragma mark -
@@ -99,11 +92,6 @@
     {
         [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];
     }
-    
-    // if all lemmings are dead and there are no respawns, game is over
-//    if (lemmingsLeft == 0) [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
-    
-    [self checkButtons];
 }
 
 #pragma mark -
@@ -114,28 +102,24 @@
  */
 -(void)addLemming
 {
-    if (![[AgentManager sharedAgentManager] agentsMaxed]) 
-    {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
-        int lemmingCount = [AgentManager sharedAgentManager].agentCount;
-        
-        [self createObjectofType:kLemmingType withHealth:100 atLocation:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos) withZValue:(lemmingCount+10) withID:lemmingCount];
-    }
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    int lemmingCount = [AgentManager sharedAgentManager].agentCount;
+    
+    [self createLemmingAtLocation:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos) withHealth:100 withZValue:(lemmingCount+10) withID:lemmingCount];
 }
 
 /**
- * Creates a new object
- * @param objectType
+ * Creates a new Lemming object
  * @param withHealth
  * @param atLocation
  * @param withZvalue
  */
--(void)createObjectofType:(GameObjectType)objectType withHealth:(int)health atLocation:(CGPoint)spawnLocation withZValue:(int)zValue withID:(int)id 
+-(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID  
 {
-    if(objectType == kLemmingType)
+    if (![[AgentManager sharedAgentManager] agentsMaxed]) 
     {
         Lemming *lemming = [[Lemming alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
-        lemming.id = id;
+        lemming.ID = ID;
         lemming.health = health;
         
         if(COCOS2D_DEBUG > 1)
@@ -151,38 +135,30 @@
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];
         [lemming release];
     }
-    else CCLOG(@"GameplayLayer.createObjectofType: ObjectType not supported");
+    else [self unschedule:@selector(addLemming)];
 }
 
 #pragma mark -
 
 /**
- * Checks if any buttons are being pressed
+ * Called when settings button's pressed
  */
--(void)checkButtons
+-(void)onSettingsButtonPressed
 {
-    if (settingsButton.active) 
+    CCLOG(@"GameplayLayer.onSettingsButtonPressed");
+    
+    CCArray *gameObjects = [sceneSpriteBatchNode children];
+    
+    for (Lemming *tempLemming in gameObjects) 
     {
-        CCLOG(@"Settings button pressed...");
-        
-        CCArray *gameObjects = [sceneSpriteBatchNode children];
-        
-        for (Lemming *tempLemming in gameObjects) 
-            if([tempLemming state] == kStateIdle) [tempLemming changeState:kStateWalking];
-            else if([tempLemming state] == kStateWalking) [tempLemming changeState:kStateFloating];
-            else if([tempLemming state] == kStateFloating) tempLemming.health = 0;
-            else 
-            {
-                tempLemming.health = 100;
-                [tempLemming changeState:kStateIdle];
-            }
-        
-        /*
-         * Need to open settings screen
-         * - on screen open, pause the game
-         * - on screen close, update the state of the system 
-         * based on which settings have been changed (if any)
-         */
+        if([tempLemming state] == kStateIdle) [tempLemming changeState:kStateWalking];
+        else if([tempLemming state] == kStateWalking) [tempLemming changeState:kStateFloating];
+        else if([tempLemming state] == kStateFloating) tempLemming.health = 0;
+        else 
+        {
+            tempLemming.health = 100;
+            [tempLemming changeState:kStateIdle];
+        }
     }
 }
 

@@ -9,12 +9,20 @@
 
 #import "Lemming.h"
 
+@interface Lemming()
+
+-(void)initAnimations;
+-(void)updateDebugLabel;
+-(void)onObstacleCollision:(GameObjectType)obstacleType;
+
+@end
+
 @implementation Lemming
 
 @synthesize health;
 @synthesize state;
 
-@synthesize id;
+@synthesize ID;
 @synthesize debugLabel;
 
 // animation
@@ -33,6 +41,7 @@
  */
 -(void)dealloc
 {
+    CCLOG(@"Lemming.dealloc");
     [idleAnim release];
     [idleHelmetAnim release];
     [walkingAnim release];
@@ -61,7 +70,7 @@
         health = 100;
         movementAmount = 20;
         movementDirection = kDirectionRight;
-        respawns = 5;
+        respawns = 0;
         isUsingHelmet = NO;
         [self changeState:kStateSpawning];
         
@@ -90,9 +99,7 @@
  * @param state to change to
  */
 -(void)changeState: (CharacterStates)newState
-{    
-//    if(self.state == kStateDead) return; 
-    
+{        
     [self stopAllActions];
     id action = nil;
     self.state = newState;
@@ -132,13 +139,7 @@
             break;
            
         case kStateDead:
-            if(respawns > 1) 
-            {
-                action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
-                [self changeState:kStateSpawning];
-            }
-            // remove the character
-            else [self removeFromParentAndCleanup:YES];
+            action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
             break;
             
         default:
@@ -155,25 +156,35 @@
 }
 
 /**
- * Makes sure the lemming stays onscreen
+ * Applies the appropriate damage when 
+ * a Lemming collides with an obstacle
  */
--(void)checkAndClampSpritePosition
+-(void)onObstacleCollision:(GameObjectType)obstacleType
 {
-    CGPoint currentSpritePosition = [self position];
-    
-    if (currentSpritePosition.y > 110) [self setPosition:ccp(currentSpritePosition.x, currentSpritePosition.y)];    
-    
-    if(currentSpritePosition.x < 24.0f) [self setPosition:ccp(24.0f, currentSpritePosition.y)];     
-    else if(currentSpritePosition.x > 456.0f) [self setPosition:ccp(456.0f, currentSpritePosition.y)];
+    switch(obstacleType) 
+    {
+        case kObstaclePit:
+        case kObstacleWater:
+            [self changeState:kStateDead];
+            break;
+        case kObstacleStamper:
+        case kObstacleCage:
+            // don't do anything yet
+            break;
+        default: 
+            CCLOG(@"Lemming.onObstacleCollision: Unknown obstacle [%@]", obstacleType);
+            break;
+    }
 }
+
+#pragma mark -
+#pragma mark Update
 
 /**
  * Update function called every frame
  */
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
-{
-    if(self.state == kStateDead) return; // don't need to do anything if lemming's dead
-    
+{    
     [self updateDebugLabel];
     
     /*
@@ -192,25 +203,21 @@
         {
             GameObjectType objectType = [gameObject gameObjectType];
             
-            if(objectType == kObstaclePit || 
-               objectType == kObstacleStamper || 
-               objectType == kObstacleWater || 
-               objectType == kObstacleCage) [self changeState:kStateDead];
+            if(objectType == kObstaclePit || objectType == kObstacleStamper || objectType == kObstacleWater || objectType == kObstacleCage) 
+                [self onObstacleCollision:objectType];
             else if(objectType == kObjectExit) [self changeState:kStateWin]; 
             else if(objectType == kLemmingType); // do nothing 
         }
     }
     
+    // wait until actions have finished running before respawning or
     if([self numberOfRunningActions] == 0)
     {
         if(self.state == kStateDead)
         {
-            // do stuff
+            if(respawns > 0) [self changeState:kStateSpawning];
+            else [[AgentManager sharedAgentManager] removeAgent:self];
         }
-        /*else if(other check)
-        {
-            // do other stuff
-        }*/
     }
     
     if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
@@ -219,8 +226,7 @@
 -(void)updateDebugLabel
 {
     CGPoint newPosition = [self position];
-    NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.id, self.health];
-    //NSString *debugString = [NSString stringWithFormat:@"X: %.2f \n Y: %.2f \n", newPosition.x, newPosition.y];
+    NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
     
     switch (state) 
     {
@@ -242,7 +248,7 @@
             break;
             
         case kStateDead:
-            [debugLabel setString: [debugString stringByAppendingString:@" [dead]"]];
+            [debugLabel setString:@""];
             break;
             
         default:
