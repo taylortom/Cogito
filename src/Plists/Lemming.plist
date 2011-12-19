@@ -52,7 +52,7 @@
 		<key>animationFrames</key>
 		<string>1,2,3</string>
 		<key>delay</key>
-		<real>0.15</real>
+		<real>0.1</real>
 		<key>filenamePrefix</key>
 		<string>Lemming_umbrellaOpen_</string>
 	</dict>
