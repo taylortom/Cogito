@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "RootViewController.h"
+#import "Constants.h"
 
 @implementation AppDelegate
 

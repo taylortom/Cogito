@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E21E4459149E545A00D6EF24 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E21E4458149E545A00D6EF24 /* Utils.m */; };
+		E21E445C149F6ED100D6EF24 /* bangla_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E445A149F6ED100D6EF24 /* bangla_dark.png */; };
+		E21E445D149F6ED100D6EF24 /* bangla_dark.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E21E445B149F6ED100D6EF24 /* bangla_dark.fnt */; };
+		E21E4460149F704F00D6EF24 /* GameOverBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E445E149F704F00D6EF24 /* GameOverBackground-hd.png */; };
+		E21E4461149F704F00D6EF24 /* GameOverBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E445F149F704F00D6EF24 /* GameOverBackground.png */; };
 		E2389A1F149B7175004DCA32 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A1E149B7175004DCA32 /* MainMenuLayer.m */; };
 		E2389A22149B89F7004DCA32 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A21149B89F7004DCA32 /* AboutLayer.m */; };
 		E2389A25149B8A04004DCA32 /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A24149B8A04004DCA32 /* SettingsLayer.m */; };
-		E2389A28149B8CC5004DCA32 /* GameCompleteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A27149B8CC4004DCA32 /* GameCompleteLayer.m */; };
+		E2389A28149B8CC5004DCA32 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A27149B8CC4004DCA32 /* GameOverLayer.m */; };
 		E2389A2F149B9851004DCA32 /* Menu_About_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A29149B9851004DCA32 /* Menu_About_down.png */; };
 		E2389A30149B9851004DCA32 /* Menu_About.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A2A149B9851004DCA32 /* Menu_About.png */; };
 		E2389A31149B9851004DCA32 /* Menu_NewGame_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A2B149B9851004DCA32 /* Menu_NewGame_down.png */; };
@@ -36,7 +40,7 @@
 		E2389A56149BA5F6004DCA32 /* Menu_Back-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A54149BA5F5004DCA32 /* Menu_Back-hd.png */; };
 		E2389A59149BA645004DCA32 /* Menu_Back_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A57149BA645004DCA32 /* Menu_Back_down.png */; };
 		E2389A5A149BA645004DCA32 /* Menu_Back.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A58149BA645004DCA32 /* Menu_Back.png */; };
-		E2389A5D149BF524004DCA32 /* AgentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A5C149BF524004DCA32 /* AgentManager.m */; };
+		E2389A5D149BF524004DCA32 /* LemmingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A5C149BF524004DCA32 /* LemmingManager.m */; };
 		E2613FCF149A96A200356C98 /* helvetica_white.png in Resources */ = {isa = PBXBuildFile; fileRef = E2613FCD149A96A200356C98 /* helvetica_white.png */; };
 		E2613FD0149A96A200356C98 /* helvetica_white.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2613FCE149A96A200356C98 /* helvetica_white.fnt */; };
 		E2613FDB149AA9B000356C98 /* helvetica_blue_small.png in Resources */ = {isa = PBXBuildFile; fileRef = E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */; };
@@ -46,7 +50,7 @@
 		E2613FE3149ABD5300356C98 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE2149ABD5300356C98 /* GameManager.m */; };
 		E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE5149AC2E000356C98 /* MainMenuScene.m */; };
 		E2613FE9149AC36400356C98 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE8149AC36400356C98 /* AboutScene.m */; };
-		E2613FEC149AC3C200356C98 /* GameCompleteScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEB149AC3C200356C98 /* GameCompleteScene.m */; };
+		E2613FEC149AC3C200356C98 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEB149AC3C200356C98 /* GameOverScene.m */; };
 		E2613FEF149ACBB000356C98 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEE149ACBB000356C98 /* SettingsScene.m */; };
 		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
 		E274A213148CF8B000917EA7 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A212148CF8B000917EA7 /* CogitoAgent.m */; };
@@ -185,14 +189,18 @@
 /* Begin PBXFileReference section */
 		E21E4457149E545A00D6EF24 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		E21E4458149E545A00D6EF24 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		E21E445A149F6ED100D6EF24 /* bangla_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bangla_dark.png; sourceTree = "<group>"; };
+		E21E445B149F6ED100D6EF24 /* bangla_dark.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bangla_dark.fnt; sourceTree = "<group>"; };
+		E21E445E149F704F00D6EF24 /* GameOverBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameOverBackground-hd.png"; sourceTree = "<group>"; };
+		E21E445F149F704F00D6EF24 /* GameOverBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverBackground.png; sourceTree = "<group>"; };
 		E2389A1D149B7175004DCA32 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E2389A1E149B7175004DCA32 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E2389A20149B89F7004DCA32 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
 		E2389A21149B89F7004DCA32 /* AboutLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLayer.m; sourceTree = "<group>"; };
 		E2389A23149B8A04004DCA32 /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		E2389A24149B8A04004DCA32 /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
-		E2389A26149B8CC4004DCA32 /* GameCompleteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompleteLayer.h; sourceTree = "<group>"; };
-		E2389A27149B8CC4004DCA32 /* GameCompleteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompleteLayer.m; sourceTree = "<group>"; };
+		E2389A26149B8CC4004DCA32 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		E2389A27149B8CC4004DCA32 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		E2389A29149B9851004DCA32 /* Menu_About_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_About_down.png; sourceTree = "<group>"; };
 		E2389A2A149B9851004DCA32 /* Menu_About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_About.png; sourceTree = "<group>"; };
 		E2389A2B149B9851004DCA32 /* Menu_NewGame_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_NewGame_down.png; sourceTree = "<group>"; };
@@ -219,8 +227,8 @@
 		E2389A54149BA5F5004DCA32 /* Menu_Back-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_Back-hd.png"; sourceTree = "<group>"; };
 		E2389A57149BA645004DCA32 /* Menu_Back_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_Back_down.png; sourceTree = "<group>"; };
 		E2389A58149BA645004DCA32 /* Menu_Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_Back.png; sourceTree = "<group>"; };
-		E2389A5B149BF524004DCA32 /* AgentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgentManager.h; sourceTree = "<group>"; };
-		E2389A5C149BF524004DCA32 /* AgentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgentManager.m; sourceTree = "<group>"; };
+		E2389A5B149BF524004DCA32 /* LemmingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LemmingManager.h; sourceTree = "<group>"; };
+		E2389A5C149BF524004DCA32 /* LemmingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LemmingManager.m; sourceTree = "<group>"; };
 		E2613FCD149A96A200356C98 /* helvetica_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helvetica_white.png; sourceTree = "<group>"; };
 		E2613FCE149A96A200356C98 /* helvetica_white.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helvetica_white.fnt; sourceTree = "<group>"; };
 		E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helvetica_blue_small.png; sourceTree = "<group>"; };
@@ -233,8 +241,8 @@
 		E2613FE5149AC2E000356C98 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		E2613FE7149AC36400356C98 /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScene.h; sourceTree = "<group>"; };
 		E2613FE8149AC36400356C98 /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
-		E2613FEA149AC3C200356C98 /* GameCompleteScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCompleteScene.h; sourceTree = "<group>"; };
-		E2613FEB149AC3C200356C98 /* GameCompleteScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCompleteScene.m; sourceTree = "<group>"; };
+		E2613FEA149AC3C200356C98 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		E2613FEB149AC3C200356C98 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		E2613FED149ACBB000356C98 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
 		E2613FEE149ACBB000356C98 /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
 		E274A20E148CF88800917EA7 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
@@ -547,8 +555,8 @@
 		E2133A401479C16800845938 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
-				E2389A5B149BF524004DCA32 /* AgentManager.h */,
-				E2389A5C149BF524004DCA32 /* AgentManager.m */,
+				E2389A5B149BF524004DCA32 /* LemmingManager.h */,
+				E2389A5C149BF524004DCA32 /* LemmingManager.m */,
 				E2ABD05414706AE900E14474 /* AppDelegate.h */,
 				E2ABD05514706AE900E14474 /* AppDelegate.m */,
 				E2613FE1149ABD5300356C98 /* GameManager.h */,
@@ -588,6 +596,8 @@
 		E2613FC0149A6D3D00356C98 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E21E445A149F6ED100D6EF24 /* bangla_dark.png */,
+				E21E445B149F6ED100D6EF24 /* bangla_dark.fnt */,
 				E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */,
 				E2613FDE149AA9C000356C98 /* helvetica_blue.png */,
 				E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */,
@@ -1045,6 +1055,8 @@
 				E2389A35149B986E004DCA32 /* AboutBackground-hd.png */,
 				E2389A3C149B98DD004DCA32 /* DefaultBackground.png */,
 				E2389A36149B986E004DCA32 /* DefaultBackground-hd.png */,
+				E21E445E149F704F00D6EF24 /* GameOverBackground-hd.png */,
+				E21E445F149F704F00D6EF24 /* GameOverBackground.png */,
 				E2389A3D149B98DD004DCA32 /* MainMenuBackground.png */,
 				E2389A37149B986E004DCA32 /* MainMenuBackground-hd.png */,
 			);
@@ -1096,8 +1108,8 @@
 				E2E8C78A14706F54004D07E1 /* GameplayLayer.m */,
 				E2E8C78314706ED6004D07E1 /* BackgroundLayer.h */,
 				E2E8C78414706ED6004D07E1 /* BackgroundLayer.m */,
-				E2389A26149B8CC4004DCA32 /* GameCompleteLayer.h */,
-				E2389A27149B8CC4004DCA32 /* GameCompleteLayer.m */,
+				E2389A26149B8CC4004DCA32 /* GameOverLayer.h */,
+				E2389A27149B8CC4004DCA32 /* GameOverLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1108,8 +1120,8 @@
 				E2613FF0149AD0CB00356C98 /* Menu */,
 				E2E8C78B14706F54004D07E1 /* GameScene.h */,
 				E2E8C78C14706F54004D07E1 /* GameScene.m */,
-				E2613FEA149AC3C200356C98 /* GameCompleteScene.h */,
-				E2613FEB149AC3C200356C98 /* GameCompleteScene.m */,
+				E2613FEA149AC3C200356C98 /* GameOverScene.h */,
+				E2613FEB149AC3C200356C98 /* GameOverScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1210,6 +1222,10 @@
 				E2389A56149BA5F6004DCA32 /* Menu_Back-hd.png in Resources */,
 				E2389A59149BA645004DCA32 /* Menu_Back_down.png in Resources */,
 				E2389A5A149BA645004DCA32 /* Menu_Back.png in Resources */,
+				E21E445C149F6ED100D6EF24 /* bangla_dark.png in Resources */,
+				E21E445D149F6ED100D6EF24 /* bangla_dark.fnt in Resources */,
+				E21E4460149F704F00D6EF24 /* GameOverBackground-hd.png in Resources */,
+				E21E4461149F704F00D6EF24 /* GameOverBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1329,15 +1345,15 @@
 				E2613FE3149ABD5300356C98 /* GameManager.m in Sources */,
 				E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */,
 				E2613FE9149AC36400356C98 /* AboutScene.m in Sources */,
-				E2613FEC149AC3C200356C98 /* GameCompleteScene.m in Sources */,
+				E2613FEC149AC3C200356C98 /* GameOverScene.m in Sources */,
 				E2613FEF149ACBB000356C98 /* SettingsScene.m in Sources */,
 				E2389A1F149B7175004DCA32 /* MainMenuLayer.m in Sources */,
 				E2389A22149B89F7004DCA32 /* AboutLayer.m in Sources */,
 				E2389A25149B8A04004DCA32 /* SettingsLayer.m in Sources */,
-				E2389A28149B8CC5004DCA32 /* GameCompleteLayer.m in Sources */,
+				E2389A28149B8CC5004DCA32 /* GameOverLayer.m in Sources */,
 				E2389A4F149BA2AF004DCA32 /* NewGameScene.m in Sources */,
 				E2389A52149BA328004DCA32 /* NewGameLayer.m in Sources */,
-				E2389A5D149BF524004DCA32 /* AgentManager.m in Sources */,
+				E2389A5D149BF524004DCA32 /* LemmingManager.m in Sources */,
 				E21E4459149E545A00D6EF24 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //  21/11/2011: Created class
 //
 
-#import "AgentManager.h"
+#import "LemmingManager.h"
 #import "CogitoAgent.h"
 #import <Foundation/Foundation.h>
 

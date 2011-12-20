@@ -1,16 +1,16 @@
 //
-//  GameCompleteScene.m
+//  GameOverScene.m
 //  Author: Thomas Taylor
 //
-//  The game complete scene
+//  The game over scene
 //
 //  16/12/2011: Created class
 //
 
-#import "GameCompleteScene.h"
-#import "GameCompleteLayer.h"
+#import "GameOverScene.h"
+#import "GameOverLayer.h"
 
-@implementation GameCompleteScene
+@implementation GameOverScene
 
 #pragma mark -
 #pragma mark Initialisation
@@ -25,8 +25,8 @@
 
 	if (self != nil) 
     {
-		GameCompleteLayer *gameCompleteLayer = [GameCompleteLayer node];
-		[self addChild:gameCompleteLayer];
+		GameOverLayer *gameOverLayer = [GameOverLayer node];
+		[self addChild:gameOverLayer];
 	}
     
 	return self;

@@ -51,7 +51,7 @@
     [openUmbrellaAnim release];
     [floatUmbrellaAnim release];
     [deathAnim release];
-    if(COCOS2D_DEBUG > 1) debugLabel = nil;
+    debugLabel = nil;
     
     [super dealloc];
 }
@@ -232,6 +232,8 @@
         }
     }
     
+    if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
+    
     // if actions have finished running...
     if([self numberOfRunningActions] == 0)
     {
@@ -252,11 +254,9 @@
         else if(self.state == kStateDead) // lemming has played death anim, respawn or remove
         {
             if(respawns > 0) [self changeState:kStateSpawning];
-            else [[AgentManager sharedAgentManager] removeAgent:self];
+            else [[LemmingManager sharedLemmingManager] removeLemming:self];
         }
     }
-    
-    if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
 }
 
 -(void)updateDebugLabel

@@ -27,6 +27,15 @@ typedef enum
 
 typedef enum
 {
+    kRatingA,
+    kRatingB,
+    kRatingC,
+    kRatingD,
+    kRatingF
+} GameRating;
+
+typedef enum
+{
     kStateSpawning,
     kStateIdle,
     kStateWalking,

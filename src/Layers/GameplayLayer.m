@@ -20,6 +20,7 @@
 -(void)addLemming;
 -(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
 -(void)onSettingsButtonPressed;
+-(void)incrementGameTimer;
 
 @end
 
@@ -55,6 +56,8 @@
         
         [self addChild:sceneSpriteBatchNode z:0];
         [self initButtons]; // set up the buttons
+        
+        [[GameManager sharedGameManager] resetSecondCounter];
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
@@ -94,6 +97,8 @@
     {
         [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];
     }
+    
+    [self incrementGameTimer];
 }
 
 #pragma mark -
@@ -105,7 +110,7 @@
 -(void)addLemming
 {
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-    int lemmingCount = [AgentManager sharedAgentManager].agentCount;
+    int lemmingCount = [LemmingManager sharedLemmingManager].lemmingCount;
     
     [self createLemmingAtLocation:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos) withHealth:100 withZValue:(lemmingCount+10) withID:lemmingCount];
 }
@@ -118,7 +123,7 @@
  */
 -(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID  
 {
-    if (![[AgentManager sharedAgentManager] agentsMaxed]) 
+    if (![[LemmingManager sharedLemmingManager] lemmingsMaxed]) 
     {
         Lemming *lemming = [[Lemming alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
         lemming.ID = ID;
@@ -131,7 +136,7 @@
             [lemming setDebugLabel:debugLabel];
         }
         
-        [[AgentManager sharedAgentManager] addAgent:lemming]; 
+        [[LemmingManager sharedLemmingManager] addLemming:lemming]; 
         
         [lemming setPosition:spawnLocation]; 
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];
@@ -162,6 +167,19 @@
             [tempLemming changeState:kStateIdle];
         }
     }
+}
+
+/**
+ * Called every frame, increments the game timer
+ */
+-(void)incrementGameTimer
+{
+    if(frameCounter == kFrameRate)
+    {
+        [[GameManager sharedGameManager] incrementSecondCounter];  
+        frameCounter = 0;
+    }
+    else frameCounter++;
 }
 
 @end

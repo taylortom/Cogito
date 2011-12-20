@@ -14,13 +14,14 @@
 #import "NewGameScene.h"
 #import "SettingsScene.h"
 #import "AboutScene.h"
-#import "GameCompleteScene.h"
+#import "GameOverScene.h"
 
 @implementation GameManager
 
 @synthesize currentScene;
 
 static GameManager* _instance = nil;
+static int secondsPlayed;
 
 #pragma mark -
 #pragma mark Memory Allocation
@@ -55,7 +56,9 @@ static GameManager* _instance = nil;
     
     if (self != nil) 
     {
-        currentScene = kNoSceneUninitialised;
+        [[CCDirector sharedDirector] setAnimationInterval: 1.0/kFrameRate];
+        currentScene = kNoSceneUninitialised; 
+        secondsPlayed = 0;
     }
     
     return self;
@@ -111,7 +114,7 @@ static GameManager* _instance = nil;
             break;
             
         case kGameOverScene:
-            sceneToRun = [GameCompleteScene node];
+            sceneToRun = [GameOverScene node];
             break;
             
         case kGameLevelScene:
@@ -132,7 +135,41 @@ static GameManager* _instance = nil;
     // do we need to replace the scene?
     if([[CCDirector sharedDirector] runningScene] == nil) [[CCDirector sharedDirector] runWithScene:sceneToRun];
     else if(sceneID == kMainMenuScene) [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:0.75 scene:sceneToRun]];
-    else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];
+    else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];    
+}
+
+/**
+ * Increments the second counter
+ */
+-(void)incrementSecondCounter
+{
+    secondsPlayed++;
+}
+
+/**
+ * Resets the second counter to 0
+ */
+-(void)resetSecondCounter
+{
+    secondsPlayed = 0;
+}
+
+/**
+ * Converts the secondsPlayed into a string
+ * in the format mm:ss
+ */
+-(NSString*)getGameTimeInMins
+{
+    int quotient = floor(secondsPlayed/60);
+    int remainder = fmod(secondsPlayed, 60);
+    
+    NSString* quotientString = quotient;
+    NSString* remainderString = remainder;
+        
+    if(quotient < 10) quotientString = [NSString stringWithFormat:@"0%i", quotient];
+    if(remainder < 10) remainderString = [NSString stringWithFormat:@"0%i", remainder];
+    
+    return [NSString stringWithFormat:@"%@:%@", quotientString, remainderString];
 }
 
 @end

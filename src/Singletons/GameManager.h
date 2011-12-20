@@ -20,5 +20,8 @@
 
 +(GameManager*)sharedGameManager;
 -(void)runSceneWithID:(SceneTypes)sceneID;
+-(void)incrementSecondCounter;
+-(void)resetSecondCounter;
+-(NSString*)getGameTimeInMins;
 
 @end
