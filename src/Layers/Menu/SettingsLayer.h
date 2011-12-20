@@ -14,4 +14,8 @@
 
 @interface SettingsLayer : CCLayer
 
+{
+    CCMenu *buttons;  
+}
+
 @end

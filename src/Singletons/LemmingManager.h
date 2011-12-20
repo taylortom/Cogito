@@ -35,5 +35,6 @@
 -(int)lemmingsAdded;
 -(int)lemmingsSaved;
 -(int)lemmingsKilled;
+-(void)reset;
 
 @end

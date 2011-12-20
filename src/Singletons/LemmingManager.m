@@ -46,11 +46,7 @@ static LemmingManager* _instance = nil;
     
     if (self != nil) 
     {
-        totalNumberOfLemmings = 3;
-        lemmingsAdded = 0;
-        lemmingsKilled = 0;
-        lemmingsSaved = 0;
-        lemmings = [[NSMutableArray alloc] init];
+        [self reset];
     }
     
     return self;
@@ -161,6 +157,20 @@ static LemmingManager* _instance = nil;
 -(int)lemmingsKilled
 {
     return lemmingsKilled;
+}
+
+#pragma mark -
+
+/**
+ * Resets the relevant variables ready for a new game
+ */
+-(void)reset
+{
+    totalNumberOfLemmings = 3;
+    lemmingsAdded = 0;
+    lemmingsKilled = 0;
+    lemmingsSaved = 0;
+    lemmings = [[NSMutableArray alloc] init];
 }
 
 @end

@@ -7,14 +7,14 @@
 //  15/12/2011: Created class
 //
 
-//#import "Constants.h"
+#import "AboutScene.h"
+#import "GameOverScene.h"
 #import "GameManager.h"
 #import "GameScene.h"
 #import "MainMenuScene.h"
 #import "NewGameScene.h"
 #import "SettingsScene.h"
-#import "AboutScene.h"
-#import "GameOverScene.h"
+#import "StingScene.h"
 
 @implementation GameManager
 
@@ -97,6 +97,10 @@ static int secondsPlayed;
     
     switch(sceneID) 
     {
+        case kStingScene:
+            sceneToRun = [StingScene node];
+            break;
+            
         case kMainMenuScene:
             sceneToRun = [MainMenuScene node];
             break;
@@ -163,11 +167,8 @@ static int secondsPlayed;
     int quotient = floor(secondsPlayed/60);
     int remainder = fmod(secondsPlayed, 60);
     
-    NSString* quotientString = quotient;
-    NSString* remainderString = remainder;
-        
-    if(quotient < 10) quotientString = [NSString stringWithFormat:@"0%i", quotient];
-    if(remainder < 10) remainderString = [NSString stringWithFormat:@"0%i", remainder];
+    NSString* quotientString = (quotient < 10) ? [NSString stringWithFormat:@"0%i", quotient] : [NSString stringWithFormat:@"%i", quotient];
+    NSString* remainderString = (remainder < 10) ? [NSString stringWithFormat:@"0%i", remainder] : [NSString stringWithFormat:@"%i", remainder];
     
     return [NSString stringWithFormat:@"%@:%@", quotientString, remainderString];
 }

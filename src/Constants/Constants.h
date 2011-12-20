@@ -28,11 +28,12 @@
 typedef enum
 {
     kNoSceneUninitialised       = 0,
-    kMainMenuScene              = 1,
-    kNewGameScene               = 2,
-    kSettingsScene              = 3,
-    kAboutScene                 = 4,
-    kGameOverScene              = 5,
+    kStingScene                 = 1,
+    kMainMenuScene              = 2,
+    kNewGameScene               = 3,
+    kSettingsScene              = 4,
+    kAboutScene                 = 5,
+    kGameOverScene              = 6,
     kGameLevelScene             = 101
 } SceneTypes;
 

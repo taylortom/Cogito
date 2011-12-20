@@ -107,7 +107,8 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
-	// Start the main menu
+	// Start the intro animation
+    //[[GameManager sharedGameManager] runSceneWithID:kStingScene];
     [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
     
 }

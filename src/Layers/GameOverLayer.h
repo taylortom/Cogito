@@ -14,4 +14,8 @@
 
 @interface GameOverLayer : CCLayer
 
+{
+    CCMenu *buttons;  
+}
+
 @end

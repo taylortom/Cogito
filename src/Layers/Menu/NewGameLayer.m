@@ -20,6 +20,10 @@
 #pragma mark -
 #pragma mark Initialisation
 
+/**
+ * Initialises the scene
+ * @return self
+ */
 -(id)init 
 {
 	self = [super init];
@@ -38,6 +42,9 @@
 
 #pragma mark -
 
+/**
+ * Loads the main menu scene
+ */
 -(void)returnToMainMenu 
 {
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];

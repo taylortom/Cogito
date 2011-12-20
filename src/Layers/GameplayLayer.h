@@ -20,6 +20,7 @@
 
 {
     CCMenu *gameplayMenu;
+    CCLabelBMFont *displayText;
     CCSpriteBatchNode *sceneSpriteBatchNode;
     int frameCounter;
 }

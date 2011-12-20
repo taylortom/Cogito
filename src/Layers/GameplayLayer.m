@@ -15,8 +15,9 @@
 
 @interface GameplayLayer()
 
--(void)initButtons;
+-(void)initDisplay;
 -(void)update:(ccTime)deltaTime;
+-(NSString*)getUpdatedDisplayString;
 -(void)addLemming;
 -(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
 -(void)onSettingsButtonPressed;
@@ -43,6 +44,8 @@
  */
 -(id)init 
 {        
+    CCLOG(@"GameplayLayer.init");
+    
     self = [super init];
  
     if (self != nil) 
@@ -50,14 +53,16 @@
         self.isTouchEnabled = YES; // enable touch
     
         srandom(time(NULL)); // set up a random number generator
+
+        // reset the relevant data
+        [[LemmingManager sharedLemmingManager] reset];
+        [[GameManager sharedGameManager] resetSecondCounter];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Lemming_atlas.plist"];
         sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"Lemming_atlas.png"];
         
         [self addChild:sceneSpriteBatchNode z:0];
-        [self initButtons]; // set up the buttons
-        
-        [[GameManager sharedGameManager] resetSecondCounter];
+        [self initDisplay]; // set up the labels/buttons
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
@@ -68,19 +73,30 @@
 
 /**
  * Creates the in-game 'menu'
- * Initialises any buttons in the layer
+ * Initialises any buttons and labels in the layer
  */
--(void)initButtons
+-(void)initDisplay
 {    
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     
     CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings.png" selectedImage:@"settings_down.png" target:self selector:@selector(onSettingsButtonPressed)];
-    settingsButton.position = ccp(screenSize.width*0.90, screenSize.width*0.10f);
+    settingsButton.position = ccp(screenSize.width*0.91, screenSize.height*0.12f);
     
     gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];
     gameplayMenu.position = CGPointZero;
     
     [self addChild:gameplayMenu];
+    
+    // now add the label
+    
+    // SET TEXT ALIGNMENT
+    
+    displayText = [CCLabelBMFont labelWithString:[self getUpdatedDisplayString] fntFile:@"bangla_dark.fnt"];
+    
+    [displayText setAnchorPoint:ccp(1, 1)];
+    [displayText setPosition:ccp(screenSize.width-20, screenSize.height-20)];
+    
+    [self addChild:displayText];
 }
 
 #pragma mark -
@@ -98,7 +114,21 @@
         [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];
     }
     
+    //update the display text
+    [displayText setString:[self getUpdatedDisplayString]];
+    
     [self incrementGameTimer];
+}
+
+/**
+ *
+ */
+-(NSString*)getUpdatedDisplayString
+{
+    return [NSString stringWithFormat:@"saved: %i\nkilled: %i\ntime: %@", 
+                            [[LemmingManager sharedLemmingManager] lemmingsSaved],
+                            [[LemmingManager sharedLemmingManager] lemmingsKilled],
+                            [[GameManager sharedGameManager] getGameTimeInMins]];
 }
 
 #pragma mark -

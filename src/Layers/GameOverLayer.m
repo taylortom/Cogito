@@ -10,6 +10,12 @@
 
 #import "GameOverLayer.h"
 
+@interface GameOverLayer() 
+
+-(void)returnToMainMenu;
+
+@end
+
 @implementation GameOverLayer
 
 #pragma mark -
@@ -40,15 +46,28 @@
 		[statTextLeft setAnchorPoint:ccp(0, 1)];
         [statTextLeft setPosition:ccp(41, screenSize.height-110)];
 		[self addChild:statTextLeft];
+        
+        
+        //create the screen buttons
+        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Back.png" selectedImage:@"Menu_Back_down.png" disabledImage:nil target:self selector:@selector(returnToMainMenu)];
+        
+        // create menu with the items
+        buttons = [CCMenu menuWithItems:backButton, nil];
+        
+        // position the menu
+        [buttons alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
+        [buttons setPosition: ccp(screenSize.width * 0.2, screenSize.height * 0.1)];
+        
+        // add the menu
+        [self addChild:buttons];
 	}
     
 	return self;
 }
 
 
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event 
+-(void)returnToMainMenu
 {
-	CCLOG(@"Touches received, returning to the Main Menu");
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
 
