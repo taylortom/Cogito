@@ -88,8 +88,8 @@
     [mainMenu setPosition: ccp(screenSize.width * 2, screenSize.height * 0.28)];
     
     // create the animations
-    id animateInAction = [CCMoveTo actionWithDuration:1.2f position:ccp(screenSize.width * 0.80f, screenSize.height * 0.28)];
-    id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:1.0f];
+    id animateInAction = [CCMoveTo actionWithDuration:1.5f position:ccp(screenSize.width * 0.80f, screenSize.height * 0.28)];
+    id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:1.5f];
     [mainMenu runAction:easeEffectAction];
     
     // add the menu

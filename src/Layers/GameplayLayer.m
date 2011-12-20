@@ -17,7 +17,8 @@
 
 -(void)initDisplay;
 -(void)update:(ccTime)deltaTime;
--(NSString*)getUpdatedDisplayString;
+-(NSString*)getUpdatedLemmingString;
+-(NSString*)getUpdatedTimeString;
 -(void)addLemming;
 -(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
 -(void)onSettingsButtonPressed;
@@ -87,16 +88,17 @@
     
     [self addChild:gameplayMenu];
     
-    // now add the label
+    // now add the labels
+        
+    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:@"bangla_dark_s.fnt"];
+    [lemmingText setAnchorPoint:ccp(1,1)];
+    [lemmingText setPosition:ccp(screenSize.width-20, screenSize.height-20)];
+    [self addChild:lemmingText];
     
-    // SET TEXT ALIGNMENT
-    
-    displayText = [CCLabelBMFont labelWithString:[self getUpdatedDisplayString] fntFile:@"bangla_dark.fnt"];
-    
-    [displayText setAnchorPoint:ccp(1, 1)];
-    [displayText setPosition:ccp(screenSize.width-20, screenSize.height-20)];
-    
-    [self addChild:displayText];
+    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:@"bangla_dark_s.fnt"];
+    [timeText setAnchorPoint:ccp(1,1)];
+    [timeText setPosition:ccp(screenSize.width-20, screenSize.height-40)];
+    [self addChild:timeText];
 }
 
 #pragma mark -
@@ -115,20 +117,28 @@
     }
     
     //update the display text
-    [displayText setString:[self getUpdatedDisplayString]];
+    [lemmingText setString:[self getUpdatedLemmingString]];
+    [timeText setString:[self getUpdatedTimeString]];
     
     [self incrementGameTimer];
 }
 
 /**
- *
+ * Returns how many Lemmings have been saved, how many killed
  */
--(NSString*)getUpdatedDisplayString
+-(NSString*)getUpdatedLemmingString
 {
-    return [NSString stringWithFormat:@"saved: %i\nkilled: %i\ntime: %@", 
+    return [NSString stringWithFormat:@"saved: %i   killed: %i", 
                             [[LemmingManager sharedLemmingManager] lemmingsSaved],
-                            [[LemmingManager sharedLemmingManager] lemmingsKilled],
-                            [[GameManager sharedGameManager] getGameTimeInMins]];
+                            [[LemmingManager sharedLemmingManager] lemmingsKilled]];
+}
+
+/**
+ * Returns the current time elapsed
+ */
+-(NSString*)getUpdatedTimeString
+{
+    return [NSString stringWithFormat:@"time: %@", [[GameManager sharedGameManager] getGameTimeInMins]];
 }
 
 #pragma mark -

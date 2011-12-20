@@ -12,7 +12,7 @@
 
 //#define COCOS2D_DEBUG           2
 
-#define kFrameRate              30
+#define kFrameRate              60
 
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0

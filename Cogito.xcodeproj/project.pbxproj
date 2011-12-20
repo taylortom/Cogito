@@ -58,6 +58,10 @@
 		E2613FE9149AC36400356C98 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE8149AC36400356C98 /* AboutScene.m */; };
 		E2613FEC149AC3C200356C98 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEB149AC3C200356C98 /* GameOverScene.m */; };
 		E2613FEF149ACBB000356C98 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEE149ACBB000356C98 /* SettingsScene.m */; };
+		E2646A5114A13C72003CC16E /* settings_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A4F14A13C72003CC16E /* settings_down.png */; };
+		E2646A5214A13C72003CC16E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A5014A13C72003CC16E /* settings.png */; };
+		E2646A6114A1471E003CC16E /* bangla_dark_s.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A5F14A1471E003CC16E /* bangla_dark_s.png */; };
+		E2646A6214A1471E003CC16E /* bangla_dark_s.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6014A1471E003CC16E /* bangla_dark_s.fnt */; };
 		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
 		E274A213148CF8B000917EA7 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A212148CF8B000917EA7 /* CogitoAgent.m */; };
 		E28C12AC147A535500385DF6 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AB147A535500385DF6 /* GameObject.m */; };
@@ -259,6 +263,10 @@
 		E2613FEB149AC3C200356C98 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		E2613FED149ACBB000356C98 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
 		E2613FEE149ACBB000356C98 /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
+		E2646A4F14A13C72003CC16E /* settings_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_down.png; sourceTree = "<group>"; };
+		E2646A5014A13C72003CC16E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		E2646A5F14A1471E003CC16E /* bangla_dark_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bangla_dark_s.png; sourceTree = "<group>"; };
+		E2646A6014A1471E003CC16E /* bangla_dark_s.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bangla_dark_s.fnt; sourceTree = "<group>"; };
 		E274A20E148CF88800917EA7 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		E274A20F148CF88800917EA7 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
 		E274A211148CF8B000917EA7 /* CogitoAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CogitoAgent.h; sourceTree = "<group>"; };
@@ -612,8 +620,10 @@
 			children = (
 				E21E445A149F6ED100D6EF24 /* bangla_dark.png */,
 				E21E445B149F6ED100D6EF24 /* bangla_dark.fnt */,
-				E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */,
+				E2646A5F14A1471E003CC16E /* bangla_dark_s.png */,
+				E2646A6014A1471E003CC16E /* bangla_dark_s.fnt */,
 				E2613FDE149AA9C000356C98 /* helvetica_blue.png */,
+				E2613FDD149AA9C000356C98 /* helvetica_blue.fnt */,
 				E2613FD9149AA9B000356C98 /* helvetica_blue_small.png */,
 				E2613FDA149AA9B000356C98 /* helvetica_blue_small.fnt */,
 				E2613FCD149A96A200356C98 /* helvetica_white.png */,
@@ -1114,6 +1124,8 @@
 				E2389A2E149B9851004DCA32 /* Menu_Settings.png */,
 				E294A06114785247007C087E /* settings_down-hd.png */,
 				E294A06214785247007C087E /* settings-hd.png */,
+				E2646A4F14A13C72003CC16E /* settings_down.png */,
+				E2646A5014A13C72003CC16E /* settings.png */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1252,6 +1264,10 @@
 				E226863A14A0D84C0020B44E /* SettingsBackground.png in Resources */,
 				E226864214A0DB290020B44E /* Default@2x.png in Resources */,
 				E226864414A0DB6B0020B44E /* Default.png in Resources */,
+				E2646A5114A13C72003CC16E /* settings_down.png in Resources */,
+				E2646A5214A13C72003CC16E /* settings.png in Resources */,
+				E2646A6114A1471E003CC16E /* bangla_dark_s.png in Resources */,
+				E2646A6214A1471E003CC16E /* bangla_dark_s.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
