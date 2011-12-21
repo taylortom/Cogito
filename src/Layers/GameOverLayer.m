@@ -80,7 +80,7 @@
 		[self addChild:gameRating];
         
         //create and position the screen buttons
-        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Back.png" selectedImage:@"Menu_Back_down.png" disabledImage:nil target:self selector:@selector(returnToMainMenu)];
+        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu.png" selectedImage:@"Menu_down.png" disabledImage:nil target:self selector:@selector(returnToMainMenu)];
         buttons = [CCMenu menuWithItems:backButton, nil];
         [buttons alignItemsVerticallyWithPadding:winSize.height * 0.059f];
         [buttons setPosition: ccp(winSize.width * 0.2, winSize.height * 0.1)];

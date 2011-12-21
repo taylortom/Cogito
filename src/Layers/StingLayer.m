@@ -7,8 +7,14 @@
 //  16/12/2011: Created class
 //
 
-
 #import "StingLayer.h"
+
+@interface StingLayer()
+
+-(void)displayLogo;
+-(void)loadMainMenu;
+
+@end
 
 @implementation StingLayer
 
@@ -27,15 +33,45 @@
 	{
 		CGSize winSize = [CCDirector sharedDirector].winSize;
         
-		CCSprite *background = nil;
-		background = [CCSprite spriteWithFile:@"DefaultBackground.png"];
-		[background setPosition:ccp(winSize.width/2, winSize.height/2)];
-		[self addChild:background];
-                
-        [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+        // add default backdround to make transitions look nicer 
+		CCSprite *background = [CCSprite spriteWithFile:@"DefaultBackground.png"];
+        [background setPosition:ccp(winSize.width/2, winSize.height/2)];
+		[self addChild:background z:0];
+        
+        [self displayLogo];
 	}
     
 	return self;
+}
+
+/**
+ * Loads the logo splash and animates it in/out
+ */
+- (void)displayLogo
+{    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    CCSprite *splashImage = [CCSprite spriteWithFile:@"LogoSplash.png"];
+    splashImage.opacity = 0.0f;
+    [splashImage setPosition:ccp(winSize.width/2, winSize.height/2)];
+    [self addChild:splashImage z:1];
+    
+    // create the sequence of actions
+    id fadeIn = [CCFadeIn actionWithDuration:1.0f];
+    id delay = [CCDelayTime actionWithDuration:2.0f];
+    id fadeOut = [CCFadeOut actionWithDuration:0.75f];
+    id loadMenu = [CCCallFunc actionWithTarget:self selector:@selector(loadMainMenu)];
+    id logoSequence = [CCSequence actions:fadeIn, delay, fadeOut, loadMenu, nil];
+    [splashImage runAction:logoSequence];
+}
+
+/**
+ * Loads the main menu scene
+ */
+-(void)loadMainMenu 
+{
+    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0f scene:[MainMenuScene node]]];    
 }
 
 @end
