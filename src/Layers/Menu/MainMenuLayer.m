@@ -37,10 +37,10 @@
     
     if (self != nil) 
     {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
+        CGSize winSize = [CCDirector sharedDirector].winSize;
         
         CCSprite *background = [CCSprite spriteWithFile:@"MainMenuBackground.png"];
-        [background setPosition:ccp(screenSize.width / 2, screenSize.height / 2)];
+        [background setPosition:ccp(winSize.width/2, winSize.height/2)];
         [self addChild:background];
         [self displayMainMenu];
     }
@@ -56,15 +56,8 @@
  */
 -(void)playScene: (CCMenuItemFont*)menuItemToPlay
 {
-    if([menuItemToPlay tag] == 1)
-    {
-        [[GameManager sharedGameManager] runSceneWithID:kSettingsScene];
-    }
-    else
-    {
-        // do nothing yet
-        CCLOG(@"Tag %d passed", [menuItemToPlay tag]);
-    }
+    if([menuItemToPlay tag] == 1) [[GameManager sharedGameManager] runSceneWithID:kSettingsScene];
+    else CCLOG(@"Tag %d passed", [menuItemToPlay tag]);
 }
 
 /**
@@ -73,7 +66,7 @@
 -(void)displayMainMenu
 {
     
-    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CGSize winSize = [CCDirector sharedDirector].winSize;
     
     //create the menu buttons
     CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"Menu_NewGame.png" selectedImage:@"Menu_NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
@@ -84,11 +77,11 @@
     mainMenu = [CCMenu menuWithItems:newGameButton, settingsButton, aboutButton, nil];
     
     // position the menu
-    [mainMenu alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
-    [mainMenu setPosition: ccp(screenSize.width * 2, screenSize.height * 0.28)];
+    [mainMenu alignItemsVerticallyWithPadding:winSize.height * 0.059f];
+    [mainMenu setPosition: ccp(winSize.width * 2, winSize.height * 0.28)];
     
     // create the animations
-    id animateInAction = [CCMoveTo actionWithDuration:1.5f position:ccp(screenSize.width * 0.80f, screenSize.height * 0.28)];
+    id animateInAction = [CCMoveTo actionWithDuration:1.5f position:ccp(winSize.width * 0.80f, winSize.height * 0.28)];
     id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:1.5f];
     [mainMenu runAction:easeEffectAction];
     

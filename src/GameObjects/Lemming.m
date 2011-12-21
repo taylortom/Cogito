@@ -112,7 +112,7 @@
     {
             
         case kStateSpawning:
-            [self setPosition:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos)];
+            [self setPosition:ccp(winSize.width*kLemmingSpawnXPos, winSize.height*kLemmingSpawnYPos)];
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             id fallingAction = [CCMoveBy actionWithDuration:0.15f position:ccp(0.0f, movementAmount*-1)];
@@ -262,6 +262,7 @@
 -(void)updateDebugLabel
 {
     CGPoint newPosition = [self position];
+    
     //NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
     NSString *debugString = [NSString stringWithFormat:@"x: %f y: %f \n Health: %i \n", newPosition.x, newPosition.y, self.health];
     
@@ -293,7 +294,7 @@
             break;
     }
     
-    float yOffset = screenSize.height*0.1f;
+    float yOffset = winSize.height*0.1f;
     newPosition = ccp(newPosition.x, newPosition.y+yOffset);
     [debugLabel setPosition:newPosition];
 }

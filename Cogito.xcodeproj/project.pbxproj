@@ -62,6 +62,11 @@
 		E2646A5214A13C72003CC16E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A5014A13C72003CC16E /* settings.png */; };
 		E2646A6114A1471E003CC16E /* bangla_dark_s.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A5F14A1471E003CC16E /* bangla_dark_s.png */; };
 		E2646A6214A1471E003CC16E /* bangla_dark_s.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6014A1471E003CC16E /* bangla_dark_s.fnt */; };
+		E2646A6914A15727003CC16E /* GameRating_A.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6414A15727003CC16E /* GameRating_A.png */; };
+		E2646A6A14A15727003CC16E /* GameRating_B.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6514A15727003CC16E /* GameRating_B.png */; };
+		E2646A6B14A15727003CC16E /* GameRating_C.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6614A15727003CC16E /* GameRating_C.png */; };
+		E2646A6C14A15727003CC16E /* GameRating_D.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6714A15727003CC16E /* GameRating_D.png */; };
+		E2646A6D14A15727003CC16E /* GameRating_F.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6814A15727003CC16E /* GameRating_F.png */; };
 		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
 		E274A213148CF8B000917EA7 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A212148CF8B000917EA7 /* CogitoAgent.m */; };
 		E28C12AC147A535500385DF6 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AB147A535500385DF6 /* GameObject.m */; };
@@ -267,6 +272,11 @@
 		E2646A5014A13C72003CC16E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		E2646A5F14A1471E003CC16E /* bangla_dark_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bangla_dark_s.png; sourceTree = "<group>"; };
 		E2646A6014A1471E003CC16E /* bangla_dark_s.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bangla_dark_s.fnt; sourceTree = "<group>"; };
+		E2646A6414A15727003CC16E /* GameRating_A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_A.png; sourceTree = "<group>"; };
+		E2646A6514A15727003CC16E /* GameRating_B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_B.png; sourceTree = "<group>"; };
+		E2646A6614A15727003CC16E /* GameRating_C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_C.png; sourceTree = "<group>"; };
+		E2646A6714A15727003CC16E /* GameRating_D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_D.png; sourceTree = "<group>"; };
+		E2646A6814A15727003CC16E /* GameRating_F.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_F.png; sourceTree = "<group>"; };
 		E274A20E148CF88800917EA7 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		E274A20F148CF88800917EA7 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
 		E274A211148CF8B000917EA7 /* CogitoAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CogitoAgent.h; sourceTree = "<group>"; };
@@ -648,6 +658,18 @@
 			name = Menu;
 			path = src/Scenes/Menu;
 			sourceTree = SOURCE_ROOT;
+		};
+		E2646A6314A1561B003CC16E /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				E2646A6414A15727003CC16E /* GameRating_A.png */,
+				E2646A6514A15727003CC16E /* GameRating_B.png */,
+				E2646A6614A15727003CC16E /* GameRating_C.png */,
+				E2646A6714A15727003CC16E /* GameRating_D.png */,
+				E2646A6814A15727003CC16E /* GameRating_F.png */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
 		};
 		E294A0561478061E007C087E /* Texture Atlases */ = {
 			isa = PBXGroup;
@@ -1064,11 +1086,12 @@
 		E2ABD06514706B1100E14474 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				E294A0561478061E007C087E /* Texture Atlases */,
-				E2E419391477F65300281724 /* Buttons */,
 				E2ABD07814706B6700E14474 /* Backgrounds */,
-				E2ABD06414706B1000E14474 /* Splash */,
+				E2E419391477F65300281724 /* Buttons */,
 				E2ABD06314706B0C00E14474 /* Icons */,
+				E2646A6314A1561B003CC16E /* Misc */,
+				E2ABD06414706B1000E14474 /* Splash */,
+				E294A0561478061E007C087E /* Texture Atlases */,
 			);
 			name = Images;
 			path = Assets;
@@ -1268,6 +1291,11 @@
 				E2646A5214A13C72003CC16E /* settings.png in Resources */,
 				E2646A6114A1471E003CC16E /* bangla_dark_s.png in Resources */,
 				E2646A6214A1471E003CC16E /* bangla_dark_s.fnt in Resources */,
+				E2646A6914A15727003CC16E /* GameRating_A.png in Resources */,
+				E2646A6A14A15727003CC16E /* GameRating_B.png in Resources */,
+				E2646A6B14A15727003CC16E /* GameRating_C.png in Resources */,
+				E2646A6C14A15727003CC16E /* GameRating_D.png in Resources */,
+				E2646A6D14A15727003CC16E /* GameRating_F.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

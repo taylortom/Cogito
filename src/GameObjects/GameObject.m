@@ -27,7 +27,7 @@
 {    
     if(self = [super init])
     {
-        screenSize = [CCDirector sharedDirector].winSize;
+        winSize = [CCDirector sharedDirector].winSize;
         isActive = true;
         gameObjectType = kObjectTypeNone;
     }

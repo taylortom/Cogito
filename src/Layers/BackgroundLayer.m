@@ -24,14 +24,10 @@
     
     if (self != nil) 
     {
-        CCSprite *backgroundImage;
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
         
-        // Set background image depending on device
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) backgroundImage = [CCSprite spriteWithFile:@"DefaultBackground.png"];
-     
-        CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        [backgroundImage setPosition:CGPointMake(screenSize.width/2, screenSize.height/2)];
-        
+        CCSprite *backgroundImage = [CCSprite spriteWithFile:@"DefaultBackground.png"];
+        [backgroundImage setPosition:CGPointMake(winSize.width/2, winSize.height/2)];
         [self addChild:backgroundImage z:0 tag:0];
     }
     

@@ -50,7 +50,7 @@
  */
 -(void)buildInterface
 {
-    CGSize screenSize = [CCDirector sharedDirector].winSize; 
+    CGSize winSize = [CCDirector sharedDirector].winSize; 
     
     //create the screen buttons
     CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Back.png" selectedImage:@"Menu_Back_down.png" disabledImage:nil target:self selector:@selector(returnToMainMenu)];
@@ -59,8 +59,8 @@
     buttons = [CCMenu menuWithItems:backButton, nil];
     
     // position the menu
-    [buttons alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
-    [buttons setPosition: ccp(screenSize.width * 0.2, screenSize.height * 0.1)];
+    [buttons alignItemsVerticallyWithPadding:winSize.height * 0.059f];
+    [buttons setPosition: ccp(winSize.width * 0.2, winSize.height * 0.1)];
     
     // add the menu
     [self addChild:buttons];

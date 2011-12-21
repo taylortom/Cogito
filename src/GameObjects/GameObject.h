@@ -17,7 +17,7 @@
 {
     BOOL isActive;
     BOOL reactsToScreenBoundaries;
-    CGSize screenSize;
+    CGSize winSize;
     GameObjectType gameObjectType;
 }
 

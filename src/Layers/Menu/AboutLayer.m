@@ -30,9 +30,9 @@
     
 	if (self != nil) 
     {
-		CGSize screenSize = [CCDirector sharedDirector].winSize; 
+		CGSize winSize = [CCDirector sharedDirector].winSize; 
 		CCSprite *background = [CCSprite spriteWithFile:@"AboutBackground.png"];
-		[background setPosition:ccp(screenSize.width/2, screenSize.height/2)];
+		[background setPosition:ccp(winSize.width/2, winSize.height/2)];
 		[self addChild:background];
         
         //create the menu buttons
@@ -42,8 +42,8 @@
         buttons = [CCMenu menuWithItems:backButton, nil];
         
         // position the menu
-        [buttons alignItemsVerticallyWithPadding:screenSize.height * 0.059f];
-        [buttons setPosition: ccp(screenSize.width * 0.2, screenSize.height * 0.1)];
+        [buttons alignItemsVerticallyWithPadding:winSize.height * 0.059f];
+        [buttons setPosition: ccp(winSize.width * 0.2, winSize.height * 0.1)];
         
         // add the menu
         [self addChild:buttons];

@@ -44,9 +44,7 @@
  * @return self
  */
 -(id)init 
-{        
-    CCLOG(@"GameplayLayer.init");
-    
+{            
     self = [super init];
  
     if (self != nil) 
@@ -78,10 +76,10 @@
  */
 -(void)initDisplay
 {    
-    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CGSize winSize = [CCDirector sharedDirector].winSize;
     
     CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings.png" selectedImage:@"settings_down.png" target:self selector:@selector(onSettingsButtonPressed)];
-    settingsButton.position = ccp(screenSize.width*0.91, screenSize.height*0.12f);
+    settingsButton.position = ccp(winSize.width*0.91, winSize.height*0.12f);
     
     gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];
     gameplayMenu.position = CGPointZero;
@@ -92,12 +90,12 @@
         
     lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:@"bangla_dark_s.fnt"];
     [lemmingText setAnchorPoint:ccp(1,1)];
-    [lemmingText setPosition:ccp(screenSize.width-20, screenSize.height-20)];
+    [lemmingText setPosition:ccp(winSize.width-20, winSize.height-20)];
     [self addChild:lemmingText];
     
     timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:@"bangla_dark_s.fnt"];
     [timeText setAnchorPoint:ccp(1,1)];
-    [timeText setPosition:ccp(screenSize.width-20, screenSize.height-40)];
+    [timeText setPosition:ccp(winSize.width-20, winSize.height-40)];
     [self addChild:timeText];
 }
 
@@ -191,9 +189,7 @@
  * Called when settings button's pressed
  */
 -(void)onSettingsButtonPressed
-{
-    CCLOG(@"GameplayLayer.onSettingsButtonPressed");
-    
+{    
     CCArray *gameObjects = [sceneSpriteBatchNode children];
     
     for (Lemming *tempLemming in gameObjects) 
