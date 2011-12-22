@@ -11,7 +11,7 @@
 
 @interface AboutLayer()
 
--(void)returnToMainMenu;
+-(void)onBackButtonPressed;
 
 @end
 
@@ -36,7 +36,7 @@
 		[self addChild:background];
         
         //create the menu buttons
-        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Back.png" selectedImage:@"Menu_Back_down.png" disabledImage:nil target:self selector:@selector(returnToMainMenu)];
+        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Back.png" selectedImage:@"Menu_Back_down.png" disabledImage:nil target:self selector:@selector(onBackButtonPressed)];
         
         // create menu with the items
         buttons = [CCMenu menuWithItems:backButton, nil];
@@ -56,7 +56,7 @@
 /**
  * Loads the main menu scene
  */
--(void)returnToMainMenu 
+-(void)onBackButtonPressed 
 {
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }

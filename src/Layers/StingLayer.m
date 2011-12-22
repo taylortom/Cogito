@@ -57,7 +57,7 @@
     [self addChild:splashImage z:1];
     
     // create the sequence of actions
-    id fadeIn = [CCFadeIn actionWithDuration:1.0f];
+    id fadeIn = [CCFadeIn actionWithDuration:0.5f];
     id delay = [CCDelayTime actionWithDuration:2.0f];
     id fadeOut = [CCFadeOut actionWithDuration:0.75f];
     id loadMenu = [CCCallFunc actionWithTarget:self selector:@selector(loadMainMenu)];

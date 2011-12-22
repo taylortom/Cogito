@@ -15,14 +15,19 @@
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
 #import "Lemming.h"
+#import "PauseMenuLayer.h"
 
 @interface GameplayLayer : CCLayer
 
 {
+    CCSpriteBatchNode *sceneSpriteBatchNode;
+    
     CCMenu *gameplayMenu;
     CCLabelBMFont *lemmingText;
     CCLabelBMFont *timeText;
-    CCSpriteBatchNode *sceneSpriteBatchNode;
+    
+    PauseMenuLayer *pauseMenu;
+    
     int frameCounter;
 }
 

@@ -13,8 +13,14 @@
 #import "GameScene.h"
 #import "MainMenuScene.h"
 #import "NewGameScene.h"
-#import "SettingsScene.h"
 #import "StingScene.h"
+
+@interface GameManager()
+
+-(void)pauseSchedulerAndActionsRecursive:(CCNode *)node;
+-(void)resumeSchedulerAndActionsRecursive:(CCNode *)node;
+
+@end
 
 @implementation GameManager
 
@@ -109,10 +115,6 @@ static int secondsPlayed;
             sceneToRun = [NewGameScene node];
             break;
             
-        case kSettingsScene:
-            sceneToRun = [SettingsScene node];
-            break;
-            
         case kAboutScene:
             sceneToRun = [AboutScene node];
             break;
@@ -141,6 +143,42 @@ static int secondsPlayed;
     else if(sceneID == kMainMenuScene) [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:0.75 scene:sceneToRun]];
     else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];    
 }
+
+/**
+ * Pauses all nodes in the running scene
+ */
+-(void)pauseGame
+{
+    [self pauseSchedulerAndActionsRecursive:[CCDirector sharedDirector].runningScene];
+}
+
+/**
+ * Resumes all nodes in the running scene
+ */
+-(void)resumeGame
+{
+    [self resumeSchedulerAndActionsRecursive:[CCDirector sharedDirector].runningScene];
+}
+
+/**
+ * Recursively calls pauseSchedulerAndActions to every child of the passed CCNode 
+ */
+-(void)pauseSchedulerAndActionsRecursive:(CCNode *)node 
+{
+    [node pauseSchedulerAndActions];
+    for (CCNode *child in [node children]) [self pauseSchedulerAndActionsRecursive:child];
+}
+
+/**
+ * Recursively calls resumeSchedulerAndActions to every child of the passed CCNode 
+ */
+-(void)resumeSchedulerAndActionsRecursive:(CCNode *)node 
+{
+    [node resumeSchedulerAndActions];
+    for (CCNode *child in [node children]) [self resumeSchedulerAndActionsRecursive:child];
+}
+
+#pragma mark -
 
 /**
  * Increments the second counter

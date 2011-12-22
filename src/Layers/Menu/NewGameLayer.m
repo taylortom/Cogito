@@ -11,7 +11,7 @@
 
 @interface NewGameLayer()
 
--(void)returnToMainMenu;
+-(void)onBackButtonPressed;
 
 @end
 
@@ -45,7 +45,7 @@
 /**
  * Loads the main menu scene
  */
--(void)returnToMainMenu 
+-(void)onBackButtonPressed 
 {
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }

@@ -15,9 +15,9 @@
 @interface MainMenuLayer()
 
 -(void)playScene: (CCMenuItemFont*)menuItemToPlay;
--(void)displayMainMenu;
+-(void)buildMainMenu;
 -(void)onNewGameButtonPressed;
--(void)onSettingsButtonPressed;
+-(void)onHighScoresButtonPressed;
 -(void)onAboutButtonPressed;
 
 @end
@@ -42,7 +42,7 @@
         CCSprite *background = [CCSprite spriteWithFile:@"MainMenuBackground.png"];
         [background setPosition:ccp(winSize.width/2, winSize.height/2)];
         [self addChild:background];
-        [self displayMainMenu];
+        [self buildMainMenu];
     }
     
     return self;
@@ -63,18 +63,18 @@
 /**
  * Displays the main menu
  */
--(void)displayMainMenu
+-(void)buildMainMenu
 {
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
     //create the menu buttons
     CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"Menu_NewGame.png" selectedImage:@"Menu_NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
-    CCMenuItemImage *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Settings.png" selectedImage:@"Menu_Settings_down.png" disabledImage:nil target:self selector:@selector(onSettingsButtonPressed)];
+    CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Settings.png" selectedImage:@"Menu_Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
     CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"Menu_About.png" selectedImage:@"Menu_About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items
-    mainMenu = [CCMenu menuWithItems:newGameButton, settingsButton, aboutButton, nil];
+    mainMenu = [CCMenu menuWithItems:newGameButton, highScoresButton, aboutButton, nil];
     
     // position the menu
     [mainMenu alignItemsVerticallyWithPadding:winSize.height * 0.059f];
@@ -104,9 +104,9 @@
 /**
  * Displays the settings screen
  */
--(void)onSettingsButtonPressed
+-(void)onHighScoresButtonPressed
 {
-    [[GameManager sharedGameManager] runSceneWithID:kSettingsScene];
+    CCLOG(@"MainMenuLayer.onHighScoresButtonPressed");
 }
 
 /**

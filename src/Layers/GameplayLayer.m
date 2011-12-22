@@ -21,8 +21,8 @@
 -(NSString*)getUpdatedTimeString;
 -(void)addLemming;
 -(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
--(void)onSettingsButtonPressed;
 -(void)incrementGameTimer;
+-(void)onSettingsButtonPressed;
 
 @end
 
@@ -50,9 +50,8 @@
     if (self != nil) 
     {
         self.isTouchEnabled = YES; // enable touch
-    
         srandom(time(NULL)); // set up a random number generator
-
+        
         // reset the relevant data
         [[LemmingManager sharedLemmingManager] reset];
         [[GameManager sharedGameManager] resetSecondCounter];
@@ -186,26 +185,6 @@
 #pragma mark -
 
 /**
- * Called when settings button's pressed
- */
--(void)onSettingsButtonPressed
-{    
-    CCArray *gameObjects = [sceneSpriteBatchNode children];
-    
-    for (Lemming *tempLemming in gameObjects) 
-    {
-        if([tempLemming state] == kStateIdle) [tempLemming changeState:kStateWalking];
-        else if([tempLemming state] == kStateWalking) [tempLemming changeState:kStateFloating];
-        else if([tempLemming state] == kStateFloating) tempLemming.health = 0;
-        else 
-        {
-            tempLemming.health = 100;
-            [tempLemming changeState:kStateIdle];
-        }
-    }
-}
-
-/**
  * Called every frame, increments the game timer
  */
 -(void)incrementGameTimer
@@ -216,6 +195,38 @@
         frameCounter = 0;
     }
     else frameCounter++;
+}
+
+#pragma mark -
+#pragma mark Event Handling
+
+/**
+ * Called when settings button's pressed
+ */
+-(void)onSettingsButtonPressed
+{    
+    if(pauseMenu == nil) 
+    {
+        pauseMenu = [PauseMenuLayer node];
+        [self addChild:pauseMenu z:999];
+    }
+    
+    [[GameManager sharedGameManager] pauseGame];
+    [pauseMenu animateIn];
+    
+    /*CCArray *gameObjects = [sceneSpriteBatchNode children];
+     
+    for (Lemming *tempLemming in gameObjects) 
+    {
+        if([tempLemming state] == kStateIdle) [tempLemming changeState:kStateWalking];
+        else if([tempLemming state] == kStateWalking) [tempLemming changeState:kStateFloating];
+        else if([tempLemming state] == kStateFloating) tempLemming.health = 0;
+        else 
+        {
+            tempLemming.health = 100;
+            [tempLemming changeState:kStateIdle];
+        }
+    }*/
 }
 
 @end

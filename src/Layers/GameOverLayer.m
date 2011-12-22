@@ -12,7 +12,7 @@
 
 @interface GameOverLayer() 
 
--(void)returnToMainMenu;
+-(void)onMenuButtonPressed;
 
 @end
 
@@ -80,8 +80,8 @@
 		[self addChild:gameRating];
         
         //create and position the screen buttons
-        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu.png" selectedImage:@"Menu_down.png" disabledImage:nil target:self selector:@selector(returnToMainMenu)];
-        buttons = [CCMenu menuWithItems:backButton, nil];
+        CCMenuItemImage *menuButton = [CCMenuItemImage itemFromNormalImage:@"Menu.png" selectedImage:@"Menu_down.png" disabledImage:nil target:self selector:@selector(onMenuButtonPressed)];
+        buttons = [CCMenu menuWithItems:menuButton, nil];
         [buttons alignItemsVerticallyWithPadding:winSize.height * 0.059f];
         [buttons setPosition: ccp(winSize.width * 0.2, winSize.height * 0.1)];
         
@@ -93,7 +93,7 @@
 }
 
 
--(void)returnToMainMenu
+-(void)onMenuButtonPressed
 {
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
