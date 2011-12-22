@@ -14,6 +14,8 @@
 
 #define kFrameRate              60
 
+#define kMenuFont               @"bangla_dark.fnt"
+
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
 #define kLemmingIdleTimer       3.0f
