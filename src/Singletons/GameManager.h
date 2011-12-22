@@ -14,6 +14,7 @@
 
 {
     SceneTypes currentScene;
+    BOOL gamePaused;
 }
 
 @property (readonly) SceneTypes currentScene;
@@ -25,5 +26,6 @@
 -(void)incrementSecondCounter;
 -(void)resetSecondCounter;
 -(NSString*)getGameTimeInMins;
+-(BOOL)gamePaused;
 
 @end

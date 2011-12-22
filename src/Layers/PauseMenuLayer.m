@@ -54,7 +54,7 @@
 {
     screenlock = [CCLayerColor layerWithColor:ccc4(0,0,0,0)];
     [screenlock setOpacity:screenlockOpacity];
-    screenlock.isTouchEnabled = NO;
+//    screenlock.isTouchEnabled = NO;
     [self addChild:screenlock z:0];
 }
 

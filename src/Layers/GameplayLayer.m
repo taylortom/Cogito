@@ -211,8 +211,11 @@
         [self addChild:pauseMenu z:999];
     }
     
-    [[GameManager sharedGameManager] pauseGame];
-    [pauseMenu animateIn];
+    if(![[GameManager sharedGameManager] gamePaused])
+    {
+        [[GameManager sharedGameManager] pauseGame];
+        [pauseMenu animateIn];
+    }
     
     /*CCArray *gameObjects = [sceneSpriteBatchNode children];
      

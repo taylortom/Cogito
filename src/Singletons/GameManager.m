@@ -65,6 +65,7 @@ static int secondsPlayed;
         [[CCDirector sharedDirector] setAnimationInterval: 1.0/kFrameRate];
         currentScene = kNoSceneUninitialised; 
         secondsPlayed = 0;
+        gamePaused = NO;
     }
     
     return self;
@@ -150,6 +151,7 @@ static int secondsPlayed;
 -(void)pauseGame
 {
     [self pauseSchedulerAndActionsRecursive:[CCDirector sharedDirector].runningScene];
+    gamePaused = YES;
 }
 
 /**
@@ -158,6 +160,7 @@ static int secondsPlayed;
 -(void)resumeGame
 {
     [self resumeSchedulerAndActionsRecursive:[CCDirector sharedDirector].runningScene];
+    gamePaused = NO;
 }
 
 /**
@@ -209,6 +212,14 @@ static int secondsPlayed;
     NSString* remainderString = (remainder < 10) ? [NSString stringWithFormat:@"0%i", remainder] : [NSString stringWithFormat:@"%i", remainder];
     
     return [NSString stringWithFormat:@"%@:%@", quotientString, remainderString];
+}
+
+/**
+ * Whether the game is currently is paused
+ */
+-(BOOL)gamePaused
+{
+    return gamePaused;
 }
 
 @end
