@@ -69,9 +69,9 @@
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
     //create the menu buttons
-    CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"Menu_NewGame.png" selectedImage:@"Menu_NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
-    CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Settings.png" selectedImage:@"Menu_Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
-    CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"Menu_About.png" selectedImage:@"Menu_About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
+    CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"NewGame.png" selectedImage:@"NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
+    CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Settings.png" selectedImage:@"Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
+    CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"About.png" selectedImage:@"About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items
     mainMenu = [CCMenu menuWithItems:newGameButton, highScoresButton, aboutButton, nil];

@@ -71,7 +71,6 @@
 -(void)loadMainMenu 
 {
     [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
-    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0f scene:[MainMenuScene node]]];    
 }
 
 @end

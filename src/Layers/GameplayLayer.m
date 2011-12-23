@@ -77,7 +77,7 @@
 {    
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
-    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"settings.png" selectedImage:@"settings_down.png" target:self selector:@selector(onSettingsButtonPressed)];
+    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Spanner.png" selectedImage:@"Spanner_down.png" target:self selector:@selector(onSettingsButtonPressed)];
     settingsButton.position = ccp(winSize.width*0.91, winSize.height*0.12f);
     
     gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];

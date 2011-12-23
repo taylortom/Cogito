@@ -101,13 +101,15 @@
     
     CCLabelBMFont *resumeButtonLabel = [CCLabelBMFont labelWithString:@"> resume" fntFile:kMenuFont];
     CCMenuItemLabel *resumeButton = [CCMenuItemLabel itemWithLabel:resumeButtonLabel target:self selector:@selector(onResumePressed)];    
+    [resumeButton setAnchorPoint:ccp(0,0.5)];
     
     CCLabelBMFont *exitButtonLabel = [CCLabelBMFont labelWithString:@"> exit" fntFile:kMenuFont];
     CCMenuItemLabel *exitButton = [CCMenuItemLabel itemWithLabel:exitButtonLabel target:self selector:@selector(onQuitPressed)];
+    [exitButton setAnchorPoint:ccp(0,0.5)];
     
     pauseButtons = [CCMenu menuWithItems:resumeButton, exitButton, nil];
     [pauseButtons alignItemsVerticallyWithPadding:-5];
-    [pauseButtons setPosition:ccp(winSize.width*0.22f, winSize.height*0.43f)];
+    [pauseButtons setPosition:ccp(winSize.width*0.11f, winSize.height*0.4f)];
     [menuPopup addChild:pauseButtons z:1];
 }
     
@@ -150,8 +152,7 @@
  */
 -(void)toggleVisibility
 {
-    if(menuPopup.visible) [menuPopup setVisible:NO];
-    else [menuPopup setVisible:YES];
+    menuPopup.visible = !menuPopup.visible;
 }
 
 #pragma mark -

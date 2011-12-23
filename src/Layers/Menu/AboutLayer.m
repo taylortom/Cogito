@@ -36,7 +36,7 @@
 		[self addChild:background];
         
         //create the menu buttons
-        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Menu_Back.png" selectedImage:@"Menu_Back_down.png" disabledImage:nil target:self selector:@selector(onBackButtonPressed)];
+        CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"Back.png" selectedImage:@"Back_down.png" disabledImage:nil target:self selector:@selector(onBackButtonPressed)];
         
         // create menu with the items
         buttons = [CCMenu menuWithItems:backButton, nil];
