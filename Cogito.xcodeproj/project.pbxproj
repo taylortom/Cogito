@@ -29,6 +29,7 @@
 		E2124D3C14A5213800462D92 /* bangla_dark_large-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2124D3A14A5213800462D92 /* bangla_dark_large-hd.png */; };
 		E2124D5714A526A100462D92 /* bangla_dark_large.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2124D5514A526A100462D92 /* bangla_dark_large.fnt */; };
 		E2124D5814A526A100462D92 /* bangla_dark_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E2124D5614A526A100462D92 /* bangla_dark_large.png */; };
+		E2124D5D14A52E8600462D92 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = E2124D5C14A52E8600462D92 /* fps_images.png */; };
 		E21E4459149E545A00D6EF24 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E21E4458149E545A00D6EF24 /* Utils.m */; };
 		E21E4460149F704F00D6EF24 /* GameOverBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E445E149F704F00D6EF24 /* GameOverBackground-hd.png */; };
 		E21E4461149F704F00D6EF24 /* GameOverBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E21E445F149F704F00D6EF24 /* GameOverBackground.png */; };
@@ -101,7 +102,6 @@
 		E2ABCEFD14706AE600E14474 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEFC14706AE600E14474 /* UIKit.framework */; };
 		E2ABCEFF14706AE600E14474 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEFE14706AE600E14474 /* Foundation.framework */; };
 		E2ABCF0114706AE600E14474 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCF0014706AE600E14474 /* CoreGraphics.framework */; };
-		E2ABCF0714706AE600E14474 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = E2ABCF0614706AE600E14474 /* fps_images.png */; };
 		E2ABCF1614706AE600E14474 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = E2ABCF1514706AE600E14474 /* iTunesArtwork */; };
 		E2ABCF1B14706AE600E14474 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABCF1A14706AE600E14474 /* CCAction.m */; };
 		E2ABCF1E14706AE700E14474 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABCF1D14706AE700E14474 /* CCActionCamera.m */; };
@@ -243,6 +243,7 @@
 		E2124D3A14A5213800462D92 /* bangla_dark_large-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bangla_dark_large-hd.png"; sourceTree = "<group>"; };
 		E2124D5514A526A100462D92 /* bangla_dark_large.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bangla_dark_large.fnt; sourceTree = "<group>"; };
 		E2124D5614A526A100462D92 /* bangla_dark_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bangla_dark_large.png; sourceTree = "<group>"; };
+		E2124D5C14A52E8600462D92 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		E21E4457149E545A00D6EF24 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		E21E4458149E545A00D6EF24 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		E21E445E149F704F00D6EF24 /* GameOverBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameOverBackground-hd.png"; sourceTree = "<group>"; };
@@ -335,9 +336,8 @@
 		E2ABCEFC14706AE600E14474 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2ABCEFE14706AE600E14474 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E2ABCF0014706AE600E14474 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E2ABCF0614706AE600E14474 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = Resources/fps_images.png; sourceTree = "<group>"; };
-		E2ABCF1414706AE600E14474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		E2ABCF1514706AE600E14474 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
+		E2ABCF1414706AE600E14474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Resources/Info.plist; sourceTree = "<group>"; };
+		E2ABCF1514706AE600E14474 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../Resources/iTunesArtwork; sourceTree = "<group>"; };
 		E2ABCF1914706AE600E14474 /* CCAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = libs/cocos2d/CCAction.h; sourceTree = "<group>"; };
 		E2ABCF1A14706AE600E14474 /* CCAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CCAction.m; path = libs/cocos2d/CCAction.m; sourceTree = "<group>"; };
 		E2ABCF1C14706AE600E14474 /* CCActionCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCActionCamera.h; path = libs/cocos2d/CCActionCamera.h; sourceTree = "<group>"; };
@@ -549,9 +549,9 @@
 		E2ABD05214706AE900E14474 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2ABD05414706AE900E14474 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2ABD05514706AE900E14474 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E2ABD05714706AE900E14474 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = src/RootViewController.h; sourceTree = "<group>"; };
+		E2ABD05714706AE900E14474 /* RootViewController.h */ = {isa = PBXFileReference; name = RootViewController.h; path = src/RootViewController.h; sourceTree = "<group>"; };
 		E2ABD05814706AE900E14474 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = src/RootViewController.m; sourceTree = "<group>"; };
-		E2ABD05D14706AE900E14474 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = src/GameConfig.h; sourceTree = "<group>"; };
+		E2ABD05D14706AE900E14474 /* GameConfig.h */ = {isa = PBXFileReference; name = GameConfig.h; path = src/GameConfig.h; sourceTree = "<group>"; };
 		E2ABD06614706B3000E14474 /* Icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_58.png; sourceTree = "<group>"; };
 		E2ABD06714706B3000E14474 /* Icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_57.png; sourceTree = "<group>"; };
 		E2ABD06814706B3000E14474 /* Icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_29.png; sourceTree = "<group>"; };
@@ -817,6 +817,8 @@
 				E2ABD05714706AE900E14474 /* RootViewController.h */,
 				E2ABD05814706AE900E14474 /* RootViewController.m */,
 				E2ABD05D14706AE900E14474 /* GameConfig.h */,
+				E2ABD05014706AE900E14474 /* Supporting Files */,
+				E2ABCF1714706AE600E14474 /* libs */,
 				E2ABCF0314706AE600E14474 /* Resources */,
 				E2ABCEF114706AE600E14474 /* Frameworks */,
 				E2ABCEEF14706AE600E14474 /* Products */,
@@ -854,8 +856,6 @@
 				E2E8C78714706EDE004D07E1 /* Layers */,
 				E2133A3F1479C14B00845938 /* GameObjects */,
 				E2133A401479C16800845938 /* Singletons */,
-				E2ABCF1714706AE600E14474 /* libs */,
-				E2ABD05014706AE900E14474 /* Supporting Files */,
 			);
 			name = Classes;
 			path = src;
@@ -864,7 +864,7 @@
 		E2ABCF0314706AE600E14474 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E2ABCF0614706AE600E14474 /* fps_images.png */,
+				E2124D5C14A52E8600462D92 /* fps_images.png */,
 				E2ABCF1414706AE600E14474 /* Info.plist */,
 				E2ABCF1514706AE600E14474 /* iTunesArtwork */,
 			);
@@ -1349,7 +1349,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2ABCF0714706AE600E14474 /* fps_images.png in Resources */,
 				E2ABCF1614706AE600E14474 /* iTunesArtwork in Resources */,
 				E2ABD06C14706B3000E14474 /* Icon_58.png in Resources */,
 				E2ABD06D14706B3000E14474 /* Icon_57.png in Resources */,
@@ -1431,6 +1430,7 @@
 				E2124D3C14A5213800462D92 /* bangla_dark_large-hd.png in Resources */,
 				E2124D5714A526A100462D92 /* bangla_dark_large.fnt in Resources */,
 				E2124D5814A526A100462D92 /* bangla_dark_large.png in Resources */,
+				E2124D5D14A52E8600462D92 /* fps_images.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1610,9 +1610,9 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = src/SupportingFiles/Prefix.pch;
+				GCC_PREFIX_HEADER = SupportingFiles/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				INFOPLIST_FILE = src/Resources/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1627,9 +1627,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = src/SupportingFiles/Prefix.pch;
+				GCC_PREFIX_HEADER = SupportingFiles/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				INFOPLIST_FILE = src/Resources/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
