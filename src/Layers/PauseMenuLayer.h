@@ -17,6 +17,7 @@
     CCSprite *menuPopup;
     CCMenu *pauseButtons;
     CCLayerColor *screenlock;
+    CCSprite *textOverlay;
     int screenlockOpacity;
 }
 

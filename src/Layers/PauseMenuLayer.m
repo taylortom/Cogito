@@ -12,10 +12,10 @@
 @interface PauseMenuLayer()
 
 -(void)initScreenlock;
+-(void)initTextOverlay;
 -(void)initPopup;
 -(void)initStatsLabel;
 -(void)initMenuButtons;
--(void)toggleVisibility;
 -(void)onResumePressed;
 -(void)onQuitPressed;
 
@@ -36,9 +36,10 @@
     
     if (self != nil)
     {
-        screenlockOpacity = 150;
+        screenlockOpacity = 100;
         
         [self initScreenlock];
+        [self initTextOverlay];
         [self initPopup];
         [self initStatsLabel];
         [self initMenuButtons];
@@ -53,9 +54,20 @@
 -(void)initScreenlock
 {
     screenlock = [CCLayerColor layerWithColor:ccc4(0,0,0,0)];
-    [screenlock setOpacity:screenlockOpacity];
-//    screenlock.isTouchEnabled = NO;
+    [screenlock setOpacity:0];
     [self addChild:screenlock z:0];
+}
+
+/**
+ * Initialises the 'game paused' overlay
+ */
+-(void)initTextOverlay
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize; 
+    
+    textOverlay = [CCSprite spriteWithFile:@"TextOverlay.png"];
+    [textOverlay setPosition:ccp(winSize.width/2, winSize.height/2)];
+    [self addChild:textOverlay z:1];
 }
 
 /**
@@ -66,9 +78,9 @@
     CGSize winSize = [CCDirector sharedDirector].winSize; 
     
     menuPopup = [CCSprite spriteWithFile:@"MenuPopup.png"];
-    [menuPopup setVisible:NO];
+    [menuPopup setAnchorPoint:ccp(0.5,1)];
     [menuPopup setPosition:ccp(winSize.width/2, winSize.height/2)];
-    [self addChild:menuPopup z:1];
+    [self addChild:menuPopup z:2];
 }
 
 /**
@@ -99,17 +111,19 @@
 {
     CGSize winSize = [CCDirector sharedDirector].winSize; 
     
-    CCLabelBMFont *resumeButtonLabel = [CCLabelBMFont labelWithString:@"> resume" fntFile:kMenuFont];
-    CCMenuItemLabel *resumeButton = [CCMenuItemLabel itemWithLabel:resumeButtonLabel target:self selector:@selector(onResumePressed)];    
-    [resumeButton setAnchorPoint:ccp(0,0.5)];
+    //create the menu buttons
+    CCMenuItemImage *resumeButton = [CCMenuItemImage itemFromNormalImage:@"Resume.png" selectedImage:@"Resume_down.png" disabledImage:nil target:self selector:@selector(onResumePressed)];
+    CCMenuItemImage *quitButton = [CCMenuItemImage itemFromNormalImage:@"Quit.png" selectedImage:@"Quit_down.png" disabledImage:nil target:self selector:@selector(onQuitPressed)];
+    [resumeButton setAnchorPoint:ccp(0.5, 0.5)];
+    [quitButton setAnchorPoint:ccp(0.5, 0.5)];
     
-    CCLabelBMFont *exitButtonLabel = [CCLabelBMFont labelWithString:@"> exit" fntFile:kMenuFont];
-    CCMenuItemLabel *exitButton = [CCMenuItemLabel itemWithLabel:exitButtonLabel target:self selector:@selector(onQuitPressed)];
-    [exitButton setAnchorPoint:ccp(0,0.5)];
+    // create menu with the items
+    pauseButtons = [CCMenu menuWithItems:resumeButton, quitButton, nil];
     
-    pauseButtons = [CCMenu menuWithItems:resumeButton, exitButton, nil];
-    [pauseButtons alignItemsVerticallyWithPadding:-5];
-    [pauseButtons setPosition:ccp(winSize.width*0.11f, winSize.height*0.4f)];
+    // position the menu
+    [pauseButtons alignItemsVerticallyWithPadding:winSize.height * 0.059f];
+    [pauseButtons setAnchorPoint:ccp(0.5, 0.5)];
+    [pauseButtons setPosition:ccp(menuPopup.position.x, menuPopup.position.y)];
     [menuPopup addChild:pauseButtons z:1];
 }
     
@@ -120,17 +134,15 @@
  */
 -(void)animateIn
 {
-    [screenlock setOpacity:0];
-    [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:screenlockOpacity]];
+    CGSize winSize = [CCDirector sharedDirector].winSize; 
     
-    [menuPopup setScale:0.6f];
+    [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:screenlockOpacity]];    
+    [textOverlay runAction:[CCFadeIn actionWithDuration:0.15f]];
     
-    // create the zoom sequence
-    id show = [CCCallFunc actionWithTarget:self selector:@selector(toggleVisibility)];
-    id initialZoom = [CCScaleTo actionWithDuration:0.1f scale:1.05];
-    id zoomOut = [CCScaleTo actionWithDuration:0.05f scale:1];
-    id zoomInSequence = [CCSequence actions:show, initialZoom, zoomOut, nil];
-    [menuPopup runAction:zoomInSequence];
+    [menuPopup setPosition: ccp(winSize.width/2, 0-winSize.height*0.05)];
+    id animateInAction = [CCMoveTo actionWithDuration:0.20f position:ccp(winSize.width/2, winSize.height)];
+    id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:0.20f];
+    [menuPopup runAction:easeEffectAction];
 }
 
 /**
@@ -138,21 +150,13 @@
  */
 -(void)animateOut
 {
-    [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:0]];
+    CGSize winSize = [CCDirector sharedDirector].winSize; 
     
-    id initialZoom = [CCScaleTo actionWithDuration:0.1f scale:1.05];
-    id zoomOut = [CCScaleTo actionWithDuration:0.05f scale:0.8];
-    id hide = [CCCallFunc actionWithTarget:self selector:@selector(toggleVisibility)];
-    id zoomOutSequence = [CCSequence actions:initialZoom, zoomOut, hide, nil];
-    [menuPopup runAction:zoomOutSequence];    
-}
-
-/**
- * Shows/hides the menu as applicable
- */
--(void)toggleVisibility
-{
-    menuPopup.visible = !menuPopup.visible;
+    [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:0]];
+    [textOverlay runAction:[CCFadeOut actionWithDuration:0.15f]];
+    
+    id animateOutAction = [CCMoveTo actionWithDuration:0.30f position:ccp(winSize.width/2, winSize.height*0.05)];
+    [menuPopup runAction:animateOutAction];  
 }
 
 #pragma mark -
