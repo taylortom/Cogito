@@ -41,7 +41,7 @@
 		
 		// Add the text for level complete.
         NSString *statString = [NSString stringWithFormat:@"Lemmings saved: %i\nLemmings killed: %i\nTime taken: %@", [[LemmingManager sharedLemmingManager] lemmingsSaved],[[LemmingManager sharedLemmingManager] lemmingsKilled],[[GameManager sharedGameManager] getGameTimeInMins]];
-		CCLabelBMFont *statTextLeft = [CCLabelBMFont labelWithString:statString fntFile:@"bangla_dark.fnt"];
+		CCLabelBMFont *statTextLeft = [CCLabelBMFont labelWithString:statString fntFile:@"bangla_dark_large.fnt"];
 		[statTextLeft setAnchorPoint:ccp(0, 1)];
         [statTextLeft setPosition:ccp(41, winSize.height-110)];
 		[self addChild:statTextLeft];

@@ -222,4 +222,12 @@ static int secondsPlayed;
     return gamePaused;
 }
 
+/**
+ * Set the game paused value
+ */
+-(void)gamePaused:(BOOL)value
+{
+    if(value != gamePaused) gamePaused = value;
+}
+
 @end

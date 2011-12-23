@@ -27,5 +27,6 @@
 -(void)resetSecondCounter;
 -(NSString*)getGameTimeInMins;
 -(BOOL)gamePaused;
+-(void)gamePaused:(BOOL)value;
 
 @end

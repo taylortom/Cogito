@@ -87,12 +87,12 @@
     
     // now add the labels
         
-    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:@"bangla_dark_s.fnt"];
+    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:@"bangla_dark_small.fnt"];
     [lemmingText setAnchorPoint:ccp(1,1)];
     [lemmingText setPosition:ccp(winSize.width-20, winSize.height-20)];
     [self addChild:lemmingText];
     
-    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:@"bangla_dark_s.fnt"];
+    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:@"bangla_dark_small.fnt"];
     [timeText setAnchorPoint:ccp(1,1)];
     [timeText setPosition:ccp(winSize.width-20, winSize.height-40)];
     [self addChild:timeText];
