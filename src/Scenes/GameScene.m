@@ -28,9 +28,13 @@
         BackgroundLayer *backgroundLayer = [BackgroundLayer node];
         [self addChild:backgroundLayer z:0];
         
+        // Terrain Layer
+        TerrainLayer *terrainLayer = [Level1Layer node];
+        [self addChild:terrainLayer z:5];
+        
         // Gameplay Layer
         GameplayLayer *gameplayLayer = [GameplayLayer node];
-        [self addChild:gameplayLayer z:5];
+        [self addChild:gameplayLayer z:10];
     }
     
     return self;

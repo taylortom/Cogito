@@ -48,6 +48,7 @@ typedef enum
 {
     kObjectTypeNone,
     kObjectExit,
+    kObjectTerrain,
     kToolHelmet,
     kToolUmbrella,
     kLemmingType,

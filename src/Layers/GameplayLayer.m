@@ -9,7 +9,7 @@
 //
 
 #import "GameplayLayer.h"
-#import "Obstacle.h"
+#import "Level1Layer.h"
 
 #import "Utils.h"
 
@@ -216,20 +216,6 @@
         [[GameManager sharedGameManager] pauseGame];
         [pauseMenu animateIn];
     }
-    
-    /*CCArray *gameObjects = [sceneSpriteBatchNode children];
-     
-    for (Lemming *tempLemming in gameObjects) 
-    {
-        if([tempLemming state] == kStateIdle) [tempLemming changeState:kStateWalking];
-        else if([tempLemming state] == kStateWalking) [tempLemming changeState:kStateFloating];
-        else if([tempLemming state] == kStateFloating) tempLemming.health = 0;
-        else 
-        {
-            tempLemming.health = 100;
-            [tempLemming changeState:kStateIdle];
-        }
-    }*/
 }
 
 @end

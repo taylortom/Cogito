@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>platform1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>20</integer>
+		<key>y</key>
+		<integer>10</integer>
+		<key>filename</key>
+		<string>platform1.png</string>
+	</dict>
+	<key>spikes1</key>
+	<dict>
+		<key>type</key>
+		<string>obstacle</string>
+		<key>x</key>
+		<integer>0</integer>
+		<key>y</key>
+		<integer>0</integer>
+		<key>filename</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

@@ -1,5 +1,5 @@
 //
-//  Level1Layer.m
+//  Level1Layer.h
 //  Cogito
 //
 //  The first level
@@ -8,9 +8,8 @@
 //
 
 #import "cocos2d.h"
-#import "GameManager.h"
-#import "MainMenuScene.h"
+#import "TerrainLayer.h"
 
-@interface StingLayer : CCLayer
+@interface Level1Layer : TerrainLayer
 
 @end

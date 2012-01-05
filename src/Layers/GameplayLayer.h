@@ -16,6 +16,7 @@
 #import "GameManager.h"
 #import "Lemming.h"
 #import "PauseMenuLayer.h"
+#import "TerrainLayer.h"
 
 @interface GameplayLayer : CCLayer
 
@@ -25,6 +26,8 @@
     CCMenu *gameplayMenu;
     CCLabelBMFont *lemmingText;
     CCLabelBMFont *timeText;
+    
+    TerrainLayer *currentTerrainLayer;
     
     PauseMenuLayer *pauseMenu;
     
