@@ -30,6 +30,11 @@
     if (self != nil) 
     {        
         obstacleType = _obstacleType;
+        filename = _filename;
+        [self setPosition:_position];
+        
+        // set the display frame
+        [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:_filename]];
     }
     return self;
 }

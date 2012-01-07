@@ -11,7 +11,7 @@
 		<key>x</key>
 		<integer>100</integer>
 		<key>y</key>
-		<integer>50</integer>
+		<integer>210</integer>
 		<key>filename</key>
 		<string>platform1</string>
 	</dict>
@@ -25,6 +25,19 @@
 		<integer>0</integer>
 		<key>filename</key>
 		<string>Spikes</string>
+	</dict>
+	<key>Platform2</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>220</integer>
+		<key>y</key>
+		<integer>50</integer>
+		<key>filename</key>
+		<string>platform1</string>
 	</dict>
 </dict>
 </plist>

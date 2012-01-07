@@ -13,6 +13,7 @@
 
 { 
     GameObjectType obstacleType;
+    NSString *filename;
     CCAnimation *animation;
 }
 

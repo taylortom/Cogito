@@ -115,6 +115,8 @@
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             respawns--;
+            [self changeState:kStateFalling];
+            break;
 
         case kStateFalling:
             action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.15f position:ccp(0.0f, movementAmount*-1)], action, nil];         
@@ -125,12 +127,11 @@
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             break;
             
-        case kStateWalking:            
+        case kStateWalking:   
+            CCLOG(@"Lemming.changeState: %i -> WALKING WALKING WALKING", state != kStateWalking);
             if(isUsingHelmet) action = [CCAnimate actionWithAnimation:walkingHelmetAnim restoreOriginalFrame:NO];
             else action = [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
-            // make the lemming move
             id walkingAction = [CCMoveBy actionWithDuration:1.04f position:ccp((movementDirection == kDirectionLeft) ? movementAmount * -1 : movementAmount, 0.0f)];
-            // merge the two actions
             action = [CCSpawn actions: walkingAction, action, nil];         
             break;  
             
@@ -139,6 +140,7 @@
             break;
            
         case kStateDead:
+            CCLOG(@"Lemming.changeState: DEAD DEAD DEAD");
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
             break;
             
@@ -188,18 +190,21 @@
         case kObstacleWater:
             [self changeState:kStateDead];
             break;
+            
         case kObstacleStamper:
         case kObstacleCage:
             health -= health*kStamperDamage;
             break;
+
         case kObjectTerrain:
-            //Terrain *terrainObject = _object;
-            if([_object isWall] && state == kStateWalking) [self changeDirection];
-            else if(state != kStateWalking) [self changeState:kStateWalking];
+            if(state != kStateWalking && ![_object isWall]) [self changeState:kStateWalking];
+            else if([_object isWall]) [self changeDirection];
             break;
+        
         case kObjectExit:
             [self changeState:kStateWin]; 
             break;
+        
         default: 
             break;
     }
@@ -221,6 +226,7 @@
      */
     
     CGRect selfBBox = [self adjustedBoundingBox];
+    BOOL colliding = NO;
     
     for (GameObject *gameObject in _listOfGameObjects) 
     {
@@ -228,9 +234,13 @@
         if(gameObject == self) continue;
              
         CGRect objectBBox = [gameObject adjustedBoundingBox];
-        if(CGRectIntersectsRect(selfBBox, objectBBox)) [self onObjectCollision:gameObject];
-        else if(state != kStateSpawning && state != kStateFalling) [self changeState:kStateFalling];
+        if(CGRectIntersectsRect(selfBBox, objectBBox)) 
+        {
+            [self onObjectCollision:gameObject];
+            if(gameObject.gameObjectType == kObjectTerrain) colliding = YES;
+        }
     }
+    if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateDead) [self changeState:kStateFalling];
         
     // check if the lemming is dead
     if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];

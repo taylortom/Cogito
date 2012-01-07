@@ -21,9 +21,7 @@
  * @return self
  */
 - (id)initWithPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall
-{
-    CCLOG(@"Terrain.initWithPosition: (%f,%f) andFilename: %@ isWall: %d", _position.x, _position.y, _filename, _isWall);
-    
+{    
     self = [super init];
     
     if (self != nil) 

@@ -219,7 +219,6 @@
 		E2E8C78514706ED6004D07E1 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8C78414706ED6004D07E1 /* BackgroundLayer.m */; };
 		E2E8C78D14706F54004D07E1 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8C78A14706F54004D07E1 /* GameplayLayer.m */; };
 		E2E8C78E14706F54004D07E1 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8C78C14706F54004D07E1 /* GameScene.m */; };
-		E2F9BED614A690230088EFF9 /* Level1Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9BED514A690230088EFF9 /* Level1Layer.m */; };
 		E2FC25E714928A480064B9DA /* Lemming.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2FC25E614928A480064B9DA /* Lemming.plist */; };
 /* End PBXBuildFile section */
 
@@ -582,8 +581,6 @@
 		E2E8C78A14706F54004D07E1 /* GameplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayLayer.m; sourceTree = "<group>"; };
 		E2E8C78B14706F54004D07E1 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		E2E8C78C14706F54004D07E1 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		E2F9BED414A690230088EFF9 /* Level1Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level1Layer.h; path = Levels/Level1Layer.h; sourceTree = "<group>"; };
-		E2F9BED514A690230088EFF9 /* Level1Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level1Layer.m; path = Levels/Level1Layer.m; sourceTree = "<group>"; };
 		E2FC25E614928A480064B9DA /* Lemming.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -652,8 +649,6 @@
 			children = (
 				E2124D6214A6707D00462D92 /* TerrainLayer.h */,
 				E2124D6314A6707D00462D92 /* TerrainLayer.m */,
-				E2F9BED414A690230088EFF9 /* Level1Layer.h */,
-				E2F9BED514A690230088EFF9 /* Level1Layer.m */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -1597,7 +1592,6 @@
 				E2646A6F14A16443003CC16E /* StingLayer.m in Sources */,
 				E2084CBB14A3580100C699A9 /* PauseMenuLayer.m in Sources */,
 				E2124D6414A6707D00462D92 /* TerrainLayer.m in Sources */,
-				E2F9BED614A690230088EFF9 /* Level1Layer.m in Sources */,
 				E21254E814B60FE700A0CA61 /* Terrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

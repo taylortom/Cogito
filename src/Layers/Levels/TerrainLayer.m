@@ -78,9 +78,12 @@
         }
         else if([type isEqualToString:@"obstacle"])
         {
-            /*Obstacle *obstacleObject = [[Obstacle alloc] initWithPosition:ccp(x,y) andFilename:filename];
+            // UPDATE LATER
+            GameObjectType obstacleType = kObstacleCage;
+            
+            Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:obstacleType withPosition:ccp(x, y) andFilename:filename];
             [terrain addObject:obstacleObject];
-            [self addChild:obstacleObject];*/
+            [self addChild:obstacleObject];
         }
     }
 }
