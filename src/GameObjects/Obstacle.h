@@ -13,12 +13,12 @@
 
 { 
     GameObjectType obstacleType;
-    float damage;
     CCAnimation *animation;
 }
 
 @property (readwrite) GameObjectType obstacleType;
-@property (readonly) float damage;
 @property (nonatomic,retain) CCAnimation *animation;
+
+- (id)initObstacleType:(GameObjectType)_obstacleType withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
 
 @end

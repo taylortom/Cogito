@@ -26,9 +26,9 @@
 @property (readwrite) CGSize screenSize;
 @property (readwrite) GameObjectType gameObjectType;
 
--(void)changeState:(CharacterStates)newState;
--(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray*)listOfGameObjects;
+-(void)changeState:(CharacterStates)_newState;
+-(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray*)_listOfGameObjects;
 -(CGRect)adjustedBoundingBox;
--(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className;
+-(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)_animationName andClassName:(NSString*)_className;
 
 @end

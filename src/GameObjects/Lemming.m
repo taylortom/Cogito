@@ -13,7 +13,7 @@
 
 -(void)initAnimations;
 -(void)updateDebugLabel;
--(void)onObstacleCollision:(GameObjectType)obstacleType;
+-(void)onObjectCollision:(GameObject*)_obstacle;
 -(void)checkLemmingWithinScreenBounds;
 
 @end
@@ -102,22 +102,22 @@
  * Changes the current state
  * @param state to change to
  */
--(void)changeState: (CharacterStates)newState
+-(void)changeState: (CharacterStates)_newState
 {        
     [self stopAllActions];
     id action = nil;
-    self.state = newState;
+    self.state = _newState;
     
-    switch(newState) 
+    switch(_newState) 
     {
-            
         case kStateSpawning:
             [self setPosition:ccp(winSize.width*kLemmingSpawnXPos, winSize.height*kLemmingSpawnYPos)];
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
-            id fallingAction = [CCMoveBy actionWithDuration:0.15f position:ccp(0.0f, movementAmount*-1)];
-            action = [CCSpawn actions: fallingAction, action, nil];         
             respawns--;
+
+        case kStateFalling:
+            action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.15f position:ccp(0.0f, movementAmount*-1)], action, nil];         
             break;
             
         case kStateIdle:
@@ -143,14 +143,14 @@
             break;
             
         default:
-            CCLOG(@"Lemming.changeState: unknown state '%d'", newState);
+            CCLOG(@"Lemming.changeState: unknown state '%d'", _newState);
             break;
     }
     
     // run the animations
     if(action != nil) 
     {
-        if(newState != kStateDead && newState != kStateFloating) action = [CCRepeatForever actionWithAction:action];
+        if(_newState != kStateDead && _newState != kStateFloating) action = [CCRepeatForever actionWithAction:action];
         [self runAction:action];
     }
 }
@@ -177,12 +177,12 @@
 }
 
 /**
- * Applies the appropriate damage when 
- * a Lemming collides with an obstacle
+ * Applies the appropriate action when 
+ * a Lemming collides with an object
  */
--(void)onObstacleCollision:(GameObjectType)obstacleType
+-(void)onObjectCollision:(GameObject*)_object
 {
-    switch(obstacleType) 
+    switch([_object gameObjectType]) 
     {
         case kObstaclePit:
         case kObstacleWater:
@@ -190,10 +190,17 @@
             break;
         case kObstacleStamper:
         case kObstacleCage:
-            // don't do anything yet
+            health -= health*kStamperDamage;
+            break;
+        case kObjectTerrain:
+            //Terrain *terrainObject = _object;
+            if([_object isWall] && state == kStateWalking) [self changeDirection];
+            else if(state != kStateWalking) [self changeState:kStateWalking];
+            break;
+        case kObjectExit:
+            [self changeState:kStateWin]; 
             break;
         default: 
-            CCLOG(@"Lemming.onObstacleCollision: Unknown obstacle [%@]", obstacleType);
             break;
     }
 }
@@ -204,7 +211,7 @@
 /**
  * Update function called every frame
  */
--(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
+-(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
 {    
     if(COCOS2D_DEBUG > 1) [self updateDebugLabel];
     if (state != kStateDead) [self checkLemmingWithinScreenBounds];
@@ -212,26 +219,20 @@
     /*
      * check for collisions
      */
+    
     CGRect selfBBox = [self adjustedBoundingBox];
     
-    for (GameObject *gameObject in listOfGameObjects) 
+    for (GameObject *gameObject in _listOfGameObjects) 
     {
         // no need to check self with self
         if(gameObject == self) continue;
-        
+             
         CGRect objectBBox = [gameObject adjustedBoundingBox];
-        
-        if(CGRectIntersectsRect(selfBBox, objectBBox))
-        {
-            GameObjectType objectType = [gameObject gameObjectType];
-            
-            if(objectType == kObstaclePit || objectType == kObstacleStamper || objectType == kObstacleWater || objectType == kObstacleCage) 
-                [self onObstacleCollision:objectType];
-            else if(objectType == kObjectExit) [self changeState:kStateWin]; 
-            else if(objectType == kLemmingType); // do nothing 
-        }
+        if(CGRectIntersectsRect(selfBBox, objectBBox)) [self onObjectCollision:gameObject];
+        else if(state != kStateSpawning && state != kStateFalling) [self changeState:kStateFalling];
     }
-    
+        
+    // check if the lemming is dead
     if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
     
     // if actions have finished running...
@@ -259,6 +260,9 @@
     }
 }
 
+/**
+ * Updates the debug string
+ */
 -(void)updateDebugLabel
 {
     CGPoint newPosition = [self position];
@@ -300,14 +304,16 @@
 }
 
 /**
- * if the lemming falls of the bottom of the screen, change to dead
+ * Checks that the lemming is within the screen area
  */
 -(void)checkLemmingWithinScreenBounds
 {
     CGPoint position = [self position];
     
-    if (position.y <= 20) [self changeState:kStateDead];
+    // if the lemming reaches edge of screen, change direction
     if (position.x <= 10 || position.x >= 470) [self changeDirection];
+    // if the lemming falls of the bottom of the screen, change to dead
+    if (position.y <= 20) [self changeState:kStateDead];
 }
 
 #pragma mark -

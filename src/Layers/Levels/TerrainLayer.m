@@ -25,72 +25,64 @@
  * Initialises the layer
  * @return self
  */
--(id)init 
-{
+-(id)init:(NSString*)_plist 
+{    
 	self = [super init];
     
 	if (self != nil) 
 	{
-		[self loadTerrainFromPlist];
+        plistFilename = _plist;
+        
+        terrain = [[CCArray alloc] init];
+        obstacles = [[CCArray alloc] init];
+		
+        [self loadTerrainFromPlist];
 	}
     
 	return self;
 }
 
 /**
- *
+ * Initialises the terrain from the plist file
  */
 -(void)loadTerrainFromPlist
-{
-    CCLOG(@"%@.loadTerrainFromPlist", NSStringFromClass([self class]));
-    
-    NSString *filename = [NSString stringWithFormat:@"%.plist",NSStringFromClass([self class])];
-    
-    
+{        
     // Get path to plist file
-    
+    NSString *filename = [NSString stringWithFormat:@"%@.plist", plistFilename];
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *plistPath = [rootPath stringByAppendingPathComponent:filename];
-    
-    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:NSStringFromClass([self class]) ofType:@"plist"];
-    
+    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:plistFilename ofType:@"plist"];
     
     // Read plist file
-    
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     
-    
     // if plistDictionary is empty, throw file not found error
+    if(plistDictionary == nil) { CCLOG(@"%@.loadTerrainFromPlist: Error reading plist: %@ from %@", NSStringFromClass([self class]), plistFilename, plistPath); return; }
     
-    if(plistDictionary == nil) CCLOG(@"%@.loadTerrainFromPlist: Error reading plist: %@.plist", NSStringFromClass([self class]),NSStringFromClass([self class]));
-    
-    
-    // get the mini-dictionary for the animation
-    
-    //NSDictionary *terrainObjects = [plistDictionary objectForKey:@"terrain"];
-    if(plistDictionary == nil) CCLOG(@"No terrain objects found");
-    else CCLOG(@"Number of terrain objects: %i", [plistDictionary count]);
-    
-    
-    
-    // get the delay value for the animation
-    
-    /*float animationDelay = [[animationSettings objectForKey:@"delay"] floatValue];
-    animationToReturn = [CCAnimation animation];
-    [animationToReturn setDelay:animationDelay];
-    
-    
-    // add the frames to the animation
-    
-    NSString *animationFramePrefix = [animationSettings objectForKey:@"filenamePrefix"];
-    NSString *animationFrames = [animationSettings objectForKey:@"animationFrames"];
-    NSArray *animationFrameNumbers = [animationFrames componentsSeparatedByString:@","];
-    
-    for (NSString *frameNumber in animationFrameNumbers) 
+    for(NSDictionary *object in plistDictionary)
     {
-        NSString *frameName = [NSString stringWithFormat:@"%@%@.png", animationFramePrefix, frameNumber];
-        [animationToReturn addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
-    }*/
+        NSDictionary *objectDictionary = [plistDictionary objectForKey:object];
+    
+        NSString *type = [objectDictionary objectForKey:@"type"];
+        float x = [[objectDictionary objectForKey:@"x"] floatValue];
+        float y = [[objectDictionary objectForKey:@"y"] floatValue];
+        NSString *filename = [NSString stringWithFormat:@"%@.png", [objectDictionary objectForKey:@"filename"]];
+        
+        if([type isEqualToString:@"terrain"])
+        {
+            BOOL isWall = [[objectDictionary objectForKey:@"isWall"] boolValue];
+            
+            Terrain *terrainObject = [[Terrain alloc] initWithPosition:ccp(x,y) andFilename:filename isWall:isWall];
+            [self addChild:terrainObject];
+            [terrain addObject:terrainObject];
+        }
+        else if([type isEqualToString:@"obstacle"])
+        {
+            /*Obstacle *obstacleObject = [[Obstacle alloc] initWithPosition:ccp(x,y) andFilename:filename];
+            [terrain addObject:obstacleObject];
+            [self addChild:obstacleObject];*/
+        }
+    }
 }
 
 
@@ -105,10 +97,9 @@
  * Returns the list of terrain objects
  * @return terrain
  */
--(NSMutableArray*)terrain
+-(CCArray*)terrain
 {
-    // do stuff
-    return nil;
+    return terrain;
 }
 
 
@@ -116,10 +107,9 @@
  * Returns the list of obstacle objects
  * @return obstacle
  */
--(NSMutableArray*)obstacles
+-(CCArray*)obstacles
 {
-    // do stuff
-    return nil;
+    return obstacles;
 }
 
 @end

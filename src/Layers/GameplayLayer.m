@@ -58,9 +58,13 @@
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Lemming_atlas.plist"];
         sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"Lemming_atlas.png"];
-        
+                
         [self addChild:sceneSpriteBatchNode z:0];
         [self initDisplay]; // set up the labels/buttons
+        
+        // Terrain Layer
+        currentTerrainLayer = [[TerrainLayer alloc] init:@"Level1"];
+        [self addChild:currentTerrainLayer z:kTerrainZValue];
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
@@ -77,25 +81,27 @@
 {    
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
+    // add the pause button
+    
     CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Spanner.png" selectedImage:@"Spanner_down.png" target:self selector:@selector(onSettingsButtonPressed)];
     settingsButton.position = ccp(winSize.width*0.91, winSize.height*0.12f);
     
     gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];
     gameplayMenu.position = CGPointZero;
     
-    [self addChild:gameplayMenu];
+    [self addChild:gameplayMenu z:kUISpriteZValue];
     
     // now add the labels
         
     lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:@"bangla_dark_small.fnt"];
     [lemmingText setAnchorPoint:ccp(1,1)];
     [lemmingText setPosition:ccp(winSize.width-20, winSize.height-20)];
-    [self addChild:lemmingText];
+    [self addChild:lemmingText z:kUISpriteZValue];
     
     timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:@"bangla_dark_small.fnt"];
     [timeText setAnchorPoint:ccp(1,1)];
     [timeText setPosition:ccp(winSize.width-20, winSize.height-40)];
-    [self addChild:timeText];
+    [self addChild:timeText z:kUISpriteZValue];
 }
 
 #pragma mark -
@@ -108,6 +114,13 @@
 {
     CCArray *gameObjects = [sceneSpriteBatchNode children];
         
+    CCArray *terrain = [currentTerrainLayer terrain];
+    CCArray *obstacles = [currentTerrainLayer obstacles];
+        
+    // add the terrain/obstacles to the game objects array
+    [gameObjects addObjectsFromArray:terrain];
+    [gameObjects addObjectsFromArray:obstacles];
+    
     for (Lemming *tempLemming in gameObjects) 
     {
         [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];

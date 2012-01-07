@@ -9,15 +9,19 @@
 //
 
 #import "cocos2d.h"
+#import "Obstacle.h"
+#import "Terrain.h"
 
 @interface TerrainLayer : CCLayer
 
 {
-    NSMutableArray *terrain;    // the floor/platform objects
-    NSMutableArray *obstacles; 
+    NSString *plistFilename;
+    CCArray *terrain;    // the floor/platform objects
+    CCArray *obstacles; 
 }
     
--(NSMutableArray*)terrain;
--(NSMutableArray*)obstacles;
+-(id)init:(NSString*)_plist;
+-(CCArray*)terrain;
+-(CCArray*)obstacles;
 
 @end

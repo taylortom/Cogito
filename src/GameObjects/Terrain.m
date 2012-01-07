@@ -1,18 +1,17 @@
 //
-//  Obstacle.m
+//  Terrain.m
 //  Cogito
 //
-//  A basic class to contain obstacle relevant data
+//  A basic class to contain Terrain relevant data
 //
-//  05/12/2011: Created class
+//  05/01/2012: Created class
 //
 
-#import "Obstacle.h"
+#import "Terrain.h"
 
-@implementation Obstacle
+@implementation Terrain
 
-@synthesize obstacleType;
-@synthesize animation;
+@synthesize isWall;
 
 #pragma mark -
 #pragma mark Initialisation
@@ -21,15 +20,21 @@
  * Initialises the object
  * @return self
  */
-- (id)initObstacleType:(GameObjectType)_obstacleType withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
+- (id)initWithPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall
 {
-    CCLOG(@"Obstacle.init");
+    CCLOG(@"Terrain.initWithPosition: (%f,%f) andFilename: %@ isWall: %d", _position.x, _position.y, _filename, _isWall);
     
     self = [super init];
     
     if (self != nil) 
-    {        
-        obstacleType = _obstacleType;
+    {              
+        self.gameObjectType = kObjectTerrain;
+        filename = _filename;
+        isWall = _isWall;
+        [self setPosition:_position];
+        
+        // set the display frame
+        [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:filename]];
     }
     return self;
 }
@@ -42,7 +47,7 @@
  */
 -(void)changeState:(CharacterStates)_newState
 {
-    
+
 }
 
 /**

@@ -37,6 +37,7 @@ typedef enum
 typedef enum
 {
     kStateSpawning,
+    kStateFalling,
     kStateIdle,
     kStateWalking,
     kStateFloating,

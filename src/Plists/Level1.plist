@@ -2,18 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>platform1</key>
+	<key>Platform1</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
 		<key>x</key>
-		<integer>20</integer>
+		<integer>100</integer>
 		<key>y</key>
-		<integer>10</integer>
+		<integer>50</integer>
 		<key>filename</key>
-		<string>platform1.png</string>
+		<string>platform1</string>
 	</dict>
-	<key>spikes1</key>
+	<key>Spikes1</key>
 	<dict>
 		<key>type</key>
 		<string>obstacle</string>
@@ -22,7 +24,7 @@
 		<key>y</key>
 		<integer>0</integer>
 		<key>filename</key>
-		<string></string>
+		<string>Spikes</string>
 	</dict>
 </dict>
 </plist>

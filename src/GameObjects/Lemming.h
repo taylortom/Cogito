@@ -10,6 +10,7 @@
 #import "LemmingManager.h"
 #import "CogitoAgent.h"
 #import <Foundation/Foundation.h>
+#import "Terrain.h"
 
 @interface Lemming : CogitoAgent
 
@@ -54,7 +55,7 @@
 @property (nonatomic,retain) CCAnimation *floatUmbrellaAnim;
 @property (nonatomic,retain) CCAnimation *deathAnim;
 
--(void)changeState: (CharacterStates)newState;
+-(void)changeState: (CharacterStates)_newState;
 -(void)changeDirection;
 
 @end

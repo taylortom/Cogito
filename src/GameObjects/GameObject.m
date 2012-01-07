@@ -41,7 +41,7 @@
  * Transforms objects from one state to another
  * @param the state to transition to
  */
--(void)changeState:(CharacterStates)newState
+-(void)changeState:(CharacterStates)_newState
 {
     CCLOG(@"GameObject.changeState should be overridden");
 }
@@ -51,7 +51,7 @@
  * @param deltaTime
  * @param listOfGameObjects
  */
--(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects
+-(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
 {
     CCLOG(@"GameObject.updateStateWithDeltaTime should be overridden");
 }
@@ -77,52 +77,32 @@
  * @param className
  * @return the animation
  */
--(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)animationName andClassName:(NSString*)className
+-(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)_animationName andClassName:(NSString*)_className
 {
     CCAnimation *animationToReturn = nil;
-    NSString *filename = [NSString stringWithFormat:@"%.plist",className];
+    NSString *filename = [NSString stringWithFormat:@"%.plist",_className];
     NSString *plistPath;
-    
     
     // Get path to plist file
     
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     plistPath = [rootPath stringByAppendingPathComponent:filename];
-    
-    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:className ofType:@"plist"];
-    
+    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:_className ofType:@"plist"];
     
     // Read plist file
     
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    
-    
-    // if plistDictionary is empty, throw file not found error
-    
-    if(plistDictionary == nil)
-    {
-        CCLOG(@"Error reading plist: %@.plist", className);
-        return nil;
-    }
-    
-    
+    if(plistDictionary == nil) { CCLOG(@"Error reading plist: %@.plist", _className); return nil; }
+
     // get the mini-dictionary for the animation
     
-    NSDictionary *animationSettings = [plistDictionary objectForKey:animationName];
-    
-    if(animationSettings == nil)
-    {
-        CCLOG(@"Could not locate animation with name: %@", animationName);
-        return nil;
-    }
-    
+    NSDictionary *animationSettings = [plistDictionary objectForKey:_animationName];
+    if(animationSettings == nil) { CCLOG(@"Could not locate animation with name: %@", _animationName); return nil; }
     
     // get the delay value for the animation
     
-    float animationDelay = [[animationSettings objectForKey:@"delay"] floatValue];
     animationToReturn = [CCAnimation animation];
-    [animationToReturn setDelay:animationDelay];
-    
+    [animationToReturn setDelay:[[animationSettings objectForKey:@"delay"] floatValue]];
     
     // add the frames to the animation
     
@@ -135,9 +115,9 @@
         NSString *frameName = [NSString stringWithFormat:@"%@%@.png", animationFramePrefix, frameNumber];
         [animationToReturn addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
-
     
     // return the animation
+    
     return animationToReturn;
 }
 
