@@ -16,12 +16,14 @@
 
 {
     BOOL isActive;
+    BOOL isCollideable;
     BOOL reactsToScreenBoundaries;
     CGSize winSize;
     GameObjectType gameObjectType;
 }
 
 @property (readwrite) BOOL isActive;
+@property (readwrite) BOOL isCollideable;
 @property (readwrite) BOOL reactsToScreenBoundaries;
 @property (readwrite) CGSize screenSize;
 @property (readwrite) GameObjectType gameObjectType;

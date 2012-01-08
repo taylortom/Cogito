@@ -17,11 +17,12 @@
 #define kMenuFont               @"bangla_dark.fnt"
 
 #define kUISpriteZValue         50
-#define kTerrainZValue          75
+#define kTerrainZValue          200
 
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
 #define kLemmingIdleTimer       3
+#define kLemmingFallTime        0.6f
 
 #define kLemmingSpawnXPos       0.07f 
 #define kLemmingSpawnYPos       0.90f

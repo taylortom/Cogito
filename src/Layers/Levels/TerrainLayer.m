@@ -63,6 +63,7 @@
     {
         NSDictionary *objectDictionary = [plistDictionary objectForKey:object];
     
+        // store the attributes shared by terrain and obstacles
         NSString *type = [objectDictionary objectForKey:@"type"];
         float x = [[objectDictionary objectForKey:@"x"] floatValue];
         float y = [[objectDictionary objectForKey:@"y"] floatValue];
@@ -71,18 +72,26 @@
         if([type isEqualToString:@"terrain"])
         {
             BOOL isWall = [[objectDictionary objectForKey:@"isWall"] boolValue];
-            
+            BOOL isCollideable = [[objectDictionary objectForKey:@"isCollideable"] boolValue];
+            if([objectDictionary objectForKey:@"isCollideable"] == nil) isCollideable = YES;
+                        
             Terrain *terrainObject = [[Terrain alloc] initWithPosition:ccp(x,y) andFilename:filename isWall:isWall];
+            terrainObject.isCollideable = isCollideable;
             [self addChild:terrainObject];
             [terrain addObject:terrainObject];
         }
         else if([type isEqualToString:@"obstacle"])
         {
-            // UPDATE LATER
-            GameObjectType obstacleType = kObstacleCage;
+            GameObjectType gameObjectType;
+            NSString *obstacleType = [objectDictionary objectForKey:@"obstacleType"];
             
-            Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:obstacleType withPosition:ccp(x, y) andFilename:filename];
-            [terrain addObject:obstacleObject];
+            if([obstacleType isEqualToString:@"spikes"]) gameObjectType = kObstaclePit;
+            else if([obstacleType isEqualToString:@"cage"]) gameObjectType = kObstacleCage;
+            else if([obstacleType isEqualToString:@"water"]) gameObjectType = kObstacleWater;
+            else if([obstacleType isEqualToString:@"stamper"]) gameObjectType = kObstacleStamper;
+                        
+            Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:gameObjectType withPosition:ccp(x,y) andFilename:filename];
+            [obstacles addObject:obstacleObject];
             [self addChild:obstacleObject];
         }
     }

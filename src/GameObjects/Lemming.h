@@ -22,6 +22,7 @@
     int movementAmount;             // number of pixels moved per animation cycle
     int respawns;                   // number of respawns
     bool isUsingHelmet;
+    int fallCounter;
     
     int ID;                         // a unique ID, used for debugging
     CCLabelBMFont *debugLabel;      // text label used for debugging 

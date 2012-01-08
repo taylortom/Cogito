@@ -18,6 +18,6 @@
 
 @property (readonly) BOOL isWall;
 
-- (id)initWithPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall;
+-(id)initWithPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall;
 
 @end

@@ -11,7 +11,6 @@
 
 @implementation Obstacle
 
-@synthesize obstacleType;
 @synthesize animation;
 
 #pragma mark -
@@ -29,7 +28,7 @@
     
     if (self != nil) 
     {        
-        obstacleType = _obstacleType;
+        self.gameObjectType = _obstacleType;
         filename = _filename;
         [self setPosition:_position];
         

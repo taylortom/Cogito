@@ -12,12 +12,10 @@
 @interface Obstacle : GameObject 
 
 { 
-    GameObjectType obstacleType;
     NSString *filename;
     CCAnimation *animation;
 }
 
-@property (readwrite) GameObjectType obstacleType;
 @property (nonatomic,retain) CCAnimation *animation;
 
 - (id)initObstacleType:(GameObjectType)_obstacleType withPosition:(CGPoint)_position andFilename:(NSString*)_filename;

@@ -14,6 +14,7 @@
 @synthesize reactsToScreenBoundaries;
 @synthesize screenSize;
 @synthesize isActive;
+@synthesize isCollideable;
 @synthesize gameObjectType;
 
 #pragma mark -
@@ -28,7 +29,8 @@
     if(self = [super init])
     {
         winSize = [CCDirector sharedDirector].winSize;
-        isActive = true;
+        isActive = YES;
+        isCollideable = YES;
         gameObjectType = kObjectTypeNone;
     }
     
