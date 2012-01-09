@@ -91,6 +91,7 @@ static LemmingManager* _instance = nil;
  */
 -(void)addLemming:(Lemming*)lemmingToAdd
 {
+    CCLOG(@"Lemming.addLemming");
     [lemmings addObject:lemmingToAdd];
     lemmingsAdded++;
 }
@@ -101,9 +102,11 @@ static LemmingManager* _instance = nil;
  */
 -(void)removeLemming:(Lemming*)lemmingToRemove
 {    
+    CCLOG(@"Lemming.removeLemming");
+    
     if(lemmingToRemove.state == kStateDead) lemmingsKilled++;
     else lemmingsSaved++;
-    
+
     [lemmings removeObject:lemmingToRemove];
     [lemmingToRemove removeFromParentAndCleanup:YES];
     

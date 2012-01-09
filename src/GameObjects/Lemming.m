@@ -146,6 +146,11 @@
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
             break;
             
+        case kStateWin:
+            if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
+            else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+            break;
+            
         default:
             CCLOG(@"Lemming.changeState: unknown state '%d'", _newState);
             break;
@@ -189,6 +194,11 @@
     [self changeState:kStateDead];
 }
 
+-(void)winLemming
+{   
+    [self changeState:kStateWin];
+}
+
 /**
  * Applies the appropriate action when 
  * a Lemming collides with an object
@@ -196,8 +206,6 @@
  */
 -(void)onObjectCollision:(GameObject*)_object
 {       
-    if(![_object isCollideable]) return;
-    
     switch([_object gameObjectType]) 
     {
         case kObstaclePit:
@@ -222,7 +230,12 @@
             break;
 
         case kObjectTerrain:
-            if(self.state != kStateWalking && self.state != kStateDead && ![_object isWall]) 
+            if(![_object isCollideable]) 
+            {
+                if(state == kStateFalling) return;
+                else [self changeState:kStateFalling];
+            }
+            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![_object isWall]) 
             {
                 if(fallCounter > (kLemmingFallTime*kFrameRate) && self.state != kStateFloating) 
                 {
@@ -235,7 +248,7 @@
             break;
         
         case kObjectExit:
-            [self changeState:kStateWin]; 
+            [self delayMethodCall:@selector(winLemming) by:1.0f]; 
             break;
         
         default: 
@@ -309,6 +322,7 @@
             if(respawns > 0) [self changeState:kStateSpawning];
             else [[LemmingManager sharedLemmingManager] removeLemming:self];
         }
+        else if(self.state == kStateWin) [[LemmingManager sharedLemmingManager] removeLemming:self];
     }
 }
 

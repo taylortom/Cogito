@@ -23,13 +23,13 @@
  * @param whether terrain is a wall
  * @return self
  */
-- (id)initWithPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall
+- (id)initObjectType:(GameObjectType)_type withPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall
 {    
     self = [super init];
     
     if (self != nil) 
     {              
-        self.gameObjectType = kObjectTerrain;
+        self.gameObjectType = _type;
         filename = _filename;
         isWall = _isWall;
         [self setPosition:_position];

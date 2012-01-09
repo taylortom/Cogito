@@ -68,32 +68,34 @@
         float x = [[objectDictionary objectForKey:@"x"] floatValue];
         float y = [[objectDictionary objectForKey:@"y"] floatValue];
         NSString *filename = [NSString stringWithFormat:@"%@.png", [objectDictionary objectForKey:@"filename"]];
+        GameObjectType gameObjectType;
+        NSString *objectType = [objectDictionary objectForKey:@"objectType"];
         
         if([type isEqualToString:@"terrain"])
         {
             BOOL isWall = [[objectDictionary objectForKey:@"isWall"] boolValue];
             BOOL isCollideable = [[objectDictionary objectForKey:@"isCollideable"] boolValue];
             if([objectDictionary objectForKey:@"isCollideable"] == nil) isCollideable = YES;
-                        
-            Terrain *terrainObject = [[Terrain alloc] initWithPosition:ccp(x,y) andFilename:filename isWall:isWall];
+            
+            if([objectType isEqualToString:@"exit"]) gameObjectType = kObjectExit;
+            else gameObjectType = kObjectTerrain;
+            
+            Terrain *terrainObject = [[Terrain alloc] initObjectType:(GameObjectType)gameObjectType withPosition:ccp(x,y) andFilename:filename isWall:isWall];
             terrainObject.isCollideable = isCollideable;
             [self addChild:terrainObject];
             [terrain addObject:terrainObject];
         }
         else if([type isEqualToString:@"obstacle"])
-        {
-            GameObjectType gameObjectType;
-            NSString *obstacleType = [objectDictionary objectForKey:@"obstacleType"];
-            
-            if([obstacleType isEqualToString:@"spikes"]) gameObjectType = kObstaclePit;
-            else if([obstacleType isEqualToString:@"cage"]) gameObjectType = kObstacleCage;
-            else if([obstacleType isEqualToString:@"water"]) gameObjectType = kObstacleWater;
-            else if([obstacleType isEqualToString:@"stamper"]) gameObjectType = kObstacleStamper;
+        {            
+            if([objectType isEqualToString:@"spikes"]) gameObjectType = kObstaclePit;
+            else if([objectType isEqualToString:@"cage"]) gameObjectType = kObstacleCage;
+            else if([objectType isEqualToString:@"water"]) gameObjectType = kObstacleWater;
+            else if([objectType isEqualToString:@"stamper"]) gameObjectType = kObstacleStamper;
                         
             Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:gameObjectType withPosition:ccp(x,y) andFilename:filename];
             
-            if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.0f alongAxis:kAxisVertical];
-            else if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f alongAxis:kAxisHorizontal];
+            //if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.0f alongAxis:kAxisVertical];
+            /*else*/ if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f alongAxis:kAxisHorizontal];
 
             [obstacles addObject:obstacleObject];
             [self addChild:obstacleObject];
