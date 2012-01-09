@@ -74,7 +74,7 @@
         health = 100;
         movementAmount = 18;
         movementDirection = kDirectionRight;
-        respawns = 0;
+        respawns = kLemmingRespawns;
         isUsingHelmet = NO;
         [self changeState:kStateSpawning];
         
@@ -399,6 +399,19 @@
     bBox = CGRectMake(bBox.origin.x, bBox.origin.y, bBox.size.width-xCropAmount, bBox.size.height-yCropAmount);
     
     return bBox;
+}
+
+/**
+ * Returns the number of respawns left
+ */
+-(int)respawns
+{
+    return respawns;
+}
+
++(int)respawns
+{
+    return;
 }
 
 @end

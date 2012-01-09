@@ -215,6 +215,14 @@ static int secondsPlayed;
 }
 
 /**
+ * Just returns the time played in seconds
+ */
+-(int)getGameTimeInSecs
+{
+    return secondsPlayed;
+}
+
+/**
  * Whether the game is currently is paused
  */
 -(BOOL)gamePaused

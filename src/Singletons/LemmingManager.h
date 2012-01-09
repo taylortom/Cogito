@@ -23,6 +23,7 @@
     int lemmingsAdded;
     int lemmingsSaved;
     int lemmingsKilled;
+    int spawnsRemaining;
     NSMutableArray *lemmings;
 }
 

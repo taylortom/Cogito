@@ -58,5 +58,6 @@
 
 -(void)changeState: (CharacterStates)_newState;
 -(void)changeDirection;
+-(int)respawns;
 
 @end

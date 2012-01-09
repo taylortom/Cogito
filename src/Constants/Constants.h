@@ -24,6 +24,9 @@
 #define kLemmingIdleTimer       3
 #define kLemmingFallTime        0.6f
 
+#define kLemmingRespawns        3
+#define kLemmingTotal           5
+
 #define kLemmingSpawnXPos       0.07f 
 #define kLemmingSpawnYPos       0.90f
 #define kLemmingSpawnSpeed      1

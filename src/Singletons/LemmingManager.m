@@ -76,7 +76,7 @@ static LemmingManager* _instance = nil;
  */
 -(void)reset
 {
-    totalNumberOfLemmings = 5;
+    totalNumberOfLemmings = kLemmingTotal;
     lemmingsAdded = 0;
     lemmingsKilled = 0;
     lemmingsSaved = 0;
@@ -105,7 +105,11 @@ static LemmingManager* _instance = nil;
     CCLOG(@"Lemming.removeLemming");
     
     if(lemmingToRemove.state == kStateDead) lemmingsKilled++;
-    else lemmingsSaved++;
+    else 
+    {
+        lemmingsSaved++;
+        spawnsRemaining += [lemmingToRemove respawns];
+    }
 
     [lemmings removeObject:lemmingToRemove];
     [lemmingToRemove removeFromParentAndCleanup:YES];
@@ -122,7 +126,20 @@ static LemmingManager* _instance = nil;
  */
 -(GameRating)calculateGameRating
 {
-    return kRatingF;
+    float bonus = ((float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal))*50;
+    float penalty = ((float)lemmingsKilled/(float)kLemmingTotal)+((float)[[GameManager sharedGameManager] getGameTimeInSecs]/10)*25;
+    float baseScore = ((float)lemmingsSaved/(float)kLemmingTotal)*100;
+    
+    // calculate the score
+    float score = baseScore + (bonus-penalty);
+    
+    CCLOG(@"Lemming.calculateGameRating: %f", score);
+    
+    if(score > 79) return kRatingA;
+    if(score > 59) return kRatingB;
+    if(score > 39) return kRatingC;
+    if(score > 19) return kRatingD;
+    else return kRatingF;
 }
 
 #pragma mark -
