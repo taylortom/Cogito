@@ -17,20 +17,16 @@
 		<key>level</key>
 		<integer>0</integer>
 	</dict>
-	<key>Spikes1</key>
+	<key>Spikes_platform1</key>
 	<dict>
-		<key>level</key>
-		<integer>1</integer>
 		<key>type</key>
-		<string>obstacle</string>
-		<key>obstacleType</key>
-		<string>spikes</string>
+		<string>terrain</string>
 		<key>x</key>
-		<integer>180</integer>
+		<integer>381</integer>
 		<key>y</key>
 		<integer>200</integer>
 		<key>filename</key>
-		<string>spikes2</string>
+		<string>spike_platform</string>
 	</dict>
 	<key>Platform2</key>
 	<dict>
@@ -65,7 +61,7 @@
 	<key>Exit</key>
 	<dict>
 		<key>type</key>
-		<string>terrain</string>
+		<string>exit</string>
 		<key>isWall</key>
 		<false/>
 		<key>x</key>
@@ -86,7 +82,7 @@
 		<key>y</key>
 		<integer>10</integer>
 		<key>filename</key>
-		<string>floor</string>
+		<string>floor2</string>
 	</dict>
 	<key>Platform3</key>
 	<dict>
@@ -97,11 +93,50 @@
 		<key>isWall</key>
 		<false/>
 		<key>x</key>
-		<integer>130</integer>
+		<integer>160</integer>
 		<key>y</key>
 		<integer>105</integer>
 		<key>filename</key>
 		<string>platform_large</string>
+	</dict>
+	<key>Spikes1</key>
+	<dict>
+		<key>type</key>
+		<string>obstacle</string>
+		<key>obstacleType</key>
+		<string>spikes</string>
+		<key>x</key>
+		<integer>381</integer>
+		<key>y</key>
+		<integer>196</integer>
+		<key>filename</key>
+		<string>spikes</string>
+	</dict>
+	<key>Water</key>
+	<dict>
+		<key>type</key>
+		<string>obstacle</string>
+		<key>obstacleType</key>
+		<string>water</string>
+		<key>x</key>
+		<integer>350</integer>
+		<key>y</key>
+		<integer>10</integer>
+		<key>filename</key>
+		<string>water</string>
+	</dict>
+	<key>Stamper</key>
+	<dict>
+		<key>type</key>
+		<string>obstacle</string>
+		<key>obstacleType</key>
+		<string>stamper</string>
+		<key>x</key>
+		<integer>120</integer>
+		<key>y</key>
+		<integer>330</integer>
+		<key>filename</key>
+		<string>stamper</string>
 	</dict>
 </dict>
 </plist>

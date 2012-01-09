@@ -18,6 +18,9 @@
 
 /**
  * Initialises the object
+ * @param position
+ * @param filename
+ * @param whether terrain is a wall
  * @return self
  */
 - (id)initWithPosition:(CGPoint)_position andFilename:(NSString*)_filename isWall:(BOOL)_isWall
@@ -55,7 +58,7 @@
  */
 -(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
 {
-    
+    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
 }
 
 /**

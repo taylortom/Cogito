@@ -12,6 +12,7 @@
 @interface Lemming()
 
 -(void)initAnimations;
+-(void)killLemming;
 -(void)updateDebugLabel;
 -(void)onObjectCollision:(GameObject*)_obstacle;
 -(void)checkLemmingWithinScreenBounds;
@@ -71,7 +72,7 @@
     {
         self.gameObjectType = kLemmingType;
         health = 100;
-        movementAmount = 20;
+        movementAmount = 18;
         movementDirection = kDirectionRight;
         respawns = 0;
         isUsingHelmet = NO;
@@ -108,7 +109,7 @@
     id action = nil;
     self.state = _newState;
 
-    // reset the fall counter
+    // reset the counter
     fallCounter = 0;
     
     switch(_newState) 
@@ -122,7 +123,7 @@
             break;
 
         case kStateFalling:
-            action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f, movementAmount*-1)], action, nil];         
+            action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.12f position:ccp(0.0f, movementAmount*-1)], action, nil];         
             break;
             
         case kStateIdle:
@@ -159,15 +160,6 @@
 }
 
 /**
- * used with performSelectorwithObjectAfterDelay
- * to delay when the lemming's set to killed
- */
--(void)delayKill
-{
-    [self changeState:kStateDead];
-}
-
-/**
  * Changes the direction of the lemming
  */
 -(void)changeDirection
@@ -189,8 +181,18 @@
 }
 
 /**
+ * Changes the state to dead.
+ * Used by delayMethodCall
+ */
+-(void)killLemming
+{   
+    [self changeState:kStateDead];
+}
+
+/**
  * Applies the appropriate action when 
  * a Lemming collides with an object
+ * @param object collided with
  */
 -(void)onObjectCollision:(GameObject*)_object
 {       
@@ -200,18 +202,29 @@
     {
         case kObstaclePit:
         case kObstacleWater:
-            if(self.state != kStateDead) [self performSelector:@selector(delayKill) withObject:nil afterDelay:2.0];
+            if(self.state != kStateDead) [self changeState:kStateDead];
             break;
             
         case kObstacleStamper:
+            if(!isUsingHelmet && self.state != kStateDead) [self delayMethodCall:@selector(killLemming) by:1.5];
+            break;
+            
         case kObstacleCage:
-            health -= health*kStamperDamage;
+            /* either: 
+             *    - kill lemming
+             *    - animate up
+             *
+             * or:
+             *    - trap lemming
+             *    - ignore any further collisions
+             */
+            //[self delayMethodCall:@selector(killLemming) by:1.0];
             break;
 
         case kObjectTerrain:
             if(self.state != kStateWalking && self.state != kStateDead && ![_object isWall]) 
             {
-                if(fallCounter > (kLemmingFallTime*kFrameRate)) 
+                if(fallCounter > (kLemmingFallTime*kFrameRate) && self.state != kStateFloating) 
                 {
                     [self changeState:kStateDead];
                     fallCounter = 0;
@@ -235,9 +248,13 @@
 
 /**
  * Update function called every frame
+ * @param deltaTime
+ * @param listOfGameObjects
  */
 -(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
 {    
+    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
+    
     if(COCOS2D_DEBUG > 1) [self updateDebugLabel];
     if (state != kStateDead) [self checkLemmingWithinScreenBounds];
     
@@ -265,6 +282,7 @@
     }
     // check if the lemming should be falling
     if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateDead) [self changeState:kStateFalling];
+    //if(!colliding && state != kStateSpawning && state != kStateFloating && state != kStateDead) [self changeState:kStateFloating];
         
     // check if the lemming is dead
     if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];

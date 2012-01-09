@@ -20,6 +20,12 @@
     BOOL reactsToScreenBoundaries;
     CGSize winSize;
     GameObjectType gameObjectType;
+    
+    // variables used for delay
+    int delayCounter;
+    BOOL incrementDelay;
+    SEL delayMethod;
+    float delayAmount;
 }
 
 @property (readwrite) BOOL isActive;
@@ -30,6 +36,7 @@
 
 -(void)changeState:(CharacterStates)_newState;
 -(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray*)_listOfGameObjects;
+-(void)delayMethodCall:(SEL)_method by:(float)_delay;
 -(CGRect)adjustedBoundingBox;
 -(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)_animationName andClassName:(NSString*)_className;
 

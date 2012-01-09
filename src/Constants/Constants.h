@@ -12,7 +12,7 @@
 
 //#define COCOS2D_DEBUG           2
 
-#define kFrameRate              60
+#define kFrameRate              30
 
 #define kMenuFont               @"bangla_dark.fnt"
 

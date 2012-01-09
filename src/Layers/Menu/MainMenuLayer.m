@@ -74,7 +74,8 @@
     CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"About.png" selectedImage:@"About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items
-    mainMenu = [CCMenu menuWithItems:newGameButton, highScoresButton, aboutButton, nil];
+    //mainMenu = [CCMenu menuWithItems:newGameButton, highScoresButton, aboutButton, nil];
+    mainMenu = [CCMenu menuWithItems:newGameButton, aboutButton, nil];
     
     // position the menu
     [mainMenu alignItemsVerticallyWithPadding:winSize.height * 0.059f];

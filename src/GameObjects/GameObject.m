@@ -32,6 +32,8 @@
         isActive = YES;
         isCollideable = YES;
         gameObjectType = kObjectTypeNone;
+        delayCounter = 0;
+        incrementDelay = NO;
     }
     
     return self;
@@ -55,7 +57,26 @@
  */
 -(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
 {
-    CCLOG(@"GameObject.updateStateWithDeltaTime should be overridden");
+    if(incrementDelay) delayCounter++;
+    
+    if(delayCounter > delayAmount*kFrameRate)
+    {
+        [self performSelector:delayMethod];
+        incrementDelay = NO;
+        delayCounter = 0;
+    }
+}
+
+/**
+ * Calls a method after a specified delay
+ * @param method to call
+ * @param delay amount
+ */
+-(void)delayMethodCall:(SEL)_method by:(float)_delay
+{
+    delayMethod = _method;
+    delayAmount = _delay;
+    incrementDelay = YES;
 }
 
 /**

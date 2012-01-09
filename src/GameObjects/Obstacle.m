@@ -11,13 +11,14 @@
 
 @implementation Obstacle
 
-@synthesize animation;
-
 #pragma mark -
 #pragma mark Initialisation
 
 /**
  * Initialises the object
+ * @param type of object
+ * @param position
+ * @param filename
  * @return self
  */
 - (id)initObstacleType:(GameObjectType)_obstacleType withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
@@ -38,6 +39,36 @@
     return self;
 }
 
+/**
+ * Creates and plays a movement action
+ * @param amount to move object
+ * @param length of animation
+ * @param axis of movement
+ */
+-(void)animateObstacleBy:(int)_movementAmount withLength:(float)_length alongAxis:(Axis)_axis 
+{    
+    id action = nil;
+    
+    // create and run the action
+    if(_axis == kAxisHorizontal)
+    {
+        action = [CCSequence actions:
+                    [CCMoveBy actionWithDuration:_length/2 position:ccp(_movementAmount,0)],
+                    [CCMoveBy actionWithDuration:_length/2 position:ccp(_movementAmount*-1,0)], 
+                  nil];
+    }
+    else 
+    {
+        action = [CCSequence actions:
+                  [CCMoveBy actionWithDuration:_length/2 position:ccp(0,_movementAmount)],
+                  [CCMoveBy actionWithDuration:_length/2 position:ccp(0,_movementAmount*-1)], 
+                  nil];
+    }
+    
+    action = [CCRepeatForever actionWithAction:action];
+    [self runAction:action];
+}
+
 #pragma mark -
 
 /**
@@ -56,7 +87,7 @@
  */
 -(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
 {
-    
+    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
 }
 
 /**
