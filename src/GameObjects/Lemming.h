@@ -7,8 +7,8 @@
 //  21/11/2011: Created class
 //
 
-#import "LemmingManager.h"
 #import "CogitoAgent.h"
+#import "LemmingManager.h"
 #import <Foundation/Foundation.h>
 #import "Terrain.h"
 
@@ -19,11 +19,13 @@
     CharacterStates state; 
     CCSpriteFrame *standingFrame;
     Direction movementDirection;
+    GameObjectType objectLastCollidedWith;
     int movementAmount;             // number of pixels moved per animation cycle
     int respawns;                   // number of respawns
     bool isUsingHelmet;
     int fallCounter;
     
+    // debugging
     int ID;                         // a unique ID, used for debugging
     CCLabelBMFont *debugLabel;      // text label used for debugging 
     

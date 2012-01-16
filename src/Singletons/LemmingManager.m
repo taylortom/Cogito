@@ -16,6 +16,15 @@ static LemmingManager* _instance = nil;
 #pragma mark -
 #pragma mark Memory Allocation
 
+-(void)dealloc
+{
+    [super dealloc];
+    [lemmings release];
+}
+
+#pragma mark -
+#pragma mark Memory Allocation
+
 /**
  * Allocates needed memory
  * @return the instance
@@ -91,7 +100,7 @@ static LemmingManager* _instance = nil;
  */
 -(void)addLemming:(Lemming*)lemmingToAdd
 {
-    CCLOG(@"Lemming.addLemming");
+    CCLOG(@"LemmingManager.addLemming");
     [lemmings addObject:lemmingToAdd];
     lemmingsAdded++;
 }
@@ -102,7 +111,7 @@ static LemmingManager* _instance = nil;
  */
 -(void)removeLemming:(Lemming*)lemmingToRemove
 {    
-    CCLOG(@"Lemming.removeLemming");
+    CCLOG(@"LemmingManager.removeLemming");
     
     if(lemmingToRemove.state == kStateDead) lemmingsKilled++;
     else 
@@ -133,7 +142,7 @@ static LemmingManager* _instance = nil;
     // calculate the score
     float score = baseScore + (bonus-penalty);
     
-    CCLOG(@"Lemming.calculateGameRating: %f", score);
+    CCLOG(@"LemmingManager.calculateGameRating: %f", score);
     
     if(score > 79) return kRatingA;
     if(score > 59) return kRatingB;

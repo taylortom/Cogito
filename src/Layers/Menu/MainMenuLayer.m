@@ -70,7 +70,7 @@
     
     //create the menu buttons
     CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"NewGame.png" selectedImage:@"NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
-    CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Settings.png" selectedImage:@"Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
+    //CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Settings.png" selectedImage:@"Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
     CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"About.png" selectedImage:@"About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items

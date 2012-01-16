@@ -19,6 +19,16 @@
 @implementation TerrainLayer
 
 #pragma mark -
+#pragma mark Memory Allocation
+
+-(void)dealloc
+{
+    [super dealloc];
+    [terrain release];
+    [obstacles release];
+}
+
+#pragma mark -
 #pragma mark Initialisation
 
 /**
@@ -94,8 +104,8 @@
                         
             Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:gameObjectType withPosition:ccp(x,y) andFilename:filename];
             
-            //if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.0f alongAxis:kAxisVertical];
-            /*else*/ if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f alongAxis:kAxisHorizontal];
+            if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.0f alongAxis:kAxisVertical];
+            else if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f alongAxis:kAxisHorizontal];
 
             [obstacles addObject:obstacleObject];
             [self addChild:obstacleObject];

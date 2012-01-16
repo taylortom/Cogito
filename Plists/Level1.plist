@@ -56,9 +56,9 @@
 		<key>isWall</key>
 		<false/>
 		<key>x</key>
-		<integer>135</integer>
+		<integer>430</integer>
 		<key>y</key>
-		<integer>250</integer>
+		<integer>50</integer>
 		<key>filename</key>
 		<string>exit</string>
 	</dict>
@@ -90,19 +90,6 @@
 		<key>filename</key>
 		<string>platform_large</string>
 	</dict>
-	<key>Spikes1</key>
-	<dict>
-		<key>type</key>
-		<string>obstacle</string>
-		<key>objectType</key>
-		<string>spikes</string>
-		<key>x</key>
-		<integer>181</integer>
-		<key>y</key>
-		<integer>196</integer>
-		<key>filename</key>
-		<string>spikes</string>
-	</dict>
 	<key>Water</key>
 	<dict>
 		<key>type</key>
@@ -123,7 +110,7 @@
 		<key>objectType</key>
 		<string>stamper</string>
 		<key>x</key>
-		<integer>120</integer>
+		<integer>380</integer>
 		<key>y</key>
 		<integer>330</integer>
 		<key>filename</key>

@@ -178,12 +178,12 @@
         lemming.ID = ID;
         lemming.health = health;
         
-        if(COCOS2D_DEBUG > 1)
+        /*if(COCOS2D_DEBUG > 1)
         {
             CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"NoneNone" fntFile:@"helvetica_blue_small.fnt"];
             [self addChild:debugLabel];
             [lemming setDebugLabel:debugLabel];
-        }
+        }*/
         
         [[LemmingManager sharedLemmingManager] addLemming:lemming]; 
         

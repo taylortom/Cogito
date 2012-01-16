@@ -14,7 +14,6 @@
 #import "Constants.h"
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
-#import "Lemming.h"
 #import "PauseMenuLayer.h"
 #import "TerrainLayer.h"
 

@@ -24,6 +24,7 @@
 @synthesize health;
 @synthesize state;
 
+// used in debugging
 @synthesize ID;
 @synthesize debugLabel;
 
@@ -76,6 +77,7 @@
         movementDirection = kDirectionRight;
         respawns = kLemmingRespawns;
         isUsingHelmet = NO;
+        objectLastCollidedWith = kObjectTypeNone;
         [self changeState:kStateSpawning];
         
         [self initAnimations];
@@ -124,6 +126,7 @@
 
         case kStateFalling:
             action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.12f position:ccp(0.0f, movementAmount*-1)], action, nil];         
+            objectLastCollidedWith = kObjectTypeNone;
             break;
             
         case kStateIdle:
@@ -206,6 +209,11 @@
  */
 -(void)onObjectCollision:(GameObject*)_object
 {       
+    // check that we're not colliding with the same object
+    if(_object.gameObjectType == objectLastCollidedWith || ![_object isCollideable]) return;
+        
+    objectLastCollidedWith = _object.gameObjectType;
+    
     switch([_object gameObjectType]) 
     {
         case kObstaclePit:
@@ -229,13 +237,21 @@
             //[self delayMethodCall:@selector(killLemming) by:1.0];
             break;
 
+        case kObjectTrapdoor:
+            // do nothing
+            break;
+            
+        case kObjectExit:
+            [self delayMethodCall:@selector(winLemming) by:1.0f]; 
+            break;
+            
         case kObjectTerrain:
-            if(![_object isCollideable]) 
+            /*if(![_object isCollideable]) 
             {
                 if(state == kStateFalling) return;
                 else [self changeState:kStateFalling];
-            }
-            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![_object isWall]) 
+            }*/
+            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![(Terrain*)_object isWall]) 
             {
                 if(fallCounter > (kLemmingFallTime*kFrameRate) && self.state != kStateFloating) 
                 {
@@ -244,11 +260,7 @@
                 }
                 else [self changeState:kStateWalking];
             }
-            else if([_object isWall]) [self changeDirection];
-            break;
-        
-        case kObjectExit:
-            [self delayMethodCall:@selector(winLemming) by:1.0f]; 
+            else if([(Terrain*)_object isWall]) [self changeDirection];
             break;
         
         default: 
@@ -265,25 +277,23 @@
  * @param listOfGameObjects
  */
 -(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
-{    
-    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
-    
-    if(COCOS2D_DEBUG > 1) [self updateDebugLabel];
-    if (state != kStateDead) [self checkLemmingWithinScreenBounds];
-    
-    // increment the fall counter
-    if(kStateFalling) fallCounter++;
+{      
+    // check if the lemming is dead
+    if(self.health <= 0 && self.state != kStateDead)
+    {
+        [self changeState:kStateDead];
+        return;
+    }
     
     /*
      * check for collisions
      */
-    
     CGRect selfBBox = [self adjustedBoundingBox];
     BOOL colliding = NO;
     
     for (GameObject *gameObject in _listOfGameObjects) 
     {
-        // no need to check self with self
+        // no need to check for self-self collisions
         if(gameObject == self) continue;
              
         CGRect objectBBox = [gameObject adjustedBoundingBox];
@@ -295,35 +305,38 @@
     }
     // check if the lemming should be falling
     if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateDead) [self changeState:kStateFalling];
-    //if(!colliding && state != kStateSpawning && state != kStateFloating && state != kStateDead) [self changeState:kStateFloating];
-        
-    // check if the lemming is dead
-    if(self.health <= 0 && self.state != kStateDead) [self changeState:kStateDead];
     
-    // if actions have finished running...
+    /*
+     * if actions have finished running...
+     */
     if([self numberOfRunningActions] == 0)
     {
         if(self.state == kStateFloating) // lemming has opened umbrella, now to make it float
         {
+            // create the movement/animation and play
             id animAction = [CCAnimate actionWithAnimation:floatUmbrellaAnim restoreOriginalFrame:NO];
-            
-            // make the lemming move
             id floatingAction = [CCMoveBy actionWithDuration:0.75f position:ccp(0.0f, movementAmount*-1)];
-            
-            // merge the two actions
-            
             animAction = [CCSpawn actions: floatingAction, animAction, nil];         
             animAction = [CCRepeatForever actionWithAction:animAction];
-            
             [self runAction:animAction];
         }
-        else if(self.state == kStateDead) // lemming has played death anim, respawn or remove
+        // lemming has played death anim, respawn or remove
+        else if(self.state == kStateDead)
         {
             if(respawns > 0) [self changeState:kStateSpawning];
             else [[LemmingManager sharedLemmingManager] removeLemming:self];
         }
+        // remove lemming if it's reached the exit
         else if(self.state == kStateWin) [[LemmingManager sharedLemmingManager] removeLemming:self];
     }
+    
+    // make sure the lemming's onscreen
+    if (state != kStateDead) [self checkLemmingWithinScreenBounds];
+    
+    // increment the fall counter
+    if(kStateFalling) fallCounter++;
+    
+    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
 }
 
 /**
@@ -370,6 +383,14 @@
 }
 
 /**
+ * Check for collisions
+ */
+-(void)checkForCollisions
+{
+    
+}
+
+/**
  * Checks that the lemming is within the screen area
  */
 -(void)checkLemmingWithinScreenBounds
@@ -407,11 +428,6 @@
 -(int)respawns
 {
     return respawns;
-}
-
-+(int)respawns
-{
-    return;
 }
 
 @end

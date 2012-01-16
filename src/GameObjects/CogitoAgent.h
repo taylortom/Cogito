@@ -2,13 +2,20 @@
 //  CogitoAgent.h
 //  Author: Thomas Taylor
 //
-//  Contains the code necessary for the AI/learning
+//  Handles the machine learning
 //
-//  05/12/2011: Created class
+//  15/01/2011: Created class
 //
 
 #import "GameObject.h"
 
 @interface CogitoAgent : GameObject
+
+struct Route
+{
+    // obstacles: obstacle, decision, result
+    // outcome
+    // time taken
+};
 
 @end
