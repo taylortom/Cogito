@@ -14,10 +14,13 @@
 
 {
     SceneTypes currentScene;
+    BOOL levelLoaded;
     BOOL gamePaused;
 }
 
 @property (readonly) SceneTypes currentScene;
+@property (readwrite) BOOL levelLoaded;
+@property (readwrite) BOOL gamePaused;
 
 +(GameManager*)sharedGameManager;
 -(void)runSceneWithID:(SceneTypes)sceneID;
@@ -27,7 +30,5 @@
 -(void)resetSecondCounter;
 -(NSString*)getGameTimeInMins;
 -(int)getGameTimeInSecs;
--(BOOL)gamePaused;
--(void)gamePaused:(BOOL)value;
 
 @end

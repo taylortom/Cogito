@@ -25,6 +25,8 @@
 @implementation GameManager
 
 @synthesize currentScene;
+@synthesize levelLoaded;
+@synthesize gamePaused;
 
 static GameManager* _instance = nil;
 static int secondsPlayed;
@@ -65,6 +67,7 @@ static int secondsPlayed;
         [[CCDirector sharedDirector] setAnimationInterval: 1.0/kFrameRate];
         currentScene = kNoSceneUninitialised; 
         secondsPlayed = 0;
+        levelLoaded = NO;
         gamePaused = NO;
     }
     
@@ -220,22 +223,6 @@ static int secondsPlayed;
 -(int)getGameTimeInSecs
 {
     return secondsPlayed;
-}
-
-/**
- * Whether the game is currently is paused
- */
--(BOOL)gamePaused
-{
-    return gamePaused;
-}
-
-/**
- * Set the game paused value
- */
--(void)gamePaused:(BOOL)value
-{
-    if(value != gamePaused) gamePaused = value;
 }
 
 @end

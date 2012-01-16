@@ -154,7 +154,7 @@
 -(void)onQuitPressed
 {
     [self animateOut];
-    [[GameManager sharedGameManager] gamePaused:NO];
+    [GameManager sharedGameManager].gamePaused = NO;
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
 

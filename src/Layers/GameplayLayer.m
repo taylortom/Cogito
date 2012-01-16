@@ -82,8 +82,8 @@
     
     // add the pause button
     
-    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Spanner.png" selectedImage:@"Spanner_down.png" target:self selector:@selector(onSettingsButtonPressed)];
-    settingsButton.position = ccp(winSize.width*0.91, winSize.height*0.12f);
+    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onSettingsButtonPressed)];
+    settingsButton.position = ccp(30,30);
     
     gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];
     gameplayMenu.position = CGPointZero;
@@ -112,14 +112,21 @@
 -(void)update:(ccTime)deltaTime
 {
     CCArray *gameObjects = [sceneSpriteBatchNode children];
+     
+    // if the level's been loaded, add the new objects to the gameobjects list
+    if([GameManager sharedGameManager].levelLoaded)
+    {
+        CCArray *terrain = [currentTerrainLayer terrain];
+        CCArray *obstacles = [currentTerrainLayer obstacles];
+            
+        // add the terrain/obstacles to the game objects array
+        [gameObjects addObjectsFromArray:terrain];
+        [gameObjects addObjectsFromArray:obstacles];
         
-    CCArray *terrain = [currentTerrainLayer terrain];
-    CCArray *obstacles = [currentTerrainLayer obstacles];
+        // bit of a hack, but makes sure terrain/obstacles aren't repeatedly added
+        [GameManager sharedGameManager].levelLoaded = NO;
+    }
         
-    // add the terrain/obstacles to the game objects array
-    [gameObjects addObjectsFromArray:terrain];
-    [gameObjects addObjectsFromArray:obstacles];
-    
     for (Lemming *tempLemming in gameObjects) 
     {
         [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];
