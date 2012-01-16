@@ -2,22 +2,121 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Platform1</key>
+	<key>Water</key>
+	<dict>
+		<key>type</key>
+		<string>obstacle</string>
+		<key>objectType</key>
+		<string>water</string>
+		<key>x</key>
+		<integer>350</integer>
+		<key>y</key>
+		<integer>7</integer>
+		<key>filename</key>
+		<string>water</string>
+	</dict>
+	<key>Level1_Platform1</key>
+	<dict>
+		<key>level</key>
+		<integer>0</integer>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>33</integer>
+		<key>y</key>
+		<integer>80</integer>
+		<key>filename</key>
+		<string>platform_medium</string>
+	</dict>
+	<key>Level1_Platform2</key>
+	<dict>
+		<key>level</key>
+		<integer>0</integer>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>270</integer>
+		<key>y</key>
+		<integer>80</integer>
+		<key>filename</key>
+		<string>platform_large</string>
+	</dict>
+	<key>Level1_Trapdoor1</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
 		<key>isWall</key>
 		<false/>
 		<key>x</key>
-		<integer>80</integer>
+		<integer>134</integer>
 		<key>y</key>
-		<integer>210</integer>
+		<integer>80</integer>
+		<key>filename</key>
+		<string>trapdoor</string>
+	</dict>
+	<key>Level2_Platform1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>205</integer>
+		<key>y</key>
+		<integer>160</integer>
 		<key>filename</key>
 		<string>platform_medium</string>
 		<key>level</key>
 		<integer>0</integer>
 	</dict>
-	<key>Platform2</key>
+	<key>Level2_Platform2</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>409</integer>
+		<key>y</key>
+		<integer>160</integer>
+		<key>filename</key>
+		<string>platform_medium</string>
+		<key>level</key>
+		<integer>0</integer>
+	</dict>
+	<key>Level2_Trapdoor1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>307</integer>
+		<key>y</key>
+		<integer>160</integer>
+		<key>filename</key>
+		<string>trapdoor</string>
+	</dict>
+	<key>Level3_Platform1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>103</integer>
+		<key>y</key>
+		<integer>240</integer>
+		<key>filename</key>
+		<string>platform_large</string>
+		<key>level</key>
+		<integer>0</integer>
+	</dict>
+	<key>Level3_Platform2</key>
 	<dict>
 		<key>level</key>
 		<integer>0</integer>
@@ -26,11 +125,37 @@
 		<key>isWall</key>
 		<false/>
 		<key>x</key>
-		<integer>380</integer>
+		<integer>375</integer>
 		<key>y</key>
-		<integer>210</integer>
+		<integer>240</integer>
 		<key>filename</key>
 		<string>platform_large</string>
+	</dict>
+	<key>Level3_Trapdoor1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>239</integer>
+		<key>y</key>
+		<integer>240</integer>
+		<key>filename</key>
+		<string>trapdoor</string>
+	</dict>
+	<key>Floor</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isWall</key>
+		<false/>
+		<key>x</key>
+		<integer>240</integer>
+		<key>y</key>
+		<integer>10</integer>
+		<key>filename</key>
+		<string>floor2</string>
 	</dict>
 	<key>Entrance</key>
 	<dict>
@@ -62,47 +187,6 @@
 		<key>filename</key>
 		<string>exit</string>
 	</dict>
-	<key>Floor</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>isWall</key>
-		<false/>
-		<key>x</key>
-		<integer>240</integer>
-		<key>y</key>
-		<integer>10</integer>
-		<key>filename</key>
-		<string>floor2</string>
-	</dict>
-	<key>Platform3</key>
-	<dict>
-		<key>level</key>
-		<integer>0</integer>
-		<key>type</key>
-		<string>terrain</string>
-		<key>isWall</key>
-		<false/>
-		<key>x</key>
-		<integer>160</integer>
-		<key>y</key>
-		<integer>105</integer>
-		<key>filename</key>
-		<string>platform_large</string>
-	</dict>
-	<key>Water</key>
-	<dict>
-		<key>type</key>
-		<string>obstacle</string>
-		<key>objectType</key>
-		<string>water</string>
-		<key>x</key>
-		<integer>350</integer>
-		<key>y</key>
-		<integer>10</integer>
-		<key>filename</key>
-		<string>water</string>
-	</dict>
 	<key>Stamper</key>
 	<dict>
 		<key>type</key>
@@ -112,7 +196,7 @@
 		<key>x</key>
 		<integer>380</integer>
 		<key>y</key>
-		<integer>330</integer>
+		<integer>360</integer>
 		<key>filename</key>
 		<string>stamper</string>
 	</dict>

@@ -7,7 +7,7 @@
             <key>Lemming_death_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,92},{16,14}}</string>
+                <string>{{157,345},{16,14}}</string>
                 <key>offset</key>
                 <string>{0,-9}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>Lemming_death_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,74},{16,14}}</string>
+                <string>{{157,327},{16,14}}</string>
                 <key>offset</key>
                 <string>{0,-5}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>Lemming_death_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,141},{16,16}}</string>
+                <string>{{133,404},{16,16}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>Lemming_death_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,56},{16,14}}</string>
+                <string>{{157,309},{16,14}}</string>
                 <key>offset</key>
                 <string>{0,2}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>Lemming_death_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,38},{16,14}}</string>
+                <string>{{157,291},{16,14}}</string>
                 <key>offset</key>
                 <string>{0,6}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>Lemming_death_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,20},{16,14}}</string>
+                <string>{{157,273},{16,14}}</string>
                 <key>offset</key>
                 <string>{0,6}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>Lemming_death_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,2},{16,14}}</string>
+                <string>{{151,402},{16,14}}</string>
                 <key>offset</key>
                 <string>{0,6}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>Lemming_death_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{90,508},{0,0}}</string>
+                <string>{{506,484},{0,0}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>Lemming_helmet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,202},{10,28}}</string>
+                <string>{{133,374},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -124,7 +124,7 @@
             <key>Lemming_helmet_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,477},{18,30}}</string>
+                <string>{{110,424},{18,30}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
@@ -137,7 +137,7 @@
             <key>Lemming_helmet_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,484},{20,26}}</string>
+                <string>{{169,448},{20,26}}</string>
                 <key>offset</key>
                 <string>{0,-3}</string>
                 <key>rotated</key>
@@ -150,11 +150,11 @@
             <key>Lemming_helmet_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{222,116},{18,30}}</string>
+                <string>{{90,424},{18,30}}</string>
                 <key>offset</key>
                 <string>{-1,-1}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,2},{18,30}}</string>
                 <key>sourceSize</key>
@@ -163,7 +163,7 @@
             <key>Lemming_helmet_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,110},{10,30}}</string>
+                <string>{{112,179},{10,30}}</string>
                 <key>offset</key>
                 <string>{0,-1}</string>
                 <key>rotated</key>
@@ -176,7 +176,7 @@
             <key>Lemming_helmet_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{222,96},{18,30}}</string>
+                <string>{{34,463},{18,30}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
@@ -189,7 +189,7 @@
             <key>Lemming_helmet_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{46,484},{20,26}}</string>
+                <string>{{162,420},{20,26}}</string>
                 <key>offset</key>
                 <string>{0,-3}</string>
                 <key>rotated</key>
@@ -202,7 +202,7 @@
             <key>Lemming_helmet_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{222,76},{18,30}}</string>
+                <string>{{2,463},{18,30}}</string>
                 <key>offset</key>
                 <string>{-1,-1}</string>
                 <key>rotated</key>
@@ -215,7 +215,7 @@
             <key>Lemming_idle_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,322},{10,28}}</string>
+                <string>{{145,344},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -228,7 +228,7 @@
             <key>Lemming_idle_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,292},{10,28}}</string>
+                <string>{{145,314},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -241,7 +241,7 @@
             <key>Lemming_idle_helmet_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,262},{10,28}}</string>
+                <string>{{157,452},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -254,7 +254,7 @@
             <key>Lemming_idle_helmet_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,232},{10,28}}</string>
+                <string>{{150,422},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -267,7 +267,7 @@
             <key>Lemming_umbrellaFloat_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,256},{22,38}}</string>
+                <string>{{142,249},{22,38}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -280,11 +280,11 @@
             <key>Lemming_umbrellaFloat_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,232},{22,38}}</string>
+                <string>{{133,274},{22,38}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{1,1},{22,38}}</string>
                 <key>sourceSize</key>
@@ -293,11 +293,11 @@
             <key>Lemming_umbrellaFloat_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,208},{22,38}}</string>
+                <string>{{126,209},{22,38}}</string>
                 <key>offset</key>
                 <string>{-1,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,1},{22,38}}</string>
                 <key>sourceSize</key>
@@ -306,7 +306,7 @@
             <key>Lemming_umbrellaFloat_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,437},{20,38}}</string>
+                <string>{{150,209},{20,38}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
@@ -319,11 +319,11 @@
             <key>Lemming_umbrellaFloat_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{90,484},{22,38}}</string>
+                <string>{{102,211},{22,38}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{1,1},{22,38}}</string>
                 <key>sourceSize</key>
@@ -332,11 +332,11 @@
             <key>Lemming_umbrellaOpen_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{152,311},{18,30}}</string>
+                <string>{{92,179},{18,30}}</string>
                 <key>offset</key>
                 <string>{3,-5}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{6,10},{18,30}}</string>
                 <key>sourceSize</key>
@@ -345,11 +345,11 @@
             <key>Lemming_umbrellaOpen_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{152,291},{18,30}}</string>
+                <string>{{130,424},{18,30}}</string>
                 <key>offset</key>
                 <string>{3,-5}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{6,10},{18,30}}</string>
                 <key>sourceSize</key>
@@ -358,11 +358,11 @@
             <key>Lemming_umbrellaOpen_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,397},{21,38}}</string>
+                <string>{{102,251},{21,38}}</string>
                 <key>offset</key>
                 <string>{1,-1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{2,2},{21,38}}</string>
                 <key>sourceSize</key>
@@ -371,7 +371,7 @@
             <key>Lemming_walk_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,172},{10,28}}</string>
+                <string>{{133,344},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -384,11 +384,11 @@
             <key>Lemming_walk_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,340},{18,28}}</string>
+                <string>{{172,209},{18,28}}</string>
                 <key>offset</key>
                 <string>{1,-2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{2,4},{18,28}}</string>
                 <key>sourceSize</key>
@@ -397,7 +397,7 @@
             <key>Lemming_walk_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{24,484},{20,26}}</string>
+                <string>{{145,374},{20,26}}</string>
                 <key>offset</key>
                 <string>{0,-3}</string>
                 <key>rotated</key>
@@ -410,11 +410,11 @@
             <key>Lemming_walk_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,320},{18,28}}</string>
+                <string>{{164,179},{18,28}}</string>
                 <key>offset</key>
                 <string>{-1,-2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,4},{18,28}}</string>
                 <key>sourceSize</key>
@@ -423,7 +423,7 @@
             <key>Lemming_walk_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{114,142},{10,28}}</string>
+                <string>{{133,314},{10,28}}</string>
                 <key>offset</key>
                 <string>{0,-2}</string>
                 <key>rotated</key>
@@ -436,11 +436,11 @@
             <key>Lemming_walk_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,300},{18,28}}</string>
+                <string>{{144,179},{18,28}}</string>
                 <key>offset</key>
                 <string>{1,-2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{2,4},{18,28}}</string>
                 <key>sourceSize</key>
@@ -449,7 +449,7 @@
             <key>Lemming_walk_7.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,484},{20,26}}</string>
+                <string>{{484,484},{20,26}}</string>
                 <key>offset</key>
                 <string>{0,-3}</string>
                 <key>rotated</key>
@@ -462,11 +462,11 @@
             <key>Lemming_walk_8.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,280},{18,28}}</string>
+                <string>{{124,179},{18,28}}</string>
                 <key>offset</key>
                 <string>{-1,-2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,4},{18,28}}</string>
                 <key>sourceSize</key>
@@ -475,7 +475,7 @@
             <key>cage.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{130,141},{70,148}}</string>
+                <string>{{61,274},{70,148}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -488,7 +488,7 @@
             <key>entrance.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{225,360},{35,27}}</string>
+                <string>{{61,424},{35,27}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -501,7 +501,7 @@
             <key>exit.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{221,136},{33,61}}</string>
+                <string>{{47,211},{33,61}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -514,11 +514,11 @@
             <key>floor.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{86,2},{480,26}}</string>
+                <string>{{2,30},{480,26}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{480,26}}</string>
                 <key>sourceSize</key>
@@ -527,11 +527,11 @@
             <key>floor2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{58,2},{480,26}}</string>
+                <string>{{2,484},{480,26}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{480,26}}</string>
                 <key>sourceSize</key>
@@ -540,7 +540,7 @@
             <key>floor3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{30,2},{480,26}}</string>
+                <string>{{484,2},{480,26}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -557,7 +557,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{480,26}}</string>
                 <key>sourceSize</key>
@@ -566,7 +566,7 @@
             <key>platform1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{152,331},{151,20}}</string>
+                <string>{{70,58},{151,20}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -579,7 +579,7 @@
             <key>platform_large.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,280},{220,21}}</string>
+                <string>{{2,58},{220,21}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -592,20 +592,20 @@
             <key>platform_medium.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{152,331},{151,20}}</string>
+                <string>{{47,58},{151,21}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{151,20}}</string>
+                <string>{{0,0},{151,21}}</string>
                 <key>sourceSize</key>
-                <string>{151,20}</string>
+                <string>{151,21}</string>
             </dict>
             <key>platform_small.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{130,118},{89,21}}</string>
+                <string>{{66,461},{89,21}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -618,24 +618,24 @@
             <key>spike_platform.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{130,76},{90,40}}</string>
+                <string>{{2,280},{181,57}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{90,40}}</string>
+                <string>{{0,0},{181,57}}</string>
                 <key>sourceSize</key>
-                <string>{90,40}</string>
+                <string>{181,57}</string>
             </dict>
             <key>spikes.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{202,199},{51,7}}</string>
+                <string>{{93,211},{51,7}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{51,7}}</string>
                 <key>sourceSize</key>
@@ -644,20 +644,33 @@
             <key>stamper.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{130,2},{72,119}}</string>
+                <string>{{92,58},{72,119}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{72,119}}</string>
                 <key>sourceSize</key>
                 <string>{72,119}</string>
             </dict>
+            <key>trapdoor.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{82,211},{55,9}}</string>
+                <key>offset</key>
+                <string>{0,6}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{55,9}}</string>
+                <key>sourceSize</key>
+                <string>{55,21}</string>
+            </dict>
             <key>water.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{130,291},{219,20}}</string>
+                <string>{{25,58},{219,20}}</string>
                 <key>offset</key>
                 <string>{0,-3}</string>
                 <key>rotated</key>
@@ -675,9 +688,9 @@
             <key>realTextureFileName</key>
             <string>Lemming_atlas.png</string>
             <key>size</key>
-            <string>{256,512}</string>
+            <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f086d56adf9047c10f85edfbe5185a33$</string>
+            <string>$TexturePacker:SmartUpdate:cfa95d26e4841c81f9b88736a2fe41bd$</string>
             <key>textureFileName</key>
             <string>Lemming_atlas.png</string>
         </dict>

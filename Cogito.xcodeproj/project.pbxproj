@@ -41,10 +41,6 @@
 		E226863D14A0D90D0020B44E /* StingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E226863B14A0D90C0020B44E /* StingScene.m */; };
 		E226864214A0DB290020B44E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E226864114A0DB290020B44E /* Default@2x.png */; };
 		E226864414A0DB6B0020B44E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E226864314A0DB6B0020B44E /* Default.png */; };
-		E2299A9D14BA5BFA000EA7BA /* Lemming_atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2299A9B14BA5BFA000EA7BA /* Lemming_atlas-hd.plist */; };
-		E2299A9E14BA5BFA000EA7BA /* Lemming_atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2299A9C14BA5BFA000EA7BA /* Lemming_atlas.plist */; };
-		E2299AA114BA5C21000EA7BA /* Lemming_atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2299A9F14BA5C21000EA7BA /* Lemming_atlas-hd.png */; };
-		E2299AA214BA5C21000EA7BA /* Lemming_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = E2299AA014BA5C21000EA7BA /* Lemming_atlas.png */; };
 		E2389A1F149B7175004DCA32 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A1E149B7175004DCA32 /* MainMenuLayer.m */; };
 		E2389A22149B89F7004DCA32 /* AboutLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A21149B89F7004DCA32 /* AboutLayer.m */; };
 		E2389A28149B8CC5004DCA32 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A27149B8CC4004DCA32 /* GameOverLayer.m */; };
@@ -83,8 +79,15 @@
 		E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE5149AC2E000356C98 /* MainMenuScene.m */; };
 		E2613FE9149AC36400356C98 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE8149AC36400356C98 /* AboutScene.m */; };
 		E2613FEC149AC3C200356C98 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FEB149AC3C200356C98 /* GameOverScene.m */; };
-		E2646A5114A13C72003CC16E /* Spanner_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A4F14A13C72003CC16E /* Spanner_down.png */; };
-		E2646A5214A13C72003CC16E /* Spanner.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A5014A13C72003CC16E /* Spanner.png */; };
+		E2621FA814C489E400E35D94 /* Lemming_atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2621FA614C489E400E35D94 /* Lemming_atlas-hd.plist */; };
+		E2621FA914C489E400E35D94 /* Lemming_atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2621FA714C489E400E35D94 /* Lemming_atlas.plist */; };
+		E2621FAD14C489F800E35D94 /* Lemming_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = E2621FAB14C489F800E35D94 /* Lemming_atlas.png */; };
+		E2621FAF14C4914600E35D94 /* Lemming.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2621FAE14C4914600E35D94 /* Lemming.plist */; };
+		E2621FC514C4977700E35D94 /* Pause_down-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2621FC114C4977700E35D94 /* Pause_down-hd.png */; };
+		E2621FC614C4977700E35D94 /* Pause_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2621FC214C4977700E35D94 /* Pause_down.png */; };
+		E2621FC714C4977700E35D94 /* Pause-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2621FC314C4977700E35D94 /* Pause-hd.png */; };
+		E2621FC814C4977700E35D94 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = E2621FC414C4977700E35D94 /* Pause.png */; };
+		E2621FCB14C49AC100E35D94 /* Lemming_atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2621FC914C49AC100E35D94 /* Lemming_atlas-hd.png */; };
 		E2646A6914A15727003CC16E /* GameRating_A.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6414A15727003CC16E /* GameRating_A.png */; };
 		E2646A6A14A15727003CC16E /* GameRating_B.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6514A15727003CC16E /* GameRating_B.png */; };
 		E2646A6B14A15727003CC16E /* GameRating_C.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A6614A15727003CC16E /* GameRating_C.png */; };
@@ -99,8 +102,6 @@
 		E28C12AC147A535500385DF6 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AB147A535500385DF6 /* GameObject.m */; };
 		E28C12AF147A6B0D00385DF6 /* Lemming.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AE147A6B0D00385DF6 /* Lemming.m */; };
 		E28EF23814C2F94700B44A00 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E28EF23714C2F94700B44A00 /* CogitoAgent.m */; };
-		E294A06314785248007C087E /* Spanner_down-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E294A06114785247007C087E /* Spanner_down-hd.png */; };
-		E294A06414785248007C087E /* Spanner-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E294A06214785247007C087E /* Spanner-hd.png */; };
 		E2ABCEF314706AE600E14474 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF214706AE600E14474 /* QuartzCore.framework */; };
 		E2ABCEF514706AE600E14474 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF414706AE600E14474 /* OpenGLES.framework */; };
 		E2ABCEF714706AE600E14474 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF614706AE600E14474 /* OpenAL.framework */; };
@@ -219,7 +220,6 @@
 		E2E8C78514706ED6004D07E1 /* BackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8C78414706ED6004D07E1 /* BackgroundLayer.m */; };
 		E2E8C78D14706F54004D07E1 /* GameplayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8C78A14706F54004D07E1 /* GameplayLayer.m */; };
 		E2E8C78E14706F54004D07E1 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8C78C14706F54004D07E1 /* GameScene.m */; };
-		E2FC25E714928A480064B9DA /* Lemming.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2FC25E614928A480064B9DA /* Lemming.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,10 +263,6 @@
 		E226863F14A0D94F0020B44E /* StingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StingLayer.h; sourceTree = "<group>"; };
 		E226864114A0DB290020B44E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E226864314A0DB6B0020B44E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		E2299A9B14BA5BFA000EA7BA /* Lemming_atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Lemming_atlas-hd.plist"; sourceTree = "<group>"; };
-		E2299A9C14BA5BFA000EA7BA /* Lemming_atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming_atlas.plist; sourceTree = "<group>"; };
-		E2299A9F14BA5C21000EA7BA /* Lemming_atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lemming_atlas-hd.png"; sourceTree = "<group>"; };
-		E2299AA014BA5C21000EA7BA /* Lemming_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lemming_atlas.png; sourceTree = "<group>"; };
 		E2389A1D149B7175004DCA32 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E2389A1E149B7175004DCA32 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E2389A20149B89F7004DCA32 /* AboutLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLayer.h; sourceTree = "<group>"; };
@@ -315,8 +311,15 @@
 		E2613FE8149AC36400356C98 /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScene.m; sourceTree = "<group>"; };
 		E2613FEA149AC3C200356C98 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		E2613FEB149AC3C200356C98 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
-		E2646A4F14A13C72003CC16E /* Spanner_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spanner_down.png; sourceTree = "<group>"; };
-		E2646A5014A13C72003CC16E /* Spanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spanner.png; sourceTree = "<group>"; };
+		E2621FA614C489E400E35D94 /* Lemming_atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Lemming_atlas-hd.plist"; sourceTree = "<group>"; };
+		E2621FA714C489E400E35D94 /* Lemming_atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming_atlas.plist; sourceTree = "<group>"; };
+		E2621FAB14C489F800E35D94 /* Lemming_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lemming_atlas.png; sourceTree = "<group>"; };
+		E2621FAE14C4914600E35D94 /* Lemming.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming.plist; sourceTree = "<group>"; };
+		E2621FC114C4977700E35D94 /* Pause_down-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pause_down-hd.png"; sourceTree = "<group>"; };
+		E2621FC214C4977700E35D94 /* Pause_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause_down.png; sourceTree = "<group>"; };
+		E2621FC314C4977700E35D94 /* Pause-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pause-hd.png"; sourceTree = "<group>"; };
+		E2621FC414C4977700E35D94 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		E2621FC914C49AC100E35D94 /* Lemming_atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lemming_atlas-hd.png"; sourceTree = "<group>"; };
 		E2646A6414A15727003CC16E /* GameRating_A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_A.png; sourceTree = "<group>"; };
 		E2646A6514A15727003CC16E /* GameRating_B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_B.png; sourceTree = "<group>"; };
 		E2646A6614A15727003CC16E /* GameRating_C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameRating_C.png; sourceTree = "<group>"; };
@@ -337,8 +340,6 @@
 		E28C12AE147A6B0D00385DF6 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
 		E28EF23614C2F94700B44A00 /* CogitoAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CogitoAgent.h; sourceTree = "<group>"; };
 		E28EF23714C2F94700B44A00 /* CogitoAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CogitoAgent.m; sourceTree = "<group>"; };
-		E294A06114785247007C087E /* Spanner_down-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spanner_down-hd.png"; sourceTree = "<group>"; };
-		E294A06214785247007C087E /* Spanner-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spanner-hd.png"; sourceTree = "<group>"; };
 		E2ABCEEE14706AE600E14474 /* Cogito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ABCEF214706AE600E14474 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E2ABCEF414706AE600E14474 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -581,7 +582,6 @@
 		E2E8C78A14706F54004D07E1 /* GameplayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayLayer.m; sourceTree = "<group>"; };
 		E2E8C78B14706F54004D07E1 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		E2E8C78C14706F54004D07E1 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		E2FC25E614928A480064B9DA /* Lemming.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,10 +610,6 @@
 				E2389A45149B9956004DCA32 /* Settings_down-hd.png */,
 				E2389A2E149B9851004DCA32 /* Settings.png */,
 				E2389A2D149B9851004DCA32 /* Settings_down.png */,
-				E294A06214785247007C087E /* Spanner-hd.png */,
-				E294A06114785247007C087E /* Spanner_down-hd.png */,
-				E2646A5014A13C72003CC16E /* Spanner.png */,
-				E2646A4F14A13C72003CC16E /* Spanner_down.png */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -704,9 +700,9 @@
 		E21FA55E1479B66800519BF6 /* Plists */ = {
 			isa = PBXGroup;
 			children = (
-				E2299A9B14BA5BFA000EA7BA /* Lemming_atlas-hd.plist */,
-				E2299A9C14BA5BFA000EA7BA /* Lemming_atlas.plist */,
-				E2FC25E614928A480064B9DA /* Lemming.plist */,
+				E2621FA614C489E400E35D94 /* Lemming_atlas-hd.plist */,
+				E2621FA714C489E400E35D94 /* Lemming_atlas.plist */,
+				E2621FAE14C4914600E35D94 /* Lemming.plist */,
 				E21254E114B5353A00A0CA61 /* Level1.plist */,
 			);
 			path = Plists;
@@ -803,6 +799,17 @@
 			path = src/Scenes/Menu;
 			sourceTree = SOURCE_ROOT;
 		};
+		E2621FB014C4965600E35D94 /* Pause */ = {
+			isa = PBXGroup;
+			children = (
+				E2621FC114C4977700E35D94 /* Pause_down-hd.png */,
+				E2621FC214C4977700E35D94 /* Pause_down.png */,
+				E2621FC314C4977700E35D94 /* Pause-hd.png */,
+				E2621FC414C4977700E35D94 /* Pause.png */,
+			);
+			name = Pause;
+			sourceTree = "<group>";
+		};
 		E2646A6314A1561B003CC16E /* Misc */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,8 +834,8 @@
 		E294A0561478061E007C087E /* Texture Atlases */ = {
 			isa = PBXGroup;
 			children = (
-				E2299A9F14BA5C21000EA7BA /* Lemming_atlas-hd.png */,
-				E2299AA014BA5C21000EA7BA /* Lemming_atlas.png */,
+				E2621FC914C49AC100E35D94 /* Lemming_atlas-hd.png */,
+				E2621FAB14C489F800E35D94 /* Lemming_atlas.png */,
 			);
 			path = "Texture Atlases";
 			sourceTree = "<group>";
@@ -1282,6 +1289,7 @@
 		E2E419391477F65300281724 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				E2621FB014C4965600E35D94 /* Pause */,
 				E21254DF14B4F31100A0CA61 /* High Scores */,
 				E23ECAC514A402AE00AC01FB /* About */,
 				E23ECAC714A402E200AC01FB /* Back */,
@@ -1385,9 +1393,6 @@
 				E2ABD07014706B3000E14474 /* Icon_50.png in Resources */,
 				E2ABD07114706B3000E14474 /* Icon_114.png in Resources */,
 				E2AD755D147720CC00ECF7CB /* LICENSE_SneakyInput.txt in Resources */,
-				E294A06314785248007C087E /* Spanner_down-hd.png in Resources */,
-				E294A06414785248007C087E /* Spanner-hd.png in Resources */,
-				E2FC25E714928A480064B9DA /* Lemming.plist in Resources */,
 				E2389A2F149B9851004DCA32 /* About_down.png in Resources */,
 				E2389A30149B9851004DCA32 /* About.png in Resources */,
 				E2389A31149B9851004DCA32 /* NewGame_down.png in Resources */,
@@ -1416,8 +1421,6 @@
 				E226863A14A0D84C0020B44E /* SettingsBackground.png in Resources */,
 				E226864214A0DB290020B44E /* Default@2x.png in Resources */,
 				E226864414A0DB6B0020B44E /* Default.png in Resources */,
-				E2646A5114A13C72003CC16E /* Spanner_down.png in Resources */,
-				E2646A5214A13C72003CC16E /* Spanner.png in Resources */,
 				E2646A6914A15727003CC16E /* GameRating_A.png in Resources */,
 				E2646A6A14A15727003CC16E /* GameRating_B.png in Resources */,
 				E2646A6B14A15727003CC16E /* GameRating_C.png in Resources */,
@@ -1456,10 +1459,15 @@
 				E2124D5814A526A100462D92 /* bangla_dark_large.png in Resources */,
 				E2124D5D14A52E8600462D92 /* fps_images.png in Resources */,
 				E21254E214B5353A00A0CA61 /* Level1.plist in Resources */,
-				E2299A9D14BA5BFA000EA7BA /* Lemming_atlas-hd.plist in Resources */,
-				E2299A9E14BA5BFA000EA7BA /* Lemming_atlas.plist in Resources */,
-				E2299AA114BA5C21000EA7BA /* Lemming_atlas-hd.png in Resources */,
-				E2299AA214BA5C21000EA7BA /* Lemming_atlas.png in Resources */,
+				E2621FA814C489E400E35D94 /* Lemming_atlas-hd.plist in Resources */,
+				E2621FA914C489E400E35D94 /* Lemming_atlas.plist in Resources */,
+				E2621FAD14C489F800E35D94 /* Lemming_atlas.png in Resources */,
+				E2621FAF14C4914600E35D94 /* Lemming.plist in Resources */,
+				E2621FC514C4977700E35D94 /* Pause_down-hd.png in Resources */,
+				E2621FC614C4977700E35D94 /* Pause_down.png in Resources */,
+				E2621FC714C4977700E35D94 /* Pause-hd.png in Resources */,
+				E2621FC814C4977700E35D94 /* Pause.png in Resources */,
+				E2621FCB14C49AC100E35D94 /* Lemming_atlas-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
