@@ -222,7 +222,7 @@
             break;
             
         case kObstacleStamper:
-            if(!isUsingHelmet && self.state != kStateDead) [self delayMethodCall:@selector(killLemming) by:1.5];
+            if(!isUsingHelmet && self.state != kStateDead) [self killLemming];//[self delayMethodCall:@selector(killLemming) by:1.5];
             break;
             
         case kObstacleCage:
@@ -246,11 +246,6 @@
             break;
             
         case kObjectTerrain:
-            /*if(![_object isCollideable]) 
-            {
-                if(state == kStateFalling) return;
-                else [self changeState:kStateFalling];
-            }*/
             if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![(Terrain*)_object isWall]) 
             {
                 if(fallCounter > (kLemmingFallTime*kFrameRate) && self.state != kStateFloating) 
@@ -284,6 +279,9 @@
         [self changeState:kStateDead];
         return;
     }
+    
+    // make sure the lemming's onscreen
+    if (state != kStateDead) [self checkLemmingWithinScreenBounds];
     
     /*
      * check for collisions
@@ -327,11 +325,12 @@
             else [[LemmingManager sharedLemmingManager] removeLemming:self];
         }
         // remove lemming if it's reached the exit
-        else if(self.state == kStateWin) [[LemmingManager sharedLemmingManager] removeLemming:self];
+        else if(self.state == kStateWin)
+        {
+            [[LemmingManager sharedLemmingManager] removeLemming:self];
+            return;
+        }
     }
-    
-    // make sure the lemming's onscreen
-    if (state != kStateDead) [self checkLemmingWithinScreenBounds];
     
     // increment the fall counter
     if(kStateFalling) fallCounter++;

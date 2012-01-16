@@ -92,7 +92,7 @@
             
             Terrain *terrainObject = [[Terrain alloc] initObjectType:(GameObjectType)gameObjectType withPosition:ccp(x,y) andFilename:filename isWall:isWall];
             terrainObject.isCollideable = isCollideable;
-            [self addChild:terrainObject];
+            [self addChild:terrainObject z:kTerrainZValue];
             [terrain addObject:terrainObject];
         }
         else if([type isEqualToString:@"obstacle"])
@@ -101,16 +101,18 @@
             else if([objectType isEqualToString:@"cage"]) gameObjectType = kObstacleCage;
             else if([objectType isEqualToString:@"water"]) gameObjectType = kObstacleWater;
             else if([objectType isEqualToString:@"stamper"]) gameObjectType = kObstacleStamper;
-                        
+            
             Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:gameObjectType withPosition:ccp(x,y) andFilename:filename];
             
-            if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.0f alongAxis:kAxisVertical];
-            else if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f alongAxis:kAxisHorizontal];
+            if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.25f andDelay:0.75f alongAxis:kAxisVertical];
+            else if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f andDelay:0.0f alongAxis:kAxisHorizontal];
 
             [obstacles addObject:obstacleObject];
-            [self addChild:obstacleObject];
+            [self addChild:obstacleObject z:kObstacleZValue];
         }
     }
+    
+    [GameManager sharedGameManager].levelLoaded = YES;
 }
 
 

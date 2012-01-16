@@ -16,6 +16,6 @@
 }
 
 -(id)initObstacleType:(GameObjectType)_obstacleType withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
--(void)animateObstacleBy:(int)_movementAmount withLength:(float)_length alongAxis:(Axis)_axis;
+-(void)animateObstacleBy:(int)_movementAmount withLength:(float)_length andDelay:(float)_delay alongAxis:(Axis)_axis;
 
 @end

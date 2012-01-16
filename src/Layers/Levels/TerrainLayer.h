@@ -9,6 +9,7 @@
 //
 
 #import "cocos2d.h"
+#import "GameManager.h"
 #import "Obstacle.h"
 #import "Terrain.h"
 

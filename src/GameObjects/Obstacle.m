@@ -45,7 +45,7 @@
  * @param length of animation
  * @param axis of movement
  */
--(void)animateObstacleBy:(int)_movementAmount withLength:(float)_length alongAxis:(Axis)_axis 
+-(void)animateObstacleBy:(int)_movementAmount withLength:(float)_length andDelay:(float)_delay alongAxis:(Axis)_axis 
 {    
     id action = nil;
     
@@ -55,6 +55,7 @@
         action = [CCSequence actions:
                     [CCMoveBy actionWithDuration:_length/2 position:ccp(_movementAmount,0)],
                     [CCMoveBy actionWithDuration:_length/2 position:ccp(_movementAmount*-1,0)], 
+                    [CCMoveBy actionWithDuration:_delay position:ccp(0,0)],
                   nil];
     }
     else 
@@ -62,6 +63,7 @@
         action = [CCSequence actions:
                   [CCMoveBy actionWithDuration:_length/2 position:ccp(0,_movementAmount)],
                   [CCMoveBy actionWithDuration:_length/2 position:ccp(0,_movementAmount*-1)], 
+                  [CCMoveBy actionWithDuration:_delay position:ccp(0,0)],
                   nil];
     }
     
