@@ -40,16 +40,4 @@
 #define kMainMenuTagValue       10
 #define kSceneMenuTagValue      20
 
-typedef enum
-{
-    kNoSceneUninitialised       = 0,
-    kStingScene                 = 1,
-    kMainMenuScene              = 2,
-    kNewGameScene               = 3,
-    kSettingsScene              = 4,
-    kAboutScene                 = 5,
-    kGameOverScene              = 6,
-    kGameLevelScene             = 101
-} SceneTypes;
-
 #endif
