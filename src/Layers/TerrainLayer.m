@@ -12,7 +12,8 @@
 
 @interface TerrainLayer()
 
--(void)loadTerrainFromPlist;
+-(void)loadPlistFile;
+-(void)initTerrainFromPlist:(NSDictionary*)_plist;
 
 @end
 
@@ -46,16 +47,16 @@
         terrain = [[CCArray alloc] init];
         obstacles = [[CCArray alloc] init];
 		
-        [self loadTerrainFromPlist];
+        [self loadPlistFile];
 	}
     
 	return self;
 }
 
 /**
- * Initialises the terrain from the plist file
+ * Loads the plist file
  */
--(void)loadTerrainFromPlist
+-(void)loadPlistFile
 {        
     // Get path to plist file
     NSString *filename = [NSString stringWithFormat:@"%@.plist", plistFilename];
@@ -65,31 +66,55 @@
     
     // Read plist file
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    [self initTerrainFromPlist:plistDictionary];
+}
+
+/**
+ * Initialises the terrain from the supplied plist
+ * @param the plist to load from
+ */
+-(void)initTerrainFromPlist:(NSDictionary*)_plist
+{
+    // if plistDictionary is empty, display error message
+    if(_plist == nil) 
+    { 
+        CCLOG(@"TerrinLayer.loadTerrainFromPlist: Error reading plist"); 
+        return; 
+    }
     
-    // if plistDictionary is empty, throw file not found error
-    if(plistDictionary == nil) { CCLOG(@"%@.loadTerrainFromPlist: Error reading plist: %@ from %@", NSStringFromClass([self class]), plistFilename, plistPath); return; }
-    
-    for(NSDictionary *object in plistDictionary)
+    for(NSDictionary *object in _plist)
     {
-        NSDictionary *objectDictionary = [plistDictionary objectForKey:object];
-    
-        // store the attributes shared by terrain and obstacles
-        NSString *type = [objectDictionary objectForKey:@"type"];
+        // the individual object
+        NSDictionary *objectDictionary = [_plist objectForKey:object];
+        
+        // type refers to terrain/obstacle, objectType refers to stamper, exit, trapdoor etc.
+        NSString* type = [objectDictionary objectForKey:@"type"];
+        NSString *objectType = [objectDictionary objectForKey:@"objectType"];
+        GameObjectType gameObjectType;
+        
+        // the filename of the image
+        NSString* filename = [NSString stringWithFormat:@"%@.png", [objectDictionary objectForKey:@"filename"]];
+
+        // screen coordinates for the object
         float x = [[objectDictionary objectForKey:@"x"] floatValue];
         float y = [[objectDictionary objectForKey:@"y"] floatValue];
-        NSString *filename = [NSString stringWithFormat:@"%@.png", [objectDictionary objectForKey:@"filename"]];
-        GameObjectType gameObjectType;
-        NSString *objectType = [objectDictionary objectForKey:@"objectType"];
+
+        // used in collision detection
+        BOOL isWall = [[objectDictionary objectForKey:@"isWall"] boolValue];
+        BOOL isCollideable = ([objectDictionary objectForKey:@"isCollideable"] == nil) ? YES : [[objectDictionary objectForKey:@"isCollideable"] boolValue];
         
+        /**
+         * now actually create the objects
+         * from the collected info
+         */
         if([type isEqualToString:@"terrain"])
         {
-            BOOL isWall = [[objectDictionary objectForKey:@"isWall"] boolValue];
-            BOOL isCollideable = [[objectDictionary objectForKey:@"isCollideable"] boolValue];
-            if([objectDictionary objectForKey:@"isCollideable"] == nil) isCollideable = YES;
-            
+            // set the correct object type
             if([objectType isEqualToString:@"exit"]) gameObjectType = kObjectExit;
+            else if([objectType isEqualToString:@"trapdoor"]) gameObjectType = kObjectTrapdoor;
             else gameObjectType = kObjectTerrain;
             
+            // initialise the object, and add it to the layer
             Terrain *terrainObject = [[Terrain alloc] initObjectType:(GameObjectType)gameObjectType withPosition:ccp(x,y) andFilename:filename isWall:isWall];
             terrainObject.isCollideable = isCollideable;
             [self addChild:terrainObject z:kTerrainZValue];
@@ -97,21 +122,22 @@
         }
         else if([type isEqualToString:@"obstacle"])
         {            
+            // set the correct obstacle type
             if([objectType isEqualToString:@"spikes"]) gameObjectType = kObstaclePit;
             else if([objectType isEqualToString:@"cage"]) gameObjectType = kObstacleCage;
             else if([objectType isEqualToString:@"water"]) gameObjectType = kObstacleWater;
             else if([objectType isEqualToString:@"stamper"]) gameObjectType = kObstacleStamper;
             
+            // initialise the obstacle from the plist info
             Obstacle *obstacleObject = [[Obstacle alloc] initObstacleType:gameObjectType withPosition:ccp(x,y) andFilename:filename];
             
-            if(gameObjectType == kObstacleStamper) [obstacleObject animateObstacleBy:-50 withLength:1.25f andDelay:0.75f alongAxis:kAxisVertical];
-            else if(gameObjectType == kObstacleWater) [obstacleObject animateObstacleBy:-10 withLength:2.0f andDelay:0.0f alongAxis:kAxisHorizontal];
-
+            // add the obstacle to the layer
             [obstacles addObject:obstacleObject];
             [self addChild:obstacleObject z:kObstacleZValue];
         }
     }
     
+    // let the game manager know the level has loaded
     [GameManager sharedGameManager].levelLoaded = YES;
 }
 

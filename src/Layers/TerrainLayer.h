@@ -12,6 +12,7 @@
 #import "GameManager.h"
 #import "Obstacle.h"
 #import "Terrain.h"
+#import "Utils.h"
 
 @interface TerrainLayer : CCLayer
 
