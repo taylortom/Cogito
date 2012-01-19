@@ -59,3 +59,15 @@ typedef enum
     kObstacleWater,
     kObstacleStamper
 } GameObjectType;
+
+typedef enum
+{
+    kNoSceneUninitialised       = 0,
+    kStingScene                 = 1,
+    kMainMenuScene              = 2,
+    kNewGameScene               = 3,
+    kSettingsScene              = 4,
+    kAboutScene                 = 5,
+    kGameOverScene              = 6,
+    kGameLevelScene             = 101
+} SceneTypes;
