@@ -7,6 +7,7 @@
 //  18/12/2011: Created class
 //
 
+#import "cocos2d.h"
 #import "CommonProtocols.h"
 #import <Foundation/Foundation.h>
 
@@ -15,6 +16,7 @@
 +(NSString*)getStateAsString:(CharacterStates)_state;
 +(NSString*)getObjectAsString:(GameObjectType)_object;
 +(NSString*)getRatingAsString:(GameRating)_rating;
++(NSDictionary*)loadPlistFromFile:(NSString*)_filename;
 +(void)listAvailableFonts;
 
 @end

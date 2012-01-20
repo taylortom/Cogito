@@ -51,7 +51,7 @@
             break;
             
         default:
-            state = @"unknown CharacterState: %i", _state;
+            state = @"unknown CharacterState";
             break;
     }
     
@@ -102,7 +102,7 @@
             break;
             
         default:
-            object = @"Unknown GameObject: %i", _object;
+            object = @"Unknown GameObject";
             break;
     }
  
@@ -141,11 +141,29 @@
             break;
             
         default:
-            rating = @"Unknown GameRating: %i", _rating;
+            rating = @"Unknown GameRating";
             break;
     }
   
     return rating;
+}
+
+/**
+ * Loads a plist with the passed filename
+ * @param the filename of the plist
+ */
++(NSDictionary*)loadPlistFromFile:(NSString*)_filename
+{
+    NSString *plistPath;
+    
+    // Get path to plist file
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%.plist", _filename]];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:_filename ofType:@"plist"];
+    
+    // Read the plist file and return the dictionary
+    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    return plistDictionary;
 }
 
 /**

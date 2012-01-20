@@ -7,10 +7,11 @@
 //  21/11/2011: Created class
 //
 
-#import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "Constants.h"
 #import "CommonProtocols.h"
+#import "Constants.h"
+#import <Foundation/Foundation.h>
+#import "Utils.h"
 
 @interface GameObject : CCSprite
 

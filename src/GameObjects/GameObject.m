@@ -47,7 +47,7 @@
  */
 -(void)changeState:(CharacterStates)_newState
 {
-    CCLOG(@"GameObject.changeState should be overridden");
+    // should be overridden in subclasses
 }
 
 /**
@@ -85,7 +85,7 @@
  */
 -(CGRect)adjustedBoundingBox
 {
-    CCLOG(@"GameObject.changeState should be overridden");
+    // should be overridden in subclasses
     
     // return standard bounding box for now
     return [self boundingBox];
@@ -103,32 +103,18 @@
 -(CCAnimation*)loadAnimationFromPlistWthName:(NSString*)_animationName andClassName:(NSString*)_className
 {
     CCAnimation *animationToReturn = nil;
-    NSString *filename = [NSString stringWithFormat:@"%.plist",_className];
-    NSString *plistPath;
+    NSDictionary *plistDictionary = [Utils loadPlistFromFile:_className];
+    if(plistDictionary == nil) { CCLOG(@"GameObject.loadAnimationFromPlistWithName: Error loading %@.plist", _className); return nil; }
     
-    // Get path to plist file
-    
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [rootPath stringByAppendingPathComponent:filename];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:_className ofType:@"plist"];
-    
-    // Read plist file
-    
-    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    if(plistDictionary == nil) { CCLOG(@"Error reading plist: %@.plist", _className); return nil; }
-
     // get the mini-dictionary for the animation
-    
     NSDictionary *animationSettings = [plistDictionary objectForKey:_animationName];
     if(animationSettings == nil) { CCLOG(@"Could not locate animation with name: %@", _animationName); return nil; }
     
     // get the delay value for the animation
-    
     animationToReturn = [CCAnimation animation];
     [animationToReturn setDelay:[[animationSettings objectForKey:@"delay"] floatValue]];
     
     // add the frames to the animation
-    
     NSString *animationFramePrefix = [animationSettings objectForKey:@"filenamePrefix"];
     NSString *animationFrames = [animationSettings objectForKey:@"animationFrames"];
     NSArray *animationFrameNumbers = [animationFrames componentsSeparatedByString:@","];
@@ -140,7 +126,6 @@
     }
     
     // return the animation
-    
     return animationToReturn;
 }
 
