@@ -172,6 +172,21 @@
 }
 
 /**
+ * Changes the current state after a delay
+ * @param state to change to
+ * @param amount to delay by in seconds
+ */
+-(void)changeState: (CharacterStates)_newState afterDelay:(float)_delay
+{
+    [self performSelector:@selector(changeStateDelegate:) withObject:[NSNumber numberWithInt:_newState] afterDelay:_delay];
+}
+
+-(void)changeStateDelegate:(id)_newState
+{
+    [self changeState:(CharacterStates)[_newState intValue]];
+}
+
+/**
  * Changes the direction of the lemming
  */
 -(void)changeDirection
@@ -259,7 +274,6 @@
             break;
             
         case kObjectExit:
-            [self delayMethodCall:@selector(winLemming) by:1.0f]; 
             [self changeState:kStateWin afterDelay:1.5f]; 
             break;
             

@@ -70,6 +70,7 @@
 @property (nonatomic,retain) CCLabelBMFont *debugLabel;
 
 -(void)changeState: (CharacterStates)_newState;
+-(void)changeState: (CharacterStates)_newState afterDelay:(float)_delay;
 -(void)changeDirection;
 -(int)respawns;
 
