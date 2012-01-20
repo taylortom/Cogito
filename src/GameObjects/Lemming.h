@@ -24,7 +24,9 @@
     
     int respawns;                           // number of respawns
     BOOL isUsingHelmet;
+    int helmetUses;
     BOOL isUsingUmbrella;
+    int umbrellaUses;
     int fallCounter;
     
     CCSpriteFrame *standingFrame;
@@ -47,6 +49,9 @@
 
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
+
+@property (readwrite) int helmetUses;
+@property (readwrite) int umbrellaUses;
 
 
 // idle and walking animations

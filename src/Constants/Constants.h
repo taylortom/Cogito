@@ -33,9 +33,7 @@
 #define kToolUsesUmbrella       5
 #define kToolUsesHelmet         5
 
-#define kLemmingSpawnXPos       0.07f 
-#define kLemmingSpawnYPos       0.90f
-#define kLemmingSpawnSpeed      2.0f
+#define kLemmingSpawnSpeed      1.5f
 
 #define kStamperDamage          0.5f
 

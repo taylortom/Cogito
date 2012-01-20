@@ -25,12 +25,15 @@
 		E2084CB714A2ADC700C699A9 /* Resume_down-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084CB314A2ADC600C699A9 /* Resume_down-hd.png */; };
 		E2084CB814A2ADC700C699A9 /* Resume-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084CB414A2ADC600C699A9 /* Resume-hd.png */; };
 		E2084CBB14A3580100C699A9 /* PauseMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2084CBA14A3580000C699A9 /* PauseMenuLayer.m */; };
+		E211D08B14C88C3300970AEC /* TerrainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E211D08A14C88C3300970AEC /* TerrainLayer.m */; };
+		E211D08D14C8A15700970AEC /* LevelData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E211D08C14C8A15700970AEC /* LevelData.plist */; };
+		E211D09114C8B36700970AEC /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = E211D09014C8B36700970AEC /* Level.m */; };
+		E211D09314C8D49100970AEC /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = E211D09214C8D49100970AEC /* Level2.plist */; };
 		E2124D3B14A5213800462D92 /* bangla_dark_large-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2124D3914A5213800462D92 /* bangla_dark_large-hd.fnt */; };
 		E2124D3C14A5213800462D92 /* bangla_dark_large-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2124D3A14A5213800462D92 /* bangla_dark_large-hd.png */; };
 		E2124D5714A526A100462D92 /* bangla_dark_large.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2124D5514A526A100462D92 /* bangla_dark_large.fnt */; };
 		E2124D5814A526A100462D92 /* bangla_dark_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E2124D5614A526A100462D92 /* bangla_dark_large.png */; };
 		E2124D5D14A52E8600462D92 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = E2124D5C14A52E8600462D92 /* fps_images.png */; };
-		E2124D6414A6707D00462D92 /* TerrainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2124D6314A6707D00462D92 /* TerrainLayer.m */; };
 		E21254E214B5353A00A0CA61 /* Level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21254E114B5353A00A0CA61 /* Level1.plist */; };
 		E21254E814B60FE700A0CA61 /* Terrain.m in Sources */ = {isa = PBXBuildFile; fileRef = E21254E614B60FE600A0CA61 /* Terrain.m */; };
 		E21E4459149E545A00D6EF24 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E21E4458149E545A00D6EF24 /* Utils.m */; };
@@ -242,13 +245,17 @@
 		E2084CB414A2ADC600C699A9 /* Resume-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resume-hd.png"; sourceTree = "<group>"; };
 		E2084CB914A3580000C699A9 /* PauseMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseMenuLayer.h; sourceTree = "<group>"; };
 		E2084CBA14A3580000C699A9 /* PauseMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseMenuLayer.m; sourceTree = "<group>"; };
+		E211D08914C88C3300970AEC /* TerrainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainLayer.h; sourceTree = "<group>"; };
+		E211D08A14C88C3300970AEC /* TerrainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainLayer.m; sourceTree = "<group>"; };
+		E211D08C14C8A15700970AEC /* LevelData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelData.plist; sourceTree = "<group>"; };
+		E211D08F14C8B36700970AEC /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		E211D09014C8B36700970AEC /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		E211D09214C8D49100970AEC /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
 		E2124D3914A5213800462D92 /* bangla_dark_large-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bangla_dark_large-hd.fnt"; sourceTree = "<group>"; };
 		E2124D3A14A5213800462D92 /* bangla_dark_large-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bangla_dark_large-hd.png"; sourceTree = "<group>"; };
 		E2124D5514A526A100462D92 /* bangla_dark_large.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bangla_dark_large.fnt; sourceTree = "<group>"; };
 		E2124D5614A526A100462D92 /* bangla_dark_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bangla_dark_large.png; sourceTree = "<group>"; };
 		E2124D5C14A52E8600462D92 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
-		E2124D6214A6707D00462D92 /* TerrainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TerrainLayer.h; path = Levels/TerrainLayer.h; sourceTree = "<group>"; };
-		E2124D6314A6707D00462D92 /* TerrainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TerrainLayer.m; path = Levels/TerrainLayer.m; sourceTree = "<group>"; };
 		E21254E114B5353A00A0CA61 /* Level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level1.plist; sourceTree = "<group>"; };
 		E21254E614B60FE600A0CA61 /* Terrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Terrain.m; sourceTree = "<group>"; };
 		E21254E714B60FE600A0CA61 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terrain.h; sourceTree = "<group>"; };
@@ -625,28 +632,28 @@
 			name = Quit;
 			sourceTree = "<group>";
 		};
+		E211D08E14C8B32600970AEC /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E211D08F14C8B36700970AEC /* Level.h */,
+				E211D09014C8B36700970AEC /* Level.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		E2124D5914A5274100462D92 /* Bangla MN */ = {
 			isa = PBXGroup;
 			children = (
 				E2124D3A14A5213800462D92 /* bangla_dark_large-hd.png */,
 				E2124D3914A5213800462D92 /* bangla_dark_large-hd.fnt */,
-				E2124D5514A526A100462D92 /* bangla_dark_large.fnt */,
 				E2124D5614A526A100462D92 /* bangla_dark_large.png */,
+				E2124D5514A526A100462D92 /* bangla_dark_large.fnt */,
 				E23ECAE714A5192100AC01FB /* bangla_dark_small-hd.png */,
 				E23ECAE814A5192100AC01FB /* bangla_dark_small-hd.fnt */,
 				E20848BF14A5198200BB12DF /* bangla_dark_small.png */,
 				E20848C014A5198200BB12DF /* bangla_dark_small.fnt */,
 			);
 			name = "Bangla MN";
-			sourceTree = "<group>";
-		};
-		E2124D5E14A66B5E00462D92 /* Levels */ = {
-			isa = PBXGroup;
-			children = (
-				E2124D6214A6707D00462D92 /* TerrainLayer.h */,
-				E2124D6314A6707D00462D92 /* TerrainLayer.m */,
-			);
-			name = Levels;
 			sourceTree = "<group>";
 		};
 		E21254DF14B4F31100A0CA61 /* High Scores */ = {
@@ -700,10 +707,12 @@
 		E21FA55E1479B66800519BF6 /* Plists */ = {
 			isa = PBXGroup;
 			children = (
+				E211D08C14C8A15700970AEC /* LevelData.plist */,
+				E21254E114B5353A00A0CA61 /* Level1.plist */,
+				E211D09214C8D49100970AEC /* Level2.plist */,
+				E2621FAE14C4914600E35D94 /* Lemming.plist */,
 				E2621FA614C489E400E35D94 /* Lemming_atlas-hd.plist */,
 				E2621FA714C489E400E35D94 /* Lemming_atlas.plist */,
-				E2621FAE14C4914600E35D94 /* Lemming.plist */,
-				E21254E114B5353A00A0CA61 /* Level1.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -889,6 +898,7 @@
 				E2E8C78814706EF7004D07E1 /* Scenes */,
 				E2E8C78714706EDE004D07E1 /* Layers */,
 				E2133A3F1479C14B00845938 /* GameObjects */,
+				E211D08E14C8B32600970AEC /* Objects */,
 			);
 			name = Classes;
 			path = src;
@@ -1305,18 +1315,19 @@
 		E2E8C78714706EDE004D07E1 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
-				E2124D5E14A66B5E00462D92 /* Levels */,
 				E2389A1B149B7146004DCA32 /* Menu */,
-				E2E8C78914706F54004D07E1 /* GameplayLayer.h */,
-				E2E8C78A14706F54004D07E1 /* GameplayLayer.m */,
 				E2E8C78314706ED6004D07E1 /* BackgroundLayer.h */,
 				E2E8C78414706ED6004D07E1 /* BackgroundLayer.m */,
+				E2E8C78914706F54004D07E1 /* GameplayLayer.h */,
+				E2E8C78A14706F54004D07E1 /* GameplayLayer.m */,
 				E2389A26149B8CC4004DCA32 /* GameOverLayer.h */,
 				E2389A27149B8CC4004DCA32 /* GameOverLayer.m */,
-				E226863F14A0D94F0020B44E /* StingLayer.h */,
-				E2646A6E14A16442003CC16E /* StingLayer.m */,
 				E2084CB914A3580000C699A9 /* PauseMenuLayer.h */,
 				E2084CBA14A3580000C699A9 /* PauseMenuLayer.m */,
+				E226863F14A0D94F0020B44E /* StingLayer.h */,
+				E2646A6E14A16442003CC16E /* StingLayer.m */,
+				E211D08914C88C3300970AEC /* TerrainLayer.h */,
+				E211D08A14C88C3300970AEC /* TerrainLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1468,6 +1479,8 @@
 				E2621FC714C4977700E35D94 /* Pause-hd.png in Resources */,
 				E2621FC814C4977700E35D94 /* Pause.png in Resources */,
 				E2621FCB14C49AC100E35D94 /* Lemming_atlas-hd.png in Resources */,
+				E211D08D14C8A15700970AEC /* LevelData.plist in Resources */,
+				E211D09314C8D49100970AEC /* Level2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1597,9 +1610,10 @@
 				E226863D14A0D90D0020B44E /* StingScene.m in Sources */,
 				E2646A6F14A16443003CC16E /* StingLayer.m in Sources */,
 				E2084CBB14A3580100C699A9 /* PauseMenuLayer.m in Sources */,
-				E2124D6414A6707D00462D92 /* TerrainLayer.m in Sources */,
 				E21254E814B60FE700A0CA61 /* Terrain.m in Sources */,
 				E28EF23814C2F94700B44A00 /* CogitoAgent.m in Sources */,
+				E211D08B14C88C3300970AEC /* TerrainLayer.m in Sources */,
+				E211D09114C8B36700970AEC /* Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

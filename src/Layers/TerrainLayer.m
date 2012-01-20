@@ -99,6 +99,9 @@
             terrainObject.isCollideable = isCollideable;
             [self addChild:terrainObject z:kTerrainZValue];
             [terrain addObject:terrainObject];
+            
+            // set the spawn point
+            if([objectType isEqualToString:@"entrance"]) [GameManager sharedGameManager].currentLevel.spawnPoint = ccp(x,y);
         }
         else if([type isEqualToString:@"obstacle"])
         {            

@@ -13,6 +13,8 @@
 
 #endif
 
+
+
 typedef enum
 {
     kAxisHorizontal,
@@ -24,6 +26,13 @@ typedef enum
     kDirectionLeft,
     kDirectionRight,
 } Direction;
+
+typedef enum
+{
+    kDifficultyEasy,
+    kDifficultyNormal,
+    kDifficultyHard,
+} Difficulty;
 
 typedef enum
 {

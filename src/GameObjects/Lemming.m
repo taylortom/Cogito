@@ -25,6 +25,8 @@
 @synthesize health;
 @synthesize state;
 
+@synthesize helmetUses;
+@synthesize umbrellaUses;
 
 // animation
 @synthesize idleAnim;
@@ -118,7 +120,7 @@
     switch(_newState) 
     {
         case kStateSpawning:
-            [self setPosition:ccp(winSize.width*kLemmingSpawnXPos, winSize.height*kLemmingSpawnYPos)];
+            [self setPosition:ccp([GameManager sharedGameManager].currentLevel.spawnPoint.x, [GameManager sharedGameManager].currentLevel.spawnPoint.y)];
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             respawns--;
@@ -190,8 +192,32 @@
     [self changeState:kStateWalking];
 }
 
+#pragma mark -
+#pragma mark Collisions
+
 /**
+ * Checks for collisions with the lemming
+ * @param the list of game objects to check
  */
+-(void)checkForCollisions:(CCArray*)_listOfGameObjects
+{
+    CGRect selfBBox = [self adjustedBoundingBox];
+    BOOL colliding = NO;
+    
+    for (GameObject *gameObject in _listOfGameObjects) 
+    {
+        // no need to check for self-self collisions
+        if(gameObject == self || gameObject.gameObjectType == kLemmingType) continue;
+        
+        CGRect objectBBox = [gameObject adjustedBoundingBox];
+        if(CGRectIntersectsRect(selfBBox, objectBBox)) 
+        {
+            [self onObjectCollision:gameObject];
+            if(gameObject.gameObjectType == kObjectTerrain || gameObject.gameObjectType == kObjectTrapdoor) colliding = YES;
+        }
+    }
+    // check if the lemming should be falling
+    if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateDead) [self changeState:kStateFalling];
 }
 
 /**

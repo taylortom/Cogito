@@ -61,8 +61,10 @@
         [self addChild:sceneSpriteBatchNode z:0];
         [self initDisplay]; // set up the labels/buttons
         
-        // Terrain Layer
-        currentTerrainLayer = [[TerrainLayer alloc] init:@"Level1"];
+        // Get the level data from GameManager
+        [[GameManager sharedGameManager] loadRandomLevel];
+        
+        currentTerrainLayer = [[TerrainLayer alloc] init:[[GameManager sharedGameManager] currentLevel].name];
         [self addChild:currentTerrainLayer z:kTerrainZValue];
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
@@ -113,7 +115,7 @@
 {
     CCArray *gameObjects = [sceneSpriteBatchNode children];
      
-    // if the level's been loaded, add the new objects to the gameobjects list
+    // when the level's been loaded, add the new objects to the gameobjects list
     if([GameManager sharedGameManager].levelLoaded)
     {
         CCArray *terrain = [currentTerrainLayer terrain];
@@ -165,10 +167,10 @@
  */
 -(void)addLemming
 {
-    CGSize screenSize = [CCDirector sharedDirector].winSize;
     int lemmingCount = [LemmingManager sharedLemmingManager].lemmingCount;
+    CGPoint spawnPoint = [GameManager sharedGameManager].currentLevel.spawnPoint;
     
-    [self createLemmingAtLocation:ccp(screenSize.width*kLemmingSpawnXPos, screenSize.height*kLemmingSpawnYPos) withHealth:100 withZValue:(lemmingCount+10) withID:lemmingCount];
+    [self createLemmingAtLocation:ccp(spawnPoint.x, spawnPoint.y) withHealth:100 withZValue:(lemmingCount+10) withID:lemmingCount];
 }
 
 /**
@@ -193,6 +195,10 @@
         }*/
         
         [[LemmingManager sharedLemmingManager] addLemming:lemming]; 
+        
+        // set the helmet/umbrella uses from the level data
+        lemming.helmetUses = [GameManager sharedGameManager].currentLevel.helmetUses;
+        lemming.umbrellaUses = [GameManager sharedGameManager].currentLevel.umbrellaUses;
         
         [lemming setPosition:spawnLocation]; 
         [sceneSpriteBatchNode addChild:lemming z:zValue tag:kLemmingSpriteTagValue];

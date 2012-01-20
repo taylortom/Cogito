@@ -25,8 +25,10 @@
 @implementation GameManager
 
 @synthesize currentScene;
+@synthesize currentLevel;
 @synthesize levelLoaded;
 @synthesize gamePaused;
+@synthesize chosenDifficulty;
 
 static GameManager* _instance = nil;
 static int secondsPlayed;
@@ -65,6 +67,7 @@ static int secondsPlayed;
     if (self != nil) 
     {
         currentScene = kNoSceneUninitialised; 
+        levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
         levelLoaded = NO;
         gamePaused = NO;
@@ -90,7 +93,71 @@ static int secondsPlayed;
     return nil;
 }
 
+#pragma mark -
+#pragma mark Level Data
 
+/**
+ * If the level data array is empty, level data can't have been loaded
+ * @return if the level data has been loaded
+ */
+-(BOOL)levelDataLoaded
+{
+    return [levelData count] != 0;
+}
+
+/**
+ * Loads the level data from the LevelData plist file
+ */
+-(void)loadLevelData
+{
+    // load plist file
+    NSDictionary *plistDictionary = [Utils loadPlistFromFile:@"LevelData"];
+    // if plistDictionary is empty, display error message
+    if(plistDictionary == nil) { CCLOG(@"GameManager.loadLevelData: Error loading LevelData.plist"); return; }
+    
+    for(NSDictionary *object in plistDictionary)
+    {
+        NSDictionary *objectDictionary = [plistDictionary objectForKey:object];        
+
+        NSString* name = [objectDictionary objectForKey:@"name"];
+        int umbrellaUses = [[objectDictionary objectForKey:@"umbrellaUses"] intValue];
+        int helmetUses = [[objectDictionary objectForKey:@"helmetUses"] intValue];
+        
+        NSString* difficultyString = [objectDictionary objectForKey:@"difficulty"];
+        Difficulty difficulty = kDifficultyEasy;
+        if([difficultyString isEqualToString:@"normal"]) difficulty = kDifficultyNormal;
+        else if([difficultyString isEqualToString:@"hard"]) difficulty = kDifficultyHard;
+        else if(![difficultyString isEqualToString:@"easy"]) CCLOG(@"GameManager.loadLevelData: difficulty '%@' not recognised, using 'easy' as default", difficultyString);        
+        
+        // set the data, and add to levelData
+        Level* level = [[Level alloc] init];
+        level.name = name;
+        level.difficulty = difficulty;
+        level.umbrellaUses = umbrellaUses;
+        level.helmetUses = helmetUses;
+        
+        [levelData addObject:level];
+    }    
+}
+
+/**
+ * Randomly selects a level with the difficulty chosen by the player
+ */
+-(void)loadRandomLevel
+{
+    // temporary storage for levels with the chosen difficulty
+    CCArray* tempLevels = [[CCArray alloc] init];
+    
+    for (int i = 0; i < [levelData count]; i++) 
+    {
+        Level* tempLevel = [levelData objectAtIndex:i];
+        if(tempLevel.difficulty == chosenDifficulty) [tempLevels addObject:tempLevel];
+    }
+        
+    // pick a random index and set it as the current level
+    int randomIndex = arc4random() % [tempLevels count];    
+    currentLevel = [tempLevels objectAtIndex:randomIndex];
+}
 
 #pragma mark -
 

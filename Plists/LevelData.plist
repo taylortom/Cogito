@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Level1</key>
+	<dict>
+		<key>name</key>
+		<string>Level1</string>
+		<key>umbrellaUses</key>
+		<integer>3</integer>
+		<key>helmetUses</key>
+		<integer>3</integer>
+	</dict>
+	<key>Level2</key>
+	<dict>
+		<key>name</key>
+		<string>Level2</string>
+		<key>difficulty</key>
+		<string>easy</string>
+		<key>umbrellaUses</key>
+		<integer>2</integer>
+		<key>helmetUses</key>
+		<integer>2</integer>
+	</dict>
+	<key>Level3</key>
+	<dict>
+		<key>name</key>
+		<string>Level3</string>
+		<key>difficulty</key>
+		<string>normal</string>
+		<key>umbrellaUses</key>
+		<integer>1</integer>
+		<key>helmetUses</key>
+		<integer>1</integer>
+	</dict>
+	<key>Level4</key>
+	<dict>
+		<key>name</key>
+		<string>Level4</string>
+		<key>difficulty</key>
+		<string>normal</string>
+		<key>umbrellaUses</key>
+		<integer>1</integer>
+		<key>helmetUses</key>
+		<integer>1</integer>
+	</dict>
+	<key>Level5</key>
+	<dict>
+		<key>name</key>
+		<string>Level5</string>
+		<key>difficulty</key>
+		<string>hard</string>
+		<key>umbrellaUses</key>
+		<integer>0</integer>
+		<key>helmetUses</key>
+		<integer>0</integer>
+	</dict>
+</dict>
+</plist>

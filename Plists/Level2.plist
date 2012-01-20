@@ -9,7 +9,7 @@
 		<key>isCollideable</key>
 		<false/>
 		<key>x</key>
-		<integer>35</integer>
+		<integer>430</integer>
 		<key>y</key>
 		<integer>310</integer>
 		<key>filename</key>
@@ -39,19 +39,6 @@
 		<key>filename</key>
 		<string>platform_large</string>
 	</dict>
-	<key>Level3_Trapdoor1</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>x</key>
-		<integer>239</integer>
-		<key>y</key>
-		<integer>240</integer>
-		<key>filename</key>
-		<string>trapdoor</string>
-		<key>objectType</key>
-		<string>trapdoor</string>
-	</dict>
 	<key>Level3_Stamper</key>
 	<dict>
 		<key>type</key>
@@ -59,7 +46,7 @@
 		<key>objectType</key>
 		<string>stamper</string>
 		<key>x</key>
-		<integer>380</integer>
+		<integer>80</integer>
 		<key>y</key>
 		<integer>360</integer>
 		<key>filename</key>
@@ -103,33 +90,11 @@
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>33</integer>
-		<key>y</key>
-		<integer>80</integer>
-		<key>filename</key>
-		<string>platform_medium</string>
-	</dict>
-	<key>Level1_Platform2</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>x</key>
-		<integer>270</integer>
+		<integer>295</integer>
 		<key>y</key>
 		<integer>80</integer>
 		<key>filename</key>
 		<string>platform_large</string>
-	</dict>
-	<key>Level1_Trapdoor1</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>x</key>
-		<integer>134</integer>
-		<key>y</key>
-		<integer>80</integer>
-		<key>filename</key>
-		<string>trapdoor</string>
 	</dict>
 	<key>Floor</key>
 	<dict>
@@ -162,7 +127,7 @@
 		<key>objectType</key>
 		<string>exit</string>
 		<key>x</key>
-		<integer>430</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>50</integer>
 		<key>filename</key>

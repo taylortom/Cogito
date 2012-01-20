@@ -101,14 +101,15 @@
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
 	// You can change anytime.
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
-
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    // load the level data
+    [[GameManager sharedGameManager] loadLevelData];
+    
 	// Start the intro animation
     [[GameManager sharedGameManager] runSceneWithID:kStingScene];
-    //[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
 
 
