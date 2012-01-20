@@ -85,7 +85,7 @@
     // add the pause button
     
     CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onPauseButtonPressed)];
-    pauseButton.position = ccp(40,40);
+    pauseButton.position = ccp(40,30);
     
     gameplayMenu = [CCMenu menuWithItems:pauseButton, nil];
     gameplayMenu.position = CGPointZero;
