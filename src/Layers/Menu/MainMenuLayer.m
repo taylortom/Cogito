@@ -70,12 +70,13 @@
     
     //create the menu buttons
     CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"NewGame.png" selectedImage:@"NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
+    CCMenuItemImage *instructionsButton = [CCMenuItemImage itemFromNormalImage:@"Instructions.png" selectedImage:@"Instructions_down.png" disabledImage:nil target:self selector:@selector(onInstructionsButtonPressed)];
     //CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Settings.png" selectedImage:@"Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
     CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"About.png" selectedImage:@"About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items
     //mainMenu = [CCMenu menuWithItems:newGameButton, highScoresButton, aboutButton, nil];
-    mainMenu = [CCMenu menuWithItems:newGameButton, aboutButton, nil];
+    mainMenu = [CCMenu menuWithItems:newGameButton, instructionsButton, aboutButton, nil];
     
     // position the menu
     [mainMenu alignItemsVerticallyWithPadding:winSize.height * 0.059f];
@@ -100,6 +101,14 @@
 {
 //    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
     [[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
+}
+
+/**
+ * Displays the settings screen
+ */
+-(void)onInstructionsButtonPressed
+{
+    [[GameManager sharedGameManager] runSceneWithID:kInstructionsScene];
 }
 
 /**
