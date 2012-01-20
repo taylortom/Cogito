@@ -113,25 +113,14 @@
  */ 
 -(void)update:(ccTime)deltaTime
 {
-    CCArray *gameObjects = [sceneSpriteBatchNode children];
-     
-    // when the level's been loaded, add the new objects to the gameobjects list
-    if([GameManager sharedGameManager].levelLoaded)
+    CCArray* lemmings = [[LemmingManager sharedLemmingManager] lemmings];
+    
+    CCArray* terrainObjects = [CCArray arrayWithArray:[currentTerrainLayer obstacles]];
+    [terrainObjects addObjectsFromArray:[currentTerrainLayer terrain]]; 
+    
+    for (Lemming *tempLemming in lemmings) 
     {
-        CCArray *terrain = [currentTerrainLayer terrain];
-        CCArray *obstacles = [currentTerrainLayer obstacles];
-            
-        // add the terrain/obstacles to the game objects array
-        [gameObjects addObjectsFromArray:terrain];
-        [gameObjects addObjectsFromArray:obstacles];
-        
-        // bit of a hack, but makes sure terrain/obstacles aren't repeatedly added
-        [GameManager sharedGameManager].levelLoaded = NO;
-    }
-        
-    for (Lemming *tempLemming in gameObjects) 
-    {
-        [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:gameObjects];
+        [tempLemming updateStateWithDeltaTime:deltaTime andListOfGameObjects:terrainObjects];
     }
     
     //update the display text

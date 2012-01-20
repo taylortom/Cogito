@@ -49,7 +49,6 @@
  */
 -(void)dealloc
 {
-    CCLOG(@"Lemming.dealloc");
     [idleAnim release];
     [idleHelmetAnim release];
     [walkingAnim release];

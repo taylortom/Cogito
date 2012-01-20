@@ -119,9 +119,6 @@
             [self addChild:obstacleObject z:kObstacleZValue];
         }
     }
-    
-    // let the game manager know the level has loaded
-    [GameManager sharedGameManager].levelLoaded = YES;
 }
 
 

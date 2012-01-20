@@ -27,7 +27,6 @@
 
 @synthesize currentScene;
 @synthesize currentLevel;
-@synthesize levelLoaded;
 @synthesize gamePaused;
 @synthesize chosenDifficulty;
 
@@ -70,8 +69,6 @@ static int secondsPlayed;
         currentScene = kNoSceneUninitialised; 
         levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
-        levelLoaded = NO;
-        gamePaused = NO;
     }
     
     return self;
@@ -96,15 +93,6 @@ static int secondsPlayed;
 
 #pragma mark -
 #pragma mark Level Data
-
-/**
- * If the level data array is empty, level data can't have been loaded
- * @return if the level data has been loaded
- */
--(BOOL)levelDataLoaded
-{
-    return [levelData count] != 0;
-}
 
 /**
  * Loads the level data from the LevelData plist file

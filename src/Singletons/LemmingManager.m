@@ -152,6 +152,15 @@ static LemmingManager* _instance = nil;
 #pragma mark Getters
 
 /**
+ * Returns the lemmings
+ * @return the lemmings
+ */
+-(CCArray*)lemmings
+{
+    return lemmings;
+}
+
+/**
  * Determines whether the total number of
  * Lemmings has been reached
  * @return whether or not the Lemming count is maxed

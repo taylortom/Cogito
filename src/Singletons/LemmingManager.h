@@ -31,6 +31,7 @@
 -(void)addLemming:(CCSprite*)lemmingToAdd;
 -(void)removeLemming:(CCSprite*)lemmingToRemove;
 -(GameRating)calculateGameRating;
+-(CCArray*)lemmings;
 -(BOOL)lemmingsMaxed;
 -(int)lemmingCount;
 -(int)lemmingsAdded;

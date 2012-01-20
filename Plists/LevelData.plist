@@ -6,6 +6,8 @@
 	<dict>
 		<key>name</key>
 		<string>Level1</string>
+		<key>difficulty</key>
+		<string>easy</string>
 		<key>umbrellaUses</key>
 		<integer>3</integer>
 		<key>helmetUses</key>
