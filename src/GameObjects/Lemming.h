@@ -8,26 +8,26 @@
 //
 
 #import "CogitoAgent.h"
-#import "LemmingManager.h"
 #import <Foundation/Foundation.h>
+#import "LemmingManager.h"
+#import "Obstacle.h"
 #import "Terrain.h"
+#import "Utils.h"
 
 @interface Lemming : CogitoAgent
 
 {
     int health;
     CharacterStates state; 
-    CCSpriteFrame *standingFrame;
     Direction movementDirection;
     GameObjectType objectLastCollidedWith;
-    int movementAmount;             // number of pixels moved per animation cycle
-    int respawns;                   // number of respawns
-    bool isUsingHelmet;
+    
+    int respawns;                           // number of respawns
+    BOOL isUsingHelmet;
+    BOOL isUsingUmbrella;
     int fallCounter;
     
-    // debugging
-    int ID;                         // a unique ID, used for debugging
-    CCLabelBMFont *debugLabel;      // text label used for debugging 
+    CCSpriteFrame *standingFrame;
     
     // idle and walking animations
     CCAnimation *idleAnim;
@@ -39,13 +39,15 @@
     CCAnimation *openUmbrellaAnim;
     CCAnimation *floatUmbrellaAnim;
     CCAnimation *deathAnim;    
+    
+    // debugging        
+    int ID;                                 // a unique ID, used for debugging
+    CCLabelBMFont *debugLabel;              // text label used for debugging 
 }
 
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
 
-@property (readwrite) int ID; 
-@property (nonatomic,retain) CCLabelBMFont *debugLabel;
 
 // idle and walking animations
 @property (nonatomic,retain) CCAnimation *idleAnim;
@@ -57,6 +59,10 @@
 @property (nonatomic,retain) CCAnimation *openUmbrellaAnim;
 @property (nonatomic,retain) CCAnimation *floatUmbrellaAnim;
 @property (nonatomic,retain) CCAnimation *deathAnim;
+
+// debugging
+@property (readwrite) int ID; 
+@property (nonatomic,retain) CCLabelBMFont *debugLabel;
 
 -(void)changeState: (CharacterStates)_newState;
 -(void)changeDirection;

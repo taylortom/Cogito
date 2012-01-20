@@ -12,9 +12,10 @@
 
 //#define COCOS2D_DEBUG           2
 
-#define kFrameRate              30.0f
+#define kFrameRate              60.0f
 
-#define kMenuFont               @"bangla_dark.fnt"
+#define kDefaultLargeFont       @"bangla_dark.fnt"
+#define kDefaultSmallFont       @"bangla_dark_small.fnt"
 
 #define kUISpriteZValue         300
 #define kTerrainZValue          50
@@ -23,7 +24,8 @@
 #define kLemmingSpriteZValue    100
 #define kLemmingSpriteTagValue  0
 #define kLemmingIdleTimer       3.0f
-#define kLemmingFallTime        0.6f
+#define kLemmingMovementAmount  15
+#define kLemmingFallTime        1.0f
 
 #define kLemmingRespawns        0
 #define kLemmingTotal           15

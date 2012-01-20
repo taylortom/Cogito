@@ -86,9 +86,8 @@
 	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
 #endif
 	
-	[director setAnimationInterval:1.0/60];
+	[director setAnimationInterval:1.0/kFrameRate];
 	[director setDisplayFPS:YES];
-	
 	
 	// make the OpenGLView a child of the view controller
 	[viewController setView:glView];

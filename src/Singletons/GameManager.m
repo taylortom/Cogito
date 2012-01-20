@@ -64,7 +64,6 @@ static int secondsPlayed;
     
     if (self != nil) 
     {
-        [[CCDirector sharedDirector] setAnimationInterval: 1.0/kFrameRate];
         currentScene = kNoSceneUninitialised; 
         secondsPlayed = 0;
         levelLoaded = NO;

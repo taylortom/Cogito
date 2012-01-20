@@ -40,34 +40,4 @@
     return self;
 }
 
-#pragma mark -
-
-/**
- * Transforms objects from one state to another
- * @param the state to transition to
- */
--(void)changeState:(CharacterStates)_newState
-{
-
-}
-
-/**
- * Updates the object, called every frame
- * @param deltaTime
- * @param listOfGameObjects
- */
--(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
-{
-    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
-}
-
-/**
- * Compensates for any transparent space
- * @return the new bounding box
- */
--(CGRect)adjustedBoundingBox
-{
-    return [self boundingBox];
-}
-
 @end

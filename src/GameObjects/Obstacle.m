@@ -9,6 +9,12 @@
 
 #import "Obstacle.h"
 
+@interface Obstacle()
+
+-(void)animateObstacleBy:(int)_movementAmount withLength:(float)_length andDelay:(float)_delay alongAxis:(Axis)_axis;
+
+@end
+
 @implementation Obstacle
 
 #pragma mark -
@@ -21,20 +27,22 @@
  * @param filename
  * @return self
  */
-- (id)initObstacleType:(GameObjectType)_obstacleType withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
-{
-    CCLOG(@"Obstacle.init");
-    
+- (id)initObstacleType:(GameObjectType)_type withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
+{    
     self = [super init];
     
     if (self != nil) 
     {        
-        self.gameObjectType = _obstacleType;
+        self.gameObjectType = _type;
         filename = _filename;
         [self setPosition:_position];
         
         // set the display frame
         [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:_filename]];
+        
+        // set up the animation if necessary
+        if(_type == kObstacleStamper) [self animateObstacleBy:-50 withLength:1.25f andDelay:0.75f alongAxis:kAxisVertical];
+        else if(_type == kObstacleWater) [self animateObstacleBy:-10 withLength:2.0f andDelay:0.0f alongAxis:kAxisHorizontal];
     }
     return self;
 }
@@ -69,36 +77,6 @@
     
     action = [CCRepeatForever actionWithAction:action];
     [self runAction:action];
-}
-
-#pragma mark -
-
-/**
- * Transforms objects from one state to another
- * @param the state to transition to
- */
--(void)changeState:(CharacterStates)_newState
-{
-    
-}
-
-/**
- * Updates the object, called every frame
- * @param deltaTime
- * @param listOfGameObjects
- */
--(void)updateStateWithDeltaTime:(ccTime)_deltaTime andListOfGameObjects:(CCArray *)_listOfGameObjects
-{
-    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
-}
-
-/**
- * Compensates for any transparent space
- * @return the new bounding box
- */
--(CGRect)adjustedBoundingBox
-{
-    return [self boundingBox];
 }
 
 @end

@@ -21,7 +21,7 @@
 -(void)addLemming;
 -(void)createLemmingAtLocation:(CGPoint)spawnLocation withHealth:(int)health withZValue:(int)zValue withID:(int)ID;
 -(void)incrementGameTimer;
--(void)onSettingsButtonPressed;
+-(void)onPauseButtonPressed;
 
 @end
 
@@ -50,7 +50,7 @@
     {
         self.isTouchEnabled = YES; // enable touch
         srandom(time(NULL)); // set up a random number generator
-        
+                
         // reset the relevant data
         [[LemmingManager sharedLemmingManager] reset];
         [[GameManager sharedGameManager] resetSecondCounter];
@@ -82,22 +82,22 @@
     
     // add the pause button
     
-    CCMenuItem *settingsButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onSettingsButtonPressed)];
-    settingsButton.position = ccp(30,30);
+    CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onPauseButtonPressed)];
+    pauseButton.position = ccp(40,40);
     
-    gameplayMenu = [CCMenu menuWithItems:settingsButton, nil];
+    gameplayMenu = [CCMenu menuWithItems:pauseButton, nil];
     gameplayMenu.position = CGPointZero;
     
     [self addChild:gameplayMenu z:kUISpriteZValue];
     
     // now add the labels
-        
-    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:@"bangla_dark_small.fnt"];
+    
+    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:kDefaultSmallFont];
     [lemmingText setAnchorPoint:ccp(1,1)];
     [lemmingText setPosition:ccp(winSize.width-20, winSize.height-20)];
     [self addChild:lemmingText z:kUISpriteZValue];
     
-    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:@"bangla_dark_small.fnt"];
+    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:kDefaultSmallFont];
     [timeText setAnchorPoint:ccp(1,1)];
     [timeText setPosition:ccp(winSize.width-20, winSize.height-40)];
     [self addChild:timeText z:kUISpriteZValue];
@@ -220,9 +220,9 @@
 #pragma mark Event Handling
 
 /**
- * Called when settings button's pressed
+ * Called when pause button's pressed
  */
--(void)onSettingsButtonPressed
+-(void)onPauseButtonPressed
 {    
     if(pauseMenu == nil) 
     {

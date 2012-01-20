@@ -89,7 +89,7 @@ static LemmingManager* _instance = nil;
     lemmingsAdded = 0;
     lemmingsKilled = 0;
     lemmingsSaved = 0;
-    lemmings = [[NSMutableArray alloc] init];
+    lemmings = [[CCArray alloc] init];
 }
 
 #pragma mark -
@@ -99,8 +99,7 @@ static LemmingManager* _instance = nil;
  * @param the Lemming to add
  */
 -(void)addLemming:(Lemming*)lemmingToAdd
-{
-    CCLOG(@"LemmingManager.addLemming");
+{    
     [lemmings addObject:lemmingToAdd];
     lemmingsAdded++;
 }
@@ -110,9 +109,7 @@ static LemmingManager* _instance = nil;
  * @param the Lemming to remove
  */
 -(void)removeLemming:(Lemming*)lemmingToRemove
-{    
-    CCLOG(@"LemmingManager.removeLemming");
-    
+{        
     if(lemmingToRemove.state == kStateDead) lemmingsKilled++;
     else 
     {
@@ -142,7 +139,7 @@ static LemmingManager* _instance = nil;
     // calculate the score
     float score = baseScore + (bonus-penalty);
     
-    CCLOG(@"LemmingManager.calculateGameRating: %f", score);
+    CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", bonus, penalty, score);
     
     if(score > 79) return kRatingA;
     if(score > 59) return kRatingB;

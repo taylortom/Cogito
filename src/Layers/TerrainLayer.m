@@ -12,8 +12,7 @@
 
 @interface TerrainLayer()
 
--(void)loadPlistFile;
--(void)initTerrainFromPlist:(NSDictionary*)_plist;
+-(void)initTerrainFromPlist;
 
 @end
 
@@ -47,45 +46,26 @@
         terrain = [[CCArray alloc] init];
         obstacles = [[CCArray alloc] init];
 		
-        [self loadPlistFile];
+        [self initTerrainFromPlist];
 	}
     
 	return self;
 }
 
 /**
- * Loads the plist file
+ * Initialises the terrain from the level's plist
  */
--(void)loadPlistFile
-{        
-    // Get path to plist file
-    NSString *filename = [NSString stringWithFormat:@"%@.plist", plistFilename];
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *plistPath = [rootPath stringByAppendingPathComponent:filename];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:plistFilename ofType:@"plist"];
-    
-    // Read plist file
-    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    [self initTerrainFromPlist:plistDictionary];
-}
-
-/**
- * Initialises the terrain from the supplied plist
- * @param the plist to load from
- */
--(void)initTerrainFromPlist:(NSDictionary*)_plist
+-(void)initTerrainFromPlist
 {
+    // load plist file
+    NSDictionary *plistDictionary = [Utils loadPlistFromFile:plistFilename];
     // if plistDictionary is empty, display error message
-    if(_plist == nil) 
-    { 
-        CCLOG(@"TerrinLayer.loadTerrainFromPlist: Error reading plist"); 
-        return; 
-    }
+    if(plistDictionary == nil) { CCLOG(@"TerrainLayer.initTerrainFromPlist: Error loading %@.plist", plistFilename); return; }
     
-    for(NSDictionary *object in _plist)
+    for(NSDictionary *object in plistDictionary)
     {
         // the individual object
-        NSDictionary *objectDictionary = [_plist objectForKey:object];
+        NSDictionary *objectDictionary = [plistDictionary objectForKey:object];
         
         // type refers to terrain/obstacle, objectType refers to stamper, exit, trapdoor etc.
         NSString* type = [objectDictionary objectForKey:@"type"];
@@ -100,7 +80,7 @@
         float y = [[objectDictionary objectForKey:@"y"] floatValue];
 
         // used in collision detection
-        BOOL isWall = [[objectDictionary objectForKey:@"isWall"] boolValue];
+        BOOL isWall = ([objectDictionary objectForKey:@"isWall"] == nil) ? NO : [[objectDictionary objectForKey:@"isWall"] boolValue];
         BOOL isCollideable = ([objectDictionary objectForKey:@"isCollideable"] == nil) ? YES : [[objectDictionary objectForKey:@"isCollideable"] boolValue];
         
         /**

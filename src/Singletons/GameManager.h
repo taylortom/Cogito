@@ -7,8 +7,8 @@
 //  15/12/2011: Created class
 //
 
+#import "CommonProtocols.h"
 #import <Foundation/Foundation.h>
-#import "Constants.h"
 
 @interface GameManager : NSObject
 
