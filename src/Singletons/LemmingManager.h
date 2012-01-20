@@ -10,7 +10,7 @@
 //
 
 #import "cocos2d.h"
-#import "CommonProtocols.h"
+#import "CommonDataTypes.h"
 #import "Constants.h"
 #import <Foundation/Foundation.h>
 #import "GameManager.h"

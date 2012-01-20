@@ -7,7 +7,7 @@
 //  15/12/2011: Created class
 //
 
-#import "CommonProtocols.h"
+#import "CommonDataTypes.h"
 #import <Foundation/Foundation.h>
 #import "Level.h"
 

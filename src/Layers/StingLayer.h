@@ -1,10 +1,10 @@
 //
-//  Level1Layer.m
+//  StingLayer.h
 //  Cogito
 //
-//  The first level
+//  The intro 'animation' layer
 //
-//  24/12/2011: Created class
+//  16/12/2011: Created class
 //
 
 #import "cocos2d.h"

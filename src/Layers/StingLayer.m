@@ -2,7 +2,7 @@
 //  StingLayer.m
 //  Cogito
 //
-//  The intro layer
+//  The intro 'animation' layer
 //
 //  16/12/2011: Created class
 //

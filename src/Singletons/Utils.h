@@ -8,7 +8,7 @@
 //
 
 #import "cocos2d.h"
-#import "CommonProtocols.h"
+#import "CommonDataTypes.h"
 #import <Foundation/Foundation.h>
 
 @interface Utils : NSObject

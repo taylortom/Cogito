@@ -7,7 +7,7 @@
 //  19/01/2012: Created class
 //
 
-#import "CommonProtocols.h"
+#import "CommonDataTypes.h"
 #import <Foundation/Foundation.h>
 
 @interface Level : NSObject
