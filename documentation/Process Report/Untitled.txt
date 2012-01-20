@@ -1,0 +1,19 @@
+For most applications, reinforcement learning falls into 3 categories: Dynamic Programming, Monte Carlo, and Temporal Difference.
+
+Dynamic Programming
+Dynamic programming is used to solve learning problems where state transition probabilities are known beforehand. The state transition probability function, p(s,a,s`) is the probability of transitioning from state s to state s` when the agent takes action a. The goal of the learning agent is to learn to approximate the reward function V(s,a), which gives the expected reward of taking action a in state s. The agent approximates the reward function by testing out different actions in different states, each time receiving a reward r. For taking action a in state s, the agent updates V(s,a) with the following function:
+
+V(s,a) <= r + gamma * sum(p(s, a, s`) * V(s')) (Eq. 1)
+
+Where gamma is a parameter known as the discount rate, the summation sums over all states s` and V(s`) represents the maximum V(s`,a) for all actions a. This equation is known as the Bellman equation.
+
+Monte Carlo and Temporal Difference
+Monte Carlo and Temporal Difference methods are used to solve problems where p(s,a,s`) is not known. Temporal Difference solves the learning equation by using the expected reward of the next state it encounters after taking an action a in state s. The full equation is:
+
+V(s,a) <= V(s,a) + alpha * ( r + gamma * V(s`) - V(s,a) ) (Eq. 2)
+
+Where alpha is a parameter known as the learning rate. Monte Carlo is similar to Temporal Difference but keeps track of all rewards encountered until an episode terminates in addition to the one state look-ahead performed by temporal difference methods.
+
+As far as the original poster's question goes: reinforcement learning is used because in your problem, there will be many actions that have the possibility to succeed in any given state. Searching for a possible action will not necessarily retrieve the optimal action. That is where learning comes in. For wall following you will probably have a continuous state space and continuous action space, which will considerably complicate the problem.
+
+Regarding other posts in this thread: remember that you are not required to post responses to questions in the forums. If you only have a very vague and shaky understanding of a topic, it is best to keep that vague and shaky answer to yourself. People expect accuracy when they ask questions on the forums, and the goal of gamedev is not to see who can post the most. 
