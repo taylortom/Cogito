@@ -21,6 +21,7 @@
     CharacterStates state; 
     Direction movementDirection;
     GameObjectType objectLastCollidedWith;
+    CCArray* collisions;
     
     int respawns;                           // number of respawns
     BOOL isUsingHelmet;

@@ -13,8 +13,12 @@
 
 -(void)initAnimations;
 -(void)changeStateDelegate:(id)_newState;
--(void)onObjectCollision:(GameObject*)_obstacle;
+-(void)toggleHelmet;
+-(void)useUmbrella;
 -(void)checkForCollisions:(CCArray*)_listOfGameObjects;
+//-(void)onObjectCollision:(GameObject*)_obstacle;
+-(void)onObjectCollision;
+-(void)resetLastCollidingObject;
 -(void)checkLemmingWithinScreenBounds;
 -(void)updateDebugLabel;
 
@@ -80,9 +84,11 @@
         respawns = kLemmingRespawns;
         isUsingHelmet = NO;
         objectLastCollidedWith = kObjectTypeNone;
+        collisions = [[CCArray alloc] init];
+        [self initAnimations];
+        
         [self changeState:kStateSpawning];
         
-        [self initAnimations];
     }
     return self;
 }
@@ -207,6 +213,30 @@
 }
 
 #pragma mark -
+#pragma mark Tools
+
+/**
+ * Toggles the helmet on the lemming
+ */
+-(void)toggleHelmet
+{
+    CCLOG(@"Lemming.toggleHelmet");
+    isUsingHelmet = !isUsingHelmet;
+    [self changeState:kStateWalking];
+}
+
+/**
+ * Makes the lemming get his umbrella out
+ */
+-(void)useUmbrella
+{
+    CCLOG(@"Lemming.useUmbrella");
+    if(!isUsingUmbrella) isUsingUmbrella = YES;
+    [self changeState:kStateFloating];
+}
+
+
+#pragma mark -
 #pragma mark Collisions
 
 /**
@@ -215,6 +245,7 @@
  */
 -(void)checkForCollisions:(CCArray*)_listOfGameObjects
 {
+    collisions = [[CCArray alloc] init];
     CGRect selfBBox = [self adjustedBoundingBox];
     BOOL colliding = NO;
     
@@ -226,10 +257,14 @@
         CGRect objectBBox = [gameObject adjustedBoundingBox];
         if(CGRectIntersectsRect(selfBBox, objectBBox)) 
         {
-            [self onObjectCollision:gameObject];
+            [collisions addObject:gameObject];
+            //[self onObjectCollision:gameObject];
             if(gameObject.gameObjectType == kObjectTerrain || gameObject.gameObjectType == kObjectTrapdoor) colliding = YES;
         }
     }
+    
+    if([collisions count] > 0)[self onObjectCollision];
+    
     // check if the lemming should be falling
     if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateDead) [self changeState:kStateFalling];
 }
@@ -252,33 +287,59 @@
  * a Lemming collides with an object
  * @param object collided with
  */
--(void)onObjectCollision:(GameObject*)_object
+//-(void)onObjectCollision:(GameObject*)_object
+-(void)onObjectCollision
 {       
+    BOOL collidingWithTerrain = NO;
+    GameObject* object = nil;
+    
+    if([collisions count] > 1)
+    {        
+        GameObject* object1 = [collisions objectAtIndex:0];
+        GameObject* object2 = [collisions objectAtIndex:1];
+        
+        if(object1.gameObjectType == kObjectTerrain || object2.gameObjectType == kObjectTerrain) 
+        {
+            if(object1.gameObjectType == kObjectTerrain) object = object2;
+            else object = object1;
+
+            collidingWithTerrain = YES;
+        }
+    }
+    else
+    {
+        object = [collisions objectAtIndex:0];
+        if(object.gameObjectType == kObjectTerrain) collidingWithTerrain = YES;
+    }
+    
     // check that we're not colliding with the same object
-    if(_object.gameObjectType == objectLastCollidedWith || ![_object isCollideable]) return;
-    // it's possible to collide with the stamper and the ground at the same time, ignore this
-    else if(objectLastCollidedWith == kObstacleStamper && _object.gameObjectType == kObjectTerrain) return;    
+    if(object.gameObjectType == objectLastCollidedWith || ![object isCollideable]) return;    
     
-    objectLastCollidedWith = _object.gameObjectType;
+    objectLastCollidedWith = object.gameObjectType;
+    CCLOG(@"colliding with: %@ collidingWithTerrain: %i collisions: %i",[Utils getObjectAsString:object.gameObjectType], collidingWithTerrain, [collisions count]);
     
-    switch([_object gameObjectType]) 
+        
+    switch([object gameObjectType]) 
     {
         case kObstaclePit:
         case kObstacleWater:
-            if(self.state != kStateDead) [self changeState:kStateDead];
+            [self changeState:kStateDead];
             break;
             
         case kObstacleStamper:
-            if(!isUsingHelmet && self.state != kStateDead) [self changeState:kStateDead];
+            if(!isUsingHelmet) self.health -= kStamperDamage;
+            // wait a bit, then reset objectLastCollidedWith so lemming can be 'stamped' again
+            [self performSelector:@selector(resetLastCollidingObject) withObject:nil afterDelay:4.0f];
             break;
             
         case kObjectExit:
             [self changeState:kStateWin afterDelay:1.5f]; 
             break;
             
-        case kObjectTerrain:
         case kObjectTrapdoor:
-            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![(Terrain*)_object isWall]) 
+            [self toggleHelmet];
+        case kObjectTerrain:
+            if(self.state != kStateWalking && self.state != kStateWin && ![(Terrain*)object isWall]) 
             {
                 if(fallCounter > (kLemmingFallTime*kFrameRate) && self.state != kStateFloating) 
                 {
@@ -287,7 +348,7 @@
                 }
                 else [self changeState:kStateWalking];
             }
-            else if([(Terrain*)_object isWall]) [self changeDirection];
+            else if([(Terrain*)object isWall]) [self changeDirection];
             break;
         
         case kObstacleCage:            
@@ -296,9 +357,18 @@
             
         default: 
             // do nothing...
-            CCLOG(@"Lemming.onObjectCollision: %@", [Utils getObjectAsString:_object.gameObjectType]);
+            CCLOG(@"Lemming.onObjectCollision: %@", [Utils getObjectAsString:object.gameObjectType]);
             break;
     }
+}
+
+/**
+ * Resets the objectLastCollidedWith to kObjectTypeNone 
+ * used with the stamper to give time for lemming to cross
+ */
+-(void)resetLastCollidingObject
+{
+    objectLastCollidedWith = kObjectTypeNone;
 }
 
 #pragma mark -
