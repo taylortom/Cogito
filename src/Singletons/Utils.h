@@ -13,9 +13,10 @@
 
 @interface Utils : NSObject
 
-+(NSString*)getStateAsString:(CharacterStates)_state;
++(NSString*)getActionAsString:(MovementDecision)_action;
 +(NSString*)getObjectAsString:(GameObjectType)_object;
 +(NSString*)getRatingAsString:(GameRating)_rating;
++(NSString*)getStateAsString:(CharacterStates)_state;
 +(NSDictionary*)loadPlistFromFile:(NSString*)_filename;
 +(void)listAvailableFonts;
 

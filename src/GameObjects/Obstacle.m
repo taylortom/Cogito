@@ -34,15 +34,16 @@
     if (self != nil) 
     {        
         self.gameObjectType = _type;
-        filename = _filename;
+        filename = [NSString stringWithFormat:@"%@.png", _filename];
+        
         [self setPosition:_position];
         
         // set the display frame
-        [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:_filename]];
+        [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:filename]];
         
         // set up the animation if necessary
-        if(_type == kObstacleStamper) [self animateObstacleBy:-50 withLength:1.25f andDelay:0.75f alongAxis:kAxisVertical];
-        else if(_type == kObstacleWater) [self animateObstacleBy:-10 withLength:2.0f andDelay:0.0f alongAxis:kAxisHorizontal];
+        if(_type == kObstacleStamper) [self animateObstacleBy:-50 withLength:1.25f andDelay:2.5f alongAxis:kAxisVertical];
+        else if(_type == kObstacleWater) [self animateObstacleBy:-15 withLength:2.0f andDelay:0.0f alongAxis:kAxisHorizontal];
     }
     return self;
 }

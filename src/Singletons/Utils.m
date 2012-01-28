@@ -12,50 +12,51 @@
 @implementation Utils
 
 /**
- * Returns the passed CharacterState enum as a string
- * @param the state to convert
+ * Returns the passed MovementDecision enum as a string
+ * @param the action to convert
  * @return the string equivalent
  */
-+(NSString*)getStateAsString:(CharacterStates)_state;
++(NSString*)getActionAsString:(MovementDecision)_action
 {
-    NSString* state = nil;
+    NSString* action = nil;
     
-    switch (_state) 
+    switch (_action) 
     {
-        case kStateSpawning:
-            state = @"Spawning";
-            break;
-        
-        case kStateFalling:
-            state = @"Falling";
+        case kDecisionLeft:
+            action = @"Left";
             break;
             
-        case kStateIdle:
-            state = @"Idle";
+        case kDecisionLeftHelmet:
+            action = @"Left (helmet)";
             break;
             
-        case kStateWalking:
-            state = @"Walking";
+        case kDecisionRight:
+            action = @"Right";
             break;
             
-        case kStateFloating:
-            state = @"Floating";
+        case kDecisionRightHelmet:
+            action = @"Right (helmet)";
             break;
             
-        case kStateDead:
-            state = @"Dead";
+        case kDecisionDown:
+            action = @"Down";
             break;
             
-        case kStateWin:
-            state = @"CHARLIE SHEEN";
+        case kDecisionDownUmbrella:
+            action = @"Down (umbrella)";
+            break;
+            
+        case kDecisionEquipUmbrella:
+            action = @"Equip umbrella";
             break;
             
         default:
-            state = @"unknown CharacterState";
+            action = @"unknown MovementDecision";
             break;
     }
     
-    return state;
+    return action;
+
 }
 
 /**
@@ -83,6 +84,10 @@
             
         case kObjectTerrain:
             object = @"Terrain";
+            break;
+            
+        case kObjectTerrainEnd:
+            object = @"Terrain End";
             break;
             
         case kObstaclePit:
@@ -147,6 +152,54 @@
   
     return rating;
 }
+
+/**
+ * Returns the passed CharacterState enum as a string
+ * @param the state to convert
+ * @return the string equivalent
+ */
++(NSString*)getStateAsString:(CharacterStates)_state;
+{
+    NSString* state = nil;
+    
+    switch (_state) 
+    {
+        case kStateSpawning:
+            state = @"Spawning";
+            break;
+            
+        case kStateFalling:
+            state = @"Falling";
+            break;
+            
+        case kStateIdle:
+            state = @"Idle";
+            break;
+            
+        case kStateWalking:
+            state = @"Walking";
+            break;
+            
+        case kStateFloating:
+            state = @"Floating";
+            break;
+            
+        case kStateDead:
+            state = @"Dead";
+            break;
+            
+        case kStateWin:
+            state = @"CHARLIE SHEEN";
+            break;
+            
+        default:
+            state = @"unknown CharacterState";
+            break;
+    }
+    
+    return state;
+}
+
 
 /**
  * Loads a plist with the passed filename

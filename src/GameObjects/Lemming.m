@@ -12,13 +12,13 @@
 @interface Lemming()
 
 -(void)initAnimations;
+-(void)resetState;
 -(void)changeStateDelegate:(id)_newState;
--(void)toggleHelmet;
+-(void)takePath:(MovementDecision)_decision;
+-(void)useHelmet:(BOOL)_useHelmet;
 -(void)useUmbrella;
 -(void)checkForCollisions:(CCArray*)_listOfGameObjects;
-//-(void)onObjectCollision:(GameObject*)_obstacle;
--(void)onObjectCollision;
--(void)resetLastCollidingObject;
+-(void)onObjectCollision:(CCArray*)_collisions;
 -(void)checkLemmingWithinScreenBounds;
 -(void)updateDebugLabel;
 
@@ -28,9 +28,6 @@
 
 @synthesize health;
 @synthesize state;
-
-@synthesize helmetUses;
-@synthesize umbrellaUses;
 
 // animation
 @synthesize idleAnim;
@@ -79,14 +76,10 @@
     if (self != nil) 
     {
         self.gameObjectType = kLemmingType;
-        health = 100;
-        movementDirection = kDirectionRight;
         respawns = kLemmingRespawns;
-        isUsingHelmet = NO;
-        objectLastCollidedWith = kObjectTypeNone;
-        collisions = [[CCArray alloc] init];
+        movementDirection = kDirectionRight;
         [self initAnimations];
-        
+        [self resetState];
         [self changeState:kStateSpawning];
         
     }
@@ -107,6 +100,21 @@
     [self setDeathAnim:[self loadAnimationFromPlistWthName:@"deathAnim" andClassName:NSStringFromClass([self class])]];
 }
 
+/**
+ * Resets relevnt vars for respawns
+ */
+-(void)resetState
+{
+    health = 100;
+    isUsingHelmet = NO;
+    isUsingUmbrella = NO;
+    umbrellaEquipped = NO;
+    objectLastCollidedWith = kObjectTypeNone;
+    helmetUses = 5;
+    umbrellaUses = 5;
+    if(movementDirection != kDirectionRight) [self changeDirection];
+}
+
 #pragma mark -
 
 /**
@@ -114,12 +122,15 @@
  * @param state to change to
  */
 -(void)changeState: (CharacterStates)_newState
-{        
+{      
+    // if need to use umbrella, delay, then call useUmbrella
+    if(umbrellaEquipped) { [self performSelector:@selector(useUmbrella) withObject:nil afterDelay:0.25f]; return; }
+    CCLOG(@"Lemming.changeState: %@", [Utils getStateAsString:_newState]);
+    
     [self stopAllActions];
     id action = nil;
     self.state = _newState;
-
-    // reset the counter
+    // reset the fall counter
     fallCounter = 0;
     
     switch(_newState) 
@@ -128,13 +139,13 @@
             [self setPosition:ccp([GameManager sharedGameManager].currentLevel.spawnPoint.x, [GameManager sharedGameManager].currentLevel.spawnPoint.y)];
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+            [self resetState];
             respawns--;
             [self changeState:kStateFalling];
             break;
 
         case kStateFalling:
             action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.12f position:ccp(0.0f, kLemmingMovementAmount*-1)], action, nil];         
-            objectLastCollidedWith = kObjectTypeNone;
             break;
             
         case kStateIdle:
@@ -151,7 +162,6 @@
             
         case kStateFloating:
             action = [CCAnimate actionWithAnimation:openUmbrellaAnim restoreOriginalFrame:NO];
-            objectLastCollidedWith = kObjectTypeNone;
             break;
            
         case kStateDead:
@@ -164,7 +174,7 @@
             break;
             
         default:
-            CCLOG(@"Lemming.changeState: unknown state '%d'", _newState);
+            CCLOG(@"Lemming.changeState: unknown state '%@'", [Utils getStateAsString:_newState]);
             break;
     }
     
@@ -192,6 +202,54 @@
 }
 
 /**
+ * Changes the lemming's action
+ * @param the action to take
+ */
+-(void)takePath:(MovementDecision)_decision
+{
+    if(_decision == -1) { CCLOG(@"Lemming.takePath: Uknown action chosen"); return; }
+    
+    switch (_decision) 
+    {
+        case kDecisionLeft:
+            if(movementDirection != kDirectionLeft) [self changeDirection];
+            break;
+            
+        case kDecisionRight:
+            if(movementDirection != kDirectionRight) [self changeDirection];
+            break;
+            
+        case kDecisionLeftHelmet:
+            if(movementDirection != kDirectionLeft) [self changeDirection];
+            if(!isUsingHelmet) [self useHelmet:YES];
+            break;
+            
+        case kDecisionRightHelmet:
+            if(movementDirection != kDirectionRight) [self changeDirection];
+            if(!isUsingHelmet) [self useHelmet:YES];
+            break;
+        
+        case kDecisionEquipUmbrella:
+            umbrellaEquipped = YES;
+            break;
+            
+        case kDecisionDownUmbrella:
+            isUsingUmbrella = YES;
+            [self performSelector:@selector(useUmbrella) withObject:nil afterDelay:1.5f];
+            break;
+            
+        case kDecisionDown:
+            [self changeState:kStateFalling afterDelay:1.5f];
+            break;
+            
+        default:
+            break;
+    }
+    
+    if(isUsingHelmet && _decision != kDecisionLeftHelmet && _decision != kDecisionRightHelmet) [self useHelmet:NO];
+}
+
+/**
  * Changes the direction of the lemming
  */
 -(void)changeDirection
@@ -216,13 +274,16 @@
 #pragma mark Tools
 
 /**
- * Toggles the helmet on the lemming
+ * Put the helmet on the lemming
  */
--(void)toggleHelmet
+-(void)useHelmet:(BOOL)_useHelmet
 {
-    CCLOG(@"Lemming.toggleHelmet");
-    isUsingHelmet = !isUsingHelmet;
-    [self changeState:kStateWalking];
+    if(isUsingHelmet != _useHelmet) 
+    {   
+        isUsingHelmet = _useHelmet;
+        helmetUses--;
+        [self changeState:kStateWalking];
+    }
 }
 
 /**
@@ -230,9 +291,13 @@
  */
 -(void)useUmbrella
 {
-    CCLOG(@"Lemming.useUmbrella");
-    if(!isUsingUmbrella) isUsingUmbrella = YES;
-    [self changeState:kStateFloating];
+    if(isUsingUmbrella || umbrellaEquipped)
+    {
+        isUsingUmbrella = NO;
+        umbrellaEquipped = NO;
+        umbrellaUses--;
+        [self changeState:kStateFloating];
+    }
 }
 
 
@@ -245,7 +310,7 @@
  */
 -(void)checkForCollisions:(CCArray*)_listOfGameObjects
 {
-    collisions = [[CCArray alloc] init];
+    CCArray* collisions = [[CCArray alloc] init];
     CGRect selfBBox = [self adjustedBoundingBox];
     BOOL colliding = NO;
     
@@ -258,15 +323,14 @@
         if(CGRectIntersectsRect(selfBBox, objectBBox)) 
         {
             [collisions addObject:gameObject];
-            //[self onObjectCollision:gameObject];
             if(gameObject.gameObjectType == kObjectTerrain || gameObject.gameObjectType == kObjectTrapdoor) colliding = YES;
         }
     }
     
-    if([collisions count] > 0)[self onObjectCollision];
+    if([collisions count] > 0)[self onObjectCollision:collisions];
     
     // check if the lemming should be falling
-    if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateDead) [self changeState:kStateFalling];
+    if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateFloating && state != kStateDead) [self changeState:kStateFalling];
 }
 
 /**
@@ -287,38 +351,34 @@
  * a Lemming collides with an object
  * @param object collided with
  */
-//-(void)onObjectCollision:(GameObject*)_object
--(void)onObjectCollision
+-(void)onObjectCollision:(CCArray*)_collisions
 {       
-    BOOL collidingWithTerrain = NO;
     GameObject* object = nil;
     
-    if([collisions count] > 1)
+    // work out if we're colloding with two objects
+    if([_collisions count] > 1)
     {        
-        GameObject* object1 = [collisions objectAtIndex:0];
-        GameObject* object2 = [collisions objectAtIndex:1];
+        GameObject* object1 = [_collisions objectAtIndex:0];
+        GameObject* object2 = [_collisions objectAtIndex:1];
         
         if(object1.gameObjectType == kObjectTerrain || object2.gameObjectType == kObjectTerrain) 
         {
             if(object1.gameObjectType == kObjectTerrain) object = object2;
             else object = object1;
-
-            collidingWithTerrain = YES;
         }
     }
-    else
-    {
-        object = [collisions objectAtIndex:0];
-        if(object.gameObjectType == kObjectTerrain) collidingWithTerrain = YES;
-    }
+    else object = [_collisions objectAtIndex:0];
     
+    // if the object isn't collideable, exit
+    if(![object isCollideable]) return;
     // check that we're not colliding with the same object
-    if(object.gameObjectType == objectLastCollidedWith || ![object isCollideable]) return;    
-    
-    objectLastCollidedWith = object.gameObjectType;
-    CCLOG(@"colliding with: %@ collidingWithTerrain: %i collisions: %i",[Utils getObjectAsString:object.gameObjectType], collidingWithTerrain, [collisions count]);
-    
-        
+    if(object.gameObjectType == objectLastCollidedWith) 
+    {
+        if(object.gameObjectType == kObjectTerrain && (self.state == kStateFalling || self.state == kStateFloating)); // do nothing
+        else return;    
+    }
+    else objectLastCollidedWith = object.gameObjectType;    
+            
     switch([object gameObjectType]) 
     {
         case kObstaclePit:
@@ -327,25 +387,26 @@
             break;
             
         case kObstacleStamper:
-            if(!isUsingHelmet) self.health -= kStamperDamage;
-            // wait a bit, then reset objectLastCollidedWith so lemming can be 'stamped' again
-            [self performSelector:@selector(resetLastCollidingObject) withObject:nil afterDelay:4.0f];
+            if(!isUsingHelmet) [self changeState:kStateDead];
             break;
             
         case kObjectExit:
-            [self changeState:kStateWin afterDelay:1.5f]; 
+            [self changeState:kStateWin afterDelay:1.0f]; 
+            break;
+            
+        case kObjectTerrainEnd:
+            if(self.state == kStateFalling || self.state == kStateFloating) break;
+            [self takePath:[self chooseAction:kObjectTerrainEnd]];
             break;
             
         case kObjectTrapdoor:
-            [self toggleHelmet];
+            [self takePath:[self chooseAction:kObjectTrapdoor]]; 
+            break;
+            
         case kObjectTerrain:
-            if(self.state != kStateWalking && self.state != kStateWin && ![(Terrain*)object isWall]) 
+            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![(Terrain*)object isWall]) 
             {
-                if(fallCounter > (kLemmingFallTime*kFrameRate) && self.state != kStateFloating) 
-                {
-                    [self changeState:kStateDead];
-                    fallCounter = 0;
-                }
+                if(fallCounter >= ((float)kLemmingFallTime*(float)kFrameRate) && self.state != kStateFloating) [self changeState:kStateDead];
                 else [self changeState:kStateWalking];
             }
             else if([(Terrain*)object isWall]) [self changeDirection];
@@ -360,15 +421,6 @@
             CCLOG(@"Lemming.onObjectCollision: %@", [Utils getObjectAsString:object.gameObjectType]);
             break;
     }
-}
-
-/**
- * Resets the objectLastCollidedWith to kObjectTypeNone 
- * used with the stamper to give time for lemming to cross
- */
--(void)resetLastCollidingObject
-{
-    objectLastCollidedWith = kObjectTypeNone;
 }
 
 #pragma mark -
@@ -390,6 +442,13 @@
     // check for collisions
     [self checkForCollisions:_listOfGameObjects];
     
+    // increment the fall counter
+    if(self.state == kStateFalling) fallCounter++;
+    
+    if(DEBUG_MODE > 0) [self updateDebugLabel];
+    
+    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
+
     /*
      * if actions have finished running...
      */
@@ -417,36 +476,26 @@
             return;
         }
     }
-    
-    // increment the fall counter
-    if(kStateFalling) fallCounter++;
-    
-    [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
 }
 
 /**
  * Updates the debug string
  */
 -(void)updateDebugLabel
-{
+{    
     CGPoint newPosition = [self position];
     
     //NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
     NSString *debugString = [NSString stringWithFormat:@"x: %f y: %f \n Health: %i \n", newPosition.x, newPosition.y, self.health];
     
     NSString* stateString = [Utils getStateAsString:self.state];
+    if (![stateString compare:@""]) debugString = [NSString stringWithFormat:@"%@ [%@]", debugString, stateString];
     
-    if ([stateString compare:@""]) 
-    {
-        [debugLabel setString: [debugString stringByAppendingString:@" ["]];
-        [debugLabel setString: [debugString stringByAppendingString:stateString]];
-        [debugLabel setString: [debugString stringByAppendingString:@"]"]];
-    }
-    else [debugLabel setString:@""];
+    [debugLabel setString:debugString];
     
-    float yOffset = winSize.height*0.1f;
+    float yOffset = 10.0f;
     newPosition = ccp(newPosition.x, newPosition.y+yOffset);
-    [debugLabel setPosition:newPosition];
+    [debugLabel setPosition:newPosition];    
 }
 
 #pragma mark -

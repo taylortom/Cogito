@@ -29,8 +29,12 @@
     
     if (self != nil) 
     {              
+        
         self.gameObjectType = _type;
-        filename = _filename;
+        
+        if(_type == kObjectTerrainEnd && DEBUG_MODE > 1) filename = [NSString stringWithFormat:@"%@%@.png", _filename, @"Fill"];  
+        else filename = [NSString stringWithFormat:@"%@.png", _filename];
+        
         isWall = _isWall;
         [self setPosition:_position];
         

@@ -132,8 +132,11 @@ static LemmingManager* _instance = nil;
  */
 -(GameRating)calculateGameRating
 {
-    float bonus = ((float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal))*50;
-    float penalty = ((float)lemmingsKilled/(float)kLemmingTotal)+((float)[[GameManager sharedGameManager] getGameTimeInSecs]/10)*25;
+    //float bonus = ((float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal))*50;
+    //float penalty = ((float)lemmingsKilled/(float)kLemmingTotal)+((float)[[GameManager sharedGameManager] getGameTimeInSecs]/10)*25;
+    
+    float bonus = 0;
+    float penalty = (float)[[GameManager sharedGameManager] getGameTimeInSecs]/60;
     float baseScore = ((float)lemmingsSaved/(float)kLemmingTotal)*100;
     
     // calculate the score

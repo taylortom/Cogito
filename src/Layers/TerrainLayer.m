@@ -73,7 +73,7 @@
         GameObjectType gameObjectType;
         
         // the filename of the image
-        NSString* filename = [NSString stringWithFormat:@"%@.png", [objectDictionary objectForKey:@"filename"]];
+        NSString* filename = [objectDictionary objectForKey:@"filename"];
 
         // screen coordinates for the object
         float x = [[objectDictionary objectForKey:@"x"] floatValue];
@@ -92,6 +92,7 @@
             // set the correct object type
             if([objectType isEqualToString:@"exit"]) gameObjectType = kObjectExit;
             else if([objectType isEqualToString:@"trapdoor"]) gameObjectType = kObjectTrapdoor;
+            else if([objectType isEqualToString:@"terrainEnd"]) gameObjectType = kObjectTerrainEnd;
             else gameObjectType = kObjectTerrain;
             
             // initialise the object, and add it to the layer

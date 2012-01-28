@@ -11,11 +11,16 @@
 
 @interface CogitoAgent : GameObject
 
-struct Route
 {
-    // obstacles: obstacle, decision, result
-    // outcome
-    // time taken
-};
+    BOOL learningMode;
+    int helmetUses;
+    int umbrellaUses;
+}
+
+-(MovementDecision)chooseAction:(GameObjectType) objectType;
+-(void)stopLearning;
+
+@property (readwrite) int helmetUses;
+@property (readwrite) int umbrellaUses;
 
 @end

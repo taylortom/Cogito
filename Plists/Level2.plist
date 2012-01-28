@@ -76,6 +76,8 @@
 	</dict>
 	<key>Level2_Trapdoor1</key>
 	<dict>
+		<key>objectType</key>
+		<string>trapdoor</string>
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
@@ -96,16 +98,27 @@
 		<key>filename</key>
 		<string>platform_large</string>
 	</dict>
-	<key>Floor</key>
+	<key>FloorPiece1</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>240</integer>
+		<integer>10</integer>
 		<key>y</key>
 		<integer>10</integer>
 		<key>filename</key>
-		<string>floor2</string>
+		<string>floor</string>
+	</dict>
+	<key>FloorPiece2</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>590</integer>
+		<key>y</key>
+		<integer>10</integer>
+		<key>filename</key>
+		<string>floor</string>
 	</dict>
 	<key>Water</key>
 	<dict>
@@ -114,7 +127,7 @@
 		<key>objectType</key>
 		<string>water</string>
 		<key>x</key>
-		<integer>350</integer>
+		<integer>340</integer>
 		<key>y</key>
 		<integer>7</integer>
 		<key>filename</key>
@@ -132,6 +145,71 @@
 		<integer>50</integer>
 		<key>filename</key>
 		<string>exit</string>
+	</dict>
+	<key>Level1_Platform1End1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>terrainEnd</string>
+		<key>x</key>
+		<integer>175</integer>
+		<key>y</key>
+		<integer>109</integer>
+		<key>filename</key>
+		<string>terrainEnd</string>
+	</dict>
+	<key>Level1_Platform1End2</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>terrainEnd</string>
+		<key>x</key>
+		<integer>410</integer>
+		<key>y</key>
+		<integer>109</integer>
+		<key>filename</key>
+		<string>terrainEnd</string>
+	</dict>
+	<key>Level2_Platform1End</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>terrainEnd</string>
+		<key>x</key>
+		<integer>120</integer>
+		<key>y</key>
+		<integer>187</integer>
+		<key>filename</key>
+		<string>terrainEnd</string>
+	</dict>
+	<key>Level3_Platform1End</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>terrainEnd</string>
+		<key>x</key>
+		<integer>220</integer>
+		<key>y</key>
+		<integer>265</integer>
+		<key>filename</key>
+		<string>terrainEnd</string>
+	</dict>
+	<key>Level3_Platform2End</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>terrainEnd</string>
+		<key>x</key>
+		<integer>259</integer>
+		<key>y</key>
+		<integer>265</integer>
+		<key>filename</key>
+		<string>terrainEnd</string>
 	</dict>
 </dict>
 </plist>

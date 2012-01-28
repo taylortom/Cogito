@@ -58,6 +58,7 @@ typedef enum
     kObjectExit,
     kObjectTrapdoor,
     kObjectTerrain,
+    kObjectTerrainEnd,
     kToolHelmet,
     kToolUmbrella,
     kLemmingType,
@@ -66,6 +67,17 @@ typedef enum
     kObstacleWater,
     kObstacleStamper
 } GameObjectType;
+
+typedef enum
+{
+    kDecisionLeft               = 0,
+    kDecisionLeftHelmet         = 1,
+    kDecisionRight              = 2,
+    kDecisionRightHelmet        = 3,
+    kDecisionDown               = 4,
+    kDecisionDownUmbrella       = 5,
+    kDecisionEquipUmbrella      = 6,
+} MovementDecision;
 
 typedef enum
 {

@@ -20,14 +20,15 @@
     int health;
     CharacterStates state; 
     Direction movementDirection;
+    
+    // used in collision detection
     GameObjectType objectLastCollidedWith;
-    CCArray* collisions;
+    //BOOL collidingWithTerrain;
     
     int respawns;                           // number of respawns
     BOOL isUsingHelmet;
-    int helmetUses;
     BOOL isUsingUmbrella;
-    int umbrellaUses;
+    BOOL umbrellaEquipped;
     int fallCounter;
     
     CCSpriteFrame *standingFrame;
@@ -51,10 +52,6 @@
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
 
-@property (readwrite) int helmetUses;
-@property (readwrite) int umbrellaUses;
-
-
 // idle and walking animations
 @property (nonatomic,retain) CCAnimation *idleAnim;
 @property (nonatomic,retain) CCAnimation *idleHelmetAnim;
@@ -70,8 +67,8 @@
 @property (readwrite) int ID; 
 @property (nonatomic,retain) CCLabelBMFont *debugLabel;
 
--(void)changeState: (CharacterStates)_newState;
--(void)changeState: (CharacterStates)_newState afterDelay:(float)_delay;
+-(void)changeState:(CharacterStates)_newState;
+-(void)changeState:(CharacterStates)_newState afterDelay:(float)_delay;
 -(void)changeDirection;
 -(int)respawns;
 
