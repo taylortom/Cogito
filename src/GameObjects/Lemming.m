@@ -109,6 +109,7 @@
     isUsingHelmet = NO;
     isUsingUmbrella = NO;
     umbrellaEquipped = NO;
+    umbrellaTimer = 0;
     objectLastCollidedWith = kObjectTypeNone;
     helmetUses = 5;
     umbrellaUses = 5;
@@ -124,8 +125,12 @@
 -(void)changeState: (CharacterStates)_newState
 {      
     // if need to use umbrella, delay, then call useUmbrella
-    if(umbrellaEquipped) { [self performSelector:@selector(useUmbrella) withObject:nil afterDelay:0.25f]; return; }
-    CCLOG(@"Lemming.changeState: %@", [Utils getStateAsString:_newState]);
+    if(umbrellaEquipped) 
+    {
+        if(umbrellaTimer >= 75) [self useUmbrella];
+        return; 
+    }
+    //CCLOG(@"Lemming.changeState: %@", [Utils getStateAsString:_newState]);
     
     [self stopAllActions];
     id action = nil;
@@ -293,9 +298,11 @@
 {
     if(isUsingUmbrella || umbrellaEquipped)
     {
+        CCLOG(@"Lemming.useUmbrella: isUsingUmbrella: %i umbrellaEquipped: %i -> %i", isUsingUmbrella, umbrellaEquipped, umbrellaTimer);
         isUsingUmbrella = NO;
         umbrellaEquipped = NO;
         umbrellaUses--;
+        umbrellaTimer = 0;
         [self changeState:kStateFloating];
     }
 }
@@ -396,11 +403,11 @@
             
         case kObjectTerrainEnd:
             if(self.state == kStateFalling || self.state == kStateFloating) break;
-            [self takePath:[self chooseAction:kObjectTerrainEnd]];
+            [self takePath:[self chooseAction:object]];
             break;
             
         case kObjectTrapdoor:
-            [self takePath:[self chooseAction:kObjectTrapdoor]]; 
+            [self takePath:[self chooseAction:object]]; 
             break;
             
         case kObjectTerrain:
@@ -442,8 +449,9 @@
     // check for collisions
     [self checkForCollisions:_listOfGameObjects];
     
-    // increment the fall counter
+    // increment any counters
     if(self.state == kStateFalling) fallCounter++;
+    if(umbrellaEquipped) umbrellaTimer++;
     
     if(DEBUG_MODE > 0) [self updateDebugLabel];
     

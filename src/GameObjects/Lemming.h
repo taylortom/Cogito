@@ -23,7 +23,8 @@
     
     // used in collision detection
     GameObjectType objectLastCollidedWith;
-    //BOOL collidingWithTerrain;
+    
+    int umbrellaTimer;
     
     int respawns;                           // number of respawns
     BOOL isUsingHelmet;

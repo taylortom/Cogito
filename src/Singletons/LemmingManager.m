@@ -18,12 +18,9 @@ static LemmingManager* _instance = nil;
 
 -(void)dealloc
 {
-    [super dealloc];
     [lemmings release];
+    [super dealloc];
 }
-
-#pragma mark -
-#pragma mark Memory Allocation
 
 /**
  * Allocates needed memory

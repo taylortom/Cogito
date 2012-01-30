@@ -36,6 +36,12 @@ static int secondsPlayed;
 #pragma mark -
 #pragma mark Memory Allocation
 
+-(void)dealloc
+{
+    [levelData release];
+    [super dealloc];
+}
+
 /**
  * Allocates needed memory
  * @return the instance
