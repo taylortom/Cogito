@@ -1,0 +1,29 @@
+Learning
+
+The main aim of the AI component of my project was to develop an AI engine which could allow AI-controlled agents to utilise academic machine learning techniques in order to learn to navigate the game environment.
+
+First problem: which technique to use.
+- Decision tree
+- Neural networks
+- genetic programming
+- reinforcement learning
+
+Chose reinforcement learning:
+- why
+- benefits
+- disadvantages(?)
+
+An introduction to reinforcement learning: 
+
+- action-reward
+- MDPs
+- overall summary of reinforcement 
+- Bellman's Equation
+- different algorithms:
+	- Monte Carlo
+	- Temporal Difference
+	- Value & policy iteration
+	- Q-learning
+
+
+

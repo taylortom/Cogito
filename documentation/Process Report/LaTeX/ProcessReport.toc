@@ -1,0 +1,34 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsubsection}{Technical Grasp}{3}
+\contentsline {subsubsection}{Understanding of problem area}{3}
+\contentsline {subsubsection}{Project Management}{3}
+\contentsline {subsubsection}{Report Quality}{3}
+\contentsline {subsubsection}{Evidence of Learning}{3}
+\contentsline {subsubsection}{Research Effort}{3}
+\contentsline {section}{\numberline {2}Choice of Project/Aims}{3}
+\contentsline {subsection}{\numberline {2.1}Project Objectives}{3}
+\contentsline {subsection}{\numberline {2.2}How it Fits in}{3}
+\contentsline {section}{\numberline {3}Background Research}{3}
+\contentsline {subsection}{\numberline {3.1}Acedemic Research}{4}
+\contentsline {subsection}{\numberline {3.2}Tools}{4}
+\contentsline {subsubsection}{Language}{4}
+\contentsline {subsubsection}{Game Engine}{4}
+\contentsline {subsubsection}{Software}{4}
+\contentsline {subsection}{\numberline {3.3}Machine Learning}{4}
+\contentsline {section}{\numberline {4}Planning}{4}
+\contentsline {subsection}{\numberline {4.1}Initial Artwork}{4}
+\contentsline {subsection}{\numberline {4.2}UML/Class Diagrams}{4}
+\contentsline {subsection}{\numberline {4.3}Social, Legal, Ethical and Professional Issues}{4}
+\contentsline {subsubsection}{Intellectual Property}{4}
+\contentsline {subsubsection}{Copyright Law}{4}
+\contentsline {subsubsection}{The Data Protection Act}{4}
+\contentsline {subsubsection}{Research Ethics}{4}
+\contentsline {section}{\numberline {5}Implementation}{4}
+\contentsline {subsection}{\numberline {5.1}Game Component}{4}
+\contentsline {subsection}{\numberline {5.2}AI}{4}
+\contentsline {subsection}{\numberline {5.3}Testing}{4}
+\contentsline {section}{\numberline {6}Evaluation}{4}
+\contentsline {subsection}{\numberline {6.1}Achievements}{5}
+\contentsline {subsection}{\numberline {6.2}Areas For Enhancement}{5}
+\contentsline {subsection}{\numberline {6.3}Overall Success}{5}
+\contentsline {section}{\numberline {7}Project Log}{5}

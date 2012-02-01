@@ -1,34 +1,174 @@
 \documentclass[runningheads,a4paper]{llncs}
 
+\usepackage{amsmath}
 \usepackage{amssymb}
-
+\usepackage[pdftex]{graphicx}\usepackage{listings}      
+\usepackage{pdfpages}
+\usepackage{setspace}
 \usepackage{url}
+
 \urldef{\mail}\path|tt36@uni.brighton.ac.uk|
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
 
+\makeatletter
+\renewcommand*\l@author[2]{}
+\renewcommand*\l@title[2]{}
+\makeatletter
+
 \begin{document}
 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\HRuleLight}{\rule{\linewidth}{0.1mm}}
+
 \mainmatter  
+
+%
+% Cover page
+%
+
+\begin{titlepage}
+\begin{center}
+
+%\large School of Computing, Engineering and Mathematics\\ \textbf{University of Brighton}\\[0.3cm]
+
+% top line
+\HRule \\[0.75cm]
+
+% Title
+{\Huge \bfseries Cogito Machine Learning}\\[0.5cm]
+\HRule\\[0.5cm]
+
+\begin{minipage}{0.4\textwidth}
+	\begin{flushleft} }\large
+		\emph{Author:}\\
+			\textbf{Thomas \textsc{Taylor}}\\[0.27cm]
+			Comuter Science (Games)
+			Student Number: 08813043
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+	\begin{flushright} \large
+		\emph{Supervisor:} \\
+		\textbf{Graham \textsc{Winstanley}}\\[0.25cm]
+		\emph{Second Reader:}\\
+		\textbf{Saeed \textsc{Malekshahi}}
+	\end{flushright}
+\end{minipage}\\[0.75cm] 
+
+% bottom line
+%\HRule\\[0.2cm]
+
+%\large School of Computing, Engineering and Mathematics\\ \textbf{University of Brighton}
+
+% bottom of page
+\vfill
+\huge Process Report\\
+{\large April, 2012}
+
+\end{center}
+\end{titlepage}
+
+
+%
+% Project Title
+%
 
 \title{Cogito Machine Learning}
 \titlerunning{}
 \author{Thomas Taylor\\ \mail}
-\authorrunning{} % (feature abused to repeat the title on left hand pages)
+\authorrunning{Cogito Machine Learning} % (feature abused to repeat the title on left hand pages)
 \institute{School of Computing, Engineering and Mathematics,\\University of Brighton.}
 
-\maketitle
-
+%\maketitle
 %\begin{abstract} \end{abstract}
+
+%
+% Table of contents
+%
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+
+%
+% Start of content
+%
+
+%\doublespacing
 
 \section{Introduction}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut elit leo, hendrerit tristique urna. In erat odio, vehicula eu aliquam elementum, viverra ut tellus. Nam sapien nulla, venenatis vitae porttitor ut, iaculis sed ligula. Nulla non hendrerit tellus. Proin vitae velit nibh. Suspendisse laoreet aliquet lectus a blandit. Etiam neque libero, euismod et ultricies eleifend, viverra vel lacus. Phasellus a arcu ac erat hendrerit vehicula quis eu eros. Vestibulum mi enim, fringilla nec gravida vitae, cursus ut lorem. Integer vel ante nulla, eget faucibus augue. Ut lectus sem, luctus at gravida sit amet, dictum at diam. Aenean porta turpis in ligula malesuada fermentum. In aliquet luctus sapien.
+The process report is where you discuss the process by which you carried out your project, which is an important aspect what is being examined. In it you should critically evaluate every significant area of your project area.
 
-Etiam cursus viverra felis vel faucibus. Suspendisse leo tortor, pretium eget aliquam ullamcorper, gravida non quam. In suscipit elementum massa, malesuada ultrices est iaculis non. Sed eleifend orci a purus sagittis id ullamcorper dui mattis. Vivamus sit amet odio nisi, vel sodales.
+To get an A grade:
 
+	\subsubsection{Technical Grasp} 
+	Excellent technical insight demonstrated to a professional level
+	
+	\subsubsection{Understanding of problem area}
+	Showed professional level of insight into the whole area in which the project is embedded. 
+	
+	\subsubsection{Project Management}
+	Completely successful and entirely self-managed
+	
+	\subsubsection{Report Quality}  
+	Excellent - clear, substantial, fluent, correctly organised, convincing and with no omissions
+	
+	\subsubsection{Evidence of Learning}
+	Mature reflection on the whole process, showing professional level of insight
+	
+	\subsubsection{Research Effort}
+	Competent and thorough coverage of the field with excellent research in many areas. Research clearly influences outcomes   
 
+\section{Choice of Project/Aims}
+Your choice of project, and how it fits in with the modules you have studied
+	\subsection{Project Objectives}
+	\subsection{How it Fits in}
+		AI modules, Game Development, Programming, OO Software Design/UML, Programming & Concurrency, Formal Underpinnings/Maths, Computer Graphics Algorithms
 
+\section{Background Research}
+Your background research and how it's influenced your decisions. There must be evidence of appropriate research.
+
+	\subsection{Acedemic Research}
+	
+	\subsection{Tools}
+	Discuss your choice of tools, and the reasoning behind them.
+
+		\subsubsection{Language}
+		\subsubsection{Game Engine}
+		\subsubsection{Software}
+
+\subsection{Machine Learning}
+
+\section{Planning}
+	\subsection{Initial Artwork}
+	\subsection{UML/Class Diagrams}
+	\subsection{Social, Legal, Ethical and Professional Issues}
+		\subsubsection{Intellectual Property}
+		\subsubsection{Copyright Law}
+		\subsubsection{The Data Protection Act}
+		\subsubsection{Research Ethics}
+
+\section{Implementation}
+The progress you made, problems encountered, their solutions and the lessons learnt
+
+	\subsection{Game Component}
+	\subsection{AI}
+	\subsection{Testing}
+	
+\section{Evaluation}
+A very competent evaluation of the whole project (with hindsight). Weak performance in the evaluation of product and process will result in a grade no higher than a B.
+
+	\subsection{Achievements}
+	\subsection{Areas For Enhancement}
+	\subsection{Overall Success}
+	
+\section{Project Log}
+A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
+
+% push the references onto a new page
+\newpage
 \bibliographystyle{abbrv}
 \bibliography{Cogito}
 
