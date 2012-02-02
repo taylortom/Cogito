@@ -14,11 +14,9 @@
 -(void)initAnimations;
 -(void)resetState;
 -(void)changeStateDelegate:(id)_newState;
--(void)takePath:(MovementDecision)_decision;
 -(void)useHelmet:(BOOL)_useHelmet;
 -(void)useUmbrella;
 -(void)checkForCollisions:(CCArray*)_listOfGameObjects;
--(void)onObjectCollision:(CCArray*)_collisions;
 -(void)checkLemmingWithinScreenBounds;
 -(void)updateDebugLabel;
 
@@ -28,6 +26,9 @@
 
 @synthesize health;
 @synthesize state;
+
+@synthesize helmetUses;
+@synthesize umbrellaUses;
 
 // animation
 @synthesize idleAnim;
@@ -91,13 +92,13 @@
  */
 -(void)initAnimations
 {        
-    [self setIdleAnim:[self loadAnimationFromPlistWthName:@"idleAnim" andClassName:NSStringFromClass([self class])]];
-    [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:NSStringFromClass([self class])]];
-    [self setWalkingAnim:[self loadAnimationFromPlistWthName:@"walkingAnim" andClassName:NSStringFromClass([self class])]];
-    [self setWalkingHelmetAnim:[self loadAnimationFromPlistWthName:@"walkingHelmetAnim" andClassName:NSStringFromClass([self class])]];
-    [self setOpenUmbrellaAnim:[self loadAnimationFromPlistWthName:@"openUmbrellaAnim" andClassName:NSStringFromClass([self class])]];
-    [self setFloatUmbrellaAnim:[self loadAnimationFromPlistWthName:@"floatUmbrellaAnim" andClassName:NSStringFromClass([self class])]];
-    [self setDeathAnim:[self loadAnimationFromPlistWthName:@"deathAnim" andClassName:NSStringFromClass([self class])]];
+    [self setIdleAnim:[self loadAnimationFromPlistWthName:@"idleAnim" andClassName:@"Lemming"]];
+    [self setIdleHelmetAnim:[self loadAnimationFromPlistWthName:@"idleHelmetAnim" andClassName:@"Lemming"]];
+    [self setWalkingAnim:[self loadAnimationFromPlistWthName:@"walkingAnim" andClassName:@"Lemming"]];
+    [self setWalkingHelmetAnim:[self loadAnimationFromPlistWthName:@"walkingHelmetAnim" andClassName:@"Lemming"]];
+    [self setOpenUmbrellaAnim:[self loadAnimationFromPlistWthName:@"openUmbrellaAnim" andClassName:@"Lemming"]];
+    [self setFloatUmbrellaAnim:[self loadAnimationFromPlistWthName:@"floatUmbrellaAnim" andClassName:@"Lemming"]];
+    [self setDeathAnim:[self loadAnimationFromPlistWthName:@"deathAnim" andClassName:@"Lemming"]];
 }
 
 /**
@@ -117,6 +118,7 @@
 }
 
 #pragma mark -
+#pragma mark State Changing
 
 /**
  * Changes the current state
@@ -206,6 +208,8 @@
     [self changeState:(CharacterStates)[_newState intValue]];
 }
 
+#pragma mark -
+
 /**
  * Changes the lemming's action
  * @param the action to take
@@ -233,7 +237,7 @@
             if(movementDirection != kDirectionRight) [self changeDirection];
             if(!isUsingHelmet) [self useHelmet:YES];
             break;
-        
+            
         case kDecisionEquipUmbrella:
             umbrellaEquipped = YES;
             break;
@@ -275,6 +279,22 @@
     [self changeState:kStateWalking];
 }
 
+/**
+ * Lemming has either died, or won
+ * act accordingly
+ */
+-(void)onEndConditionReached
+{
+    // lemming has played death anim, respawn or remove
+    if(self.state == kStateDead)
+    {
+        if(respawns > 0) [self changeState:kStateSpawning];
+        else [[LemmingManager sharedLemmingManager] removeLemming:self];
+    }
+    // remove lemming if it's reached the exit
+    else [[LemmingManager sharedLemmingManager] removeLemming:self];
+}
+
 #pragma mark -
 #pragma mark Tools
 
@@ -298,7 +318,7 @@
 {
     if(isUsingUmbrella || umbrellaEquipped)
     {
-        CCLOG(@"Lemming.useUmbrella: isUsingUmbrella: %i umbrellaEquipped: %i -> %i", isUsingUmbrella, umbrellaEquipped, umbrellaTimer);
+        //CCLOG(@"Lemming.useUmbrella: isUsingUmbrella: %i umbrellaEquipped: %i -> %i", isUsingUmbrella, umbrellaEquipped, umbrellaTimer);
         isUsingUmbrella = NO;
         umbrellaEquipped = NO;
         umbrellaUses--;
@@ -334,10 +354,40 @@
         }
     }
     
-    if([collisions count] > 0)[self onObjectCollision:collisions];
-    
     // check if the lemming should be falling
     if(!colliding && state != kStateSpawning && state != kStateFalling && state != kStateFloating && state != kStateDead) [self changeState:kStateFalling];
+    
+    // work out what we're actually colliding with, and call onObjectCollision
+    if([collisions count] > 0)
+    {
+        GameObject* object = nil;
+        
+        // work out if we're colliding with two objects
+        if([collisions count] > 1)
+        {        
+            GameObject* object1 = [collisions objectAtIndex:0];
+            GameObject* object2 = [collisions objectAtIndex:1];
+            
+            if(object1.gameObjectType == kObjectTerrain || object2.gameObjectType == kObjectTerrain) 
+            {
+                if(object1.gameObjectType == kObjectTerrain) object = object2;
+                else object = object1;
+            }
+        }
+        else object = [collisions objectAtIndex:0];
+        
+        // if the object isn't collideable, exit
+        if(![object isCollideable]) return;
+        // check that we're not colliding with the same object
+        if(object.gameObjectType == objectLastCollidedWith) 
+        {
+            if(object.gameObjectType == kObjectTerrain && (self.state == kStateFalling || self.state == kStateFloating)); // do nothing
+            else return;    
+        }
+        else objectLastCollidedWith = object.gameObjectType; 
+        
+        [self onObjectCollision:object];
+    }
 }
 
 /**
@@ -358,35 +408,9 @@
  * a Lemming collides with an object
  * @param object collided with
  */
--(void)onObjectCollision:(CCArray*)_collisions
+-(void)onObjectCollision:(GameObject*)_object
 {       
-    GameObject* object = nil;
-    
-    // work out if we're colloding with two objects
-    if([_collisions count] > 1)
-    {        
-        GameObject* object1 = [_collisions objectAtIndex:0];
-        GameObject* object2 = [_collisions objectAtIndex:1];
-        
-        if(object1.gameObjectType == kObjectTerrain || object2.gameObjectType == kObjectTerrain) 
-        {
-            if(object1.gameObjectType == kObjectTerrain) object = object2;
-            else object = object1;
-        }
-    }
-    else object = [_collisions objectAtIndex:0];
-    
-    // if the object isn't collideable, exit
-    if(![object isCollideable]) return;
-    // check that we're not colliding with the same object
-    if(object.gameObjectType == objectLastCollidedWith) 
-    {
-        if(object.gameObjectType == kObjectTerrain && (self.state == kStateFalling || self.state == kStateFloating)); // do nothing
-        else return;    
-    }
-    else objectLastCollidedWith = object.gameObjectType;    
-            
-    switch([object gameObjectType]) 
+    switch([_object gameObjectType]) 
     {
         case kObstaclePit:
         case kObstacleWater:
@@ -401,31 +425,23 @@
             [self changeState:kStateWin afterDelay:1.0f]; 
             break;
             
-        case kObjectTerrainEnd:
-            if(self.state == kStateFalling || self.state == kStateFloating) break;
-            [self takePath:[self chooseAction:object]];
-            break;
-            
-        case kObjectTrapdoor:
-            [self takePath:[self chooseAction:object]]; 
-            break;
-            
         case kObjectTerrain:
-            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![(Terrain*)object isWall]) 
+            if(self.state != kStateWalking && self.state != kStateDead && self.state != kStateWin && ![(Terrain*)_object isWall]) 
             {
                 if(fallCounter >= ((float)kLemmingFallTime*(float)kFrameRate) && self.state != kStateFloating) [self changeState:kStateDead];
                 else [self changeState:kStateWalking];
             }
-            else if([(Terrain*)object isWall]) [self changeDirection];
+            else if([(Terrain*)_object isWall]) [self changeDirection];
             break;
         
+        case kObjectTerrainEnd:
+        case kObjectTrapdoor:
         case kObstacleCage:            
-            // do nothing yet...
+            // do nothing...
             break;
             
         default: 
-            // do nothing...
-            CCLOG(@"Lemming.onObjectCollision: %@", [Utils getObjectAsString:object.gameObjectType]);
+            CCLOG(@"Lemming.onObjectCollision: %@", [Utils getObjectAsString:_object.gameObjectType]);
             break;
     }
 }
@@ -471,18 +487,8 @@
             floatAction = [CCRepeatForever actionWithAction:floatAction];
             [self runAction:floatAction];
         }
-        // lemming has played death anim, respawn or remove
-        else if(self.state == kStateDead)
-        {
-            if(respawns > 0) [self changeState:kStateSpawning];
-            else [[LemmingManager sharedLemmingManager] removeLemming:self];
-        }
-        // remove lemming if it's reached the exit
-        else if(self.state == kStateWin)
-        {
-            [[LemmingManager sharedLemmingManager] removeLemming:self];
-            return;
-        }
+        
+        if(self.state == kStateWin || self.state == kStateDead) [self onEndConditionReached];
     }
 }
 

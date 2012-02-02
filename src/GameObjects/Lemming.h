@@ -7,29 +7,32 @@
 //  21/11/2011: Created class
 //
 
-#import "CogitoAgent.h"
 #import <Foundation/Foundation.h>
+#import "GameObject.h"
 #import "LemmingManager.h"
 #import "Obstacle.h"
 #import "Terrain.h"
 #import "Utils.h"
 
-@interface Lemming : CogitoAgent
+@interface Lemming : GameObject
 
 {
     int health;
+    int respawns;                           // number of respawns
     CharacterStates state; 
     Direction movementDirection;
+    GameObjectType objectLastCollidedWith;  // used in collision detection
     
-    // used in collision detection
-    GameObjectType objectLastCollidedWith;
-    
-    int umbrellaTimer;
-    
-    int respawns;                           // number of respawns
+    // helmet-related vars
     BOOL isUsingHelmet;
+    int helmetUses;
+    
+    // umbrella-related vars
     BOOL isUsingUmbrella;
     BOOL umbrellaEquipped;
+    int umbrellaUses;
+    int umbrellaTimer;
+
     int fallCounter;
     
     CCSpriteFrame *standingFrame;
@@ -53,6 +56,9 @@
 @property (readwrite) int health;
 @property (readwrite) CharacterStates state; 
 
+@property (readwrite) int helmetUses;
+@property (readwrite) int umbrellaUses;
+
 // idle and walking animations
 @property (nonatomic,retain) CCAnimation *idleAnim;
 @property (nonatomic,retain) CCAnimation *idleHelmetAnim;
@@ -71,6 +77,9 @@
 -(void)changeState:(CharacterStates)_newState;
 -(void)changeState:(CharacterStates)_newState afterDelay:(float)_delay;
 -(void)changeDirection;
+-(void)takePath:(MovementDecision)_decision;
 -(int)respawns;
+-(void)onObjectCollision:(GameObject*)_object;
+-(void)onEndConditionReached;
 
 @end

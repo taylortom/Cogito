@@ -10,6 +10,7 @@
 
 #import "LemmingManager.h"
 #import "cocos2d.h"
+#import "CogitoAgent.h"
 #import "CommonDataTypes.h"
 #import "Constants.h"
 #import <Foundation/Foundation.h>

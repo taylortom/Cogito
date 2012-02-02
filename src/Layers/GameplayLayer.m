@@ -172,11 +172,11 @@
 {
     if (![[LemmingManager sharedLemmingManager] lemmingsMaxed]) 
     {
-        Lemming *lemming = [[Lemming alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+        CogitoAgent *lemming = [[CogitoAgent alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
         lemming.ID = ID;
         lemming.health = health;
         
-        /*if(COCOS2D_DEBUG > 1)
+        /*if(DEBUG_MODE > 0)
         {
             CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"NoneNone" fntFile:@"helvetica_blue_small.fnt"];
             [self addChild:debugLabel];

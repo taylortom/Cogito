@@ -97,13 +97,15 @@
 		E2389A56149BA5F6004DCA32 /* Back-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A54149BA5F5004DCA32 /* Back-hd.png */; };
 		E2389A59149BA645004DCA32 /* Back_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A57149BA645004DCA32 /* Back_down.png */; };
 		E2389A5A149BA645004DCA32 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = E2389A58149BA645004DCA32 /* Back.png */; };
-		E2389A5D149BF524004DCA32 /* LemmingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2389A5C149BF524004DCA32 /* LemmingManager.m */; };
 		E23ECACC14A405EA00AC01FB /* Menu_down-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E23ECACA14A405EA00AC01FB /* Menu_down-hd.png */; };
 		E23ECACD14A405EA00AC01FB /* Menu-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E23ECACB14A405EA00AC01FB /* Menu-hd.png */; };
 		E23ECAD014A4A24300AC01FB /* TextOverlay-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E23ECACE14A4A24300AC01FB /* TextOverlay-hd.png */; };
 		E23ECAD114A4A24300AC01FB /* TextOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = E23ECACF14A4A24300AC01FB /* TextOverlay.png */; };
 		E23ECAE914A5192100AC01FB /* bangla_dark_small-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E23ECAE714A5192100AC01FB /* bangla_dark_small-hd.png */; };
 		E23ECAEA14A5192100AC01FB /* bangla_dark_small-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E23ECAE814A5192100AC01FB /* bangla_dark_small-hd.fnt */; };
+		E25EC50714D96BD600C750D2 /* LemmingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E25EC50614D96BD600C750D2 /* LemmingManager.m */; };
+		E25EC50A14D96C0200C750D2 /* Lemming.m in Sources */ = {isa = PBXBuildFile; fileRef = E25EC50914D96C0200C750D2 /* Lemming.m */; };
+		E25EC50D14DAABB200C750D2 /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = E25EC50C14DAABB200C750D2 /* State.m */; };
 		E2613FE3149ABD5300356C98 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE2149ABD5300356C98 /* GameManager.m */; };
 		E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE5149AC2E000356C98 /* MainMenuScene.m */; };
 		E2613FE9149AC36400356C98 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E2613FE8149AC36400356C98 /* AboutScene.m */; };
@@ -124,7 +126,6 @@
 		E2646A7714A20C39003CC16E /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E2646A7514A20C39003CC16E /* Menu.png */; };
 		E274A210148CF88800917EA7 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = E274A20F148CF88800917EA7 /* Obstacle.m */; };
 		E28C12AC147A535500385DF6 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AB147A535500385DF6 /* GameObject.m */; };
-		E28C12AF147A6B0D00385DF6 /* Lemming.m in Sources */ = {isa = PBXBuildFile; fileRef = E28C12AE147A6B0D00385DF6 /* Lemming.m */; };
 		E28EF23814C2F94700B44A00 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E28EF23714C2F94700B44A00 /* CogitoAgent.m */; };
 		E2ABCEF314706AE600E14474 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF214706AE600E14474 /* QuartzCore.framework */; };
 		E2ABCEF514706AE600E14474 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF414706AE600E14474 /* OpenGLES.framework */; };
@@ -352,14 +353,18 @@
 		E2389A54149BA5F5004DCA32 /* Back-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-hd.png"; sourceTree = "<group>"; };
 		E2389A57149BA645004DCA32 /* Back_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_down.png; sourceTree = "<group>"; };
 		E2389A58149BA645004DCA32 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
-		E2389A5B149BF524004DCA32 /* LemmingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LemmingManager.h; sourceTree = "<group>"; };
-		E2389A5C149BF524004DCA32 /* LemmingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LemmingManager.m; sourceTree = "<group>"; };
 		E23ECACA14A405EA00AC01FB /* Menu_down-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_down-hd.png"; sourceTree = "<group>"; };
 		E23ECACB14A405EA00AC01FB /* Menu-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-hd.png"; sourceTree = "<group>"; };
 		E23ECACE14A4A24300AC01FB /* TextOverlay-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TextOverlay-hd.png"; sourceTree = "<group>"; };
 		E23ECACF14A4A24300AC01FB /* TextOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextOverlay.png; sourceTree = "<group>"; };
 		E23ECAE714A5192100AC01FB /* bangla_dark_small-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bangla_dark_small-hd.png"; sourceTree = "<group>"; };
 		E23ECAE814A5192100AC01FB /* bangla_dark_small-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bangla_dark_small-hd.fnt"; sourceTree = "<group>"; };
+		E25EC50514D96BD600C750D2 /* LemmingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LemmingManager.h; sourceTree = "<group>"; };
+		E25EC50614D96BD600C750D2 /* LemmingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LemmingManager.m; sourceTree = "<group>"; };
+		E25EC50814D96C0200C750D2 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lemming.h; sourceTree = "<group>"; };
+		E25EC50914D96C0200C750D2 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
+		E25EC50B14DAABB200C750D2 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = State.h; path = Objects/State.h; sourceTree = "<group>"; };
+		E25EC50C14DAABB200C750D2 /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = State.m; path = Objects/State.m; sourceTree = "<group>"; };
 		E2613FE1149ABD5300356C98 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		E2613FE2149ABD5300356C98 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		E2613FE4149AC2E000356C98 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
@@ -388,8 +393,6 @@
 		E28C12A9147A4EAE00385DF6 /* CommonDataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDataTypes.h; sourceTree = "<group>"; };
 		E28C12AA147A535500385DF6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		E28C12AB147A535500385DF6 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		E28C12AD147A6B0D00385DF6 /* Lemming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lemming.h; sourceTree = "<group>"; };
-		E28C12AE147A6B0D00385DF6 /* Lemming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lemming.m; sourceTree = "<group>"; };
 		E28EF23614C2F94700B44A00 /* CogitoAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CogitoAgent.h; sourceTree = "<group>"; };
 		E28EF23714C2F94700B44A00 /* CogitoAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CogitoAgent.m; sourceTree = "<group>"; };
 		E2ABCEEE14706AE600E14474 /* Cogito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogito.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -680,6 +683,8 @@
 		E211D08E14C8B32600970AEC /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				E25EC50B14DAABB200C750D2 /* State.h */,
+				E25EC50C14DAABB200C750D2 /* State.m */,
 				E2372CAA14C9B58B00B07B31 /* Route.h */,
 				E2372CAB14C9B58B00B07B31 /* Route.m */,
 				E2372CAC14C9B58B00B07B31 /* Level.h */,
@@ -745,8 +750,8 @@
 				E28C12AB147A535500385DF6 /* GameObject.m */,
 				E28EF23614C2F94700B44A00 /* CogitoAgent.h */,
 				E28EF23714C2F94700B44A00 /* CogitoAgent.m */,
-				E28C12AD147A6B0D00385DF6 /* Lemming.h */,
-				E28C12AE147A6B0D00385DF6 /* Lemming.m */,
+				E25EC50814D96C0200C750D2 /* Lemming.h */,
+				E25EC50914D96C0200C750D2 /* Lemming.m */,
 				E274A20E148CF88800917EA7 /* Obstacle.h */,
 				E274A20F148CF88800917EA7 /* Obstacle.m */,
 				E21254E714B60FE600A0CA61 /* Terrain.h */,
@@ -758,8 +763,8 @@
 		E2133A401479C16800845938 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
-				E2389A5B149BF524004DCA32 /* LemmingManager.h */,
-				E2389A5C149BF524004DCA32 /* LemmingManager.m */,
+				E25EC50514D96BD600C750D2 /* LemmingManager.h */,
+				E25EC50614D96BD600C750D2 /* LemmingManager.m */,
 				E2ABD05414706AE900E14474 /* AppDelegate.h */,
 				E2ABD05514706AE900E14474 /* AppDelegate.m */,
 				E2613FE1149ABD5300356C98 /* GameManager.h */,
@@ -1689,7 +1694,6 @@
 				E2AD755E147720CC00ECF7CB /* SneakyButton.m in Sources */,
 				E2AD755F147720CC00ECF7CB /* SneakyButtonSkinnedBase.m in Sources */,
 				E28C12AC147A535500385DF6 /* GameObject.m in Sources */,
-				E28C12AF147A6B0D00385DF6 /* Lemming.m in Sources */,
 				E274A210148CF88800917EA7 /* Obstacle.m in Sources */,
 				E2613FE3149ABD5300356C98 /* GameManager.m in Sources */,
 				E2613FE6149AC2E000356C98 /* MainMenuScene.m in Sources */,
@@ -1700,7 +1704,6 @@
 				E2389A28149B8CC5004DCA32 /* GameOverLayer.m in Sources */,
 				E2389A4F149BA2AF004DCA32 /* NewGameScene.m in Sources */,
 				E2389A52149BA328004DCA32 /* NewGameLayer.m in Sources */,
-				E2389A5D149BF524004DCA32 /* LemmingManager.m in Sources */,
 				E21E4459149E545A00D6EF24 /* Utils.m in Sources */,
 				E226863D14A0D90D0020B44E /* StingScene.m in Sources */,
 				E2084CBB14A3580100C699A9 /* PauseMenuLayer.m in Sources */,
@@ -1712,6 +1715,9 @@
 				E2372C8D14C97D2400B07B31 /* StingLayer.m in Sources */,
 				E2372CAE14C9B58B00B07B31 /* Route.m in Sources */,
 				E2372CAF14C9B58B00B07B31 /* Level.m in Sources */,
+				E25EC50714D96BD600C750D2 /* LemmingManager.m in Sources */,
+				E25EC50A14D96C0200C750D2 /* Lemming.m in Sources */,
+				E25EC50D14DAABB200C750D2 /* State.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

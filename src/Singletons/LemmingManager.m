@@ -95,9 +95,9 @@ static LemmingManager* _instance = nil;
  * Adds a Lemming to the Lemmings list
  * @param the Lemming to add
  */
--(void)addLemming:(Lemming*)lemmingToAdd
+-(void)addLemming:(Lemming*)_lemmingToAdd
 {    
-    [lemmings addObject:lemmingToAdd];
+    [lemmings addObject:_lemmingToAdd];
     lemmingsAdded++;
 }
 
@@ -105,17 +105,17 @@ static LemmingManager* _instance = nil;
  * Removes a Lemming from the Lemmings list
  * @param the Lemming to remove
  */
--(void)removeLemming:(Lemming*)lemmingToRemove
+-(void)removeLemming:(Lemming*)_lemmingToRemove
 {        
-    if(lemmingToRemove.state == kStateDead) lemmingsKilled++;
+    if(_lemmingToRemove.state == kStateDead) lemmingsKilled++;
     else 
     {
         lemmingsSaved++;
-        spawnsRemaining += [lemmingToRemove respawns];
+        spawnsRemaining += [_lemmingToRemove respawns];
     }
 
-    [lemmings removeObject:lemmingToRemove];
-    [lemmingToRemove removeFromParentAndCleanup:YES];
+    [lemmings removeObject:_lemmingToRemove];
+    [_lemmingToRemove removeFromParentAndCleanup:YES];
     
     if([self lemmingCount] == 0) [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
 }

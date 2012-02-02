@@ -19,12 +19,16 @@
 
 #define kRLearningRate          0.0f
 #define kRLDiscountFactor       0.99f
-#define kRLRandomProbability    0.2
+#define kRLRandomProbability    0.2f
+#define kRLDefaultReward        -0.2f
+#define kRLStateIndex           0
+#define kRLActionIndex          1
+#define kRLQValueIndex          2
 
 #define kLemmingMovementAmount  20
 #define kLemmingFallTime        0.85f
 #define kLemmingRespawns        5
-#define kLemmingTotal           100
+#define kLemmingTotal           1
 #define kLemmingSpawnSpeed      1.0f
 
 #define kUISpriteZValue         300

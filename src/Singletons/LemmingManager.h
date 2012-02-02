@@ -28,8 +28,8 @@
 }
 
 +(LemmingManager*)sharedLemmingManager;
--(void)addLemming:(CCSprite*)lemmingToAdd;
--(void)removeLemming:(CCSprite*)lemmingToRemove;
+-(void)addLemming:(CCSprite*)_lemmingToAdd;
+-(void)removeLemming:(CCSprite*)_lemmingToRemove;
 -(GameRating)calculateGameRating;
 -(CCArray*)lemmings;
 -(BOOL)lemmingsMaxed;

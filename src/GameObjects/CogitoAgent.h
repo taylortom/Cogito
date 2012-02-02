@@ -7,20 +7,17 @@
 //  15/01/2011: Created class
 //
 
-#import "GameObject.h"
+#import "Lemming.h"
+#import "State.h"
 
-@interface CogitoAgent : GameObject
+@interface CogitoAgent : Lemming
 
 {
+    CCArray* gameStates;
+    CCArray* qTable;
+    GameObject* currentDecisionObject;
     BOOL learningMode;
-    int helmetUses;
-    int umbrellaUses;
+    int qIndex;
 }
-
--(MovementDecision)chooseAction:(GameObjectType) objectType;
--(void)stopLearning;
-
-@property (readwrite) int helmetUses;
-@property (readwrite) int umbrellaUses;
 
 @end
