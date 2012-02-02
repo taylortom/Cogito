@@ -70,14 +70,15 @@ typedef enum
 
 typedef enum
 {
-    kDecisionLeft               = 0,
-    kDecisionLeftHelmet         = 1,
-    kDecisionRight              = 2,
-    kDecisionRightHelmet        = 3,
-    kDecisionDown               = 4,
-    kDecisionDownUmbrella       = 5,
-    kDecisionEquipUmbrella      = 6,
-} MovementDecision;
+    kActionLeft               = 0,
+    kActionLeftHelmet         = 1,
+    kActionRight              = 2,
+    kActionRightHelmet        = 3,
+    kActionDown               = 4,
+    kActionDownUmbrella       = 5,
+    kActionEquipUmbrella      = 6,
+    kTotalActions              
+} Action;
 
 typedef enum
 {

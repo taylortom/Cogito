@@ -16,6 +16,7 @@
 
 {
     GameObject* gameObject;
+    // holds actions with corresponding Q-values
     CCArray* actions;
     float reward;
 }
@@ -23,7 +24,9 @@
 -(id)initStateForObject:(GameObject*)_object withReward:(float)_reward;
 -(GameObject*)getGameObject;
 -(CCArray*)getActions;
--(float)getReward;
 -(void)setActions:(CCArray*)_actions;
+-(float)getReward;
+-(float)getQValueForAction:(Action)_action;
+-(void)setQValue:(float)_qValue forAction:(Action)_action;
 
 @end

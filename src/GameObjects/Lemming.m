@@ -214,40 +214,40 @@
  * Changes the lemming's action
  * @param the action to take
  */
--(void)takePath:(MovementDecision)_decision
+-(void)takePath:(Action)_action
 {
-    if(_decision == -1) { CCLOG(@"Lemming.takePath: Uknown action chosen"); return; }
+    if(_action == -1) { CCLOG(@"Lemming.takePath: Uknown action chosen"); return; }
     
-    switch (_decision) 
+    switch (_action) 
     {
-        case kDecisionLeft:
+        case kActionLeft:
             if(movementDirection != kDirectionLeft) [self changeDirection];
             break;
             
-        case kDecisionRight:
+        case kActionRight:
             if(movementDirection != kDirectionRight) [self changeDirection];
             break;
             
-        case kDecisionLeftHelmet:
+        case kActionLeftHelmet:
             if(movementDirection != kDirectionLeft) [self changeDirection];
             if(!isUsingHelmet) [self useHelmet:YES];
             break;
             
-        case kDecisionRightHelmet:
+        case kActionRightHelmet:
             if(movementDirection != kDirectionRight) [self changeDirection];
             if(!isUsingHelmet) [self useHelmet:YES];
             break;
             
-        case kDecisionEquipUmbrella:
+        case kActionEquipUmbrella:
             umbrellaEquipped = YES;
             break;
             
-        case kDecisionDownUmbrella:
+        case kActionDownUmbrella:
             isUsingUmbrella = YES;
             [self performSelector:@selector(useUmbrella) withObject:nil afterDelay:1.5f];
             break;
             
-        case kDecisionDown:
+        case kActionDown:
             [self changeState:kStateFalling afterDelay:1.5f];
             break;
             
@@ -255,7 +255,7 @@
             break;
     }
     
-    if(isUsingHelmet && _decision != kDecisionLeftHelmet && _decision != kDecisionRightHelmet) [self useHelmet:NO];
+    if(isUsingHelmet && _action != kActionLeftHelmet && _action != kActionRightHelmet) [self useHelmet:NO];
 }
 
 /**

@@ -16,37 +16,37 @@
  * @param the action to convert
  * @return the string equivalent
  */
-+(NSString*)getActionAsString:(MovementDecision)_action
++(NSString*)getActionAsString:(Action)_action
 {
     NSString* action = nil;
     
     switch (_action) 
     {
-        case kDecisionLeft:
+        case kActionLeft:
             action = @"Left";
             break;
             
-        case kDecisionLeftHelmet:
+        case kActionLeftHelmet:
             action = @"Left (helmet)";
             break;
             
-        case kDecisionRight:
+        case kActionRight:
             action = @"Right";
             break;
             
-        case kDecisionRightHelmet:
+        case kActionRightHelmet:
             action = @"Right (helmet)";
             break;
             
-        case kDecisionDown:
+        case kActionDown:
             action = @"Down";
             break;
             
-        case kDecisionDownUmbrella:
+        case kActionDownUmbrella:
             action = @"Down (umbrella)";
             break;
             
-        case kDecisionEquipUmbrella:
+        case kActionEquipUmbrella:
             action = @"Equip umbrella";
             break;
             

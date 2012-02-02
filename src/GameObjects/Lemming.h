@@ -77,7 +77,7 @@
 -(void)changeState:(CharacterStates)_newState;
 -(void)changeState:(CharacterStates)_newState afterDelay:(float)_delay;
 -(void)changeDirection;
--(void)takePath:(MovementDecision)_decision;
+-(void)takePath:(Action)_decision;
 -(int)respawns;
 -(void)onObjectCollision:(GameObject*)_object;
 -(void)onEndConditionReached;

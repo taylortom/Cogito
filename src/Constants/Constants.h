@@ -10,12 +10,13 @@
 #ifndef Cogito_Constants_h
 #define Cogito_Constants_h
 
-#define DEBUG_MODE              1
+#define DEBUG_MODE              0
 
 #define kFrameRate              60.0f
 
 #define kDefaultLargeFont       @"bangla_dark.fnt"
 #define kDefaultSmallFont       @"bangla_dark_small.fnt"
+#define kDefaultDebugFont       @"bangla_dark_debug.fnt"
 
 #define kRLearningRate          0.0f
 #define kRLDiscountFactor       0.99f

@@ -14,10 +14,8 @@
 
 {
     CCArray* gameStates;
-    CCArray* qTable;
     GameObject* currentDecisionObject;
     BOOL learningMode;
-    int qIndex;
 }
 
 @end

@@ -96,12 +96,12 @@
     
     lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:kDefaultSmallFont];
     [lemmingText setAnchorPoint:ccp(1,1)];
-    [lemmingText setPosition:ccp(winSize.width-20, winSize.height-20)];
+    [lemmingText setPosition:ccp(winSize.width-10, winSize.height-10)];
     [self addChild:lemmingText z:kUISpriteZValue];
     
     timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:kDefaultSmallFont];
     [timeText setAnchorPoint:ccp(1,1)];
-    [timeText setPosition:ccp(winSize.width-20, winSize.height-40)];
+    [timeText setPosition:ccp(winSize.width-10, winSize.height-30)];
     [self addChild:timeText z:kUISpriteZValue];
 }
 
@@ -135,7 +135,8 @@
  */
 -(NSString*)getUpdatedLemmingString
 {
-    return [NSString stringWithFormat:@"saved: %i   killed: %i", 
+    return [NSString stringWithFormat:@"left   saved: %i   killed: %i", 
+                            [[LemmingManager sharedLemmingManager] lemmingCount],
                             [[LemmingManager sharedLemmingManager] lemmingsSaved],
                             [[LemmingManager sharedLemmingManager] lemmingsKilled]];
 }
@@ -176,12 +177,12 @@
         lemming.ID = ID;
         lemming.health = health;
         
-        /*if(DEBUG_MODE > 0)
+        if(DEBUG_MODE > 0)
         {
-            CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"NoneNone" fntFile:@"helvetica_blue_small.fnt"];
+            CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"" fntFile:kDefaultDebugFont];
             [self addChild:debugLabel];
             [lemming setDebugLabel:debugLabel];
-        }*/
+        }
         
         [[LemmingManager sharedLemmingManager] addLemming:lemming]; 
         
