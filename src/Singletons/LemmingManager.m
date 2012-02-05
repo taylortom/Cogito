@@ -129,17 +129,24 @@ static LemmingManager* _instance = nil;
  */
 -(GameRating)calculateGameRating
 {
-    //float bonus = ((float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal))*50;
-    //float penalty = ((float)lemmingsKilled/(float)kLemmingTotal)+((float)[[GameManager sharedGameManager] getGameTimeInSecs]/10)*25;
-    
-    float bonus = 0;
-    float penalty = (float)[[GameManager sharedGameManager] getGameTimeInSecs]/60;
+    // calcuate the base score
     float baseScore = ((float)lemmingsSaved/(float)kLemmingTotal)*100;
     
-    // calculate the score
-    float score = baseScore + (bonus-penalty);
+    // calculate bonuses
     
-    CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", bonus, penalty, score);
+    float respawnBonus = (float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal)*25;
+    float totalBonus = respawnBonus;
+    
+    // calculate penalties
+    
+    float deathPenalty = (float)lemmingsKilled/(float)kLemmingTotal*50;
+    float timePenalty = (float)[[GameManager sharedGameManager] getGameTimeInSecs]/60;
+    float totalPenalty = timePenalty + deathPenalty;
+    
+    // calculate the score
+    float score = baseScore + (totalBonus-totalPenalty);
+    
+    CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", totalBonus, totalPenalty, score);
     
     if(score > 79) return kRatingA;
     if(score > 59) return kRatingB;
