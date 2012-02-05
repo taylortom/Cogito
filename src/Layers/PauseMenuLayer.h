@@ -19,9 +19,13 @@
     CCLayerColor *screenlock;
     CCSprite *textOverlay;
     int screenlockOpacity;
+    
+    // if the menu's currently animating
+    BOOL animating;
 }
 
 -(void)animateIn;
 -(void)animateOut;
+-(BOOL)animating;
 
 @end

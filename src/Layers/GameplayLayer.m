@@ -84,13 +84,12 @@
     
     // add the pause button
     
-    CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onPauseButtonPressed)];
+    /*CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onPauseButtonPressed)];
     pauseButton.position = ccp(40,30);
-    
     gameplayMenu = [CCMenu menuWithItems:pauseButton, nil];
     gameplayMenu.position = CGPointZero;
     
-    [self addChild:gameplayMenu z:kUISpriteZValue];
+    [self addChild:gameplayMenu z:kUISpriteZValue];*/
     
     // now add the labels
     
@@ -232,5 +231,12 @@
         [pauseMenu animateIn];
     }
 }
+
+-(void)ccTouchesEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    if(![pauseMenu animating]) [self onPauseButtonPressed];
+}
+
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event { }
 
 @end

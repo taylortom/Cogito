@@ -41,6 +41,8 @@
         [self initTextOverlay];
         [self initPopup];
         [self initMenuButtons];
+        
+        [self scheduleUpdate]; // set the update method to be called every frame
     }
     
     return self;
@@ -103,6 +105,17 @@
     [pauseButtons setPosition:ccp(winSize.width*0.18, winSize.height*0.2)];
     [menuPopup addChild:pauseButtons z:1];
 }
+
+#pragma mark -
+#pragma mark Update
+
+/**
+ * Method called every frame
+ */ 
+-(void)update:(ccTime)deltaTime
+{
+    animating = ([menuPopup numberOfRunningActions] != 0) ? YES : NO;
+}
     
 #pragma mark -
 
@@ -132,7 +145,7 @@
     [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:0]];
     [textOverlay runAction:[CCFadeOut actionWithDuration:0.15f]];
     
-    id animateOutAction = [CCMoveTo actionWithDuration:0.50f position:ccp(winSize.width/2, winSize.height*0.05)];
+    id animateOutAction = [CCMoveTo actionWithDuration:0.50f position:ccp(winSize.width/2, winSize.height*0.05)]; 
     [menuPopup runAction:animateOutAction];  
 }
 
@@ -158,5 +171,13 @@
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
 
+/**
+ * Returns whether the menu is currently animating
+ * @return if the menu's animating
+ */
+-(BOOL)animating
+{
+    return animating;
+}
 
 @end
