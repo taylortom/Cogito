@@ -135,7 +135,7 @@
  */
 -(NSString*)getUpdatedLemmingString
 {
-    return [NSString stringWithFormat:@"left   saved: %i   killed: %i", 
+    return [NSString stringWithFormat:@"left: %i   saved: %i   killed: %i", 
                             [[LemmingManager sharedLemmingManager] lemmingCount],
                             [[LemmingManager sharedLemmingManager] lemmingsSaved],
                             [[LemmingManager sharedLemmingManager] lemmingsKilled]];

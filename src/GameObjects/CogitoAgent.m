@@ -12,10 +12,7 @@
 @interface CogitoAgent()
 
 // get Policy
--(float)calculateQValueFromState:(State*)_state andAction:(Action)_action;
--(float)calculateMaxQValueForState:(State*)_state;
--(void)updateQValues;
-
+-(void)updateQValues:(State*)_newState;
 -(Action)selectAction:(State*)_state;
 -(CCArray*)calculateAvailableActions:(State*)_state;
 -(State*)getStateForGameObject:(GameObject*)_object;
@@ -60,47 +57,18 @@
 
 /**
  * Updates the Q-values
- * TODO: updateQValues
  */
--(void)updateQValues
+-(void)updateQValues:(State*)_newState
 {
-    CCLOG(@"CogitoAgent.updateQValues");
+    if(currentState == nil) return;
+        
+    float oldQValue = [currentState getQValueForAction:currentAction];
+    float maximumQValue = [_newState calculateMaxQValue];
+    float reward = [_newState getReward];
     
-    /*
-     * Qi(X,a) = (1 - Ci) Qi-1(X,a) + Ci[Ri + gamma(Vi-1(Xprimei))]
-     *
-     * Qi = the q-value for the i-th step
-     * Qi-1 = the q-value for the (i-1)-th step
-     * Ci = the learning factor
-     * Ri = the immediate reward
-     * gamma = the discount factor
-     */
-    
-    //if();
-    //else if([[currentQData objectAtIndex:kRLRewardIndex] floatValue] == 0.0f) [currentQData replaceObjectAtIndex:kRLRewardIndex withObject:[NSNumber numberWithFloat:-0.2f]];
-}
-
-/**
- * Returns the Q value for the passed state-action pair
- * @param state
- * @param action
- * @return the Q value
-  * TODO: calculateQValueFromState
- */
--(float)calculateQValueFromState:(State*)_state andAction:(Action)_action
-{
-    return 0.0f; 
-}
-
-/**
- * Returns the max possible Q value for the passed state
- * @param state
- * @return the max Q value
-  * TODO: calculateMaxQValueForState
- */
--(float)calculateMaxQValueForState:(State*)_state
-{
-    return 0.0f;
+    float updatedQValue = oldQValue + kRLearningRate * (reward + kRLDiscountFactor * maximumQValue - oldQValue);
+    CCLOG(@"CogitoAgent.updateQValues: oldQ: %f maxQ: %f reward: %f => newQ: %f", oldQValue, maximumQValue, reward, updatedQValue);
+    [currentState setQValue:updatedQValue forAction:currentAction];
 }
 
 #pragma mark -
@@ -113,32 +81,43 @@
  */
 -(Action)selectAction:(State*)_state
 {
-    //[self updateQValues];
-    
     Action action = -1;
-    BOOL chooseRandom = (arc4random() % (int)(1/kRLRandomProbability) == 0) ? YES : NO;    
 
     CCArray* options = [_state getActions];
     if([options count] < 1) options = [self calculateAvailableActions:_state];
-    
-    // if still learning, randomly choose action
-    if(learningMode || chooseRandom) 
-    {
-        int randomIndex = arc4random() % [options count];    
-        action = [[options objectAtIndex:randomIndex] intValue];
-    }
-    else
-    {
-        // get the values from the lookup table from current state
-        // compare, choose best one
+
+    // calcuates the Q-value for the previous state
+    [self updateQValues:_state];
         
-        // no data for the current state, choose random action
-        int randomIndex = arc4random() % [options count];    
-        action = [[options objectAtIndex:randomIndex] intValue];
+    if(self.state != kStateDead && self.state != kStateWin) 
+    {
+        BOOL chooseRandom = (arc4random() % (int)(1/kRLRandomProbability) == 0) ? YES : NO;    
+        
+        // if still learning, randomly choose action
+        if(learningMode || chooseRandom) 
+        {
+            int randomIndex = arc4random() % [options count];  
+            action = [[options objectAtIndex:randomIndex] intValue];
+        }
+        else
+        {
+            // get the values from the lookup table from current state
+            // compare, choose best one
+            
+            // no data for the current state, choose random action
+            int randomIndex = arc4random() % [options count];    
+            action = [[options objectAtIndex:randomIndex] intValue];
+        }
+        //CCLOG(@"CogitoAgent.selectAction: %@ (random: %i Q-Value: %f)", [Utils getActionAsString:action], chooseRandom, [currentState getQValueForAction:currentAction]);
     }
     
-    CCLOG(@"CogitoAgent.chooseAction: %@ (random: %i - Q-Value: %f)", [Utils getActionAsString:action], chooseRandom, [_state getQValueForAction:action]);
-    [_state setQValue:50.0f forAction:action];
+    // update the current state/action variable
+    if(action != -1)
+    {    
+        currentState = _state;
+        currentAction = action;
+    }
+    
     return action;
 }
 
@@ -188,8 +167,12 @@
         if([tempState getGameObject] == _object) return tempState;
     }
     
-    // state not found, make a new one
-    State* returnState = [[State alloc] initStateForObject:_object withReward:kRLDefaultReward];
+    // state not found, make a new one    
+    float reward = kRLDefaultReward;
+    if(_object.gameObjectType == kObjectExit) reward = kRLWinReward;
+    else if(self.state == kStateDead) reward = kRLDeathReward;
+    
+    State* returnState = [[State alloc] initStateForObject:_object withReward:reward];
     [gameStates addObject:returnState];
     return returnState;
 }
@@ -207,7 +190,7 @@
     // first call in the superclass
     [super onObjectCollision:_object];
     
-    if(self.state == kStateFalling || self.state == kStateFloating) return;
+    CCLOG(@"ON ONJECT COLLISION: %@ -> %@", [Utils getObjectAsString:_object.gameObjectType], [Utils getStateAsString:self.state]);
     
    /* 
     * only need to handle two types, 
@@ -215,22 +198,22 @@
     */
     switch([_object gameObjectType]) 
     {
-        case kObjectTerrainEnd:            
+        case kObjectTerrainEnd:
         case kObjectTrapdoor:
             [self takePath:[self selectAction:[self getStateForGameObject:_object]]];
             break;
-
-        // make sure the following are added to the states list
-        case kObstacleStamper:
+            
+            //case kObstacleStamper:
         case kObstacleWater:
         case kObstaclePit:
         case kObjectExit:
-            [self getStateForGameObject:_object];
+            [self selectAction:[self getStateForGameObject:_object]];
             break;
             
         default:
             break;
     }
+    
 }
 
 /**
@@ -244,6 +227,7 @@
         if(respawns > 0) [self changeState:kStateSpawning];
         else 
         {
+            CCLOG(@"-------------------- THIS AIN'T NO HIGH SCHOOL MUSICAL --------------------");
             learningMode = NO;
             respawns = kLemmingRespawns;
             [self changeState:kStateSpawning];

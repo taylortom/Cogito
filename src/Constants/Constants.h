@@ -18,10 +18,12 @@
 #define kDefaultSmallFont       @"bangla_dark_small.fnt"
 #define kDefaultDebugFont       @"bangla_dark_debug.fnt"
 
-#define kRLearningRate          0.0f
-#define kRLDiscountFactor       0.99f
+#define kRLearningRate          0.5f
+#define kRLDiscountFactor       0.9f
 #define kRLRandomProbability    0.2f
 #define kRLDefaultReward        -0.2f
+#define kRLWinReward            100.0f
+#define kRLDeathReward          -100.0f
 #define kRLStateIndex           0
 #define kRLActionIndex          1
 #define kRLQValueIndex          2

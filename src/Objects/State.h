@@ -22,11 +22,12 @@
 }
 
 -(id)initStateForObject:(GameObject*)_object withReward:(float)_reward;
--(GameObject*)getGameObject;
--(CCArray*)getActions;
--(void)setActions:(CCArray*)_actions;
--(float)getReward;
 -(float)getQValueForAction:(Action)_action;
 -(void)setQValue:(float)_qValue forAction:(Action)_action;
+-(float)calculateMaxQValue;
+-(CCArray*)getActions;
+-(void)setActions:(CCArray*)_actions;
+-(GameObject*)getGameObject;
+-(float)getReward;
 
 @end

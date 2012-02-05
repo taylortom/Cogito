@@ -14,7 +14,10 @@
 
 {
     CCArray* gameStates;
-    GameObject* currentDecisionObject;
+    
+    State* currentState;
+    Action currentAction;
+    
     BOOL learningMode;
 }
 
