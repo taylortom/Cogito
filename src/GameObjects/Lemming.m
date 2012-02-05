@@ -129,7 +129,7 @@
     // if need to use umbrella, delay, then call useUmbrella
     if(umbrellaEquipped) 
     {
-        if(umbrellaTimer >= 75) [self useUmbrella];
+        if(umbrellaTimer >= 65) [self useUmbrella];
         return; 
     }
     //CCLOG(@"Lemming.changeState: %@", [Utils getStateAsString:_newState]);
@@ -422,7 +422,7 @@
             break;
             
         case kObjectExit:
-            [self changeState:kStateWin afterDelay:1.0f]; 
+            [self changeState:kStateWin afterDelay:1.0f];
             break;
             
         case kObjectTerrain:

@@ -18,19 +18,20 @@
 #define kDefaultSmallFont       @"bangla_dark_small.fnt"
 #define kDefaultDebugFont       @"bangla_dark_debug.fnt"
 
-#define kRLearningRate          0.5f
+#define kRLearningRate          0.4f
 #define kRLDiscountFactor       0.9f
-#define kRLRandomProbability    0.2f
-#define kRLDefaultReward        -0.2f
+#define kRLRandomProbability    2.0f
+#define kRLDefaultReward        -2.0f
 #define kRLWinReward            100.0f
 #define kRLDeathReward          -100.0f
 #define kRLStateIndex           0
 #define kRLActionIndex          1
 #define kRLQValueIndex          2
+#define KRLLearningEpisodes     15
 
 #define kLemmingMovementAmount  20
 #define kLemmingFallTime        0.85f
-#define kLemmingRespawns        5
+#define kLemmingRespawns        3
 #define kLemmingTotal           1
 #define kLemmingSpawnSpeed      1.0f
 

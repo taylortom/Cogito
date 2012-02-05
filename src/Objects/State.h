@@ -16,15 +16,17 @@
 
 {
     GameObject* gameObject;
+    float reward;
+    
     // holds actions with corresponding Q-values
     CCArray* actions;
-    float reward;
 }
 
 -(id)initStateForObject:(GameObject*)_object withReward:(float)_reward;
+-(float)calculateMaxQValue;
+-(Action)getOptimumAction;
 -(float)getQValueForAction:(Action)_action;
 -(void)setQValue:(float)_qValue forAction:(Action)_action;
--(float)calculateMaxQValue;
 -(CCArray*)getActions;
 -(void)setActions:(CCArray*)_actions;
 -(GameObject*)getGameObject;

@@ -14,6 +14,7 @@
 // get Policy
 -(void)updateQValues:(State*)_newState;
 -(Action)selectAction:(State*)_state;
+-(Action)chooseRandomAction:(CCArray*)_actions;
 -(CCArray*)calculateAvailableActions:(State*)_state;
 -(State*)getStateForGameObject:(GameObject*)_object;
 
@@ -46,6 +47,7 @@
     
     if (self != nil) 
     {
+        respawns = KRLLearningEpisodes;
         learningMode = YES;
         gameStates = [[CCArray alloc] init];
     }
@@ -66,8 +68,9 @@
     float maximumQValue = [_newState calculateMaxQValue];
     float reward = [_newState getReward];
     
-    float updatedQValue = oldQValue + kRLearningRate * (reward + kRLDiscountFactor * maximumQValue - oldQValue);
-    CCLOG(@"CogitoAgent.updateQValues: oldQ: %f maxQ: %f reward: %f => newQ: %f", oldQValue, maximumQValue, reward, updatedQValue);
+    //float updatedQValue = oldQValue + kRLearningRate * (reward + kRLDiscountFactor * maximumQValue - oldQValue);
+    float updatedQValue = oldQValue * (1 - kRLearningRate) + kRLearningRate * (reward + kRLDiscountFactor * maximumQValue);
+    CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
     [currentState setQValue:updatedQValue forAction:currentAction];
 }
 
@@ -77,12 +80,12 @@
  * Decides which action to take based on knowledgebase
  * @param the object colliding with
  * @return the action to take
- * TODO: selectAction
  */
 -(Action)selectAction:(State*)_state
 {
     Action action = -1;
 
+    // get  list of the available action
     CCArray* options = [_state getActions];
     if([options count] < 1) options = [self calculateAvailableActions:_state];
 
@@ -91,32 +94,35 @@
         
     if(self.state != kStateDead && self.state != kStateWin) 
     {
-        BOOL chooseRandom = (arc4random() % (int)(1/kRLRandomProbability) == 0) ? YES : NO;    
+        BOOL chooseRandom = NO; //(arc4random() % (int)(1/kRLRandomProbability) == 0) ? YES : NO;    
         
         // if still learning, randomly choose action
-        if(learningMode || chooseRandom) 
-        {
-            int randomIndex = arc4random() % [options count];  
-            action = [[options objectAtIndex:randomIndex] intValue];
-        }
+        if(learningMode || chooseRandom) action = [self chooseRandomAction:options];  
+        // not learning, choose the optimum action
         else
         {
-            // get the values from the lookup table from current state
-            // compare, choose best one
+            action = [_state getOptimumAction];
             
             // no data for the current state, choose random action
-            int randomIndex = arc4random() % [options count];    
-            action = [[options objectAtIndex:randomIndex] intValue];
+            if(action == -1) action = [self chooseRandomAction:options];  
         }
+        
         //CCLOG(@"CogitoAgent.selectAction: %@ (random: %i Q-Value: %f)", [Utils getActionAsString:action], chooseRandom, [currentState getQValueForAction:currentAction]);
     }
     
-    // update the current state/action variable
-    if(action != -1)
-    {    
-        currentState = _state;
-        currentAction = action;
-    }
+    // update the current state/action variable (nil if we've reached a goal state)
+    currentState = (action != -1) ? _state : nil;
+    currentAction = action;
+    
+    return action;
+}
+
+-(Action)chooseRandomAction:(CCArray*)_actions
+{
+    Action action = -1;
+    
+    int randomIndex = arc4random() % [_actions count];  
+    action = [[_actions objectAtIndex:randomIndex] intValue];
     
     return action;
 }
@@ -166,7 +172,7 @@
         State* tempState = [gameStates objectAtIndex:i];
         if([tempState getGameObject] == _object) return tempState;
     }
-    
+        
     // state not found, make a new one    
     float reward = kRLDefaultReward;
     if(_object.gameObjectType == kObjectExit) reward = kRLWinReward;
@@ -186,12 +192,13 @@
  * @param object collided with
  */
 -(void)onObjectCollision:(GameObject*)_object
-{       
-    // first call in the superclass
+{    
+    // need to know if the lemming's fall was fatal (has to be checked before call to super and fallCounter's reset)
+    BOOL fatalFall = (fallCounter >= ((float)kLemmingFallTime*(float)kFrameRate) && self.state != kStateFloating) ? YES : NO;
+    
+    // call the method in super
     [super onObjectCollision:_object];
-    
-    CCLOG(@"ON ONJECT COLLISION: %@ -> %@", [Utils getObjectAsString:_object.gameObjectType], [Utils getStateAsString:self.state]);
-    
+        
    /* 
     * only need to handle two types, 
     * rest are dealt with by superclass
@@ -203,11 +210,18 @@
             [self takePath:[self selectAction:[self getStateForGameObject:_object]]];
             break;
             
-            //case kObstacleStamper:
         case kObstacleWater:
         case kObstaclePit:
         case kObjectExit:
             [self selectAction:[self getStateForGameObject:_object]];
+            break;
+            
+        case kObstacleStamper:
+            if(self.state == kStateDead) [self selectAction:[self getStateForGameObject:_object]];
+            break;
+    
+        case kObjectTerrain:
+            if(fatalFall) [self selectAction:[self getStateForGameObject:_object]];
             break;
             
         default:

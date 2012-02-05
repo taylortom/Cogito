@@ -51,7 +51,50 @@
 }
 
 #pragma mark -
+
+-(Action)getOptimumAction
+{
+    Action optimumAction = -1;
+    float maxQValue = -1000000;
+    CCArray* actionsArray = [self getActions];
+    
+    for (int i = 0; i < [actionsArray count]; i++) 
+    {
+        float qValue = [self getQValueForAction:[[actionsArray objectAtIndex:i] intValue]];
+        if(qValue > maxQValue) 
+        {
+            maxQValue = qValue;
+            optimumAction = [[actionsArray objectAtIndex:i] intValue];
+        }
+    }
+    
+    return optimumAction;
+}
+
+#pragma mark -
 #pragma mark Q-Value Calculations
+
+/**
+ * Returns the max possible Q value for the passed state
+ * @param state
+ * @return the max Q value
+ */
+-(float)calculateMaxQValue
+{    
+    // set a very low starting value
+    float maximumQValue = -1000000.0f;
+    
+    CCArray* actionsArray = [self getActions];
+    
+    for (int i = 0; i < [actionsArray count]; i++) 
+    {
+        Action action = [[actionsArray objectAtIndex:i] intValue];
+        float tempQValue = [self getQValueForAction:action];
+        if(tempQValue > maximumQValue) maximumQValue = tempQValue;
+    }
+    
+    return maximumQValue;
+}
 
 /**
  * Looks up the Q-value for the action
@@ -86,28 +129,6 @@
         [qData removeObjectAtIndex: 1];
         [qData insertObject:[NSNumber numberWithFloat:_qValue] atIndex:1];
     }    
-}
-
-/**
- * Returns the max possible Q value for the passed state
- * @param state
- * @return the max Q value
- */
--(float)calculateMaxQValue
-{    
-    // set a very low starting value
-    float maximumQValue = -1000000.0f;
-    
-    CCArray* actionsArray = [self getActions];
-    
-    for (int i = 0; i < [actionsArray count]; i++) 
-    {
-        Action action = 0;
-        float tempQValue = [self getQValueForAction:action];
-        if(tempQValue > maximumQValue) maximumQValue = tempQValue;
-    }
-        
-    return maximumQValue;
 }
 
 #pragma mark -
