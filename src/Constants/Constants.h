@@ -16,7 +16,6 @@
 
 #define kDefaultLargeFont       @"bangla_dark.fnt"
 #define kDefaultSmallFont       @"bangla_dark_small.fnt"
-#define kDefaultDebugFont       @"bangla_dark_debug.fnt"
 
 #define kRLearningRate          0.4f
 #define kRLDiscountFactor       0.9f
@@ -28,6 +27,7 @@
 #define kRLActionIndex          1
 #define kRLQValueIndex          2
 #define KRLLearningEpisodes     15
+#define kDefaultDebugFont       @"andale_debug.fnt"
 
 #define kLemmingMovementAmount  20
 #define kLemmingFallTime        0.85f
