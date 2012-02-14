@@ -152,6 +152,8 @@
             break;
 
         case kStateFalling:
+            if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
+            else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.12f position:ccp(0.0f, kLemmingMovementAmount*-1)], action, nil];         
             break;
             
