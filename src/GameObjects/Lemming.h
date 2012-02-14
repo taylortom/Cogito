@@ -38,19 +38,19 @@
     CCSpriteFrame *standingFrame;
     
     // idle and walking animations
-    CCAnimation *idleAnim;
-    CCAnimation *idleHelmetAnim;
-    CCAnimation *walkingAnim;
-    CCAnimation *walkingHelmetAnim;
+    CCAnimation* idleAnim;
+    CCAnimation* idleHelmetAnim;
+    CCAnimation* walkingAnim;
+    CCAnimation* walkingHelmetAnim;
 
     // misc animations
-    CCAnimation *openUmbrellaAnim;
-    CCAnimation *floatUmbrellaAnim;
-    CCAnimation *deathAnim;    
+    CCAnimation* openUmbrellaAnim;
+    CCAnimation* floatUmbrellaAnim;
+    CCAnimation* deathAnim;    
     
     // debugging        
     int ID;                                 // a unique ID, used for debugging
-    CCLabelBMFont *debugLabel;              // text label used for debugging 
+    CCLabelBMFont* debugLabel;              // text label used for debugging 
 }
 
 @property (readwrite) int health;
@@ -60,19 +60,19 @@
 @property (readwrite) int umbrellaUses;
 
 // idle and walking animations
-@property (nonatomic,retain) CCAnimation *idleAnim;
-@property (nonatomic,retain) CCAnimation *idleHelmetAnim;
-@property (nonatomic,retain) CCAnimation *walkingAnim;
-@property (nonatomic,retain) CCAnimation *walkingHelmetAnim;
+@property (nonatomic,retain) CCAnimation* idleAnim;
+@property (nonatomic,retain) CCAnimation* idleHelmetAnim;
+@property (nonatomic,retain) CCAnimation* walkingAnim;
+@property (nonatomic,retain) CCAnimation* walkingHelmetAnim;
 
 //misc animations
-@property (nonatomic,retain) CCAnimation *openUmbrellaAnim;
-@property (nonatomic,retain) CCAnimation *floatUmbrellaAnim;
-@property (nonatomic,retain) CCAnimation *deathAnim;
+@property (nonatomic,retain) CCAnimation* openUmbrellaAnim;
+@property (nonatomic,retain) CCAnimation* floatUmbrellaAnim;
+@property (nonatomic,retain) CCAnimation* deathAnim;
 
 // debugging
 @property (readwrite) int ID; 
-@property (nonatomic,retain) CCLabelBMFont *debugLabel;
+@property (nonatomic,retain) CCLabelBMFont* debugLabel;
 
 -(void)changeState:(CharacterStates)_newState;
 -(void)changeState:(CharacterStates)_newState afterDelay:(float)_delay;

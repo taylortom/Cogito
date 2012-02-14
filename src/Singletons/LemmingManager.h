@@ -24,7 +24,7 @@
     int lemmingsSaved;
     int lemmingsKilled;
     int spawnsRemaining;
-    CCArray *lemmings;
+    CCArray* lemmings;
 }
 
 +(LemmingManager*)sharedLemmingManager;

@@ -12,7 +12,7 @@
 @interface Terrain : GameObject 
 
 {
-    NSString *filename;
+    NSString* filename;
     BOOL isWall;
 }
 

@@ -10,8 +10,6 @@
 
 #import "GameplayLayer.h"
 
-#import "Utils.h"
-
 @interface GameplayLayer()
 
 -(void)initDisplay;
@@ -222,7 +220,7 @@
     if(pauseMenu == nil) 
     {
         pauseMenu = [PauseMenuLayer node];
-        [self addChild:pauseMenu z:999];
+        [self addChild:pauseMenu z:kPauseMenuZValue];
     }
     
     if(![[GameManager sharedGameManager] gamePaused])

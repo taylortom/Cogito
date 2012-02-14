@@ -12,7 +12,7 @@
 @interface Obstacle : GameObject 
 
 { 
-    NSString *filename;
+    NSString* filename;
 }
 
 -(id)initObstacleType:(GameObjectType)_type withPosition:(CGPoint)_position andFilename:(NSString*)_filename;

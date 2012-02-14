@@ -52,6 +52,7 @@ static LemmingManager* _instance = nil;
     
     if (self != nil) 
     {
+        totalNumberOfLemmings = kLemmingTotal;
         [self reset];
     }
     
@@ -82,7 +83,6 @@ static LemmingManager* _instance = nil;
  */
 -(void)reset
 {
-    totalNumberOfLemmings = kLemmingTotal;
     lemmingsAdded = 0;
     lemmingsKilled = 0;
     lemmingsSaved = 0;
@@ -97,7 +97,7 @@ static LemmingManager* _instance = nil;
  */
 -(void)addLemming:(Lemming*)_lemmingToAdd
 {    
-    [lemmings addObject:_lemmingToAdd];
+    @synchronized(lemmings) { [lemmings addObject:_lemmingToAdd]; }
     lemmingsAdded++;
 }
 
@@ -114,7 +114,7 @@ static LemmingManager* _instance = nil;
         spawnsRemaining += [_lemmingToRemove respawns];
     }
 
-    [lemmings removeObject:_lemmingToRemove];
+    @synchronized(lemmings) { [lemmings removeObject:_lemmingToRemove]; }
     [_lemmingToRemove removeFromParentAndCleanup:YES];
     
     if([self lemmingCount] == 0) [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
