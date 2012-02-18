@@ -53,6 +53,8 @@ static LemmingManager* _instance = nil;
     if (self != nil) 
     {
         totalNumberOfLemmings = kLemmingTotal;
+        learningType = kLearningType;
+        
         [self reset];
     }
     
@@ -157,6 +159,15 @@ static LemmingManager* _instance = nil;
 
 #pragma mark -
 #pragma mark Getters
+
+/**
+ * Returns the type of machine learning being used
+ * @return the MachineLearningType
+ */
+-(MachineLearningType)learningType
+{
+    return learningType;
+}
 
 /**
  * Returns the lemmings

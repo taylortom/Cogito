@@ -1,26 +1,26 @@
 //
-//  CogitoAgent.m
+//  QLearningAgent.m
 //  Author: Thomas Taylor
 //
-//  Handles the machine learning
+//  Handles the machine learning using Q-learning
 //
-//  15/01/2011: Created class
+//  15/01/2012: Created class
 //
 
-#import "CogitoAgent.h"
+#import "QLearningAgent.h"
 
-@interface CogitoAgent()
+@interface QLearningAgent()
 
 // get Policy
--(void)updateQValues:(State*)_newState;
--(Action)selectAction:(State*)_state;
+-(void)updateQValues:(QState*)_newState;
+-(Action)selectAction:(QState*)_state;
 -(Action)chooseRandomAction:(CCArray*)_actions;
--(CCArray*)calculateAvailableActions:(State*)_state;
--(State*)getStateForGameObject:(GameObject*)_object;
+-(CCArray*)calculateAvailableActions:(QState*)_state;
+-(QState*)getStateForGameObject:(GameObject*)_object;
 
 @end
 
-@implementation CogitoAgent
+@implementation QLearningAgent
 
 #pragma mark -
 #pragma mark Memory Allocation
@@ -47,7 +47,7 @@
     
     if (self != nil) 
     {
-        respawns = KRLLearningEpisodes;
+        respawns = KLearningEpisodes;
         learningMode = YES;
         gameStates = [[CCArray alloc] init];
     }
@@ -60,7 +60,7 @@
 /**
  * Updates the Q-values
  */
--(void)updateQValues:(State*)_newState
+-(void)updateQValues:(QState*)_newState
 {
     if(currentState == nil) return;
         
@@ -68,8 +68,7 @@
     float maximumQValue = [_newState calculateMaxQValue];
     float reward = [_newState getReward];
     
-    //float updatedQValue = oldQValue + kRLearningRate * (reward + kRLDiscountFactor * maximumQValue - oldQValue);
-    float updatedQValue = oldQValue * (1 - kRLearningRate) + kRLearningRate * (reward + kRLDiscountFactor * maximumQValue);
+    float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate * (reward + kQDiscountFactor * maximumQValue);
     CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
     [currentState setQValue:updatedQValue forAction:currentAction];
 }
@@ -81,7 +80,7 @@
  * @param the object colliding with
  * @return the action to take
  */
--(Action)selectAction:(State*)_state
+-(Action)selectAction:(QState*)_state
 {
     Action action = -1;
 
@@ -92,9 +91,10 @@
     // calcuates the Q-value for the previous state
     [self updateQValues:_state];
         
-    if(self.state != kStateDead && self.state != kStateWin) 
+    if(self.state != kStateDead && [_state getGameObject].gameObjectType != kObjectExit) 
     {
-        BOOL chooseRandom = NO; //(arc4random() % (int)(1/kRLRandomProbability) == 0) ? YES : NO;    
+        // uses the Constant var to randomise actions
+        BOOL chooseRandom = (arc4random() % (int)(1/kLearningRandomProbability) == 0) ? YES : NO;    
         
         // if still learning, randomly choose action
         if(learningMode || chooseRandom) action = [self chooseRandomAction:options];  
@@ -133,7 +133,7 @@
  * @param the current object type
  * @return an array of actions
  */
--(CCArray*)calculateAvailableActions:(State*)_state
+-(CCArray*)calculateAvailableActions:(QState*)_state
 {    
     GameObject* object = [_state getGameObject];
     CCArray* actions = [[CCArray alloc] init];
@@ -165,20 +165,20 @@
  * @param object to search for
  * @return the matching state
  */
--(State*)getStateForGameObject:(GameObject*)_object
+-(QState*)getStateForGameObject:(GameObject*)_object
 {        
     for (int i = 0; i < [gameStates count]; i++) 
     {
-        State* tempState = [gameStates objectAtIndex:i];
+        QState* tempState = [gameStates objectAtIndex:i];
         if([tempState getGameObject] == _object) return tempState;
     }
         
     // state not found, make a new one    
-    float reward = kRLDefaultReward;
-    if(_object.gameObjectType == kObjectExit) reward = kRLWinReward;
-    else if(self.state == kStateDead) reward = kRLDeathReward;
+    float reward = kQDefaultReward;
+    if(_object.gameObjectType == kObjectExit) reward = kQWinReward;
+    else if(self.state == kStateDead) reward = kQDeathReward;
     
-    State* returnState = [[State alloc] initStateForObject:_object withReward:reward];
+    QState* returnState = [[QState alloc] initStateForObject:_object withReward:reward];
     [gameStates addObject:returnState];
     return returnState;
 }
@@ -227,7 +227,6 @@
         default:
             break;
     }
-    
 }
 
 /**
@@ -249,6 +248,41 @@
     }
     else if(self.state == kStateDead && respawns > 0) [self changeState:kStateSpawning];
     else [[LemmingManager sharedLemmingManager] removeLemming:self];
+}
+
+/**
+ * Updates the debug string
+ */
+-(void)updateDebugLabel
+{    
+    CGPoint newPosition = [self position];
+    
+    NSString *debugString = @"";
+    
+    switch([[currentState getGameObject] gameObjectType]) 
+    {
+        case kObjectTerrainEnd:
+        case kObjectTrapdoor:
+        debugString = [NSString stringWithFormat:@"%@\n%@",[Utils getObjectAsString:[currentState getGameObject].gameObjectType] , [Utils getActionAsString:[currentState getOptimumAction]]];
+        break;
+            
+        case kObstacleStamper:
+        case kObstacleWater:
+        case kObstaclePit:
+        case kObjectExit:
+            break;
+        
+        default:
+            break;
+    }
+
+    if(!learningMode) debugString = @"\n!";
+    
+    [debugLabel setString:debugString];
+    
+    float yOffset = 30.0f;
+    newPosition = ccp(newPosition.x, newPosition.y+yOffset);
+    [debugLabel setPosition:newPosition];    
 }
 
 @end

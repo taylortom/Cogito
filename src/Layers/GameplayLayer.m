@@ -94,12 +94,12 @@
     lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:kDefaultSmallFont];
     [lemmingText setAnchorPoint:ccp(1,1)];
     [lemmingText setPosition:ccp(winSize.width-10, winSize.height-10)];
-    [self addChild:lemmingText z:kUISpriteZValue];
+    [self addChild:lemmingText z:kUIZValue];
     
     timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:kDefaultSmallFont];
     [timeText setAnchorPoint:ccp(1,1)];
     [timeText setPosition:ccp(winSize.width-10, winSize.height-30)];
-    [self addChild:timeText z:kUISpriteZValue];
+    [self addChild:timeText z:kUIZValue];
 }
 
 #pragma mark -
@@ -170,7 +170,33 @@
 {
     if (![[LemmingManager sharedLemmingManager] lemmingsMaxed]) 
     {
-        CogitoAgent *lemming = [[CogitoAgent alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+        Lemming *lemming;
+        
+        MachineLearningType learningType = [[LemmingManager sharedLemmingManager] learningType];
+        
+        Class class = nil;
+        
+        switch(learningType) 
+        {                
+            case kLearningMixed:
+                // randomly choose a learning type
+                learningType = arc4random() % kLearningMixed; 
+                break;
+                
+            case kLearningReinforcement:
+                class = [QLearningAgent class];
+                break;
+                
+            case kLearningNone:
+                class = [Lemming class];
+                
+            default:
+                CCLOG(@"%@.createLemmingAtLocation: Error, learning type not recognised: %@", NSStringFromClass([self class]), [Utils getLearningTypeAsString:learningType]);
+                break;
+        }
+        
+        lemming = [[class alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+        
         lemming.ID = ID;
         lemming.health = health;
         

@@ -8,15 +8,16 @@
 //  13/11/2011: Created class
 //
 
-#import "LemmingManager.h"
 #import "cocos2d.h"
-#import "CogitoAgent.h"
 #import "CommonDataTypes.h"
 #import "Constants.h"
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
+#import "LemmingManager.h"
 #import "PauseMenuLayer.h"
+#import "QLearningAgent.h"
 #import "TerrainLayer.h"
+#import "Utils.h"
 
 @interface GameplayLayer : CCLayer
 

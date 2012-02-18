@@ -502,14 +502,12 @@
     CGPoint newPosition = [self position];
     
     //NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
+    //NSString *debugString = [Utils getStateAsString:self.state];
     NSString *debugString = [NSString stringWithFormat:@"x: %f y: %f \n Health: %i \n", newPosition.x, newPosition.y, self.health];
-    
-    NSString* stateString = [Utils getStateAsString:self.state];
-    if (![stateString compare:@""]) debugString = [NSString stringWithFormat:@"%@ [%@]", debugString, stateString];
     
     [debugLabel setString:debugString];
     
-    float yOffset = 10.0f;
+    float yOffset = 30.0f;
     newPosition = ccp(newPosition.x, newPosition.y+yOffset);
     [debugLabel setPosition:newPosition];    
 }

@@ -19,6 +19,7 @@
 @interface LemmingManager : NSObject
 
 {
+    MachineLearningType learningType;
     int totalNumberOfLemmings;
     int lemmingsAdded;
     int lemmingsSaved;
@@ -31,6 +32,7 @@
 -(void)addLemming:(CCSprite*)_lemmingToAdd;
 -(void)removeLemming:(CCSprite*)_lemmingToRemove;
 -(GameRating)calculateGameRating;
+-(MachineLearningType)learningType;
 -(CCArray*)lemmings;
 -(BOOL)lemmingsMaxed;
 -(int)lemmingCount;

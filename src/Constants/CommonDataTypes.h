@@ -34,6 +34,14 @@ typedef enum
 
 typedef enum
 {
+    kLearningReinforcement,
+    kLearningMixed,
+    kLearningNone
+} MachineLearningType;
+
+
+typedef enum
+{
     kRatingA,
     kRatingB,
     kRatingC,
