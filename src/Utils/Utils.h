@@ -14,6 +14,8 @@
 @interface Utils : NSObject
 
 +(NSString*)getActionAsString:(Action)_action;
++(NSString*)getBooleanAsString:(BOOL)_bool;
++(NSString*)getLearningTypeAsString:(MachineLearningType)_learningType;
 +(NSString*)getObjectAsString:(GameObjectType)_object;
 +(NSString*)getRatingAsString:(GameRating)_rating;
 +(NSString*)getStateAsString:(CharacterStates)_state;

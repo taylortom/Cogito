@@ -51,7 +51,7 @@
             break;
             
         default:
-            action = @"unknown MovementDecision";
+            action = @"unknown Action";
             break;
     }
     
@@ -60,11 +60,61 @@
 }
 
 /**
+ * Returns the passed BOOL as a string
+ * @param the BOOL to convert
+ * @return the string equivalent
+ */
++(NSString*)getBooleanAsString:(BOOL)_bool
+{
+    return (_bool) ? @"YES" : @"NO";
+}
+
+/**
+ * Returns the passed MachineLearningType enum as a string
+ * @param the learning type to convert
+ * @return the string equivalent
+ */
++(NSString*)getLearningTypeAsString:(MachineLearningType)_learningType
+{
+    NSString* learningType = nil;
+    
+    switch (_learningType) 
+    {
+        case kLearningMixed:
+            learningType = @"Mixed";
+            break;
+            
+        case kLearningReinforcement:
+            learningType = @"Reinforcement";
+            break;
+            
+        case kLearningTree:
+            learningType = @"Tree";
+            break;
+            
+        case kLearningShortestRoute:
+            learningType = @"ShortestRoute";
+            break;
+            
+        case kLearningNone:
+            learningType = @"None";
+            break;
+            
+        default:
+            learningType = @"unknown MachineLearningType";
+            break;
+    }
+    
+    return learningType;
+    
+}
+
+/**
  * Returns the passed GameObjectType enum as a string
  * @param the object to convert
  * @return the string equivalent
  */
-+(NSString*)getObjectAsString:(GameObjectType)_object;
++(NSString*)getObjectAsString:(GameObjectType)_object
 {
     NSString* object = nil;
     
@@ -119,7 +169,7 @@
  * @param the rating to convert
  * @return the string equivalent
  */
-+(NSString*)getRatingAsString:(GameRating)_rating;
++(NSString*)getRatingAsString:(GameRating)_rating
 {
     NSString* rating = nil;
     
@@ -158,7 +208,7 @@
  * @param the state to convert
  * @return the string equivalent
  */
-+(NSString*)getStateAsString:(CharacterStates)_state;
++(NSString*)getStateAsString:(CharacterStates)_state
 {
     NSString* state = nil;
     
