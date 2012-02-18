@@ -35,6 +35,7 @@ typedef enum
 typedef enum
 {
     kLearningReinforcement,
+    kLearningShortestRoute,
     kLearningMixed,
     kLearningNone
 } MachineLearningType;

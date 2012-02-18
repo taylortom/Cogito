@@ -16,6 +16,7 @@
 #import "LemmingManager.h"
 #import "PauseMenuLayer.h"
 #import "QLearningAgent.h"
+#import "ShortestRouteAgent.h"
 #import "TerrainLayer.h"
 #import "Utils.h"
 

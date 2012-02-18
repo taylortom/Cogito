@@ -18,7 +18,7 @@
 #define kDefaultSmallFont           @"bangla_dark_small.fnt"
 #define kDefaultDebugFont           @"andale_debug.fnt"
 
-#define kLemmingMovementAmount      20
+#define kLemmingMovementAmount      17
 #define kLemmingFallTime            0.85f
 #define kLemmingRespawns            3
 #define kLemmingTotal               1
@@ -26,7 +26,7 @@
 
 #define kLearningType               2
 #define KLearningEpisodes           3
-#define kLearningRandomProbability  1.0f
+#define kLearningRandomProbability  0.0f
 
 #define kQLearningRate              0.4f
 #define kQDiscountFactor            0.9f

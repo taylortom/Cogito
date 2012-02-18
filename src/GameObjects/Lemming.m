@@ -129,7 +129,7 @@
     // if need to use umbrella, delay, then call useUmbrella
     if(umbrellaEquipped) 
     {
-        if(umbrellaTimer >= 65) [self useUmbrella];
+        if(umbrellaTimer >= 70) [self useUmbrella];
         return; 
     }
     //CCLOG(@"Lemming.changeState: %@", [Utils getStateAsString:_newState]);

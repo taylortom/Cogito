@@ -187,6 +187,10 @@
                 class = [QLearningAgent class];
                 break;
                 
+            case kLearningShortestRoute:
+                class = [ShortestRouteAgent class];
+                break;
+         
             case kLearningNone:
                 class = [Lemming class];
                 

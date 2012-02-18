@@ -1,26 +1,25 @@
 //
-//  QLearningAgent.m
+//  ShortestRouteAgent.m
 //  Author: Thomas Taylor
 //
-//  Handles the machine learning using Q-learning
+//  Handles the machine learning using a shortest 
+//  route policy
 //
-//  15/01/2012: Created class
+//  18/02/2012: Created class
 //
 
-#import "QLearningAgent.h"
+#import "ShortestRouteAgent.h"
 
-@interface QLearningAgent()
+@interface ShortestRouteAgent()
 
-// get Policy
--(void)updateQValues:(QState*)_newState;
--(Action)selectAction:(QState*)_state;
+-(Action)selectAction:(State*)_state;
 -(Action)chooseRandomAction:(CCArray*)_actions;
--(CCArray*)calculateAvailableActions:(QState*)_state;
--(QState*)getStateForGameObject:(GameObject*)_object;
+-(CCArray*)calculateAvailableActions:(State*)_state;
+-(void)setOptimumRoute;
 
 @end
 
-@implementation QLearningAgent
+@implementation ShortestRouteAgent
 
 #pragma mark -
 #pragma mark Memory Allocation
@@ -30,7 +29,7 @@
  */
 -(void)dealloc
 {
-    [gameStates release]; 
+    [routes release]; 
     [super dealloc];
 }
 
@@ -49,28 +48,10 @@
     {
         respawns = KLearningEpisodes;
         learningMode = YES;
-        gameStates = [[CCArray alloc] init];
+        routes = [[CCArray alloc] init];
+        currentRoute = [[Route alloc] init];
     }
     return self;
-}
-
-#pragma mark -
-#pragma mark Q-Value Calculations
-
-/**
- * Updates the Q-values
- */
--(void)updateQValues:(QState*)_newState
-{
-    if(currentState == nil) return;
-        
-    float oldQValue = [currentState getQValueForAction:currentAction];
-    float maximumQValue = [_newState calculateMaxQValue];
-    float reward = [_newState getReward];
-    
-    float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate * (reward + kQDiscountFactor * maximumQValue);
-    CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
-    [currentState setQValue:updatedQValue forAction:currentAction];
 }
 
 #pragma mark -
@@ -80,40 +61,61 @@
  * @param the object colliding with
  * @return the action to take
  */
--(Action)selectAction:(QState*)_state
+-(Action)selectAction:(State*)_state
 {
     Action action = -1;
 
     // get  list of the available action
-    CCArray* options = [_state getActions];
-    if([options count] < 1) options = [self calculateAvailableActions:_state];
-
-    // calcuates the Q-value for the previous state
-    [self updateQValues:_state];
-        
-    if(self.state != kStateDead && [_state getGameObject].gameObjectType != kObjectExit) 
+    CCArray* options = [self calculateAvailableActions:_state];
+   
+    // if the Agent's died/won
+    BOOL endConditionReached = (self.state == kStateDead || [_state getGameObject].gameObjectType == kObjectExit);
+    
+    // choose action
+    if(!endConditionReached)
     {
-        // uses the Constant var to randomise actions
-        BOOL chooseRandom = (arc4random() % (int)(1/kLearningRandomProbability) == 0) ? YES : NO;    
-        
+        // uses the Constant to randomise actions  
+        int randomNumber = arc4random() % (int)(1/kLearningRandomProbability);
+        BOOL chooseRandom = (randomNumber == 0) ? chooseRandom = YES : NO;
+        if(kLearningRandomProbability == 0.0f) chooseRandom = NO;
+                
         // if still learning, randomly choose action
         if(learningMode || chooseRandom) action = [self chooseRandomAction:options];  
         // not learning, choose the optimum action
         else
         {
-            action = [_state getOptimumAction];
+            // set the optimum route if it hasn't been already
+            if(shortestRoute == nil) [self setOptimumRoute];
             
-            // no data for the current state, choose random action
-            if(action == -1) action = [self chooseRandomAction:options];  
+            if(shortestRoute != nil)
+            {
+                action = [[[[shortestRoute getNodes] objectAtIndex:shortestRouteIndex] objectAtIndex:1] intValue];
+                shortestRouteIndex++;
+            }
+            // if still nil, no optimum has been found. Choose random action
+            else action = [self chooseRandomAction:options];  
         }
-        
-        //CCLOG(@"CogitoAgent.selectAction: %@ (random: %i Q-Value: %f)", [Utils getActionAsString:action], chooseRandom, [currentState getQValueForAction:currentAction]);
     }
     
-    // update the current state/action variable (nil if we've reached a goal state)
-    currentState = (action != -1) ? _state : nil;
-    currentAction = action;
-    
+    // Update the current route
+    if(learningMode) 
+    {
+        [currentRoute addState:_state withAction:action];
+        
+        if(endConditionReached) 
+        {
+            // set the end condition
+            if([_state getGameObject].gameObjectType == kObjectExit) [currentRoute setSurvived:YES];
+            else if(self.state != kStateDead) [currentRoute setSurvived:NO];
+            
+            // add the route to routes
+            [routes addObject:currentRoute];
+                        
+            // starting new route
+            currentRoute = [[Route alloc] init];
+        }
+    }
+        
     return action;
 }
 
@@ -133,7 +135,7 @@
  * @param the current object type
  * @return an array of actions
  */
--(CCArray*)calculateAvailableActions:(QState*)_state
+-(CCArray*)calculateAvailableActions:(State*)_state
 {    
     GameObject* object = [_state getGameObject];
     CCArray* actions = [[CCArray alloc] init];
@@ -161,26 +163,27 @@
 }
 
 /**
- * Looks up the state for the passed object
- * @param object to search for
- * @return the matching state
+ * Gets the shortest successful route taken by the 
+ * agent during 'learning mode'
  */
--(QState*)getStateForGameObject:(GameObject*)_object
-{        
-    for (int i = 0; i < [gameStates count]; i++) 
-    {
-        QState* tempState = [gameStates objectAtIndex:i];
-        if([tempState getGameObject] == _object) return tempState;
-    }
-        
-    // state not found, make a new one    
-    float reward = kQDefaultReward;
-    if(_object.gameObjectType == kObjectExit) reward = kQWinReward;
-    else if(self.state == kStateDead) reward = kQDeathReward;
+-(void)setOptimumRoute
+{
+    // the shortest route length (for comparison)
+    int minLength = 999;
     
-    QState* returnState = [[QState alloc] initStateForObject:_object withReward:reward];
-    [gameStates addObject:returnState];
-    return returnState;
+    for (int i = 0; i < [routes count]; i++) 
+    {
+        Route* route = [routes objectAtIndex:i];
+                
+        // if route's shorter (and we survived), set the shortest route
+        if([[route getNodes] count] < minLength && [route survived])
+        {
+            shortestRoute = route;
+            minLength = [[route getNodes] count];
+        }
+    }
+    
+    shortestRouteIndex = 0;
 }
 
 #pragma mark -
@@ -199,6 +202,8 @@
     // call the method in super
     [super onObjectCollision:_object];
         
+    State* newState = [[State alloc] initStateForObject:_object];
+    
    /* 
     * only need to handle two types, 
     * rest are dealt with by superclass
@@ -207,21 +212,21 @@
     {
         case kObjectTerrainEnd:
         case kObjectTrapdoor:
-            [self takePath:[self selectAction:[self getStateForGameObject:_object]]];
+            [self takePath:[self selectAction:newState]];
             break;
             
         case kObstacleWater:
         case kObstaclePit:
         case kObjectExit:
-            [self selectAction:[self getStateForGameObject:_object]];
+            [self selectAction:newState];
             break;
             
         case kObstacleStamper:
-            if(self.state == kStateDead) [self selectAction:[self getStateForGameObject:_object]];
+            if(self.state == kStateDead) [self selectAction:newState];
             break;
     
         case kObjectTerrain:
-            if(fatalFall) [self selectAction:[self getStateForGameObject:_object]];
+            if(fatalFall) [self selectAction:newState];
             break;
             
         default:
@@ -258,24 +263,6 @@
     CGPoint newPosition = [self position];
     
     NSString *debugString = @"";
-    
-    switch([[currentState getGameObject] gameObjectType]) 
-    {
-        case kObjectTerrainEnd:
-        case kObjectTrapdoor:
-        debugString = [NSString stringWithFormat:@"%@\n%@",[Utils getObjectAsString:[currentState getGameObject].gameObjectType] , [Utils getActionAsString:[currentState getOptimumAction]]];
-        break;
-            
-        case kObstacleStamper:
-        case kObstacleWater:
-        case kObstaclePit:
-        case kObjectExit:
-            break;
-        
-        default:
-            break;
-    }
-
     if(!learningMode) debugString = @"\n!";
     
     [debugLabel setString:debugString];
