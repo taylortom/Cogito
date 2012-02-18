@@ -69,7 +69,7 @@
     float reward = [_newState getReward];
     
     float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate * (reward + kQDiscountFactor * maximumQValue);
-    CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
+    //CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
     [currentState setQValue:updatedQValue forAction:currentAction];
 }
 
@@ -106,8 +106,6 @@
             // no data for the current state, choose random action
             if(action == -1) action = [self chooseRandomAction:options];  
         }
-        
-        //CCLOG(@"CogitoAgent.selectAction: %@ (random: %i Q-Value: %f)", [Utils getActionAsString:action], chooseRandom, [currentState getQValueForAction:currentAction]);
     }
     
     // update the current state/action variable (nil if we've reached a goal state)
@@ -167,6 +165,10 @@
  */
 -(QState*)getStateForGameObject:(GameObject*)_object
 {        
+    // if we're using the shared knowledge base...
+    if(kQLearningSharedKnowledge) 
+        return [[KnowledgeBase sharedKnowledgeBase] getStateForGameObject:_object];
+    
     for (int i = 0; i < [gameStates count]; i++) 
     {
         QState* tempState = [gameStates objectAtIndex:i];
@@ -240,7 +242,6 @@
         if(respawns > 1) [self changeState:kStateSpawning];
         else 
         {
-            CCLOG(@"-------------------- THIS AIN'T NO HIGH SCHOOL MUSICAL --------------------");
             learningMode = NO;
             respawns = kLemmingRespawns;
             [self changeState:kStateSpawning];
@@ -263,7 +264,7 @@
     {
         case kObjectTerrainEnd:
         case kObjectTrapdoor:
-        debugString = [NSString stringWithFormat:@"%@\n%@",[Utils getObjectAsString:[currentState getGameObject].gameObjectType] , [Utils getActionAsString:[currentState getOptimumAction]]];
+            //debugString = [NSString stringWithFormat:@"%@\n%@",[Utils getObjectAsString:[currentState getGameObject].gameObjectType] , [Utils getActionAsString:[currentState getOptimumAction]]];
         break;
             
         case kObstacleStamper:

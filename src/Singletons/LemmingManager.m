@@ -31,7 +31,7 @@ static LemmingManager* _instance = nil;
     @synchronized([LemmingManager class])
     {
         // if the _instance already exists, stop
-        NSAssert(_instance == nil, @"There should only ever be one instance of AgentManager");
+        NSAssert(_instance == nil, @"There should only ever be one instance of LemmingManager");
         _instance = [super alloc];
         return _instance;
     }
@@ -117,6 +117,7 @@ static LemmingManager* _instance = nil;
     }
 
     @synchronized(lemmings) { [lemmings removeObject:_lemmingToRemove]; }
+    [_lemmingToRemove removeAllChildrenWithCleanup:YES];
     [_lemmingToRemove removeFromParentAndCleanup:YES];
     
     if([self lemmingCount] == 0) [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
