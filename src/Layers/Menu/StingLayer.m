@@ -1,6 +1,6 @@
 //
 //  StingLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The intro 'animation' layer
 //
@@ -34,7 +34,7 @@
 		CGSize winSize = [CCDirector sharedDirector].winSize;
         
         // add default backdround to make transitions look nicer 
-		CCSprite *background = [CCSprite spriteWithFile:@"DefaultBackground.png"];
+		CCSprite *background = [CCSprite spriteWithFile:kFilenameDefBG];
         [background setPosition:ccp(winSize.width/2, winSize.height/2)];
 		[self addChild:background z:0];
         
@@ -51,7 +51,7 @@
 {    
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
-    CCSprite *splashImage = [CCSprite spriteWithFile:@"LogoSplash.png"];
+    CCSprite *splashImage = [CCSprite spriteWithFile:kFilenameSplash];
     splashImage.opacity = 0.0f;
     [splashImage setPosition:ccp(winSize.width/2, winSize.height/2)];
     [self addChild:splashImage z:1];

@@ -1,6 +1,6 @@
 //
 //  KnowledgeBase.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A shared knowledge base used by the lemmings
 //
@@ -19,6 +19,5 @@
 
 +(KnowledgeBase*)sharedKnowledgeBase;
 -(QState*)getStateForGameObject:(GameObject*)_object;
--(void)reset;
 
 @end

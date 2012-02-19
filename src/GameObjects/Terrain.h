@@ -1,6 +1,6 @@
 //
 //  Terrain.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A basic class to contain terrain relevant data
 //

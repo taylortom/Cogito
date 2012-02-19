@@ -1,6 +1,6 @@
 //
 //  Utils.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A class of static 'util' methods
 //

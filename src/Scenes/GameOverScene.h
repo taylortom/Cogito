@@ -8,7 +8,7 @@
 //
 
 #import "cocos2d.h"
-#import <Foundation/Foundation.h>
+#import "GameOverLayer.h"
 
 @interface GameOverScene : CCScene
 

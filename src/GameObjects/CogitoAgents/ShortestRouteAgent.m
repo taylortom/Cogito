@@ -119,6 +119,11 @@
     return action;
 }
 
+/**
+ * Randomly selects an action from the options
+ * @param the available options
+ * @return the action
+ */
 -(Action)chooseRandomAction:(CCArray*)_actions
 {
     Action action = -1;
@@ -204,10 +209,7 @@
         
     State* newState = [[State alloc] initStateForObject:_object];
     
-   /* 
-    * only need to handle two types, 
-    * rest are dealt with by superclass
-    */
+    // perform correct action based on object
     switch([_object gameObjectType]) 
     {
         case kObjectTerrainEnd:
@@ -245,7 +247,6 @@
         if(respawns > 1) [self changeState:kStateSpawning];
         else 
         {
-            CCLOG(@"-------------------- THIS AIN'T NO HIGH SCHOOL MUSICAL --------------------");
             learningMode = NO;
             respawns = kLemmingRespawns;
             [self changeState:kStateSpawning];

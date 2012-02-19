@@ -1,8 +1,8 @@
 //
 //  QState.m
-//  Cogito
+//  Author: Thomas Taylor
 //
-//  Basic class to hold info about a state in Q-learning.
+//  Basic class to hold info about a state in Q-learning
 //
 //  06/02/2012: Created class
 //
@@ -37,6 +37,11 @@
 
 #pragma mark -
 
+/**
+ * Checks all of the possible actions, and 
+ * selects the one with the highest Q-value
+ * @return the optimum action
+ */
 -(Action)getOptimumAction
 {
     Action optimumAction = -1;

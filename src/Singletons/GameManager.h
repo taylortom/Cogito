@@ -1,6 +1,6 @@
 //
 //  GameManager.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Manages the scenes in the game
 //

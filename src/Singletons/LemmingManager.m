@@ -1,6 +1,6 @@
 //
 //  LemmingManager.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Manages the Lemmings in the game
 //
@@ -128,7 +128,7 @@ static LemmingManager* _instance = nil;
 /**
  * Calculates a game rating (A,B,C,D,F)
  * from variaous variables
- * TODO: calculateGameRating
+ * @return the GameRating
  */
 -(GameRating)calculateGameRating
 {
@@ -136,12 +136,10 @@ static LemmingManager* _instance = nil;
     float baseScore = ((float)lemmingsSaved/(float)kLemmingTotal)*100;
     
     // calculate bonuses
-    
     float respawnBonus = (float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal)*25;
     float totalBonus = respawnBonus;
     
     // calculate penalties
-    
     float deathPenalty = (float)lemmingsKilled/(float)kLemmingTotal*50;
     float timePenalty = (float)[[GameManager sharedGameManager] getGameTimeInSecs]/60;
     float totalPenalty = timePenalty + deathPenalty;
@@ -151,6 +149,7 @@ static LemmingManager* _instance = nil;
     
     CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", totalBonus, totalPenalty, score);
     
+    // convert score into rating
     if(score > 79) return kRatingA;
     if(score > 59) return kRatingB;
     if(score > 39) return kRatingC;

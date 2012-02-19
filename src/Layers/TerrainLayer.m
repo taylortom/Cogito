@@ -1,6 +1,6 @@
 //
 //  TerrainLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A generic 'terrain' layer.
 //  each level inherits from this class
@@ -33,6 +33,7 @@
 
 /**
  * Initialises the layer
+ * @param the level plist
  * @return self
  */
 -(id)init:(NSString*)_plist 

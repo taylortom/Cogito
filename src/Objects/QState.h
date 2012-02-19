@@ -1,15 +1,14 @@
 //
 //  QState.h
-//  Cogito
+//  Author: Thomas Taylor
 //
-//  Basic class to hold info about a state in Q-learning.
+//  Basic class to hold info about a state in Q-learning
 //
-//  02/02/2012: Created class
+//  06/02/2012: Created class
 //
 
 #import "cocos2d.h"
 #import "CommonDataTypes.h"
-#import <Foundation/Foundation.h>
 #import "GameObject.h"
 #import "State.h"
 

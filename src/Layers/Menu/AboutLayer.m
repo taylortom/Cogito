@@ -1,6 +1,6 @@
 //
 //  AboutLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The 'about' layer
 //

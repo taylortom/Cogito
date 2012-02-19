@@ -1,15 +1,14 @@
 //
 //  State.h
-//  Cogito
+//  Author: Thomas Taylor
 //
-//  Basic class to hold info about a state.
+//  Basic class to hold info about a state
 //
 //  02/02/2012: Created class
 //
 
 #import "cocos2d.h"
 #import "CommonDataTypes.h"
-#import <Foundation/Foundation.h>
 #import "GameObject.h"
 
 @interface State : NSObject

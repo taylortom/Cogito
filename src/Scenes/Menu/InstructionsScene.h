@@ -8,7 +8,7 @@
 //
 
 #import "cocos2d.h"
-#import "InstructionsScene.h"
+#import "InstructionsLayer.h"
 
 @interface InstructionsScene : CCScene
 

@@ -1,5 +1,5 @@
 //
-//  NewGameScene.m
+//  NewGameScene.h
 //  Author: Thomas Taylor
 //
 //  The 'new game' scene

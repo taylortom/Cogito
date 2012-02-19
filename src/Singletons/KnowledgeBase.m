@@ -1,6 +1,6 @@
 //
-//  KnowledgeBase.h
-//  Cogito
+//  KnowledgeBase.m
+//  Author: Thomas Taylor
 //
 //  A shared knowledge base used by the lemmings
 //
@@ -19,6 +19,7 @@ static KnowledgeBase* _instance = nil;
 -(void)dealloc
 {
     [super dealloc];
+    [gameStates release];
 }
 
 /**
@@ -110,15 +111,6 @@ static KnowledgeBase* _instance = nil;
     QState* returnState = [[QState alloc] initStateForObject:_object withReward:reward];
     [gameStates addObject:returnState];
     return returnState;
-}
-
-#pragma mark -
-
-/**
- * Resets the relevant variables ready for a new game
- */
--(void)reset
-{
 }
 
 @end

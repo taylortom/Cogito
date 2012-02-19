@@ -1,6 +1,6 @@
 //
 //  GameManager.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Manages the scenes in the game
 //
@@ -270,6 +270,7 @@ static int secondsPlayed;
 /**
  * Converts the secondsPlayed into a string
  * in the format mm:ss
+ * @return the formatted time string
  */
 -(NSString*)getGameTimeInMins
 {
@@ -284,6 +285,7 @@ static int secondsPlayed;
 
 /**
  * Just returns the time played in seconds
+ * @return seconds played
  */
 -(int)getGameTimeInSecs
 {

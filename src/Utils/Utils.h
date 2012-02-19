@@ -1,6 +1,6 @@
 //
 //  Utils.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A class of static 'util' methods
 //
@@ -9,7 +9,6 @@
 
 #import "cocos2d.h"
 #import "CommonDataTypes.h"
-#import <Foundation/Foundation.h>
 
 @interface Utils : NSObject
 

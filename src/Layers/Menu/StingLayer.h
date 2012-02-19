@@ -1,6 +1,6 @@
 //
 //  StingLayer.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The intro 'animation' layer
 //

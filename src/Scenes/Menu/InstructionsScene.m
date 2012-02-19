@@ -8,7 +8,6 @@
 //
 
 #import "InstructionsScene.h"
-#import "InstructionsLayer.h"
 
 @implementation InstructionsScene
 

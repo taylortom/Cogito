@@ -11,7 +11,6 @@
 #import "CCScene.h"
 #import "BackgroundLayer.h"
 #import "GameplayLayer.h"
-#import "TerrainLayer.h"
 
 @interface GameScene : CCScene
 

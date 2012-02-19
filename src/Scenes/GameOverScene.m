@@ -8,7 +8,6 @@
 //
 
 #import "GameOverScene.h"
-#import "GameOverLayer.h"
 
 @implementation GameOverScene
 

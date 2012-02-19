@@ -1,8 +1,8 @@
 //
 //  State.m
-//  Cogito
+//  Author: Thomas Taylor
 //
-//  Basic class to hold info about a state.
+//  Basic class to hold info about a state
 //
 //  02/02/2012: Created class
 //
@@ -45,6 +45,10 @@
 
 #pragma mark -
 
+/**
+ * Returns the best action
+ * @return the action
+ */
 -(Action)getOptimumAction
 {
     // should be overridden in subclasses

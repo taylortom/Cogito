@@ -1,6 +1,6 @@
 //
 //  TerrainLayer.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A generic 'terrain' layer.
 //  each level inherits from this class

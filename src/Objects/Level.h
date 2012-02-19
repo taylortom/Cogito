@@ -1,6 +1,6 @@
 //
 //  Level.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Very basic class to hold info about a level
 //

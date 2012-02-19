@@ -1,6 +1,6 @@
 //
 //  GameOverLayer.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The game over layer
 //

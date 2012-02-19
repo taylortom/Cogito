@@ -1,6 +1,6 @@
 //
 //  Terrain.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A basic class to contain Terrain relevant data
 //
@@ -32,7 +32,7 @@
         
         self.gameObjectType = _type;
         
-        if(_type == kObjectTerrainEnd && DEBUG_MODE > 1) filename = [NSString stringWithFormat:@"%@%@.png", _filename, @"Fill"];  
+        if(_type == kObjectTerrainEnd && DEBUG_MODE) filename = [NSString stringWithFormat:@"%@%@.png", _filename, @"Fill"];  
         else filename = [NSString stringWithFormat:@"%@.png", _filename];
         
         isWall = _isWall;

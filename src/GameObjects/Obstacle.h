@@ -1,6 +1,6 @@
 //
 //  Obstacle.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  A basic class to contain obstacle relevant data
 //

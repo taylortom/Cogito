@@ -14,7 +14,7 @@
 
 @interface MainMenuLayer()
 
--(void)playScene: (CCMenuItemFont*)menuItemToPlay;
+-(void)playScene:(CCMenuItemFont*)menuItemToPlay;
 -(void)buildMainMenu;
 -(void)onNewGameButtonPressed;
 -(void)onHighScoresButtonPressed;
@@ -54,7 +54,7 @@
  * Plays the specified scene
  * @param scene to play
  */
--(void)playScene: (CCMenuItemFont*)menuItemToPlay
+-(void)playScene:(CCMenuItemFont*)menuItemToPlay
 {
     if([menuItemToPlay tag] == 1) [[GameManager sharedGameManager] runSceneWithID:kSettingsScene];
     else CCLOG(@"Tag %d passed", [menuItemToPlay tag]);

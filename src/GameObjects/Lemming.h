@@ -7,7 +7,6 @@
 //  21/11/2011: Created class
 //
 
-#import <Foundation/Foundation.h>
 #import "GameObject.h"
 #import "LemmingManager.h"
 #import "Obstacle.h"
@@ -18,39 +17,32 @@
 
 {
     int health;
-    int respawns;                           // number of respawns
+    int respawns;                          
+    int fallCounter;
+    CCSpriteFrame* standingFrame;
     CharacterStates state; 
     Direction movementDirection;
-    GameObjectType objectLastCollidedWith;  // used in collision detection
+    GameObjectType objectLastCollidedWith;  
     
-    // helmet-related vars
     BOOL isUsingHelmet;
     int helmetUses;
     
-    // umbrella-related vars
     BOOL isUsingUmbrella;
     BOOL umbrellaEquipped;
     int umbrellaUses;
     int umbrellaTimer;
-
-    int fallCounter;
     
-    CCSpriteFrame *standingFrame;
-    
-    // idle and walking animations
     CCAnimation* idleAnim;
     CCAnimation* idleHelmetAnim;
     CCAnimation* walkingAnim;
     CCAnimation* walkingHelmetAnim;
-
-    // misc animations
     CCAnimation* openUmbrellaAnim;
     CCAnimation* floatUmbrellaAnim;
     CCAnimation* deathAnim;    
     
-    // debugging        
-    int ID;                                 // a unique ID, used for debugging
-    CCLabelBMFont* debugLabel;              // text label used for debugging 
+    // used in debugging
+    int ID;                                 
+    CCLabelBMFont* debugLabel;              
 }
 
 @property (readwrite) int health;

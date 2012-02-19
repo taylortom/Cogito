@@ -1,6 +1,6 @@
 //
 //  PauseMenuLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Class to contain the pause menu
 //
@@ -111,6 +111,7 @@
 
 /**
  * Method called every frame
+ * @param delta time
  */ 
 -(void)update:(ccTime)deltaTime
 {

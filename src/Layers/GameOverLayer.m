@@ -1,6 +1,6 @@
 //
 //  GameOverLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The game over layer
 //
@@ -24,7 +24,6 @@
 /**
  * Initialises the layer
  * @return self
- * TODO: add rating image
  */
 -(id)init 
 {
@@ -41,7 +40,7 @@
 		
 		// Add the text for level complete.
         NSString *statString = [NSString stringWithFormat:@"Lemmings saved: %i\nLemmings killed: %i\nTime taken: %@", [[LemmingManager sharedLemmingManager] lemmingsSaved],[[LemmingManager sharedLemmingManager] lemmingsKilled],[[GameManager sharedGameManager] getGameTimeInMins]];
-		CCLabelBMFont *statTextLeft = [CCLabelBMFont labelWithString:statString fntFile:@"bangla_dark_large.fnt"];
+		CCLabelBMFont *statTextLeft = [CCLabelBMFont labelWithString:statString fntFile:kFilenameDefFontLarge];
 		[statTextLeft setAnchorPoint:ccp(0, 1)];
         [statTextLeft setPosition:ccp(41, winSize.height-110)];
 		[self addChild:statTextLeft];
@@ -92,7 +91,9 @@
 	return self;
 }
 
-
+/**
+ * Loads the main menu scene
+ */
 -(void)onMenuButtonPressed
 {
 	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];

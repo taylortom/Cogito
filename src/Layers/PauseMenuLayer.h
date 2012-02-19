@@ -1,6 +1,6 @@
 //
-//  PauseMenuLayer.m
-//  Cogito
+//  PauseMenuLayer.h
+//  Author: Thomas Taylor
 //
 //  Class to contain the pause menu
 //
@@ -20,7 +20,6 @@
     CCSprite *textOverlay;
     int screenlockOpacity;
     
-    // if the menu's currently animating
     BOOL animating;
 }
 

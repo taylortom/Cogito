@@ -50,7 +50,7 @@
  * Releases any used storage
  */
 -(void)dealloc
-{
+{    
     [idleAnim release];
     [idleHelmetAnim release];
     [walkingAnim release];
@@ -58,6 +58,8 @@
     [openUmbrellaAnim release];
     [floatUmbrellaAnim release];
     [deathAnim release];
+    
+    [debugLabel setString:@""];
     debugLabel = nil;
     
     [super dealloc];
@@ -154,7 +156,7 @@
         case kStateFalling:
             if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
             else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
-            action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.12f position:ccp(0.0f, kLemmingMovementAmount*-1)], action, nil];         
+            action = [CCSpawn actions: [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f, kLemmingFallAmount*-1)], action, nil];         
             break;
             
         case kStateIdle:
@@ -471,7 +473,7 @@
     if(self.state == kStateFalling) fallCounter++;
     if(umbrellaEquipped) umbrellaTimer++;
     
-    if(DEBUG_MODE > 0) [self updateDebugLabel];
+    if(DEBUG_MODE) [self updateDebugLabel];
     
     [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
 

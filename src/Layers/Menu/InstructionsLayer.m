@@ -1,6 +1,6 @@
 //
 //  InstructionsLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Plays the instructions animation
 //
@@ -54,7 +54,7 @@
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
     // add default backdround to make transitions look nicer 
-    CCSprite *background = [CCSprite spriteWithFile:@"DefaultBackground.png"];
+    CCSprite *background = [CCSprite spriteWithFile:kFilenameDefBG];
     [background setPosition:ccp(winSize.width/2, winSize.height/2)];
     [self addChild:background z:0];
 }

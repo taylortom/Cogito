@@ -1,5 +1,5 @@
 //
-//  MainMenuLayer.m
+//  MainMenuLayer.h
 //  Author: Thomas Taylor
 //
 //  The main menu layer

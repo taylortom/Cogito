@@ -1,6 +1,6 @@
 //
 //  Route.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Contains data about a specific route
 //

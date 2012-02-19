@@ -10,25 +10,37 @@
 #ifndef Cogito_Constants_h
 #define Cogito_Constants_h
 
-#define DEBUG_MODE                  1
+#define DEBUG_MODE                  YES
 
 #define kFrameRate                  60.0f
 
-#define kDefaultLargeFont           @"bangla_dark.fnt"
-#define kDefaultSmallFont           @"bangla_dark_small.fnt"
-#define kDefaultDebugFont           @"andale_debug.fnt"
+// filenames
+#define kFilenameSplash             @"LogoSplash.png"
+#define kFilenameDefBG              @"DefaultBackground.png"
 
+#define kFilenameDefFontLarge       @"bangla_dark_large.fnt"
+#define kFilenameDefFontSmall       @"bangla_dark_small.fnt"
+#define kFilenameDefFontDebug       @"andale_debug.fnt"
+
+#define kFilenameDefLemmingFrame    @"Lemming_idle_1.png"
+#define kFilenameDefAtlas           @"Lemming_atlas"
+
+#define kFilenameDefButton           @"Lemming_atlas"
+
+// Lemming-related
 #define kLemmingMovementAmount      18
 #define kLemmingFallAmount          15
 #define kLemmingFallTime            0.8f
 #define kLemmingRespawns            3
-#define kLemmingTotal               50
+#define kLemmingTotal               1
 #define kLemmingSpawnSpeed          1.5f
 
-#define kLearningType               kLearningReinforcement
+// Learning-related
+#define kLearningType               kLearningTree
 #define KLearningEpisodes           3
 #define kLearningRandomProbability  0.0f
 
+// Q learning-related
 #define kQLearningSharedKnowledge   YES
 #define kQLearningRate              0.4f
 #define kQDiscountFactor            0.9f
@@ -36,15 +48,16 @@
 #define kQWinReward                 100.0f
 #define kQDeathReward               -100.0f
     
+// z values
 #define kPauseMenuZValue            999
 #define kUIZValue                   500
 #define kTerrainZValue              50
 #define kObstacleZValue             10
-
 #define kLemmingSpriteZValue        100
-#define kLemmingSpriteTagValue      0
 
+// tag values
 #define kMainMenuTagValue           10
 #define kSceneMenuTagValue          20
+#define kLemmingSpriteTagValue      0
 
 #endif

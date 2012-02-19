@@ -53,8 +53,8 @@
         [[LemmingManager sharedLemmingManager] reset];
         [[GameManager sharedGameManager] resetSecondCounter];
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Lemming_atlas.plist"];
-        sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"Lemming_atlas.png"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", kFilenameDefAtlas]];
+        sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", kFilenameDefAtlas]];
                 
         [self addChild:sceneSpriteBatchNode z:0];
         [self initDisplay]; // set up the labels/buttons
@@ -91,12 +91,12 @@
     
     // now add the labels
     
-    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:kDefaultSmallFont];
+    lemmingText = [CCLabelBMFont labelWithString:[self getUpdatedLemmingString] fntFile:kFilenameDefFontSmall];
     [lemmingText setAnchorPoint:ccp(1,1)];
     [lemmingText setPosition:ccp(winSize.width-10, winSize.height-10)];
     [self addChild:lemmingText z:kUIZValue];
     
-    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:kDefaultSmallFont];
+    timeText = [CCLabelBMFont labelWithString:[self getUpdatedTimeString] fntFile:kFilenameDefFontSmall];
     [timeText setAnchorPoint:ccp(1,1)];
     [timeText setPosition:ccp(winSize.width-10, winSize.height-30)];
     [self addChild:timeText z:kUIZValue];
@@ -107,6 +107,7 @@
 
 /**
  * Method called every frame
+ * @param delta time
  */ 
 -(void)update:(ccTime)deltaTime
 {
@@ -129,6 +130,7 @@
 
 /**
  * Returns how many Lemmings have been saved, how many killed
+ * @param the string
  */
 -(NSString*)getUpdatedLemmingString
 {
@@ -140,6 +142,7 @@
 
 /**
  * Returns the current time elapsed
+ * @param the string
  */
 -(NSString*)getUpdatedTimeString
 {
@@ -199,14 +202,14 @@
                 break;
         }
         
-        lemming = [[class alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
+        lemming = [[class alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:kFilenameDefLemmingFrame]];
         
         lemming.ID = ID;
         lemming.health = health;
         
-        if(DEBUG_MODE > 0)
+        if(DEBUG_MODE)
         {
-            CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"" fntFile:kDefaultDebugFont];
+            CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFilenameDefFontDebug];
             [self addChild:debugLabel];
             [lemming setDebugLabel:debugLabel];
         }
@@ -260,6 +263,11 @@
     }
 }
 
+/**
+ * Detects when touch input ends
+ * @param the touch
+ * @param the event
+ */
 -(void)ccTouchesEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if(![pauseMenu animating]) [self onPauseButtonPressed];

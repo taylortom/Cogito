@@ -1,6 +1,6 @@
 //
 //  NewGameLayer.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The 'new game' layer
 //
@@ -9,7 +9,6 @@
 
 #import "cocos2d.h"
 #import "Constants.h"
-#import <Foundation/Foundation.h>
 #import "GameManager.h"
 
 @interface NewGameLayer : CCLayer

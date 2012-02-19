@@ -26,7 +26,7 @@
     {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
-        CCSprite *backgroundImage = [CCSprite spriteWithFile:@"DefaultBackground.png"];
+        CCSprite *backgroundImage = [CCSprite spriteWithFile:kFilenameDefBG];
         [backgroundImage setPosition:CGPointMake(winSize.width/2, winSize.height/2)];
         [self addChild:backgroundImage z:0 tag:0];
     }

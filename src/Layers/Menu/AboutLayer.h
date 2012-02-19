@@ -1,6 +1,6 @@
 //
 //  AboutLayer.m
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  The 'about' layer
 //
@@ -8,7 +8,6 @@
 //
 
 #import "cocos2d.h"
-#import <Foundation/Foundation.h>
 #import "GameManager.h"
 
 @interface AboutLayer : CCLayer

@@ -1,6 +1,6 @@
 //
 //  InstructionsLayer.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Plays the instructions animation
 //
@@ -8,6 +8,7 @@
 //
 
 #import "cocos2d.h"
+#import "Constants.h"
 #import "GameManager.h"
 
 @interface InstructionsLayer : CCLayer

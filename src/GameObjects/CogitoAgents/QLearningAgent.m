@@ -59,6 +59,7 @@
 
 /**
  * Updates the Q-values
+ * @param the state to update
  */
 -(void)updateQValues:(QState*)_newState
 {
@@ -93,8 +94,10 @@
         
     if(self.state != kStateDead && [_state getGameObject].gameObjectType != kObjectExit) 
     {
-        // uses the Constant var to randomise actions
-        BOOL chooseRandom = (arc4random() % (int)(1/kLearningRandomProbability) == 0) ? YES : NO;    
+        // uses the Constant to randomise actions  
+        int randomNumber = arc4random() % (int)(1/kLearningRandomProbability);
+        BOOL chooseRandom = (randomNumber == 0) ? chooseRandom = YES : NO;
+        if(kLearningRandomProbability == 0.0f) chooseRandom = NO;
         
         // if still learning, randomly choose action
         if(learningMode || chooseRandom) action = [self chooseRandomAction:options];  
@@ -115,6 +118,11 @@
     return action;
 }
 
+/**
+ * Randomly selects an action from the options
+ * @param the available options
+ * @return the action
+ */
 -(Action)chooseRandomAction:(CCArray*)_actions
 {
     Action action = -1;
