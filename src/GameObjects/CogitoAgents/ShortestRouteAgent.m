@@ -16,6 +16,7 @@
 -(Action)chooseRandomAction:(CCArray*)_actions;
 -(CCArray*)calculateAvailableActions:(State*)_state;
 -(void)setOptimumRoute;
+-(Action)getOptimumAction;
 
 @end
 
@@ -50,6 +51,7 @@
         learningMode = YES;
         routes = [[CCArray alloc] init];
         currentRoute = [[Route alloc] init];
+        optimumRouteIndex = 0;
     }
     return self;
 }
@@ -84,16 +86,9 @@
         // not learning, choose the optimum action
         else
         {
-            // set the optimum route if it hasn't been already
-            if(shortestRoute == nil) [self setOptimumRoute];
-            
-            if(shortestRoute != nil)
-            {
-                action = [[[[shortestRoute getNodes] objectAtIndex:shortestRouteIndex] objectAtIndex:1] intValue];
-                shortestRouteIndex++;
-            }
-            // if still nil, no optimum has been found. Choose random action
-            else action = [self chooseRandomAction:options];  
+            action = [self getOptimumAction];
+            // no optimum has been found. Choose random action
+            if(action == -1) action = [self chooseRandomAction:options];  
         }
     }
     
@@ -168,27 +163,33 @@
 }
 
 /**
- * Gets the shortest successful route taken by the 
+ * Sets the shortest successful route taken by the 
  * agent during 'learning mode'
  */
 -(void)setOptimumRoute
 {
-    // the shortest route length (for comparison)
-    int minLength = 999;
-    
     for (int i = 0; i < [routes count]; i++) 
     {
         Route* route = [routes objectAtIndex:i];
                 
         // if route's shorter (and we survived), set the shortest route
-        if([[route getNodes] count] < minLength && [route survived])
-        {
-            shortestRoute = route;
-            minLength = [[route getNodes] count];
-        }
+        if([route survived] && [[route getNodes] count] < [[optimumRoute getNodes] count]) optimumRoute = route;
     }
+}
+
+/**
+ * Gets the next action for the optimum route
+ */
+-(Action)getOptimumAction
+{
+    Action action = -1;
     
-    shortestRouteIndex = 0;
+    if(optimumRoute != nil)
+    {
+        action = [[[[optimumRoute getNodes] objectAtIndex:optimumRouteIndex] objectAtIndex:1] intValue];
+        optimumRouteIndex++;
+    }
+    return action;
 }
 
 #pragma mark -
@@ -249,6 +250,8 @@
         {
             learningMode = NO;
             respawns = kLemmingRespawns;
+
+            [self setOptimumRoute];
             [self changeState:kStateSpawning];
         }
     }

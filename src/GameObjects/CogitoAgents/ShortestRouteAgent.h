@@ -18,8 +18,8 @@
     Route* currentRoute;    // the current route
     
     // shortest route vars
-    Route* shortestRoute;  
-    int shortestRouteIndex;
+    Route* optimumRoute;  
+    int optimumRouteIndex;
     
     BOOL learningMode;
 }
