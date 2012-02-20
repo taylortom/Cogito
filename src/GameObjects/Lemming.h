@@ -32,6 +32,9 @@
     int umbrellaUses;
     int umbrellaTimer;
     
+    int spawnTime;
+    int actionsTaken;
+    
     CCAnimation* idleAnim;
     CCAnimation* idleHelmetAnim;
     CCAnimation* walkingAnim;

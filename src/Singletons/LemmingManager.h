@@ -7,6 +7,7 @@
 //  15/12/2011: Created class
 //
 
+#import "AgentStats.h"
 #import "cocos2d.h"
 #import "CommonDataTypes.h"
 #import "Constants.h"

@@ -149,6 +149,9 @@ static LemmingManager* _instance = nil;
     
     CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", totalBonus, totalPenalty, score);
     
+    CCLOG(@"Learning:     Time: %i Actions: %i", [[AgentStats sharedAgentStats] averageTimeLearning], [[AgentStats sharedAgentStats] averageActionsLearning]);
+    CCLOG(@"Non-learning: Time: %i Actions: %i", [[AgentStats sharedAgentStats] averageTimeNonLearning], [[AgentStats sharedAgentStats] averageActionsNonLearning]);
+    
     // convert score into rating
     if(score > 79) return kRatingA;
     if(score > 59) return kRatingB;

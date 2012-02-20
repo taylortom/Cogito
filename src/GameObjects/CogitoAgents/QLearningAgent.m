@@ -244,7 +244,11 @@
  * act accordingly
  */
 -(void)onEndConditionReached
-{                                        
+{                
+    // add the data to AgentStats
+    int length = [[GameManager sharedGameManager] getGameTimeInSecs] - spawnTime;
+    if(self.state != kStateDead) [[AgentStats sharedAgentStats] addEpisodeWithLength:length andActions:actionsTaken learningMode:learningMode];
+    
     if(learningMode) 
     {   
         if(respawns > 1) [self changeState:kStateSpawning];

@@ -8,6 +8,7 @@
 //  06/02/2012: Created class
 //
 
+#import "AgentStats.h"
 #import "Lemming.h"
 #import "TreeState.h"
 

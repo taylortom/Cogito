@@ -264,6 +264,10 @@
  */
 -(void)onEndConditionReached
 {                                        
+    // add the data to AgentStats
+    int length = [[GameManager sharedGameManager] getGameTimeInSecs] - spawnTime;
+    if(self.state != kStateDead) [[AgentStats sharedAgentStats] addEpisodeWithLength:length andActions:actionsTaken learningMode:learningMode];
+    
     if(learningMode) 
     {   
         if(respawns > 1) [self changeState:kStateSpawning];
@@ -278,6 +282,7 @@
     }
     else if(self.state == kStateDead && respawns > 0) [self changeState:kStateSpawning];
     else [[LemmingManager sharedLemmingManager] removeLemming:self];
+    
 }
 
 /**
@@ -287,7 +292,13 @@
 {    
     CGPoint newPosition = [self position];
     
-    NSString *debugString = (learningMode) ? [NSString stringWithFormat:@"%i", self.respawns] : @"";
+    //NSString *debugString = (learningMode) ? [NSString stringWithFormat:@"%i", self.respawns] : @"";
+    NSString *debugString = @"";
+    if(!learningMode)
+    {
+        if([optimumRoute count] > 0) debugString = @"!";
+        else debugString = @"?";
+    }
     [debugLabel setString:debugString];
     
     float yOffset = 20.0f;

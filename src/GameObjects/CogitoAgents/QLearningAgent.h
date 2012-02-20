@@ -7,6 +7,7 @@
 //  15/01/2012: Created class
 //
 
+#import "AgentStats.h"
 #import "KnowledgeBase.h"
 #import "Lemming.h"
 #import "QState.h"

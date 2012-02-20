@@ -7,6 +7,7 @@
 //  18/02/2012: Created class
 //
 
+#import "AgentStats.h"
 #import "Lemming.h"
 #import "Route.h"
 #import "State.h"

@@ -109,6 +109,8 @@
 -(void)resetState
 {
     health = 100;
+    spawnTime = [[GameManager sharedGameManager] getGameTimeInSecs];
+    actionsTaken = 0;
     isUsingHelmet = NO;
     isUsingUmbrella = NO;
     umbrellaEquipped = NO;
@@ -260,6 +262,9 @@
     }
     
     if(isUsingHelmet && _action != kActionLeftHelmet && _action != kActionRightHelmet) [self useHelmet:NO];
+
+    // increment the actionsTaken 
+    actionsTaken++;
 }
 
 /**
