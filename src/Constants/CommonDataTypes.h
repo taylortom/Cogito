@@ -35,6 +35,7 @@ typedef enum
 typedef enum
 {
     kLearningReinforcement,
+    kLearningTree,
     kLearningShortestRoute,
     kLearningMixed,
     kLearningNone

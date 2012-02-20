@@ -190,6 +190,10 @@
                 class = [QLearningAgent class];
                 break;
                 
+            case kLearningTree:
+                class = [DecisionTreeAgent class];
+                break;
+                
             case kLearningShortestRoute:
                 class = [ShortestRouteAgent class];
                 break;

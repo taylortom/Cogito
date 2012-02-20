@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "CommonDataTypes.h"
 #import "Constants.h"
+#import "DecisionTreeAgent.h"
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
 #import "LemmingManager.h"

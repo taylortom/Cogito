@@ -261,7 +261,7 @@
 		E20153D214EFC89800DC2A0F /* ShortestRouteAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortestRouteAgent.m; sourceTree = "<group>"; };
 		E20153D514EFD9DC00DC2A0F /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Route.m; path = Objects/Route.m; sourceTree = "<group>"; };
 		E20153D614EFD9DC00DC2A0F /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = Objects/Route.h; sourceTree = "<group>"; };
-		E20153D814F01FC600DC2A0F /* KnowledgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; path = KnowledgeBase.h; sourceTree = "<group>"; };
+		E20153D814F01FC600DC2A0F /* KnowledgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeBase.h; sourceTree = "<group>"; };
 		E20153D914F01FC600DC2A0F /* KnowledgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeBase.m; sourceTree = "<group>"; };
 		E2084C9B14A2913200C699A9 /* MenuPopup-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuPopup-hd.png"; sourceTree = "<group>"; };
 		E2084C9C14A2913200C699A9 /* MenuPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuPopup.png; sourceTree = "<group>"; };
@@ -681,6 +681,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E20153DE14F130A400DC2A0F /* CogitoAgents */ = {
+			isa = PBXGroup;
+			children = (
+				E28EF23614C2F94700B44A00 /* QLearningAgent.h */,
+				E28EF23714C2F94700B44A00 /* QLearningAgent.m */,
+				E25A1DD314E0503500DC0A67 /* DecisionTreeAgent.h */,
+				E25A1DD414E0503600DC0A67 /* DecisionTreeAgent.m */,
+				E20153D114EFC89800DC2A0F /* ShortestRouteAgent.h */,
+				E20153D214EFC89800DC2A0F /* ShortestRouteAgent.m */,
+			);
+			path = CogitoAgents;
+			sourceTree = "<group>";
+		};
+		E2077B2614F18AC800816223 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				E2613FC0149A6D3D00356C98 /* Fonts */,
+				E21FA55E1479B66800519BF6 /* Plists */,
+				E2ABD06514706B1100E14474 /* Images */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		E2077B2714F18AE100816223 /* Random Garb */ = {
+			isa = PBXGroup;
+			children = (
+				E25A1DCC14E04F2F00DC0A67 /* AppDelegate.h */,
+				E25A1DCD14E04F3000DC0A67 /* AppDelegate.m */,
+				E2ABD05714706AE900E14474 /* RootViewController.h */,
+				E2ABD05814706AE900E14474 /* RootViewController.m */,
+				E2ABD05D14706AE900E14474 /* GameConfig.h */,
+				E2ABD05014706AE900E14474 /* Supporting Files */,
+				E2ABCF1714706AE600E14474 /* libs */,
+				E2ABCF0314706AE600E14474 /* Resources */,
+				E2ABCEF114706AE600E14474 /* Frameworks */,
+				E2ABCEEF14706AE600E14474 /* Products */,
+			);
+			name = "Random Garb";
+			sourceTree = "<group>";
+		};
 		E2084CBC14A3FE2900C699A9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,12 +821,7 @@
 				E21254E614B60FE600A0CA61 /* Terrain.m */,
 				E25EC50814D96C0200C750D2 /* Lemming.h */,
 				E25EC50914D96C0200C750D2 /* Lemming.m */,
-				E28EF23614C2F94700B44A00 /* QLearningAgent.h */,
-				E28EF23714C2F94700B44A00 /* QLearningAgent.m */,
-				E25A1DD314E0503500DC0A67 /* DecisionTreeAgent.h */,
-				E25A1DD414E0503600DC0A67 /* DecisionTreeAgent.m */,
-				E20153D114EFC89800DC2A0F /* ShortestRouteAgent.h */,
-				E20153D214EFC89800DC2A0F /* ShortestRouteAgent.m */,
+				E20153DE14F130A400DC2A0F /* CogitoAgents */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -929,6 +964,8 @@
 				E2613FE5149AC2E000356C98 /* MainMenuScene.m */,
 				E2389A4E149BA2AF004DCA32 /* NewGameScene.h */,
 				E2389A4D149BA2AE004DCA32 /* NewGameScene.m */,
+				E211D09714C8F6E700970AEC /* InstructionsScene.h */,
+				E211D09814C8F6E700970AEC /* InstructionsScene.m */,
 			);
 			name = Menu;
 			path = src/Scenes/Menu;
@@ -978,21 +1015,10 @@
 		E2ABCEE314706AE600E14474 = {
 			isa = PBXGroup;
 			children = (
-				E2613FC0149A6D3D00356C98 /* Fonts */,
-				E21FA55E1479B66800519BF6 /* Plists */,
-				E2ABD06514706B1100E14474 /* Images */,
+				E2077B2614F18AC800816223 /* Media */,
 				E2ABCF0214706AE600E14474 /* Classes */,
 				E25A1DCF14E04FBF00DC0A67 /* Utils */,
-				E25A1DCC14E04F2F00DC0A67 /* AppDelegate.h */,
-				E25A1DCD14E04F3000DC0A67 /* AppDelegate.m */,
-				E2ABD05714706AE900E14474 /* RootViewController.h */,
-				E2ABD05814706AE900E14474 /* RootViewController.m */,
-				E2ABD05D14706AE900E14474 /* GameConfig.h */,
-				E2ABD05014706AE900E14474 /* Supporting Files */,
-				E2ABCF1714706AE600E14474 /* libs */,
-				E2ABCF0314706AE600E14474 /* Resources */,
-				E2ABCEF114706AE600E14474 /* Frameworks */,
-				E2ABCEEF14706AE600E14474 /* Products */,
+				E2077B2714F18AE100816223 /* Random Garb */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1454,9 +1480,9 @@
 				E2389A1B149B7146004DCA32 /* Menu */,
 				E2E8C78314706ED6004D07E1 /* BackgroundLayer.h */,
 				E2E8C78414706ED6004D07E1 /* BackgroundLayer.m */,
-				E2389A26149B8CC4004DCA32 /* GameOverLayer.h */,
 				E2E8C78914706F54004D07E1 /* GameplayLayer.h */,
 				E2E8C78A14706F54004D07E1 /* GameplayLayer.m */,
+				E2389A26149B8CC4004DCA32 /* GameOverLayer.h */,
 				E2389A27149B8CC4004DCA32 /* GameOverLayer.m */,
 				E2084CB914A3580000C699A9 /* PauseMenuLayer.h */,
 				E2084CBA14A3580000C699A9 /* PauseMenuLayer.m */,
@@ -1474,8 +1500,6 @@
 				E2E8C78C14706F54004D07E1 /* GameScene.m */,
 				E2613FEA149AC3C200356C98 /* GameOverScene.h */,
 				E2613FEB149AC3C200356C98 /* GameOverScene.m */,
-				E211D09714C8F6E700970AEC /* InstructionsScene.h */,
-				E211D09814C8F6E700970AEC /* InstructionsScene.m */,
 				E226863C14A0D90C0020B44E /* StingScene.h */,
 				E226863B14A0D90C0020B44E /* StingScene.m */,
 			);

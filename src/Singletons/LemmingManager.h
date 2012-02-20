@@ -1,10 +1,8 @@
 //
 //  LemmingManager.h
-//  Cogito
+//  Author: Thomas Taylor
 //
 //  Manages the Lemmings in the game
-//
-//  TODO: add/removeLemming: Change variable type to Lemming
 //
 //  15/12/2011: Created class
 //

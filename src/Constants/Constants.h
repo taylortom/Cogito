@@ -37,7 +37,7 @@
 
 // Learning-related
 #define kLearningType               kLearningTree
-#define KLearningEpisodes           3
+#define KLearningEpisodes           5
 #define kLearningRandomProbability  0.0f
 
 // Q learning-related
