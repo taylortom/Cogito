@@ -8,19 +8,17 @@
 //
 
 #import "AgentStats.h"
+#import "CogitoAgent.h"
 #import "KnowledgeBase.h"
-#import "Lemming.h"
 #import "QState.h"
 
-@interface QLearningAgent : Lemming
+@interface QLearningAgent : CogitoAgent
 
 {
     CCArray* gameStates;
     
     QState* currentState;
-    Action currentAction;
-    
-    BOOL learningMode;
+    Action currentAction;    
 }
 
 @end

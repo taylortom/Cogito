@@ -76,5 +76,6 @@
 -(int)respawns;
 -(void)onObjectCollision:(GameObject*)_object;
 -(void)onEndConditionReached;
+-(void)updateDebugLabel;
 
 @end

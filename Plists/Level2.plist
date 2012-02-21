@@ -153,9 +153,9 @@
 		<key>objectType</key>
 		<string>terrainEnd</string>
 		<key>x</key>
-		<integer>175</integer>
+		<integer>177</integer>
 		<key>y</key>
-		<integer>109</integer>
+		<integer>107</integer>
 		<key>filename</key>
 		<string>terrainEnd</string>
 	</dict>
@@ -166,9 +166,9 @@
 		<key>objectType</key>
 		<string>terrainEnd</string>
 		<key>x</key>
-		<integer>410</integer>
+		<integer>412</integer>
 		<key>y</key>
-		<integer>109</integer>
+		<integer>107</integer>
 		<key>filename</key>
 		<string>terrainEnd</string>
 	</dict>

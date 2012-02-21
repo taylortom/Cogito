@@ -250,7 +250,6 @@
     return state;
 }
 
-
 /**
  * Loads a plist with the passed filename
  * @param the filename of the plist

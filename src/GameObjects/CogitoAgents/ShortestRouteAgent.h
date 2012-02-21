@@ -8,11 +8,11 @@
 //
 
 #import "AgentStats.h"
-#import "Lemming.h"
+#import "CogitoAgent.h"
 #import "Route.h"
 #import "State.h"
 
-@interface ShortestRouteAgent : Lemming
+@interface ShortestRouteAgent : CogitoAgent
 
 {
     CCArray* routes;        // list of all taken routes
@@ -20,9 +20,7 @@
     
     // shortest route vars
     Route* optimumRoute;  
-    int optimumRouteIndex;
-    
-    BOOL learningMode;
+    int optimumRouteIndex;    
 }
 
 @end

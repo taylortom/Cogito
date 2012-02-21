@@ -10,6 +10,8 @@
 		E20153D314EFC89800DC2A0F /* ShortestRouteAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E20153D214EFC89800DC2A0F /* ShortestRouteAgent.m */; };
 		E20153D714EFD9DC00DC2A0F /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = E20153D514EFD9DC00DC2A0F /* Route.m */; };
 		E20153DA14F01FC600DC2A0F /* KnowledgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E20153D914F01FC600DC2A0F /* KnowledgeBase.m */; };
+		E2077B2A14F2BA9E00816223 /* AgentStats.m in Sources */ = {isa = PBXBuildFile; fileRef = E2077B2914F2BA9E00816223 /* AgentStats.m */; };
+		E2077B2D14F2ECDA00816223 /* CogitoAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E2077B2C14F2ECD900816223 /* CogitoAgent.m */; };
 		E2084C9D14A2913200C699A9 /* MenuPopup-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084C9B14A2913200C699A9 /* MenuPopup-hd.png */; };
 		E2084C9E14A2913200C699A9 /* MenuPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084C9C14A2913200C699A9 /* MenuPopup.png */; };
 		E2084CA014A2914900C699A9 /* GameRating_A-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084C9F14A2914900C699A9 /* GameRating_A-hd.png */; };
@@ -263,6 +265,10 @@
 		E20153D614EFD9DC00DC2A0F /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Route.h; path = Objects/Route.h; sourceTree = "<group>"; };
 		E20153D814F01FC600DC2A0F /* KnowledgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeBase.h; sourceTree = "<group>"; };
 		E20153D914F01FC600DC2A0F /* KnowledgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeBase.m; sourceTree = "<group>"; };
+		E2077B2814F2BA9E00816223 /* AgentStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgentStats.h; sourceTree = "<group>"; };
+		E2077B2914F2BA9E00816223 /* AgentStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgentStats.m; sourceTree = "<group>"; };
+		E2077B2B14F2ECD900816223 /* CogitoAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CogitoAgent.h; sourceTree = "<group>"; };
+		E2077B2C14F2ECD900816223 /* CogitoAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CogitoAgent.m; sourceTree = "<group>"; };
 		E2084C9B14A2913200C699A9 /* MenuPopup-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuPopup-hd.png"; sourceTree = "<group>"; };
 		E2084C9C14A2913200C699A9 /* MenuPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuPopup.png; sourceTree = "<group>"; };
 		E2084C9F14A2914900C699A9 /* GameRating_A-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameRating_A-hd.png"; sourceTree = "<group>"; };
@@ -684,6 +690,8 @@
 		E20153DE14F130A400DC2A0F /* CogitoAgents */ = {
 			isa = PBXGroup;
 			children = (
+				E2077B2B14F2ECD900816223 /* CogitoAgent.h */,
+				E2077B2C14F2ECD900816223 /* CogitoAgent.m */,
 				E28EF23614C2F94700B44A00 /* QLearningAgent.h */,
 				E28EF23714C2F94700B44A00 /* QLearningAgent.m */,
 				E25A1DD314E0503500DC0A67 /* DecisionTreeAgent.h */,
@@ -704,7 +712,7 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
-		E2077B2714F18AE100816223 /* Random Garb */ = {
+		E2077B2714F18AE100816223 /* Garb */ = {
 			isa = PBXGroup;
 			children = (
 				E25A1DCC14E04F2F00DC0A67 /* AppDelegate.h */,
@@ -718,7 +726,7 @@
 				E2ABCEF114706AE600E14474 /* Frameworks */,
 				E2ABCEEF14706AE600E14474 /* Products */,
 			);
-			name = "Random Garb";
+			name = Garb;
 			sourceTree = "<group>";
 		};
 		E2084CBC14A3FE2900C699A9 /* Settings */ = {
@@ -833,6 +841,8 @@
 				E2613FE2149ABD5300356C98 /* GameManager.m */,
 				E25EC50514D96BD600C750D2 /* LemmingManager.h */,
 				E25EC50614D96BD600C750D2 /* LemmingManager.m */,
+				E2077B2814F2BA9E00816223 /* AgentStats.h */,
+				E2077B2914F2BA9E00816223 /* AgentStats.m */,
 				E20153D814F01FC600DC2A0F /* KnowledgeBase.h */,
 				E20153D914F01FC600DC2A0F /* KnowledgeBase.m */,
 			);
@@ -1018,7 +1028,7 @@
 				E2077B2614F18AC800816223 /* Media */,
 				E2ABCF0214706AE600E14474 /* Classes */,
 				E25A1DCF14E04FBF00DC0A67 /* Utils */,
-				E2077B2714F18AE100816223 /* Random Garb */,
+				E2077B2714F18AE100816223 /* Garb */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1805,6 +1815,8 @@
 				E20153D314EFC89800DC2A0F /* ShortestRouteAgent.m in Sources */,
 				E20153D714EFD9DC00DC2A0F /* Route.m in Sources */,
 				E20153DA14F01FC600DC2A0F /* KnowledgeBase.m in Sources */,
+				E2077B2A14F2BA9E00816223 /* AgentStats.m in Sources */,
+				E2077B2D14F2ECDA00816223 /* CogitoAgent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -145,7 +145,8 @@ static LemmingManager* _instance = nil;
     float totalPenalty = timePenalty + deathPenalty;
     
     // calculate the score
-    float score = baseScore + (totalBonus-totalPenalty);
+    //float score = baseScore + (totalBonus-totalPenalty);
+    float score = baseScore - totalPenalty;
     
     CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", totalBonus, totalPenalty, score);
     

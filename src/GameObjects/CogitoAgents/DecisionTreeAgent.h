@@ -9,10 +9,10 @@
 //
 
 #import "AgentStats.h"
-#import "Lemming.h"
+#import "CogitoAgent.h"
 #import "TreeState.h"
 
-@interface DecisionTreeAgent : Lemming
+@interface DecisionTreeAgent : CogitoAgent
 
 {
     CCArray* gameStates;
@@ -22,9 +22,7 @@
     Action currentAction;
     
     CCArray* optimumRoute;
-    int optimumRouteIndex;
-    
-    BOOL learningMode;
+    int optimumRouteIndex;    
 }
 
 @end

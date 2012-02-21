@@ -250,11 +250,11 @@
             
         case kActionDownUmbrella:
             isUsingUmbrella = YES;
-            [self performSelector:@selector(useUmbrella) withObject:nil afterDelay:1.5f];
+            [self performSelector:@selector(useUmbrella) withObject:nil afterDelay:2.0f];
             break;
             
         case kActionDown:
-            [self changeState:kStateFalling afterDelay:1.5f];
+            [self changeState:kStateFalling afterDelay:2.0f];
             break;
             
         default:
@@ -508,13 +508,9 @@
 {    
     CGPoint newPosition = [self position];
     
-    //NSString *debugString = [NSString stringWithFormat:@"ID: %i Health: %i \n", self.ID, self.health];
-    //NSString *debugString = [Utils getStateAsString:self.state];
-    NSString *debugString = [NSString stringWithFormat:@"x: %f y: %f \n Health: %i \n", newPosition.x, newPosition.y, self.health];
+    [debugLabel setString:@""];
     
-    [debugLabel setString:debugString];
-    
-    float yOffset = 30.0f;
+    float yOffset = 20.0f;
     newPosition = ccp(newPosition.x, newPosition.y+yOffset);
     [debugLabel setPosition:newPosition];    
 }
