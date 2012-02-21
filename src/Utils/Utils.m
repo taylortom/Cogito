@@ -12,6 +12,20 @@
 @implementation Utils
 
 /**
+ * Generates a random number between the min and max.
+ * _min is included, _max isn't
+ * @param the lower bound
+ * @param the upper bound
+ * @param the random number
+ */
++(int)generateRandomNumberFrom:(int)_min to:(int)_max
+{
+    _max = _max - _min;
+    int randomNumber = (arc4random() % _max) + _min;
+    return randomNumber;
+}
+
+/**
  * Returns the passed MovementDecision enum as a string
  * @param the action to convert
  * @return the string equivalent

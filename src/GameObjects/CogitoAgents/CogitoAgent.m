@@ -52,7 +52,7 @@
 {
     Action action = -1;
     
-    int randomIndex = arc4random() % [_actions count];  
+    int randomIndex = [Utils generateRandomNumberFrom:0 to:[_actions count]];  
     action = [[_actions objectAtIndex:randomIndex] intValue];
     
     return action;

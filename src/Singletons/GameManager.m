@@ -150,7 +150,7 @@ static int secondsPlayed;
     }
         
     // pick a random index and set it as the current level
-    int randomIndex = arc4random() % [tempLevels count];    
+    int randomIndex = [Utils generateRandomNumberFrom:0 to:[tempLevels count]];
     currentLevel = [tempLevels objectAtIndex:randomIndex];
 }
 

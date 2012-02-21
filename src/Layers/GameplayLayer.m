@@ -183,7 +183,7 @@
         {                
             case kLearningMixed:
                 // randomly choose a learning type
-                learningType = arc4random() % kLearningMixed; 
+                learningType = [Utils generateRandomNumberFrom:0 to:kLearningMixed]; 
                 break;
                 
             case kLearningReinforcement:

@@ -72,7 +72,7 @@
     if(!endConditionReached)
     {
         // uses the Constant to randomise actions  
-        int randomNumber = arc4random() % (int)(1/kLearningRandomProbability);
+        int randomNumber = [Utils generateRandomNumberFrom:0 to:(int)(1/kLearningRandomProbability)];
         BOOL chooseRandom = (randomNumber == 0) ? chooseRandom = YES : NO;
         if(kLearningRandomProbability == 0.0f) chooseRandom = NO;
                 

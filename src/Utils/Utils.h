@@ -12,6 +12,7 @@
 
 @interface Utils : NSObject
 
++(int)generateRandomNumberFrom:(int)_min to:(int)_max;
 +(NSString*)getActionAsString:(Action)_action;
 +(NSString*)getBooleanAsString:(BOOL)_bool;
 +(NSString*)getLearningTypeAsString:(MachineLearningType)_learningType;
