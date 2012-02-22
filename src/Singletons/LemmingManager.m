@@ -120,7 +120,11 @@ static LemmingManager* _instance = nil;
     [_lemmingToRemove removeAllChildrenWithCleanup:YES];
     [_lemmingToRemove removeFromParentAndCleanup:YES];
     
-    if([self lemmingCount] == 0) [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
+    if([self lemmingCount] == 0) 
+    {
+        [[DataManager sharedDataManager] addCurrentGameData];
+        [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
+    }
 }
 
 #pragma mark -
@@ -149,9 +153,6 @@ static LemmingManager* _instance = nil;
     float score = baseScore - totalPenalty;
     
     CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", totalBonus, totalPenalty, score);
-    
-    CCLOG(@"Learning:     Time: %i Actions: %i", [[AgentStats sharedAgentStats] averageTimeLearning], [[AgentStats sharedAgentStats] averageActionsLearning]);
-    CCLOG(@"Non-learning: Time: %i Actions: %i", [[AgentStats sharedAgentStats] averageTimeNonLearning], [[AgentStats sharedAgentStats] averageActionsNonLearning]);
     
     // convert score into rating
     if(score > 79) return kRatingA;

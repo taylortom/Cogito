@@ -14,6 +14,7 @@
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
 #import "Lemming.h"
+#import "DataManager.h"
 
 @interface LemmingManager : NSObject
 
