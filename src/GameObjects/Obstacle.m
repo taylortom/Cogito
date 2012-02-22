@@ -27,7 +27,7 @@
  * @param filename
  * @return self
  */
-- (id)initObstacleType:(GameObjectType)_type withPosition:(CGPoint)_position andFilename:(NSString*)_filename;
+- (id)initObstacleType:(GameObjectType)_type withPosition:(CGPoint)_position andFilename:(NSString*)_filename
 {    
     self = [super init];
     

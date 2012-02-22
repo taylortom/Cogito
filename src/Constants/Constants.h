@@ -10,7 +10,9 @@
 #ifndef Cogito_Constants_h
 #define Cogito_Constants_h
 
-#define DEBUG_MODE                  YES
+#define kProjectName                @"Cogito"
+
+#define DEBUG_MODE                  NO
 
 #define kFrameRate                  60.0f
 
@@ -32,12 +34,12 @@
 #define kLemmingFallAmount          15
 #define kLemmingFallTime            0.8f
 #define kLemmingRespawns            0
-#define kLemmingTotal               15
+#define kLemmingTotal               20
 #define kLemmingSpawnSpeed          1.5f
 
 // Learning-related
-#define kLearningType               kLearningShortestRoute
-#define KLearningEpisodes           5
+#define kLearningType               kLearningReinforcement
+#define KLearningEpisodes           1
 #define kLearningRandomProbability  0.0f
 
 // Q learning-related

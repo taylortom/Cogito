@@ -478,7 +478,8 @@
     if(self.state == kStateFalling) fallCounter++;
     if(umbrellaEquipped) umbrellaTimer++;
     
-    if(DEBUG_MODE) [self updateDebugLabel];
+    //if(DEBUG_MODE) [self updateDebugLabel];
+    [self updateDebugLabel];
     
     [super updateStateWithDeltaTime:_deltaTime andListOfGameObjects:_listOfGameObjects];
 

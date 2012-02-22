@@ -25,7 +25,7 @@
  * Initialises the layer
  * @return self
  */
--(id)init 
+-(id)init
 {
 	self = [super init];
     

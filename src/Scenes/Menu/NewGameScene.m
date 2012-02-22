@@ -18,7 +18,7 @@
  * Initialises the scene
  * @return self
  */
--(id)init 
+-(id)init
 {
 	self = [super init];
 

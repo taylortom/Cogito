@@ -65,7 +65,6 @@
  */
 -(void)buildMainMenu
 {
-    
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
     //create the menu buttons
@@ -99,8 +98,7 @@
  */
 -(void)onNewGameButtonPressed
 {
-//    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
-    [[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
+    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
 }
 
 /**
