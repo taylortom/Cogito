@@ -133,6 +133,8 @@
     [menuPopup setPosition: ccp(winSize.width/2, 0-winSize.height*0.05)];
     id animateInAction = [CCMoveTo actionWithDuration:0.20f position:ccp(winSize.width/2, winSize.height)];
     id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:0.20f];
+    id pauseGame = [CCCallFunc actionWithTarget:self selector:@selector(pauseGame)];
+    easeEffectAction = [CCSequence actions:easeEffectAction, pauseGame, nil];
     [menuPopup runAction:easeEffectAction];
 }
 
@@ -141,6 +143,8 @@
  */
 -(void)animateOut
 {
+    [[GameManager sharedGameManager] resumeGame];
+    
     CGSize winSize = [CCDirector sharedDirector].winSize; 
     
     [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:0]];
@@ -150,8 +154,18 @@
     [menuPopup runAction:animateOutAction];  
 }
 
+/**
+ * Pauses the game
+ * Called at the end on the animation
+ */ 
+-(void)pauseGame
+{
+    [[GameManager sharedGameManager] pauseGame];
+}
+
 #pragma mark -
 #pragma mark Event Handling
+
 
 /**
  * Hide the menu and resume the game

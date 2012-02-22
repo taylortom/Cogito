@@ -16,13 +16,6 @@
 #import "NewGameScene.h"
 #import "StingScene.h"
 
-@interface GameManager()
-
--(void)pauseSchedulerAndActionsRecursive:(CCNode *)node;
--(void)resumeSchedulerAndActionsRecursive:(CCNode *)node;
-
-@end
-
 @implementation GameManager
 
 @synthesize currentScene;
@@ -214,39 +207,21 @@ static int secondsPlayed;
 }
 
 /**
- * Pauses all nodes in the running scene
+ * Pauses the running scene
  */
 -(void)pauseGame
 {
-    [self pauseSchedulerAndActionsRecursive:[CCDirector sharedDirector].runningScene];
+    [[CCDirector sharedDirector] pause];
     gamePaused = YES;
 }
 
 /**
- * Resumes all nodes in the running scene
+ * Resumes the running scene
  */
 -(void)resumeGame
 {
-    [self resumeSchedulerAndActionsRecursive:[CCDirector sharedDirector].runningScene];
+    [[CCDirector sharedDirector] resume];
     gamePaused = NO;
-}
-
-/**
- * Recursively calls pauseSchedulerAndActions to every child of the passed CCNode 
- */
--(void)pauseSchedulerAndActionsRecursive:(CCNode *)node 
-{
-    [node pauseSchedulerAndActions];
-    for (CCNode *child in [node children]) [self pauseSchedulerAndActionsRecursive:child];
-}
-
-/**
- * Recursively calls resumeSchedulerAndActions to every child of the passed CCNode 
- */
--(void)resumeSchedulerAndActionsRecursive:(CCNode *)node 
-{
-    [node resumeSchedulerAndActions];
-    for (CCNode *child in [node children]) [self resumeSchedulerAndActionsRecursive:child];
 }
 
 #pragma mark -

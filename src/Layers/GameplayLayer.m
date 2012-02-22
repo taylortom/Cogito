@@ -260,11 +260,7 @@
         [self addChild:pauseMenu z:kPauseMenuZValue];
     }
     
-    if(![[GameManager sharedGameManager] gamePaused])
-    {
-        [[GameManager sharedGameManager] pauseGame];
-        [pauseMenu animateIn];
-    }
+    if(![[GameManager sharedGameManager] gamePaused]) [pauseMenu animateIn];
 }
 
 /**
