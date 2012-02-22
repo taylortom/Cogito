@@ -26,6 +26,62 @@
 }
 
 /**
+ * Gets the current date/time as an NSString.
+ * @param the format of the string
+ * @return the timestamp string
+ */
++(NSString*)getTimeStampWithFormat:(NSString*)_format
+{
+    // set up the format
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:_format];
+    
+    // create the string
+    NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+    [dateFormatter release];
+    
+    return dateString;
+}
+
+/**
+ * Loads a plist with the passed filename
+ * @param the filename of the plist
+ */
++(NSDictionary*)loadPlistFromFile:(NSString*)_filename
+{
+    NSString *plistPath;
+    
+    // Get path to plist file
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%.plist", _filename]];
+    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:_filename ofType:@"plist"];
+    
+    // Read the plist file and return the dictionary
+    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    return plistDictionary;
+}
+
+/**
+ * Prints out a list of all availiable fonts
+ * (in alphabetical order)
+ */
++(void)listAvailableFonts
+{
+    NSMutableArray *fontNames = [[NSMutableArray alloc] init];
+    NSArray *fontFamilyNames = [UIFont familyNames];
+    
+    for (NSString *familyName in fontFamilyNames) 
+    {
+        NSArray *names = [UIFont fontNamesForFamilyName:familyName];
+        [fontNames addObjectsFromArray:names];
+    }
+    
+    [fontNames sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSLog(@"%@", fontNames);
+    [fontNames release];
+}
+
+/**
  * Returns the passed MovementDecision enum as a string
  * @param the action to convert
  * @return the string equivalent
@@ -262,44 +318,6 @@
     }
     
     return state;
-}
-
-/**
- * Loads a plist with the passed filename
- * @param the filename of the plist
- */
-+(NSDictionary*)loadPlistFromFile:(NSString*)_filename
-{
-    NSString *plistPath;
-    
-    // Get path to plist file
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [rootPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%.plist", _filename]];
-    if(![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) plistPath = [[NSBundle mainBundle] pathForResource:_filename ofType:@"plist"];
-    
-    // Read the plist file and return the dictionary
-    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    return plistDictionary;
-}
-
-/**
- * Prints out a list of all availiable fonts
- * (in alphabetical order)
- */
-+(void)listAvailableFonts
-{
-    NSMutableArray *fontNames = [[NSMutableArray alloc] init];
-    NSArray *fontFamilyNames = [UIFont familyNames];
-    
-    for (NSString *familyName in fontFamilyNames) 
-    {
-        NSArray *names = [UIFont fontNamesForFamilyName:familyName];
-        [fontNames addObjectsFromArray:names];
-    }
-    
-    [fontNames sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    NSLog(@"%@", fontNames);
-    [fontNames release];
 }
 
 @end

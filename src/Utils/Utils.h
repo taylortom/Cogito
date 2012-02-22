@@ -13,13 +13,14 @@
 @interface Utils : NSObject
 
 +(int)generateRandomNumberFrom:(int)_min to:(int)_max;
++(NSString*)getTimeStampWithFormat:(NSString*)_format;
++(NSDictionary*)loadPlistFromFile:(NSString*)_filename;
++(void)listAvailableFonts;
 +(NSString*)getActionAsString:(Action)_action;
 +(NSString*)getBooleanAsString:(BOOL)_bool;
 +(NSString*)getLearningTypeAsString:(MachineLearningType)_learningType;
 +(NSString*)getObjectAsString:(GameObjectType)_object;
 +(NSString*)getRatingAsString:(GameRating)_rating;
 +(NSString*)getStateAsString:(CharacterStates)_state;
-+(NSDictionary*)loadPlistFromFile:(NSString*)_filename;
-+(void)listAvailableFonts;
 
 @end
