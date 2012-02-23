@@ -44,6 +44,34 @@
 }
 
 /**
+ * Converts a passed RBG colour into  UIColor
+ * @param red value
+ * @param green value
+ * @param blue value
+ * @return the UIColor
+ */
++(UIColor*)getUIColourFromRed:(int)_red green:(int)_green blue:(int)_blue
+{
+    return [UIColor colorWithRed:(float)_red/255.0 green:(float)_green/255.0 blue:(float)_blue/255.0 alpha:1.0];
+}
+
+/**
+ * Converts seconds into a minute string
+ * @param the seconds
+ * @return the minutes/seconds as a string
+ */
++(NSString*)secondsToMinutes:(int)_seconds
+{
+    int quotient = floor(_seconds/60);
+    int remainder = fmod(_seconds, 60);
+    
+    NSString* quotientString = (quotient < 10) ? [NSString stringWithFormat:@"0%i", quotient] : [NSString stringWithFormat:@"%i", quotient];
+    NSString* remainderString = (remainder < 10) ? [NSString stringWithFormat:@"0%i", remainder] : [NSString stringWithFormat:@"%i", remainder];
+    
+    return [NSString stringWithFormat:@"%@:%@", quotientString, remainderString];
+}
+
+/**
  * Loads a plist with the passed filename
  * @param the filename of the plist
  */
@@ -159,11 +187,11 @@
             break;
             
         case kLearningTree:
-            learningType = @"Tree";
+            learningType = @"Decision Tree";
             break;
             
         case kLearningShortestRoute:
-            learningType = @"ShortestRoute";
+            learningType = @"Shortest Route";
             break;
             
         case kLearningNone:

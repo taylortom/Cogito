@@ -14,6 +14,8 @@
 
 +(int)generateRandomNumberFrom:(int)_min to:(int)_max;
 +(NSString*)getTimeStampWithFormat:(NSString*)_format;
++(UIColor*)getUIColourFromRed:(int)_red green:(int)_green blue:(int)_blue;
++(NSString*)secondsToMinutes:(int)_seconds;
 +(NSDictionary*)loadPlistFromFile:(NSString*)_filename;
 +(void)listAvailableFonts;
 +(NSString*)getActionAsString:(Action)_action;
