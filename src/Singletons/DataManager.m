@@ -102,6 +102,7 @@ static DataManager* _instance = nil;
     int saved = [[LemmingManager sharedLemmingManager] lemmingsSaved];
     int killed = [[LemmingManager sharedLemmingManager] lemmingsKilled];
     int time = [[GameManager sharedGameManager] getGameTimeInSecs];
+    int learningEpisodes = [[LemmingManager sharedLemmingManager] learningEpisodes];
     int averageTimeLearning = [[AgentStats sharedAgentStats] averageTimeLearning];
     int averageTimeNonLearning = [[AgentStats sharedAgentStats] averageTimeNonLearning];
     int averageActionsLearning = [[AgentStats sharedAgentStats] averageActionsLearning];
@@ -113,6 +114,7 @@ static DataManager* _instance = nil;
                                 [NSNumber numberWithInt:saved], @"saved", 
                                 [NSNumber numberWithInt:killed], @"killed", 
                                 [NSNumber numberWithInt:time], @"time", 
+                                [NSNumber numberWithInt:learningEpisodes], @"learningEpisodes",
                                 [NSNumber numberWithInt:averageTimeLearning], @"averageTimeLearning",
                                 [NSNumber numberWithInt:averageTimeNonLearning], @"averageTimeNonLearning",
                                 [NSNumber numberWithInt:averageActionsLearning], @"averageActionsLearning",
@@ -187,7 +189,7 @@ static DataManager* _instance = nil;
     CCLOG(@"%@.clearGameData", NSStringFromClass([self class]));
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kProjectName];
-    [Utils getBooleanAsString:[[NSUserDefaults standardUserDefaults] synchronize]];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 /**
