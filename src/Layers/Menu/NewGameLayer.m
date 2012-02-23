@@ -12,7 +12,11 @@
 @interface NewGameLayer()
 
 -(void)initGUI;
-- (IBAction)onSliderUpdated:(UISlider*)sender;
+-(void)animateOutComponents;
+-(void)removeComponents;
+-(IBAction)onSliderUpdated:(UISlider*)sender;
+-(IBAction)onSwitchUpdated:(UISwitch*)sender;
+-(IBAction)onSegmentedControlUpdated:(UISegmentedControl*)sender;
 -(void)onContinueButtonPressed;
 
 @end
@@ -43,7 +47,7 @@
         debugMode = NO;
         learningType = kLearningReinforcement;
         
-        [self performSelector:@selector(initGUI) withObject:nil afterDelay:0.7f];
+        [self performSelector:@selector(initGUI) withObject:nil afterDelay:0.5f];
 	}
 
 	return self;
@@ -62,6 +66,7 @@
     
     // slider
     lemmingCountSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-220), 220, 50)];
+    [lemmingCountSlider setAlpha:0.0f];
     [lemmingCountSlider addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
     [lemmingCountSlider setValue:(float)kLemmingTotal/(float)kLemmingMax];
     [[[CCDirector sharedDirector] openGLView] addSubview:lemmingCountSlider];
@@ -83,6 +88,7 @@
     
     // slider
     learningEpisodesSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-180), 220, 50)];
+    [learningEpisodesSlider setAlpha:0.0f];
     [learningEpisodesSlider addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
     [learningEpisodesSlider setValue:(float)KLearningEpisodes/(float)KLearningMaxEpisodes];
     [[[CCDirector sharedDirector] openGLView] addSubview:learningEpisodesSlider];
@@ -99,11 +105,24 @@
     [self addChild:learningEpisodesLabel2];
     
     /**
+     * Segment control
+     */
+
+    learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Reinforcement", @"Decision Tree", @"Shortest Path", @"None", nil]];
+    [learningTypeControl setAlpha:0.0f];
+    [learningTypeControl addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
+    [learningTypeControl setFrame:CGRectMake(30, (320-120), 420, 50)];
+    learningTypeControl.selectedSegmentIndex = kLearningType;
+    [learningTypeControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [[[CCDirector sharedDirector] openGLView] addSubview:learningTypeControl];
+
+    /**
      * Debug mode switch
      */
     
     // switch
     debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(150, (320-50), 200, 50)];
+    [debugSwitch setAlpha:0.0f];
     [debugSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
     [[[CCDirector sharedDirector] openGLView] addSubview:debugSwitch];
     
@@ -113,23 +132,35 @@
     [self addChild:debugModeLabel];
     
     /**
-     * Segment control
-     */
-    // slider
-    learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Reinforcement", @"Decision Tree", @"Shortest Path", @"None", nil]];
-    [learningTypeControl addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
-    [learningTypeControl setFrame:CGRectMake(30, (320-120), 420, 50)];
-    learningTypeControl.selectedSegmentIndex = kLearningType;
-    [learningTypeControl setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [[[CCDirector sharedDirector] openGLView] addSubview:learningTypeControl];
-    
-    /**
      * Continue button
      */
     CCMenuItemImage *_continueButton = [CCMenuItemImage itemFromNormalImage:@"Continue.png" selectedImage:@"Continue_down.png" disabledImage:nil target:self selector:@selector(onContinueButtonPressed)];
     continueButton = [CCMenu menuWithItems:_continueButton, nil];
     [continueButton setPosition: ccp(410, 37)];
     [self addChild:continueButton z:100];
+    
+    // animate the UI components
+    
+    [UIView animateWithDuration:0.6f animations:^{ 
+        [lemmingCountSlider setAlpha:1.0f];
+        [lemmingCountSlider setAlpha:1.0f];
+        [learningEpisodesSlider setAlpha:1.0f];
+        [learningTypeControl setAlpha:1.0f];
+        [debugSwitch setAlpha:1.0f]; }
+                     completion:^(BOOL finished){if(finished){ CCLOG(@"Done!"); }}
+     ];
+}
+
+-(void)animateOutComponents
+{
+    [UIView animateWithDuration:0.6f animations:^{ 
+        [lemmingCountSlider setAlpha:0.0f];
+        [lemmingCountSlider setAlpha:0.0f];
+        [learningEpisodesSlider setAlpha:0.0f];
+        [learningTypeControl setAlpha:0.0f];
+        [debugSwitch setAlpha:0.0f]; }
+                     completion:^(BOOL finished){if(finished){ [self removeComponents]; }}
+     ];
 }
 
 /**
@@ -192,7 +223,7 @@
     [[LemmingManager sharedLemmingManager] setLearningEpisodes:learningEpisodes];
     [[GameManager sharedGameManager] setDebug:debugMode];
     
-    [self removeComponents];
+    [self animateOutComponents];
     
     // load the game scene
 	[[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
