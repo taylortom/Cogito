@@ -53,15 +53,18 @@
         [[LemmingManager sharedLemmingManager] reset];
         [[GameManager sharedGameManager] resetSecondCounter];
         
+        // create/ add the batch node
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", kFilenameDefAtlas]];
         sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png", kFilenameDefAtlas]];
-                
         [self addChild:sceneSpriteBatchNode z:0];
-        [self initDisplay]; // set up the labels/buttons
+        
+        // set up the labels/buttons
+        //[self initDisplay];
         
         // Get the level data from GameManager
         [[GameManager sharedGameManager] loadRandomLevel];
         
+        // initialise the terrain layer
         currentTerrainLayer = [[TerrainLayer alloc] init:[[GameManager sharedGameManager] currentLevel].name];
         [self addChild:currentTerrainLayer z:kTerrainZValue];
         
@@ -82,12 +85,12 @@
     
     // add the pause button
     
-    /*CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onPauseButtonPressed)];
+    CCMenuItem *pauseButton = [CCMenuItemImage itemFromNormalImage:@"Pause.png" selectedImage:@"Pause_down.png" target:self selector:@selector(onPauseButtonPressed)];
     pauseButton.position = ccp(40,30);
     gameplayMenu = [CCMenu menuWithItems:pauseButton, nil];
     gameplayMenu.position = CGPointZero;
     
-    [self addChild:gameplayMenu z:kUISpriteZValue];*/
+    [self addChild:gameplayMenu z:kUIZValue];
     
     // now add the labels
     

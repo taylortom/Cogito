@@ -83,6 +83,14 @@ static AgentStats* _instance = nil;
 }
 
 /**
+ * Increments the episode counter
+ */
+-(void)addEpisode
+{
+    episodesCompleted++;
+}
+
+/**
  * Adds an episode to the correct array for later analysis
  * @param time taken
  * @param actions performed
@@ -102,6 +110,8 @@ static AgentStats* _instance = nil;
         [nonLearningLengths addObject:[NSNumber numberWithInt:_time]];
         [nonLearningActions addObject:[NSNumber numberWithInt:_actions]];
     }
+    
+    [self addEpisode];
 }
 
 /**
@@ -158,6 +168,14 @@ static AgentStats* _instance = nil;
     average = average/[nonLearningActions count];
     
     return average;
+}
+
+/**
+ * Returns how many episodes have been completed
+ */
+-(int)episodesCompleted
+{
+    return episodesCompleted;
 }
 
 @end

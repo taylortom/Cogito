@@ -14,7 +14,9 @@
 -(void)initScreenlock;
 -(void)initTextOverlay;
 -(void)initPopup;
+-(void)initHUDText;
 -(void)initMenuButtons;
+-(void)updateHUDText;
 -(void)onResumePressed;
 -(void)onQuitPressed;
 
@@ -40,6 +42,7 @@
         [self initScreenlock];
         [self initTextOverlay];
         [self initPopup];
+        [self initHUDText];
         [self initMenuButtons];
         
         [self scheduleUpdate]; // set the update method to be called every frame
@@ -71,16 +74,41 @@
 }
 
 /**
+ * Adds the HUD text
+ */
+-(void)initHUDText
+{    
+    HUDTextLeft = [CCLabelBMFont labelWithString:@"" fntFile:@"bangla_light_HUD.fnt"];
+    [HUDTextLeft setAnchorPoint:ccp(0,1)];
+    [HUDTextLeft setPosition:ccp(45, 310)];
+    [HUDPopup addChild:HUDTextLeft];
+   
+    HUDTextRight = [CCLabelBMFont labelWithString:@"" fntFile:@"bangla_light_HUD.fnt"];
+    [HUDTextRight setAnchorPoint:ccp(1,1)];
+    [HUDTextRight setPosition:ccp(435, 310)];
+    [HUDPopup addChild:HUDTextRight];
+    
+    [self updateHUDText];
+}
+
+/**
  * Initialises the popup image
  */
 -(void)initPopup
 {
     CGSize winSize = [CCDirector sharedDirector].winSize; 
     
+    // menu
     menuPopup = [CCSprite spriteWithFile:@"MenuPopup.png"];
     [menuPopup setAnchorPoint:ccp(0.5,1)];
     [menuPopup setPosition:ccp(winSize.width/2, winSize.height/2)];
     [self addChild:menuPopup z:2];
+    
+    // HUD
+    HUDPopup = [CCSprite spriteWithFile:@"MenuHUD.png"];
+    [HUDPopup setAnchorPoint:ccp(0.5,0)];
+    [HUDPopup setPosition:ccp(winSize.width/2, winSize.height/2)];
+    [self addChild:HUDPopup z:3];
 }
 
 /**
@@ -117,6 +145,19 @@
 {
     animating = ([menuPopup numberOfRunningActions] != 0) ? YES : NO;
 }
+
+/**
+ * Updates the HUD display with the latest stats
+ */
+-(void)updateHUDText
+{
+    AgentStats* as = [AgentStats sharedAgentStats];
+    GameManager* gm = [GameManager sharedGameManager];
+    LemmingManager* lm = [LemmingManager sharedLemmingManager];
+    
+    [HUDTextLeft setString:[NSString stringWithFormat:@"Time elapsed: %@ \nLemmings remaining: %i \nLemmings saved: %i \nLemmings killed: %i", [gm getGameTimeInMins], [lm lemmingCount], [lm lemmingsSaved],[lm lemmingsKilled]]];
+    [HUDTextRight setString:[NSString stringWithFormat:@"Learning: %@\nEpisodes completed: %i \nAvg. time per episode: %@ \nAvg. actions per episode: %i", [Utils getLearningTypeAsString:[lm learningType]],[as episodesCompleted],[Utils secondsToMinutes:[as averageTimeLearning]],[as averageActionsLearning]]];
+}
     
 #pragma mark -
 
@@ -130,12 +171,19 @@
     [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:screenlockOpacity]];    
     [textOverlay runAction:[CCFadeIn actionWithDuration:0.15f]];
     
-    [menuPopup setPosition: ccp(winSize.width/2, 0-winSize.height*0.05)];
-    id animateInAction = [CCMoveTo actionWithDuration:0.20f position:ccp(winSize.width/2, winSize.height)];
-    id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:0.20f];
+    // menu animation
+    [menuPopup setPosition: ccp(winSize.width/2, winSize.height/2)];
+    id animateInAction = [CCMoveTo actionWithDuration:0.35f position:ccp(winSize.width/2, winSize.height)];
     id pauseGame = [CCCallFunc actionWithTarget:self selector:@selector(pauseGame)];
-    easeEffectAction = [CCSequence actions:easeEffectAction, pauseGame, nil];
-    [menuPopup runAction:easeEffectAction];
+    animateInAction = [CCSequence actions:animateInAction, pauseGame, nil];
+    [menuPopup runAction:animateInAction];
+    
+    [self updateHUDText];
+    
+    // HUD animation
+    [HUDPopup setPosition: ccp(winSize.width/2, winSize.height/2)];
+    id animateInActionHUD = [CCMoveTo actionWithDuration:0.35f position:ccp(winSize.width/2, 0)];
+    [HUDPopup runAction:animateInActionHUD];
 }
 
 /**
@@ -150,8 +198,13 @@
     [screenlock runAction:[CCFadeTo actionWithDuration:0.15f opacity:0]];
     [textOverlay runAction:[CCFadeOut actionWithDuration:0.15f]];
     
-    id animateOutAction = [CCMoveTo actionWithDuration:0.50f position:ccp(winSize.width/2, winSize.height*0.05)]; 
+    // menu animation
+    id animateOutAction = [CCMoveTo actionWithDuration:0.35f position:ccp(winSize.width/2, winSize.height/2)]; 
     [menuPopup runAction:animateOutAction];  
+    
+    // hud animation
+    id animateOutActionHUD = [CCMoveTo actionWithDuration:0.35f position:ccp(winSize.width/2, winSize.height/2)]; 
+    [HUDPopup runAction:animateOutActionHUD];  
 }
 
 /**

@@ -14,10 +14,15 @@
 @interface PauseMenuLayer : CCLayer
 
 {
-    CCSprite *menuPopup;
-    CCMenu *pauseButtons;
-    CCLayerColor *screenlock;
-    CCSprite *textOverlay;
+    CCSprite* menuPopup;
+    CCSprite* HUDPopup;
+    CCSprite* textOverlay;
+    
+    CCLabelBMFont* HUDTextLeft;
+    CCLabelBMFont* HUDTextRight;
+    
+    CCMenu* pauseButtons;
+    CCLayerColor* screenlock;
     int screenlockOpacity;
     
     BOOL animating;

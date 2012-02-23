@@ -157,6 +157,7 @@
     // add the data to AgentStats
     int length = [[GameManager sharedGameManager] getGameTimeInSecs] - spawnTime;
     if(self.state != kStateDead) [[AgentStats sharedAgentStats] addEpisodeWithLength:length andActions:actionsTaken learningMode:learningMode];
+    else [[AgentStats sharedAgentStats] addEpisode];
     
     if(learningMode) 
     {   

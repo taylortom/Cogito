@@ -13,6 +13,7 @@
 @interface AgentStats : NSObject
 
 {
+    int episodesCompleted;
     CCArray* learningLengths;
     CCArray* nonLearningLengths;
     CCArray* learningActions;
@@ -21,9 +22,11 @@
 
 +(AgentStats*)sharedAgentStats;
 -(void)addEpisodeWithLength:(int)_time andActions:(int)_actions learningMode:(BOOL)_learning;
+-(void)addEpisode;
 -(int)averageTimeLearning;
 -(int)averageTimeNonLearning;
 -(int)averageActionsLearning;
 -(int)averageActionsNonLearning;
+-(int)episodesCompleted;
 
 @end
