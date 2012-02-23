@@ -117,7 +117,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application 
 {
     [[NSUserDefaults standardUserDefaults] synchronize];
-	[[CCDirector sharedDirector] resume];
+	if(![[GameManager sharedGameManager] gamePaused]) [[CCDirector sharedDirector] resume];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
