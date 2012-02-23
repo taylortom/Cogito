@@ -32,7 +32,7 @@
         
         self.gameObjectType = _type;
         
-        if(_type == kObjectTerrainEnd && DEBUG_MODE) filename = [NSString stringWithFormat:@"%@%@.png", _filename, @"Fill"];  
+        if(_type == kObjectTerrainEnd && [[GameManager sharedGameManager] debug]) filename = [NSString stringWithFormat:@"%@%@.png", _filename, @"Fill"];  
         else filename = [NSString stringWithFormat:@"%@.png", _filename];
         
         isWall = _isWall;

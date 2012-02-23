@@ -211,7 +211,7 @@
         lemming.ID = ID;
         lemming.health = health;
         
-        if(DEBUG_MODE)
+        if([[GameManager sharedGameManager] debug])
         {
             CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFilenameDefFontDebug];
             [self addChild:debugLabel];

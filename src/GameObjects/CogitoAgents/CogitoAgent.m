@@ -24,7 +24,7 @@
     
     if (self != nil) 
     {
-        respawns = KLearningEpisodes;
+        respawns = [[LemmingManager sharedLemmingManager] learningEpisodes];
         learningMode = YES;
     }
     return self;

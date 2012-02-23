@@ -7,6 +7,7 @@
 //  05/01/2012: Created class
 //
 
+#import "GameManager.h"
 #import "GameObject.h"
 
 @interface Terrain : GameObject 

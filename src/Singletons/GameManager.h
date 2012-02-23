@@ -7,6 +7,7 @@
 //  15/12/2011: Created class
 //
 
+#import "cocos2d.h"
 #import "CommonDataTypes.h"
 #import <Foundation/Foundation.h>
 #import "Level.h"
@@ -19,6 +20,7 @@
     SceneTypes currentScene;
     Level* currentLevel;
     BOOL gamePaused;
+    BOOL debugMode;
 }
 
 @property (readonly) SceneTypes currentScene;
@@ -36,5 +38,7 @@
 -(void)resetSecondCounter;
 -(NSString*)getGameTimeInMins;
 -(int)getGameTimeInSecs;
+-(BOOL)debug;
+-(void)setDebug:(BOOL)_debug;
 
 @end

@@ -20,6 +20,7 @@
 
 {
     MachineLearningType learningType;
+    int learningEpisodes;
     int totalNumberOfLemmings;
     int lemmingsAdded;
     int lemmingsSaved;
@@ -33,9 +34,13 @@
 -(void)removeLemming:(CCSprite*)_lemmingToRemove;
 -(GameRating)calculateGameRating;
 -(MachineLearningType)learningType;
+-(void)setLearningType:(MachineLearningType)_learningType;
+-(int)learningEpisodes;
+-(void)setLearningEpisodes:(int)_learningEpisodes;
 -(CCArray*)lemmings;
 -(BOOL)lemmingsMaxed;
 -(int)lemmingCount;
+-(void)setTotalNumberOfLemmings:(int)_lemmingsTotal;
 -(int)lemmingsAdded;
 -(int)lemmingsSaved;
 -(int)lemmingsKilled;

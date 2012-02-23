@@ -52,9 +52,6 @@ static LemmingManager* _instance = nil;
     
     if (self != nil) 
     {
-        totalNumberOfLemmings = kLemmingTotal;
-        learningType = kLearningType;
-        
         [self reset];
     }
     
@@ -163,7 +160,7 @@ static LemmingManager* _instance = nil;
 }
 
 #pragma mark -
-#pragma mark Getters
+#pragma mark Getters/setters
 
 /**
  * Returns the type of machine learning being used
@@ -172,6 +169,33 @@ static LemmingManager* _instance = nil;
 -(MachineLearningType)learningType
 {
     return learningType;
+}
+
+/**
+ * Sets the learning type
+ * @param the learning type
+ */
+-(void)setLearningType:(MachineLearningType)_learningType
+{
+    learningType = _learningType;
+}
+
+/**
+ * Returns the number of learning episodes
+ * @return number of episodes
+ */
+-(int)learningEpisodes
+{
+    return learningEpisodes;
+}
+
+/**
+ * Sets the number of learning episodes
+ * @param number of learning episodes
+ */
+-(void)setLearningEpisodes:(int)_learningEpisodes
+{
+    learningEpisodes = _learningEpisodes;
 }
 
 /**
@@ -201,6 +225,11 @@ static LemmingManager* _instance = nil;
 -(int)lemmingCount
 {
     return [lemmings count];
+}
+
+-(void)setTotalNumberOfLemmings:(int)_lemmingsTotal
+{
+    totalNumberOfLemmings = _lemmingsTotal;
 }
 
 /**

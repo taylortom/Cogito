@@ -65,6 +65,9 @@ static int secondsPlayed;
     
     if (self != nil) 
     {
+        // set the framerate
+        [[CCDirector sharedDirector] setAnimationInterval:1.0/kFrameRate];
+        
         currentScene = kNoSceneUninitialised; 
         levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
@@ -171,13 +174,16 @@ static int secondsPlayed;
         
         case kNewGameScene:
             sceneToRun = [NewGameScene node];
+            //sceneToRun = [GameScene node];
             break;
        
         case kInstructionsScene:
+            [[DataManager sharedDataManager] clearGameData];
             sceneToRun = [InstructionsScene node];
             break;
             
         case kAboutScene:
+            [[DataManager sharedDataManager] printData];
             sceneToRun = [AboutScene node];
             break;
             
@@ -203,7 +209,10 @@ static int secondsPlayed;
     // do we need to replace the scene?
     if([[CCDirector sharedDirector] runningScene] == nil) [[CCDirector sharedDirector] runWithScene:sceneToRun];
     else if(sceneID == kMainMenuScene) [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:0.75 scene:sceneToRun]];
-    else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];    
+    else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];
+    
+    // whether to display the FPS
+    if(debugMode) [[CCDirector sharedDirector] setDisplayFPS:YES];
 }
 
 /**
@@ -265,6 +274,22 @@ static int secondsPlayed;
 -(int)getGameTimeInSecs
 {
     return secondsPlayed;
+}
+
+/**
+ * Whether debug mode is on
+ */
+-(BOOL)debug
+{
+    return debugMode;
+}
+
+/**
+ * Enables/disables debug mode
+ */
+-(void)setDebug:(BOOL)_debug
+{
+    debugMode = _debug;
 }
 
 @end

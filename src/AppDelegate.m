@@ -86,9 +86,6 @@
 	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
 #endif
 	
-	[director setAnimationInterval:1.0/kFrameRate];
-	if(DEBUG_MODE) [director setDisplayFPS:YES];
-	
 	// make the OpenGLView a child of the view controller
 	[viewController setView:glView];
 	
@@ -117,7 +114,9 @@
 	[[CCDirector sharedDirector] pause];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application 
+{
+    [[NSUserDefaults standardUserDefaults] synchronize];
 	[[CCDirector sharedDirector] resume];
 }
 
