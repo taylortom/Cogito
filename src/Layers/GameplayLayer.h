@@ -27,6 +27,7 @@
     CCSpriteBatchNode *sceneSpriteBatchNode;
     
     CCMenu *gameplayMenu;
+    CCSprite* pauseInstructions;
     CCLabelBMFont *lemmingText;
     CCLabelBMFont *timeText;
     

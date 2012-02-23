@@ -13,6 +13,7 @@
 @interface GameplayLayer()
 
 -(void)initDisplay;
+-(void)showPauseInstructions;
 -(void)update:(ccTime)deltaTime;
 -(NSString*)getUpdatedLemmingString;
 -(NSString*)getUpdatedTimeString;
@@ -70,6 +71,8 @@
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings
         [self scheduleUpdate]; // set the update method to be called every frame
+        
+        [self showPauseInstructions];
     }
             
     return self;
@@ -103,6 +106,34 @@
     [timeText setAnchorPoint:ccp(1,1)];
     [timeText setPosition:ccp(winSize.width-10, winSize.height-30)];
     [self addChild:timeText z:kUIZValue];
+}
+
+/**
+ * Adds and shows the pause instructions
+ */
+-(void)showPauseInstructions
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    // add the image
+    pauseInstructions = [CCSprite spriteWithFile:@"PauseInstructions.png"];
+    [pauseInstructions setAnchorPoint:ccp(0.5, 1)];
+    [pauseInstructions setPosition:ccp(winSize.width/2, winSize.height+115)];
+    [self addChild:pauseInstructions z:kUIZValue];
+    
+    // animation
+    id delay = [CCDelayTime actionWithDuration:1.5f];
+    id animateInAction = [CCMoveTo actionWithDuration:0.75f position:ccp(winSize.width/2, winSize.height)];
+    id longDelay = [CCDelayTime actionWithDuration:3.0f];
+    id animateOutAction = [CCMoveTo actionWithDuration:0.75f position:ccp(winSize.width/2, winSize.height+115)]; 
+    id removePopup = [CCCallFunc actionWithTarget:self selector:@selector(removePauseInstructions)];
+    id pauseInstructionsAction = [CCSequence actions:delay, animateInAction, longDelay, animateOutAction, removePopup, nil];
+    [pauseInstructions runAction:pauseInstructionsAction];
+}
+
+-(void)removePauseInstructions
+{
+    [pauseInstructions removeFromParentAndCleanup:YES];
 }
 
 #pragma mark -
