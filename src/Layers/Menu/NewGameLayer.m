@@ -47,13 +47,11 @@
         debugMode = NO;
         learningType = kLearningReinforcement;
         
-        [self performSelector:@selector(initGUI) withObject:nil afterDelay:0.5f];
+        [self performSelector:@selector(initGUI) withObject:nil afterDelay:0.6f];
 	}
 
 	return self;
 }
-
-#pragma mark -
 
 /**
  * Creates all of the GUI components
@@ -66,9 +64,11 @@
     
     // slider
     lemmingCountSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-220), 220, 50)];
-    [lemmingCountSlider setAlpha:0.0f];
+    lemmingCountSlider.minimumTrackTintColor = [Utils getUIColourFromRed:102 green:153 blue:204];
     [lemmingCountSlider addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
-    [lemmingCountSlider setValue:(float)kLemmingTotal/(float)kLemmingMax];
+    lemmingCountSlider.minimumValue = 1.0;
+    lemmingCountSlider.maximumValue = kLemmingMax;
+    [lemmingCountSlider setValue:kLemmingTotal];
     [[[CCDirector sharedDirector] openGLView] addSubview:lemmingCountSlider];
     
     // value label
@@ -89,8 +89,11 @@
     // slider
     learningEpisodesSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-180), 220, 50)];
     [learningEpisodesSlider setAlpha:0.0f];
+    learningEpisodesSlider.minimumValue = 1.0;
+    learningEpisodesSlider.maximumValue = KLearningMaxEpisodes;
+    [learningEpisodesSlider setValue:KLearningEpisodes];
+    learningEpisodesSlider.minimumTrackTintColor = [Utils getUIColourFromRed:102 green:153 blue:204];
     [learningEpisodesSlider addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
-    [learningEpisodesSlider setValue:(float)KLearningEpisodes/(float)KLearningMaxEpisodes];
     [[[CCDirector sharedDirector] openGLView] addSubview:learningEpisodesSlider];
     
     // label
@@ -110,6 +113,7 @@
 
     learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Reinforcement", @"Decision Tree", @"Shortest Path", @"None", nil]];
     [learningTypeControl setAlpha:0.0f];
+    [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:165 blue:204]];
     [learningTypeControl addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
     [learningTypeControl setFrame:CGRectMake(30, (320-120), 420, 50)];
     learningTypeControl.selectedSegmentIndex = kLearningType;
@@ -123,6 +127,7 @@
     // switch
     debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(150, (320-50), 200, 50)];
     [debugSwitch setAlpha:0.0f];
+    [debugSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
     [debugSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
     [[[CCDirector sharedDirector] openGLView] addSubview:debugSwitch];
     
@@ -141,25 +146,39 @@
     
     // animate the UI components
     
-    [UIView animateWithDuration:0.6f animations:^{ 
-        [lemmingCountSlider setAlpha:1.0f];
-        [lemmingCountSlider setAlpha:1.0f];
-        [learningEpisodesSlider setAlpha:1.0f];
-        [learningTypeControl setAlpha:1.0f];
-        [debugSwitch setAlpha:1.0f]; }
-                     completion:^(BOOL finished){if(finished){ CCLOG(@"Done!"); }}
+    [UIView animateWithDuration:0.6f 
+        animations:^
+        { 
+            [lemmingCountSlider setAlpha:1.0f];
+            [lemmingCountSlider setAlpha:1.0f];
+            [learningEpisodesSlider setAlpha:1.0f];
+            [learningTypeControl setAlpha:1.0f];
+            [debugSwitch setAlpha:1.0f]; 
+        }
+        completion:^(BOOL finished){ }
      ];
 }
 
+#pragma mark -
+
+/**
+ * Adds a fade out animation to the UIComponents
+ */
 -(void)animateOutComponents
 {
-    [UIView animateWithDuration:0.6f animations:^{ 
-        [lemmingCountSlider setAlpha:0.0f];
-        [lemmingCountSlider setAlpha:0.0f];
-        [learningEpisodesSlider setAlpha:0.0f];
-        [learningTypeControl setAlpha:0.0f];
-        [debugSwitch setAlpha:0.0f]; }
-                     completion:^(BOOL finished){if(finished){ [self removeComponents]; }}
+    [UIView animateWithDuration:0.6f 
+        animations:^
+        { 
+            [lemmingCountSlider setAlpha:0.0f];
+            [lemmingCountSlider setAlpha:0.0f];
+            [learningEpisodesSlider setAlpha:0.0f];
+            [learningTypeControl setAlpha:0.0f];
+            [debugSwitch setAlpha:0.0f]; 
+        }
+        completion:^(BOOL finished)
+        {
+            if(finished) [self removeComponents];
+        }
      ];
 }
 
@@ -186,12 +205,12 @@
 {    
     if(sender == lemmingCountSlider) 
     {
-        lemmingCount = kLemmingMax * sender.value;
+        lemmingCount = sender.value;
         [lemmingCountLabel setString:[NSString stringWithFormat:@"%i", lemmingCount]];
     }
     else if(sender == learningEpisodesSlider) 
     {
-        learningEpisodes = KLearningMaxEpisodes * sender.value;
+        learningEpisodes = sender.value;
         [learningEpisodesLabel setString:[NSString stringWithFormat:@"%i", learningEpisodes]];
     }
 }
