@@ -407,7 +407,16 @@
     CGPoint position = [self position];
     
     // if the lemming reaches edge of screen, change direction
-    if (position.x <= 10 || position.x >= 470) [self changeDirection];
+    if (position.x <= 10)
+    {
+        [self setPosition:ccp(self.position.x+0.5, self.position.y)];
+        [self changeDirection];
+    }
+    else if(position.x >= 470) 
+    {
+        [self setPosition:ccp(self.position.x-0.5, self.position.y)];
+        [self changeDirection];
+    }
     // if the lemming falls of the bottom of the screen, change to dead
     if (position.y <= 20) [self changeState:kStateDead];
 }
