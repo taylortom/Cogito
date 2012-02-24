@@ -62,6 +62,20 @@
     float maximumQValue = [_newState calculateMaxQValue];
     float reward = [_newState getReward];
     
+    // apply a negative reward if using a tool
+    switch (currentAction)
+    {
+        case kActionDownUmbrella:
+        case kActionEquipUmbrella:
+        case kActionLeftHelmet:
+        case kActionRightHelmet:
+            reward = kQToolReward;
+            break;
+            
+        default:
+            break;
+    }
+    
     float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate * (reward + kQDiscountFactor * maximumQValue);
     //CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
     [currentState setQValue:updatedQValue forAction:currentAction];
