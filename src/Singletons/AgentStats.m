@@ -178,4 +178,16 @@ static AgentStats* _instance = nil;
     return episodesCompleted;
 }
 
+/**
+ * Resets the temporary variables 
+ */
+-(void)clearTempData
+{
+    episodesCompleted = 0;
+    learningLengths = [[CCArray alloc] init];
+    nonLearningLengths = [[CCArray alloc] init];
+    learningActions = [[CCArray alloc] init];
+    nonLearningActions = [[CCArray alloc] init];
+}
+
 @end

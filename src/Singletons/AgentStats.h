@@ -28,5 +28,6 @@
 -(int)averageActionsLearning;
 -(int)averageActionsNonLearning;
 -(int)episodesCompleted;
+-(void)clearTempData;
 
 @end
