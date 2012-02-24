@@ -173,4 +173,13 @@
     else [[LemmingManager sharedLemmingManager] removeLemming:self];
 }
 
+/**
+ * Updates the debug string
+ */
+-(void)updateDebugLabel
+{    
+    [super updateDebugLabel];
+    [debugLabel setString:(learningMode) ? @"" : @"!"];
+}
+
 @end

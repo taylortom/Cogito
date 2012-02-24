@@ -185,13 +185,4 @@
     [super onEndConditionReached];
 }
 
-/**
- * Updates the debug string
- */
--(void)updateDebugLabel
-{    
-    [super updateDebugLabel];
-    if(!learningMode) ([optimumRoute count] > 0) ? [debugLabel setString:@"!"] : [debugLabel setString:@"?"];
-}
-
 @end

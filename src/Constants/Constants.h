@@ -20,7 +20,7 @@
 
 #define kFilenameDefFontLarge       @"bangla_dark_large.fnt"
 #define kFilenameDefFontSmall       @"bangla_dark_small.fnt"
-#define kFilenameDefFontDebug       @"andale_debug.fnt"
+#define kFilenameDefFontDebug       @"american_typewriter_debug.fnt"
 
 #define kFilenameDefLemmingFrame    @"Lemming_idle_1.png"
 #define kFilenameDefAtlas           @"Lemming_atlas"

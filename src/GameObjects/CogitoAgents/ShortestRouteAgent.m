@@ -163,13 +163,4 @@
     [super onEndConditionReached];
 }
 
-/**
- * Updates the debug string
- */
--(void)updateDebugLabel
-{    
-    [super updateDebugLabel];
-    if(!learningMode) (optimumRoute != nil) ? [debugLabel setString:@"!"] : [debugLabel setString:@"?"];
-}
-
 @end
