@@ -37,8 +37,8 @@ typedef enum
     kLearningReinforcement,
     kLearningTree,
     kLearningShortestRoute,
-    kLearningMixed,
-    kLearningNone
+    kLearningNone,
+    kLearningMixed
 } MachineLearningType;
 
 

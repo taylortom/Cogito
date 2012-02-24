@@ -71,6 +71,7 @@ static int secondsPlayed;
         currentScene = kNoSceneUninitialised; 
         levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
+        debugMode = NO;
     }
     
     return self;
@@ -170,20 +171,19 @@ static int secondsPlayed;
             
         case kMainMenuScene:
             sceneToRun = [MainMenuScene node];
+            [[AgentStats sharedAgentStats] clearTempData];
+            debugMode = NO;
             break;
         
         case kNewGameScene:
             sceneToRun = [NewGameScene node];
-            //sceneToRun = [GameScene node];
             break;
        
         case kInstructionsScene:
-            [[DataManager sharedDataManager] clearGameData];
             sceneToRun = [InstructionsScene node];
             break;
             
         case kAboutScene:
-            [[DataManager sharedDataManager] printData];
             sceneToRun = [AboutScene node];
             break;
             
@@ -212,7 +212,7 @@ static int secondsPlayed;
     else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];
     
     // whether to display the FPS
-    if(debugMode) [[CCDirector sharedDirector] setDisplayFPS:YES];
+    [[CCDirector sharedDirector] setDisplayFPS:debugMode];
 }
 
 /**
@@ -258,13 +258,7 @@ static int secondsPlayed;
  */
 -(NSString*)getGameTimeInMins
 {
-    int quotient = floor(secondsPlayed/60);
-    int remainder = fmod(secondsPlayed, 60);
-    
-    NSString* quotientString = (quotient < 10) ? [NSString stringWithFormat:@"0%i", quotient] : [NSString stringWithFormat:@"%i", quotient];
-    NSString* remainderString = (remainder < 10) ? [NSString stringWithFormat:@"0%i", remainder] : [NSString stringWithFormat:@"%i", remainder];
-    
-    return [NSString stringWithFormat:@"%@:%@", quotientString, remainderString];
+    return [Utils secondsToMinutes:secondsPlayed];
 }
 
 /**
