@@ -80,12 +80,12 @@
 {    
     HUDTextLeft = [CCLabelBMFont labelWithString:@"" fntFile:@"bangla_light_HUD.fnt"];
     [HUDTextLeft setAnchorPoint:ccp(0,1)];
-    [HUDTextLeft setPosition:ccp(45, 310)];
+    [HUDTextLeft setPosition:ccp(55, 300)];
     [HUDPopup addChild:HUDTextLeft];
    
     HUDTextRight = [CCLabelBMFont labelWithString:@"" fntFile:@"bangla_light_HUD.fnt"];
     [HUDTextRight setAnchorPoint:ccp(1,1)];
-    [HUDTextRight setPosition:ccp(435, 310)];
+    [HUDTextRight setPosition:ccp(425, 300)];
     [HUDPopup addChild:HUDTextRight];
     
     [self updateHUDText];
@@ -155,8 +155,8 @@
     GameManager* gm = [GameManager sharedGameManager];
     LemmingManager* lm = [LemmingManager sharedLemmingManager];
     
-    [HUDTextLeft setString:[NSString stringWithFormat:@"Time elapsed: %@ \nLemmings remaining: %i \nLemmings saved: %i \nLemmings killed: %i", [gm getGameTimeInMins], [lm lemmingCount], [lm lemmingsSaved],[lm lemmingsKilled]]];
-    [HUDTextRight setString:[NSString stringWithFormat:@"Learning: %@\nEpisodes completed: %i \nAvg. time per episode: %@ \nAvg. actions per episode: %i", [Utils getLearningTypeAsString:[lm learningType]],[as episodesCompleted],[Utils secondsToMinutes:[as averageTimeLearning]],[as averageActionsLearning]]];
+    [HUDTextLeft setString:[NSString stringWithFormat:@"time elapsed: %@ \nagents remaining: %i \nsaved:  %i killed: %i", [gm getGameTimeInMins], [lm lemmingCount], [lm lemmingsSaved],[lm lemmingsKilled]]];
+    [HUDTextRight setString:[NSString stringWithFormat:@"episodes completed: %i \navg. time/episode: %@ \navg. actions/episode: %i", [as episodesCompleted],[Utils secondsToMinutes:[as averageTimeLearning]],[as averageActionsLearning]]];
 }
     
 #pragma mark -
@@ -173,7 +173,7 @@
     
     // menu animation
     [menuPopup setPosition: ccp(winSize.width/2, winSize.height/2)];
-    id animateInAction = [CCMoveTo actionWithDuration:0.35f position:ccp(winSize.width/2, winSize.height)];
+    id animateInAction = [CCMoveTo actionWithDuration:0.25f position:ccp(winSize.width/2, winSize.height)];
     id pauseGame = [CCCallFunc actionWithTarget:self selector:@selector(pauseGame)];
     animateInAction = [CCSequence actions:animateInAction, pauseGame, nil];
     [menuPopup runAction:animateInAction];
@@ -182,7 +182,7 @@
     
     // HUD animation
     [HUDPopup setPosition: ccp(winSize.width/2, winSize.height/2)];
-    id animateInActionHUD = [CCMoveTo actionWithDuration:0.35f position:ccp(winSize.width/2, 0)];
+    id animateInActionHUD = [CCMoveTo actionWithDuration:0.25f position:ccp(winSize.width/2, 0)];
     [HUDPopup runAction:animateInActionHUD];
 }
 

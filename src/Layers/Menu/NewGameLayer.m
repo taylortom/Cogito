@@ -72,14 +72,14 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:lemmingCountSlider];
     
     // value label
-    lemmingCountLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", kLemmingTotal] fntFile:kFilenameDefFontSmall];
-    [lemmingCountLabel setPosition:ccp(440, 192)];
+    lemmingCountLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", kLemmingTotal] fntFile:kFilenameDefFontLarge];
+    [lemmingCountLabel setPosition:ccp(440, 189)];
     [self addChild:lemmingCountLabel];
 
     // label
-    CCLabelBMFont* lemmingCountLabel2 = [CCLabelBMFont labelWithString:@"Lemming count" fntFile:kFilenameDefFontSmall];
+    CCLabelBMFont* lemmingCountLabel2 = [CCLabelBMFont labelWithString:@"lemming count" fntFile:kFilenameDefFontLarge];
     [lemmingCountLabel2 setAnchorPoint:ccp(0,0)];
-    [lemmingCountLabel2 setPosition:ccp(38, 180)];
+    [lemmingCountLabel2 setPosition:ccp(38, 175)];
     [self addChild:lemmingCountLabel2];
     
     /**
@@ -96,24 +96,25 @@
     [learningEpisodesSlider addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
     [[[CCDirector sharedDirector] openGLView] addSubview:learningEpisodesSlider];
     
-    // label
-    learningEpisodesLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", KLearningEpisodes] fntFile:kFilenameDefFontSmall];
-    [learningEpisodesLabel setPosition:ccp(440, 152)];
+    // value label
+    learningEpisodesLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", KLearningEpisodes] fntFile:kFilenameDefFontLarge];
+    [learningEpisodesLabel setPosition:ccp(440, 149)];
     [self addChild:learningEpisodesLabel];
     
-    // value label
-    CCLabelBMFont* learningEpisodesLabel2 = [CCLabelBMFont labelWithString:@"Learning episodes" fntFile:kFilenameDefFontSmall];
+    // label
+    CCLabelBMFont* learningEpisodesLabel2 = [CCLabelBMFont labelWithString:@"learning episodes" fntFile:kFilenameDefFontLarge];
     [learningEpisodesLabel2 setAnchorPoint:ccp(0,0)];
-    [learningEpisodesLabel2 setPosition:ccp(38, 142)];
+    [learningEpisodesLabel2 setPosition:ccp(38, 135)];
     [self addChild:learningEpisodesLabel2];
+    
     
     /**
      * Segment control
      */
 
-    learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Reinforcement", @"Decision Tree", @"Shortest Path", @"None", nil]];
+    learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"reinforcement", @"decision tree", @"shortest path", @"none", nil]];
     [learningTypeControl setAlpha:0.0f];
-    [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:165 blue:204]];
+    [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:150 blue:204]];
     [learningTypeControl addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
     [learningTypeControl setFrame:CGRectMake(30, (320-120), 420, 50)];
     learningTypeControl.selectedSegmentIndex = kLearningType;
@@ -132,8 +133,8 @@
     [[[CCDirector sharedDirector] openGLView] addSubview:debugSwitch];
     
     // label
-    debugModeLabel = [CCLabelBMFont labelWithString:@"Debug mode" fntFile:kFilenameDefFontSmall];
-    [debugModeLabel setPosition:ccp(85, 32.5)];
+    debugModeLabel = [CCLabelBMFont labelWithString:@"debug mode" fntFile:kFilenameDefFontLarge];
+    [debugModeLabel setPosition:ccp(85, 31)];
     [self addChild:debugModeLabel];
     
     /**
