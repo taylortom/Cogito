@@ -115,7 +115,7 @@
     learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"reinforcement", @"decision tree", @"shortest path", @"none", nil]];
     [learningTypeControl setAlpha:0.0f];
     [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:150 blue:204]];
-    [learningTypeControl addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
+    [learningTypeControl addTarget:self action:@selector(onSegmentedControlUpdated:)forControlEvents:UIControlEventValueChanged];
     [learningTypeControl setFrame:CGRectMake(30, (320-120), 420, 50)];
     learningTypeControl.selectedSegmentIndex = kLearningType;
     [learningTypeControl setSegmentedControlStyle:UISegmentedControlStyleBar];
