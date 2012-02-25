@@ -134,14 +134,14 @@ static LemmingManager* _instance = nil;
 -(GameRating)calculateGameRating
 {
     // calcuate the base score
-    float baseScore = ((float)lemmingsSaved/(float)kLemmingTotal)*100;
+    float baseScore = ((float)lemmingsSaved/(float)totalNumberOfLemmings)*100;
     
     // calculate bonuses
-    float respawnBonus = (float)spawnsRemaining/((float)kLemmingRespawns*(float)kLemmingTotal)*25;
+    float respawnBonus = (float)spawnsRemaining/((float)kLemmingRespawns*(float)totalNumberOfLemmings)*25;
     float totalBonus = respawnBonus;
     
     // calculate penalties
-    float deathPenalty = (float)lemmingsKilled/(float)kLemmingTotal*50;
+    float deathPenalty = (float)lemmingsKilled/(float)totalNumberOfLemmings*50;
     float timePenalty = (float)[[GameManager sharedGameManager] getGameTimeInSecs]/60;
     float totalPenalty = timePenalty + deathPenalty;
     
@@ -149,7 +149,7 @@ static LemmingManager* _instance = nil;
     //float score = baseScore + (totalBonus-totalPenalty);
     float score = baseScore - totalPenalty;
     
-    CCLOG(@"LemmingManager.calculateGameRating: bonus: %f penalty: %f score: %f", totalBonus, totalPenalty, score);
+    CCLOG(@"LemmingManager.calculateGameRating: base: %f bonus: %f penalty: %f score: %f", baseScore, totalBonus, totalPenalty, score);
     
     // convert score into rating
     if(score > 79) return kRatingA;
