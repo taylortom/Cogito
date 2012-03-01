@@ -104,30 +104,33 @@
 
 The process report is where you discuss the process by which you carried out your project, which is an important aspect what is being examined. In it you should critically evaluate every significant area of your project area.
 
-\subsection{To get an A grade}
+\subsubsection{To get an A grade}
+\begin{itemize}
+	\item \textbf{Technical Grasp}: excellent technical insight demonstrated to a professional level
+	\item \textbf{Understanding of problem area}: showed professional level of insight into the whole area in which the project is embedded. 
+	\item \textbf{Project Management}: completely successful and entirely self-managed
+	\item \textbf{Report Quality}: excellent - clear, substantial, fluent, correctly organised, convincing and with no omissions
+	\item \textbf{Evidence of Learning}: mature reflection on the whole process, showing professional level of insight
+	\item \textbf{Research Effort}: competent and thorough coverage of the field with excellent research in many areas. Research clearly influences outcomes   
+	\item Your choice of project, and how it fits in with the modules you have studied
+\end{itemize}
 
-	\subsubsection{Technical Grasp} 
-	Excellent technical insight demonstrated to a professional level
-	
-	\subsubsection{Understanding of problem area}
-	Showed professional level of insight into the whole area in which the project is embedded. 
-	
-	\subsubsection{Project Management}
-	Completely successful and entirely self-managed
-	
-	\subsubsection{Report Quality}  
-	Excellent - clear, substantial, fluent, correctly organised, convincing and with no omissions
-	
-	\subsubsection{Evidence of Learning}
-	Mature reflection on the whole process, showing professional level of insight
-	
-	\subsubsection{Research Effort}
-	Competent and thorough coverage of the field with excellent research in many areas. Research clearly influences outcomes   
-
-Your choice of project, and how it fits in with the modules you have studied
 	\subsection{Brief Description (history of Lemmings)}
 	\subsection{Aims and Objectives}
+		\subsubsection{Project Proposal} The main aim of my project is to develop an AI system that is capable of employing machine learning techniques in order for a number of AI-controlled agents to safely navigate a game environment. The agents will be able to develop a knowledge-base dynamically based on the observations made whilst navigating the environment and apply this in order to traverse the world safely. The main deliverable will be a software-based demonstration of the system.
+	
 	\subsection{How it Fits in with modules studied}
+	
+	I have utilised skills learned from the modules in my course to help me with developing my project.
+	
+		\begin{itemize}
+			\item \textbf{AI Modules}: obvious
+			\item \textbf{Game Development}: obvious
+			\item \textbf{Object Oriented Design \& Specification, Programming, Concurrency and Client-Server Computing}: Basic OO design, how to design a program well, and to be reusable using OO features; inheritance etc. as well as the more practical programming side of things. Also the UML side to design the system.
+			\item \textbf{Formal Underpinnings \& Specification}:  Again, the more design-centric side - specifying the system.
+			\item \textbf{Computer Graphics Algorithms}: Data structures, efficiency, time complexity.
+			\item \textbf{Overall}: 
+		\end{itemize}
 	AI modules, Game Development, Programming, OO Software Design/UML, Programming \& Concurrency, Formal Underpinnings/Maths, Computer Graphics Algorithms
 
 \section{Artificial Intelligence [Background Research]}
@@ -143,14 +146,24 @@ Your choice of project, and how it fits in with the modules you have studied
 Discuss your choice of tools, and the reasoning behind them (how research has influenced your decisions - there must be evidence of appropriate research).
 
 	\subsection{Language}
+		\begin{itemize}
+			\item Reasons for choosing Objective-C/iPhone
+			\item Can program at a low ever level (C, C++)
+			\item Discuss Java/JMonkey
+		\end{itemize}
 	\subsection{Game Engine}
-	\subsection{Software}
+	\subsection{Asset Production}
+		\subsubsection{Pixelmator}
+		\subsubsection{TexturePacker}
+		\subsubsection{bmGlyph}
 	\subsection{Source Control}
+		\subsubsection{SourceTree}
+		\subsubsection{github}
 
 \section{Planning}
 	\subsection{Initial Artwork}
 	\subsection{UML/Class Diagrams}
-
+	
 \section{Social, Legal, Ethical and Professional Issues (Planning?)}
 		\subsubsection{Intellectual Property}
 		\subsubsection{Copyright Law}
@@ -162,23 +175,58 @@ The progress you made, problems encountered, their solutions and the lessons lea
 
 	\subsection{Game Component}
 		\subsubsection{Code Structure/Features}
+			Constants: Starting constants with a "k" is a legacy of the pre-Mac OS X days. In fact, I think the practice might even come from way back in the day, when the Mac OS was written mostly in Pascal, and the predominant development language was Pascal. In C, \#define'd constants are typically written in ALL CAPS, rather than prefixing with a "k".
+		\subsubsection{Devience From The Design}
 		\subsubsection{Performance Optimisations}
-		\subsubsection{Problems Faced/Fixes}
+		\subsubsection{Problems Faced} General problems learning the language, differences between languages learnt already. Can only add objects to an array - need to use [NSNull null]
 	\subsection{AI}
 		\subsubsection{Code Structure/Features}
+		\subsubsection{Devience From The Design}
 		\subsubsection{Performance Optimisations}
 		\subsubsection{Problems Faced/Fixes}
-	\subsection{Testing}
+	
+\section{Testing and Analysis}
 
-\section{Project Log/Git Commits}
-A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
+Show the results of usability testing (if any) and the learning results. Compare with the different types and no learning, show graphs to compare. Discuss the effectiveness, advantages/disadvantages to the learning algorithms used.
+
+	\subsection{Results}
+	\subsection{Analysis of Decision Tree Learning}
+		\subsubsection{Possible Improvements}
+	\subsection{Analysis of Reinforcement Learning}
+		\subsubsection{Possible Improvements}
 	
 \section{Evaluation}
 A very competent evaluation of the whole project (with hindsight). Weak performance in the evaluation of product and process will result in a grade no higher than a B.
 
+	\subsection{Time Management}
+		Initial plan was to use a waterfall development approach (discuss). Eventually took a slightly more incremental approach: developed game and AI together towards the end, some asset creation throughout. Discuss why, which would have been better - for one person rather than a team. As I was unfamiliar with the language and the engine, it was difficult to decide how best to approach the design/implementation. (see \url{http://en.wikipedia.org/wiki/Software_development_methodology})
+		
+		\begin{itemize}
+			\item Waterfall: a linear framework
+			\item Incremental: a combined linear-iterative framework
+			\item Spiral: a combined linear-iterative framework
+		\end{itemize}
+		
 	\subsection{Achievements}
 	\subsection{Areas For Enhancement}
+		\begin{itemize}
+			\item Implement additional learning types
+			\item Mixed learning types between agents
+			\item Use a combination of types
+			\item Communication between agents (shared knowledge base?)
+			\item Extend to a 3D environment
+		\end{itemize}
 	\subsection{Overall Success}
+		\begin{itemize}
+			\item Applications For Learning in games (possibly pre-release learning)
+			\item Performance on mobile device
+		\end{itemize}
+
+\section{Appendices}
+
+	\subsection{Project Log/Git Commits}
+A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
+	\subsection{Code Listing}
 
 % push the references onto a new page
 \newpage

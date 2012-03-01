@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 FEB 2012 19:25
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  1 MAR 2012 20:06
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -426,34 +426,35 @@ essReport.toc [2
 \tf@toc=\write3
 \openout3 = `ProcessReport.toc'.
 
- [3] [4] [5] [6] (./ProcessReport.bbl
+ [3] [4] [5] [6] [7] [8] (./ProcessReport.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [7] (./ProcessReport.aux)
+) [9] (./ProcessReport.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5225 strings out of 493633
- 71724 string characters out of 3143378
+ 5227 strings out of 493633
+ 71745 string characters out of 3143378
  155146 words of memory out of 3000000
- 8440 multiletter control sequences out of 15000+200000
- 8408 words of font info for 32 fonts, out of 3000000 for 9000
+ 8441 multiletter control sequences out of 15000+200000
+ 8576 words of font info for 33 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,7n,39p,271b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,7n,39p,522b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
 usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loc
-al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ProcessReport.pdf (7 pages, 105076 bytes).
+al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/loca
+l/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on ProcessReport.pdf (9 pages, 125135 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
