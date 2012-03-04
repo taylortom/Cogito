@@ -52,7 +52,7 @@ static KnowledgeBase* _instance = nil;
     
     if (self != nil) 
     {
-        gameStates = [[CCArray alloc] init]; 
+        [self clearKnowledgeBase];
     }
     
     return self;
@@ -111,6 +111,54 @@ static KnowledgeBase* _instance = nil;
     QState* returnState = [[QState alloc] initStateForObject:_object withReward:reward];
     [gameStates addObject:returnState];
     return returnState;
+}
+
+/**
+ * Exports the knowledge base
+ */
+-(void)exportKnowledgeBase
+{    
+    // get the documents path
+    NSString* documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"KnowledgeBase_%@.plist", [Utils getTimeStampWithFormat:@"yyyy_MM_dd-HH:mm"]]];
+    
+    // the dictionary to export
+    NSMutableDictionary* exportData = [[NSMutableDictionary alloc] init];
+    
+    // create a dictionary ontaining the states
+    for (int i = 0; i < [gameStates count]; i++) 
+    {
+        NSMutableDictionary* stateData = [[NSMutableDictionary alloc] init];
+        QState* tempState = [gameStates objectAtIndex:i];
+        NSString* stateId = [NSString stringWithFormat:@"%@ (%f,%f)", [Utils getObjectAsString:[[tempState getGameObject] gameObjectType]], [tempState getGameObject].position.x, [tempState getGameObject].position.y];
+        
+        // no need adding states with no Q-values
+        if([[tempState getGameObject] gameObjectType] == kObjectExit) continue;
+        if([[tempState getGameObject] class] == [Obstacle class]) continue;
+       
+        // for each state, create a sub dictionary of actions/Q-values
+        for (int j = 0; j < [[tempState getActions] count]; j++) 
+        {
+            Action action = [[[tempState getActions] objectAtIndex:j] intValue];
+            NSNumber* qValue = [NSNumber numberWithInt:[tempState getQValueForAction:action]];
+            
+            // store the pair
+            [stateData setObject:qValue  forKey:[Utils getActionAsString:action]];
+        }
+        // store the state
+        [exportData setObject:stateData forKey:stateId];
+    }
+    
+    // finally write the file
+    [exportData writeToFile:filePath atomically:YES];
+}   
+
+/**
+ * Clears the knowledge base
+ */
+-(void)clearKnowledgeBase
+{
+    gameStates = [[CCArray alloc] init]; 
 }
 
 @end

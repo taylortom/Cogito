@@ -9,6 +9,7 @@
 
 #import "cocos2d.h"
 #import "GameObject.h"
+#import "Obstacle.h"
 #import "QState.h"
 
 @interface KnowledgeBase : NSObject
@@ -19,5 +20,7 @@
 
 +(KnowledgeBase*)sharedKnowledgeBase;
 -(QState*)getStateForGameObject:(GameObject*)_object;
+-(void)exportKnowledgeBase;
+-(void)clearKnowledgeBase;
 
 @end

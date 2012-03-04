@@ -120,6 +120,7 @@ static LemmingManager* _instance = nil;
     if([self lemmingCount] == 0) 
     {
         [[DataManager sharedDataManager] addCurrentGameData];
+        [[KnowledgeBase sharedKnowledgeBase] exportKnowledgeBase];
         [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
     }
 }

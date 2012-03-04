@@ -211,6 +211,9 @@ static int secondsPlayed;
     else if(sceneID == kMainMenuScene) [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:0.75 scene:sceneToRun]];
     else [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.75 scene:sceneToRun]];
     
+    // clear the shared knowledgebase
+    [[KnowledgeBase sharedKnowledgeBase] clearKnowledgeBase];
+    
     // whether to display the FPS
     [[CCDirector sharedDirector] setDisplayFPS:debugMode];
 }

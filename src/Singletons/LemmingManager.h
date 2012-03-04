@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
+#import "KnowledgeBase.h"
 #import "Lemming.h"
 #import "DataManager.h"
 
