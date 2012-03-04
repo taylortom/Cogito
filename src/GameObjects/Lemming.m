@@ -59,7 +59,6 @@
     [floatUmbrellaAnim release];
     [deathAnim release];
     
-    [debugLabel setString:@""];
     debugLabel = nil;
     
     [super dealloc];
@@ -178,6 +177,7 @@
             break;
            
         case kStateDead:
+            [debugLabel setString:@""];
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
             break;
             
@@ -222,7 +222,7 @@
  */
 -(void)takePath:(Action)_action
 {
-    if(_action == -1) { CCLOG(@"Lemming.takePath: Uknown action chosen"); return; }
+    if(_action == -1) { CCLOG(@"Lemming.takePath: Unknown action chosen"); return; }
     
     switch (_action) 
     {

@@ -48,7 +48,6 @@
     if (self != nil) 
     {
         self.isTouchEnabled = YES; // enable touch
-        srandom(time(NULL)); // set up a random number generator
                 
         // reset the relevant data
         [[LemmingManager sharedLemmingManager] reset];

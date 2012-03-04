@@ -61,7 +61,7 @@
  * @param the current state
  */
 -(void)setAsLeafNode:(CharacterStates)_state
-{    
+{        
     switch (_state) 
     {
         case kStateWin:

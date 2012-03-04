@@ -41,11 +41,16 @@
 		E21ECAB114D41C1C00C3F311 /* Lemming_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = E21ECAAF14D41C1C00C3F311 /* Lemming_atlas.png */; };
 		E21ECAB414D41C2200C3F311 /* Lemming_atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21ECAB214D41C2200C3F311 /* Lemming_atlas-hd.plist */; };
 		E21ECAB514D41C2200C3F311 /* Lemming_atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21ECAB314D41C2200C3F311 /* Lemming_atlas.plist */; };
+		E225C6E81500EC3D005AA72C /* Level3.plist in Resources */ = {isa = PBXBuildFile; fileRef = E225C6E71500EC3C005AA72C /* Level3.plist */; };
+		E225C6EB150107E7005AA72C /* Level4.plist in Resources */ = {isa = PBXBuildFile; fileRef = E225C6EA150107E7005AA72C /* Level4.plist */; };
+		E225C6ED15015FE2005AA72C /* Level5.plist in Resources */ = {isa = PBXBuildFile; fileRef = E225C6EC15015FE2005AA72C /* Level5.plist */; };
+		E225C6EF150245B1005AA72C /* Level6.plist in Resources */ = {isa = PBXBuildFile; fileRef = E225C6EE150245B1005AA72C /* Level6.plist */; };
 		E226863714A0D7F10020B44E /* SettingsBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E226863514A0D7F10020B44E /* SettingsBackground-hd.png */; };
 		E226863A14A0D84C0020B44E /* SettingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E226863914A0D84C0020B44E /* SettingsBackground.png */; };
 		E226863D14A0D90D0020B44E /* StingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E226863B14A0D90C0020B44E /* StingScene.m */; };
 		E226864214A0DB290020B44E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E226864114A0DB290020B44E /* Default@2x.png */; };
 		E226864414A0DB6B0020B44E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E226864314A0DB6B0020B44E /* Default.png */; };
+		E228110A14FA670900E9BF90 /* MenuHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = E228110914FA670900E9BF90 /* MenuHUD.png */; };
 		E22AD9EF14F4712B00F2A2CD /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E22AD9EE14F4712B00F2A2CD /* DataManager.m */; };
 		E22AD9F314F5A9DE00F2A2CD /* NewGameBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E22AD9F114F5A9DE00F2A2CD /* NewGameBackground-hd.png */; };
 		E22AD9F414F5A9DE00F2A2CD /* NewGameBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E22AD9F214F5A9DE00F2A2CD /* NewGameBackground.png */; };
@@ -53,7 +58,6 @@
 		E22AD9FA14F5CE9C00F2A2CD /* Continue_down.png in Resources */ = {isa = PBXBuildFile; fileRef = E22AD9F614F5CE9C00F2A2CD /* Continue_down.png */; };
 		E22AD9FB14F5CE9C00F2A2CD /* Continue-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E22AD9F714F5CE9C00F2A2CD /* Continue-hd.png */; };
 		E22AD9FC14F5CE9C00F2A2CD /* Continue.png in Resources */ = {isa = PBXBuildFile; fileRef = E22AD9F814F5CE9C00F2A2CD /* Continue.png */; };
-		E22ADA0014F6908900F2A2CD /* MenuHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = E22AD9FF14F6908900F2A2CD /* MenuHUD.png */; };
 		E22ADA0814F6960800F2A2CD /* MenuHUD-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E22ADA0714F6960800F2A2CD /* MenuHUD-hd.png */; };
 		E22ADA2514F69DCA00F2A2CD /* bangla_light_HUD-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E22ADA2114F69DCA00F2A2CD /* bangla_light_HUD-hd.fnt */; };
 		E22ADA2614F69DCA00F2A2CD /* bangla_light_HUD-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E22ADA2214F69DCA00F2A2CD /* bangla_light_HUD-hd.png */; };
@@ -317,12 +321,17 @@
 		E21ECAAF14D41C1C00C3F311 /* Lemming_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lemming_atlas.png; sourceTree = "<group>"; };
 		E21ECAB214D41C2200C3F311 /* Lemming_atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Lemming_atlas-hd.plist"; sourceTree = "<group>"; };
 		E21ECAB314D41C2200C3F311 /* Lemming_atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Lemming_atlas.plist; sourceTree = "<group>"; };
+		E225C6E71500EC3C005AA72C /* Level3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level3.plist; sourceTree = "<group>"; };
+		E225C6EA150107E7005AA72C /* Level4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level4.plist; sourceTree = "<group>"; };
+		E225C6EC15015FE2005AA72C /* Level5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level5.plist; sourceTree = "<group>"; };
+		E225C6EE150245B1005AA72C /* Level6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level6.plist; sourceTree = "<group>"; };
 		E226863514A0D7F10020B44E /* SettingsBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsBackground-hd.png"; sourceTree = "<group>"; };
 		E226863914A0D84C0020B44E /* SettingsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsBackground.png; sourceTree = "<group>"; };
 		E226863B14A0D90C0020B44E /* StingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StingScene.m; sourceTree = "<group>"; };
 		E226863C14A0D90C0020B44E /* StingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StingScene.h; sourceTree = "<group>"; };
 		E226864114A0DB290020B44E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E226864314A0DB6B0020B44E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E228110914FA670900E9BF90 /* MenuHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuHUD.png; sourceTree = "<group>"; };
 		E22AD9ED14F4712B00F2A2CD /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		E22AD9EE14F4712B00F2A2CD /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		E22AD9F114F5A9DE00F2A2CD /* NewGameBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NewGameBackground-hd.png"; sourceTree = "<group>"; };
@@ -331,7 +340,6 @@
 		E22AD9F614F5CE9C00F2A2CD /* Continue_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Continue_down.png; sourceTree = "<group>"; };
 		E22AD9F714F5CE9C00F2A2CD /* Continue-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Continue-hd.png"; sourceTree = "<group>"; };
 		E22AD9F814F5CE9C00F2A2CD /* Continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Continue.png; sourceTree = "<group>"; };
-		E22AD9FF14F6908900F2A2CD /* MenuHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuHUD.png; sourceTree = "<group>"; };
 		E22ADA0714F6960800F2A2CD /* MenuHUD-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuHUD-hd.png"; sourceTree = "<group>"; };
 		E22ADA2114F69DCA00F2A2CD /* bangla_light_HUD-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bangla_light_HUD-hd.fnt"; sourceTree = "<group>"; };
 		E22ADA2214F69DCA00F2A2CD /* bangla_light_HUD-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bangla_light_HUD-hd.png"; sourceTree = "<group>"; };
@@ -892,6 +900,10 @@
 				E211D08C14C8A15700970AEC /* LevelData.plist */,
 				E21254E114B5353A00A0CA61 /* Level1.plist */,
 				E211D09214C8D49100970AEC /* Level2.plist */,
+				E225C6E71500EC3C005AA72C /* Level3.plist */,
+				E225C6EA150107E7005AA72C /* Level4.plist */,
+				E225C6EC15015FE2005AA72C /* Level5.plist */,
+				E225C6EE150245B1005AA72C /* Level6.plist */,
 				E2621FAE14C4914600E35D94 /* Lemming.plist */,
 				E21ECAB214D41C2200C3F311 /* Lemming_atlas-hd.plist */,
 				E21ECAB314D41C2200C3F311 /* Lemming_atlas.plist */,
@@ -1039,7 +1051,7 @@
 				E2084C9B14A2913200C699A9 /* MenuPopup-hd.png */,
 				E2084C9C14A2913200C699A9 /* MenuPopup.png */,
 				E22ADA0714F6960800F2A2CD /* MenuHUD-hd.png */,
-				E22AD9FF14F6908900F2A2CD /* MenuHUD.png */,
+				E228110914FA670900E9BF90 /* MenuHUD.png */,
 				E2084C9F14A2914900C699A9 /* GameRating_A-hd.png */,
 				E2646A6414A15727003CC16E /* GameRating_A.png */,
 				E2084CA114A2915400C699A9 /* GameRating_B-hd.png */,
@@ -1718,7 +1730,6 @@
 				E22AD9FA14F5CE9C00F2A2CD /* Continue_down.png in Resources */,
 				E22AD9FB14F5CE9C00F2A2CD /* Continue-hd.png in Resources */,
 				E22AD9FC14F5CE9C00F2A2CD /* Continue.png in Resources */,
-				E22ADA0014F6908900F2A2CD /* MenuHUD.png in Resources */,
 				E22ADA0814F6960800F2A2CD /* MenuHUD-hd.png in Resources */,
 				E22ADA2514F69DCA00F2A2CD /* bangla_light_HUD-hd.fnt in Resources */,
 				E22ADA2614F69DCA00F2A2CD /* bangla_light_HUD-hd.png in Resources */,
@@ -1734,6 +1745,11 @@
 				E22ADA7314F7100B00F2A2CD /* american_typewriter_debug-hd.png in Resources */,
 				E22ADA7414F7100B00F2A2CD /* american_typewriter_debug.fnt in Resources */,
 				E22ADA7514F7100B00F2A2CD /* american_typewriter_debug.png in Resources */,
+				E228110A14FA670900E9BF90 /* MenuHUD.png in Resources */,
+				E225C6E81500EC3D005AA72C /* Level3.plist in Resources */,
+				E225C6EB150107E7005AA72C /* Level4.plist in Resources */,
+				E225C6ED15015FE2005AA72C /* Level5.plist in Resources */,
+				E225C6EF150245B1005AA72C /* Level6.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

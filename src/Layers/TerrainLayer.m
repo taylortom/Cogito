@@ -64,7 +64,7 @@
     if(plistDictionary == nil) { CCLOG(@"TerrainLayer.initTerrainFromPlist: Error loading %@.plist", plistFilename); return; }
     
     for(NSDictionary *object in plistDictionary)
-    {
+    {        
         // the individual object
         NSDictionary *objectDictionary = [plistDictionary objectForKey:object];
         

@@ -155,9 +155,7 @@ static DataManager* _instance = nil;
  * Loads the saved stats from the previous games
  */
 -(void)loadGameData
-{
-    CCLOG(@"%@.loadGameData", NSStringFromClass([self class]));
-    
+{    
     NSMutableDictionary* tempData = [[NSUserDefaults standardUserDefaults] objectForKey:kProjectName];
     
     if(tempData != nil)
@@ -173,9 +171,7 @@ static DataManager* _instance = nil;
  * Saves the stats the iPhone for later analysis
  */
 -(void)saveGameData
-{
-    CCLOG(@"%@.saveGameData", NSStringFromClass([self class]));
-    
+{    
     // create a dictionary with the sub-dictionaries and Commit This To Memory.
 	[[NSUserDefaults standardUserDefaults] setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys: reinforcementData, @"reinforcement", decisionTreeData, @"decisionTree", shortestRouteData, @"shortestRoute", nil] forKey:kProjectName];
 	[[NSUserDefaults standardUserDefaults] synchronize];    
@@ -186,22 +182,18 @@ static DataManager* _instance = nil;
  */
 -(void)clearGameData
 {
-    CCLOG(@"%@.clearGameData", NSStringFromClass([self class]));
-    
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kProjectName];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 /**
- * Loads the previously saved data 
+ * Exports the saved data to GameData.plist
  */
 -(void)exportGameData
-{
-    CCLOG(@"%@.exportGameData", NSStringFromClass([self class]));
-    
+{    
     // get the documents path
     NSString* documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:@"GameData"];
+    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:@"GameData.plist"];
     
     // finally write the file
     [[NSMutableDictionary dictionaryWithObjectsAndKeys: reinforcementData, @"reinforcement", decisionTreeData, @"decisionTree", shortestRouteData, @"shortestRoute", nil] writeToFile:filePath atomically:YES];

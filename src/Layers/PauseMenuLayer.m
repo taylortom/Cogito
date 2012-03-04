@@ -155,7 +155,7 @@
     GameManager* gm = [GameManager sharedGameManager];
     LemmingManager* lm = [LemmingManager sharedLemmingManager];
     
-    [HUDTextLeft setString:[NSString stringWithFormat:@"time elapsed: %@ \nagents remaining: %i \nsaved:  %i killed: %i", [gm getGameTimeInMins], [lm lemmingCount], [lm lemmingsSaved],[lm lemmingsKilled]]];
+    [HUDTextLeft setString:[NSString stringWithFormat:@"time elapsed: %@ \nagents remaining: %i \nsaved: %i   killed: %i", [gm getGameTimeInMins], [lm lemmingCount], [lm lemmingsSaved],[lm lemmingsKilled]]];
     [HUDTextRight setString:[NSString stringWithFormat:@"episodes completed: %i \navg. time/episode: %@ \navg. actions/episode: %i", [as episodesCompleted],[Utils secondsToMinutes:[as averageTimeLearning]],[as averageActionsLearning]]];
 }
     

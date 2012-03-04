@@ -42,7 +42,7 @@
         AgentStats* as = [AgentStats sharedAgentStats];
         GameManager* gm = [GameManager sharedGameManager];
         LemmingManager* lm = [LemmingManager sharedLemmingManager];
-        NSString *statString = [NSString stringWithFormat:@"time: %@  \nsaved: %i  killed: %i \navg. episode time (secs): \n     before: %i  after: %i \navg. actions per episode: \n     before: %i  after: %i", [gm getGameTimeInMins], [lm lemmingsSaved], [lm lemmingsKilled], [as averageTimeLearning], [as averageTimeNonLearning], [as averageActionsLearning], [as averageActionsNonLearning]];
+        NSString *statString = [NSString stringWithFormat:@"> time: %@  \n> saved: %i  killed: %i \n> avg. episode time (secs): \n     before: %i  after: %i \n> avg. actions per episode: \n     before: %i  after: %i", [gm getGameTimeInMins], [lm lemmingsSaved], [lm lemmingsKilled], [as averageTimeLearning], [as averageTimeNonLearning], [as averageActionsLearning], [as averageActionsNonLearning]];
 		CCLabelBMFont *statTextLeft = [CCLabelBMFont labelWithString:statString fntFile:kFilenameDefFontLarge];
 		[statTextLeft setAnchorPoint:ccp(0, 1)];
         [statTextLeft setPosition:ccp(41, winSize.height-100)];
