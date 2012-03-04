@@ -20,9 +20,7 @@
  */
 +(int)generateRandomNumberFrom:(int)_min to:(int)_max
 {
-    _max = _max - _min;
-    int randomNumber = (arc4random() % _max) + _min;
-    return randomNumber;
+    return (CCRANDOM_0_1() * (_max - _min) + _min);
 }
 
 /**
