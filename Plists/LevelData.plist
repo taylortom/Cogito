@@ -20,42 +20,42 @@
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>
-		<integer>2</integer>
+		<integer>3</integer>
 		<key>helmetUses</key>
-		<integer>2</integer>
+		<integer>3</integer>
 	</dict>
 	<key>Level3</key>
 	<dict>
 		<key>name</key>
 		<string>Level3</string>
 		<key>difficulty</key>
-		<string>normal</string>
+		<string>easy</string>
 		<key>umbrellaUses</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>helmetUses</key>
-		<integer>1</integer>
+		<integer>3</integer>
 	</dict>
 	<key>Level4</key>
 	<dict>
 		<key>name</key>
 		<string>Level4</string>
 		<key>difficulty</key>
-		<string>normal</string>
+		<string>easy</string>
 		<key>umbrellaUses</key>
-		<integer>1</integer>
+		<integer>3</integer>
 		<key>helmetUses</key>
-		<integer>1</integer>
+		<integer>3</integer>
 	</dict>
 	<key>Level5</key>
 	<dict>
 		<key>name</key>
 		<string>Level5</string>
 		<key>difficulty</key>
-		<string>hard</string>
+		<string>easy</string>
 		<key>umbrellaUses</key>
-		<integer>0</integer>
+		<integer>3</integer>
 		<key>helmetUses</key>
-		<integer>0</integer>
+		<integer>3</integer>
 	</dict>
 </dict>
 </plist>

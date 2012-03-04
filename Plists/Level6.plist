@@ -9,7 +9,7 @@
 		<key>isCollideable</key>
 		<false/>
 		<key>x</key>
-		<integer>430</integer>
+		<integer>37</integer>
 		<key>y</key>
 		<integer>310</integer>
 		<key>filename</key>
@@ -22,95 +22,95 @@
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>103</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>240</integer>
 		<key>filename</key>
-		<string>platform_large</string>
+		<string>platform_small</string>
 	</dict>
-	<key>Level3_Platform2</key>
+	<key>Level3_Platform1End1</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
-		<key>x</key>
-		<integer>375</integer>
-		<key>y</key>
-		<integer>240</integer>
-		<key>filename</key>
-		<string>platform_large</string>
-	</dict>
-	<key>Level3_Trapdoor</key>
-	<dict>
 		<key>objectType</key>
-		<string>trapdoor</string>
-		<key>type</key>
-		<string>terrain</string>
+		<string>terrainEnd</string>
 		<key>x</key>
-		<integer>239</integer>
+		<integer>92</integer>
 		<key>y</key>
-		<integer>240</integer>
+		<integer>266</integer>
 		<key>filename</key>
-		<string>trapdoor</string>
-	</dict>
-	<key>Level3_Stamper</key>
-	<dict>
-		<key>type</key>
-		<string>obstacle</string>
-		<key>objectType</key>
-		<string>stamper</string>
-		<key>x</key>
-		<integer>80</integer>
-		<key>y</key>
-		<integer>360</integer>
-		<key>filename</key>
-		<string>stamper</string>
+		<string>terrainEnd</string>
 	</dict>
 	<key>Level2_Platform1</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>205</integer>
+		<integer>120</integer>
 		<key>y</key>
 		<integer>160</integer>
 		<key>filename</key>
 		<string>platform_medium</string>
-	</dict>
-	<key>Level2_Platform1End</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>objectType</key>
-		<string>terrainEnd</string>
-		<key>x</key>
-		<integer>122</integer>
-		<key>y</key>
-		<integer>186</integer>
-		<key>filename</key>
-		<string>terrainEnd</string>
 	</dict>
 	<key>Level2_Platform2</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>409</integer>
+		<integer>324</integer>
 		<key>y</key>
 		<integer>160</integer>
 		<key>filename</key>
 		<string>platform_medium</string>
 	</dict>
-	<key>Level2_Trapdoor1</key>
+	<key>Level2_Platform3</key>
 	<dict>
-		<key>objectType</key>
-		<string>trapdoor</string>
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>307</integer>
+		<integer>495</integer>
 		<key>y</key>
 		<integer>160</integer>
 		<key>filename</key>
+		<string>platform_small</string>
+	</dict>
+	<key>Level2_Platform1End1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>terrainEnd</string>
+		<key>x</key>
+		<integer>38</integer>
+		<key>y</key>
+		<integer>185</integer>
+		<key>filename</key>
+		<string>terrainEnd</string>
+	</dict>
+	<key>Level2_Trapdoor1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>222</integer>
+		<key>y</key>
+		<integer>160</integer>
+		<key>filename</key>
+		<string>trapdoor</string>
+		<key>objectType</key>
+		<string>trapdoor</string>
+	</dict>
+	<key>Level2_Trapdoor2</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>425</integer>
+		<key>y</key>
+		<integer>160</integer>
+		<key>filename</key>
+		<string>trapdoor</string>
+		<key>objectType</key>
 		<string>trapdoor</string>
 	</dict>
 	<key>Level1_Platform1</key>
@@ -118,11 +118,11 @@
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>295</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>80</integer>
 		<key>filename</key>
-		<string>platform_large</string>
+		<string>platform_small</string>
 	</dict>
 	<key>Level1_Platform1End1</key>
 	<dict>
@@ -131,42 +131,29 @@
 		<key>objectType</key>
 		<string>terrainEnd</string>
 		<key>x</key>
-		<integer>177</integer>
+		<integer>92</integer>
 		<key>y</key>
-		<integer>107</integer>
+		<integer>106</integer>
 		<key>filename</key>
 		<string>terrainEnd</string>
-	</dict>
-	<key>Level1_Platform1End2</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>objectType</key>
-		<string>terrainEnd</string>
-		<key>x</key>
-		<integer>412</integer>
-		<key>y</key>
-		<integer>107</integer>
-		<key>filename</key>
-		<string>terrainEnd</string>
-	</dict>
-	<key>FloorPiece1</key>
-	<dict>
-		<key>type</key>
-		<string>terrain</string>
-		<key>x</key>
-		<integer>10</integer>
-		<key>y</key>
-		<integer>10</integer>
-		<key>filename</key>
-		<string>floor</string>
 	</dict>
 	<key>FloorPiece2</key>
 	<dict>
 		<key>type</key>
 		<string>terrain</string>
 		<key>x</key>
-		<integer>590</integer>
+		<integer>630</integer>
+		<key>y</key>
+		<integer>10</integer>
+		<key>filename</key>
+		<string>floor</string>
+	</dict>
+	<key>FloorPiece1</key>
+	<dict>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>-45</integer>
 		<key>y</key>
 		<integer>10</integer>
 		<key>filename</key>
@@ -179,7 +166,7 @@
 		<key>objectType</key>
 		<string>water</string>
 		<key>x</key>
-		<integer>340</integer>
+		<integer>300</integer>
 		<key>y</key>
 		<integer>7</integer>
 		<key>filename</key>
@@ -192,7 +179,7 @@
 		<key>objectType</key>
 		<string>exit</string>
 		<key>x</key>
-		<integer>40</integer>
+		<integer>150</integer>
 		<key>y</key>
 		<integer>50</integer>
 		<key>filename</key>
