@@ -166,6 +166,37 @@
 }
 
 /**
+ * Returns the passed Difficulty as a string
+ * @param the Difficulty to convert
+ * @return the NSString equivalent
+ */
++(NSString*)getDifficultyAsString:(Difficulty)_difficulty
+{
+    NSString* difficulty = nil;
+    
+    switch(_difficulty) 
+    {
+        case kDifficultyEasy:
+            difficulty = @"Easy";
+            break;
+            
+        case kDifficultyNormal:
+            difficulty = @"Normal";
+            break;
+            
+        case kDifficultyHard:
+            difficulty = @"Hard";
+            break;
+            
+        default:
+            difficulty = [NSString stringWithFormat:@"unknown Difficulty: %i", _difficulty];
+            break;
+    }
+    
+    return difficulty;
+}
+
+/**
  * Returns the passed MachineLearningType enum as a string
  * @param the learning type to convert
  * @return the string equivalent
