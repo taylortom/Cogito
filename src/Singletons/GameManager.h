@@ -16,7 +16,7 @@
 
 {
     CCArray* levelData;
-    Difficulty chosenDifficulty;
+    Difficulty levelDifficulty;
     SceneTypes currentScene;
     Level* currentLevel;
     BOOL gamePaused;
@@ -26,7 +26,6 @@
 @property (readonly) SceneTypes currentScene;
 @property (readwrite, retain) Level* currentLevel;
 @property (readwrite) BOOL gamePaused;
-@property (readwrite) Difficulty chosenDifficulty;
 
 +(GameManager*)sharedGameManager;
 -(void)loadLevelData;
@@ -40,5 +39,6 @@
 -(int)getGameTimeInSecs;
 -(BOOL)debug;
 -(void)setDebug:(BOOL)_debug;
+-(void)setLevelDifficulty:(Difficulty)_difficulty;
 
 @end

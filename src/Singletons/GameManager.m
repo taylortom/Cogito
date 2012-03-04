@@ -21,7 +21,6 @@
 @synthesize currentScene;
 @synthesize currentLevel;
 @synthesize gamePaused;
-@synthesize chosenDifficulty;
 
 static GameManager* _instance = nil;
 static int secondsPlayed;
@@ -137,14 +136,18 @@ static int secondsPlayed;
  */
 -(void)loadRandomLevel
 {
+    CCLOG(@"%@.loadRandomLevel: %@", NSStringFromClass([self class]), [Utils getDifficultyAsString:levelDifficulty]);
+    
     // temporary storage for levels with the chosen difficulty
     CCArray* tempLevels = [[CCArray alloc] init];
     
     for (int i = 0; i < [levelData count]; i++) 
     {
         Level* tempLevel = [levelData objectAtIndex:i];
-        if(tempLevel.difficulty == chosenDifficulty) [tempLevels addObject:tempLevel];
+        if(tempLevel.difficulty == levelDifficulty) [tempLevels addObject:tempLevel];
     }
+    
+    if([tempLevels count] == 0) CCLOG(@"%@.loadRandomLevel: Error, no level found with difficulty: %@", NSStringFromClass([self class]), [Utils getDifficultyAsString:levelDifficulty]);
         
     // pick a random index and set it as the current level
     int randomIndex = [Utils generateRandomNumberFrom:0 to:[tempLevels count]];
@@ -216,6 +219,9 @@ static int secondsPlayed;
     
     // whether to display the FPS
     [[CCDirector sharedDirector] setDisplayFPS:debugMode];
+    
+    // seed the random number generator
+    srandom(time(NULL));
 }
 
 /**
@@ -287,6 +293,14 @@ static int secondsPlayed;
 -(void)setDebug:(BOOL)_debug
 {
     debugMode = _debug;
+}
+
+/**
+ * Sets the difficulty of the current level
+ */
+-(void)setLevelDifficulty:(Difficulty)_difficulty
+{
+    levelDifficulty = _difficulty;
 }
 
 @end
