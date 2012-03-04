@@ -281,9 +281,9 @@ static 	SEL selUpdate = NULL;
 	// this is likely computationally expensive
 	NSUInteger quantity = (textureAtlas_.capacity + 1) * 4 / 3;
 	
-	CCLOG(@"cocos2d: CCSpriteBatchNode: resizing TextureAtlas capacity from [%lu] to [%lu].",
+	/*CCLOG(@"cocos2d: CCSpriteBatchNode: resizing TextureAtlas capacity from [%lu] to [%lu].",
 		  (long)textureAtlas_.capacity,
-		  (long)quantity);
+		  (long)quantity);*/
 	
 	
 	if( ! [textureAtlas_ resizeCapacity:quantity] ) {
