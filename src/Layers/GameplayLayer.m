@@ -233,7 +233,8 @@
                 break;
          
             case kLearningNone:
-                class = [Lemming class];
+                class = [CogitoAgent class];
+                break;
                 
             default:
                 CCLOG(@"%@.createLemmingAtLocation: Error, learning type not recognised: %@", NSStringFromClass([self class]), [Utils getLearningTypeAsString:learningType]);

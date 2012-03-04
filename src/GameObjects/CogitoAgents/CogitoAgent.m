@@ -39,8 +39,14 @@
  */
 -(Action)selectAction:(State*)_state
 {
-    // should be implemented in subclass
-    return -1;
+    CCArray* actions = [self calculateAvailableActions:_state];
+
+    // choose a random action
+    Action action = -1;
+    if(self.state != kStateDead && [_state getGameObject].gameObjectType != kObjectExit) 
+        action = [self chooseRandomAction:actions];
+                
+    return action;
 }
 
 /**
@@ -98,8 +104,8 @@
  */
 -(State*)getStateForGameObject:(GameObject*)_object
 {
-    CCLOG(@"CogitoAgent.getStateForGameObject should be implemented in subclass");
-    return nil;
+    // should be implemented in subclass
+    return [[State alloc] initStateForObject:_object];
 }
 
 #pragma mark -
