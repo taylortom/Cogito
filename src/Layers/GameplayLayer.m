@@ -80,6 +80,8 @@
 /**
  * Creates the in-game 'menu'
  * Initialises any buttons and labels in the layer
+ * 
+ * NOTE: replaced with the pause HUD menu. Kept for a rainy day
  */
 -(void)initDisplay
 {    
@@ -245,12 +247,10 @@
         lemming.ID = ID;
         lemming.health = health;
         
-        if([[GameManager sharedGameManager] debug])
-        {
-            CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFilenameDefFontDebug];
-            [self addChild:debugLabel];
-            [lemming setDebugLabel:debugLabel];
-        }
+        // add the debug label
+        CCLabelBMFont *debugLabel = [CCLabelBMFont labelWithString:@"" fntFile:kFilenameDefFontDebug];
+        [self addChild:debugLabel];
+        [lemming setDebugLabel:debugLabel];
         
         [[LemmingManager sharedLemmingManager] addLemming:lemming]; 
         

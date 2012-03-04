@@ -120,7 +120,7 @@ static KnowledgeBase* _instance = nil;
 {    
     // get the documents path
     NSString* documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"KnowledgeBase_%@.plist", [Utils getTimeStampWithFormat:@"yyyy_MM_dd-HH:mm"]]];
+    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"KnowledgeBase_%@_%@.plist", [[GameManager sharedGameManager] currentLevel].name, [Utils getTimeStampWithFormat:@"yyyy_MM_dd-HHmm"]]];
     
     // the dictionary to export
     NSMutableDictionary* exportData = [[NSMutableDictionary alloc] init];
@@ -130,7 +130,7 @@ static KnowledgeBase* _instance = nil;
     {
         NSMutableDictionary* stateData = [[NSMutableDictionary alloc] init];
         QState* tempState = [gameStates objectAtIndex:i];
-        NSString* stateId = [NSString stringWithFormat:@"%@ (%f,%f)", [Utils getObjectAsString:[[tempState getGameObject] gameObjectType]], [tempState getGameObject].position.x, [tempState getGameObject].position.y];
+        NSString* stateId = [NSString stringWithFormat:@"%@ (%i,%i)", [Utils getObjectAsString:[[tempState getGameObject] gameObjectType]], ((int)[tempState getGameObject].position.x), ((int)[tempState getGameObject].position.y)];
         
         // no need adding states with no Q-values
         if([[tempState getGameObject] gameObjectType] == kObjectExit) continue;
@@ -140,7 +140,7 @@ static KnowledgeBase* _instance = nil;
         for (int j = 0; j < [[tempState getActions] count]; j++) 
         {
             Action action = [[[tempState getActions] objectAtIndex:j] intValue];
-            NSNumber* qValue = [NSNumber numberWithInt:[tempState getQValueForAction:action]];
+            NSNumber* qValue = [NSNumber numberWithFloat:[tempState getQValueForAction:action]];
             
             // store the pair
             [stateData setObject:qValue  forKey:[Utils getActionAsString:action]];

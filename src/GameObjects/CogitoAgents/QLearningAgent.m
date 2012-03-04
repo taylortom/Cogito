@@ -43,6 +43,7 @@
     if (self != nil) 
     {
         gameStates = [[CCArray alloc] init];
+        currentAction = -1;
     }
     return self;
 }
@@ -55,9 +56,9 @@
  * @param the state to update
  */
 -(void)updateQValues:(QState*)_newState
-{
+{    
     if(currentState == nil) return;
-        
+            
     float oldQValue = [currentState getQValueForAction:currentAction];
     float maximumQValue = [_newState calculateMaxQValue];
     float reward = [_newState getReward];
@@ -75,7 +76,7 @@
         default:
             break;
     }
-    
+        
     float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate * (reward + kQDiscountFactor * maximumQValue);
     //CCLOG(@"Q: %f => newQ: %f maxQ: %f R: %i [%@ - %@]", oldQValue, updatedQValue, maximumQValue, (int)reward, [Utils getObjectAsString:currentState.getGameObject.gameObjectType], [Utils getActionAsString:currentAction]);
     [currentState setQValue:updatedQValue forAction:currentAction];
@@ -90,7 +91,7 @@
  * @return the action to take
  */
 -(Action)selectAction:(QState*)_state
-{
+{        
     Action action = -1;
 
     // get  list of the available action
@@ -134,7 +135,7 @@
 -(QState*)getStateForGameObject:(GameObject*)_object
 {        
     // if we're using the shared knowledge base...
-    if(kQLearningSharedKnowledge) 
+    if(kQLearningSharedKnowledge)
         return [[KnowledgeBase sharedKnowledgeBase] getStateForGameObject:_object];
     
     for (int i = 0; i < [gameStates count]; i++) 

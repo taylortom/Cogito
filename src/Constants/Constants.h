@@ -44,11 +44,11 @@
 
 // Q learning-related
 #define kQLearningSharedKnowledge   YES
-#define kQLearningRate              0.85f
-#define kQDiscountFactor            0.99f
+#define kQLearningRate              0.4f
+#define kQDiscountFactor            0.9f
 #define kQWinReward                 100.0f
 #define kQDeathReward               -100.0f
-#define kQToolReward                -5.0f
+#define kQToolReward                -7.0f
 #define kQDefaultReward             -2.0f
     
 // z values

@@ -77,7 +77,7 @@
     [self addChild:lemmingCountLabel];
 
     // label
-    CCLabelBMFont* lemmingCountLabel2 = [CCLabelBMFont labelWithString:@"lemming count" fntFile:kFilenameDefFontLarge];
+    CCLabelBMFont* lemmingCountLabel2 = [CCLabelBMFont labelWithString:@"agent count" fntFile:kFilenameDefFontLarge];
     [lemmingCountLabel2 setAnchorPoint:ccp(0,0)];
     [lemmingCountLabel2 setPosition:ccp(38, 175)];
     [self addChild:lemmingCountLabel2];

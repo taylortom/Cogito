@@ -8,6 +8,7 @@
 //
 
 #import "cocos2d.h"
+#import "GameManager.h"
 #import "GameObject.h"
 #import "Obstacle.h"
 #import "QState.h"

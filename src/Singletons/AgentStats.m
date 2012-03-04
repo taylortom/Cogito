@@ -123,7 +123,7 @@ static AgentStats* _instance = nil;
     int average = 0;
     
     for (int i = 0; i < [learningLengths count]; i++) average += [[learningLengths objectAtIndex:i] intValue];
-    average = average/[learningLengths count];
+    if([learningLengths count] > 0) average = average/[learningLengths count];
     
     return average;
 }
@@ -137,7 +137,7 @@ static AgentStats* _instance = nil;
     int average = 0;
     
     for (int i = 0; i < [nonLearningLengths count]; i++) average += [[nonLearningLengths objectAtIndex:i] intValue];
-    average = average/[nonLearningLengths count];
+    if([nonLearningLengths count] > 0) average = average/[nonLearningLengths count];
     
     return average;
 }
@@ -147,11 +147,11 @@ static AgentStats* _instance = nil;
  * @return the average
  */
 -(int)averageActionsLearning
-{
-    int average = 0;
+{    
+    float average = 0;
     
     for (int i = 0; i < [learningActions count]; i++) average += [[learningActions objectAtIndex:i] intValue];
-    average = average/[learningActions count];
+    if([learningActions count] > 0) average = average/[learningActions count];
     
     return average;
 }
@@ -162,10 +162,10 @@ static AgentStats* _instance = nil;
  */
 -(int)averageActionsNonLearning
 {
-    int average = 0;
+    float average = 0;
     
     for (int i = 0; i < [nonLearningActions count]; i++) average += [[nonLearningActions objectAtIndex:i] intValue];
-    average = average/[nonLearningActions count];
+    if([nonLearningActions count] > 0) average = average/[nonLearningActions count];
     
     return average;
 }

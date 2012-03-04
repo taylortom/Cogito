@@ -55,7 +55,7 @@
  * @return the action
  */
 -(Action)chooseRandomAction:(CCArray*)_actions
-{
+{    
     Action action = -1;
     
     int randomIndex = [Utils generateRandomNumberFrom:0 to:[_actions count]];  
@@ -185,7 +185,7 @@
 -(void)updateDebugLabel
 {    
     [super updateDebugLabel];
-    [debugLabel setString:(learningMode) ? @"" : @"!"];
+    [debugLabel setString:(learningMode || self.state == kStateDead || self.state == kStateWin) ? @"" : @"!"];
 }
 
 @end

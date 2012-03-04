@@ -83,7 +83,6 @@
         [self initAnimations];
         [self resetState];
         [self changeState:kStateSpawning];
-        
     }
     return self;
 }
@@ -115,8 +114,8 @@
     umbrellaEquipped = NO;
     umbrellaTimer = 0;
     objectLastCollidedWith = kObjectTypeNone;
-    helmetUses = 5;
-    umbrellaUses = 5;
+    helmetUses = [[[GameManager sharedGameManager] currentLevel] helmetUses];
+    umbrellaUses = [[[GameManager sharedGameManager] currentLevel] umbrellaUses];
     if(movementDirection != kDirectionRight) [self changeDirection];
 }
 
@@ -177,7 +176,6 @@
             break;
            
         case kStateDead:
-            [debugLabel setString:@""];
             action = [CCAnimate actionWithAnimation:deathAnim restoreOriginalFrame:NO];
             break;
             
