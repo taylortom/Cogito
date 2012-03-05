@@ -25,7 +25,8 @@
 #define kFilenameDefLemmingFrame    @"Lemming_idle_1.png"
 #define kFilenameDefAtlas           @"Lemming_atlas"
 
-#define kFilenameDefButton           @"Lemming_atlas"
+#define kFilenameLevelData          @"LevelData"
+#define kFilenameGameData           @"GameData.plist"
 
 // Lemming-related
 #define kLemmingMovementAmount      18
@@ -51,6 +52,12 @@
 #define kQToolReward                -7.0f
 #define kQDefaultReward             -2.0f
     
+// rating scores
+#define kRatingAScore               80
+#define kRatingBScore               70
+#define kRatingCScore               60
+#define kRatingDScore               50 
+
 // z values
 #define kPauseMenuZValue            999
 #define kUIZValue                   500

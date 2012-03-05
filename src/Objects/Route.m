@@ -52,8 +52,7 @@
  */
 -(void)addState:(State*)_state withAction:(Action)_action
 {
-    CCLOG(@"%@.addState: %@ withAction: %@", NSStringFromClass([self class]), [Utils getObjectAsString:[_state getGameObject].gameObjectType], [Utils getActionAsString:_action]);
-    
+    //CCLOG(@"%@.addState: %@ withAction: %@", NSStringFromClass([self class]), [Utils getObjectAsString:[_state getGameObject].gameObjectType], [Utils getActionAsString:_action]);
     [nodes addObject:[NSMutableArray arrayWithObjects:_state, [NSNumber numberWithInt:_action], nil]];
 }
 

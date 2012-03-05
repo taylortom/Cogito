@@ -193,7 +193,7 @@ static DataManager* _instance = nil;
 {    
     // get the documents path
     NSString* documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:@"GameData.plist"];
+    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:kFilenameGameData];
     
     // finally write the file
     [[NSMutableDictionary dictionaryWithObjectsAndKeys: reinforcementData, @"reinforcement", decisionTreeData, @"decisionTree", shortestRouteData, @"shortestRoute", nil] writeToFile:filePath atomically:YES];

@@ -102,7 +102,7 @@ static int secondsPlayed;
 -(void)loadLevelData
 {
     // load plist file
-    NSDictionary *plistDictionary = [Utils loadPlistFromFile:@"LevelData"];
+    NSDictionary *plistDictionary = [Utils loadPlistFromFile:kFilenameLevelData];
     // if plistDictionary is empty, display error message
     if(plistDictionary == nil) { CCLOG(@"GameManager.loadLevelData: Error loading LevelData.plist"); return; }
     
