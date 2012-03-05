@@ -64,17 +64,20 @@
     float reward = [_newState getReward];
     
     // apply a negative reward if using a tool
-    switch (currentAction)
+    if(reward == kQDefaultReward) 
     {
-        case kActionDownUmbrella:
-        case kActionEquipUmbrella:
-        case kActionLeftHelmet:
-        case kActionRightHelmet:
-            reward = kQToolReward;
-            break;
-            
-        default:
-            break;
+        switch (currentAction)
+        {
+            case kActionDownUmbrella:
+            case kActionEquipUmbrella:
+            case kActionLeftHelmet:
+            case kActionRightHelmet:
+                reward = kQToolReward;
+                break;
+                
+            default:
+                break;
+        } 
     }
         
     float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate * (reward + kQDiscountFactor * maximumQValue);
