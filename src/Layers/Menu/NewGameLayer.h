@@ -19,12 +19,14 @@
     int lemmingCount;
     MachineLearningType learningType;
     int learningEpisodes;
+    BOOL sharedKnowledge;
     BOOL debugMode;
 
     // components
     
     UISlider* lemmingCountSlider;
     UISlider* learningEpisodesSlider;
+    UISwitch* sharedKnowledgeSwitch;
     UISwitch* debugSwitch;
     UISegmentedControl* learningTypeControl;
     
@@ -32,6 +34,7 @@
     
     CCLabelBMFont* lemmingCountLabel;
     CCLabelBMFont* learningEpisodesLabel;
+    CCLabelBMFont* sharedKnowledgeLabel;
     CCLabelBMFont* debugModeLabel;
 }
 

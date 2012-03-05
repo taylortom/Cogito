@@ -21,6 +21,7 @@
 @synthesize currentScene;
 @synthesize currentLevel;
 @synthesize gamePaused;
+@synthesize debug;
 
 static GameManager* _instance = nil;
 static int secondsPlayed;
@@ -70,7 +71,7 @@ static int secondsPlayed;
         currentScene = kNoSceneUninitialised; 
         levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
-        debugMode = NO;
+        debug = NO;
     }
     
     return self;
@@ -175,7 +176,7 @@ static int secondsPlayed;
         case kMainMenuScene:
             sceneToRun = [MainMenuScene node];
             [[AgentStats sharedAgentStats] clearTempData];
-            debugMode = NO;
+            debug = NO;
             break;
         
         case kNewGameScene:
@@ -218,7 +219,7 @@ static int secondsPlayed;
     [[KnowledgeBase sharedKnowledgeBase] clearKnowledgeBase];
     
     // whether to display the FPS
-    [[CCDirector sharedDirector] setDisplayFPS:debugMode];
+    [[CCDirector sharedDirector] setDisplayFPS:debug];
     
     // seed the random number generator
     srandom(time(NULL));
@@ -277,22 +278,6 @@ static int secondsPlayed;
 -(int)getGameTimeInSecs
 {
     return secondsPlayed;
-}
-
-/**
- * Whether debug mode is on
- */
--(BOOL)debug
-{
-    return debugMode;
-}
-
-/**
- * Enables/disables debug mode
- */
--(void)setDebug:(BOOL)_debug
-{
-    debugMode = _debug;
 }
 
 /**

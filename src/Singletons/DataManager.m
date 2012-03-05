@@ -24,6 +24,10 @@ static DataManager* _instance = nil;
 
 -(void)dealloc
 {
+    [reinforcementData release];
+    [decisionTreeData release];
+    [shortestRouteData release];
+    [noLearningData release];
     [super dealloc];
 }
 
@@ -60,6 +64,7 @@ static DataManager* _instance = nil;
         reinforcementData = [[NSMutableDictionary alloc] init];
         decisionTreeData = [[NSMutableDictionary alloc] init];
         shortestRouteData = [[NSMutableDictionary alloc] init];
+        noLearningData = [[NSMutableDictionary alloc] init];
         
         [self loadGameData];
     }
@@ -130,7 +135,6 @@ static DataManager* _instance = nil;
     {
         case kLearningReinforcement:
             [reinforcementData setObject:gameData forKey:timeStamp];
-            
             break;
             
         case kLearningTree:
@@ -139,6 +143,10 @@ static DataManager* _instance = nil;
         
         case kLearningShortestRoute:
             [shortestRouteData setObject:gameData forKey:timeStamp];
+            break;
+            
+        case kLearningNone:
+            [noLearningData setObject:gameData forKey:timeStamp];
             break;
             
         default:
@@ -163,6 +171,7 @@ static DataManager* _instance = nil;
         [reinforcementData addEntriesFromDictionary:[tempData objectForKey:@"reinforcement"]];
         [decisionTreeData addEntriesFromDictionary:[tempData objectForKey:@"decisionTree"]];
         [shortestRouteData addEntriesFromDictionary:[tempData objectForKey:@"shortestRoute"]];        
+        [noLearningData addEntriesFromDictionary:[tempData objectForKey:@"noLearning"]];        
     }
     else CCLOG(@"No data to load");
 }
@@ -214,6 +223,9 @@ static DataManager* _instance = nil;
     
     CCLOG(@"   Shortest Route: ");
     for(NSString* item in shortestRouteData) NSLog(@"      [Key: %@ - Value: %@]", item, [shortestRouteData valueForKey:item]);
+    
+    CCLOG(@"   No Learning: ");
+    for(NSString* item in noLearningData) NSLog(@"      [Key: %@ - Value: %@]", item, [noLearningData valueForKey:item]);
 }
 
 @end

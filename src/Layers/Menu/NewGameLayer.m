@@ -44,6 +44,7 @@
         
         lemmingCount = kLemmingTotal;
         learningEpisodes = KLearningEpisodes;
+        sharedKnowledge = YES;
         debugMode = NO;
         learningType = kLearningReinforcement;
         
@@ -63,7 +64,7 @@
      */
     
     // slider
-    lemmingCountSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-220), 220, 50)];
+    lemmingCountSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-235), 220, 50)];
     lemmingCountSlider.minimumTrackTintColor = [Utils getUIColourFromRed:102 green:153 blue:204];
     [lemmingCountSlider addTarget:self action:@selector(onSliderUpdated:)forControlEvents:UIControlEventValueChanged];
     lemmingCountSlider.minimumValue = 1.0;
@@ -73,13 +74,13 @@
     
     // value label
     lemmingCountLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", kLemmingTotal] fntFile:kFilenameDefFontLarge];
-    [lemmingCountLabel setPosition:ccp(440, 189)];
+    [lemmingCountLabel setPosition:ccp(440, 204)];
     [self addChild:lemmingCountLabel];
 
     // label
     CCLabelBMFont* lemmingCountLabel2 = [CCLabelBMFont labelWithString:@"agent count" fntFile:kFilenameDefFontLarge];
     [lemmingCountLabel2 setAnchorPoint:ccp(0,0)];
-    [lemmingCountLabel2 setPosition:ccp(38, 175)];
+    [lemmingCountLabel2 setPosition:ccp(38, 190)];
     [self addChild:lemmingCountLabel2];
     
     /**
@@ -87,7 +88,7 @@
      */
     
     // slider
-    learningEpisodesSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-180), 220, 50)];
+    learningEpisodesSlider = [[UISlider alloc] initWithFrame:CGRectMake(202, (320-200), 220, 50)];
     [learningEpisodesSlider setAlpha:0.0f];
     learningEpisodesSlider.minimumValue = 1.0;
     learningEpisodesSlider.maximumValue = KLearningMaxEpisodes;
@@ -98,13 +99,13 @@
     
     // value label
     learningEpisodesLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", KLearningEpisodes] fntFile:kFilenameDefFontLarge];
-    [learningEpisodesLabel setPosition:ccp(440, 149)];
+    [learningEpisodesLabel setPosition:ccp(440, 169)];
     [self addChild:learningEpisodesLabel];
     
     // label
     CCLabelBMFont* learningEpisodesLabel2 = [CCLabelBMFont labelWithString:@"learning episodes" fntFile:kFilenameDefFontLarge];
     [learningEpisodesLabel2 setAnchorPoint:ccp(0,0)];
-    [learningEpisodesLabel2 setPosition:ccp(38, 135)];
+    [learningEpisodesLabel2 setPosition:ccp(38, 155)];
     [self addChild:learningEpisodesLabel2];
     
     
@@ -116,17 +117,34 @@
     [learningTypeControl setAlpha:0.0f];
     [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:150 blue:204]];
     [learningTypeControl addTarget:self action:@selector(onSegmentedControlUpdated:)forControlEvents:UIControlEventValueChanged];
-    [learningTypeControl setFrame:CGRectMake(30, (320-120), 420, 50)];
+    [learningTypeControl setFrame:CGRectMake(30, (320-148), 420, 50)];
     learningTypeControl.selectedSegmentIndex = kLearningType;
     [learningTypeControl setSegmentedControlStyle:UISegmentedControlStyleBar];
     [[[CCDirector sharedDirector] openGLView] addSubview:learningTypeControl];
 
     /**
+     * Shared knowledge switch
+     */
+    
+    // switch
+    sharedKnowledgeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(178, (320-85), 200, 50)];
+    [sharedKnowledgeSwitch setAlpha:0.0f];
+    [sharedKnowledgeSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
+    [sharedKnowledgeSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
+    [sharedKnowledgeSwitch setOn:YES];
+    [[[CCDirector sharedDirector] openGLView] addSubview:sharedKnowledgeSwitch];
+    
+    // label
+    sharedKnowledgeLabel = [CCLabelBMFont labelWithString:@"shared knowledge" fntFile:kFilenameDefFontLarge];
+    [sharedKnowledgeLabel setPosition:ccp(100, 66)];
+    [self addChild:sharedKnowledgeLabel];
+    
+    /**
      * Debug mode switch
      */
     
     // switch
-    debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(150, (320-50), 200, 50)];
+    debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(375, (320-85), 200, 50)];
     [debugSwitch setAlpha:0.0f];
     [debugSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
     [debugSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
@@ -134,7 +152,7 @@
     
     // label
     debugModeLabel = [CCLabelBMFont labelWithString:@"debug mode" fntFile:kFilenameDefFontLarge];
-    [debugModeLabel setPosition:ccp(85, 31)];
+    [debugModeLabel setPosition:ccp(320, 66)];
     [self addChild:debugModeLabel];
     
     /**
@@ -154,6 +172,7 @@
             [lemmingCountSlider setAlpha:1.0f];
             [learningEpisodesSlider setAlpha:1.0f];
             [learningTypeControl setAlpha:1.0f];
+            [sharedKnowledgeSwitch setAlpha:1.0f];
             [debugSwitch setAlpha:1.0f]; 
         }
         completion:^(BOOL finished){ }
@@ -174,6 +193,7 @@
             [lemmingCountSlider setAlpha:0.0f];
             [learningEpisodesSlider setAlpha:0.0f];
             [learningTypeControl setAlpha:0.0f];
+            [sharedKnowledgeSwitch setAlpha:0.0f];
             [debugSwitch setAlpha:0.0f]; 
         }
         completion:^(BOOL finished)
@@ -221,7 +241,8 @@
  */
 - (IBAction)onSwitchUpdated:(UISwitch*)sender
 {   
-    debugMode = sender.on;  
+    if(sender == debugSwitch) debugMode = sender.on;  
+    else if(sender == sharedKnowledgeSwitch) sharedKnowledge = sender.on;
 }
 
 /**
@@ -241,6 +262,7 @@
     [[LemmingManager sharedLemmingManager] setLearningType:learningType];
     [[LemmingManager sharedLemmingManager] setTotalNumberOfLemmings:lemmingCount];
     [[LemmingManager sharedLemmingManager] setLearningEpisodes:learningEpisodes];
+    [[LemmingManager sharedLemmingManager] setSharedKnowledge:sharedKnowledge];
     [[GameManager sharedGameManager] setDebug:debugMode];
     
     [self animateOutComponents];

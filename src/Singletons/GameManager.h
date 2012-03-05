@@ -20,12 +20,13 @@
     SceneTypes currentScene;
     Level* currentLevel;
     BOOL gamePaused;
-    BOOL debugMode;
+    BOOL debug;
 }
 
 @property (readonly) SceneTypes currentScene;
 @property (readwrite, retain) Level* currentLevel;
 @property (readwrite) BOOL gamePaused;
+@property (readwrite) BOOL debug;
 
 +(GameManager*)sharedGameManager;
 -(void)loadLevelData;
@@ -37,8 +38,6 @@
 -(void)resetSecondCounter;
 -(NSString*)getGameTimeInMins;
 -(int)getGameTimeInSecs;
--(BOOL)debug;
--(void)setDebug:(BOOL)_debug;
 -(void)setLevelDifficulty:(Difficulty)_difficulty;
 
 @end

@@ -19,6 +19,7 @@
     NSMutableDictionary* reinforcementData;
     NSMutableDictionary* decisionTreeData;
     NSMutableDictionary* shortestRouteData;
+    NSMutableDictionary* noLearningData;
 }
 
 +(DataManager*)sharedDataManager;

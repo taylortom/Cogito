@@ -138,9 +138,9 @@
 -(QState*)getStateForGameObject:(GameObject*)_object
 {        
     // if we're using the shared knowledge base...
-    if(kQLearningSharedKnowledge)
+    if([LemmingManager sharedLemmingManager].sharedKnowledge)
         return [[KnowledgeBase sharedKnowledgeBase] getStateForGameObject:_object];
-    
+        
     for (int i = 0; i < [gameStates count]; i++) 
     {
         QState* tempState = [gameStates objectAtIndex:i];

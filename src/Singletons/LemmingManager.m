@@ -11,6 +11,11 @@
 
 @implementation LemmingManager
 
+@synthesize learningType;
+@synthesize learningEpisodes;
+@synthesize totalNumberOfLemmings;
+@synthesize sharedKnowledge;
+
 static LemmingManager* _instance = nil;
 
 #pragma mark -
@@ -159,24 +164,6 @@ static LemmingManager* _instance = nil;
 #pragma mark Getters/setters
 
 /**
- * Returns the type of machine learning being used
- * @return the MachineLearningType
- */
--(MachineLearningType)learningType
-{
-    return learningType;
-}
-
-/**
- * Sets the learning type
- * @param the learning type
- */
--(void)setLearningType:(MachineLearningType)_learningType
-{
-    learningType = _learningType;
-}
-
-/**
  * Returns the number of learning episodes
  * @return number of episodes
  */
@@ -221,11 +208,6 @@ static LemmingManager* _instance = nil;
 -(int)lemmingCount
 {
     return [lemmings count];
-}
-
--(void)setTotalNumberOfLemmings:(int)_lemmingsTotal
-{
-    totalNumberOfLemmings = _lemmingsTotal;
 }
 
 /**
