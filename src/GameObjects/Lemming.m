@@ -180,8 +180,6 @@
             break;
             
         case kStateWin:
-            if (isUsingHelmet) [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_helmet_1.png"]];
-            else [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lemming_idle_1.png"]];
             break;
             
         default:
@@ -291,7 +289,7 @@
  * act accordingly
  */
 -(void)onEndConditionReached
-{
+{    
     // lemming has played death anim, respawn or remove
     if(self.state == kStateDead)
     {
@@ -350,6 +348,7 @@
     
     for (GameObject *gameObject in _listOfGameObjects) 
     {
+        
         // no need to check for self-self collisions
         if(gameObject == self || gameObject.gameObjectType == kLemmingType) continue;
         

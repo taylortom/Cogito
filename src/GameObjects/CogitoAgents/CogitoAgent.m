@@ -104,7 +104,6 @@
  */
 -(State*)getStateForGameObject:(GameObject*)_object
 {
-    // should be implemented in subclass
     return [[State alloc] initStateForObject:_object];
 }
 

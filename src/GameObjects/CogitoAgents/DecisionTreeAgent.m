@@ -122,17 +122,17 @@
 }
 
 /**
- * Searches the levelTree for the shortest route
- * @return the optimum route
+ * Searches the levelTree for the shortest route(s)
+ * @return the shortest routes
  */
--(void)setOptimumRoute
-{
+-(CCArray*)getShortestRoutes
+{    
     // build the routes
     CCArray* routes = [[CCArray alloc] init];
     [levelTree buildRoutes:routes];
     
-    // if no optimum route are found, exit
-    if([routes count] == 0) return;
+    // if no optimum routes are found, exit
+    if([routes count] == 0) return nil;
     
     // find the shortest route
     CCArray* route = [routes objectAtIndex:0];
@@ -140,9 +140,68 @@
     for (int i = 1; i < [routes count]; i++) 
         if([[routes objectAtIndex:i] count] < [route count]) route = [routes objectAtIndex:i];
     
-    // the array needs to be reversed
-    for (int i = [route count]-1; i >= 0; i--) 
-        [optimumRoute addObject:[route objectAtIndex:i]];
+    // check through the routes for other shortest routes
+    for (int i = 1; i < [routes count]; i++) 
+        if([[routes objectAtIndex:i] count] > [route count]) [routes removeObjectAtIndex:i];
+    
+    return routes;
+}
+
+/**
+ * Searches the levelTree for the shortest route
+ */
+-(void)setOptimumRoute
+{    
+    // build the routes
+    
+    CCArray* routes = [self getShortestRoutes];
+    
+    // if no optimum routes are found, exit
+    if([routes count] == 0) return;
+    
+    // calculate the cost of each route (cost = +1 for every tool use)
+    
+    NSMutableDictionary* routesWithCosts = [NSMutableDictionary dictionaryWithCapacity:[routes count]];
+    
+    for (int i = 0; i < [routes count]; i++) 
+    {
+        CCArray* route = [routes objectAtIndex:i];
+        int routeCost = 0;
+        
+        for (int i = 0; i < [route count]; i++) 
+            if([[route objectAtIndex:i] getAction] == kActionDownUmbrella ||
+               [[route objectAtIndex:i] getAction] == kActionEquipUmbrella ||
+               [[route objectAtIndex:i] getAction] == kActionLeftHelmet ||
+               [[route objectAtIndex:i] getAction] == kActionRightHelmet) 
+                    routeCost++;
+        
+        [routesWithCosts setObject:[NSNumber numberWithInt:routeCost] forKey:route];
+    }
+    
+    
+    // find the route with the lowest cost
+    
+    int minimumCost = 999;      // the lowest cost so far
+    CCArray* minimumCostRoute;
+    
+    for (CCArray* route in routesWithCosts) 
+    {
+        if([[routesWithCosts objectForKey:route] intValue] < minimumCost)
+        {
+            CCLOG(@"Route cost: %i", [[routesWithCosts objectForKey:route] intValue]);
+            minimumCostRoute = route;
+            minimumCost = [[routesWithCosts objectForKey:route] intValue];
+        }
+    }
+    
+    CCLOG(@"%@.setOptimumRoute: routes: %i mimumumCost: %i minimumCostRoute: %i", NSStringFromClass([self class]), [routes count], minimumCost, [minimumCostRoute count]);
+    
+    // finally, the array needs to be reversed
+    for (int i = [minimumCostRoute count]-1; i > -1; i--) 
+        [optimumRoute addObject:[minimumCostRoute objectAtIndex:i]];
+    
+    CCLOG(@"Optimum route is:");
+    for (int i = 0; i < [optimumRoute count]; i++) CCLOG(@"   %@", [Utils getActionAsString:[[optimumRoute objectAtIndex:i] getAction]]);
 }
 
 /**
@@ -164,16 +223,6 @@
 
 #pragma mark -
 #pragma mark Overrides
-
-/**
- * Looks up the state for the passed object
- * @param object to search for
- * @return the matching state
- */
--(State*)getStateForGameObject:(GameObject*)_object
-{
-    return [[State alloc] initStateForObject:_object];
-}
 
 /**
  * Lemming has either died, or won

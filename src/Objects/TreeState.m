@@ -188,7 +188,7 @@
  * Recursively builds the structure
  */
 -(CCArray*)buildRoutes:(CCArray*)_routes
-{
+{    
     for (int i = 0; i < [children count]; i++) 
     {
         TreeState* node = [children objectAtIndex:i];

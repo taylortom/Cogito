@@ -98,7 +98,7 @@ static AgentStats* _instance = nil;
  */
 -(void)addEpisodeWithLength:(int)_time andActions:(int)_actions learningMode:(BOOL)_learning
 {
-    CCLOG(@"%@.addEpisode: L: %i A: %i [%@]", NSStringFromClass([self class]), _time, _actions, [Utils getBooleanAsString:_learning]);
+    //CCLOG(@"%@.addEpisode: L: %i A: %i [%@]", NSStringFromClass([self class]), _time, _actions, [Utils getBooleanAsString:_learning]);
     
     if(_learning) 
     {
