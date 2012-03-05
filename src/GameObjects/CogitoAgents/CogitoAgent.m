@@ -73,7 +73,7 @@
 -(CCArray*)calculateAvailableActions:(State*)_state
 {    
     GameObject* object = [_state getGameObject];
-    CCArray* actions = [[CCArray alloc] init];
+    CCArray* actions = [CCArray arrayWithCapacity:0];
     
     [actions addObject:[NSNumber numberWithInt:kActionLeft]];
     [actions addObject:[NSNumber numberWithInt:kActionRight]];

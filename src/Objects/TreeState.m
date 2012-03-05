@@ -150,7 +150,7 @@
  */
 -(CCArray*)getActions
 {        
-    CCArray* actionsArray = [[CCArray alloc] init];
+    CCArray* actionsArray = [CCArray arrayWithCapacity:0];
     
     for (int i = 0; i < [actions count]; i++) 
         [actionsArray addObject:[[actions objectAtIndex:i] objectAtIndex:0]];

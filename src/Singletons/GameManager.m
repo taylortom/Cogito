@@ -139,7 +139,7 @@ static int secondsPlayed;
     CCLOG(@"%@.loadRandomLevel: %@", NSStringFromClass([self class]), [Utils getDifficultyAsString:levelDifficulty]);
     
     // temporary storage for levels with the chosen difficulty
-    CCArray* tempLevels = [[CCArray alloc] init];
+    CCArray* tempLevels = [CCArray arrayWithCapacity:0];
     
     for (int i = 0; i < [levelData count]; i++) 
     {

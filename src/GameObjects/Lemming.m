@@ -342,7 +342,7 @@
  */
 -(void)checkForCollisions:(CCArray*)_listOfGameObjects
 {
-    CCArray* collisions = [[CCArray alloc] init];
+    CCArray* collisions = [CCArray arrayWithCapacity:0];
     CGRect selfBBox = [self adjustedBoundingBox];
     BOOL colliding = NO;
     

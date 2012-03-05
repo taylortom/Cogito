@@ -128,7 +128,7 @@
 -(CCArray*)getShortestRoutes
 {    
     // build the routes
-    CCArray* routes = [[CCArray alloc] init];
+    CCArray* routes = [CCArray arrayWithCapacity:0];
     [levelTree buildRoutes:routes];
     
     // if no optimum routes are found, exit
