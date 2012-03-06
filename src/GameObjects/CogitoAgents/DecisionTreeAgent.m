@@ -27,7 +27,6 @@
  */
 -(void)dealloc
 {
-    [gameStates release]; 
     [levelTree release]; 
     [optimumRoute release];
     [super dealloc];
@@ -46,7 +45,6 @@
     
     if (self != nil) 
     {
-        gameStates = [[CCArray alloc] init];
         optimumRoute = [[CCArray alloc] init];
         optimumRouteIndex = 0;
         currentAction = -1;
@@ -63,6 +61,7 @@
  */
 -(Action)selectAction:(State*)_state
 {    
+    // the action to return
     Action action = -1;
     
     // if the Agent's died/won
@@ -95,10 +94,10 @@
             
             // update the current state/action variable
             currentState = treeState;
-        } 
+        }
         
         currentAction = action;
-        
+            
         if(endConditionReached)
         {
             // if we've reached an end condition, make a leaf node

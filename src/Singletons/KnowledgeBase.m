@@ -18,8 +18,10 @@ static KnowledgeBase* _instance = nil;
 
 -(void)dealloc
 {
-    [super dealloc];
     [gameStates release];
+    [routes release];
+    
+    [super dealloc];
 }
 
 /**
@@ -81,7 +83,7 @@ static KnowledgeBase* _instance = nil;
  * @return the matching state
  */
 -(QState*)getStateForGameObject:(GameObject*)_object
-{            
+{ 
     for (int i = 0; i < [gameStates count]; i++) 
     {
         QState* tempState = [gameStates objectAtIndex:i];
@@ -110,6 +112,7 @@ static KnowledgeBase* _instance = nil;
     
     QState* returnState = [[QState alloc] initStateForObject:_object withReward:reward];
     [gameStates addObject:returnState];
+
     return returnState;
 }
 
@@ -158,6 +161,7 @@ static KnowledgeBase* _instance = nil;
  */
 -(void)clearKnowledgeBase
 {
+    [gameStates release];
     gameStates = [[CCArray alloc] init]; 
 }
 

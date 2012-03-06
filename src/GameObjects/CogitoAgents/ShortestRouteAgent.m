@@ -28,6 +28,8 @@
 -(void)dealloc
 {
     [routes release]; 
+    [currentRoute release];
+    
     [super dealloc];
 }
 
@@ -142,16 +144,6 @@
 
 #pragma mark -
 #pragma mark Overrides
-
-/**
- * Looks up the state for the passed object
- * @param object to search for
- * @return the matching state
- */
--(State*)getStateForGameObject:(GameObject*)_object
-{
-    return [[State alloc] initStateForObject:_object];
-}
 
 /**
  * Lemming has either died, or won

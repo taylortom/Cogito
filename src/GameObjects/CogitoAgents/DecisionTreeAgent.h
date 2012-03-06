@@ -14,9 +14,7 @@
 
 @interface DecisionTreeAgent : CogitoAgent
 
-{
-    CCArray* gameStates;
-    
+{    
     TreeState* levelTree;    
     TreeState* currentState;
     Action currentAction;
