@@ -14,6 +14,7 @@
 #import "InstructionsScene.h"
 #import "MainMenuScene.h"
 #import "NewGameScene.h"
+#import "StatsScene.h"
 #import "StingScene.h"
 
 @implementation GameManager
@@ -183,6 +184,10 @@ static int secondsPlayed;
             sceneToRun = [NewGameScene node];
             break;
        
+        case kStatsScene:
+            sceneToRun = [StatsScene node];
+            break;
+            
         case kInstructionsScene:
             sceneToRun = [InstructionsScene node];
             break;

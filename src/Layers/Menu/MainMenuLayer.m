@@ -71,18 +71,19 @@
     CCMenuItemImage *newGameButton = [CCMenuItemImage itemFromNormalImage:@"NewGame.png" selectedImage:@"NewGame_down.png" disabledImage:nil target:self selector:@selector(onNewGameButtonPressed)];
     CCMenuItemImage *instructionsButton = [CCMenuItemImage itemFromNormalImage:@"Instructions.png" selectedImage:@"Instructions_down.png" disabledImage:nil target:self selector:@selector(onInstructionsButtonPressed)];
     //CCMenuItemImage *highScoresButton = [CCMenuItemImage itemFromNormalImage:@"Settings.png" selectedImage:@"Settings_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
+    CCMenuItemImage *statsButton = [CCMenuItemImage itemFromNormalImage:@"Stats.png" selectedImage:@"Stats_down.png" disabledImage:nil target:self selector:@selector(onStatsButtonPressed)];
     CCMenuItemImage *aboutButton = [CCMenuItemImage itemFromNormalImage:@"About.png" selectedImage:@"About_down.png" disabledImage:nil target:self selector:@selector(onAboutButtonPressed)];
         
     // create menu with the items
     //mainMenu = [CCMenu menuWithItems:newGameButton, highScoresButton, aboutButton, nil];
-    mainMenu = [CCMenu menuWithItems:newGameButton, instructionsButton, aboutButton, nil];
+    mainMenu = [CCMenu menuWithItems:newGameButton, statsButton, instructionsButton, aboutButton, nil];
     
     // position the menu
-    [mainMenu alignItemsVerticallyWithPadding:winSize.height * 0.059f];
-    [mainMenu setPosition: ccp(winSize.width * 2, winSize.height * 0.28)];
+    [mainMenu alignItemsVerticallyWithPadding:13.0f];
+    [mainMenu setPosition: ccp(winSize.width*2, winSize.height*0.3)];
     
     // create the animations
-    id animateInAction = [CCMoveTo actionWithDuration:1.5f position:ccp(winSize.width * 0.80f, winSize.height * 0.28)];
+    id animateInAction = [CCMoveTo actionWithDuration:1.5f position:ccp(winSize.width * 0.80f, winSize.height * 0.3)];
     id easeEffectAction = [CCEaseIn actionWithAction:animateInAction rate:1.5f];
     [mainMenu runAction:easeEffectAction];
     
@@ -99,6 +100,14 @@
 -(void)onNewGameButtonPressed
 {
     [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
+}
+
+/**
+ * Displays the stats screen
+ */
+-(void)onStatsButtonPressed
+{
+    [[GameManager sharedGameManager] runSceneWithID:kStatsScene];
 }
 
 /**

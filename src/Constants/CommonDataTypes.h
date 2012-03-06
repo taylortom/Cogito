@@ -41,6 +41,13 @@ typedef enum
     kLearningMixed
 } MachineLearningType;
 
+typedef enum
+{
+    kGraphEpisodeTime,
+    kGraphActions,
+    kGraphAgentsSaved,
+    kGraphNone
+} GraphType;
 
 typedef enum
 {
@@ -96,9 +103,10 @@ typedef enum
     kStingScene                 = 1,
     kMainMenuScene              = 2,
     kNewGameScene               = 3,
-    kInstructionsScene          = 4,
-    kSettingsScene              = 5,
-    kAboutScene                 = 6,
-    kGameOverScene              = 7,
+    kStatsScene                 = 4,
+    kInstructionsScene          = 5,
+    kSettingsScene              = 6,
+    kAboutScene                 = 7,
+    kGameOverScene              = 8,
     kGameLevelScene             = 101
 } SceneTypes;

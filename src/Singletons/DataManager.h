@@ -23,6 +23,11 @@
 }
 
 +(DataManager*)sharedDataManager;
+-(int)averageEpisodeTimeLearning:(MachineLearningType)_learningType;
+-(int)averageEpisodeTimeNonLearning:(MachineLearningType)_learningType;
+-(int)averageActionsLearning:(MachineLearningType)_learningType;
+-(int)averageActionsNonLearning:(MachineLearningType)_learningType;
+-(float)averageAgentsSaved:(MachineLearningType)_learningType;
 -(void)addCurrentGameData;
 -(void)loadGameData;
 -(void)clearGameData;

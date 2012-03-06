@@ -11,6 +11,7 @@
 
 @interface DataManager()
 
+-(int)calculateAverageFor:(NSString*)_object andType:(MachineLearningType)_learningType;
 -(void)saveGameData;
 
 @end
@@ -92,27 +93,133 @@ static DataManager* _instance = nil;
 #pragma mark -
 
 /**
+ * Works out the average episode time for the passed learning type
+ * @param learning type
+ * @return the average
+ */
+-(int)averageEpisodeTimeLearning:(MachineLearningType)_learningType
+{
+    return [self calculateAverageFor:@"averageTimeLearning" andType:_learningType];
+}
+
+
+/**
+ * Works out the average episode time (non-learning) for the passed learning type
+ * @param learning type
+ * @return the average
+ */
+-(int)averageEpisodeTimeNonLearning:(MachineLearningType)_learningType
+{
+    return [self calculateAverageFor:@"averageTimeNonLearning" andType:_learningType];
+}
+
+/**
+ * Works out the average actions per episode for the passed learning type
+ * @param learning type
+ * @return the average
+ */
+-(int)averageActionsLearning:(MachineLearningType)_learningType
+{
+    return [self calculateAverageFor:@"averageActionsLearning" andType:_learningType];
+}
+
+/**
+ * Works out the average actions per episode (non-learning) for the passed learning type
+ * @param learning type
+ * @return the average
+ */
+-(int)averageActionsNonLearning:(MachineLearningType)_learningType
+{
+    return [self calculateAverageFor:@"averageActionsNonLearning" andType:_learningType];
+}
+
+/**
+ * Works out the average agents saved for the passed learning type
+ * @param learning type
+ * @return the average
+ */
+-(float)averageAgentsSaved:(MachineLearningType)_learningType
+{
+    int saved = [self calculateAverageFor:@"saved" andType:_learningType];
+    int killed = [self calculateAverageFor:@"killed" andType:_learningType];
+    
+    return (float)saved/((float)(saved+killed));
+}
+
+/**
+ * Calculates an average for the passed dictionary id
+ * @param the object
+ * @param the learning type
+ * @return the average
+ */
+-(int)calculateAverageFor:(NSString*)_object andType:(MachineLearningType)_learningType
+{
+    NSMutableDictionary* learningData;
+    float average = 0;
+    
+    switch (_learningType) 
+    {
+        case kLearningReinforcement:
+            learningData = reinforcementData;
+            break;
+            
+        case kLearningTree:
+            learningData = decisionTreeData;
+            break;
+            
+        case kLearningShortestRoute:
+            learningData = shortestRouteData;
+            break;
+            
+        case kLearningNone:
+            learningData = noLearningData;
+            break;
+            
+        default:
+            break;
+    }
+    
+    for(NSString* item in learningData)
+    {
+        NSMutableDictionary* subDict = [learningData objectForKey:item];
+        average += [[subDict objectForKey:_object] intValue];
+    }
+    
+    average /= [learningData count];
+        
+    return average;
+}
+
+#pragma mark -
+#pragma mark Data Manipulation
+
+/**
  * Adds the current data to the appropriate dictionary
  */
 -(void)addCurrentGameData
 {
     CCLOG(@"%@.addCurrentGameData: %@", NSStringFromClass([self class]), [Utils getLearningTypeAsString:[LemmingManager sharedLemmingManager].learningType]);
     
-    MachineLearningType learningType = [LemmingManager sharedLemmingManager].learningType;
+    // create references to the managers to prevent repeated calling
+    AgentStats* am = [AgentStats sharedAgentStats];
+    GameManager* gm = [GameManager sharedGameManager];
+    LemmingManager* lm = [LemmingManager sharedLemmingManager];
+    
+    MachineLearningType learningType = lm.learningType;
     
     // if using mixed learning, display error and return
     if(learningType == kLearningMixed) { CCLOG(@"%@.addCurrentGameData: Can't save data when mixing learning types", NSStringFromClass([self class])); return; }
     
     // pull the data from the various managers
-    int saved = [[LemmingManager sharedLemmingManager] lemmingsSaved];
-    int killed = [[LemmingManager sharedLemmingManager] lemmingsKilled];
-    int time = [[GameManager sharedGameManager] getGameTimeInSecs];
-    int learningEpisodes = [[LemmingManager sharedLemmingManager] learningEpisodes];
-    int averageTimeLearning = [[AgentStats sharedAgentStats] averageTimeLearning];
-    int averageTimeNonLearning = [[AgentStats sharedAgentStats] averageTimeNonLearning];
-    int averageActionsLearning = [[AgentStats sharedAgentStats] averageActionsLearning];
-    int averageActionsNonLearning = [[AgentStats sharedAgentStats] averageActionsNonLearning];
-    GameRating rating = [[LemmingManager sharedLemmingManager] calculateGameRating];
+    int saved = [lm lemmingsSaved];
+    int killed = [lm lemmingsKilled];
+    int time = [gm getGameTimeInSecs];
+    int learningEpisodes = [lm learningEpisodes];
+    int averageTimeLearning = [am averageTimeLearning];
+    int averageTimeNonLearning = [am averageTimeNonLearning];
+    int averageActionsLearning = [am averageActionsLearning];
+    int averageActionsNonLearning = [am averageActionsNonLearning];
+    GameRating rating = [lm calculateGameRating];
     
     // stick the data into a dictionary
     NSDictionary* gameData = [NSMutableDictionary dictionaryWithObjectsAndKeys: 
@@ -134,7 +241,7 @@ static DataManager* _instance = nil;
     switch (learningType) 
     {
         case kLearningReinforcement:
-            [reinforcementData setObject:gameData forKey:timeStamp];
+            [reinforcementData setObject:gameData forKey:[NSString stringWithFormat:@"%@ %@", [gm currentLevel].name, timeStamp]];
             break;
             
         case kLearningTree:
@@ -182,7 +289,7 @@ static DataManager* _instance = nil;
 -(void)saveGameData
 {    
     // create a dictionary with the sub-dictionaries and Commit This To Memory.
-	[[NSUserDefaults standardUserDefaults] setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys: reinforcementData, @"reinforcement", decisionTreeData, @"decisionTree", shortestRouteData, @"shortestRoute", nil] forKey:kProjectName];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys: reinforcementData, @"reinforcement", decisionTreeData, @"decisionTree", shortestRouteData, @"shortestRoute", noLearningData, @"noLearning", nil] forKey:kProjectName];
 	[[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
