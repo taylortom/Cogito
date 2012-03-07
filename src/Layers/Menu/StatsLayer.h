@@ -10,25 +10,15 @@
 #import "cocos2d.h"
 #import "Constants.h"
 #import "GameManager.h"
+#import "GraphSlide.h"
 #import "Slide.h"
+#import "SlideViewer.h"
 
 @interface StatsLayer : CCLayer
 
 {
-    CCMenuItemImage *previousButton;
-    CCMenuItemImage *nextButton;
-    
-    CCMenu *navButtons;
+    SlideViewer* slideViewer;
     CCMenu *backButton;
-    
-    Slide* currentSlide;
-    CCArray* slides;
-    
-    int slideNumber;
-    CGPoint centrePosition;
-    CGPoint leftPosition;
-    CGPoint rightPosition;
-    float slideAnimationDuration;
 }
 
 @end
