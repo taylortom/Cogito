@@ -12,10 +12,8 @@
 @interface InstructionsLayer()
 
 -(void)initBackground;
--(void)initImages;
--(void)initMenuButtons;
--(void)fadeOutCurrent;
--(void)fadeInNext;
+-(void)initSlideViewer;
+-(void)initMenuButton;
 -(void)loadMainMenu;
 
 @end
@@ -35,12 +33,9 @@
     
 	if (self != nil) 
 	{
-        numberOfImages = 3;
-        images = [[CCArray alloc] initWithCapacity:numberOfImages];
-        
 		[self initBackground];
-        [self initImages];
-        [self initMenuButtons];
+        [self initMenuButton];
+        [self initSlideViewer];
 	}
     
 	return self;
@@ -60,72 +55,32 @@
 }
 
 /**
- * Loads the anims images, and stores them in the images array
+ * Initialises and adds the slide viewer
  */
--(void)initImages
+-(void)initSlideViewer
 {
-    for (int i = 0; i < numberOfImages; i++) 
-    {
-        CCSprite *image = [CCSprite spriteWithFile:[NSString stringWithFormat:@"Instructions_%i.png", i+1]];
-        image.opacity = 0.0f;
-        CGPoint imagePosition = ccp([CCDirector sharedDirector].winSize.width/2, [CCDirector sharedDirector].winSize.height/2);
-        [image setPosition:imagePosition];
-        [self addChild:image z:i];
-        [images addObject:image];
-    }
+    // create the slides
+    CCArray* slides = [CCArray arrayWithCapacity:3];
+    [slides addObject:[[Slide alloc] initWithImage:@"InstructionsIntroduction.png"]];
+    [slides addObject:[[Slide alloc] initWithImage:@"InstructionsNewGame.png"]];
+    [slides addObject:[[Slide alloc] initWithImage:@"InstructionsLevel.png"]];
+    [slides addObject:[[Slide alloc] initWithImage:@"InstructionsPause.png"]];
+    [slides addObject:[[Slide alloc] initWithImage:@"InstructionsGameOver.png"]];
+    
+    slideViewer = [[SlideViewer alloc] initWithSlides:slides];
+    [self addChild:slideViewer];
 }
 
 /**
  * Adds the menu buttons to screen
  */
--(void)initMenuButtons
+-(void)initMenuButton
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    
     // create and add the menu button
-    CCMenuItemImage *_menuButton = [CCMenuItemImage itemFromNormalImage:@"Instructions_menu.png" selectedImage:@"Instructions_menu_down.png" disabledImage:nil target:self selector:@selector(loadMainMenu)];
+    CCMenuItemImage *_menuButton = [CCMenuItemImage itemFromNormalImage:@"Back.png" selectedImage:@"Back_down.png" disabledImage:nil target:self selector:@selector(loadMainMenu)];
     menuButton = [CCMenu menuWithItems:_menuButton, nil];
-    [menuButton alignItemsVerticallyWithPadding:winSize.height * 0.059f];
-    [menuButton setPosition: ccp(winSize.width * 0.2, winSize.height * 0.08)];
+    [menuButton setPosition: ccp(80, 25)];
     [self addChild:menuButton z:100];
-    
-    // create and add the next button
-    CCMenuItemImage *_nextButton = [CCMenuItemImage itemFromNormalImage:@"Instructions_next.png" selectedImage:@"Instructions_next_down.png" disabledImage:nil target:self selector:@selector(fadeOutCurrent)];
-    nextButton = [CCMenu menuWithItems:_nextButton, nil];
-    [nextButton setPosition: ccp(winSize.width * 0.9, winSize.height * 0.08)];
-    [self addChild:nextButton z:100];
-    
-    currentSequence = 0;
-    [self fadeInNext];
-}
-
-/**
- * Fades out the current screen
- */
--(void)fadeOutCurrent
-{    
-    nextButton.visible = NO;
-    
-    id fadeOut = [CCFadeOut actionWithDuration:0.5f];
-    id delay = [CCDelayTime actionWithDuration:0.5f];
-    id playNext = [CCCallFunc actionWithTarget:self selector:@selector(fadeInNext)];
-    id fadeSequence = [CCSequence actions: fadeOut, delay, playNext, nil];
-    
-    [[images objectAtIndex:currentSequence-1] runAction:fadeSequence];
-}
-
-/**
- * Fades in the next screen
- */
--(void)fadeInNext
-{
-    if(currentSequence == numberOfImages) return;
-    
-    id fadeIn = [CCFadeIn actionWithDuration:0.5f];
-    [[images objectAtIndex:currentSequence] runAction:fadeIn];
-    
-    currentSequence++;
-    if(currentSequence != numberOfImages) nextButton.visible = YES;
 }
 
 /**

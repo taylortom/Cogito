@@ -10,15 +10,13 @@
 #import "cocos2d.h"
 #import "Constants.h"
 #import "GameManager.h"
+#import "SlideViewer.h"
 
 @interface InstructionsLayer : CCLayer
 
 {
+    SlideViewer* slideViewer;
     CCMenu *menuButton;
-    CCMenu *nextButton;
-    int currentSequence;
-    int numberOfImages;
-    CCArray* images;
 }
 
 @end
