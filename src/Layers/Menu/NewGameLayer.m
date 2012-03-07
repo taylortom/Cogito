@@ -12,12 +12,17 @@
 @interface NewGameLayer()
 
 -(void)initGUI;
+-(void)initButtons;
+-(void)initSegmentedControls;
+-(void)initSliders;
+-(void)initSwitches;
 -(void)animateOutComponents;
 -(void)removeComponents;
 -(IBAction)onSliderUpdated:(UISlider*)sender;
 -(IBAction)onSwitchUpdated:(UISwitch*)sender;
 -(IBAction)onSegmentedControlUpdated:(UISegmentedControl*)sender;
 -(void)onContinueButtonPressed;
+-(void)loadMainMenu;
 
 @end
 
@@ -55,9 +60,78 @@
 }
 
 /**
- * Creates all of the GUI components
+ * Initialises all of the GUI components
  */
 -(void)initGUI
+{
+    [self initButtons];
+    [self initSegmentedControls];
+    [self initSliders];
+    [self initSwitches];
+    
+    // animate the UI components
+    [UIView animateWithDuration:0.6f 
+                     animations:^
+     { 
+         [lemmingCountSlider setAlpha:1.0f];
+         [lemmingCountSlider setAlpha:1.0f];
+         [learningEpisodesSlider setAlpha:1.0f];
+         [learningTypeControl setAlpha:1.0f];
+         [sharedKnowledgeSwitch setAlpha:1.0f];
+         [debugSwitch setAlpha:1.0f]; 
+     }
+                     completion:^(BOOL finished){ }
+     ];
+}
+
+/**
+ * Initialises the buttons
+ */
+-(void)initButtons
+{    
+    /**
+     * Menu buttons
+     */
+    CCMenuItemImage* backButton = [CCMenuItemImage itemFromNormalImage:@"Back.png" selectedImage:@"Back_down.png" disabledImage:nil target:self selector:@selector(loadMainMenu)];
+    CCMenuItemImage* continueButton = [CCMenuItemImage itemFromNormalImage:@"Continue.png" selectedImage:@"Continue_down.png" disabledImage:nil target:self selector:@selector(onContinueButtonPressed)];
+    
+    // intialise the menu
+    menuButtons = [CCMenu menuWithItems:backButton, continueButton, nil];
+    [menuButtons setPosition:ccp(0,0)];
+    
+    // position the buttons
+    [backButton setPosition: ccp(80, 25)];
+    [continueButton setPosition: ccp(420, 25)];
+    
+    // add the menu
+    [self addChild:menuButtons z:kUIZValue];
+
+}
+
+/**
+ * Initialises the segmented controls
+ */
+-(void)initSegmentedControls
+{
+    /**
+     * Learning type
+     */
+    
+    learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"reinforcement", @"decision tree", @"shortest path", @"none", nil]];
+    [learningTypeControl setAlpha:0.0f];
+    [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:150 blue:204]];
+    [learningTypeControl addTarget:self action:@selector(onSegmentedControlUpdated:)forControlEvents:UIControlEventValueChanged];
+    [learningTypeControl setFrame:CGRectMake(30, (320-148), 420, 50)];
+    learningTypeControl.selectedSegmentIndex = kLearningType;
+    [learningTypeControl setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [[[CCDirector sharedDirector] openGLView] addSubview:learningTypeControl];
+
+}
+
+/**
+ * Initialises the sliders
+ */
+-(void)initSliders
 {
     /**
      * Lemming count
@@ -76,7 +150,7 @@
     lemmingCountLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", kLemmingTotal] fntFile:kFilenameDefFontLarge];
     [lemmingCountLabel setPosition:ccp(440, 209)];
     [self addChild:lemmingCountLabel];
-
+    
     // label
     CCLabelBMFont* lemmingCountLabel2 = [CCLabelBMFont labelWithString:@"agent count" fntFile:kFilenameDefFontLarge];
     [lemmingCountLabel2 setAnchorPoint:ccp(0,0)];
@@ -107,27 +181,20 @@
     [learningEpisodesLabel2 setAnchorPoint:ccp(0,0)];
     [learningEpisodesLabel2 setPosition:ccp(38, 160)];
     [self addChild:learningEpisodesLabel2];
-    
-    
-    /**
-     * Segment control
-     */
 
-    learningTypeControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"reinforcement", @"decision tree", @"shortest path", @"none", nil]];
-    [learningTypeControl setAlpha:0.0f];
-    [learningTypeControl setTintColor:[Utils getUIColourFromRed:136 green:150 blue:204]];
-    [learningTypeControl addTarget:self action:@selector(onSegmentedControlUpdated:)forControlEvents:UIControlEventValueChanged];
-    [learningTypeControl setFrame:CGRectMake(30, (320-153), 420, 50)];
-    learningTypeControl.selectedSegmentIndex = kLearningType;
-    [learningTypeControl setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [[[CCDirector sharedDirector] openGLView] addSubview:learningTypeControl];
+}
 
+/**
+ * Initialises the switches
+ */
+-(void)initSwitches
+{
     /**
      * Shared knowledge switch
      */
     
     // switch
-    sharedKnowledgeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(188, (320-90), 200, 50)];
+    sharedKnowledgeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(178, (320-80), 200, 50)];
     [sharedKnowledgeSwitch setAlpha:0.0f];
     [sharedKnowledgeSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
     [sharedKnowledgeSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
@@ -136,7 +203,7 @@
     
     // label
     sharedKnowledgeLabel = [CCLabelBMFont labelWithString:@"shared knowledge" fntFile:kFilenameDefFontLarge];
-    [sharedKnowledgeLabel setPosition:ccp(110, 71)];
+    [sharedKnowledgeLabel setPosition:ccp(100, 61)];
     [self addChild:sharedKnowledgeLabel];
     
     /**
@@ -144,7 +211,7 @@
      */
     
     // switch
-    debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(188, (320-51), 200, 50)];
+    debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(374, (320-80), 200, 71)];
     [debugSwitch setAlpha:0.0f];
     [debugSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
     [debugSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
@@ -152,31 +219,8 @@
     
     // label
     debugModeLabel = [CCLabelBMFont labelWithString:@"debug mode" fntFile:kFilenameDefFontLarge];
-    [debugModeLabel setPosition:ccp(128, 32)];
+    [debugModeLabel setPosition:ccp(315, 61)];
     [self addChild:debugModeLabel];
-    
-    /**
-     * Continue button
-     */
-    CCMenuItemImage *_continueButton = [CCMenuItemImage itemFromNormalImage:@"Continue.png" selectedImage:@"Continue_down.png" disabledImage:nil target:self selector:@selector(onContinueButtonPressed)];
-    continueButton = [CCMenu menuWithItems:_continueButton, nil];
-    [continueButton setPosition: ccp(410, 37)];
-    [self addChild:continueButton z:100];
-    
-    // animate the UI components
-    
-    [UIView animateWithDuration:0.6f 
-        animations:^
-        { 
-            [lemmingCountSlider setAlpha:1.0f];
-            [lemmingCountSlider setAlpha:1.0f];
-            [learningEpisodesSlider setAlpha:1.0f];
-            [learningTypeControl setAlpha:1.0f];
-            [sharedKnowledgeSwitch setAlpha:1.0f];
-            [debugSwitch setAlpha:1.0f]; 
-        }
-        completion:^(BOOL finished){ }
-     ];
 }
 
 #pragma mark -
@@ -278,6 +322,15 @@
     
     // load the game scene
 	[[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
+}
+
+/**
+ * Loads the main menu scene
+ */
+-(void)loadMainMenu 
+{
+    [self animateOutComponents];
+    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
 
 @end

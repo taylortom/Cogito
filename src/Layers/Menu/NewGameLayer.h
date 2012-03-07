@@ -30,7 +30,7 @@
     UISwitch* debugSwitch;
     UISegmentedControl* learningTypeControl;
     
-    CCMenu *continueButton;
+    CCMenu *menuButtons;
     
     CCLabelBMFont* lemmingCountLabel;
     CCLabelBMFont* learningEpisodesLabel;
