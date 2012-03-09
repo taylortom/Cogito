@@ -16,6 +16,9 @@
 @interface NewGameLayer : CCLayer
 
 {
+    // HACK: screenshot of the screen - for nice transition anim
+    CCSprite* facade;
+    
     int lemmingCount;
     MachineLearningType learningType;
     int learningEpisodes;

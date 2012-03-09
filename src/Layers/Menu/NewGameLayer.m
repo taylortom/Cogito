@@ -43,9 +43,15 @@
     {
 		CGSize winSize = [CCDirector sharedDirector].winSize; 
 		
+        // add the background
 		CCSprite *background = [CCSprite spriteWithFile:@"NewGameBackground.png"];
 		[background setPosition:ccp(winSize.width/2, winSize.height/2)];
 		[self addChild:background];
+
+        // add the facade
+        facade = [CCSprite spriteWithFile:@"NewGameFacade.png"];
+		[facade setPosition:ccp(winSize.width/2, winSize.height/2)];
+		[self addChild:facade];
         
         lemmingCount = kLemmingTotal;
         learningEpisodes = KLearningEpisodes;
@@ -80,8 +86,16 @@
          [sharedKnowledgeSwitch setAlpha:1.0f];
          [debugSwitch setAlpha:1.0f]; 
      }
-                     completion:^(BOOL finished){ }
+                     completion:^(BOOL finished)
+                     { 
+                         /*
+                          * hide the facade when components are visible
+                          * LIKE A NINJA
+                          */
+                         [facade setOpacity:0];
+                     }
      ];
+    
 }
 
 /**
@@ -230,6 +244,12 @@
  */
 -(void)animateOutComponents
 {
+    /*
+     * show the facade again in time for the scene transition
+     * LIKE A NINJA
+     */
+    //[facade setOpacity:255];
+    
     [UIView animateWithDuration:0.6f 
         animations:^
         { 

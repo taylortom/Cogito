@@ -156,6 +156,8 @@
 		E2A5708C1507E8C5008FF275 /* InstructionsPause.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A570841507E8C5008FF275 /* InstructionsPause.png */; };
 		E2A5708F1507F7E8008FF275 /* InstructionsIntroduction-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A5708D1507F7E8008FF275 /* InstructionsIntroduction-hd.png */; };
 		E2A570901507F7E8008FF275 /* InstructionsIntroduction.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A5708E1507F7E8008FF275 /* InstructionsIntroduction.png */; };
+		E2A5709315083375008FF275 /* NewGameFacade-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A5709115083375008FF275 /* NewGameFacade-hd.png */; };
+		E2A5709415083375008FF275 /* NewGameFacade.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A5709215083375008FF275 /* NewGameFacade.png */; };
 		E2ABCEF314706AE600E14474 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF214706AE600E14474 /* QuartzCore.framework */; };
 		E2ABCEF514706AE600E14474 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF414706AE600E14474 /* OpenGLES.framework */; };
 		E2ABCEF714706AE600E14474 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ABCEF614706AE600E14474 /* OpenAL.framework */; };
@@ -490,6 +492,8 @@
 		E2A570841507E8C5008FF275 /* InstructionsPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsPause.png; sourceTree = "<group>"; };
 		E2A5708D1507F7E8008FF275 /* InstructionsIntroduction-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstructionsIntroduction-hd.png"; sourceTree = "<group>"; };
 		E2A5708E1507F7E8008FF275 /* InstructionsIntroduction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsIntroduction.png; sourceTree = "<group>"; };
+		E2A5709115083375008FF275 /* NewGameFacade-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NewGameFacade-hd.png"; sourceTree = "<group>"; };
+		E2A5709215083375008FF275 /* NewGameFacade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewGameFacade.png; sourceTree = "<group>"; };
 		E2ABCEEE14706AE600E14474 /* Cogito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ABCEF214706AE600E14474 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E2ABCEF414706AE600E14474 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1599,6 +1603,8 @@
 				E2389A3D149B98DD004DCA32 /* MainMenuBackground.png */,
 				E22AD9F114F5A9DE00F2A2CD /* NewGameBackground-hd.png */,
 				E22AD9F214F5A9DE00F2A2CD /* NewGameBackground.png */,
+				E2A5709115083375008FF275 /* NewGameFacade-hd.png */,
+				E2A5709215083375008FF275 /* NewGameFacade.png */,
 				E226863514A0D7F10020B44E /* SettingsBackground-hd.png */,
 				E226863914A0D84C0020B44E /* SettingsBackground.png */,
 				E2D7CE5D150664AF006A4E3C /* StatsBackground-hd.png */,
@@ -1895,6 +1901,8 @@
 				E2A5708C1507E8C5008FF275 /* InstructionsPause.png in Resources */,
 				E2A5708F1507F7E8008FF275 /* InstructionsIntroduction-hd.png in Resources */,
 				E2A570901507F7E8008FF275 /* InstructionsIntroduction.png in Resources */,
+				E2A5709315083375008FF275 /* NewGameFacade-hd.png in Resources */,
+				E2A5709415083375008FF275 /* NewGameFacade.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
