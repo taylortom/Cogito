@@ -30,7 +30,11 @@
 #pragma mark Memory Allocation
 
 -(void)dealloc
-{
+{        
+    [lemmingText dealloc];
+    [timeText dealloc];
+    [currentTerrainLayer dealloc];
+
     [super dealloc];
 }
 

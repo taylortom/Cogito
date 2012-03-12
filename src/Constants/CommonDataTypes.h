@@ -45,8 +45,7 @@ typedef enum
 {
     kGraphEpisodeTime,
     kGraphActions,
-    kGraphAgentsSaved,
-    kGraphNone
+    kGraphAgentsSaved
 } GraphType;
 
 typedef enum

@@ -26,6 +26,7 @@
 -(void)dealloc
 {
     [slideViewer release];
+    [super dealloc];
 }
 
 #pragma mark -

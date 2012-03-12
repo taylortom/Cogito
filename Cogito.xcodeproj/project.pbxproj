@@ -852,22 +852,12 @@
 		E211D08E14C8B32600970AEC /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				E25A1DC614E03F3E00DC0A67 /* QState.h */,
-				E25A1DC714E03F3E00DC0A67 /* QState.m */,
-				E25A1DC914E047FA00DC0A67 /* TreeState.h */,
-				E25A1DCA14E047FA00DC0A67 /* TreeState.m */,
-				E25EC50B14DAABB200C750D2 /* State.h */,
-				E25EC50C14DAABB200C750D2 /* State.m */,
+				E294DF56150D5E2800E5C5F5 /* States */,
+				E294DF55150D5E1900E5C5F5 /* Slides */,
 				E20153D614EFD9DC00DC2A0F /* Route.h */,
 				E20153D514EFD9DC00DC2A0F /* Route.m */,
 				E2372CAC14C9B58B00B07B31 /* Level.h */,
 				E2372CAD14C9B58B00B07B31 /* Level.m */,
-				E2A570661507A6C1008FF275 /* SlideViewer.h */,
-				E2A570671507A6C1008FF275 /* SlideViewer.m */,
-				E2D7CE611506681B006A4E3C /* Slide.h */,
-				E2D7CE621506681B006A4E3C /* Slide.m */,
-				E2A570691507B188008FF275 /* GraphSlide.h */,
-				E2A5706A1507B189008FF275 /* GraphSlide.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -921,6 +911,7 @@
 		E2133A3F1479C14B00845938 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				E20153DE14F130A400DC2A0F /* CogitoAgents */,
 				E28C12AA147A535500385DF6 /* GameObject.h */,
 				E28C12AB147A535500385DF6 /* GameObject.m */,
 				E274A20E148CF88800917EA7 /* Obstacle.h */,
@@ -929,7 +920,6 @@
 				E21254E614B60FE600A0CA61 /* Terrain.m */,
 				E25EC50814D96C0200C750D2 /* Lemming.h */,
 				E25EC50914D96C0200C750D2 /* Lemming.m */,
-				E20153DE14F130A400DC2A0F /* CogitoAgents */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -1124,6 +1114,32 @@
 				E21ECAAF14D41C1C00C3F311 /* Lemming_atlas.png */,
 			);
 			path = "Texture Atlases";
+			sourceTree = "<group>";
+		};
+		E294DF55150D5E1900E5C5F5 /* Slides */ = {
+			isa = PBXGroup;
+			children = (
+				E2A570661507A6C1008FF275 /* SlideViewer.h */,
+				E2A570671507A6C1008FF275 /* SlideViewer.m */,
+				E2D7CE611506681B006A4E3C /* Slide.h */,
+				E2D7CE621506681B006A4E3C /* Slide.m */,
+				E2A570691507B188008FF275 /* GraphSlide.h */,
+				E2A5706A1507B189008FF275 /* GraphSlide.m */,
+			);
+			name = Slides;
+			sourceTree = "<group>";
+		};
+		E294DF56150D5E2800E5C5F5 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				E25A1DC614E03F3E00DC0A67 /* QState.h */,
+				E25A1DC714E03F3E00DC0A67 /* QState.m */,
+				E25A1DC914E047FA00DC0A67 /* TreeState.h */,
+				E25A1DCA14E047FA00DC0A67 /* TreeState.m */,
+				E25EC50B14DAABB200C750D2 /* State.h */,
+				E25EC50C14DAABB200C750D2 /* State.m */,
+			);
+			name = States;
 			sourceTree = "<group>";
 		};
 		E2A570601506C24E008FF275 /* Stats */ = {
@@ -1732,7 +1748,7 @@
 		E2ABCEE514706AE600E14474 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = E2ABCEE814706AE600E14474 /* Build configuration list for PBXProject "Cogito" */;
 			compatibilityVersion = "Xcode 3.2";

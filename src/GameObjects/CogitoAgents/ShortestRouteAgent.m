@@ -155,4 +155,17 @@
     [super onEndConditionReached];
 }
 
+/**
+ * Updates the debug string
+ */
+-(void)updateDebugLabel
+{    
+    [super updateDebugLabel];
+    
+    if(!(learningMode || self.state == kStateDead || self.state == kStateWin))
+    {
+        [debugLabel setString:([[optimumRoute getNodes] count] > 0) ? @"!" : @"?"];
+    }
+}
+
 @end
