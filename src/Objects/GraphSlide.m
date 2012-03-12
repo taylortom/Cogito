@@ -208,7 +208,7 @@
 -(void)updateActionsGraph
 {    
     DataManager* dm = [DataManager sharedDataManager];
-    float maxActions = 10.0f;
+    float maxActions = 5.0f;
     
     // reinforcment
     
