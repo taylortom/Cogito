@@ -11,14 +11,12 @@ The main aim of my project is to develop an AI system that is capable of employi
 
 How it Fits in with modules studied
 	
-	I have utilised skills learned from the modules in my course to help me with developing my project.
-	
-		\begin{itemize}
-			\item \textbf{AI Modules}: obvious
-			\item \textbf{Game Development}: obvious
-			\item \textbf{Object Oriented Design \& Specification, Programming, Concurrency and Client-Server Computing}: Basic OO design, how to design a program well, and to be reusable using OO features; inheritance etc. as well as the more practical programming side of things. Also the UML side to design the system.
-			\item \textbf{Formal Underpinnings \& Specification}:  Again, the more design-centric side - specifying the system.
-			\item \textbf{Computer Graphics Algorithms}: Data structures, efficiency, time complexity.
-			\item \textbf{Overall}: 
-		\end{itemize}
-	AI modules, Game Development, Programming, OO Software Design/UML, Programming \& Concurrency, Formal Underpinnings/Maths, Computer Graphics Algorithms
+Looking back on my project, I feel that it actually covers the majority of modules that I have studied during my course. There were obviously a great deal of skills learnt in the CI213 (Intelligent Systems) and CI342 (Advanced AI) modules which I could directly apply to my project such as pathfinding and search algorithms like A*, MORE STUFF. 
+
+There was also obviously a lot of useful knowledge gained in CI224 (Games Development) which I used throughout my project. In particular, I learnt a lot about memory management in this module which I found very useful as I was using Objective-C, which doesn't offer automatic garbage collection like Java for example. I was also introduced to source control systems in CI224, which has proven to be invaluable knowledge to have.
+
+I also used my knowledge of UML and software design learnt in CI228 (Object-Oriented Software Design and Specification) and CI231 (Formal Underpinnings and Specification) to create designs of my system. Although I didn't actually use the formal specification language learnt in my system specification, I still applied the concepts learnt to my designs.
+
+As I was using Objective-C, I relied heavily on the concepts I had learnt in CI101 (Introduction to Programming), CI228 and CI346 (Programming, Concurrency and Client-Server Computing) to design my system using 'good' OO practices wherever possible. Principles such as inheritance and design patterns like the singleton. I also applied the knowledge learnt this year in CI346 to overcome concurrency issues I had with different threads trying to access shared data simultaneously.
+
+I learnt a great deal about data access and performance optimisation in the CI312 (Computer Graphics Algorithms) module. It really helped me too look at my code at a lower level, and analyse the best and most efficient ways to access and manipulate data. This is something which is of paramount importance, especially in games, as you will likely be carrying out certain functions up to 60 times every second, so any inefficient code would cause big problems in performance. 

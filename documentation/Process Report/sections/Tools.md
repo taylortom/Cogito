@@ -14,6 +14,8 @@ My research eventually led me to Cocos2D: a popular cross-platform 2D game engin
 
 I felt that Cocos2D was particularly well suited to my project as first and foremost, it is a well-established engine optimised for developing 2D games, with asset loaders, particle systems, and scene management to name a few features. It also comes bundled with two popular physics engines (Box2D and Chipmunk), which were available for my use. Another point worth noting is that being a 2D engine, Cocos2D already has a thriving community of developers with experience making 2D games, whereas the JME is intended for 3D games, and as such, there was a lot less documentation for 2D games.
 
+Another benefit to using the Cocos2D engine is that it comes with libraries of code specifically optimised for games. For example, the engine comes with an alternative collection named 'CCArray' which is essentially an optimised version of the default NSArray class. 
+
 After testing out a few example apps, I decided that Cocos2D would be suitable for my needs. 
 
 I decided to develop my project for the iPhone, so would need to learn Objective-C; a challenge I was willing to accept. 
