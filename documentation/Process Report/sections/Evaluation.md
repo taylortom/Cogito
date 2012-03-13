@@ -5,24 +5,30 @@ A very competent evaluation of the whole project (with hindsight). Weak performa
 Time Management
 Initial plan was to use a waterfall development approach (discuss). Eventually took a slightly more incremental approach: developed game and AI together towards the end, some asset creation throughout. Discuss why, which would have been better - for one person rather than a team. As I was unfamiliar with the language and the engine, it was difficult to decide how best to approach the design/implementation. (see \url{http://en.wikipedia.org/wiki/Software_development_methodology})
 		
-		\begin{itemize}
-			\item Waterfall: a linear framework
-			\item Incremental: a combined linear-iterative framework
-			\item Spiral: a combined linear-iterative framework
-		\end{itemize}
+- Waterfall: a linear framework
+- Incremental: a combined linear-iterative framework
+- Spiral: a combined linear-iterative framework
 		
 	Achievements
 
+Evaluation of reinforcement learning
+
++ it can handle uncertain and noisy domains
++ it can interface with an external world more easily than other methods
+- slow learning rate as they rely on backwards propagation of rewards. The problem solver must pass through early parts of the problem space many times before any rewards at all reach those locales.
+
+
 	Areas For Enhancement
-		\begin{itemize}
-			\item Implement additional learning types
-			\item Mixed learning types between agents
-			\item Use a combination of types
-			\item Communication between agents (shared knowledge base?)
-			\item Extend to a 3D environment
-		\end{itemize}
-	\subsection{Overall Success}
-		\begin{itemize}
-			\item Applications For Learning in games (possibly pre-release learning)
-			\item Performance on mobile device
-		\end{itemize}
+- Implement additional learning types
+- Mixed learning types between agents
+- Use a combination of types
+- Communication between agents (shared knowledge base?)
+- Extend to a 3D environment
+- Level editor
+- "Start with a large correction factor (learning rate), and slowly decrease the parameter, which gives the algorithm a rough approximation during the early stages and allows fine tuning later in learning."
+- Test alternative reinforcement methods (bucket brigade, temporal difference)
+- Negatives of using reinforcement learning: it doesn't generalise beyond specific states. Possible fix: use genetic algorithms - "the expected reward on production rules serves as their fitness, with more fit rules being selected for reproduction. The new rules are then evaluated by running them in an environment, with the best of them being selected to produce another generation, and so on. Such classifier systems are often used in conjunction with the bucket brigade algorithm for determining expected rewards." 
+
+Overall Success
+- Applications For Learning in games (possibly pre-release learning)
+- Performance on mobile device

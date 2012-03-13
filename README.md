@@ -1,5 +1,5 @@
 Cogito Machine Learning
-==================
+=======================
 
 Cogito is an experiment into utilising academic machine learning techniques in a game context. The aim of the game is to train a number of AI-controlled agents to safely navigate the game world.
 
@@ -19,7 +19,7 @@ Runtime Requirements
   * Ideally iPhone 3G or newer
 
 Using The App
------------------------
+-------------
 
 Fairly self-explanatory, but you can start a new game, view game stats, and further instructions for playing the game using the menu items.
 
