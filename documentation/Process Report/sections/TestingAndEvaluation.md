@@ -1,3 +1,13 @@
+Testing and Analysis
+
+Show the results of usability testing (if any) and the learning results. Compare with the different types and no learning, show graphs to compare. Discuss the effectiveness, advantages/disadvantages to the learning algorithms used.
+
+Results
+Analysis of Decision Tree Learning
+Possible Improvements
+Analysis of Reinforcement Learning
+Possible Improvements
+
 Evaluation
 
 A very competent evaluation of the whole project (with hindsight). Weak performance in the evaluation of product and process will result in a grade no higher than a B.

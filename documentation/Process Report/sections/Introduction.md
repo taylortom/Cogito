@@ -4,7 +4,9 @@ The process report is where you discuss the process by which you carried out you
 
 Brief Description (history of Lemmings)
 
-Aims and Objectives}
+For the main deliverable of my project, I have chosen to create a game similar to the popular puzzle game Lemmings, and replace the human control element with my AI system. Originally released in 1991 for the PC and Commodore Amiga, the game has a very simple premise: to guide a group of computer-controlled ’lemmings’ across a level from the entrance-point to the exit. The lemmings themselves, although computer controlled, have no AI to speak of, and merely walk in one direction until they reach an immovable object (such as a wall) or a trap (water, spikes, big drops etc.), the latter resulting in the unfortunate demise of the lemming. Each level requires that a certain number of lemmings reach the exit in order for the player to progress. To complete a level, the player is given a number of tools to help them such as umbrellas to avoid big falls, girders to cross pits etc.
+
+Aims and Objectives
 		
 Project Proposal
 The main aim of my project is to develop an AI system that is capable of employing machine learning techniques in order for a number of AI-controlled agents to safely navigate a game environment. The agents will be able to develop a knowledge-base dynamically based on the observations made whilst navigating the environment and apply this in order to traverse the world safely. The main deliverable will be a software-based demonstration of the system.

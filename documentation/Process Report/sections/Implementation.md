@@ -2,23 +2,60 @@
 
 The progress you made, problems encountered, their solutions and the lessons learnt
 
+- General notes about the code:
+	- Header files/private interfaces
+-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 _**Game Component**_
 		
 **Code Structure/Features**
 
-**Cocos2D:** The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
+Before I could build any learning into my project, I first had to build the underlying game component which would run it. The game component of my project was ___. 
+
+As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of. For example, the direct OpenGL ES calls needed for loading and binding textures were all contained within the CCSprite class, making adding new textures as easy as initialising a CCSprite class. 
+
+Although the very low-level functionality had been simplified by the engine, 
+
+As I was building my game from the ground up (albeit with the help of the Cocos2D framework), I needed to take care of the fairly low-level features such as loading in the level assets, building the levels; to load in the levels and sprites
+
+**OpenGL ES:** The Open Graphics Library for Embedded Systems (OpenGL ES) is a subset of the OpenGL 3D graphics API which targets embedded systems such as the Nintendo 3DS, the Sony Playstation 3, and devices running Apple's iOS and Google's Android operating systems.
+
+**Cocos2D:** My decision to use the Cocos2D framework proved to be
+
+The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
 
 The Cocos2D framework is loaded via the AppDelegate singleton class, a class which deals with the basic running of the application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
+
+In computer programming, a constant is an identifier whose associated value cannot typically be altered by the program during its execution.
 
 **Singleton/Manager classes:** I make a lot of use of the singleton design pattern throughout my project to create various 'manager' classes to deal with the shared data in my system. A singleton class is a special kind of class which only has one instance; calling a singleton instance will always return the one instance of the class, regardless of which class called it. The benefit of using the singleton pattern is that you only need to store the data in one central location, which can then be accessed by any class anywhere in the program; provided that the access to the data is restricted to a single thread at a time (otherwise there would likely be concurrency issues with data corruption). For example, my LemmingManager class as its name suggests manages all of the lemming characters in the game. It hold the only list of the characters, and contains the functionality to add and remove lemmings among other things. Using the singleton 
 
 Restricts the instantiation of a class to one object; useful when exactly one object is needed to coordinate actions across the system. When you want to ensure that no additional instances of the class are created accidentally.
 
-**OpenGL ES:** The Open Graphics Library for Embedded Systems (OpenGL ES) is a subset of the OpenGL 3D graphics API which targets embedded systems such as the Nintendo 3DS, the Sony Playstation 3, and devices running the iOS and Android operating systems.
+**Levels:** When it came to designing how the levels would work in my game, I wanted something which was very flexible, in that I could easily add extra levels (or modify existing levels) with a minimal amount of work. The way that I decided to do his was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
 
-In computer programming, a constant is an identifier whose associated value cannot typically be altered by the program during its execution.
+To accompany the assets, I also needed some way to have some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects; consisting of a key object (usually a string), and a 'value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. You can also nest dictionaries inside each other for even more flexibility. 
 
-**Levels:** I designed the levels in my game with 
+I used one plist file to specify how many levels there were in my game, along with certain level-specific information such as difficulty, number of tool uses. I then created a plist file for each level, which stored the positions of each piece of terrain, as well as the type of the terrain, and in some cases whether the terrain piece was collide able (this was enabled by default, so was only included if the object was to be removed from collision detection). My game then loaded in the list of the levels, and each individual level plist. 
+
+Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty.
 
 **Characters:**
 
@@ -30,7 +67,7 @@ In computer programming, a constant is an identifier whose associated value cann
 
 **Datatypes:** Similar to the constants file. Defines all of the datatypes/enums used in my game.
 
-**Utils:** I created a Utils class with useful 'utility' methods which I was likely to want to use a lot in my program.  which can be accessed statically. Methods for converting enumeration types to a string equivalent (none of the auto conversion as with Java, need to manually get a string using a switch statement)
+**Utils:** I created a Utils class with some useful static-access 'utility' methods which I was likely to want to use a lot in my game; functions such as random number generation, enumeration-to-string conversions, and timestamp generation. It made sense to create a separate class with all of these types of methods because it not only cut down on the amount of code that I had to write, but also meant that were I to find a bug in my random number generation code for example, I would only need to fix the bug in one place, rather than having to go and search every source file for occurrences of the broken code. 
 		
 **Deviance From The Design**
 
