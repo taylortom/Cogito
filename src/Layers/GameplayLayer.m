@@ -33,7 +33,6 @@
 {        
     [lemmingText dealloc];
     [timeText dealloc];
-    [currentTerrainLayer dealloc];
 
     [super dealloc];
 }
@@ -53,9 +52,12 @@
     {
         self.isTouchEnabled = YES; // enable touch
                 
+        // temp reference to GameManager
+        GameManager* gm = [GameManager sharedGameManager];
+        
         // reset the relevant data
         [[LemmingManager sharedLemmingManager] reset];
-        [[GameManager sharedGameManager] resetSecondCounter];
+        [gm resetSecondCounter];
         
         // create/ add the batch node
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist", kFilenameDefAtlas]];
@@ -66,10 +68,10 @@
         //[self initDisplay];
         
         // Get the level data from GameManager
-        [[GameManager sharedGameManager] loadRandomLevel];
+        [gm loadRandomLevel];
         
         // initialise the terrain layer
-        currentTerrainLayer = [[TerrainLayer alloc] init:[[GameManager sharedGameManager] currentLevel].name];
+        currentTerrainLayer = [[TerrainLayer alloc] init:[gm currentLevel].name];
         [self addChild:currentTerrainLayer z:kTerrainZValue];
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings

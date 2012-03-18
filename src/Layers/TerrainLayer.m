@@ -23,9 +23,9 @@
 
 -(void)dealloc
 {
-    [super dealloc];
     [terrain release];
     [obstacles release];
+    [super dealloc];
 }
 
 #pragma mark -

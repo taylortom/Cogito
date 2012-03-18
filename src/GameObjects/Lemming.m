@@ -128,6 +128,9 @@
  */
 -(void)changeState: (CharacterStates)_newState
 {      
+    // to avoid bug where Lemming tries to change state after quitting
+    if([[GameManager sharedGameManager] currentScene] != kGameLevelScene) return;
+    
     // if need to use umbrella, delay, then call useUmbrella
     if(umbrellaEquipped) 
     {
