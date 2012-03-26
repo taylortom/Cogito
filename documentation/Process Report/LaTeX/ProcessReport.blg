@@ -2,11 +2,11 @@ This is BibTeX, Version 0.99d (TeX Live 2011)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ProcessReport.aux
 The style file: abbrv.bst
-I found no \citation commands---while reading file ProcessReport.aux
 Database file #1: Cogito.bib
+Warning--I didn't find a database entry for "Sheffield:2008fk"
 You've used 0 entries,
             2118 wiz_defined-function locations,
-            497 strings with 3721 characters,
+            499 strings with 3753 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
@@ -45,4 +45,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There was 1 error message)
+(There was 1 warning)

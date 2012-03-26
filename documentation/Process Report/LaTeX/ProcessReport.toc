@@ -1,7 +1,7 @@
 \contentsline {paragraph}{Project proposal}{1}
 \contentsline {chapter}{Introduction}{2}
 \contentsline {section}{Background}{2}
-\contentsline {section}{The Project in Context}{2}
+\contentsline {section}{The Project in Context}{3}
 \contentsline {part}{Research}{4}
 \contentsline {chapter}{Artificial Intelligence}{5}
 \contentsline {section}{AI In Games}{5}

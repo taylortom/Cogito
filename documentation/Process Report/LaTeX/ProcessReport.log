@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  22 MAR 2012 22:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  23 MAR 2012 13:34
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -340,28 +340,31 @@ es/images/cogito_logo_main.png>] (./ProcessReport.toc [1
  [3] [1
 
 ]
+
+LaTeX Warning: Citation `Sheffield:2008fk' on page 2 undefined on input line 11
+8.
+
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [2
+[2
 
 ] [3] [4] [5
 
-]
-[6] [7] [8] [9] [10] [11
+] [6] [7] [8] [9] [10] [11
 
 ] [12] [13] [14] [15] [16]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 356.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 368.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 356.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 368.
  [17] [18
 
 ]
@@ -398,16 +401,19 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 16 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5007 strings out of 493633
- 69224 string characters out of 3143378
+ 5008 strings out of 493633
+ 69242 string characters out of 3143378
  141569 words of memory out of 3000000
- 8223 multiletter control sequences out of 15000+200000
+ 8224 multiletter control sequences out of 15000+200000
  8930 words of font info for 34 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  38i,7n,43p,1414b,339s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -421,7 +427,7 @@ r17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 0.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
 .pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb>
-Output written on ProcessReport.pdf (42 pages, 320239 bytes).
+Output written on ProcessReport.pdf (42 pages, 321350 bytes).
 PDF statistics:
  180 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams

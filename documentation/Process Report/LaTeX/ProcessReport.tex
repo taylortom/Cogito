@@ -10,11 +10,11 @@
 
 \makeatletter
 
-\begin{document}
 
-\setcounter{secnumdepth}{-1} 
-\onehalfspace
-\oddsidemargin 1in 
+
+%
+% Some custom definitions
+%
 
 % add horizontal lines
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -47,6 +47,16 @@
 {\vspace*{50\p@}{
 	\parindent \z@ \raggedright \normalfont	%\huge \bfseries \thechapter. #1
 	\huge \bfseries #1	\vspace{20pt}}}
+
+\setcounter{secnumdepth}{-1} 
+\onehalfspace
+\oddsidemargin 1in 
+\oddsidemargin 0.6in 
+\topmargin -0.3in
+\setlength{\textwidth}{14cm}
+\setlength{\textheight}{23cm}
+
+\begin{document}
 
 %
 % Cover page
@@ -86,6 +96,8 @@
 \end{center}
 \end{titlepage}
 
+
+
 %
 % Table of contents
 %
@@ -99,47 +111,62 @@
 % reset page count
 \setcounter{page}{1}
 
+
 %
 % Start of content
 %
 
-\paragraph{Project proposal}
-
-\begin{quotation}
-\emph{The main aim of my project is to develop an AI system that is capable of employing machine learning techniques in order for a number of AI-controlled agents to safely navigate a game environment.
-The agents will be able to develop a knowledge-base dynamically based on the observations made whilst navigating the environment and apply this in order to traverse the world safely.
-The main deliverable will be a software-based demonstration of the system.}
-\end{quotation}
-
 \chapter{Introduction}
 
-The main aim of my project is to develop an AI system that is capable of employing machine learning techniques in order for a number of AI-controlled agents to safely navigate a game environment. The agents will be able to develop a knowledge-base dynamically based on the observations made whilst navigating the environment and apply this in order to traverse the world safely. The main deliverable will be a software-based demonstration of the system.
+The AI techniques utilised by game developers have been called archaic by the academic AI researchers, which may indeed be true. However, it is important to view such techniques in context of which they are used. While academic AI researchers are able to utilise as much processing power as the hardware can afford them, game developers are much more limited. When one examines the other processes which need to run concurrently, this is not overly surprising: physics, sound, networking, input and most importantly the graphics processing to name but a few. So when AI researchers complain that the techniques are archaic, which is a fair arguement, given that the A* search algorithm is still one of the most popular AI algorithms used in games today, and was first define over 30 years ago), this is for the simple reason that the amount of processing power that developers are able to dedicate to the AI processes could not cope with any more `recent', processor intensive techniques. Indeed, modern game AI programming is more a skill of employing the cheapest (computationally) techniques, and often means that shortcuts and workarounds are a necessity in order to achieve `believable' AI. 
 
-For the main deliverable of my project, I have chosen to create a game similar to the popular puzzle game Lemmings, and replace the human control element with my AI system.
+However, this being said, we are starting to see a change taking place in the computer games industry which suggests that the processing time availiable for often overlooked processes such as AI is starting to increase. One such factor in this change is the so-called `graphics plateau' \cite{Sheffield:2008fk}. Whether or not there will come a point where the graphical complexity of a game is considered `perfect', with no area for improvement is uncertain (and in my opinion highly unlikely). However, I do think that we have reached a point whereby the graphical complexity achievable with each new generation in games consoles is unlikely to achieve the same kind of drastic improvement in detail that we have seen over the last couple of decades; in effect, I think that we have reached a level of complexity whereby the amount of processing power needed for the graphics processing is unlikely to increase by a very large factor. Given the inevitable hardware advances that come with each new generation, I believe that we will start see a lot more processing power freed up for those processes which have been treated as `extraneous' in the past, such as the AI. 
+
+Another important factor in this change is the emergence of the `casual' gamer. With casual games now accounting for a considerable proportion game sales, the consumer has shown that there is a big market games which have less emphasis on complex graphics effects, and more emphasis on interesting gameplay mechanics \cite{Association:2011uq}. Indeed, with Nintendo's Wii home console having far outsold both Sony's PlayStation 3 and Microsoft's Xbox, the consumer has shown that they value gameplay over advanced graphics \cite{:2012vn, :2012kx, Inc.:ys}. 
+
+\paragraph{USER BASE PIE CHART??}\ \\ \\
+
+With these factors bringing about a change in which processes are prioritised by developers, I believe that now is the time for developers to introduce some more advanced AI techniques into their games.
+
+\section{Project Aims and Objectives}
+
+My main aim with my project was to experiment with some more advanced academic AI techniques which are not typically found in commercial games today for various reasons, and look into whether such techniques were actually viable with today's hardware. This second point is key, especially given the popularity of fairly limited hardware such as the Nintendo Wii, and mobile hardware.
+
+The sub-field of AI that I chose to focus my project on was machine learning, as it is an emerging field which greatly interests me and one which I feel is a natural fit for computer games, and one we could see utilised in many forms in future games.
+
+For my project, I wanted to develop an AI system which was capable of employing machine learning techniques in order for a number of AI-controlled agents to safely navigate a 2D game environment. I wanted the agents to be able to develop a knowledgebase dynamically, with no need for prior training, or knowledge of the game world. I then wanted the agents to be able to apply this gained knowledge in order to hopefully increase their chances of survival. 
 
 \section{Background}
 
-The classic Commodore Amiga game 'Lemmings' was the main inspiration for my project.
+I chose the classic Commodore Amiga game `lemmings' as the context and main inspiration for my project.
 
-Originally released in 1991 for the PC and Commodore Amiga, the game has a very simple premise: to guide a group of computer-controlled ’lemmings’ across a level from the entrance-point to the exit. The lemmings themselves, although computer controlled, have no AI to speak of, and merely walk in one direction until they reach an immovable object (such as a wall) or a trap (water, spikes, big drops etc.), the latter resulting in the unfortunate demise of the lemming. Each level requires that a certain number of lemmings reach the exit in order for the player to progress. To complete a level, the player is given a number of tools to help them such as umbrellas to avoid big falls, girders to cross pits etc.
+Originally released in 1991 for the PC and Commodore Amiga, `Lemmings' has a very simple premise: to guide a group of computer-controlled `lemmings’ across a level from the entrance-point to the exit. The Lemming characters themselves have very basic AI; capable of merely walking across the level map. The level itself consists of a number of platforms, along with a number of hazards which will kill the Lemmings (big drops, pits etc.). The goal of the player is to utilise a set of tools in order to ensure that the Lemmings safely reach the level exit, such as umbrellas for big drops, girders to cross pits etc. 
+
+\paragraph{LEMMINGS SCREENSHOT}\ \\
+
+For my project, I planned to take this concept, simplify it by removing some of the tools and obstacles, and program some AI agents to learn for themselves how to best traverse the level, without any human interation.
 		
 \section{The Project in Context}
 	
-Looking back on my project, I feel that it actually covers the majority of modules that I have studied during my course. There were obviously a great deal of skills learnt in the CI213 (Intelligent Systems) and CI342 (Advanced AI) modules which I could directly apply to my project such as pathfinding and search algorithms like A*, MORE STUFF. 
+Throughout the development of my project, I needed to utilise skills which I had gained from modules I had studied during my course.
 
-There was also obviously a lot of useful knowledge gained in CI224 (Games Development) which I used throughout my project. In particular, I learnt a lot about memory management in this module which I found very useful as I was using Objective-C, which doesn't offer automatic garbage collection like Java for example. I was also introduced to source control systems in CI224, which has proven to be invaluable knowledge to have.
+There was obviously a lot of knowledge that I gained in the AI-related modules I have studied (CI213 - Intelligent Systems and CI342 - Advanced AI) which I could directly apply to my project. Techniques such as pathfinding algorithms, and generally approaching AI-based problems from an academic angle.
 
-I also used my knowledge of UML and software design learnt in CI228 (Object-Oriented Software Design and Specification) and CI231 (Formal Underpinnings and Specification) to create designs of my system. Although I didn't actually use the formal specification language learnt in my system specification, I still applied the concepts learnt to my designs.
+I was also able to apply a lot of useful knowledge that I had gained from the programming-based modules from my course (CI101 - Introduction to Programming, CI228 - Object-Oriented Software Design and Specification and CI346 - Programming, Concurrency and Client-Server Computing). I applied a lot of the `good' object-oriented design practices which were learnt in these modules: principles such as inheritance and design patterns like the singleton. I also found the knowledge learnt this year in CI346 very useful to overcome some concurrency issues I had using multiple threads in my system.
 
-As I was using Objective-C, I relied heavily on the concepts I had learnt in CI101 (Introduction to Programming), CI228 and CI346 (Programming, Concurrency and Client-Server Computing) to design my system using 'good' OO practices wherever possible. Principles such as inheritance and design patterns like the singleton. I also applied the knowledge learnt this year in CI346 to overcome concurrency issues I had with different threads trying to access shared data simultaneously.
+Another module I have found to be very useful is CI224 (Games Development). Many of the game design concepts: physics, object transformations, model loading, and various other useful skills. The project we did in CI224 was particularly useful, as it introduced me to the process involved in developing a game from scratch. I was also introduced to source control systems in CI224, which has proven to be invaluable knowledge to have.
 
-I learnt a great deal about data access and performance optimisation in the CI312 (Computer Graphics Algorithms) module. It really helped me too look at my code at a lower level, and analyse the best and most efficient ways to access and manipulate data. This is something which is of paramount importance, especially in games, as you will likely be carrying out certain functions up to 60 times every second, so any inefficient code would cause big problems in performance. 
+I also used the knowledge of object-oriented software design and UML learnt in CI228 and CI231 (Formal Underpinnings and Specification) to design my system. Although I didn't actually use the formal specification language learnt in my system specification, I could still apply the concepts learnt to my own designs.
+
+I learnt a great deal about data access and performance optimisation in the CI312 (Computer Graphics Algorithms) module. It really helped me too look at my code at a lower level, and analyse the best and most efficient ways to access and manipulate data; something which I have found to be incredibly important, especially in a game context, where some functions can be called 60 times every second. This is something which is of paramount importance, especially in games, as you will likely be carrying out certain functions up to 60 times every second, so any inefficient code would cause big problems in performance. 
+
+
 
 %
-% Section Page
+% New part
 %
-\part{Research}{This section documents the research that I carried out prior to designing my system, and how it influenced my final designs.}
-%\chapter{Research}
+
+\part{Research}{This section documents the research that I carried out prior to designing my system, and how it influenced my final designs. \\ \ \\The section is split into two subsections: my research into AI, and my research into the more game-related topics.}
 
 \chapter{Artificial Intelligence}
 
@@ -159,11 +186,12 @@ Although the reasons for this are very understandable, we reached the so-called 
 
 
 \section{AI In Games}
+- Introduction - how games currently use AI
 - Smoke and mirrors
-- scripting: why use it
+- Scripting: why use it
 	- speed
 	- predictability (testing) 
-- examples of machine learning in commercial games (Black \& White)
+- Examples of machine learning in commercial games (Black \& White)
 
 \section{Machine Learning}
 
@@ -342,9 +370,12 @@ Using this system, I split my project into a number of 'task-lists' for each com
 
 Using this system, I could add individual tasks that needed to be completed, deadlines (or 'milestones') to mark specific targets in the development of my project. I could also use the system to create a wiki for my project containing useful information. 
 
+
+
 %
-% Section Page
+% New part
 %
+
 \part{Planning}{This section covers the process of designing my system, from the initial concept art and art direction, to the system functionality modelling.}
 
 \section{Analysis:} "a vague understanding of the problem is transferred into a precise description of the tasks that the software system needs to carry out."
@@ -386,9 +417,12 @@ Not necessarily a complete process; not all classes may be discovered until impl
 		\section{The Data Protection Act}
 		\section{Research Ethics}
 
+
+
 %
-% Section Page
+% New part
 %
+
 \part{Implementation}{This section covers the process of actually implementing my system, problems that I was faced with, and how I solved them.}
 
 \chapter{Game Component}
@@ -476,9 +510,12 @@ In computer programming, a constant is an identifier whose associated value cann
 
 \section{Problems Faced}
 	
+	
+	
 %
-% Section Page
+% New part
 %
+
 \part{Testing \& Evaluation}{This section presents the usability and learning testing I performed, the results that were obtained, and an analysis of the product's performance.}
 
 \chapter{Testing \& Results}
@@ -492,9 +529,12 @@ Show the results of usability testing (if any) and the learning results. Compare
 \subsection{Analysis of Decision Tree Learning}
 \subsection{Analysis of Reinforcement Learning}
 
+
+
 %
-% Section Page
+% New part
 %
+
 \chapter{Evaluation}
 
 A very competent evaluation of the whole project (with hindsight). Weak performance in the evaluation of product and process will result in a grade no higher than a B.
@@ -545,9 +585,12 @@ Another enhancement that I could make to the game would be to extend the system 
 - Applications For Learning in games (possibly pre-release learning)
 - Performance on mobile device
 
+
+
 %
-% Section Page
+% New part 
 %
+
 \part{Appendices}{}
 
 	\appendix
@@ -559,9 +602,15 @@ Another enhancement that I could make to the game would be to extend the system 
 A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
 
 	\chapter{Git Log}
+
+
 	
-% push the references onto a new page
+%
+% References
+%
+
 \newpage
+\addcontentsline{toc}{part}{Bibliography}
 \bibliographystyle{abbrv}
 \bibliography{Cogito}
 
