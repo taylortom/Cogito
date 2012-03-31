@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: .texpadtmp/ProcessReport.aux
+The style file: abbrv.bst
+Database file #1: Cogito.bib
+Warning--entry type for "Woodcock:bs" isn't style-file defined
+--line 59 of file Cogito.bib
+Warning--entry type for "Woodcock:oq" isn't style-file defined
+--line 120 of file Cogito.bib
+Warning--entry type for ":cr" isn't style-file defined
+--line 258 of file Cogito.bib
+Warning--entry type for "Nintendo:2012nx" isn't style-file defined
+--line 266 of file Cogito.bib
+Warning--entry type for ":2012dq" isn't style-file defined
+--line 274 of file Cogito.bib
+Warning--entry type for "Sheffield:2008fk" isn't style-file defined
+--line 291 of file Cogito.bib
+Warning--entry type for "McCarthy:1955ve" isn't style-file defined
+--line 588 of file Cogito.bib
+Warning--empty note in Mitchell:2006fv
+Warning--empty year in :hc
+You've used 21 entries,
+            2118 wiz_defined-function locations,
+            610 strings with 6251 characters,
+and the built_in function-call counts, 5058 in all, are:
+= -- 459
+> -- 238
+< -- 0
++ -- 101
+- -- 76
+* -- 261
+:= -- 893
+add.period$ -- 61
+call.type$ -- 21
+change.case$ -- 93
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 206
+empty$ -- 448
+format.name$ -- 76
+if$ -- 1051
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 19
+newline$ -- 100
+num.names$ -- 43
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 80
+quote$ -- 0
+skip$ -- 144
+stack$ -- 0
+substring$ -- 128
+swap$ -- 21
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 2
+while$ -- 45
+width$ -- 23
+write$ -- 201
+(There were 9 warnings)

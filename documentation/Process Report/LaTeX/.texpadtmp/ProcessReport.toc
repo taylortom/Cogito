@@ -1,0 +1,90 @@
+\select@language {english}
+\contentsline {chapter}{Introduction}{1}
+\contentsline {paragraph}{USER BASE PIE CHART}{1}
+\contentsline {section}{Project Aims and Objectives}{2}
+\contentsline {section}{Background}{2}
+\contentsline {section}{The Project in Context}{3}
+\contentsline {part}{Research}{4}
+\contentsline {chapter}{Artificial Intelligence}{5}
+\contentsline {section}{AI In Games}{5}
+\contentsline {subsection}{Finite State Machines}{6}
+\contentsline {subsection}{Search and Planning Systems}{6}
+\contentsline {subsection}{Artificial Life}{7}
+\contentsline {subsection}{Scripting}{7}
+\contentsline {subsection}{Cheating The System}{8}
+\contentsline {subsection}{The Future of Game AI}{8}
+\contentsline {section}{Machine Learning}{8}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{Online and Offline:}{9}
+\contentsline {paragraph}{Supervised and Unsupervised:}{9}
+\contentsline {paragraph}{`Inter' and `Intra' Behaviour:}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {subsection}{Reinforcement Learning}{9}
+\contentsline {subsubsection}{Markov Decision Processes:}{14}
+\contentsline {subsubsection}{Algorithms:}{15}
+\contentsline {subsection}{Decision Tree}{16}
+\contentsline {subsection}{Genetic Algorithms}{16}
+\contentsline {subsection}{Other techniques}{16}
+\contentsline {subsection}{Applications For Machine Learning}{18}
+\contentsline {paragraph}{Speech recognition:}{18}
+\contentsline {paragraph}{Computer vision:}{18}
+\contentsline {paragraph}{Robot control:}{18}
+\contentsline {paragraph}{Accelerating empirical sciences}{18}
+\contentsline {subsection}{Machine Learning In Games}{18}
+\contentsline {section}{Conclusion}{19}
+\contentsline {chapter}{Choice of Tools}{20}
+\contentsline {section}{Programming Languages \& Game Engines}{20}
+\contentsline {section}{Asset Production}{21}
+\contentsline {section}{Version Control}{22}
+\contentsline {section}{Project Management}{23}
+\contentsline {part}{Planning}{24}
+\contentsline {section}{Analysis:}{25}
+\contentsline {subsubsection}{Creation of a functional specification:}{25}
+\contentsline {section}{Design:}{25}
+\contentsline {subsubsection}{Main goals:}{25}
+\contentsline {subsubsection}{Components:}{25}
+\contentsline {chapter}{Initial Artwork}{26}
+\contentsline {chapter}{UML/Class Diagrams}{27}
+\contentsline {chapter}{Social, Legal, Ethical and Professional Issues}{28}
+\contentsline {section}{Intellectual Property}{28}
+\contentsline {section}{Copyright Law}{28}
+\contentsline {section}{The Data Protection Act}{28}
+\contentsline {section}{Research Ethics}{28}
+\contentsline {part}{Implementation}{29}
+\contentsline {chapter}{Game Component}{30}
+\contentsline {section}{Code Structure/Features}{30}
+\contentsline {subsection}{Singleton/Manager classes}{30}
+\contentsline {subsection}{Levels}{30}
+\contentsline {subsection}{Basic Functionality}{31}
+\contentsline {subsection}{Constants}{31}
+\contentsline {subsection}{Datatypes}{31}
+\contentsline {subsection}{Utility Methods}{31}
+\contentsline {subsection}{Deviance From The Design}{32}
+\contentsline {subsection}{Performance Optimisations}{32}
+\contentsline {subsection}{Random number generation}{32}
+\contentsline {subsection}{Problems Faced}{33}
+\contentsline {subsection}{Memory management}{33}
+\contentsline {section}{OpenGL ES}{34}
+\contentsline {section}{Cocos2D}{34}
+\contentsline {chapter}{AI Component}{35}
+\contentsline {section}{Code Structure/Features}{35}
+\contentsline {section}{Deviance From The Design}{35}
+\contentsline {section}{Performance Optimisations}{35}
+\contentsline {section}{Problems Faced}{35}
+\contentsline {part}{Testing \& Evaluation}{36}
+\contentsline {chapter}{Testing \& Results}{37}
+\contentsline {section}{Usability Testing}{37}
+\contentsline {section}{AI Testing}{37}
+\contentsline {subsection}{Analysis of Decision Tree Learning}{37}
+\contentsline {subsection}{Analysis of Reinforcement Learning}{37}
+\contentsline {chapter}{Evaluation}{38}
+\contentsline {section}{Time Management}{38}
+\contentsline {section}{Achievements}{38}
+\contentsline {section}{Evaluation of reinforcement learning}{38}
+\contentsline {section}{Areas For Enhancement}{39}
+\contentsline {section}{Overall Success}{39}
+\contentsline {part}{Appendices}{40}
+\contentsline {chapter}{Code Listings}{41}
+\contentsline {chapter}{Project Log}{42}
+\contentsline {chapter}{Git Log}{43}
+\contentsline {part}{Bibliography}{44}

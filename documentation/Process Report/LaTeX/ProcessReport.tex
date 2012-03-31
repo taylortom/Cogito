@@ -2,8 +2,10 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[english]{babel}
 \usepackage{fancyhdr} 
-\usepackage[pdftex]{graphicx}\usepackage{listings}      
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}      
 \usepackage{pdfpages}
 \usepackage{setspace}
 \usepackage{url}
@@ -103,7 +105,7 @@
 %
 {
 	\renewcommand\thepage{}
-	\setcounter{tocdepth}{3}
+	\setcounter{tocdepth}{1}
 	\tableofcontents
 	\clearpage
 }
@@ -118,15 +120,15 @@
 
 \chapter{Introduction}
 
-The AI techniques utilised by game developers have been called archaic by the academic AI researchers, which may indeed be true. However, it is important to view such techniques in context of which they are used. While academic AI researchers are able to utilise as much processing power as the hardware can afford them, game developers are much more limited. When one examines the other processes which need to run concurrently, this is not overly surprising: physics, sound, networking, input and most importantly the graphics processing to name but a few. So when AI researchers complain that the techniques are archaic, which is a fair arguement, given that the A* search algorithm is still one of the most popular AI algorithms used in games today, and was first define over 30 years ago), this is for the simple reason that the amount of processing power that developers are able to dedicate to the AI processes could not cope with any more `recent', processor intensive techniques. Indeed, modern game AI programming is more a skill of employing the cheapest (computationally) techniques, and often means that shortcuts and workarounds are a necessity in order to achieve `believable' AI. 
+The artificial intelligence (AI) techniques utilised by game developers have been called archaic by the academic AI researchers, which may indeed be true. However, it is important to view such techniques in context of which they are used. While academic AI researchers are able to utilise as much processing power as the hardware can afford them, game developers are much more limited. When one examines the other processes which need to run concurrently, this is not overly surprising: physics, sound, networking, input and most importantly the graphics processing to name but a few. So when AI researchers complain that the techniques are archaic, which is a fair arguement, given that the A* search algorithm is still one of the most popular AI algorithms used in games today, and was first introduced over 30 years ago), this is for the simple reason that the amount of processing power that developers are able to dedicate to the AI processes could not cope with any more `recent', processor intensive techniques. Indeed, modern game AI programming is more a skill of employing the cheapest (computationally) techniques, and often means that shortcuts and workarounds are a necessity in order to achieve `believable' AI. 
 
 However, this being said, we are starting to see a change taking place in the computer games industry which suggests that the processing time availiable for often overlooked processes such as AI is starting to increase. One such factor in this change is the so-called `graphics plateau' \cite{Sheffield:2008fk}. Whether or not there will come a point where the graphical complexity of a game is considered `perfect', with no area for improvement is uncertain (and in my opinion highly unlikely). However, I do think that we have reached a point whereby the graphical complexity achievable with each new generation in games consoles is unlikely to achieve the same kind of drastic improvement in detail that we have seen over the last couple of decades; in effect, I think that we have reached a level of complexity whereby the amount of processing power needed for the graphics processing is unlikely to increase by a very large factor. Given the inevitable hardware advances that come with each new generation, I believe that we will start see a lot more processing power freed up for those processes which have been treated as `extraneous' in the past, such as the AI. 
 
-Another important factor in this change is the emergence of the `casual' gamer. With casual games now accounting for a considerable proportion game sales, the consumer has shown that there is a big market games which have less emphasis on complex graphics effects, and more emphasis on interesting gameplay mechanics \cite{Association:2011uq}. Indeed, with Nintendo's Wii home console having far outsold both Sony's PlayStation 3 and Microsoft's Xbox, the consumer has shown that they value gameplay over advanced graphics \cite{:2012vn, :2012kx, Inc.:ys}. 
+Another important factor in this change is the emergence of the `casual' gamer. With casual games now accounting for a considerable proportion game sales, the consumer has shown that there is a big market for games which have less emphasis on complex graphics effects, and more emphasis on interesting gameplay mechanics \cite{Association:2011uq}. Indeed, with Nintendo's Wii home console having far outsold both Sony's PlayStation 3 and Microsoft's Xbox, the consumer has shown that they value unique gameplay and accessibility over advanced graphics \cite{:2012dq, Nintendo:2012nx, :cr}. 
 
-\paragraph{USER BASE PIE CHART??}\ \\ \\
+\paragraph{USER BASE PIE CHART}\ \\ \\
 
-With these factors bringing about a change in which processes are prioritised by developers, I believe that now is the time for developers to introduce some more advanced AI techniques into their games.
+With these factors already starting to bring about a change in the priority that developers give to the components of their games, I believe that now is as good a time as any for developers to introduce some more advanced AI techniques into their games.
 
 \section{Project Aims and Objectives}
 
@@ -138,11 +140,15 @@ For my project, I wanted to develop an AI system which was capable of employing 
 
 \section{Background}
 
-I chose the classic Commodore Amiga game `lemmings' as the context and main inspiration for my project.
+I chose the classic Commodore Amiga game `Lemmings' as the context and main inspiration for my project.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=80mm]{sources/images/lemmings3}
+    \caption{A typical level in Lemmings.\label{screen}}
+\end{figure}
 
 Originally released in 1991 for the PC and Commodore Amiga, `Lemmings' has a very simple premise: to guide a group of computer-controlled `lemmings’ across a level from the entrance-point to the exit. The Lemming characters themselves have very basic AI; capable of merely walking across the level map. The level itself consists of a number of platforms, along with a number of hazards which will kill the Lemmings (big drops, pits etc.). The goal of the player is to utilise a set of tools in order to ensure that the Lemmings safely reach the level exit, such as umbrellas for big drops, girders to cross pits etc. 
-
-\paragraph{LEMMINGS SCREENSHOT}\ \\
 
 For my project, I planned to take this concept, simplify it by removing some of the tools and obstacles, and program some AI agents to learn for themselves how to best traverse the level, without any human interation.
 		
@@ -170,52 +176,89 @@ I learnt a great deal about data access and performance optimisation in the CI31
 
 \chapter{Artificial Intelligence}
 
-(how research has influenced your decisions - there must be evidence of appropriate research)
+Since the early days of `modern' computing, computer scientists have striven to replicate in machines the defining characteristic that makes us human: intelligence. One of the first references to `intelligent machines' came in 1950 in Alan Turing's seminal paper \emph{Computing Machinery and Intelligence}, in which Turing opens with the words: "I propose to consider the question, 'Can machines think?'". In it, he outlines a test in which a human participant engages in conversation with a machine designed to imitate human behaviour, known as the Turing Test. This paper not only inspired the concept of `intelligent machines', but also caused us to look philosophically at what it is that makes us inherently human, and whether this is indeed replicable in a machine.
 
-- Intro to AI, differences between academic AI and game AI
+The term `artificial intelligence' was later formally defined in 1955 by McCarthy et al in the proposal for the Dartmouth Summer Research Conference on Artificial Intelligence, which is considered by many to be the origin of the field of AI \cite{Crevier:1993kl}. In the proposal, it was suggested that ``every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it" \cite{McCarthy:1955ve}. However, despite this early optimism, we are still yet to see any truly `intelligent' machines nearly 60 years on. Indeed, the annual Loebner Prize event in which AI researchers partake in Turing Tests has yet to award the silver or gold medals to any entrant. 
 
-"Learning is the improvement in performance in some environment through the acquisition of knowledge resulting from experience in that environment." - Elements of Machine Learning - Pat Langley
-
-"Learning involves improvement in performance." - Elements of Machine Learning - Pat Langley
-
-"The ability to learn is one of the central features of intelligence" - Elements of Machine Learning - Pat Langley
-
-The motivation for my project came from the fact that most modern games still use very rudimentary techniques when it comes to the artificial intelligence.
-
-Although the reasons for this are very understandable, we reached the so-called pinnacle of graphics development 
-
+Since these very early days, the field of AI has grown to become an integral field not only in computer science, but also in the infrastructure of every industry \cite{Kurzweil:2005ly}. AI techniques are used in a vast array of application areas, such as in search, elevator scheduling, satellite monitoring, weather prediction, aeroplane autopiloting and robotics to name just a very few. 
 
 \section{AI In Games}
-- Introduction - how games currently use AI
-- Smoke and mirrors
-- Scripting: why use it
-	- speed
-	- predictability (testing) 
-- Examples of machine learning in commercial games (Black \& White)
+
+One area where AI techniques are used extensively is computer games. Whether to map a route across obstacle-ridden terrain, control the actions of non-player characters (NPCs) or even to adjust game parameters to fit to the skill of the player, AI plays a key role in almost all modern computer games. 
+
+However, despite the proven benefits of AI, the amount of system resources allocated to AI processing is surprisingly limited; traditionally, the game industry has been much more focussed on producing ultra-realistic visuals than with developing a truly intelligent AI system. With each new console generation, developers have pushed the hardware to its limits, offering greater levels of visual fidelity while other areas of development were neglected. It is no surprise then, that game AI programmers have had to make the best of a bad situation, often being forced to avoid  more powerful and resource-intensive AI techniques for a mixture of highly optimised (and less-effective) techniques, and a `smoke and mirrors' approach.
+
+Due to the nature of the final product, game AI takes a very contrasting approach to that of academic AI. While the aim with academic AI systems is always to provide the most complete and accurate results, the ultimate aim with game AI is to provide entertainment for the user, by giving the illusion of intelligence. Ironically, this can often mean that it is necessary to make the system intentionally `stupid' by building flaws in the system or even by allowing the system to cheat to ensure that the game AI behaves `realistically' \cite{Liden:2004fk}. Additionally, academic AI systems usually have the very simplistic interfaces or visualisation, in order to allow the majority of processing time to be dedicated to the AI. In a computer game on the other hand, the AI must run simultaneously with a number of other processes such as the physics engine, sound and most importantly graphics which in reality means that the AI processing is often compromised in the favour of other processes.
+
+The AI systems used in most modern games mainly concern themselves with the following three objectives \cite{millington2006artificial}:
+
+\begin{itemize}
+	\item The ability to move characters
+	\item The ability to make decisions about where to move
+	\item The ability to think tactically or strategically
+\end{itemize}
+
+In the proceeding sections, I outline some of the most popular AI techniques used in commercial computer games today.
+
+\subsection{Finite State Machines} 
+
+Finite state machines (FSMs) are one of the most basic and most commonly used AI techniques found in games today. As the name suggests, finite state machines are ``simple, rule-based systems in which a finite number of 'states' are connected in a directed graph by 'transitions' between states" \cite{:hc}. This graph essentially maps the states available, and which of these states can be reached from the current state. One of the first games to sucessfully implement FSMs is Atari's 1979 game \emph{Pacman}, in which the enemy ghost characters use a FSM to either roam around, chase Pacman or run away, changing their state in response to various in-game triggers. Despite the age of this technique, it is still used extensively in many commercial games today, due to the fact that FSMs are fairly easy to understand, easily implementable, and most importantly, relatively straightforward to debug \cite{Bourg:2004tg}.
+
+\subsection{Search and Planning Systems} 
+
+Search and planning systems have many different uses and are used extensively in many different genres of games. Search systems are primarily concerned with finding actions or states in a graph in order to satisfy a goal condition (or at least to get as close as possible to the goal condition). Planning systems are a branch of the search methods which have an emphasis on finding the best (or simplest) sequence of actions required in order to reach a goal state. There have been a variety of search algorithms developed over the years, but the A* algorithm is the one used most extensively, due to its performance, and the accuracy of its results. Search and planning systems are used for a variety of tasks, from the pathfinding of AI agents in a first-person shooter game to the allocation of resources in a real-time strategy game. Blizzard's 1994 game \emph{Warcraft} is an example of an early implementation of using the A* pathfinding algorithm to navigate agents.
+
+\subsection{Artificial Life} 
+
+The use of artificial life (A-life) techniques have become more commonplace in recent years, and have a variety of different uses. An A-life system is essentially system which is designed to exhibit realistic and lifelike behavior in game characters. A-life systems are often used to coordinate the movement of multi-agent systems to make the agents maneuver in flock and herd formation. One of the most compelling reasons to use A-life techniques is that more complex intelligent behaviours can emerge as a result from the pre-programmed rules \cite{Woodcock:bs}. \emph{The Sims} developed by Maxis (now part of EA) is probably one of the best known games to use A-life techniques, and uses so-called `smart terrain' to broadcast information to the game characters. For example,  a character which is hungry may walk past a refridgerator, which broadcasts that it contains food. After collecting the food, the nearby oven may broadcast that it can cook the food, leading the character to it \cite{Woodcock:bs}. These individual object-level actions when combined, cause the character to act realistically. While A-life techniques can result in some very realistic and emergent behaviour without having being explicitly programmed to do so, it also means that the unpredictability which is inherent to A-life can mean that it can be incredibly difficult to debug. Additionally, the more complex techniques can be incredibly processor intensive, rendering them unsuitable for games which are already very processor-intensive. 
+
+\subsection{Scripting} 
+
+Another popular technique in game AI is scripting, whereby developers use a specialised high-level scripting language to outline the NPCs reactions to basic situations as well as to hard-code game events. Scripting allows the game engine to be accessed externally in a safe `sandbox' environment, greatly reducing the chance of bugs and errors, so is suitable for non-programmers such as designers, or even end-users to access. For this reason, there is a large community of gamers which build additional content for various games via the scripting interface. Common uses for scripting include creating events and controlling the enemy AI. 
+
+Lionhead used scripting heavily in their 2001 game \emph{Black \& White} to present the game's storyline using a series of in-game challenges rather than the more traditional cut-scene, as well as to implement the game's logic \cite{:hc}. 
+
+A big disadvantage to using scripting is that it requires every character behaviour and game scenario to be hard-coded which is incredibly time consuming for the programmer/developer, and is not always possible. Additionally, using scripting can be very restrictive for the player, as the story progression is often very linear.
+
+\subsection{Cheating The System}
+
+In addition to the AI techniques outlined above, many developers also use a number of hacks and workarounds to give their AI systems the illusion of intelligence while retaining the entertainment value. In many cases, the more traditional AI techniques aren't needed at all. As discussed earlier, the primary aim when it comes to game AI is to make the AI system appear `intelligent' whilst at the same time presenting an acceptable level of challenge for the player. If we examine a stealth action game such as Konami's \emph{Metal Gear Solid} series in which the player must traverse a level while avoiding detection from the guard NPCs; were a truly intelligent and adaptive AI system used which was able to reason as completely as the player, it would remove a lot of the entertainment value of the game which often relies on the player recognising patterns in guard behaviour in order to progress. While this AI system would be considered flawed in the eyes of an academic researcher, it is perfectly acceptable in the context of the game. Similarly, game developers often give the AI system access to extra information or resources which are unavailable to the player. This is particularly the case with real-time strategy games (RTSs) where it is commonplace for the enemy player to have access to extra resources such as troops or supplies which wouldn't be available to the player. Using these kinds of `cheats' can be an acceptable way to increase the level of difficulty. However, the challenge for the developer is to disguise this from the player; if the player feels that the game is acting unfairly, and that their actions are ineffective, they will obviously not enjoy the game.
+
+\subsection{The Future of Game AI}
+
+From as early as 2000, statistics were showing that the industry was beginning to take AI more seriously. This was reflected in figures collected from the AI roundtable at the annual Game Developer's Conference (GDC), which showed that not only were a lot more studios employing dedicated AI programmers, but also the average amount of CPU time reserved for AI processing increased from 5\% to over 25\% \cite{Woodcock:oq}. With increased resources now available to AI developers, there is more opportunity now than ever to introduce newer and more advanced AI techniques such as neural networks and machine learning.
 
 \section{Machine Learning}
 
-- What is it
-- types of learning: supervised/unsupervised, online/offline
-"in some cases a tutor or domain expert gives the learner direct feedback about the appropriateness of its performance."
-"For classification problems, the supervised task assumes that each training instance includes an attribute that specifies the class of that instance, and the goal is to induce a concept description that accurately predicts this attribute. There is less agreement on the goal of unsupervised learning, but one can define analogous prediction tasks over the entire set of attributes. In problem solving tasks, supervised learning occurs when a tutor suggests the correct step at each point in the search or reasoning process; systems that operate on such feedback are sometimes referred to as learning apprentices. However, most work on learning in problem solving has dealt with unsupervised tasks, in which the agent must distinguish desirable actions from undesirable ones on its own." - Elements of Machine Learning - Pat Langley
-- what is it used for 
+The ability to learn is one of the central features of intelligence \cite{Langley:1996zr}. To be able to then apply this knowledge and modify behaviour accordingly when faced with similar scenarios in the future is something which has recieved a considerable amount of attention, with techniques having been developed to tackle a variety of learning problems. In fact, machine learning techniques are already in use in a number of commercial applications such as speech recognition, robotic control and machine vision, proving that it can be a very useful solution, especially in solving problems which may have unexpected outcomes that cannot be predicted by the software developer.
 
-"A computer is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E." - Tom M. Mitchell.
+\noindent A popular definition of machine learning as phrased by respected machine learning researcher Tom Mitchell \cite{mitchell1997machine}: 
+\begin{quotation}``A computer is said to learn from experience \emph{E} with respect to some class of tasks \emph{T} and performance measure \emph{P}, if its performance at tasks in \emph{T}, as measured by \emph{P}, improves with experience \emph{E}."
+\end{quotation}
 
-Algorithms that allow computers to evolve behaviours based on empirical data.
+Although it may be fairly self explanatory, the major benefit of implementing a machine learning algorithm is that a system is able to draw upon data collected from experience, and analyse this data to improve its performance in the future.
 
-Machine learning focuses on prediction based on known properties learning from training data.
+\paragraph{} Learning techniques can be classified into various groups based on what is learnt, when learning occurs and the effects that the learning has on the system. 
 
-Supervised: Machine is given sets of training examples - an input object and an output which are then used to predict an outcome.
+\paragraph{Online and Offline:} Learning is said to be `online' if the system learns while it is actually running, and `offline' if the data is analysed as a whole and the system improved \emph{after} it has finished running. While online learning provides instantaneous results, it also makes the system much more difficult to debug were any issues found, due to its continous modification.
 
-Unsupervised: Trying to find hidden structure in unlabelled data - no error or reward signal to evaluate a potential solution.
+\paragraph{Supervised and Unsupervised:} Learning techniques can also be categorised by how they use training data, if at all. A system which uses training data to base its learning on is described as `supervised', whereas a system which only has access to the data that it collects itself is described as `unsupervised'. The benefit to supervised learning is that it gives the system some correct `solutions' to base its future learning on, leading to more accurate and perhaps generally `quicker' learning. However, the training data itself needs to be collected and analysed, with only `correct' data being transferred to the system. This obviously requires human input, and can be very time consuming. Unsupervised methods on the other hand do not have this requirement, but must analyse the collected data to find hidden structure; there is no `correctness' indicator to evaluate potential solutions. There are also techniques which form an intermediary between the two, using both labelled and unlabelled data. These methods are known as `semi-supervised'.
 
-Semi-supervised: Makes use of both labelled and unlabelled data. For example, 2+ learners are trained on the same data, but each learning uses a different set of features for each example. 
+\paragraph{`Inter' and `Intra' Behaviour:} Learning techniques are also often classified by the amount that they change the system's behaviour \footnote[1]{The term `behaviour' here is used to describe ``a qualitatively different mode of action" }. The simpler techniques, which maybe only adjust some basic parameters of only change a small part of a system's behaviour are known as intra-benaviour, whereas methods which use inter-behaviour learning have a much bigger effect on a system's behaviour. For example, a game character which learns the most effective patrol route would be considered intra-behaviour, whereas a character which learns to lay an ambush for the player rather than to wait until the player appears, would be considered inter-behaviour.
+
+\paragraph{} There have been a number of different machine learning techniques developed for 
 
 \subsection{Reinforcement Learning}
 
 For most applications, reinforcement learning falls into 3 categories: Dynamic Programming, Monte Carlo, and Temporal Difference.
+
+
+Reinforcement learning is the name given to a range of techniques for learning based on experience. In its most general form a reinforcement learning algorithm has three components: an exploration strategy for trying out different actions in the game, a re- inforcement function that gives feedback on how good each action is, and a learning rule that links the two together. Each element has several different implementations and optimizations, depending on the application.Reinforcement learning is a hot topic in game AI, with more than one new AI middleware vendor using it as a key technology to enable next-generation gameplay.
+Later in this section we’ll look briefly at a range of reinforcement learning tech- niques. In game applications, however, a good starting point is the Q-learning al- gorithm. Q-learning is simple to implement, has been widely tested on non-game applications, and can be tuned without a deep understanding of its theoretical prop- erties.7.6.1 THE PROBLEMWe would like a game character to select better actions over time. What makes a good action may be difficult to anticipate by the designers. It may depend on the way the player acts, or it may depend on the structure of random maps that can’t be designed for.We would like to be able to give a character free choice of any action in any cir- cumstance and for it to work out which actions are best for any given situation.Unfortunately, the quality of an action isn’t normally clear at the time the action is made. It is relatively easy to write an algorithm that gives good feedback when the character collects a power-up or kills an enemy. But the actual killing action may have been only 1 out of 100 actions that led to the result, with each one of which needing to be correctly placed in series.Therefore, we would like to be able to give very patchy information: to be able to give feedback only when something significant happens. The character should learn that all the actions leading up to the event are also good things to do, even though no feedback was given while it was doing them.7.6.2 THE ALGORITHMQ-learning relies on having the problem represented in a particular way. With this representation in place, it can store and update relevant information as it explores the possible actions it can take. We’ll look at the representation first.Q-Learning’s Representation of the WorldQ-learning treats the game world as a state machine. At any point in time, the al- gorithm is in some state. The state should encode all the relevant details about the character’s environment and internal data.So if the health of the character is significant to learning, and if the character finds itself in two identical situations with two different health levels, then it will consider them to be different states. Anything not included in the state cannot be learned. If we didn’t include the health value as part of the state, then we couldn’t possibly learn to take health into consideration in the decision making.In a game the states are made up of many factors: position, proximity of the en- emy, health level, and so on. Q-learning doesn’t need to understand the components7.6 Reinforcement Learning 613
+614 Chapter 7 Learningof a state. As far as the algorithm is concerned they can just be an integer value: the state number.The game, on the other hand, needs to be able to translate the current state of the game into a single state number for the learning algorithm to use. Fortunately, the algorithm never requires the opposite: we don’t have to translate the state number back into game terms (as we did in the pathfinding algorithm, for example).Q-learning is known as a model-free algorithm because it doesn’t try to build a model of how the world works. It simply treats everything as states. Algorithms that are not model-free try to reconstruct what is happening in the game from the states that it visits. Model-free algorithms, such as Q-learning, tend to be significantly easier to implement.For each state, the algorithm needs to understand the actions that are available to it. In many games all actions are available at all times. For more complex environ- ments, however, some actions may only be available when the character is in a partic- ular place (e.g., pulling a lever), when they have a particular object (e.g., unlocking a door with a key), or when other actions have been properly carried out before (e.g., walking through the unlocked door).After the character carries out one action in the current state, the reinforcement function should give it feedback. Feedback can be positive or negative and is often zero if there is no clear indication as to how good the action was. Although there are no limits on the values that the function can return, it is common to assume they will be in the range [−1, 1].There is no requirement for the reinforcement value to be the same every time an action is carried out in a particular state. There may be other contextual information not used to create the algorithm’s state. As we saw previously, the algorithm cannot learn to take advantage of that context if it isn’t part of its state, but it will tolerate its effects and learn about the overall success of an action, rather than its success on just one attempt.After carrying out an action, the character is likely to enter a new state. Carrying out the same action in exactly the same state may not always lead to the same state of the game. Other characters and the player are also influencing the state of the game.For example, a character in an FPS is trying to find a health pack and avoid getting into a fight. The character is ducking behind a pillar. On the other side of the room, an enemy character is standing in the doorway looking around. So the current state of the character may correspond to in-room1, hidden, enemy-near, near-death. They chose the “hide” action to continue ducking. The enemy stays put, so the “hide” ac- tion leads back to the same state. So they chose the same action again. This time the enemy leaves, so the “hide” action now leads to another state, corresponding to in- room1, hidden, no-enemy, near-death.One of the powerful features of the Q-learning algorithm (and most other rein- forcement algorithms) is that it can cope with this kind of uncertainty.These four elements—the start state, the action taken, the reinforcement value, and the resulting state—are called the experience tuple, often written as ⟨s, a, r, s′⟩.
+Doing LearningQ-learning is named for the set of quality information (Q-values) it holds about each possible state and action. The algorithm keeps a value for every state and action it has tried. The Q-value represents how good it thinks that action is to take when in that state.The experience tuple is split into two sections. The first two elements (the state and action) are used to look up a Q-value in the store. The second two elements (the reinforcement value and the new state) are used to update the Q-value based on how good the action was and how good it will be in the next state.The update is handled by the Q-learning rule:Q(s, a) = (1 − α)Q(s, a) + α􏳁r + γ max􏳁Q(s′, a′)􏳂􏳂,where α is the learning rate, and γ is the discount rate. Both are parameters of the algorithm. The rule is sometimes written in a slightly different form, with the (1 − α) multiplied out.How It WorksThe Q-learning rule blends together two components using the learning rate parame- ter to control the linear blend. The learning rate parameter, used to control the blend, is in the range [0, 1].The first component Q(s, a) is simply the current Q-value for the state and action. Keeping part of the current value in this way means we never throw away information we have previously discovered.The second component has two elements of its own. The r value is the new rein- forcement from the experience tuple. If the reinforcement rule wasQ(s,a)=(1−α)Q(s,a)+αrthen it would be blending the old Q-value with the new feedback on the action.The second element, γ max(Q(s′, a′)), looks at the new state from the experience tuple. It looks at all possible actions that could be taken from that state and chooses the highest corresponding Q-value. This helps bring the success (i.e., the Q-value) of a later action back to earlier actions: if the next state is a good one, then this stateshould share some of its glory.The discount parameter controls how much the Q-value of the current state andaction depends on the Q-value of the state it leads to. A very high discount will be a large attraction to good states, and a very low discount will only give value to states that are near to success. Discount rates should be in the range [0, 1]. A value greater than 1 can lead to ever-growing Q-values, and the learning algorithm will never con- verge on the best solution.7.6 Reinforcement Learning 615
+616 Chapter 7 Learning￼PROGRAMSo, in summary, the Q-value is a blend between its current value and a new value, which combines the reinforcement for the action and the quality of the state the ac- tion led to.Exploration StrategySo far we’ve covered the reinforcement function, the learning rule, and the internal structure of the algorithm. We know how to update the learning from experience tuples and how to generate those experience tuples from states and actions. Rein- forcement learning systems also require an exploration strategy: a policy for selecting which actions to take in any given state. It is often simply called the policy.The exploration strategy isn’t strictly part of the Q-learning algorithm. Although the strategy outlined below is very commonly used in Q-learning, there are others with their own strengths and weaknesses. In game, a powerful alternative technique is to incorporate the actions of a player, generating experience tuples based on their play. I’ll return to this idea later in the section.The basic Q-learning exploration strategy is partially random. Most of the time, the algorithm will select the action with the highest Q-value from the current state. The remainder, the algorithm will select a random action. The degree of randomness can be controlled by a parameter.Convergence and EndingIf the problem always stays the same, and rewards are consistent (which they often aren’t if they rely on random events in the game), then the Q-values will eventu- ally converge. Further running of the learning algorithm will not change any of the Q-values. At this point the algorithm has learned the problem completely.For very small toy problems this is achievable in a few thousand iterations, but in real problems it can take a vast number of iterations. In a practical application of Q-learning, there won’t be nearly enough time to reach convergence, so the Q-values will be used before they have settled down. It is common to begin acting under the influence of the learned values before learning is complete.
+
 
 Dynamic Programming
 Dynamic programming is used to solve learning problems where state transition probabilities are known beforehand. The state transition probability function, p(s,a,s`) is the probability of transitioning from state s to state s` when the agent takes action a. The goal of the learning agent is to learn to approximate the reward function V(s,a), which gives the expected reward of taking action a in state s. The agent approximates the reward function by testing out different actions in different states, each time receiving a reward r. For taking action a in state s, the agent updates V(s,a) with the following function:
@@ -279,7 +322,25 @@ The only way to collect information about the environment is by interacting with
 
 (could be considered a genuine learning problem)"
 
-\subsubsection{Markovian Decision Processes:}
+\subsubsection{Markov Decision Processes:}
+
+When it comes to representing the 
+
+Markov Decision Processes (MDPs) are used 
+
+
+
+Markov decision processes (MDPs), named after Andrey Markov, provide a mathematical framework for modeling decision-making in situations where outcomes are partly random and partly under the control of a decision maker. MDPs are useful for studying a wide range of optimization problems solved via dynamic programming and reinforcement learning. MDPs were known at least as early as the 1950s (cf. Bellman 1957). Much research in the area was spawned due to Ronald A. Howard's book, Dynamic Programming and Markov Processes, in 1960. Today they are used in a variety of areas, including robotics, automated control, economics and manufacturing.
+
+More precisely, a Markov Decision Process is a discrete time stochastic control process. At each time step, the process is in some state , and the decision maker may choose any action  that is available in state . The process responds at the next time step by randomly moving into a new state , and giving the decision maker a corresponding reward .
+
+The probability that the process moves into its new state  is influenced by the chosen action. Specifically, it is given by the state transition function . Thus, the next state  depends on the current state  and the decision maker's action . But given  and , it is conditionally independent of all previous states and actions; in other words, the state transitions of an MDP possess the Markov property.
+
+Markov decision processes are an extension of Markov chains; the difference is the addition of actions (allowing choice) and rewards (giving motivation). Conversely, if only one action exists for each state and all rewards are zero, a Markov decision process reduces to a Markov chain.
+
+
+
+\begin{quotation}A Markov Decision process (MDP) M is a 4-tuple (S,U,P,R), where S is a set of thestates, U is a set of actions (U(i) is the set of actions available at state i), PM(a) is the transition probability from state i to state j when performing action a ∈ U (i) in state i, and RM (s, a) is the reward received when performing action a in state s.\end{quotation}
 
 \subsubsection{Algorithms:}
 
@@ -300,17 +361,106 @@ Mimics policy iteration.
 
 "Thus, after sufficient experience, the problem solver can move toward the most desirable state from any location with little to no search"
 
+\begin{itemize}
+	\item Discuss convergence (Q-learning converges with probability 1)
+	\item Learning rates
+	\item Discount factors
+\end{itemize}
+
 \subsection{Decision Tree}
+
+Pros:
+\begin{itemize}
+	\item Relatively easy to use and understand; decision trees are easy to visualise and read
+	\item Tree structures are a very commonly used data structure in computer science, and highly optimised algorithms for the building and searching of trees have already been developed
+\end{itemize}
+
+\noindent Cons:
+\begin{itemize}
+	\item Can lack accuracy; the size of the tree will increase tremendously to provide a higher resolution output \cite{schwab2004ai}.
+	\item Trees don't scale well, and highly complex trees can be very difficult to maintain
+\end{itemize}
 
 \subsection{Genetic Algorithms}
 
-\subsection{Machine Learning/Applications}
 
-\subsection{Why Use Machine Learning In Games}
+
+Pros:
+\begin{itemize}
+	\item When it may be too computationally expensive to calcuate a decision
+	\item To complement other AI techniques
+	\item Relatively simple to set up and start getting results, even if you don't know how to solve the problem otherwise
+\end{itemize}
+
+\noindent Cons:
+\begin{itemize}
+	\item Evolution is often time-consuming, taking many generations
+	\item Not guaranteed to find an optimal or even satisfactory solution
+	\item Don't cope well with components which may not have a concrete design; the addition of features can require a complete redesign of the genetic algorithm
+\end{itemize}
+
+\subsection{Other techniques}
+
+\begin{itemize}
+	\item Neural networks attempt to model a brain
+	\item 
+\end{itemize}
+
+An artificial Neural Network (NN) is an electronic simulation based on a simplified human brain. In an NN, knowledge is acquired from the environment through a learning process and the network’s connection strengths are used to store the acquired knowledge [20].
+
+Choosing the variables from the game environment that will be used as inputs is the most labour intensive part of developing an NN [30]. This difficulty is due to the fact that there is wealth of information that can be extracted from the game world and choosing a good combination of relevant variables can be difficult. Also, the number inputs needs to be kept to a minimum to prevent the search space from becoming too large [9]. Therefore, it is a good idea to start with the essential variables and add more if required. Choosing inputs that are poor representations of the game environment is the primary reason for failed applications.NNs are techniques that can be used in a wide variety of applications. Some common uses include memory, pattern recognition, learning and prediction. There are many commercial applications of NNs across various industries, including business, food, financial, medical and health care, science and engineering [24]. Prominent companies that are using NNs include Microsoft, Sharp Corporation, Mars, Intel, John Deere, Mastercard, Fujitsu and Siemens [24]. Some examples of applications that NNs are being used for are predicting sales, handwritten character recognition for PDAs and faxes, odour analysis via electronic nose, stock market forecasting, credit card fraud detection, Pap smear diagnosis, protein analysis for drug development and weather forecasting. This list illustrates the wide variety of applications that can make successful use of NNs, and how their usefulness is only limited to what can be imagined.The computer game industry is no different from the industries mentioned above in terms of the variety of applications of NNs. A few applications are described by LaMothe [26], including environmental scanning and classification, memory and behavioural control. The first application, environmental scanning and classification, involves teaching the NN how to interpret various visual and auditory information from the environment, and to possibly choose a response. The second application, memory, involves allowing the AI to learn a set of responses through experience and then respond with the best approximation in a new situation. Finally, behavioural control relates to the output of the NN controlling the actions of the AI, with the inputs being various game engine variables. Also, the NN can be taught to imitate the human player of the game [31].
+
+Basically, an NN can be used to make decisions or interpret data based on previous input and output it has been given. The input can be seen as various games states, similar to that used by a state machine, and the output could be the action to be performed. The important difference is that the current state doesn’t need to have been hard-coded. Instead, the NN makes the best approximation that it can, based on the states that it already knows about. This means that the NN will choose an action that would have been performed in a similar state.
+So far, game developers have been reluctant to allow a game to ship with the learning in NNs and other techniques “switched on”, in case the AI were to learn something stupid [46]. Therefore, the developers that have used NNs in their games have not used them for learning, but rather trained them during development and locked the settings before shipping. Some examples of games that include NNs for various tasks include BattleCruiser: 3000AD, Black \& White, Creatures, Dirt Track Racing and Heavy Gear.In BattleCruiser: 3000AD (BC3K) the AI uses NNs to control the non-player characters as well as to guide negotiations, trading and combat [45]. It uses the development language AILOG (Artificial Intelligence \& Logistics), which was created by the developer of BC3K, Derek Smart, and uses an NN for very basic goal oriented decision making and route finding, with a combination of supervised and unsupervised learning. In Black \& White the player has a creature that learns from the player and other creatures. The creature’s mind includes a combination of symbolic and connectionist representations, with their desires being represented as NNs [15]. Finally, the Creatures series of games makes heavy use of Artificial Life techniques, including heterogeneous NNs, in which the neurons are divided into lobes that have individual sets of parameters. In combination with genetic algorithms, the creatures use the NN to learn behaviour and preferences over time.In short, NNs are techniques that can be used for a wide range of applications in many different environments. Several commercial games have used this technique successfully, with the most recent and prominent being the game Black \& White. This technique’s flexibility means that it has the potential to be applied in a wide range of situations in future games. Therefore, it is likely that NNs will play a bigger role in commercial games in the near future.
+
+\subsection{Applications For Machine Learning}
+
+While it has yet to be utilised prominently in the game industry, machine learning is already used very effectively in many other application areas.
+
+Tom Mitchell outlines many current application areas for machine learning in his 2006 article \emph{The Discipline of Machine Learning} \cite{Mitchell:2006fv}:
+\paragraph{Speech recognition:} The commercial systems currently available all use some form of machine learning to train the system. Many systems even use a two-phase learning method: an initial phase for more general learning which is carried out prior to the product being shipped, and a second phase which tunes the system to the customer, and takes place after a customer purchases the product.
+
+\paragraph{Computer vision:} Many of the currently available vision systems utilise machine learning techniques. One of the largest scale vision systems is in use by the US postal service to sort letters with hand-written addresses. According to Mitchell's paper, over 85\% of handwritten mail in the US is now sorted automatically using this system.
+
+\paragraph{Robot control:} A further application for machine learning methods is for robotic control. For example, researchers at Stanford University lead by Andrew Ng have demonstrated a machine learning system capable of advanced helicopter flight \cite{Ng:2004dz, Abbeel07anapplication, Abbeel:fu}. This type of system could be particularly useful in space and planetary exploration in the future.
+
+\paragraph{Accelerating empirical sciences} Machine learning methods are also being employed to aid in scientific discovery, such as gene analysis, in the field of astronomy for sky surveillance and to analyse brain activity. Machine learning methods are particularly useful in data-intensive areas for obvious reasons.
+
+\subsection{Machine Learning In Games}
+
+\begin{itemize}
+	\item Commercial Examples
+	\item Academic Research
+\end{itemize}
+
+One of the few commercial games to employ some more advanced methods of AI to real effect was Lionhead's Black and White. However, despite Black and White's success, no other developers have picked up the mantle.
+
+\section{Conclusion}
 
 I feel that the possibility of utilising academic machine learning techniques into commercial computer games is an often overlooked technique which is not only possible, but feasible with todays technology; something I have proven by showing this on a mobile platform. 
 
 Machine learning in games could have many possible applications. The obvious use is to create much 'smarter' AI-controlled characters which are capable of modifying their behaviour dynamically to adapt to unforeseen scenarios. This could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to more intelligent enemy characters in a platform game. Some applications are often more pertinent than others; performance is still of paramount importance, and is still an issues; mostly so with console games where the hardware capabilities is strictly limited, and even more so on mobile devices.
+	
+However, while machine learning may appear to be the answer to all our game-related AI problems, there are a number of possible pitfalls associated with using machine learning techniques.
+
+A WARNING
+Learning is not as widely used as you might think, partly due to the relative complexity of learning techniques, but mostly due to the reproducibility and quality control issues it presents.
+
+It is impossible to avoid the AI learning the “wrong” thing. The more flexible your learning is, the less control you have on gameplay.
+
+The normal solution to this problem is to constrain the kinds of things that can be learned in a game. It is sensible to limit a particular learning system to working out places to take cover, for example. This learning system can then be tested by making sure that the cover points it is identifying look right.
+
+Under this modular approach there is nothing to stop several different learning systems from being applied (one for cover points, another to learn accurate targeting, and so on).
+
+OVER-FITTING
+
+A common problem identified in much of the AI learning literature is over-fitting, or over-learning. This means that if a learning AI is exposed to a number of experiences and learns from them, it may learn the response to only those situations. We normally want the learning AI to be able to generalize from the limited number of experiences it has to be able to cope with a wide range of new situations.Different algorithms have different susceptibilities to over-fitting. Neural networks particularly can over-fit during learning if they are wrongly parameterized or if the network is too large for the learning task at hand.
+
+7.1.7 THE BALANCE OF EFFORT
+
+Learning algorithms are attractive because you can do less implementation work. You don’t need to anticipate every eventuality or make the character AI particularly good.
+
+If a problem is very tricky for a human being to solve and implement, then it is likely to be tricky for the computer to learn too.
 	
 \chapter{Choice of Tools}
 
@@ -445,13 +595,13 @@ Restricts the instantiation of a class to one object; useful when exactly one ob
 
 \subsection{Levels} When it came to designing how the levels would work in my game, I wanted something which was very flexible, in that I could easily add extra levels (or modify existing levels) with a minimal amount of work. The way that I decided to do his was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
 
-To accompany the assets, I also needed some way to have some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects; consisting of a key object (usually a string), and a 'value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. You can also nest dictionaries inside each other for even more flexibility. 
+To accompany the assets, I also needed some way to have some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects, consisting of a key object (usually a string), and a 'value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. You can also nest dictionaries inside each other for even more flexibility. 
 
 I used one plist file to specify how many levels there were in my game, along with certain level-specific information such as difficulty, number of tool uses. I then created a plist file for each level, which stored the positions of each piece of terrain, as well as the type of the terrain, and in some cases whether the terrain piece was collide able (this was enabled by default, so was only included if the object was to be removed from collision detection). My game then loaded in the list of the levels, and each individual level plist. 
 
 Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty.
 
-\subsection{Basic Functionality} Agent behaviour (non-AI), winning the game
+\subsection{Basic Functionality} Agent behaviour (finite state machine), winning the game
 
 \subsection{Constants} I created a file to contain the constants used in my program (for example the framerate, the default font filename and the various rewards associated with reinforcement learning). Moving all of these variables into a single separate file means that Each constant in this file follows the standard naming convention for constants (i.e. starting with a "k"). This is a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. It's interesting that this convention is kept up, given that it doesn't follow the standard C convention of defining constants in capital letters. 
 
@@ -503,6 +653,8 @@ In computer programming, a constant is an identifier whose associated value cann
 \chapter{AI Component}
 
 \section{Code Structure/Features}
+
+Asynchronous approach of updating the Q-values; updating a single pair at the end of every episode (synchronous - update all episodes once)
 
 \section{Deviance From The Design}
 	
@@ -608,6 +760,8 @@ A day-by-day work diary kept by you as the project is carried out. A log which h
 %
 % References
 %
+
+\singlespace
 
 \newpage
 \addcontentsline{toc}{part}{Bibliography}

@@ -1,0 +1,108 @@
+\begin{thebibliography}{10}
+
+\bibitem{Abbeel:fu}
+P.~Abbeel, A.~Coates, T.~Hunter, and A.~Y. Ng.
+\newblock Autonomous autorotation of an rc helicopter.
+\newblock {\em International Symposium on Robotics}, 2008.
+
+\bibitem{Abbeel07anapplication}
+P.~Abbeel, A.~Coates, M.~Quigley, and A.~Y. Ng.
+\newblock An application of reinforcement learning to aerobatic helicopter
+  flight.
+\newblock In {\em In Advances in Neural Information Processing Systems 19}. MIT
+  Press, 2007.
+
+\bibitem{Bourg:2004tg}
+D.~Bourg and G.~Seeman.
+\newblock {\em AI For Game Developers}.
+\newblock O'Reilly, July 2004.
+
+\bibitem{Crevier:1993kl}
+D.~Crevier.
+\newblock {\em Ai: The Tumultuous History of the Search for Artificial
+  Intelligence}.
+\newblock Basic Books, 1993.
+
+\bibitem{Association:2011uq}
+ESA.
+\newblock 2011 sales, demographic and usage data: Essential facts about the
+  computer and video game industry, 2011.
+
+\bibitem{Kurzweil:2005ly}
+R.~Kurzweil.
+\newblock {\em The singularity is near: when humans transcend biology}.
+\newblock A Penguin Book: Science. Viking, 2005.
+
+\bibitem{Langley:1996zr}
+P.~Langley.
+\newblock {\em Elements of machine learning}.
+\newblock Morgan Kaufmann series in machine learning. Morgan Kaufmann, 1996.
+
+\bibitem{Liden:2004fk}
+L.~Liden.
+\newblock Artificial stupidity: The art of intentional mistakes.
+\newblock {\em AI Game Programming Wisdom}, 2(5):8, 2004.
+
+\bibitem{McCarthy:1955ve}
+J.~McCarthy, M.~L. Minsky, N.~Rochester, and C.~E. Shannon.
+\newblock A proposal for the dartmouth summer research project on artificial
+  intelligence, Aug. 1955.
+
+\bibitem{:2012dq}
+Microsoft.
+\newblock Microsoft earnings release, 2012.
+
+\bibitem{millington2006artificial}
+I.~Millington.
+\newblock {\em Artificial intelligence for games}.
+\newblock The Morgan Kaufmann series in interactive 3D technology. Elsevier,
+  2006.
+
+\bibitem{mitchell1997machine}
+T.~Mitchell.
+\newblock {\em Machine Learning}.
+\newblock McGraw-Hill series in computer science. McGraw-Hill, 1997.
+
+\bibitem{Mitchell:2006fv}
+T.~Mitchell.
+\newblock The discipline of machine learning.
+\newblock July 2006.
+
+\bibitem{Ng:2004dz}
+A.~Y. Ng, A.~Coates, M.~Diel, V.~Ganapathi, J.~Schulte, B.~Tse, E.~Berger, and
+  E.~Liang.
+\newblock Autonomous inverted helicopter flight via reinforcement learning.
+\newblock {\em International Symposium on Experimental Robotics}, 21(1):1--10,
+  2004.
+
+\bibitem{Nintendo:2012nx}
+Nintendo.
+\newblock Consolidated sales transition by region, 2012.
+
+\bibitem{:hc}
+S.~Rabin, editor.
+\newblock {\em AI Game Programming Wisdom}.
+\newblock Charles River Media.
+
+\bibitem{:cr}
+SCEI.
+\newblock Unit sales of hardware (since april 2006).
+
+\bibitem{schwab2004ai}
+B.~Schwab.
+\newblock {\em AI game engine programming}.
+\newblock GAME DEVELOPMENT SERIES. Charles River Media, 2004.
+
+\bibitem{Sheffield:2008fk}
+B.~Sheffield.
+\newblock Opinion: Video games and the graphics plateau, August 2008.
+
+\bibitem{Woodcock:oq}
+S.~Woodcock.
+\newblock Game ai: The state of the industry (part 1), 1999.
+
+\bibitem{Woodcock:bs}
+S.~Woodcock.
+\newblock Game ai: The state of the industry (part 2), 2000.
+
+\end{thebibliography}
