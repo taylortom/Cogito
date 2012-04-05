@@ -12,6 +12,11 @@ P.~Abbeel, A.~Coates, M.~Quigley, and A.~Y. Ng.
 \newblock In {\em In Advances in Neural Information Processing Systems 19}. MIT
   Press, 2007.
 
+\bibitem{Baumgarten:2008il}
+R.~Baumgarten, S.~Colton, and M.~Morris.
+\newblock Combining ai methods for learning bots in a real-time strategy game.
+\newblock {\em Internation Journal of Computer Games Technology}, 2009, 2008.
+
 \bibitem{Bourg:2004tg}
 D.~Bourg and G.~Seeman.
 \newblock {\em AI For Game Developers}.
@@ -28,10 +33,26 @@ ESA.
 \newblock 2011 sales, demographic and usage data: Essential facts about the
   computer and video game industry, 2011.
 
+\bibitem{Fogel:2003fk}
+D.~B. Fogel.
+\newblock Evolutionary entertainment with intelligent agents.
+\newblock {\em Computer}, 36(6):3, June 2003.
+
+\bibitem{Gallagher:2003pi}
+M.~Gallagher and A.~Ryan.
+\newblock Learning to play pac-man: an evolutionary, rule-based approach.
+\newblock In {\em The 2003 Congress on Evolutionary Computation}, volume~4 of
+  {\em Evolutionary Computation}, pages 2462--2469. IEEE, 2003.
+
 \bibitem{Kurzweil:2005ly}
 R.~Kurzweil.
 \newblock {\em The singularity is near: when humans transcend biology}.
 \newblock A Penguin Book: Science. Viking, 2005.
+
+\bibitem{Laird:2001tw}
+J.~E. Laird and M.~van Lent.
+\newblock Human-level ai's killer application interactive computer games.
+\newblock {\em AI Magazine}, Summer 2001.
 
 \bibitem{Langley:1996zr}
 P.~Langley.
@@ -75,6 +96,11 @@ A.~Y. Ng, A.~Coates, M.~Diel, V.~Ganapathi, J.~Schulte, B.~Tse, E.~Berger, and
 \newblock {\em International Symposium on Experimental Robotics}, 21(1):1--10,
   2004.
 
+\bibitem{Nilsson:2010qa}
+N.~Nilsson.
+\newblock Introduction to machine learning.
+\newblock June 2010.
+
 \bibitem{Nintendo:2012nx}
 Nintendo.
 \newblock Consolidated sales transition by region, 2012.
@@ -83,6 +109,17 @@ Nintendo.
 S.~Rabin, editor.
 \newblock {\em AI Game Programming Wisdom}.
 \newblock Charles River Media.
+
+\bibitem{Samuel:1959qo}
+A.~L. Samuel.
+\newblock Some studies in machine learning using the game of checkers.
+\newblock {\em IBM Journal}, 3(3), July 1959.
+
+\bibitem{Samuel:1967ye}
+A.~L. Samuel.
+\newblock Some studies in machine learning using the game of checkers.
+  ii-recent progress.
+\newblock {\em IBM Journal}, November 1967.
 
 \bibitem{:cr}
 SCEI.
@@ -96,6 +133,27 @@ B.~Schwab.
 \bibitem{Sheffield:2008fk}
 B.~Sheffield.
 \newblock Opinion: Video games and the graphics plateau, August 2008.
+
+\bibitem{Spronck:2005fu}
+P.~Spronck, M.~Ponsen, I.~Sprinkhuizen-Kuyper, and E.~Postma.
+\newblock Adaptive game ai with dynamic scripting.
+\newblock Kluwer Academic Publishers, September 2005.
+
+\bibitem{Stanley:2005ff}
+K.~O. Stanley, B.~D. Bryant, and R.~Miikkulainen.
+\newblock Real-time neuroevolution in the nero video game.
+\newblock {\em IEEE Transactions on Evolutionary Computation}, 9(6), December
+  2005.
+
+\bibitem{Sutton:2005kl}
+R.~S. Sutton and A.~G. Barto.
+\newblock {\em Reinforcement Learning: An Introduction}.
+\newblock The MIT Press, 2005.
+
+\bibitem{Watkins:1989mi}
+C.~J. C.~H. Watkins.
+\newblock {\em Learning from Delayed Rewards}.
+\newblock PhD thesis, King's College, May 1989.
 
 \bibitem{Woodcock:oq}
 S.~Woodcock.

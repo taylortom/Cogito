@@ -144,7 +144,7 @@ I chose the classic Commodore Amiga game `Lemmings' as the context and main insp
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=80mm]{sources/images/lemmings3}
+    \includegraphics[width=100mm]{sources/images/lemmings3}
     \caption{A typical level in Lemmings.\label{screen}}
 \end{figure}
 
@@ -230,144 +230,141 @@ From as early as 2000, statistics were showing that the industry was beginning t
 
 \section{Machine Learning}
 
-The ability to learn is one of the central features of intelligence \cite{Langley:1996zr}. To be able to then apply this knowledge and modify behaviour accordingly when faced with similar scenarios in the future is something which has recieved a considerable amount of attention, with techniques having been developed to tackle a variety of learning problems. In fact, machine learning techniques are already in use in a number of commercial applications such as speech recognition, robotic control and machine vision, proving that it can be a very useful solution, especially in solving problems which may have unexpected outcomes that cannot be predicted by the software developer.
-
-\noindent A popular definition of machine learning as phrased by respected machine learning researcher Tom Mitchell \cite{mitchell1997machine}: 
-\begin{quotation}``A computer is said to learn from experience \emph{E} with respect to some class of tasks \emph{T} and performance measure \emph{P}, if its performance at tasks in \emph{T}, as measured by \emph{P}, improves with experience \emph{E}."
+\begin{quotation}``A computer is said to learn from experience \emph{E} with respect to some class of tasks \emph{T} and performance measure \emph{P}, if its performance at tasks in \emph{T}, as measured by \emph{P}, improves with experience \emph{E}." - \textbf{Tom Mitchell} \cite{mitchell1997machine} 
 \end{quotation}
 
-Although it may be fairly self explanatory, the major benefit of implementing a machine learning algorithm is that a system is able to draw upon data collected from experience, and analyse this data to improve its performance in the future.
+The ability to learn is one of the central features of intelligence \cite{Langley:1996zr}. To be able to then apply this knowledge and modify behaviour accordingly when faced with similar scenarios in the future is an area which has recieved a considerable amount of research, with techniques having been developed to tackle a wide variety of learning problems. In fact, machine learning techniques are already in use in a number of commercial applications such as speech recognition, robotic control and machine vision, proving that it can be a very useful solution, especially in solving problems which may have unexpected outcomes that cannot be predicted by the software developer.
 
 \paragraph{} Learning techniques can be classified into various groups based on what is learnt, when learning occurs and the effects that the learning has on the system. 
 
-\paragraph{Online and Offline:} Learning is said to be `online' if the system learns while it is actually running, and `offline' if the data is analysed as a whole and the system improved \emph{after} it has finished running. While online learning provides instantaneous results, it also makes the system much more difficult to debug were any issues found, due to its continous modification.
+\paragraph{Online and Offline:} Learning which takes place while a system is running is said to be `online', while `offline' learning refers to a system which modifies its behaviour \emph{after} it has finished running. Whilst online learning provides instantaneous results, it also makes the system much more difficult to debug were any issues found, due to its continous modification.
 
-\paragraph{Supervised and Unsupervised:} Learning techniques can also be categorised by how they use training data, if at all. A system which uses training data to base its learning on is described as `supervised', whereas a system which only has access to the data that it collects itself is described as `unsupervised'. The benefit to supervised learning is that it gives the system some correct `solutions' to base its future learning on, leading to more accurate and perhaps generally `quicker' learning. However, the training data itself needs to be collected and analysed, with only `correct' data being transferred to the system. This obviously requires human input, and can be very time consuming. Unsupervised methods on the other hand do not have this requirement, but must analyse the collected data to find hidden structure; there is no `correctness' indicator to evaluate potential solutions. There are also techniques which form an intermediary between the two, using both labelled and unlabelled data. These methods are known as `semi-supervised'.
-
-\paragraph{`Inter' and `Intra' Behaviour:} Learning techniques are also often classified by the amount that they change the system's behaviour \footnote[1]{The term `behaviour' here is used to describe ``a qualitatively different mode of action" }. The simpler techniques, which maybe only adjust some basic parameters of only change a small part of a system's behaviour are known as intra-benaviour, whereas methods which use inter-behaviour learning have a much bigger effect on a system's behaviour. For example, a game character which learns the most effective patrol route would be considered intra-behaviour, whereas a character which learns to lay an ambush for the player rather than to wait until the player appears, would be considered inter-behaviour.
-
-\paragraph{} There have been a number of different machine learning techniques developed for 
+\paragraph{Supervised and Unsupervised:} Learning which utilises example training data is described as `supervised', whereas a system which only has access to the data that it collects itself is described as `unsupervised'. The benefit to supervised learning is that the system can base its learning on some correct `solutions', which lead to more accurate and perhaps `quicker' learning. However, the training data itself needs to be collected and analysed, which requires human input, and can become very time consuming. Unsupervised methods on the other hand do not have this requirement, but must analyse the collected data to find hidden structure; there is no `correctness' indicator to evaluate potential solutions. There are also techniques which form an intermediary between the two, using both labelled and unlabelled data. These methods are known as `semi-supervised'.
 
 \subsection{Reinforcement Learning}
 
-For most applications, reinforcement learning falls into 3 categories: Dynamic Programming, Monte Carlo, and Temporal Difference.
+Reinforcement learning (RL) is the name given to the subset of machine learning techniques which use a reward signal system to let the system know how it is performing; the overall aim being to maximise the cumulative reward. Originally inspired by animal behaviour, RL is centred around one of the fundamental ideas underlying many theories of learning and intelligence: that we learn by interacting with our environment \cite{Sutton:2005kl}. 
 
+RL uses a cause and effect loop whereby the system begins in a state, performs an action (recieving a reward). causing the environment change its state, and repeating the cycle (see Figure 2).
 
-Reinforcement learning is the name given to a range of techniques for learning based on experience. In its most general form a reinforcement learning algorithm has three components: an exploration strategy for trying out different actions in the game, a re- inforcement function that gives feedback on how good each action is, and a learning rule that links the two together. Each element has several different implementations and optimizations, depending on the application.Reinforcement learning is a hot topic in game AI, with more than one new AI middleware vendor using it as a key technology to enable next-generation gameplay.
-Later in this section we’ll look briefly at a range of reinforcement learning tech- niques. In game applications, however, a good starting point is the Q-learning al- gorithm. Q-learning is simple to implement, has been widely tested on non-game applications, and can be tuned without a deep understanding of its theoretical prop- erties.7.6.1 THE PROBLEMWe would like a game character to select better actions over time. What makes a good action may be difficult to anticipate by the designers. It may depend on the way the player acts, or it may depend on the structure of random maps that can’t be designed for.We would like to be able to give a character free choice of any action in any cir- cumstance and for it to work out which actions are best for any given situation.Unfortunately, the quality of an action isn’t normally clear at the time the action is made. It is relatively easy to write an algorithm that gives good feedback when the character collects a power-up or kills an enemy. But the actual killing action may have been only 1 out of 100 actions that led to the result, with each one of which needing to be correctly placed in series.Therefore, we would like to be able to give very patchy information: to be able to give feedback only when something significant happens. The character should learn that all the actions leading up to the event are also good things to do, even though no feedback was given while it was doing them.7.6.2 THE ALGORITHMQ-learning relies on having the problem represented in a particular way. With this representation in place, it can store and update relevant information as it explores the possible actions it can take. We’ll look at the representation first.Q-Learning’s Representation of the WorldQ-learning treats the game world as a state machine. At any point in time, the al- gorithm is in some state. The state should encode all the relevant details about the character’s environment and internal data.So if the health of the character is significant to learning, and if the character finds itself in two identical situations with two different health levels, then it will consider them to be different states. Anything not included in the state cannot be learned. If we didn’t include the health value as part of the state, then we couldn’t possibly learn to take health into consideration in the decision making.In a game the states are made up of many factors: position, proximity of the en- emy, health level, and so on. Q-learning doesn’t need to understand the components7.6 Reinforcement Learning 613
-614 Chapter 7 Learningof a state. As far as the algorithm is concerned they can just be an integer value: the state number.The game, on the other hand, needs to be able to translate the current state of the game into a single state number for the learning algorithm to use. Fortunately, the algorithm never requires the opposite: we don’t have to translate the state number back into game terms (as we did in the pathfinding algorithm, for example).Q-learning is known as a model-free algorithm because it doesn’t try to build a model of how the world works. It simply treats everything as states. Algorithms that are not model-free try to reconstruct what is happening in the game from the states that it visits. Model-free algorithms, such as Q-learning, tend to be significantly easier to implement.For each state, the algorithm needs to understand the actions that are available to it. In many games all actions are available at all times. For more complex environ- ments, however, some actions may only be available when the character is in a partic- ular place (e.g., pulling a lever), when they have a particular object (e.g., unlocking a door with a key), or when other actions have been properly carried out before (e.g., walking through the unlocked door).After the character carries out one action in the current state, the reinforcement function should give it feedback. Feedback can be positive or negative and is often zero if there is no clear indication as to how good the action was. Although there are no limits on the values that the function can return, it is common to assume they will be in the range [−1, 1].There is no requirement for the reinforcement value to be the same every time an action is carried out in a particular state. There may be other contextual information not used to create the algorithm’s state. As we saw previously, the algorithm cannot learn to take advantage of that context if it isn’t part of its state, but it will tolerate its effects and learn about the overall success of an action, rather than its success on just one attempt.After carrying out an action, the character is likely to enter a new state. Carrying out the same action in exactly the same state may not always lead to the same state of the game. Other characters and the player are also influencing the state of the game.For example, a character in an FPS is trying to find a health pack and avoid getting into a fight. The character is ducking behind a pillar. On the other side of the room, an enemy character is standing in the doorway looking around. So the current state of the character may correspond to in-room1, hidden, enemy-near, near-death. They chose the “hide” action to continue ducking. The enemy stays put, so the “hide” ac- tion leads back to the same state. So they chose the same action again. This time the enemy leaves, so the “hide” action now leads to another state, corresponding to in- room1, hidden, no-enemy, near-death.One of the powerful features of the Q-learning algorithm (and most other rein- forcement algorithms) is that it can cope with this kind of uncertainty.These four elements—the start state, the action taken, the reinforcement value, and the resulting state—are called the experience tuple, often written as ⟨s, a, r, s′⟩.
-Doing LearningQ-learning is named for the set of quality information (Q-values) it holds about each possible state and action. The algorithm keeps a value for every state and action it has tried. The Q-value represents how good it thinks that action is to take when in that state.The experience tuple is split into two sections. The first two elements (the state and action) are used to look up a Q-value in the store. The second two elements (the reinforcement value and the new state) are used to update the Q-value based on how good the action was and how good it will be in the next state.The update is handled by the Q-learning rule:Q(s, a) = (1 − α)Q(s, a) + α􏳁r + γ max􏳁Q(s′, a′)􏳂􏳂,where α is the learning rate, and γ is the discount rate. Both are parameters of the algorithm. The rule is sometimes written in a slightly different form, with the (1 − α) multiplied out.How It WorksThe Q-learning rule blends together two components using the learning rate parame- ter to control the linear blend. The learning rate parameter, used to control the blend, is in the range [0, 1].The first component Q(s, a) is simply the current Q-value for the state and action. Keeping part of the current value in this way means we never throw away information we have previously discovered.The second component has two elements of its own. The r value is the new rein- forcement from the experience tuple. If the reinforcement rule wasQ(s,a)=(1−α)Q(s,a)+αrthen it would be blending the old Q-value with the new feedback on the action.The second element, γ max(Q(s′, a′)), looks at the new state from the experience tuple. It looks at all possible actions that could be taken from that state and chooses the highest corresponding Q-value. This helps bring the success (i.e., the Q-value) of a later action back to earlier actions: if the next state is a good one, then this stateshould share some of its glory.The discount parameter controls how much the Q-value of the current state andaction depends on the Q-value of the state it leads to. A very high discount will be a large attraction to good states, and a very low discount will only give value to states that are near to success. Discount rates should be in the range [0, 1]. A value greater than 1 can lead to ever-growing Q-values, and the learning algorithm will never con- verge on the best solution.7.6 Reinforcement Learning 615
-616 Chapter 7 Learning￼PROGRAMSo, in summary, the Q-value is a blend between its current value and a new value, which combines the reinforcement for the action and the quality of the state the ac- tion led to.Exploration StrategySo far we’ve covered the reinforcement function, the learning rule, and the internal structure of the algorithm. We know how to update the learning from experience tuples and how to generate those experience tuples from states and actions. Rein- forcement learning systems also require an exploration strategy: a policy for selecting which actions to take in any given state. It is often simply called the policy.The exploration strategy isn’t strictly part of the Q-learning algorithm. Although the strategy outlined below is very commonly used in Q-learning, there are others with their own strengths and weaknesses. In game, a powerful alternative technique is to incorporate the actions of a player, generating experience tuples based on their play. I’ll return to this idea later in the section.The basic Q-learning exploration strategy is partially random. Most of the time, the algorithm will select the action with the highest Q-value from the current state. The remainder, the algorithm will select a random action. The degree of randomness can be controlled by a parameter.Convergence and EndingIf the problem always stays the same, and rewards are consistent (which they often aren’t if they rely on random events in the game), then the Q-values will eventu- ally converge. Further running of the learning algorithm will not change any of the Q-values. At this point the algorithm has learned the problem completely.For very small toy problems this is achievable in a few thousand iterations, but in real problems it can take a vast number of iterations. In a practical application of Q-learning, there won’t be nearly enough time to reach convergence, so the Q-values will be used before they have settled down. It is common to begin acting under the influence of the learned values before learning is complete.
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/RLDiagram}
+    \caption{The Reinforcement Learning Loop \cite{Nilsson:2010qa}.\label{screen}}
+\end{figure}
 
+What sets RL apart from other types of machine learning (i.e. supervised/unsupervised methods) is that the learner is never given correct input/output pairs, nor are any incorrect (or sub-optimal) actions ever corrected, leaving the system to deduce where an error has occurred for itself. This can be particularly tricky to ascertain as an error can often occur due to a poor decision made several timesteps in the past. Similarly, the mistake could have been made as a result of 20 previous actions, all of which would have to be repeated in sequence to replicate the error. This is known as the `credit assignment problem', and results from the fact that RL uses a sequential style of learning, where a system makes many decisions which lead to an eventual goal condition. In an attempt to combat this, RL introduces the notion of `regret', by taking into account the long-term effects of its actions. For example, an RL system may choose an action with a negative immediate reward so as to maximise its long-term reward.  
 
-Dynamic Programming
-Dynamic programming is used to solve learning problems where state transition probabilities are known beforehand. The state transition probability function, p(s,a,s`) is the probability of transitioning from state s to state s` when the agent takes action a. The goal of the learning agent is to learn to approximate the reward function V(s,a), which gives the expected reward of taking action a in state s. The agent approximates the reward function by testing out different actions in different states, each time receiving a reward r. For taking action a in state s, the agent updates V(s,a) with the following function:
-
-V(s,a) <= r + gamma * sum(p(s, a, s`) * V(s')) (Eq. 1)
-
-Where gamma is a parameter known as the discount rate, the summation sums over all states s` and V(s`) represents the maximum V(s`,a) for all actions a. This equation is known as the Bellman equation.
-
-Monte Carlo and Temporal Difference
-Monte Carlo and Temporal Difference methods are used to solve problems where p(s,a,s`) is not known. Temporal Difference solves the learning equation by using the expected reward of the next state it encounters after taking an action a in state s. The full equation is:
-
-V(s,a) <= V(s,a) + alpha * ( r + gamma * V(s`) - V(s,a) ) (Eq. 2)
-
-Where alpha is a parameter known as the learning rate. Monte Carlo is similar to Temporal Difference but keeps track of all rewards encountered until an episode terminates in addition to the one state look-ahead performed by temporal difference methods.
-
-As far as the original poster's question goes: reinforcement learning is used because in your problem, there will be many actions that have the possibility to succeed in any given state. Searching for a possible action will not necessarily retrieve the optimal action. That is where learning comes in. For wall following you will probably have a continuous state space and continuous action space, which will considerably complicate the problem.
-
-Regarding other posts in this thread: remember that you are not required to post responses to questions in the forums. If you only have a very vague and shaky understanding of a topic, it is best to keep that vague and shaky answer to yourself. People expect accuracy when they ask questions on the forums, and the goal of gamedev is not to see who can post the most. 
-
-Reinforcement learning is not learning by example, but from rewards.
- 
-The aim of reinforcement learning is to maximise the expected reward over time. 
-
-Trade-off of long-term and short-term rewards. 
-
-"One approach to the acquisition of problem-solving knowledge, reinforcement learning, focuses on preference knowledge for the selection of operators. Because this class of methods does not require information about operator effects, it is commonly applied to learning from sequences of external actions. However, many of the same issues arise in this context as with internal problem solving, and we will not typically distinguish between them.
-
-In addition to a set of (possibly opaque) operators, a reinforcement learning system is provided with some reward function that evaluates states. Intuitively, states with higher rewards are more desirable than ones with low or negative rewards, and the agent aims to approach the former and avoid the latter. Learning involves the acquisition of a control strategy that leads to states with high rewards, based on experience with the rewards produced by observed operator sequences.
-
-The Simplest approach to reinforcement learning stores knowledge in a table. Each entry describes a possible state-action pair, along with the expected reward that results from applying the action to that state."
-
-"Typically, the problem solver uses this table to direct forward-chaining search. This involves finding the table entry for the current state, selecting the action that gives the highest expected score, and applying this action to produce a new state. The problem solver continues this cycle, producing a forward-chaining greedy search through the state space, until it reaches the desired state or some other halting condition."
-
-How an agent ought to take actions in an environment so as to maximise the end reward. Needs no knowledge o the environment. Correct input/output pairs are never presented, not sub-optimal actions explicitly corrected. Finding a balance between exploration of need territory and exploitation of existing knowledge. Reinforcement learning is well suited to problems which include long-term vs. short-term trade-off. 
-
-Possible applications for reinforcement learning:
--	Robot control
--	Elevator scheduling
--	Backgammon
--	Checkers
-
-"Reinforcement learning differs from standard supervised learning in that correct input/output pairs are never presented, nor sub-optimal actions explicitly corrected. Further, there is a focus on on-line performance, which involves finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge). The exploration vs. exploitation trade-off in reinforcement learning has been most thoroughly studied through the multi-armed bandit problem and in finite MDPs."
-
-"When the agent's performance is compared to that of an agent which acts optimally from the beginning, the difference in performance gives rise to the notion of regret. Note that in order to act near optimally, the agent must reason about the long term consequences of its actions: In order to maximize my future income I better go to school now, although the immediate monetary reward associated with this might be negative.
-
-Thus, reinforcement learning is particularly well suited to problems which include a long-term versus short-term reward trade-off."
-
-1. Set of environment states
-2. Set of actions
-3. Rules of transitioning between states
-4. Rules to determine the immediate reward
-5. Rules to describe what the agent observes
-
-An agent interacts with the environment in discrete time-steps. At each step, the agent receives an observation, and chooses an action from those available. The environment is updated, and the reward is calculated.
-
-"Two components make reinforcement learning powerful: 
--	The use of samples to optimise performance 
--	The use of function approximation to deal with large environments
-
-The only way to collect information about the environment is by interacting with it.
-
-(could be considered a genuine learning problem)"
+RL also has an emphasis on performance, which involves finding an acceptable compromise between exploration (of new undiscovered terrain) and exploitation (of the system's current knowledgebase).
 
 \subsubsection{Markov Decision Processes:}
 
-When it comes to representing the 
+When designing an RL system, it is necessary to represent the environment in which the system is intended to be used. A mathematical structure known as a Markov Decision Process (MDP) is often used for this purpose. An MDP is usually represented as follows:
 
-Markov Decision Processes (MDPs) are used 
+\begin{equation*}
+MDP(S, A, \{Psa\}, \gamma, R)
+\end{equation*}
 
+\noindent and consists of 5 main components: 
 
+\begin{enumerate}
+	\item A set of possible states \emph{S}
+	\item A set of available actions \emph{A}
+	\item State transition distributions \emph{Psa}, which gives you the probability \emph{P} of transitioning to a new state \emph{$s^\prime$} if you take some action \emph{a} while in state {s} (value can be 1)
+	\item The discount factor $\gamma$ where 0 $\leq \gamma \leq$ 1 (a value chosen by the programmer which adjusts how much influence future rewards have)
+	\item A reward function \emph{R}, which can be positive or negative, and maps from a state to a real number $R : S \mapsto \mathbb{R}$ (also an arbitrary value chosen by the programmer)
+\end{enumerate}
 
-Markov decision processes (MDPs), named after Andrey Markov, provide a mathematical framework for modeling decision-making in situations where outcomes are partly random and partly under the control of a decision maker. MDPs are useful for studying a wide range of optimization problems solved via dynamic programming and reinforcement learning. MDPs were known at least as early as the 1950s (cf. Bellman 1957). Much research in the area was spawned due to Ronald A. Howard's book, Dynamic Programming and Markov Processes, in 1960. Today they are used in a variety of areas, including robotics, automated control, economics and manufacturing.
+MDPs are very useful when implementing RL systems in particular as they encapsulate all of the required information: which actions are available in the current state, which states the system can can transition to next, the probability that the system will transition to the next state, and the reward for reaching the state.
 
-More precisely, a Markov Decision Process is a discrete time stochastic control process. At each time step, the process is in some state , and the decision maker may choose any action  that is available in state . The process responds at the next time step by randomly moving into a new state , and giving the decision maker a corresponding reward .
+\subsubsection{The Theory} 
 
-The probability that the process moves into its new state  is influenced by the chosen action. Specifically, it is given by the state transition function . Thus, the next state  depends on the current state  and the decision maker's action . But given  and , it is conditionally independent of all previous states and actions; in other words, the state transitions of an MDP possess the Markov property.
+In order for the algorithms to compute an optimum policy, the system must first build up a knowledgebase through experience. It does this simply be executing:
 
-Markov decision processes are an extension of Markov chains; the difference is the addition of actions (allowing choice) and rewards (giving motivation). Conversely, if only one action exists for each state and all rewards are zero, a Markov decision process reduces to a Markov chain.
+\paragraph{} Starting in some state $s_0$ and performs some arbitrary action $a_0$ (often chosen at random during this learning phase), causing the system to transition to the next state $s_1$ according to the probability function for the current state and action $Ps_0a_0$. The probability function is not always necessary, but there may be circumstances where it does apply. As an example, you may have a robot with an inaccurate direction sensor, which when set to move north, causes it to move in the desired direction 80\% of the time, with a 10\% of going east, and a 10\% chance of going west.
 
+\paragraph{} After running for an arbitrary amount of time, the system will have reached a number of different states: $s_0, s_1, s_2, s_3 ...$ We can now evaluate the performance of the system using some reward function, whereby the cumulative rewards would be:
 
+\begin{equation*} 
+	R(s_0) + R(s_1) + R(s_2) + R(s_3) + ...
+\end{equation*}
 
-\begin{quotation}A Markov Decision process (MDP) M is a 4-tuple (S,U,P,R), where S is a set of thestates, U is a set of actions (U(i) is the set of actions available at state i), PM(a) is the transition probability from state i to state j when performing action a ∈ U (i) in state i, and RM (s, a) is the reward received when performing action a in state s.\end{quotation}
+\paragraph{} The final step is to incorporate the discount factor into the calculation. Incorporating the discount factor into our equation gives us the following: 
 
-\subsubsection{Algorithms:}
+\begin{equation*} 
+	R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \gamma^3 R(s_3) + ...
+\end{equation*}
 
-- Policy iteration
-Heuristic algorithms act almost as an approximation; don't guarantee to find the optimal solution. Deterministic algorithms on the other hand perform predictably, giving the same result each time it's used. 
-- Monte Carlo
-Mimics policy iteration. 
+Whereby the reward received at timestep $t$ is discounted by $\gamma^t$. This approach gives a greater weighting to rewards now than to rewards in the future.
 
-- Temporal difference
-- Bucket brigade
-- Q-learning
+\paragraph{} The ultimate goal of the RL algorithm is to formulate a policy\footnote{The term `policy' is used to refer to a set of action/state mappings often symbolised by $\pi$} which maps the states to the actions ($\pi: S \mapsto A$) such that for every state, the policy recommends the optimum action to take.
 
-"Reinforcement learning alters the predicted rewards stored int the state-action table on the basis of experience. The entries typically start with either random values, or equal ones, but the score for a given state-action pair <s,a> changes whenever the problem solver applies action a in state s. This produces a new state and a resulting reward, which the learner uses to revise the existing entry."
+\paragraph{} After a certain number of iterations of the RL algorithm, the policy would reach a point where its values become static (i.e. they are no longer updated with each iteration). This signifies that the optimum policy has been found, and the values have \emph{converged}. For very small problems, this could take a few thousand iterations, but is likely to take a vast amount more for complex problems. In many real-world cases, there may not be enough time to feasibly reach convergence, in which case the best policy would be used.
 
-"This strategy, known as Q-learning, computes the sum of the immediate reward and the discounted maximum reward expected for the following state, then subtracts the current entry for the state-action pair. It then multiplies the difference by the correction rate and modifies the entry in question by the resulting product. The discount factor specifies the the importance of immediate versus delayed gratification, whereas the correction factor determines the rate at which the learner revises table entries."
+\paragraph{} Although each RL algorithm varies in its implementation, these are the basic concepts which underly all methods. 
 
-"Given enough training cases, this learning scheme converges on the expression Q(s,a) = r(s,a) + discount factor(U(s prime)) as the entry for each state-action pair <s,a> in the table."
+\subsubsection{Algorithms}
 
-"Thus, after sufficient experience, the problem solver can move toward the most desirable state from any location with little to no search"
+There have been a variety of different RL algorithms developed, each with their own advantages and disadvantages. I outline some of the most popular algorithms in this section. 
 
-\begin{itemize}
-	\item Discuss convergence (Q-learning converges with probability 1)
-	\item Learning rates
-	\item Discount factors
-\end{itemize}
+\subsubsection{Policy Iteration}
 
+\subsubsection{Dynamic Programming} 
+
+One approach to RL is dynamic programming, a method most commonly used in solving learning problems in which the state transition probabilities are known beforehand.
+
+The state transition probability function, $p(s,a,s^\prime)$ is the probability of transitioning from state $s$ to state $s^\prime$ when the agent takes action $a$. The goal of the learning agent is to learn to approximate the reward function $V(s,a)$, which gives the expected reward of taking action $a$ in state $s$. The agent approximates the reward function by testing out different actions in different states, each time receiving a reward $r$. For taking action $a$ in state $s$, the agent updates $V(s,a)$ with the following function:
+
+\begin{equation*}
+V(s,a) \Leftarrow r + \gamma * \sum(p(s, a, s_\prime) * V(s_\prime))
+\end{equation*}
+
+Where gamma is a parameter known as the discount rate, the summation sums over all states s` and V(s`) represents the maximum V(s`,a) for all actions a. This equation is known as the Bellman equation.
+
+\subsubsection{Temporal Difference} 
+
+Temporal Difference methods are used to solve problems where $p(s,a,s_\prime)$ is not known. Temporal Difference solves the learning equation by using the expected reward of the next state it encounters after taking an action a in state s. The full equation is:
+
+\begin{equation*}
+V(s,a) \Leftarrow V(s,a) + \alpha * ( r + \gamma * V(s_\prime) - V(s,a) )
+\end{equation*}
+
+Where alpha is a parameter known as the learning rate. 
+
+\subsubsection{Monte Carlo} 
+
+Monte Carlo is similar to Temporal Difference but keeps track of all rewards encountered until an episode terminates in addition to the one state look-ahead performed by temporal difference methods.
+
+\subsubsection{Bucket Brigade}
+
+\subsubsection{Q-learning}
+
+Another popular RL algorithm is Q-learning. Originally proposed by Christopher Watkins in 1989 \cite{Watkins:1989mi}, the Q-learning algorithm takes a slightly different approach to other RL algorithms, as it doesn't require a complete model of the environment, which can be a big advantage in certain scenarios, as it is not often not possible (or indeed feasible) to generate a model before the system has run.
+
+Q-learning gets its name from the quality information, or Q-values which it stores for each state and action in the environment. For each possible state-action pair, the system stores a unique Q-value which represents how good it thinks that action is to take when in that state .
+
+``The Q-value represents how good it thinks that action is to take when in that state."
+
+\noindent The Q-learning algorithm is as follows:
+\begin{equation*}
+	Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + \alpha_t(s_t, a_t)[R(s_t) + \gamma max_{a_{t+1}} Q(s_{t+1}, a_{t+1}) - Q(s_t, a_t)]
+\end{equation*}
+
+\noindent But is often rewritten more simply as:
+\begin{equation*}
+	Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + (1 -\alpha_t) + \alpha[R(s_t) + \gamma max Q(s_{t+1}, a_{t+1})]
+\end{equation*}
+
+Where $Q(s_t, a_t)$ represents the Q-value for the current state/action, $R(s_t)$ represents the reward associated with the current state, $max Q(s_{t+1}, a_{t+1})$ represents the maximum possible Q-value for the next state
+
+Updating the old Q-values ensures that the system retains all previously obtained knowledge. Introducing the max Q-value into the equation means that the success (or failure) of an action is reflected in earlier actions, in effect `trickling' back up the supply chain.
+
+Q-learning converges with probability 1, meaning that after sufficient iterations of the algorithm, the learner can move towards the most desirable state from any location with little to no search .
+
+``Thus, after sufficient experience, the problem solver can move toward the most desirable state from any location with little to no search"
 \subsection{Decision Tree}
+
+Another popular type of machine learning is Decision Tree Learning. Decision Tree Learning is 
 
 Pros:
 \begin{itemize}
@@ -381,9 +378,9 @@ Pros:
 	\item Trees don't scale well, and highly complex trees can be very difficult to maintain
 \end{itemize}
 
+Moreover, because agents need to learn online as the game is played, predetermined training targets are usually not available, ruling out supervised techniques such as backpropagation (Rumelhart et al. 1986) and decision tree learning (Utgoff 1989).
+
 \subsection{Genetic Algorithms}
-
-
 
 Pros:
 \begin{itemize}
@@ -399,12 +396,9 @@ Pros:
 	\item Don't cope well with components which may not have a concrete design; the addition of features can require a complete redesign of the genetic algorithm
 \end{itemize}
 
-\subsection{Other techniques}
+\subsection{Artificial Neural networks}
 
-\begin{itemize}
-	\item Neural networks attempt to model a brain
-	\item 
-\end{itemize}
+attempt to model a brain
 
 An artificial Neural Network (NN) is an electronic simulation based on a simplified human brain. In an NN, knowledge is acquired from the environment through a learning process and the network’s connection strengths are used to store the acquired knowledge [20].
 
@@ -428,20 +422,52 @@ Tom Mitchell outlines many current application areas for machine learning in his
 
 \subsection{Machine Learning In Games}
 
-\begin{itemize}
-	\item Commercial Examples
-	\item Academic Research
-\end{itemize}
+As discussed, machine learning techniques have been integrated into many different areas of computer science and indeed many other areas. However, such techniques have yet to reach the same kind of penetration in the computer game industry.
 
-One of the few commercial games to employ some more advanced methods of AI to real effect was Lionhead's Black and White. However, despite Black and White's success, no other developers have picked up the mantle.
+That being said, there has been a fair amount of research conducted by the academic community into the appliation of machine learning algorithms into a computer game environment. Additionally, there are already a few examples of commercial games which utilise such techniques to tremendous effect. 
+
+\subsubsection{Academic Examples}
+
+Machine learning techniques were first applied to board games such as checkers \cite{Samuel:1959qo, Samuel:1967ye}. In 2002, researchers David Fogel and Kumar Chellapilla created an evolutionary algorithm using neural networks to develop a checkers-playing system capable of beating its creators after just 10 generations \cite{Fogel:2003fk}. After 840 generations, the system was tested online on a competitive checkers website, where it reached the expert rating after 165 games, placing it in the top 500 of the 120,000 players on the site. While this is impressive, most board games emphasise only emphasise a few human capabilities such as search and decision-making \cite{Laird:2001tw}. 
+
+In 2005, researchers at the University of Texas developed a reinforcement learning system known as rtNEAT which is capable of learning in real-time using neural networks and neuroevolution \cite{Stanley:2005ff}. Rather than simply playing games, the system is trained directly by the player in a `training mode'. In this mode, the player sets up training exercises by placing various objects and obstacles into the game world. The player can also adjust the algorithm's coefficients for fitness components using a number of slider interface elements. This allows the player to determine what they consider `ideal' behaviour, by adjusting how the AI characters disperse, use cover or approach enemies for example. I found this technique to be particularly interesting as it approaches the learning from a different angle, allowing the player to train the system themelves. Giving this kind of control and customisability over the AI's learning could be an attractive feature to players. 
+
+In another example, researchers at the university of Maastricht conducted research as well as a number of experiments into a reinforcement learning-based technique known as `dynamic scripting' which uses ``an adaptive rule-base for the generation of game AI on the fly" \cite{Spronck:2005fu}. The experiments showed that after just 25 games, the dynamically scripted AI was able to develop a strategy to outperform the static AI for at least 10 consecutive encounters. This technique could be an attractive alternative to other machine learning techniques as it allows dynamic adaptive behaviours, while still allowing the developers to script certain behaviours, allowing more control than is typically possible with other methods.
+
+A research group led by Robin Baumgarten developed an approach for ``simulating human game-play" using a variety of techniques built upon Introversion Software's 2006 strategy game \emph{DEFCON} \cite{Baumgarten:2008il}. The system displays an impressive level of intelligence through its planning of fleet movements and attacks as well as more low-level such as coordinating bombing runs and assigning bombing targets. To do this, the system maintains a knowledgebase of past games, which it uses to generate a plan for the current situation using a decision tree-based method. The system proved effective, with the system beating the static AI system in 76.7\% of games (of the 150 matches played). Most interesting about the research is the survey they conducted (albeit with a group size of 10 which is too small to be statistically significant). The results of the survey showed that the more advanced AI system was less popular with novice players, who felt a greater level of frustration and therefore less desire to play the game again. This is a very interesting point, as it demonstrates that game AI treads a very fine line between `fun' and `frustration'; while it may seem important to an academic researcher to develop a very strong adaptive AI system, the player would not necessarily show the same kind of enthusiasm.
+
+\subsubsection{Commercial Examples}
+
+Despite the promising academic research over the last decade, few developers have included machine learning techniques in their games. One of the few commercial games to employ such techniques to real effect was Lionhead Studios' god game \emph{Black \& White} \cite{:hc}. In \emph{Black \& White}, the player becomes a deity tasked with watching over a group of followers. Over the course of the game, the player must recruit as many followers as possible in order to gain influence over the land. To aid with this task, the player is given an AI controlled `creature', which the player must train to do his bidding. Lionhead implemented this learning using a combination of machine learning techniques; an approach they call `representational promiscuity', which is based on the idea that no single method could be used to build a complete agent. The creatures use a `Belief-Desire-Opinion-Intention' architecture to represent the creature's knowledge about the environment. When the creature percieves information in its environment, it is stored in memory as a `belief'. The creature uses these beliefs to form opinions which alter their desires in-game to suit the player. To form opinions about its environment, the creature builds decision trees by looking at attributes that best categorise the knowledge into groups (see Figure 4 for an example).
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=100mm]{sources/images/TastyTree}\paragraph{}
+    	\includegraphics[width=100mm]{sources/images/TastyTable}
+    	\caption{An example decision tree generated from the creature's experience eating objects \cite{:hc}.}
+\end{figure}
+
+After forming these trees from its previous experiences, a creature is able to form an opinion or prediction as to the outcome of performing a certain action. In the case of the simple example in Figure 4, the creature would deduce from experience that inanimate objects taste worse than animate ones, making it less likely to eat them in the future. 
+
+In addition to learning from experience, the player also has the ability to reward or punish their creature when it performs certain tasks to further customise its learning. For example, if the player sees their creature eating a villager, they may choose to punish the creature to avoid the same thing happening in the future. This type of learning is accomplished using a type of reinforcement learning. 
+
+In addition to this ``carrot and stick" method, the creature is also able to learn by watching the player's actions, and deducing what desire may have motivated the player to act in such a way. This dual approach stops the creature from falling into ``learning traps" by accidentally teaching the creature the `wrong' thing. For example, say the player wanted to teach their creature to avoid wolf creatures, but to be friendly to cow creatures. To do this, the player may punish the creature if they see it being friendly to a wolf creature. The creature may generalise from this punishment, and assume that it shouldn't be friendly to \emph{any} creatures, with no way for the player to correct the mistake. 
+
+Where \emph{Black \& White}'s AI differs from other implementations of machine learning is that it utilises a combination of different methods to allow the agents to develop a unique personality, formed from its experiences of the world and the player. This combination of different techniques help the agents to avoid many of the pitfalls associated with machine learning techniques.
 
 \section{Conclusion}
 
-I feel that the possibility of utilising academic machine learning techniques into commercial computer games is an often overlooked technique which is not only possible, but feasible with todays technology; something I have proven by showing this on a mobile platform. 
+From my research, I feel that reinforcement learning, and more specifically Q-learning is the method most suited to my problem area. Firstly, I feel that it is well suited to problems such as mine where agents need to learn an unknown environment. Secondly, 
+
+Methods aside, what I found particularly interesting about my research was the systems which encorporate the learning into the game itself, allowing the player to customise how the game behaves. While this is not appropriate for all genres of game, I feel that this could add an extra level of customisability for the player, and perhaps help the player to bond with the AI agents in a way that just isn't possible with traditional static AI systems.
+
+Another interesting point which was emphasised by my research was that intelligence truly is ``in the eye of the beholder" \cite{:hc}. An AI system's behaviour is judged differently according to the observer. What may consitute strong and entertaining AI to one person could be completely frustrating for another. While this could be a pitfall of utilising machine learning in games, I feel that if implemented correctly, it can mean that an AI system can be tailored to match different levels of players.
+
+"Two components make reinforcement learning powerful: 
+-	The use of samples to optimise performance 
+-	The use of function approximation to deal with large environments
 
 Machine learning in games could have many possible applications. The obvious use is to create much 'smarter' AI-controlled characters which are capable of modifying their behaviour dynamically to adapt to unforeseen scenarios. This could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to more intelligent enemy characters in a platform game. Some applications are often more pertinent than others; performance is still of paramount importance, and is still an issues; mostly so with console games where the hardware capabilities is strictly limited, and even more so on mobile devices.
-	
-However, while machine learning may appear to be the answer to all our game-related AI problems, there are a number of possible pitfalls associated with using machine learning techniques.
 
 A WARNING
 Learning is not as widely used as you might think, partly due to the relative complexity of learning techniques, but mostly due to the reproducibility and quality control issues it presents.
@@ -462,45 +488,39 @@ Learning algorithms are attractive because you can do less implementation work. 
 
 If a problem is very tricky for a human being to solve and implement, then it is likely to be tricky for the computer to learn too.
 	
+Game companies are cautious in using machine learning techniques for their computer game AI because (1) these systems can learn the wrong lessons, (2) they are often very demanding in terms of processing time and (3) they can be difficult to tune and tweak to achieve the desired results. Still, machine learning has the potential of delivering more challenging AI the gaming community craves. Machine learning algorithms can be used to adapt to conditions that cannot be anticipated prior to a game’s release, such as the particular styles, tastes, and dispositions of individual players (Manslow 2002). When used correctly, machine learning will help make games more robust and resilient to player exploits and will change the way in which games are played by forcing the player to continually search for new strategies to defeat the AI, rather than perfecting a single technique. Developers can also use machine learning techniques to generate sophisticated AI’s ‘in-house’ before shipping the game, without having to invest significant (human) resources.In conclusion, learning is expected to be the next big thing in computer game development (Rabin 2002; 2004) and developers are moving away from a hard-coded, rules based approach toward more flexible AI engines based on adaptive technologies e.g., decision trees, neural networks and evolutionary algorithms.
+	
 \chapter{Choice of Tools}
 
 Although it may seem a fairly trivial task at first, choosing the right tools to develop my project was not an easy job; I had to make sure that the applications and engines/code libraries that I chose would be suitable for their intended purpose before I started any serious development, as trying to switch mid-way through the development process would undoubtably cause big problems were I to try and migrate the existing code to use other tools/libraries.
 
 \section{Programming Languages \& Game Engines}
 
-The first, and arguably the biggest decision I had to make was which language I was going to develop my project in. My choice of language would not only have a big influence on the performance (and so the scale/features I would develop), but also the hardware that my game would run on.  
+The first, and arguably the biggest decision I had to make was which language I was going to develop my project in. My choice of language would not only have a big influence on the performance (and so the scale of the game and the features I could develop), but also the hardware that my game would run on.  
 
-I initially planned to develop my project in Java. I felt that Java was an appropriate choice for a couple of reasons: the first and foremost being that I was already comfortable using the language, as it had been taught in several modules I had studied. Secondly, I was attracted to the cross-platform nature of Java; not only could I develop my application to run on the Windows, Mac OS X and Linux platforms, but it could also be embedded in an applet and run in a web-browser. This meant that collecting testing data would be much easier, as I could have the data sent to a central database and processed. In addition, the actual testing process itself would be much easier due to the fact that my product would be available to all desktop users, as opposed to limiting the user base to a single platform.
+I initially planned to develop my project in Java as I was already comfortable using the language, and liked its cross-platform nature. I decided to use the JMonkey engine for the game component, as it had powerful asset management, integrated GUI elements and applet integration to mention a few features. After carrying out a few simple tests however, I found it overly complex for my needs; it took a considerable abount of code to set up even a very basic scene. This isn't necessarily a fault of the engine itself, but rather of my choice to use 3D game engines in general; I had no need for the more advanced features such as complex physics and lighting etc. In addition, I didn't feel that 3D was particularly beneficial from an aesthetic point of view, considering my main inspiration was the classic 2D game Lemmings. I also had a few issues with a low framerate when adding many objects to the scene, which could cause me problems later on when I wanted to add many agents to the scene. Although this was likely due to my implementation rather than the engine itself, it highlighted to me the problems with developing in Java, and its lack of any memory management. Due to these points, I decided against trying to use a 3D engine and programming in Java.
 
-After some initial research, I found the JMonkey engine (JME); a 3D game engine written in Java with some pretty nice features: a nice IDE based on the popular NetBeans, asset management, integrated GUI elements, applet integration and networking to mention a few. 
+My research eventually led me to Cocos2D: a 2D game engine originally written in Python, which has since been ported to many other languages including C++, Ruby and Objective-C. Using this engine opened up the possibility of developing my game for a mobile platform; something which greatly interests me (although admittedly, the JME does offer Android support).
 
-Before deciding on Java/JME as my tools of choice, I had a play around with the IDE and did a few tests. The first think I noted about the engine, was that it was overly complex for my needs. This isn't necessarily a fault of JME or Java, but rather of my choice to look at 3D game engines in general. I had no need for the more advanced features such as complex physics, lighting, texturing and materials, animation, cameras etc. These features were completely overkill for my needs; even setting up a basic side-on view took a considerable amount of code, which involved setting up cameras, loading 3D models etc. None of which were really necessary for my project. In addition, I didn't feel that 3D particularly benefitted me from an aesthetic point of view. Additionally, I also had a few issues with a low framerate when adding many objects to the scene. Although this was likely due to errors with my implementation rather than the engine itself, it highlighted to me the problems with developing in Java, and its lack of any memory management - at least from the point of view of the programmer. I have also experienced similar performance issues when using the Swing interface bundled with Java which is notoriously poor from a performance perspective. Due to these points, I decided against trying to use a 3D engine and programming in Java, and instead began to research 2D game engines.
+I felt that Cocos2D was particularly well suited to my project as first and foremost, it is a well-established engine which is optimised for developing 2D games, with asset loaders, particle systems, and scene management to name a few of its useful features. It also comes bundled with two popular physics engines (Box2D and Chipmunk). Another point worth noting is that being a 2D engine, Cocos2D already has a thriving community of developers with experience making 2D games, whereas the JME is intended for 3D games, and as such, there was a lot less documentation for 2D games. 
 
-My research eventually led me to Cocos2D: a 2D game engine originally written in Python, which has since been ported to many other languages including C++, Java, Ruby and Objective-C. Using this engine opened up the possibility of developing my game for a mobile platform; something which greatly interests me (although admittedly, the JME does offer Android support).
+Another benefit to using the Cocos2D engine is that it comes with libraries of code specifically optimised for games. For example, the engine comes with an alternative highly optimised collection class named `CCArray', which offers fast enumeration of its contents among other things. There is also a 'TextureCache' class which as the name suggests, caches textures in memory for quick access later. Cocos2D also offers sound support, integrated font rendering options, as well as some nice `automatic' (i.e. interpolatory) animation effects for moving objects smoothly on-screen. 
 
-I felt that Cocos2D was particularly well suited to my project as first and foremost, it is a well-established engine optimised for developing 2D games, with asset loaders, particle systems, and scene management to name but a few useful features. It also comes bundled with two popular physics engines (Box2D and Chipmunk). Another point worth noting is that being a 2D engine, Cocos2D already has a thriving community of developers with experience making 2D games, whereas the JME is intended for 3D games, and as such, there was a lot less documentation for 2D games.
+Although there is a port of the engine available for Java, I decided to develop my project in Objective-C for performance reasons that were outlined in my tests. Developing in Objective-C also meant that I could run my game on iOS devices. One of the main benefits to using Objective-C over Java is that it offers powerful memory management features, and so affords the developer much more control over their application. Although this may not be so much of an issue with modern desktop systems, the amount of available memory in a mobile environment is still fairly limited. Objective-C is also comparable to C++ in terms of runtime 'speed', due to the fact that Objective-C is essentially C (due to the fact that Objective-C is a strict subset of C) so any 'heavy lifting' code can be written in C if necessary to squeeze out the maximum performance. Objective-C also allows the developer to write code in C++ (called Objective-C++) if need be; something that would be necessary had I chosen to utilise the Box2D physics engine.
 
-Another benefit to using the Cocos2D engine is that it comes with libraries of code specifically optimised for games. For example, the engine comes with an alternative collection named 'CCArray' which is essentially an optimised version of the default NSArray class. There is also a 'TextureCache' class which 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=140mm]{sources/images/InitialTests}
+    \caption{Screens from my performance tests, both running at 30fps.}
+\end{figure}
 
-TextureCache. font rendering, sprite sheets, sound support. Actions for 'automatic' animation (interpolation).
+Before settling on the engine, I carried out a few basic performance tests to see if there were any performance bottlenecks similar to the issues I had with the JMonkey Engine. My first test was to add a single character to the scene, and animate it. My second test was to add more animating characters to see if there were any framerate issues; after adding 150 sprites, I was still achieving an impressive 30fps (see Figure 4 for screens). 
 
-After testing out a few example apps, I decided that Cocos2D would be suitable for my needs. 
-
-I decided to develop my project for the iPhone, so would need to learn Objective-C; a challenge I was willing to accept. 
-
-One of the main benefits to using Objective-C over Java is that it offers memory management, and so affords the developer much more control over their application. Although this may not be so much of an issue with modern desktop systems, the amount of available memory in a mobile environment is still fairly limited. Objective-C is also comparable to C++ in terms of runtime 'speed', due to the fact that Objective-C can be seen as really C (due to the fact that Objective-C is a strict subset of C) so any 'heavy lifting' code can be written in C to squeeze out the maximum performance. Objective-C also allows the developer to write code in C++ (called Objective-C++) if need be; something that would be necessary had I chosen to utilise the Box2D physics engine.
-
-Another benefit to using Objective-C is having the option to use Apple's Xcode as a development environment, as well as the Instruments performance profiling tools to get detailed analysis of the program's runtime performance.
+Another benefit to using Objective-C is having the option to use Apple's \emph{Xcode} as a development environment, as well as the bundled \emph{Instruments} performance profiling tools to get detailed analysis of the program's runtime performance.
 
 \section{Asset Production}
 
-Looking past the code, I also needed to create a variety of assets for my game: backgrounds, character sprites, menu items, fonts etc. COCOS2D SUPPORTED FILE FORMATS. 
-
-For the graphical assets, I used an image manipulation program called Pixelmator[WEBSITE] which exports to the PNG image format which I would be using for the majority of my game's assets. 
-
-Sprite batch node: In order to utilise a performance optimisation feature of the Cocos2D engine called the sprite batch node I needed to create texture atlass or sprite sheets, which contained the images I would be using in my game. BENEFITS - why not use for backgrounds etc.
-
-For the fonts, I used a program called bmGlyph[WEBSITE], which has been specifically developed for use with game engines that support the FNT file format.
+Beyond writing the code for the game, I also needed to create a variety of assets for my game: backgrounds, character sprites, menu items, fonts etc. The Cocos2D engine supports a variety of image file formats, including the lossless PNG format which I would be using for the majority of my image assets. For the creation of my graphical assets, I used an image manipulation program called \emph{Pixelmator} which exports to PNG as well as a number of other formats. In addition to the raw image files, I also needed to create texture atlases (or sprite sheets) in order to take advantage of Cocos2D's optimised sprite batch node feature (discussed more in the implementation section). For the fonts, I used a program called \emph{bmGlyph}, which has been specifically developed for use with game engines that support the FNT file format.
 
 \section{Version Control}
 
@@ -579,21 +599,17 @@ Not necessarily a complete process; not all classes may be discovered until impl
 		
 \section{Code Structure/Features}
 
-METHOD PARAMETERS PREFIXED WITH UNDERSCORE
+Before I could build any learning into my project, I first had to create the underlying game component which would run it. As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of. For example, the direct OpenGL ES calls needed for loading and binding textures were all contained within the CCSprite class. However, I still needed to take care of loading levels, adding objects, game characters, animating characters etc.
 
-Before I could build any learning into my project, I first had to build the underlying game component which would run it. The game component of my project was XXX. 
+\subsection{Singleton/Manager classes} 
 
-As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of. For example, the direct OpenGL ES calls needed for loading and binding textures were all contained within the CCSprite class, making adding new textures as easy as initialising a CCSprite class. 
-
-Although the very low-level functionality had been simplified by the engine, 
-
-As I was building my game from the ground up (albeit with the help of the Cocos2D framework), I needed to take care of the fairly low-level features such as loading in the level assets, building the levels; to load in the levels and sprites
-
-\subsection{Singleton/Manager classes} I make a lot of use of the singleton design pattern throughout my project to create various 'manager' classes to deal with the shared data in my system. A singleton class is a special kind of class which only has one instance; calling a singleton instance will always return the one instance of the class, regardless of which class called it. The benefit of using the singleton pattern is that you only need to store the data in one central location, which can then be accessed by any class anywhere in the program; provided that the access to the data is restricted to a single thread at a time (otherwise there would likely be concurrency issues with data corruption). For example, my LemmingManager class as its name suggests manages all of the lemming characters in the game. It hold the only list of the characters, and contains the functionality to add and remove lemmings among other things. Using the singleton 
+I made a lot of use of the singleton design pattern throughout my project to create various 'manager' classes to deal with the shared data in my system. A singleton class is a special kind of class which only has one instance; calling a singleton instance will always return the one instance of the class, regardless of which class called it. The benefit of using the singleton pattern is that you only need to store the data in one central location, which can then be accessed by any class anywhere in the program; provided that the access to the data is restricted to a single thread at a time (otherwise there would likely be concurrency issues with data corruption). For example, my LemmingManager class as its name suggests manages all of the lemming characters in the game. It hold the only list of the characters, and contains the functionality to add and remove lemmings among other things. Using the singleton 
 
 Restricts the instantiation of a class to one object; useful when exactly one object is needed to coordinate actions across the system. When you want to ensure that no additional instances of the class are created accidentally.
 
-\subsection{Levels} When it came to designing how the levels would work in my game, I wanted something which was very flexible, in that I could easily add extra levels (or modify existing levels) with a minimal amount of work. The way that I decided to do his was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
+\subsection{Levels} 
+
+When it came to designing how the levels would work in my game, I wanted something which was very flexible, in that I could easily add extra levels (or modify existing levels) with a minimal amount of work. The way that I decided to do his was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
 
 To accompany the assets, I also needed some way to have some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects, consisting of a key object (usually a string), and a 'value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. You can also nest dictionaries inside each other for even more flexibility. 
 
@@ -601,31 +617,63 @@ I used one plist file to specify how many levels there were in my game, along wi
 
 Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty.
 
-\subsection{Basic Functionality} Agent behaviour (finite state machine), winning the game
+\subsection{Basic Agent Functionality} Agent behaviour (finite state machine), winning the game
 
-\subsection{Constants} I created a file to contain the constants used in my program (for example the framerate, the default font filename and the various rewards associated with reinforcement learning). Moving all of these variables into a single separate file means that Each constant in this file follows the standard naming convention for constants (i.e. starting with a "k"). This is a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. It's interesting that this convention is kept up, given that it doesn't follow the standard C convention of defining constants in capital letters. 
+Although I the agent AI behaviours would be developed later, I still needed to set up some basic functionality for the game characters. Functionality such as animating, moving, changing states when appropriate etc. all needed to be programmed into my system before I could build any AI on top of it.
 
-\subsection{Datatypes} Similar to the constants file. Defines all of the datatypes/enums used in my game.
+For the animation of my game characters, I needed to break up the animation into individual images or frames, which I could then load into my game (see Figure 3). The Cocos2D framework  
 
-\subsection{Utility Methods} I created a Utils class with some useful static-access 'utility' methods which I was likely to want to use a lot in my game; functions such as random number generation, enumeration-to-string conversions, and timestamp generation. It made sense to create a separate class with all of these types of methods because it not only cut down on the amount of code that I had to write, but also meant that were I to find a bug in my random number generation code for example, I would only need to fix the bug in one place, rather than having to go and search every source file for occurrences of the broken code. 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/Lemming_walk_anim}
+    \caption{Frames Required for the Lemming's Walk Animation}
+\end{figure}
+
+\subsection{Constants} 
+
+I created a file to contain the constants used in my program (for example the framerate, the default font filename and the various rewards associated with reinforcement learning). Moving all of these variables into a single separate file means that Each constant in this file follows the standard naming convention for constants (i.e. starting with a "k"). This is a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. It's interesting that this convention is kept up, given that it doesn't follow the standard C convention of defining constants in capital letters. 
+
+\subsection{Datatypes} 
+
+In addition to the constants file, I also created a similar file which contained many common datatypes which I would be using in my game. Types such as machine learning type, terrain type, character state, game rating and so on. As with the constants, this meant that I could keep all of the needed datatypes in a common location for easy access.
+
+\subsection{Utility Methods} 
+
+I created a Utils class with some useful static-access 'utility' methods which I was likely to want to use a lot in my game; functions such as random number generation, enumeration-to-string conversions, and timestamp generation. It made sense to create a separate class with all of these types of methods because it not only cut down on the amount of code that I had to write, but also meant that were I to find a bug in my random number generation code for example, I would only need to fix the bug in one place, rather than having to go and search every source file for occurrences of the broken code. 
 		
-\subsection{Deviance From The Design} Overall, I think I adhered to my original designs pretty 
+\subsection{Deviance From The Design} 
 
-\subsection{Performance Optimisations} As already mentioned, Cocos2D offers a variety of performance optimisations specifically tailored for developing games. One such optimisation is the 'CCSpriteBatchNode'. It is not uncommon to experience poor performance when there are a large number of objects onscreen at once. 
+Overall, I think I adhered to my original designs pretty 
+
+\subsection{Performance Optimisations} 
+
+As already mentioned, Cocos2D offers a variety of performance optimisations specifically tailored for developing games. One such optimisation is the 'CCSpriteBatchNode'. It is not uncommon to experience poor performance when there are a large number of objects onscreen at once. 
 
 For each sprite, OpenGL ES must first bind to the texture, and then render the sprite. As more and more sprites are added to the screen, it isn't difficult to see that the number of calls to OpenGL will steeply increase too, with every call costing a few CPU cycles. It is basic common sense to see that the game will run faster the fewer calls to OpenGL are made. 
 
-The CCSpriteBatchNode is a Cocos2D class which has been created to help with this problem. The CCSpriteBatchNode works by taking a single texture which contains all of the textures needed by the current scene (called a texture atlas, SEE DIAGRAM), and sends all of the images for rendering to OpenGL at once, rather than individually. This essentially reduces the number of bind calls needed from O(n) to O(1) (in Big-O notation). Using texture atlases also cuts down on the amount of memory needed to store each individual image. In some version of the iOS, textures were required to be stored in sizes of the poet of two (64, 128, 512 etc.). This meant that the textures would often have a lot of unnecessary white space around the image (SEE DIAGRAM), which obviously takes up extra memory; something which even with todays devices is not a commodity. An additional optimisation which can be made regarding the textures is to use the 	compressed PVR CCZ file format. In addition to saving disk space in terms of the actual size of the image, the PVR CCZ format is supported natively by the iPhone's GPU, and can be loaded directly onto the GPU without the need for conversion.
+The CCSpriteBatchNode is a Cocos2D class which has been created to help with this problem. The CCSpriteBatchNode works by taking a single texture which contains all of the textures needed by the current scene (called a texture atlas, see Figure 4), and sends all of the images for rendering to OpenGL at once, rather than individually. This essentially reduces the number of bind calls needed from O(n) to O(1) (in Big-O notation). Using texture atlases also cuts down on the amount of memory needed to store each individual image. In some version of the iOS, textures were required to be stored in sizes of the poet of two (64, 128, 512 etc.). This meant that the textures would often have a lot of unnecessary white space around the image, which obviously takes up extra memory; something which even with todays devices is not a commodity. An additional optimisation which can be made regarding the textures is to use the compressed PVR CCZ file format. In addition to saving disk space in terms of the actual size of the image, the PVR CCZ format is supported natively by the iPhone's GPU, and can be loaded directly onto the GPU without the need for conversion.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=100mm]{sources/images/Texture_atlas}
+    \caption{An Example Texture Atlas}
+\end{figure}
 
 Aside from the performance optimisations offered by Cocos2D, I also did a few other things to ensure that my program ran as efficiently as possible.
 
-\subsection{Random number generation} Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums (http://www.cocos2d-iphone.org/forum/topic/11290), I was surprised to see the difference in speed between different RNGs. SEE TABLE. Typically, the RNG I had chosen to use (arc4Rand) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
+\subsubsection{Random number generation} 
+
+Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums (http://www.cocos2d-iphone.org/forum/topic/11290), I was surprised to see the difference in speed between different RNGs. SEE TABLE. Typically, the RNG I had chosen to use (arc4Rand) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
 		
-\subsection{Problems Faced} General problems learning the language, differences between languages learnt already. Can only add objects to an array - need to use [NSNull null]
+\subsection{Problems Faced} 
+
+General problems learning the language, differences between languages learnt already. Can only add objects to an array - need to use [NSNull null]
 
 An array can contain only objects (same as Java, but Java hides this from the user by wrapping core types in objects). Similar fix in Objective-C, but have to do it manually (e.g. [NSNumber numberWithInt:1]).
 
-\subsection{Memory management} Something which I found particularly tricky about using Objective-C over a language like Java was the memory management. It isn't until you start to learn another language that you realise how much the Java runtime shields the programmer from the low-level bugs associated with memory management thanks to the garbage collector. In Java, memory is reserved for an object simply by using the 'new' keyword, and memory is automatically released when that object goes out of scope and is no longer accessible. This could be by the programmer setting the object to null. At this point, the garbage collector reclaims the memory.
+\subsection{Memory management} 
+
+Something which I found particularly tricky about using Objective-C over a language like Java was the memory management. It isn't until you start to learn another language that you realise how much the Java runtime shields the programmer from the low-level bugs associated with memory management thanks to the garbage collector. In Java, memory is reserved for an object simply by using the 'new' keyword, and memory is automatically released when that object goes out of scope and is no longer accessible. This could be by the programmer setting the object to null. At this point, the garbage collector reclaims the memory.
 
 On the other hand, languages such as Objective-C  require manual memory management, meaning that every object created needs to be manually released by the programmer when finished. 
 
@@ -641,10 +689,9 @@ Xcode comes with a very useful set of performance analysis tools called 'Instrum
 
 Another problem I frequently came across which couldn't happen in Java was that of initialised variables. Whereas in Java, whenever you declare a new variable, it's automatically initialised with whatever the default value may be, you get no such privilege in Objective-C. When you declare a variable in Objective-C, it stays uninitialised until you specifically set it. This caused me the biggest problems with arrays; trying to access an uninitialised array wouldn't cause a compiler error, but would cause a crash at runtime.
 
+\section{Cocos2D} 
 
-\section{OpenGL ES} The Open Graphics Library for Embedded Systems (OpenGL ES) is a subset of the OpenGL 3D graphics API which targets embedded systems such as the Nintendo 3DS, the Sony Playstation 3, and devices running Apple's iOS and Google's Android operating systems.
-
-\section{Cocos2D} The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
+The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
 
 The Cocos2D framework is loaded via the AppDelegate singleton class, a class which deals with the basic running of the application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
 
@@ -655,6 +702,20 @@ In computer programming, a constant is an identifier whose associated value cann
 \section{Code Structure/Features}
 
 Asynchronous approach of updating the Q-values; updating a single pair at the end of every episode (synchronous - update all episodes once)
+
+\subsection{LemmingManager} 
+
+I created a singleton class which encapsulated all of the code needed to manage the individual lemming agents such as adding and removing agents and many `getter' methods for accessing data about the current state of the system.
+
+The LemmingManager class also contained the code to calculate the game rating, which was used at the end of the game.
+
+\subsection{Learning Types}
+
+\subsection{States}
+
+\subsection{Learning Knowledgebase}
+
+\subsection{Learning Stats}
 
 \section{Deviance From The Design}
 	
@@ -709,6 +770,8 @@ The biggest miscalculation with regards to my time-management and project schedu
 + it can interface with an external world more easily than other methods
 - slow learning rate as they rely on backwards propagation of rewards. The problem solver must pass through early parts of the problem space many times before any rewards at all reach those locales.
 
+1. Large state/action space. Since games usually have several different types of objects and characters and many different possible actions, the state/action space that RL must explore is extremely high dimensional. Dealing with high-dimensional spaces is a known challenge with RL in general (Sutton and Barto 1998), but in a real-time game there is the additional challenge of having to check the value of every possible action on every game tick for every agent in the game. Because traditional RL checks all such action values, the value estimator must execute several times (i.e. once for every possible action) for each agent in the game on every game tick. Action selection may thus incur a very large cost on the game engine, reducing the amount of computation available for the game itself.2. Diverse behaviors. Agents learning simultaneously in a simulated world should not all converge to the same behavior: A homogeneous population would make the game boring. Yet because many agents in video games have similar physical characteristics and are evaluated in a similar context, traditional RL techniques, many of which have convergence guarantees (Kaelbling et al. 1996), risk converging to largely homogeneous solution behaviors. Without explicitly maintaining diversity, such an outcome is likely.3. Consistent individual behaviors. RL depends on occasionally taking a random action in order to explore new behaviors. While this strategy works well in offline learning, players do not want to constantly see the same individual agent periodically making inexplicable and idiosyncratic moves relative to its usual policy.4. Fast adaptation and sophisticated behaviors. Because players do not want to wait hours for agents to adapt, it may be necessary to use a simple representation that can be learned quickly. However, a simple representation would limit the ability to learn sophisticated behaviors. Thus there is a trade-off between learning simple behaviors quickly and learning sophisticated behaviors more slowly, neither of which is desirable.5. Memory of past states. If agents remember past events, they can react more convincingly to the present situation. However, such memory requires keeping track of more than the current state, ruling5
+out traditional Markovian methods. While methods for partially observable Markov processes exist, significant challenges remain in scaling them up to real-world tasks (Gomez 2003).
 
 \section{Areas For Enhancement}
 
@@ -722,18 +785,26 @@ Something else which I'd like to implement would be some way for the agents to l
 
 Another enhancement that I could make to the game would be to extend the system to a 3D environment. This would obviously complicate things, but.
 
-- -Implement additional learning types-
-- -Mixed learning types between agents-
-- Use a combination of types
-- Remove the random learning episodes
-- Communication between agents (shared knowledge base?)
-- Extend to a 3D environment
-- Level editor
-- "Start with a large correction factor (learning rate), and slowly decrease the parameter, which gives the algorithm a rough approximation during the early stages and allows fine tuning later in learning."
-- Test alternative reinforcement methods (bucket brigade, temporal difference)
-- Negatives of using reinforcement learning: it doesn't generalise beyond specific states. Possible fix: use genetic algorithms - "the expected reward on production rules serves as their fitness, with more fit rules being selected for reproduction. The new rules are then evaluated by running them in an environment, with the best of them being selected to produce another generation, and so on. Such classifier systems are often used in conjunction with the bucket brigade algorithm for determining expected rewards." 
+\begin{itemize}
+	\item Implement additional learning types
+	\begin{itemize}
+		\item Mixed learning types between agents
+    	\item Use a combination of types
+    \end{itemize}
+    \item Remove the random learning episodes
+    \item Communication between agents (shared knowledge base?)
+    \item Extend to a 3D environment
+    \item Level editor
+    \item "Start with a large correction factor (learning rate), and slowly decrease the parameter, which gives the algorithm a rough approximation during the early stages and allows fine tuning later in learning."
+    \item Test alternative reinforcement methods (bucket brigade, temporal difference) 
+\end{itemize}
+
+Negatives of using reinforcement learning: it doesn't generalise beyond specific states (over-fitting). Possible fix: use genetic algorithms - "the expected reward on production rules serves as their fitness, with more fit rules being selected for reproduction. The new rules are then evaluated by running them in an environment, with the best of them being selected to produce another generation, and so on. Such classifier systems are often used in conjunction with the bucket brigade algorithm for determining expected rewards."
 
 \section{Overall Success}
+
+I feel that the possibility of utilising academic machine learning techniques into commercial computer games is an often overlooked technique which is not only possible, but feasible with todays technology; something I have proven by showing this on a mobile platform. 
+
 - Applications For Learning in games (possibly pre-release learning)
 - Performance on mobile device
 
