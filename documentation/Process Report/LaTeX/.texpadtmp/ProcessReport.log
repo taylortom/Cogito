@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  5 APR 2012 17:10
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  7 APR 2012 01:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -248,6 +248,12 @@ Package: `setspace' 6.7 <2000/12/01>
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
+(/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.a
 ux
 
@@ -256,18 +262,18 @@ LaTeX Warning: Label `screen' multiply defined.
 )
 \openout1 = `ProcessReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
  (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
@@ -332,18 +338,18 @@ File: sources/images/cogito_logo_main.png Graphic file (type png)
 
 <use sources/images/cogito_logo_main.png>
 Package pdftex.def Info: sources/images/cogito_logo_main.png used on input line
- 71.
+ 72.
 (pdftex.def)             Requested size: 341.43306pt x 80.47623pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 78.
+(Font)              using `OT1/cmr/bx/n' instead on input line 79.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 82.
+LaTeX Font Info:    Try loading font information for U+msa on input line 83.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 82.
+LaTeX Font Info:    Try loading font information for U+msb on input line 83.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -359,12 +365,12 @@ oc [1
 \openout3 = `ProcessReport.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
@@ -375,7 +381,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
 File: sources/images/lemmings3.png Graphic file (type png)
 
 <use sources/images/lemmings3.png>
-Package pdftex.def Info: sources/images/lemmings3.png used on input line 149.
+Package pdftex.def Info: sources/images/lemmings3.png used on input line 150.
 (pdftex.def)             Requested size: 284.52756pt x 160.98825pt.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -383,19 +389,19 @@ Missing character: There is no ô in font cmr10!
  [2 <./sources/images/lemmings3.png (PNG copy)>] [3] [4] [5
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 198.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 199.
 
  (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 198.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 199.
 
 [6] [7] [8] <sources/images/RLDiagram.png, id=49, 153.4533pt x 122.1363pt>
 File: sources/images/RLDiagram.png Graphic file (type png)
 
 <use sources/images/RLDiagram.png>
-Package pdftex.def Info: sources/images/RLDiagram.png used on input line 254.
+Package pdftex.def Info: sources/images/RLDiagram.png used on input line 255.
 (pdftex.def)             Requested size: 199.16928pt x 158.53676pt.
  [9 <./sources/images/RLDiagram.png>]
 [10] [11] [12] [13]
@@ -423,94 +429,79 @@ Missing character: There is no ô in font cmr10!
 File: sources/images/TastyTree.png Graphic file (type png)
 
 <use sources/images/TastyTree.png>
-Package pdftex.def Info: sources/images/TastyTree.png used on input line 454.
+Package pdftex.def Info: sources/images/TastyTree.png used on input line 455.
 (pdftex.def)             Requested size: 284.52756pt x 192.20074pt.
 
 <sources/images/TastyTable.png, id=88, 622.325pt x 269.005pt>
 File: sources/images/TastyTable.png Graphic file (type png)
 
 <use sources/images/TastyTable.png>
-Package pdftex.def Info: sources/images/TastyTable.png used on input line 455.
+Package pdftex.def Info: sources/images/TastyTable.png used on input line 456.
 (pdftex.def)             Requested size: 284.52756pt x 122.98853pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [17] [18 <./sources/images/TastyTree.png> <./sources/images/TastyTable.png>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
+[19] [20
 
-[19]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ò in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
- [20] [21
-
-]
-<sources/images/InitialTests.png, id=104, 1987.425pt x 682.55pt>
+] <sources/images/InitialTests.png, id=101, 1987.425pt x 682.55pt>
 File: sources/images/InitialTests.png Graphic file (type png)
 
 <use sources/images/InitialTests.png>
-Package pdftex.def Info: sources/images/InitialTests.png used on input line 525
+Package pdftex.def Info: sources/images/InitialTests.png used on input line 500
 .
 (pdftex.def)             Requested size: 398.33858pt x 136.7992pt.
- [22 <./sources/images/InitialTests.png>]
-[23] [24] [25] [26] [27
+ [21 <./sources/images/InitialTests.png>]
+[22] [23] [24] [25
 
-] [28
+] <sources/images/Final.png, id=119, 278.9622pt x 82.3878pt>
+File: sources/images/Final.png Graphic file (type png)
 
-] [29
+<use sources/images/Final.png>
+Package pdftex.def Info: sources/images/Final.png used on input line 569.
+(pdftex.def)             Requested size: 227.62204pt x 67.22652pt.
+ [26
+
+ <./sources/images/Final.png>] [27
+
+] [28]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 609.
+
+[29
 
 ] [30] [31
 
-]
-<sources/images/Lemming_walk_anim.png, id=138, 289.08pt x 72.27pt>
+] [32]
+<sources/images/Lemming_walk_anim.png, id=143, 289.08pt x 72.27pt>
 File: sources/images/Lemming_walk_anim.png Graphic file (type png)
 
 <use sources/images/Lemming_walk_anim.png>
 Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
-e 640.
+e 692.
 (pdftex.def)             Requested size: 199.16928pt x 49.79245pt.
- [32 <./sources/images/Lemming_walk_anim.png>] <sources/images/Texture_atlas.pn
-g, id=143, 1027.84pt x 513.92pt>
+
+<sources/images/Texture_atlas.png, id=144, 1027.84pt x 513.92pt>
 File: sources/images/Texture_atlas.png Graphic file (type png)
 
 <use sources/images/Texture_atlas.png>
-Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 67
-0.
+Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 70
+8.
 (pdftex.def)             Requested size: 284.52756pt x 142.26552pt.
+ [33 <./sources/images/Lemming_walk_anim.png>] [34 <./sources/images/Texture_at
+las.png>] [35] [36
 
+] [37] [38
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[33] [34 <./sources/images/Texture_atlas.png>] [35] [36] [37
-
-] [38] [39
-
-]
-[40
+] [39
 
 ]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ¶ in font cmr10!
- [41] [42] [43] [44
+
+[40] [41] [42] [43] [44
 
 ] [45
 
@@ -535,13 +526,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### semi simple group (level 1) entered at line 56 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5398 strings out of 493633
- 75328 string characters out of 3143378
- 150357 words of memory out of 3000000
- 8589 multiletter control sequences out of 15000+200000
+ 5531 strings out of 493633
+ 77290 string characters out of 3143378
+ 175314 words of memory out of 3000000
+ 8715 multiletter control sequences out of 15000+200000
  12030 words of font info for 46 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,8n,43p,1730b,1080s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,8n,49p,1730b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/c
@@ -563,10 +554,10 @@ ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texli
 ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
 e/2011/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on "/Projects/Cogito/documentation/Process Report/LaTeX/.texpadt
-mp/ProcessReport.pdf" (51 pages, 708273 bytes).
+mp/ProcessReport.pdf" (51 pages, 718740 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
+ 265 PDF objects out of 1000 (max. 8388607)
  176 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

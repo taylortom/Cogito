@@ -1,0 +1,92 @@
+\documentclass[a4paper,oneside]{report}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[english]{babel}
+\usepackage{fancyhdr} 
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}      
+\usepackage{pdfpages}
+\usepackage{setspace}
+\usepackage{url}
+
+\makeatletter
+
+%
+% Some custom definitions
+%
+
+% add horizontal lines
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\HRuleLight}{\rule{\linewidth}{0.1mm}}
+
+% custom part page
+\def\part#1#2
+{
+	\par\break
+  	\addcontentsline{toc}{part}{#1}
+	\noindent
+	\null	
+	\HRuleLight\\[0.0cm]
+	\vspace{20pt}	 
+	\begin{flushright} 		
+  	{\Huge \bfseries \noindent #1}\\
+  	\vspace{30pt} 
+	\begin{minipage}{0.85\textwidth}
+		\begin{flushright}
+		{\large \noindent #2}
+		\end{flushright}
+	\end{minipage}\\[0.75cm] 
+	\end{flushright} 		
+	\thispagestyle{empty}
+	\break
+}
+
+% chapter header
+\renewcommand{\@makechapterhead}[1]
+{\vspace*{50\p@}{
+	\parindent \z@ \raggedright \normalfont	%\huge \bfseries \thechapter. #1
+	\huge \bfseries #1	\vspace{20pt}}}
+
+\setcounter{secnumdepth}{-1} 
+\onehalfspace
+\oddsidemargin 1in 
+\oddsidemargin 0.6in 
+\topmargin -0.3in
+\setlength{\textwidth}{14cm}
+\setlength{\textheight}{23cm}
+
+\chapter{Project Log}
+	
+A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
+
+\subsection*{Week 10 (29th Jan)}
+
+I added a lot more to the AI code this week:
+
+\begin{itemize}
+	\item Added `decision nodes' which act as trigger objects in the environment (in addition to the trapdoors) - used at the end of platforms, but can be used anywhere.
+	\item Added code to calculate which options an agent has available (from: left, left w/helmet, right, right w/helmet, equip umbrella, down, down umbrella)
+	\item At the moment, the agents just pick a random action (no learning yet).
+	\item Added method to Utils class to convert an action enum into a string
+	\item Realised the game rating algorithm was almost useless (too much weighting in time taken), so fixed/simplified it.
+	\item I also removed the pause button, instead touching anywhere on-screen pauses the game.
+\end{itemize}
+
+\subsection*{Week 11 (5th Feb)}
+
+I found that there was an issue with the 'performSelector:withObject:afterDelay' method in the NSObject class; for some reason the method wasn't delaying for the correct amount of time, so I implemented my own method to do the same thing (changeState:afterDelay). The problem was causing my agents to look as though they were walking with air over the edge of platforms. However, my alternative version counts the frames so if for some reason I drop any frames for performance reasons, the agent wouldn't change state at the right time.
+
+\ \\I also changed the inheritance hierarchy to make more sense. It's now:\ \\
+
+\begin{center}
+GameObject\\
+Lemming\\
+CogitoAgent
+\end{center}
+
+This meant that I could remove a few variables which had n place in the Cogito agent class (umbrellaUses/helmetUses).
+
+I also added a lot of code for the Q-learning and created a State class to encapsulate the relevant data about a state (its associated GameObject for example).
+
+\end{document}

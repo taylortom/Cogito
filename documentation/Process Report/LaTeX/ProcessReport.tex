@@ -57,6 +57,7 @@
 \topmargin -0.3in
 \setlength{\textwidth}{14cm}
 \setlength{\textheight}{23cm}
+\lstset{language=C} 
 
 \begin{document}
 
@@ -457,38 +458,15 @@ Where \emph{Black \& White}'s AI differs from other implementations of machine l
 
 \section{Conclusion}
 
-From my research, I feel that reinforcement learning, and more specifically Q-learning is the method most suited to my problem area. Firstly, I feel that it is well suited to problems such as mine where agents need to learn an unknown environment. Secondly, 
+After researching different machine learning techniques and learning in games in general, I feel that reinforcement learning, and more specifically Q-learning is the most appropriate method for my problem area. One of the key reasons for this is that reinforcement learning methods excel at discovering optimal solutions to problems because of their use of the discount factor to take into account future rewards. This encourages the system to act optimally from the start. Another reason for choosing Q-learning being that it excels in situations where the system has no prior knowledge of its environment. Additionally, as my problem area is fairly limited, with a relatively small number of possible action/state combinations per level, I will be able to store the state/action/Q-value data in a table format; had I chosen a more complex problem with thousands of possible states, trying to store every combination would be impractical.
+
+Of the other methods I researched, I feel that decision tree learning is another method which is suitable for my problem. However, I don't feel that using them for classification would fit my problem, as it would introduce unnecessary complexity; the obstacles that I'm using in my game are fairly basic, and trying to classify them would be unreasonable. Also, I don't feel that classification trees are suitable to the problem of learning an optimum route. Instead, I could use trees as a storage structure to dynamically map out the routes taken by an agent.
+
+From my research, I have been made aware of a few issues which I will need to be aware of when designing my system. Firstly, I will need to make sure that my AI system doesn't learn the `wrong' thing, although this is unlikely as the system will not be influenced by the player at all. Another problem and one which may be difficult to work around is that of over-fitting (i.e. learning specific scenarios rather than generalised learning). However, as I am designing my system to learn to navigate specific levels, over-fitting is essentially the main aim. I may however be able to find a way to generalise the learnt knowledge so that it could be applied to other levels. 
 
 Methods aside, what I found particularly interesting about my research was the systems which encorporate the learning into the game itself, allowing the player to customise how the game behaves. While this is not appropriate for all genres of game, I feel that this could add an extra level of customisability for the player, and perhaps help the player to bond with the AI agents in a way that just isn't possible with traditional static AI systems.
 
 Another interesting point which was emphasised by my research was that intelligence truly is ``in the eye of the beholder" \cite{:hc}. An AI system's behaviour is judged differently according to the observer. What may consitute strong and entertaining AI to one person could be completely frustrating for another. While this could be a pitfall of utilising machine learning in games, I feel that if implemented correctly, it can mean that an AI system can be tailored to match different levels of players.
-
-"Two components make reinforcement learning powerful: 
--	The use of samples to optimise performance 
--	The use of function approximation to deal with large environments
-
-Machine learning in games could have many possible applications. The obvious use is to create much 'smarter' AI-controlled characters which are capable of modifying their behaviour dynamically to adapt to unforeseen scenarios. This could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to more intelligent enemy characters in a platform game. Some applications are often more pertinent than others; performance is still of paramount importance, and is still an issues; mostly so with console games where the hardware capabilities is strictly limited, and even more so on mobile devices.
-
-A WARNING
-Learning is not as widely used as you might think, partly due to the relative complexity of learning techniques, but mostly due to the reproducibility and quality control issues it presents.
-
-It is impossible to avoid the AI learning the “wrong” thing. The more flexible your learning is, the less control you have on gameplay.
-
-The normal solution to this problem is to constrain the kinds of things that can be learned in a game. It is sensible to limit a particular learning system to working out places to take cover, for example. This learning system can then be tested by making sure that the cover points it is identifying look right.
-
-Under this modular approach there is nothing to stop several different learning systems from being applied (one for cover points, another to learn accurate targeting, and so on).
-
-OVER-FITTING
-
-A common problem identified in much of the AI learning literature is over-fitting, or over-learning. This means that if a learning AI is exposed to a number of experiences and learns from them, it may learn the response to only those situations. We normally want the learning AI to be able to generalize from the limited number of experiences it has to be able to cope with a wide range of new situations.Different algorithms have different susceptibilities to over-fitting. Neural networks particularly can over-fit during learning if they are wrongly parameterized or if the network is too large for the learning task at hand.
-
-7.1.7 THE BALANCE OF EFFORT
-
-Learning algorithms are attractive because you can do less implementation work. You don’t need to anticipate every eventuality or make the character AI particularly good.
-
-If a problem is very tricky for a human being to solve and implement, then it is likely to be tricky for the computer to learn too.
-	
-Game companies are cautious in using machine learning techniques for their computer game AI because (1) these systems can learn the wrong lessons, (2) they are often very demanding in terms of processing time and (3) they can be difficult to tune and tweak to achieve the desired results. Still, machine learning has the potential of delivering more challenging AI the gaming community craves. Machine learning algorithms can be used to adapt to conditions that cannot be anticipated prior to a game’s release, such as the particular styles, tastes, and dispositions of individual players (Manslow 2002). When used correctly, machine learning will help make games more robust and resilient to player exploits and will change the way in which games are played by forcing the player to continually search for new strategies to defeat the AI, rather than perfecting a single technique. Developers can also use machine learning techniques to generate sophisticated AI’s ‘in-house’ before shipping the game, without having to invest significant (human) resources.In conclusion, learning is expected to be the next big thing in computer game development (Rabin 2002; 2004) and developers are moving away from a hard-coded, rules based approach toward more flexible AI engines based on adaptive technologies e.g., decision trees, neural networks and evolutionary algorithms.
 	
 \chapter{Choice of Tools}
 
@@ -548,16 +526,7 @@ Using this system, I could add individual tasks that needed to be completed, dea
 
 \part{Planning}{This section covers the process of designing my system, from the initial concept art and art direction, to the system functionality modelling.}
 
-\section{Analysis:} "a vague understanding of the problem is transferred into a precise description of the tasks that the software system needs to carry out."
-
-\subsubsection{Creation of a functional specification:}
-\begin{itemize}
-\item Completely defines the tasks to be performed
-\item Free from internal contradictions 
-\item Can be tested against reality
-\end{itemize}
-
-The analysis phase concerns itself wit the description of what needs to be done, not how it should be done.
+\chapter{System Design}
 
 \section{Design:} the designer must structure the programming tasks into a set of interrelated classes. Each class must be specified precisely, listing both its responsibilities and its relationship to other classes in the system.
 
@@ -578,8 +547,19 @@ Not necessarily a complete process; not all classes may be discovered until impl
 \item State diagrams of objects whose behaviour is highly state-dependant
 \end{itemize}
 
-\chapter{Initial Artwork}
-\chapter{UML/Class Diagrams}
+\chapter{Artwork}
+	
+After designing a more concrete specification for my system, I created some initial artwork to establish how my game would look. In addition to the art style, I created some designs for how my levels would be composed with respect to how I intended to program my system in the implementation stage.
+	
+\section{Sprite Design}
+	
+
+	
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=80mm]{sources/images/Final}
+    \caption{Final designs for agent sprites}
+\end{figure}
 	
 \chapter{Social, Legal, Ethical and Professional Issues}
 		\section{Intellectual Property}
@@ -595,43 +575,50 @@ Not necessarily a complete process; not all classes may be discovered until impl
 
 \part{Implementation}{This section covers the process of actually implementing my system, problems that I was faced with, and how I solved them.}
 
-\chapter{Game Component}
-		
-\section{Code Structure/Features}
+\chapter{Coding Practices and Structure}
 
-Before I could build any learning into my project, I first had to create the underlying game component which would run it. As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of. For example, the direct OpenGL ES calls needed for loading and binding textures were all contained within the CCSprite class. However, I still needed to take care of loading levels, adding objects, game characters, animating characters etc.
+When writing the code for my project, I tried to stick to standard code formatting conventions and use standard design patterns where possible, as outlined in this section.
 
-\subsection{Singleton/Manager classes} 
+\subsection{Code Structure}
 
-I made a lot of use of the singleton design pattern throughout my project to create various 'manager' classes to deal with the shared data in my system. A singleton class is a special kind of class which only has one instance; calling a singleton instance will always return the one instance of the class, regardless of which class called it. The benefit of using the singleton pattern is that you only need to store the data in one central location, which can then be accessed by any class anywhere in the program; provided that the access to the data is restricted to a single thread at a time (otherwise there would likely be concurrency issues with data corruption). For example, my LemmingManager class as its name suggests manages all of the lemming characters in the game. It hold the only list of the characters, and contains the functionality to add and remove lemmings among other things. Using the singleton 
+When setting up all of my files, I followed a common layout/structure as standard good programming practice, to ensure that my code was as easily readible to others as possible. I tried to keep the formatting the same in all places, and used a clear informative commenting style.
 
-Restricts the instantiation of a class to one object; useful when exactly one object is needed to coordinate actions across the system. When you want to ensure that no additional instances of the class are created accidentally.
+\subsubsection{Commenting}
 
-\subsection{Levels} 
+I made sure that all of my source code files follow a certain comment format. The filename, project name, class description and the date the class was created at the very top of the file. Each method is then commented, with a brief description and any parameters/return variables specified. I tried to avoid commenting variables wherever possible, instead choosing to use variable names which are self-descriptive. See below for comment formatting.
 
-When it came to designing how the levels would work in my game, I wanted something which was very flexible, in that I could easily add extra levels (or modify existing levels) with a minimal amount of work. The way that I decided to do his was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
+\begin{lstlisting}
+//
+//  File name
+//  Project name
+//
+//  Class description
+//
+//  DD/MM/YYYY: Created class
+//
 
-To accompany the assets, I also needed some way to have some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects, consisting of a key object (usually a string), and a 'value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. You can also nest dictionaries inside each other for even more flexibility. 
+/**
+ * Method description
+ * @param any parameters listed like this
+ * @return the returned
+ */\end{lstlisting}
 
-I used one plist file to specify how many levels there were in my game, along with certain level-specific information such as difficulty, number of tool uses. I then created a plist file for each level, which stored the positions of each piece of terrain, as well as the type of the terrain, and in some cases whether the terrain piece was collide able (this was enabled by default, so was only included if the object was to be removed from collision detection). My game then loaded in the list of the levels, and each individual level plist. 
+\subsubsection{Methods}
 
-Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty.
+The format of my method headers is fairly standard, however, I prefix all method parameters with an underscore as it helps to clarify which variables in a method are parameters if quickly scanning the code.
 
-\subsection{Basic Agent Functionality} Agent behaviour (finite state machine), winning the game
+\begin{lstlisting}
+-(void)addLemming:(CCSprite*)_lemmingToAdd;
+\end{lstlisting}
 
-Although I the agent AI behaviours would be developed later, I still needed to set up some basic functionality for the game characters. Functionality such as animating, moving, changing states when appropriate etc. all needed to be programmed into my system before I could build any AI on top of it.
 
-For the animation of my game characters, I needed to break up the animation into individual images or frames, which I could then load into my game (see Figure 3). The Cocos2D framework  
+\subsection{Singleton Classes} 
 
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=70mm]{sources/images/Lemming_walk_anim}
-    \caption{Frames Required for the Lemming's Walk Animation}
-\end{figure}
+I made a lot of use of the singleton design pattern throughout my project to create various 'manager' classes to deal with the shared data in my system. A singleton class is a special kind of class which only has one instance; calling a singleton instance will always return the one instance of the class, regardless of which class called it. The major benefit of using the singleton pattern being that you only need to store the data in one location, which can then be accessed by any class anywhere in the program (provided that the access to the data is restricted to a single thread at a time to avoid concurrency issues). My LemmingManager class which handles all of the agents in the game is an example of where I have used this pattern. It hold the only list of the characters in the game, and contains the functionality to add and remove lemmings among other things.
 
 \subsection{Constants} 
 
-I created a file to contain the constants used in my program (for example the framerate, the default font filename and the various rewards associated with reinforcement learning). Moving all of these variables into a single separate file means that Each constant in this file follows the standard naming convention for constants (i.e. starting with a "k"). This is a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. It's interesting that this convention is kept up, given that it doesn't follow the standard C convention of defining constants in capital letters. 
+I created a file to contain the read-only constant variables used in my program (for example the framerate, the default font filename and the various rewards associated with reinforcement learning). Moving all of these variables into a single separate file means that Each constant in this file follows the standard naming convention for constants (i.e. starting with a "k"). This is a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. 
 
 \subsection{Datatypes} 
 
@@ -640,10 +627,64 @@ In addition to the constants file, I also created a similar file which contained
 \subsection{Utility Methods} 
 
 I created a Utils class with some useful static-access 'utility' methods which I was likely to want to use a lot in my game; functions such as random number generation, enumeration-to-string conversions, and timestamp generation. It made sense to create a separate class with all of these types of methods because it not only cut down on the amount of code that I had to write, but also meant that were I to find a bug in my random number generation code for example, I would only need to fix the bug in one place, rather than having to go and search every source file for occurrences of the broken code. 
-		
-\subsection{Deviance From The Design} 
 
-Overall, I think I adhered to my original designs pretty 
+\chapter{Game Component}
+		
+\section{Code Structure/Features}
+
+Before I could build any learning into my project, I first had to create the underlying game component which would run it. As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of. For example, the direct OpenGL ES calls needed for loading and binding textures were all contained within the CCSprite class. However, I still needed to take care of loading levels, adding objects, game characters, animating characters etc.
+
+\subsection{Cocos2D} 
+
+The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
+
+The Cocos2D framework is loaded via the AppDelegate singleton class, a class which deals with the basic running of the application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
+
+Actions
+Scene transitions
+Sprites
+Scenes/layers/nodes
+CCArray
+Menu
+
+\subsection{Levels} 
+
+When it came to designing how the levels would work in my game, I wanted something which was very flexible, so that I could easily add extra levels (or modify existing ones) with a minimal amount of work. The way that I decided to do this was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
+
+To accompany the assets, I also needed some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects, consisting of a key object (usually a string), and a `value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. Dictionaries can also be nested inside each other for even more flexibility. 
+
+I use one plist file which specifies the levels in my game, along with certain level-specific information such as difficulty, number of tool uses etc. This file is loaded in, which tells the system how many levels need to be loaded, as well as their names. I then created a plist file for each level, which stored the positions of each piece of terrain, the type of terrain, and in some cases whether the terrain was collideable (this was enabled by default, so was only included if the object was to be removed from collision detection).
+
+After loading in these plist files, I needed to translate the loaded data to into tangible game objects which could then be added to the game. To do this, I created terrain (i.e. platforms and floors) and obstacle (i.e. water, stampers etc.) classes which would encapsulate the required functionality. These classes contained the code necessary to create the sprites from the correct image files, and store the coordinates of the sprites according to the data loaded from the level's plist file. I also created a TerrainLayer class which would deal with the actual loading of the plist files
+
+
+Briefly discuss states/nodes
+Obstacles
+TerrainLayer
+
+Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty.
+
+\subsection{Physics}
+
+I initially intended to use one of the physics engines bundled with Cocos2D for the physics in my game. However, as the only physics required in my game was some basic collision detection and some way to simulate the agents `falling', I decided to write the required code myself to cut down on the processor time required. The other benefit to programming the physics and more specifically the collision detection myself is that I could customise which objects were included in the collision checks. This meant that I could optimise performance even further by ignoring any agent-to-agent collisions for example.
+
+For the actual collision detection itself, I used basic bounding box detection as I had no need for anything more accurate. I made use of a method in the CCNode class (which my agents inherit from) which generates a bounding box for any given sprite. To detect whether any two objects were colliding, I made used of a utility method from the iOS code library \emph{CGRectIntersectsRect} which as the name suggests, checks if two rectangle objects intersect each other.
+
+To simulate the agents `falling', I simply used a `CCAction' which basically creates an animation by interpolating between the start and end positions, similar to a `tween' in Adobe's ActionScript/Flash platform.  
+
+\subsection{Basic Agent Functionality} Agent behaviour (finite state machine), winning the game
+
+Before I could program any of the machine learning into my agents, I first needed to set up some basic functionality such as animating and moving the agents and the ability to change state as well as some other basic behaviour.
+
+I first programmed the animation for the characters, which involved splitting the animations into individual frames (see Figure 3) which could then be loaded into my game. To specify the frames needed for each animation, I created an external plist file which also listed the order of the frames, and the animation's length. 
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/Lemming_walk_anim}
+    \caption{Frames Required for the Lemming's Walk Animation}
+\end{figure}
+
+In addition to the animations, I also needed to set up some other basic behvaiour. I used a finite state machine to encompass this functionality, which encapsulated all of the basic states for my agents: spawning, falling, idle, walking, floating, dead and win (i.e. reached the exit). Using this state machine, I could adjust the behaviour of the agents according to various in-game stimuli, and play any animations as appropriate. An example being when a falling agent collides with the ground, it transitions to the walking state. 
 
 \subsection{Performance Optimisations} 
 
@@ -665,37 +706,19 @@ Aside from the performance optimisations offered by Cocos2D, I also did a few ot
 
 Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums (http://www.cocos2d-iphone.org/forum/topic/11290), I was surprised to see the difference in speed between different RNGs. SEE TABLE. Typically, the RNG I had chosen to use (arc4Rand) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
 		
-\subsection{Problems Faced} 
+\section{Problems Faced} 
 
-General problems learning the language, differences between languages learnt already. Can only add objects to an array - need to use [NSNull null]
+Something which I found particularly tricky about using Objective-C over a language like Java was the memory management. Learning Objective-C really emphasised to me how much the Java runtime shields the programmer from the low-level bugs associated with memory management thanks to its garbage collector. In Java, memory is reserved for an object simply by using the 'new' keyword, and memory is automatically released when that object goes out of scope and is no longer accessible. On the other hand, languages such as Objective-C  require manual memory management, meaning that every object created needs to be manually released by the programmer when finished. While the Objective-C language does come with a few optimisations which make memory management easier, it still caused me a number of problems. 
 
-An array can contain only objects (same as Java, but Java hides this from the user by wrapping core types in objects). Similar fix in Objective-C, but have to do it manually (e.g. [NSNumber numberWithInt:1]).
+I found that the biggest problem with memory leaks is that they can often go undetected, only to cause the program to unexpectedly crash later on down the line. For this reason, they can be notoriously difficult to track down. I discovered a particularly nasty bug for example in my game's update method for example, which is called every frame, whereby I was allocating an array to hold all of the game objects, but failing to release the memory at the end of the method. This was a relatively small leak, but it was causing my game to drop 10+ frames per second if run for over 10 minutes.
 
-\subsection{Memory management} 
+I found another seemingly insignificant bug in my update method which was causing me to drop 15 frames per second after the game had been running for about 15 minutes. The bug was caused by a careless error I made when initialising the game. When the game was first initialised, I wanted to create a list of all collideable objects, for use in collision detection later. To do this, I put code in the update loop which added every object to a list. However, rather than just adding the objects once when the game was initialised, I found that I was re-adding each object every frame, causing a huge issue with performance. After just 10 seconds, I found that my list of collideable objects contained over 10,000 objects, which was obviously causing big problems when it came to my game trying to check for collisions.
 
-Something which I found particularly tricky about using Objective-C over a language like Java was the memory management. It isn't until you start to learn another language that you realise how much the Java runtime shields the programmer from the low-level bugs associated with memory management thanks to the garbage collector. In Java, memory is reserved for an object simply by using the 'new' keyword, and memory is automatically released when that object goes out of scope and is no longer accessible. This could be by the programmer setting the object to null. At this point, the garbage collector reclaims the memory.
+Luckily, Xcode comes with a very useful set of performance analysis tools called 'Instruments' which can be used to establish any memory-related or runtime issues, such as memory leaks etc. Instruments allows you to test your app in `profiling' mode, which tracks what memory has been allocated, and suggests areas where memory leaks may occur.
 
-On the other hand, languages such as Objective-C  require manual memory management, meaning that every object created needs to be manually released by the programmer when finished. 
+Carrying out this project really taught me the importance of keeping a close eye on what memory I was allocating and where it was being released. What may at first seem like a negligible memory leak can build up over time, and combined with other similarly small memory leaks, can cause big problems with your programs performance. I would even go so far as to say that these smaller memory leaks are even more troublesome than the bigger ones, as they are much harder to track down, and are often more widely spread, and therefore more difficult to fix.
 
-The big problem with memory leaks is that they can often go undetected, only to cause the program to unexpectedly crash later on down the line. For this reason, they can be notoriously difficult to track down. 
-
-I discovered a particularly nasty bug in my game's update method for example, which is called every frame, whereby I was allocating an array to hold all of the game objects, but failing to release the memory at the end of the method. 
-
-I discovered that I had made this very error in my game's main update method (which is called 60 times per second). Using Instruments, I found that this relatively minor error was losing a lot of memory, and causing the game to drop 15 frames per second after about 15 minutes. Although this may not seem like much, it had a knock-on effect on my game timer, which determined the game time by counting each frame. Therefore, losing 15fps meant that I was essentially losing one second in every five. 
-
-Carrying out this project really taught me the importance of keeping a close eye on what memory you're allocating and where you're releasing it. What may at first seem like a negligible memory leak can build up over time, and combined with other similarly small memory leaks, can cause big problems with your programs performance. I would even go so far as to say that these smaller memory leaks are even more troublesome than the bigger ones, as they are much harder to track down, and are often more widely spread, and therefore more difficult to fix.
-
-Xcode comes with a very useful set of performance analysis tools called 'Instruments' which can be used to establish any memory-related or runtime issues, such as memory leaks etc.
-
-Another problem I frequently came across which couldn't happen in Java was that of initialised variables. Whereas in Java, whenever you declare a new variable, it's automatically initialised with whatever the default value may be, you get no such privilege in Objective-C. When you declare a variable in Objective-C, it stays uninitialised until you specifically set it. This caused me the biggest problems with arrays; trying to access an uninitialised array wouldn't cause a compiler error, but would cause a crash at runtime.
-
-\section{Cocos2D} 
-
-The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
-
-The Cocos2D framework is loaded via the AppDelegate singleton class, a class which deals with the basic running of the application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
-
-In computer programming, a constant is an identifier whose associated value cannot typically be altered by the program during its execution.
+Another problem I frequently came across which couldn't happen in memory-managed languages like Java was that of uninitialised variables. Whereas in Java, whenever you declare a new variable, it's automatically initialised with whatever the default value may be, you get no such privilege in Objective-C. When you declare a variable in Objective-C, it stays uninitialised until you specifically set it. This caused me the biggest problems with arrays; trying to access an uninitialised array wouldn't cause a compiler error, but would cause an unexpected crash at runtime.
 
 \chapter{AI Component}
 
@@ -717,9 +740,14 @@ The LemmingManager class also contained the code to calculate the game rating, w
 
 \subsection{Learning Stats}
 
-\section{Deviance From The Design}
-	
-\section{Performance Optimisations}
+
+\section{Learning Methods}
+
+\subsection{Shortest Route Learning}
+
+\subsection{Reinforcement Learning}
+
+\subsection{Decision Tree Learning}
 
 \section{Problems Faced}
 	
@@ -762,16 +790,23 @@ Initial plan was to use a waterfall development approach (discuss). Eventually t
 		
 The biggest miscalculation with regards to my time-management and project schedule was that I failed to recognise just how much groundwork was needed to build the game component. Though I by no means expected the game development to be a trivial task, I wasn't prepared for the amount of work that was needed. This was exacerbated by the fact that I was also still getting to grips with Objective-C, and so my productivity wasn't as it could have been. However, although I slipped by a couple of weeks during the game development stage, I finished the AI component of the game under-schedule. Looking back at the volume of code that was needed to get the game running, it seems fairly that I should have at least allocated an equal amount of time to both the game and AI components. As it happens, I still finished my project to schedule with some time to spare.
 
-\section{Achievements}
+\section{Game Evaluation}
 
-\section{Evaluation of reinforcement learning}
+\section{Machine Learning Evaluation}
+
+My problem area is very limited
 
 + it can handle uncertain and noisy domains
 + it can interface with an external world more easily than other methods
 - slow learning rate as they rely on backwards propagation of rewards. The problem solver must pass through early parts of the problem space many times before any rewards at all reach those locales.
 
-1. Large state/action space. Since games usually have several different types of objects and characters and many different possible actions, the state/action space that RL must explore is extremely high dimensional. Dealing with high-dimensional spaces is a known challenge with RL in general (Sutton and Barto 1998), but in a real-time game there is the additional challenge of having to check the value of every possible action on every game tick for every agent in the game. Because traditional RL checks all such action values, the value estimator must execute several times (i.e. once for every possible action) for each agent in the game on every game tick. Action selection may thus incur a very large cost on the game engine, reducing the amount of computation available for the game itself.2. Diverse behaviors. Agents learning simultaneously in a simulated world should not all converge to the same behavior: A homogeneous population would make the game boring. Yet because many agents in video games have similar physical characteristics and are evaluated in a similar context, traditional RL techniques, many of which have convergence guarantees (Kaelbling et al. 1996), risk converging to largely homogeneous solution behaviors. Without explicitly maintaining diversity, such an outcome is likely.3. Consistent individual behaviors. RL depends on occasionally taking a random action in order to explore new behaviors. While this strategy works well in offline learning, players do not want to constantly see the same individual agent periodically making inexplicable and idiosyncratic moves relative to its usual policy.4. Fast adaptation and sophisticated behaviors. Because players do not want to wait hours for agents to adapt, it may be necessary to use a simple representation that can be learned quickly. However, a simple representation would limit the ability to learn sophisticated behaviors. Thus there is a trade-off between learning simple behaviors quickly and learning sophisticated behaviors more slowly, neither of which is desirable.5. Memory of past states. If agents remember past events, they can react more convincingly to the present situation. However, such memory requires keeping track of more than the current state, ruling5
-out traditional Markovian methods. While methods for partially observable Markov processes exist, significant challenges remain in scaling them up to real-world tasks (Gomez 2003).
+1. Large state/action space. Since games usually have several different types of objects and characters and many different possible actions, the state/action space that RL must explore is extremely high dimensional. Dealing with high-dimensional spaces is a known challenge with RL in general (Sutton and Barto 1998), but in a real-time game there is the additional challenge of having to check the value of every possible action on every game tick for every agent in the game. Because traditional RL checks all such action values, the value estimator must execute several times (i.e. once for every possible action) for each agent in the game on every game tick. Action selection may thus incur a very large cost on the game engine, reducing the amount of computation available for the game itself.
+2. Diverse behaviors. Agents learning simultaneously in a simulated world should not all converge to the same behavior: A homogeneous population would make the game boring. Yet because many agents in video games have similar physical characteristics and are evaluated in a similar context, traditional RL techniques, many of which have convergence guarantees (Kaelbling et al. 1996), risk converging to largely homogeneous solution behaviors. Without explicitly maintaining diversity, such an outcome is likely.
+3. Consistent individual behaviors. RL depends on occasionally taking a random action in order to explore new behaviors. While this strategy works well in offline learning, players do not want to constantly see the same individual agent periodically making inexplicable and idiosyncratic moves relative to its usual policy.
+4. Fast adaptation and sophisticated behaviors. Because players do not want to wait hours for agents to adapt, it may be necessary to use a simple representation that can be learned quickly. However, a simple representation would limit the ability to learn sophisticated behaviors. Thus there is a trade-off between learning simple behaviors quickly and learning sophisticated behaviors more slowly, neither of which is desirable.
+5. Memory of past states. If agents remember past events, they can react more convincingly to the present situation. However, such memory requires keeping track of more than the current state, ruling out traditional Markovian methods. While methods for partially observable Markov processes exist, significant challenges remain in scaling them up to real-world tasks (Gomez 2003).
+
+There is no danger of my agents learning the `wrong' thing due to the fact that they learn entirely from their own experiences and take no input from the player.
 
 \section{Areas For Enhancement}
 
@@ -795,20 +830,23 @@ Another enhancement that I could make to the game would be to extend the system 
     \item Communication between agents (shared knowledge base?)
     \item Extend to a 3D environment
     \item Level editor
+    \item Overfitting - design a more general system
     \item "Start with a large correction factor (learning rate), and slowly decrease the parameter, which gives the algorithm a rough approximation during the early stages and allows fine tuning later in learning."
     \item Test alternative reinforcement methods (bucket brigade, temporal difference) 
 \end{itemize}
 
 Negatives of using reinforcement learning: it doesn't generalise beyond specific states (over-fitting). Possible fix: use genetic algorithms - "the expected reward on production rules serves as their fitness, with more fit rules being selected for reproduction. The new rules are then evaluated by running them in an environment, with the best of them being selected to produce another generation, and so on. Such classifier systems are often used in conjunction with the bucket brigade algorithm for determining expected rewards."
 
-\section{Overall Success}
+\section{Conclusion}
 
 I feel that the possibility of utilising academic machine learning techniques into commercial computer games is an often overlooked technique which is not only possible, but feasible with todays technology; something I have proven by showing this on a mobile platform. 
 
 - Applications For Learning in games (possibly pre-release learning)
 - Performance on mobile device
 
+Taught me important lessons about game design - things which may not be so necessary today with the powerful hardware as standard (with even mobile devices now sporting dual-core chips)
 
+Machine learning in games could have many possible applications. The obvious use is to create much 'smarter' AI-controlled characters which are capable of modifying their behaviour dynamically to adapt to unforeseen scenarios. This could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to more intelligent enemy characters in a platform game. Some applications are often more pertinent than others; performance is still of paramount importance, and is still an issues; mostly so with console games where the hardware capabilities is strictly limited, and even more so on mobile devices.
 
 %
 % New part 
