@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{:2011zt}
+Random numbers.
+\newblock {\em Cocos2D Official Forums}, 2011.
+
 \bibitem{Abbeel:fu}
 P.~Abbeel, A.~Coates, T.~Hunter, and A.~Y. Ng.
 \newblock Autonomous autorotation of an rc helicopter.
@@ -37,12 +41,6 @@ ESA.
 D.~B. Fogel.
 \newblock Evolutionary entertainment with intelligent agents.
 \newblock {\em Computer}, 36(6):3, June 2003.
-
-\bibitem{Gallagher:2003pi}
-M.~Gallagher and A.~Ryan.
-\newblock Learning to play pac-man: an evolutionary, rule-based approach.
-\newblock In {\em The 2003 Congress on Evolutionary Computation}, volume~4 of
-  {\em Evolutionary Computation}, pages 2462--2469. IEEE, 2003.
 
 \bibitem{Kurzweil:2005ly}
 R.~Kurzweil.

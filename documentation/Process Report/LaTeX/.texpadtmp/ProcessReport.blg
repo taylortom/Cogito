@@ -4,61 +4,63 @@ The top-level auxiliary file: .texpadtmp/ProcessReport.aux
 The style file: abbrv.bst
 Database file #1: Cogito.bib
 Warning--entry type for "Woodcock:bs" isn't style-file defined
---line 162 of file Cogito.bib
+--line 171 of file Cogito.bib
 Warning--entry type for "Woodcock:oq" isn't style-file defined
---line 223 of file Cogito.bib
+--line 232 of file Cogito.bib
 Warning--entry type for ":cr" isn't style-file defined
---line 361 of file Cogito.bib
+--line 370 of file Cogito.bib
 Warning--entry type for "Nintendo:2012nx" isn't style-file defined
---line 369 of file Cogito.bib
+--line 378 of file Cogito.bib
 Warning--entry type for ":2012dq" isn't style-file defined
---line 377 of file Cogito.bib
+--line 386 of file Cogito.bib
 Warning--entry type for "Sheffield:2008fk" isn't style-file defined
---line 394 of file Cogito.bib
+--line 403 of file Cogito.bib
 Warning--entry type for "McCarthy:1955ve" isn't style-file defined
---line 691 of file Cogito.bib
+--line 700 of file Cogito.bib
+Warning--to sort, need author or key in :2011zt
+Warning--empty author in :2011zt
 Warning--empty note in Mitchell:2006fv
 Warning--empty note in Nilsson:2010qa
 Warning--empty year in :hc
 You've used 32 entries,
             2118 wiz_defined-function locations,
-            679 strings with 7790 characters,
-and the built_in function-call counts, 7956 in all, are:
-= -- 740
-> -- 371
-< -- 2
-+ -- 154
-- -- 118
-* -- 444
-:= -- 1403
-add.period$ -- 95
+            674 strings with 7636 characters,
+and the built_in function-call counts, 7609 in all, are:
+= -- 701
+> -- 359
+< -- 0
++ -- 150
+- -- 114
+* -- 422
+:= -- 1358
+add.period$ -- 93
 call.type$ -- 32
-change.case$ -- 145
+change.case$ -- 143
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 327
-empty$ -- 670
-format.name$ -- 118
-if$ -- 1649
+cite$ -- 37
+duplicate$ -- 311
+empty$ -- 643
+format.name$ -- 114
+if$ -- 1561
 int.to.chr$ -- 0
 int.to.str$ -- 32
 missing$ -- 28
-newline$ -- 155
-num.names$ -- 65
-pop$ -- 207
+newline$ -- 154
+num.names$ -- 63
+pop$ -- 205
 preamble$ -- 1
-purify$ -- 123
+purify$ -- 121
 quote$ -- 0
-skip$ -- 238
+skip$ -- 222
 stack$ -- 0
-substring$ -- 222
-swap$ -- 45
-text.length$ -- 2
+substring$ -- 186
+swap$ -- 31
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 110
-warning$ -- 3
-while$ -- 70
+warning$ -- 5
+while$ -- 66
 width$ -- 34
-write$ -- 318
-(There were 10 warnings)
+write$ -- 313
+(There were 12 warnings)

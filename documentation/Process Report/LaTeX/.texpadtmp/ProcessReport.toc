@@ -75,38 +75,38 @@
 \contentsline {chapter}{Game Component}{31}
 \contentsline {section}{Code Structure/Features}{31}
 \contentsline {subsection}{Cocos2D}{31}
-\contentsline {subsection}{Levels}{31}
 \contentsline {subsection}{Physics}{32}
-\contentsline {subsection}{Basic Agent Functionality}{32}
-\contentsline {subsection}{Performance Optimisations}{33}
+\contentsline {subsection}{Levels}{32}
+\contentsline {subsection}{Basic Agent Functionality}{33}
+\contentsline {subsection}{Performance Optimisations}{34}
 \contentsline {subsubsection}{Random number generation}{34}
-\contentsline {section}{Problems Faced}{34}
-\contentsline {chapter}{AI Component}{36}
-\contentsline {section}{Code Structure/Features}{36}
-\contentsline {subsection}{LemmingManager}{36}
-\contentsline {subsection}{Learning Types}{36}
-\contentsline {subsection}{States}{36}
-\contentsline {subsection}{Learning Knowledgebase}{36}
-\contentsline {subsection}{Learning Stats}{36}
-\contentsline {section}{Learning Methods}{36}
-\contentsline {subsection}{Shortest Route Learning}{36}
-\contentsline {subsection}{Reinforcement Learning}{36}
-\contentsline {subsection}{Decision Tree Learning}{36}
-\contentsline {section}{Problems Faced}{36}
-\contentsline {part}{Testing \& Evaluation}{37}
-\contentsline {chapter}{Testing \& Results}{38}
-\contentsline {section}{Usability Testing}{38}
-\contentsline {section}{AI Testing}{38}
-\contentsline {subsection}{Analysis of Decision Tree Learning}{38}
-\contentsline {subsection}{Analysis of Reinforcement Learning}{38}
-\contentsline {chapter}{Evaluation}{39}
-\contentsline {section}{Time Management}{39}
-\contentsline {section}{Game Evaluation}{39}
-\contentsline {section}{Machine Learning Evaluation}{39}
-\contentsline {section}{Areas For Enhancement}{40}
-\contentsline {section}{Conclusion}{41}
-\contentsline {part}{Appendices}{43}
-\contentsline {chapter}{Code Listings}{44}
-\contentsline {chapter}{Project Log}{45}
-\contentsline {chapter}{Git Log}{46}
-\contentsline {part}{Bibliography}{47}
+\contentsline {section}{Problems Faced}{35}
+\contentsline {chapter}{AI Component}{37}
+\contentsline {section}{Level Structure}{37}
+\contentsline {section}{Learning Agents}{37}
+\contentsline {subsection}{Cogito Agents}{39}
+\contentsline {subsection}{Shortest Route Agents}{39}
+\contentsline {subsection}{Decision Tree Agents}{39}
+\contentsline {subsection}{Reinforcement Agents}{39}
+\contentsline {section}{Learning Knowledgebase}{40}
+\contentsline {section}{Learning Stats}{40}
+\contentsline {section}{Problems Faced}{40}
+\contentsline {part}{Testing \& Evaluation}{41}
+\contentsline {chapter}{Testing \& Results}{42}
+\contentsline {section}{Usability Testing}{42}
+\contentsline {section}{AI Testing}{42}
+\contentsline {chapter}{Evaluation}{43}
+\contentsline {section}{Time Management}{43}
+\contentsline {section}{Game Evaluation}{43}
+\contentsline {section}{Machine Learning Evaluation}{43}
+\contentsline {subsection}{Analysis of Shortest Route Learning}{43}
+\contentsline {subsection}{Analysis of Decision Tree Learning}{44}
+\contentsline {subsection}{Analysis of Reinforcement Learning}{44}
+\contentsline {subsection}{}{44}
+\contentsline {section}{Areas For Enhancement}{45}
+\contentsline {section}{Conclusion}{46}
+\contentsline {part}{Appendices}{47}
+\contentsline {chapter}{Code Listings}{48}
+\contentsline {chapter}{Project Log}{49}
+\contentsline {chapter}{Git Log}{50}
+\contentsline {part}{Bibliography}{51}

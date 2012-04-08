@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage[english]{babel}
 \usepackage{fancyhdr} 
+\usepackage{multirow}
 \usepackage[pdftex]{graphicx}
 \usepackage{listings}      
 \usepackage{pdfpages}
@@ -439,7 +440,7 @@ A research group led by Robin Baumgarten developed an approach for ``simulating 
 
 \subsubsection{Commercial Examples}
 
-Despite the promising academic research over the last decade, few developers have included machine learning techniques in their games. One of the few commercial games to employ such techniques to real effect was Lionhead Studios' god game \emph{Black \& White} \cite{:hc}. In \emph{Black \& White}, the player becomes a deity tasked with watching over a group of followers. Over the course of the game, the player must recruit as many followers as possible in order to gain influence over the land. To aid with this task, the player is given an AI controlled `creature', which the player must train to do his bidding. Lionhead implemented this learning using a combination of machine learning techniques; an approach they call `representational promiscuity', which is based on the idea that no single method could be used to build a complete agent. The creatures use a `Belief-Desire-Opinion-Intention' architecture to represent the creature's knowledge about the environment. When the creature percieves information in its environment, it is stored in memory as a `belief'. The creature uses these beliefs to form opinions which alter their desires in-game to suit the player. To form opinions about its environment, the creature builds decision trees by looking at attributes that best categorise the knowledge into groups (see Figure 4 for an example).
+Despite the promising academic research over the last decade, few developers have included machine learning techniques in their games. One of the few commercial games to employ such techniques to real effect was Lionhead Studios' god game \emph{Black \& White} \cite{:hc}. In \emph{Black \& White}, the player becomes a deity tasked with watching over a group of followers. Over the course of the game, the player must recruit as many followers as possible in order to gain influence over the land. To aid with this task, the player is given an AI controlled `creature', which the player must train to do his bidding. Lionhead implemented this learning using a combination of machine learning techniques; an approach they call `representational promiscuity', which is based on the idea that no single method could be used to build a complete agent. The creatures use a `Belief-Desire-Opinion-Intention' architecture to represent the creature's knowledge about the environment. When the creature percieves information in its environment, it is stored in memory as a `belief'. The creature uses these beliefs to form opinions which alter their desires in-game to suit the player. To form opinions about its environment, the creature builds decision trees by looking at attributes that best categorise the knowledge into groups (see Figure 3 for an example).
 
 \begin{figure}[h!]
 	\centering
@@ -599,8 +600,8 @@ I made sure that all of my source code files follow a certain comment format. Th
 
 /**
  * Method description
- * @param any parameters listed like this
- * @return the returned
+ * @param any parameters
+ * @return the returned objects
  */\end{lstlisting}
 
 \subsubsection{Methods}
@@ -636,16 +637,23 @@ Before I could build any learning into my project, I first had to create the und
 
 \subsection{Cocos2D} 
 
-The Cocos2D framework uses a hierarchical structure to manage the many components which make up a typical game. It uses the analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as CCScenes). Each scene consists of one or more  layers (CCLayers) which contain the actual game objects (for example the background image, the level terrain and the game characters). The game objects could take the form of CCSprites (at it's most basic terms, a sprite is an image displayed onscreen)
+The Cocos2D framework comes with a very useful code library with various optimisations and utility methods which I made use of when implementing my game.
 
-The Cocos2D framework is loaded via the AppDelegate singleton class, a class which deals with the basic running of the application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
+As previously mentioned, Cocos2D comes with a number of different base classes which can be used and take care of a lot of the very low-level OpenGL API calls. These classes have a heirarchical structure, using an analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as scenes). Scenes are essentially any new `screen' in the game, so are not necessarily just game levels, but can also me menu systems, game over screens and so on. Each scene consists of one or more layers which contain the actual game objects (for example background images, any level terrain and the game characters). The game objects (known as sprites) are at the bottom of the heirarchy and are just essentially an image with no real functionality by default.
 
-Actions
-Scene transitions
-Sprites
-Scenes/layers/nodes
-CCArray
-Menu
+The Cocos2D framework is loaded via the AppDelegate singleton class, which controls with the basic running of the iOS application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
+
+In addition to the basic classes mentioned above, Cocos2D comes with a number of other useful features, such as the ability to add `transitions' in between scenes. The Cocos2D library also comes with a very useful CCAction class which allows the programmer to easily ass basic animations to sprite objects by simply specifying a start and end position and a duration. The class then creates an animation by interpolating between these two points. I use these actions in a number of places throughout my game, from animating the main menu items, switching graphs in the game stats screen, moving the agents in the game, and animating the game's pause menu. 
+
+There are also some highly optimised data structures available, the most prominent being the CCArray class, which is a basic collection class which has been optimised for high-performance, with some methods that allow fast enumeration.
+
+\subsection{Physics}
+
+I initially intended to use one of the physics engines bundled with Cocos2D for the physics in my game. However, as the only physics required in my game was some basic collision detection and some way to simulate the agents `falling', I decided to write the required code myself to cut down on the processor time required. The other benefit to programming the physics and more specifically the collision detection myself is that I could customise which objects were included in the collision checks. This meant that I could optimise performance even further by ignoring any agent-to-agent collisions for example.
+
+For the actual collision detection itself, I used basic bounding box detection as I had no need for anything more accurate. I made use of a method in the CCNode class (which my agents inherit from) which generates a bounding box for any given sprite. To detect whether any two objects were colliding, I made used of a utility method from the iOS code library \emph{CGRectIntersectsRect} which as the name suggests, checks if two rectangle objects intersect each other.
+
+To simulate the agents `falling', I simply used a `CCAction' which basically creates an animation by interpolating between the start and end positions, similar to a `tween' in Adobe's ActionScript/Flash platform. 
 
 \subsection{Levels} 
 
@@ -655,36 +663,23 @@ To accompany the assets, I also needed some way to specify the layout of each le
 
 I use one plist file which specifies the levels in my game, along with certain level-specific information such as difficulty, number of tool uses etc. This file is loaded in, which tells the system how many levels need to be loaded, as well as their names. I then created a plist file for each level, which stored the positions of each piece of terrain, the type of terrain, and in some cases whether the terrain was collideable (this was enabled by default, so was only included if the object was to be removed from collision detection).
 
-After loading in these plist files, I needed to translate the loaded data to into tangible game objects which could then be added to the game. To do this, I created terrain (i.e. platforms and floors) and obstacle (i.e. water, stampers etc.) classes which would encapsulate the required functionality. These classes contained the code necessary to create the sprites from the correct image files, and store the coordinates of the sprites according to the data loaded from the level's plist file. I also created a TerrainLayer class which would deal with the actual loading of the plist files
+After loading in these plist files, I needed to translate the loaded data to into tangible game objects which could then be added to the game. To do this, I created terrain (i.e. platforms and floors) and obstacle (i.e. water, stampers etc.) classes which would encapsulate the required functionality. These classes contained the code necessary to create the sprites from the correct image files, and store the coordinates of the sprites according to the data loaded from the level's plist file. I also created a TerrainLayer class too keep all of the terrain objects separate from the other game objects. This class also deals with the actual loading of the plist files
 
+Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty. 
 
-Briefly discuss states/nodes
-Obstacles
-TerrainLayer
-
-Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty.
-
-\subsection{Physics}
-
-I initially intended to use one of the physics engines bundled with Cocos2D for the physics in my game. However, as the only physics required in my game was some basic collision detection and some way to simulate the agents `falling', I decided to write the required code myself to cut down on the processor time required. The other benefit to programming the physics and more specifically the collision detection myself is that I could customise which objects were included in the collision checks. This meant that I could optimise performance even further by ignoring any agent-to-agent collisions for example.
-
-For the actual collision detection itself, I used basic bounding box detection as I had no need for anything more accurate. I made use of a method in the CCNode class (which my agents inherit from) which generates a bounding box for any given sprite. To detect whether any two objects were colliding, I made used of a utility method from the iOS code library \emph{CGRectIntersectsRect} which as the name suggests, checks if two rectangle objects intersect each other.
-
-To simulate the agents `falling', I simply used a `CCAction' which basically creates an animation by interpolating between the start and end positions, similar to a `tween' in Adobe's ActionScript/Flash platform.  
-
-\subsection{Basic Agent Functionality} Agent behaviour (finite state machine), winning the game
+\subsection{Basic Agent Functionality}
 
 Before I could program any of the machine learning into my agents, I first needed to set up some basic functionality such as animating and moving the agents and the ability to change state as well as some other basic behaviour.
 
-I first programmed the animation for the characters, which involved splitting the animations into individual frames (see Figure 3) which could then be loaded into my game. To specify the frames needed for each animation, I created an external plist file which also listed the order of the frames, and the animation's length. 
+I first programmed the animation for the characters, which involved splitting the animations into individual frames (see Figure 6) which could then be loaded into my game. To specify the frames needed for each animation, I created an external plist file which also listed the order of the frames, and the animation's length. 
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=70mm]{sources/images/Lemming_walk_anim}
-    \caption{Frames Required for the Lemming's Walk Animation}
+    \includegraphics[width=60mm]{sources/images/Lemming_walk_anim}
+    \caption{Frames Used for the Agent's Walking Animation}
 \end{figure}
 
-In addition to the animations, I also needed to set up some other basic behvaiour. I used a finite state machine to encompass this functionality, which encapsulated all of the basic states for my agents: spawning, falling, idle, walking, floating, dead and win (i.e. reached the exit). Using this state machine, I could adjust the behaviour of the agents according to various in-game stimuli, and play any animations as appropriate. An example being when a falling agent collides with the ground, it transitions to the walking state. 
+In addition to the animations, I also needed to set up some other basic behvaiour. I used a finite state machine which encapsulated all of the basic states for my agents: spawning, falling, idle, walking, floating, dead and win (i.e. reached the exit). Using this state machine, I could adjust the behaviour of the agents according to various in-game stimuli, and play any animations as appropriate. An example being when a falling agent collides with the ground, it transitions to the walking state. I also had to code a basic `fall timer', which counted how long an agent had fallen for, setting the next state to either walking, or dead if the fall was longer than a certain threshold. By this stage, I had set up my agents to spawn into the level at the correct point and move around the level from left to right, until they reach an immovable object at which point they turn around. I had added terrain objects and obstacles which changed the agent's state as appropriate (to `dead' if agent falls into water for example). The agents would respawn in killed, and the game would end if they successfully reached the level exit. At this point, my agents acted exactly as the characters in the original \emph{Lemmings} game, with no reasoning or other `intelligent' behaviour attached to them.
 
 \subsection{Performance Optimisations} 
 
@@ -692,7 +687,7 @@ As already mentioned, Cocos2D offers a variety of performance optimisations spec
 
 For each sprite, OpenGL ES must first bind to the texture, and then render the sprite. As more and more sprites are added to the screen, it isn't difficult to see that the number of calls to OpenGL will steeply increase too, with every call costing a few CPU cycles. It is basic common sense to see that the game will run faster the fewer calls to OpenGL are made. 
 
-The CCSpriteBatchNode is a Cocos2D class which has been created to help with this problem. The CCSpriteBatchNode works by taking a single texture which contains all of the textures needed by the current scene (called a texture atlas, see Figure 4), and sends all of the images for rendering to OpenGL at once, rather than individually. This essentially reduces the number of bind calls needed from O(n) to O(1) (in Big-O notation). Using texture atlases also cuts down on the amount of memory needed to store each individual image. In some version of the iOS, textures were required to be stored in sizes of the poet of two (64, 128, 512 etc.). This meant that the textures would often have a lot of unnecessary white space around the image, which obviously takes up extra memory; something which even with todays devices is not a commodity. An additional optimisation which can be made regarding the textures is to use the compressed PVR CCZ file format. In addition to saving disk space in terms of the actual size of the image, the PVR CCZ format is supported natively by the iPhone's GPU, and can be loaded directly onto the GPU without the need for conversion.
+The CCSpriteBatchNode is a Cocos2D class which has been created to help with this problem. The CCSpriteBatchNode works by taking a single texture which contains all of the textures needed by the current scene (called a texture atlas, see Figure 7), and sends all of the images for rendering to OpenGL at once, rather than individually. This essentially reduces the number of bind calls needed from O(n) to O(1) (in Big-O notation). Using texture atlases also cuts down on the amount of memory needed to store each individual image. In some version of the iOS, textures were required to be stored in sizes of the poet of two (64, 128, 512 etc.). This meant that the textures would often have a lot of unnecessary white space around the image, which obviously takes up extra memory; something which even with todays devices is not a commodity. An additional optimisation which can be made regarding the textures is to use the compressed PVR CCZ file format. In addition to saving disk space in terms of the actual size of the image, the PVR CCZ format is supported natively by the iPhone's GPU, and can be loaded directly onto the GPU without the need for conversion.
 
 \begin{figure}[h!]
   \centering
@@ -704,7 +699,41 @@ Aside from the performance optimisations offered by Cocos2D, I also did a few ot
 
 \subsubsection{Random number generation} 
 
-Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums (http://www.cocos2d-iphone.org/forum/topic/11290), I was surprised to see the difference in speed between different RNGs. SEE TABLE. Typically, the RNG I had chosen to use (arc4Rand) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
+Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums \cite{:2011zt}, I was surprised to see the difference in speed between different RNG (see Figure 8). Typically, the RNG I had chosen to use (arc4Random) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
+	
+	
+\begin{figure}[h!]
+  \centering	
+	\begin{tabular}{|l|c|c|}
+\hline
+Algorithm & Device Time & Simulator Time \\ \hline
+\multirow{5}{*}{Ranrot} & 0.037202 & 0.004751 \\
+ & 0.036453 & 0.004786 \\
+ & 0.037306 & 0.005023 \\
+ & 0.036244 & 0.005536 \\ 
+ & 0.037261 & 0.005243 \\ \hline
+\multirow{5}{*}{UNI (multiply with carry)} & 0.287225 & 0.014551 \\
+ & 0.286778 & 0.014798 \\
+ & 0.285554 & 0.016061 \\
+ & 0.286738 & 0.014633 \\
+ & 0.288803 & 0.016177 \\ \hline
+\multirow{5}{*}{CCRANDOM\_0\_1 (C random)} & 0.504273 &  \\
+ & 0.498741 &  \\
+ & 0.572036 &  \\
+ & 0.498766 &  \\
+ & 0.503112 &  \\ \hline
+\multirow{5}{*}{xorrand} & 1.880982 & 0.093661 \\
+ & 1.947728 & 0.101897 \\
+ & 1.869296 & 0.090943 \\
+ & 1.866257 & 0.091044 \\
+ & 1.868058 & 0.096747 \\ \hline
+\multirow{5}{*}{arc4random} & 2.970779 &  \\
+ & 2.782961 &  \\
+ & 2.973706 &  \\
+ & 2.781113 &  \\
+ & 2.785057 &  \\ \hline
+\end{tabular}    \caption{Performance Tests of Random Number Generators}
+\end{figure}
 		
 \section{Problems Faced} 
 
@@ -722,32 +751,93 @@ Another problem I frequently came across which couldn't happen in memory-managed
 
 \chapter{AI Component}
 
-\section{Code Structure/Features}
+After the core game component had been implemented, I could start to build the AI learning system. My first task was to update the levels 
+
+\section{Level Structure}
+
+In order to simplify the decision making process, I split my levels into a number of `nodes' (See Figure 9). These nodes represent decision points in my levels; areas where there are more than one possible path forward, where the agent has to decide which route to take. As trapdoors had already been placed in the level, these were used as one type of decision node. I also needed to create an additional invisible decision object which could be at the end of platforms or anywhere where I couldn't place a trapdoor. 
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=140mm]{sources/images/LevelNodes}
+    \caption{Decision Node Graphs for Two Levels}
+\end{figure}
+
+\section{Learning Agents}
+
+In my final game, I implemented three alternative methods of learning: a shortest route method, a modified decision tree method, and a reinforcement learning method using the Q-learning algorithm. I explain the different implementations used in my game in this section.
+
+As I intended to implement more than one learning technique, I designed the code for my game characters in such a way that the AI was completely self-contained in its own class. Not only is this generally good object-oriented design, but it also meant that to use a different type of learning, all I had to do was to link the relevant class, no other changes were required. This functionality could be neatly implemented in a switch statement (See figure 9)
+
+\begin{figure}[h!]
+\begin{lstlisting}
+switch(learningType) 
+{                
+	case kLearningMixed:
+    	// randomly choose a learning type
+        learningType = [Utils generateRandomNumberFrom:0 to:kLearningMixed]; 
+        break;
+                
+    case kLearningReinforcement:
+        class = [QLearningAgent class];
+        break;
+                
+    case kLearningTree:
+        class = [DecisionTreeAgent class];
+        break;
+                
+    case kLearningShortestRoute:
+        class = [ShortestRouteAgent class];
+        break;
+         
+    case kLearningNone:
+        class = [CogitoAgent class];
+        break;
+                
+    default:
+        break;
+}
+\end{lstlisting}
+\caption{Switch Statement for Setting Learning Type}
+\end{figure}
+
+As outlined in my initial design, the learning agents begin the game in a `learning mode', in which they have a set number of lives or `episodes'; the number of learning episodes is set by the player before the game begins. During learning mode, the agents navigate the level and choose actions at random, building up their knowledgebase. 
+
+I initially planned to set up the learning such that after the first episode, the agent would cease to act randomly and apply its knowledge. However, I found that doing this made it extremely difficult to measure the improvement in the characters, as once they reached the exit, the game was over. Instead, I decided to implement the learning mode which avoids this issue. Additionally, by programming the agents to act randomly throughout the learning mode meant that more optimal routes were found in less time, due to the fact that there was no `exploitation' of current knowledge at this stage. In many reinforcement learning systems, the system begins to exploit the learnt knowledge much earlier on, which brings with it the added issue of balancing the exloitation of existing knowledge with the exploration of new terrain. 
+
+After all of the learning episodes have been completed, learning mode ends the agent then applies the knowledge it has learnt to attempt to reach the exit safely.
+
+\subsection{Cogito Agents}
+
+I created a base class called \emph{CogitoAgent} to contain the common functionality which would be shared between all types of learning. Its most basic function is to detect when an agent has reached a decision node, at which point it chooses a random action from those avalable. The class also keeps track of the number of learning episodes used by the agent, and ends the learning mode when all episodes have been completed.
+
+\subsection{Shortest Route Agents}
+
+The Shortest Route agent is the simplest and most naive of all of the learning types. Shortest Route agents record the routes which have been taken during the learning mode. I created a Route class to simplify this, which itself consists of an array of `nodes' and a boolean flag which stores whether or not the route was successful (i.e. if the agent survived or not). Upon completion of the learning mode, the Shortest Route agent checks all of the routes taken, chooses the shortest one, and takes it. If there happens to be several shortest routes of the same length, the agent doesn't attempt to compare the routes, but just picks the first one it finds. If the agent failed to reach the exit during the learning mode, it simply acts randomly.
+
+\subsection{Decision Tree Agents}
+
+As shown in my research, decision tree learning is usually used for classification problems, whereby an agent finds itself in a certain situation, and it uses a decision tree to try to `classify' the situation using knowledge it has gained from experience. Initially, I planned to use this approach in my game. However, I felt that it was an overly complex solution to what is a relatively simple game concept. I didn't think that there was any point in trying to create diverse obstacles which required the agent to have to classify them; it just seemed unrealistic. I felt that trying to use classification techniques to solve my problem of terrain navigation was inappropriate
+ 
+Instead, I decided to use tree structures to allow my Decision Tree agents to function in a similar way to the Shortest Route Agents. Like the Shortest Route agents, the Decision Tree agents record the routes taken, with the shortest routes being chosen after the learning mode is complete. However, there are some subtle changes which make this method more accurate than the Shortest Route method. The obvious difference is that the routes are stored in a tree structure, which is built dynamically as the agent experiences the world. 
+
+To implement the tree structure, I created a \emph{TreeState} class. The class stores references to the parent and child nodes, and has code to add child nodes to the tree. There is also a boolean flag which stores whether the particular TreeState is a leaf node.
+
+When searching for the optimum route, the routes are all given `weightings'. The weighting for a route is based on the number of tools used in that route; a route with no tool uses has a weighting of 0, with the weighting being incremented by 1 for every tool used. 
+
+\subsection{Reinforcement Agents}
+
+The reinforcement agents are the most complex agents in my system.
 
 Asynchronous approach of updating the Q-values; updating a single pair at the end of every episode (synchronous - update all episodes once)
 
-\subsection{LemmingManager} 
+\section{Other Features}
 
-I created a singleton class which encapsulated all of the code needed to manage the individual lemming agents such as adding and removing agents and many `getter' methods for accessing data about the current state of the system.
-
-The LemmingManager class also contained the code to calculate the game rating, which was used at the end of the game.
-
-\subsection{Learning Types}
-
-\subsection{States}
+In addition to the agent classes, I also implemented a few other useful AI-related features into my game.
 
 \subsection{Learning Knowledgebase}
 
 \subsection{Learning Stats}
-
-
-\section{Learning Methods}
-
-\subsection{Shortest Route Learning}
-
-\subsection{Reinforcement Learning}
-
-\subsection{Decision Tree Learning}
 
 \section{Problems Faced}
 	
@@ -765,10 +855,9 @@ Show the results of usability testing (if any) and the learning results. Compare
 
 \section{Usability Testing}
 
-\section{AI Testing}
+Pause bug
 
-\subsection{Analysis of Decision Tree Learning}
-\subsection{Analysis of Reinforcement Learning}
+\section{AI Testing}
 
 
 
@@ -794,6 +883,32 @@ The biggest miscalculation with regards to my time-management and project schedu
 
 \section{Machine Learning Evaluation}
 
+- space required for storage
+- pros
+- cons
+- possible improvements
+
+\subsection{Analysis of Shortest Route Learning}
+
+Shared knowledgebase
+
+very naive, needs some way to compare different routes. If no route is found, the agent acts randomly. The larger the levels, the less likely it is that the agent will reach the exit alive.
+
+Quick to function - no need to traverse trees etc.
+
+\subsection{Analysis of Decision Tree Learning}
+
+Shared knowledgebase
+
+Slower than Shortest Route
+Would like to implement more powerful route filtering; perhaps add the weighing onto the route length? Maybe implement A* search in anticipation of much larger levels.
+
+\subsection{Analysis of Reinforcement Learning}
+
+A big benefit to reinforcement learning is that every decision made, whether good or bad, contributes to the knowledgebase in a positive way; if an agent dies, that episode is still as helpful as if the agent had reached the exit (if not more, as it teaches the agent where \emph{not} to go)
+
+\subsection{}
+
 My problem area is very limited
 
 + it can handle uncertain and noisy domains
@@ -810,7 +925,7 @@ There is no danger of my agents learning the `wrong' thing due to the fact that 
 
 \section{Areas For Enhancement}
 
-Although I'm very pleased with the outcome of my project, given extra development time, there are a number of areas which I feel I would like to extend/build upon.
+Although I'm very pleased with the outcome of my project, given extra development time, there are a number of areas which I feel I would like to extend further.
 
 The most obvious enhancement that I could make would be to extend the AI system to incorporate more learning types. Were I to do this, the next learning algorithm that I would like to try would be a genetic algorithm, as I think that it lends itself quite well to the context of my game. I could slightly alter the spawning of the lemmings so that they all spawn in waves, a certain number at a time - say 100. Then, at the end each wave, I could evaluate each lemming's performance, choosing to breed those with the most effective policy.
 
@@ -830,6 +945,7 @@ Another enhancement that I could make to the game would be to extend the system 
     \item Communication between agents (shared knowledge base?)
     \item Extend to a 3D environment
     \item Level editor
+    \item Bigger levels (multiple screens) - Although there's a definite improvement, I don't feel that the small levels allow my system to really show off what it can do. I would like to have maybe created levels which spanned multiple screens, although I made the decision not to do this for usability reasons (there'll always be some part of the screen which is obscured). 
     \item Overfitting - design a more general system
     \item "Start with a large correction factor (learning rate), and slowly decrease the parameter, which gives the algorithm a rough approximation during the early stages and allows fine tuning later in learning."
     \item Test alternative reinforcement methods (bucket brigade, temporal difference) 
