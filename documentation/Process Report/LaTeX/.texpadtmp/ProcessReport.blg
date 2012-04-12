@@ -3,64 +3,68 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: .texpadtmp/ProcessReport.aux
 The style file: abbrv.bst
 Database file #1: Cogito.bib
+Warning--entry type for "Rerych:gb" isn't style-file defined
+--line 12 of file Cogito.bib
 Warning--entry type for "Woodcock:bs" isn't style-file defined
---line 171 of file Cogito.bib
+--line 188 of file Cogito.bib
 Warning--entry type for "Woodcock:oq" isn't style-file defined
---line 232 of file Cogito.bib
+--line 249 of file Cogito.bib
 Warning--entry type for ":cr" isn't style-file defined
---line 370 of file Cogito.bib
+--line 387 of file Cogito.bib
 Warning--entry type for "Nintendo:2012nx" isn't style-file defined
---line 378 of file Cogito.bib
+--line 395 of file Cogito.bib
 Warning--entry type for ":2012dq" isn't style-file defined
---line 386 of file Cogito.bib
-Warning--entry type for "Sheffield:2008fk" isn't style-file defined
 --line 403 of file Cogito.bib
+Warning--entry type for "Sheffield:2008fk" isn't style-file defined
+--line 420 of file Cogito.bib
+Warning--entry type for "Ng:uq" isn't style-file defined
+--line 590 of file Cogito.bib
 Warning--entry type for "McCarthy:1955ve" isn't style-file defined
---line 700 of file Cogito.bib
+--line 717 of file Cogito.bib
 Warning--to sort, need author or key in :2011zt
 Warning--empty author in :2011zt
 Warning--empty note in Mitchell:2006fv
 Warning--empty note in Nilsson:2010qa
 Warning--empty year in :hc
-You've used 32 entries,
+You've used 34 entries,
             2118 wiz_defined-function locations,
-            674 strings with 7636 characters,
-and the built_in function-call counts, 7609 in all, are:
-= -- 701
-> -- 359
+            684 strings with 7927 characters,
+and the built_in function-call counts, 8004 in all, are:
+= -- 735
+> -- 373
 < -- 0
-+ -- 150
-- -- 114
-* -- 422
-:= -- 1358
-add.period$ -- 93
-call.type$ -- 32
-change.case$ -- 143
++ -- 156
+- -- 118
+* -- 432
+:= -- 1422
+add.period$ -- 98
+call.type$ -- 34
+change.case$ -- 151
 chr.to.int$ -- 0
-cite$ -- 37
-duplicate$ -- 311
-empty$ -- 643
-format.name$ -- 114
-if$ -- 1561
+cite$ -- 39
+duplicate$ -- 325
+empty$ -- 687
+format.name$ -- 118
+if$ -- 1647
 int.to.chr$ -- 0
-int.to.str$ -- 32
+int.to.str$ -- 34
 missing$ -- 28
-newline$ -- 154
-num.names$ -- 63
-pop$ -- 205
+newline$ -- 163
+num.names$ -- 67
+pop$ -- 224
 preamble$ -- 1
-purify$ -- 121
+purify$ -- 127
 quote$ -- 0
-skip$ -- 222
+skip$ -- 238
 stack$ -- 0
-substring$ -- 186
-swap$ -- 31
+substring$ -- 196
+swap$ -- 33
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 110
+type$ -- 118
 warning$ -- 5
-while$ -- 66
-width$ -- 34
-write$ -- 313
-(There were 12 warnings)
+while$ -- 70
+width$ -- 36
+write$ -- 329
+(There were 14 warnings)

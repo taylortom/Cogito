@@ -14,7 +14,6 @@
 \makeatletter
 
 
-
 %
 % Some custom definitions
 %
@@ -127,8 +126,6 @@ The artificial intelligence (AI) techniques utilised by game developers have bee
 However, this being said, we are starting to see a change taking place in the computer games industry which suggests that the processing time availiable for often overlooked processes such as AI is starting to increase. One such factor in this change is the so-called `graphics plateau' \cite{Sheffield:2008fk}. Whether or not there will come a point where the graphical complexity of a game is considered `perfect', with no area for improvement is uncertain (and in my opinion highly unlikely). However, I do think that we have reached a point whereby the graphical complexity achievable with each new generation in games consoles is unlikely to achieve the same kind of drastic improvement in detail that we have seen over the last couple of decades; in effect, I think that we have reached a level of complexity whereby the amount of processing power needed for the graphics processing is unlikely to increase by a very large factor. Given the inevitable hardware advances that come with each new generation, I believe that we will start see a lot more processing power freed up for those processes which have been treated as `extraneous' in the past, such as the AI. 
 
 Another important factor in this change is the emergence of the `casual' gamer. With casual games now accounting for a considerable proportion game sales, the consumer has shown that there is a big market for games which have less emphasis on complex graphics effects, and more emphasis on interesting gameplay mechanics \cite{Association:2011uq}. Indeed, with Nintendo's Wii home console having far outsold both Sony's PlayStation 3 and Microsoft's Xbox, the consumer has shown that they value unique gameplay and accessibility over advanced graphics \cite{:2012dq, Nintendo:2012nx, :cr}. 
-
-\paragraph{USER BASE PIE CHART}\ \\ \\
 
 With these factors already starting to bring about a change in the priority that developers give to the components of their games, I believe that now is as good a time as any for developers to introduce some more advanced AI techniques into their games.
 
@@ -309,35 +306,15 @@ Whereby the reward received at timestep $t$ is discounted by $\gamma^t$. This ap
 
 There have been a variety of different RL algorithms developed, each with their own advantages and disadvantages. I outline some of the most popular algorithms in this section. 
 
-\subsubsection{Policy Iteration}
+\paragraph{Policy Iteration}
 
-\subsubsection{Dynamic Programming} 
+\paragraph{Dynamic Programming} 
 
-One approach to RL is dynamic programming, a method most commonly used in solving learning problems in which the state transition probabilities are known beforehand.
+\paragraph{Temporal Difference} 
 
-The state transition probability function, $p(s,a,s^\prime)$ is the probability of transitioning from state $s$ to state $s^\prime$ when the agent takes action $a$. The goal of the learning agent is to learn to approximate the reward function $V(s,a)$, which gives the expected reward of taking action $a$ in state $s$. The agent approximates the reward function by testing out different actions in different states, each time receiving a reward $r$. For taking action $a$ in state $s$, the agent updates $V(s,a)$ with the following function:
+\paragraph{Monte Carlo} 
 
-\begin{equation*}
-V(s,a) \Leftarrow r + \gamma * \sum(p(s, a, s_\prime) * V(s_\prime))
-\end{equation*}
-
-Where gamma is a parameter known as the discount rate, the summation sums over all states s` and V(s`) represents the maximum V(s`,a) for all actions a. This equation is known as the Bellman equation.
-
-\subsubsection{Temporal Difference} 
-
-Temporal Difference methods are used to solve problems where $p(s,a,s_\prime)$ is not known. Temporal Difference solves the learning equation by using the expected reward of the next state it encounters after taking an action a in state s. The full equation is:
-
-\begin{equation*}
-V(s,a) \Leftarrow V(s,a) + \alpha * ( r + \gamma * V(s_\prime) - V(s,a) )
-\end{equation*}
-
-Where alpha is a parameter known as the learning rate. 
-
-\subsubsection{Monte Carlo} 
-
-Monte Carlo is similar to Temporal Difference but keeps track of all rewards encountered until an episode terminates in addition to the one state look-ahead performed by temporal difference methods.
-
-\subsubsection{Bucket Brigade}
+\paragraph{Bucket Brigade}
 
 \subsubsection{Q-learning}
 
@@ -357,13 +334,11 @@ Q-learning gets its name from the quality information, or Q-values which it stor
 	Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + (1 -\alpha_t) + \alpha[R(s_t) + \gamma max Q(s_{t+1}, a_{t+1})]
 \end{equation*}
 
-Where $Q(s_t, a_t)$ represents the Q-value for the current state/action, $R(s_t)$ represents the reward associated with the current state, $max Q(s_{t+1}, a_{t+1})$ represents the maximum possible Q-value for the next state
+Where $Q(s_t, a_t)$ represents the Q-value for the current state/action, $R(s_t)$ represents the reward associated with the current state, $max Q(s_{t+1}, a_{t+1})$ represents the maximum possible Q-value for the next state. Q-learning also introduces and addition variable known as the learning rate (represented as $\gamma$), which affects how quickly the Q-values are modified; a greater learning rate results in much faster changes to Q-values. It is common practice to begin with a large learning rate, and decrease it as time goes on, to fine-tune the Q-values. Researchers at Tel-Aviv University carried out some interesting research into the effect of learning rates on the rate of convergence, which suggests that convergence can be reached much quicker if using a variable learning rate.
 
 Updating the old Q-values ensures that the system retains all previously obtained knowledge. Introducing the max Q-value into the equation means that the success (or failure) of an action is reflected in earlier actions, in effect `trickling' back up the supply chain.
 
-Q-learning converges with probability 1, meaning that after sufficient iterations of the algorithm, the learner can move towards the most desirable state from any location with little to no search .
-
-``Thus, after sufficient experience, the problem solver can move toward the most desirable state from any location with little to no search"
+Q-learning converges with probability 1, meaning that after sufficient iterations of the algorithm, the learner will have formulated an optimal policy such that they can move towards the most desirable state from any other state.
 \subsection{Decision Tree}
 
 Another popular type of machine learning is Decision Tree Learning. Decision Tree Learning is 
@@ -384,6 +359,8 @@ Moreover, because agents need to learn online as the game is played, predetermin
 
 \subsection{Genetic Algorithms}
 
+Another popular type of machine learning is the 
+
 Pros:
 \begin{itemize}
 	\item When it may be too computationally expensive to calcuate a decision
@@ -392,7 +369,7 @@ Pros:
 \end{itemize}
 
 \noindent Cons:
-\begin{itemize}
+\begin{itemize} 
 	\item Evolution is often time-consuming, taking many generations
 	\item Not guaranteed to find an optimal or even satisfactory solution
 	\item Don't cope well with components which may not have a concrete design; the addition of features can require a complete redesign of the genetic algorithm
@@ -400,14 +377,17 @@ Pros:
 
 \subsection{Artificial Neural networks}
 
-attempt to model a brain
+Artificial Neural Networks (ANNs) are another popular machine learning technique which are inspired by the neural networks found in the brain.
 
 An artificial Neural Network (NN) is an electronic simulation based on a simplified human brain. In an NN, knowledge is acquired from the environment through a learning process and the network’s connection strengths are used to store the acquired knowledge [20].
 
-Choosing the variables from the game environment that will be used as inputs is the most labour intensive part of developing an NN [30]. This difficulty is due to the fact that there is wealth of information that can be extracted from the game world and choosing a good combination of relevant variables can be difficult. Also, the number inputs needs to be kept to a minimum to prevent the search space from becoming too large [9]. Therefore, it is a good idea to start with the essential variables and add more if required. Choosing inputs that are poor representations of the game environment is the primary reason for failed applications.NNs are techniques that can be used in a wide variety of applications. Some common uses include memory, pattern recognition, learning and prediction. There are many commercial applications of NNs across various industries, including business, food, financial, medical and health care, science and engineering [24]. Prominent companies that are using NNs include Microsoft, Sharp Corporation, Mars, Intel, John Deere, Mastercard, Fujitsu and Siemens [24]. Some examples of applications that NNs are being used for are predicting sales, handwritten character recognition for PDAs and faxes, odour analysis via electronic nose, stock market forecasting, credit card fraud detection, Pap smear diagnosis, protein analysis for drug development and weather forecasting. This list illustrates the wide variety of applications that can make successful use of NNs, and how their usefulness is only limited to what can be imagined.The computer game industry is no different from the industries mentioned above in terms of the variety of applications of NNs. A few applications are described by LaMothe [26], including environmental scanning and classification, memory and behavioural control. The first application, environmental scanning and classification, involves teaching the NN how to interpret various visual and auditory information from the environment, and to possibly choose a response. The second application, memory, involves allowing the AI to learn a set of responses through experience and then respond with the best approximation in a new situation. Finally, behavioural control relates to the output of the NN controlling the actions of the AI, with the inputs being various game engine variables. Also, the NN can be taught to imitate the human player of the game [31].
+An NN can be used to make decisions or interpret data based on previous input and output it has been given. The important difference is that the current state doesn’t need to have been hard-coded. Instead, the NN makes the best approximation that it can, based on the states that it already knows about. This means that the NN will choose an action that would have been performed in a similar state.
 
-Basically, an NN can be used to make decisions or interpret data based on previous input and output it has been given. The input can be seen as various games states, similar to that used by a state machine, and the output could be the action to be performed. The important difference is that the current state doesn’t need to have been hard-coded. Instead, the NN makes the best approximation that it can, based on the states that it already knows about. This means that the NN will choose an action that would have been performed in a similar state.
-So far, game developers have been reluctant to allow a game to ship with the learning in NNs and other techniques “switched on”, in case the AI were to learn something stupid [46]. Therefore, the developers that have used NNs in their games have not used them for learning, but rather trained them during development and locked the settings before shipping. Some examples of games that include NNs for various tasks include BattleCruiser: 3000AD, Black \& White, Creatures, Dirt Track Racing and Heavy Gear.In BattleCruiser: 3000AD (BC3K) the AI uses NNs to control the non-player characters as well as to guide negotiations, trading and combat [45]. It uses the development language AILOG (Artificial Intelligence \& Logistics), which was created by the developer of BC3K, Derek Smart, and uses an NN for very basic goal oriented decision making and route finding, with a combination of supervised and unsupervised learning. In Black \& White the player has a creature that learns from the player and other creatures. The creature’s mind includes a combination of symbolic and connectionist representations, with their desires being represented as NNs [15]. Finally, the Creatures series of games makes heavy use of Artificial Life techniques, including heterogeneous NNs, in which the neurons are divided into lobes that have individual sets of parameters. In combination with genetic algorithms, the creatures use the NN to learn behaviour and preferences over time.In short, NNs are techniques that can be used for a wide range of applications in many different environments. Several commercial games have used this technique successfully, with the most recent and prominent being the game Black \& White. This technique’s flexibility means that it has the potential to be applied in a wide range of situations in future games. Therefore, it is likely that NNs will play a bigger role in commercial games in the near future.
+So far, game developers have been reluctant to allow a game to ship `active' learning in case the AI were to learn something stupid.
+
+Some examples of applications that NNs are being used for are predicting sales, handwritten character recognition for PDAs and faxes, odour analysis via electronic nose, stock market forecasting, credit card fraud detection, Pap smear diagnosis, protein analysis for drug development and weather forecasting. 
+
+This technique’s flexibility means that it has the potential to be applied in a wide range of situations in future games. Therefore, it is likely that NNs will play a bigger role in commercial games in the near future.
 
 \subsection{Applications For Machine Learning}
 
@@ -444,8 +424,8 @@ Despite the promising academic research over the last decade, few developers hav
 
 \begin{figure}[h!]
 	\centering
-		\includegraphics[width=100mm]{sources/images/TastyTree}\paragraph{}
-    	\includegraphics[width=100mm]{sources/images/TastyTable}
+		\includegraphics[width=80mm]{sources/images/TastyTree}\paragraph{}
+    	\includegraphics[width=80mm]{sources/images/TastyTable}
     	\caption{An example decision tree generated from the creature's experience eating objects \cite{:hc}.}
 \end{figure}
 
@@ -527,47 +507,250 @@ Using this system, I could add individual tasks that needed to be completed, dea
 
 \part{Planning}{This section covers the process of designing my system, from the initial concept art and art direction, to the system functionality modelling.}
 
-\chapter{System Design}
-
-\section{Design:} the designer must structure the programming tasks into a set of interrelated classes. Each class must be specified precisely, listing both its responsibilities and its relationship to other classes in the system.
-
-\subsubsection{Main goals:}
-\begin{itemize}
-\item Identify the classes
-\item Identify the responsibilities of these classes
-\item Identify the relationships among these classes
-\end{itemize}
-
-Not necessarily a complete process; not all classes may be discovered until implementation.
-
-\subsubsection{Components:} 
-\begin{itemize}
-\item A textual description of the classes and their most important responsibilities
-\item Diagrams of the relationships among the classes
-\item Diagrams of important usage scenarios
-\item State diagrams of objects whose behaviour is highly state-dependant
-\end{itemize}
-
 \chapter{Artwork}
 	
-After designing a more concrete specification for my system, I created some initial artwork to establish how my game would look. In addition to the art style, I created some designs for how my levels would be composed with respect to how I intended to program my system in the implementation stage.
+The first task I carried out when designing my game was to create some initial artwork. Not only would this help to define the look and feel of the game, but it would also help me to visualise how the levels could be structured, which would give me more of an idea as to exactly what kind of functionality was feasible. In addition to logos and some initial art direction, I also created the initial art for the agents, some sample screen artwork and some level designs.
 	
-\section{Sprite Design}
+\section{Logo Design}
 	
-
+I went through a few different iterations (see Figure 5), settling on a blue/white/black colour scheme. I wanted the art style to be clean and unobtrusive, so didn't want to use a lot of bright colours. I went for a mainly monochromatic colour scheme, with the blue used sparingly for emphasis. This would be the colour scheme that I would use throughout my game.
 	
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=80mm]{sources/images/Final}
-    \caption{Final designs for agent sprites}
+    \includegraphics[width=90mm]{sources/images/cogito_logo1}
+    \caption{Iterations of My Logo Design}
+\end{figure}
+
+\section{Game Design}
+
+After settling on a colour scheme and basic art style, I then went about creating some mockups of various screens that I would be using in my game.
+	
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=140mm]{sources/images/Screens}
+    \caption{Initial Screen Mockups and Art Direction}
+\end{figure}
+
+I also created a basic level design to give me more of an idea as to how a level might look. The idea of this was to get more of an idea of exactly how I might implement the level later; how the agents might transition between the different levels etc. I also decided to split the level into a number of `nodes' (visible in Figure 7). This would serve to simplify the agent's navigation, and is a similar idea to navigation meshes used in many games.  
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=120mm]{sources/images/LevelDesign}
+    \caption{Initial Level Design}
 \end{figure}
 	
-\chapter{Social, Legal, Ethical and Professional Issues}
-		\section{Intellectual Property}
-		\section{Copyright Law}
-		\section{The Data Protection Act}
-		\section{Research Ethics}
+\section{Sprite Design}
+		
+I took a lot of guidance from the original sprite style and animation used in the original Lemmings game (see Figure 8). I decided to stay with the simple 8-bit art style for the sake of simplicity.
+	
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=80mm]{sources/images/lemmings-walker-sprites}
+    \caption{The Original Walking Animation Used in Lemmings}
+\end{figure}
+		
+Using the above as inspiration, I created the walking animation frames, as well as the other animations required in my game (walking with helmet, open/use umbrella, floating, death). I used my chosen colour scheme for the agents to fit in with the rest of the art style.
+		
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=60mm]{sources/images/Final}
+    \caption{Final designs for agent sprites}
+\end{figure}
 
+I later added a faint outline to the agents, as I found when testing the game that the they became indistinguishable against the white background.
+	
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=60mm]{sources/images/Lemming_walk_anim}
+    \caption{The Final Walking Animation}
+\end{figure}
+	
+\chapter{System Design}
+
+After creating the initial artwork, I had to create a more concrete outline of the intended functionality for my game. From this specification, I could then start to design my system, structuring in into logical interrelated classes. To create a basic specification of my game, I split it into 3 logic components: the menu structure, the game component, and the AI system. I outline each briefly in this section.
+
+\section{Menu}
+
+Rather than just simply have the game start as soon as it is loaded up, I wanted to implement a simple menu system. This would also allow me to add other screens such as instructions for the player. I wanted the main functionality of the menu system to be as follows:
+
+\begin{itemize}
+	\item Have a link to the new game screen
+	\item Have a link to game instructions
+	\item Have a link to an `about' screen
+	\item Be uncluttered
+	\item Only to have one `level' (i.e. no complex nested menus)
+\end{itemize}
+
+Included in the menu component were two screens: the instructions screen, and the `about' screen. The former giving the player some basic instructions as to how to `play' the game, and the latter providing a bit of background information about the project.
+
+\section{Game}
+
+The `game' component encompasses the core functionality of the game (without the AI capabilities) such as displaying the graphics, controlling animations etc. My game component need to encompass the following:
+
+\begin{itemize}
+	\item Load and transition between the different scenes (i.e. menu \& game over scene etc.)
+	\item Load game assets and external level file
+	\item Animate game assets
+	\item Build levels from the external assets
+	\item Control the running of the game (game timer, pausing/resuming and exiting)
+	\item Manage characters (adding, removing, watch for the end of the game)
+	\item Display a game over screen with game rating
+\end{itemize}
+
+\subsection{Lemming Functionality}
+
+In addition to the basic game functionality outlined above, I also needed to specify how I wanted my lemming game characters to function. 
+
+\begin{itemize}
+	\item Be able to move around the level
+	\item Be able to change state as necessary
+	\item Have basic collision detection
+	\item Be able to animate
+	\item Be able to detect if an end condition's reached
+\end{itemize}
+
+\section{AI System}
+
+Rather than just simply have the game start as soon as it is loaded up, I wanted to implement a simple menu system. This would also allow me to add other screens such as instructions for the player. I wanted the main functionality of the menu system to be as follows:
+
+\begin{itemize}
+	\item Detect when agent has reached a decision point
+	\item Be able to generate a list of possible actions (and choose randomly)
+	\item Be able to dynamically create and maintain a knowledgebase of routes using the following learning types:
+	\begin{itemize}
+		\item Shortest route
+		\item Decision tree
+		\item Reinforcement learning (Q-learning)
+	\end{itemize}
+	\item Be able to use this knowledgebase to generate an optimum route
+\end{itemize}
+
+\section{Class Diagrams}
+
+I created some initial class diagrams to specify how I intended to design the system. These classes show their intended functionality, and how they relate to other classes in the system. 
+
+\subsection{Layers}
+
+The layers contain the actual game content, such as background sprites, the character sprites, menu items, text labels etc. These are the initial specifications for the layers in my game (Figure 11).
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=130mm]{sources/images/Layers}
+    \caption{The `Layers'}
+\end{figure}
+
+\subsection{Singletons}
+
+I intended to use a number of classes using the singleton design pattern to manage the shared data in my game. I initially decided to use LemmingManager and GameManager singletons, although I ended up adding more in my final system (Figure 12).
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=110mm]{sources/images/Singletons}
+    \caption{The Singletons}
+\end{figure}
+
+\subsection{GameObjects}
+
+I planned to create a base class called `GameObject' which would be inherited by all of the game objects I would be using in my game. Objects such as the agents and the level terrain (Figure 13).
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=140mm]{sources/images/GameObjects}
+    \caption{The Game Objects}
+\end{figure}
+	
+\section{Agent States}
+
+I also created a basic state diagram to map out the intended states for my game characters (Figure 14).
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=100mm]{sources/images/LemmingStatemachine}
+    \caption{Character States}
+\end{figure}
+	
+	
+\chapter{Social, Legal, Ethical and Professional Issues}
+
+When designing my game, I had to consider a number of social, legal, ethical and professional issues to ensure that my product and its development complied to any applicable laws and ethical standards.
+
+\section{Intellectual Property}
+
+All of the intellectual property used in my game is my own, with the exception of the Cocos2D framework which I used. I have cited that I have used the engine in the game itself on the `about' screen. I have also included a copy of the relevant license in the source code. The engine is published under the MIT licence, which states that it is free to use in proprietary software provided that all copies of the software also include a copy of the license. A big benefit of the MIT license is that software which uses MIT-licensed code has no obligation itself to be published using the same license, and can be completely closed-source.
+
+\section{Copyright Law}
+
+In order to ensure that my product complied with copyright laws, I decided to create all assets needed myself. This ensured that I didn't need permission from any third parties prior to developing/releasing my product. All of the assets such as the backgrounds, logos and animations have been created by me solely for the purpose of this project.
+
+\section{The Data Protection Act}
+
+I don't store any personal data about the user in my game, so there are no issues regarding the Data Protection Act. The only information I collect is data regarding the agent's learning in the game, which is not transmitted to any source, but is simply used within the game to provide some basic stats about the system.
+
+\section{Ethical Issues}
+
+As I carried out my usability tests with the help of human subjects, I made sure that the subjects were kept completely anonymous and all information with regards to them confidential. There was no need for my to store any personal data about them, so this didn't present an issue.
+
+
+
+%
+% New part
+%
+
+\part{The Product}{This section gives a detailed description of the actual product, along with screens.}
+
+\section{Introduction}
+
+
+
+\section{Navigating}
+
+Upon loading the game, you are greeted with the main menu screen. From here you can navigate to a number of other screens: start a new game, view game instructions, game stats and an `about' screen displaying some other useful information about the game.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/Menu}
+    \caption{Main Menu}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/Stats}
+    \caption{Game Stats}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/Instructions}
+    \caption{Instructions}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/About}
+    \caption{About}
+\end{figure}
+
+\section{Starting A Game}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/NewGame}
+    \caption{New Game}
+\end{figure}
+
+\section{Playing The Game}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/DebugMode}
+    \caption{Game Screen}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=70mm]{sources/images/DebugMode}
+    \caption{Debug Mode}
+\end{figure}
 
 
 %
@@ -695,18 +878,15 @@ The CCSpriteBatchNode is a Cocos2D class which has been created to help with thi
     \caption{An Example Texture Atlas}
 \end{figure}
 
-Aside from the performance optimisations offered by Cocos2D, I also did a few other things to ensure that my program ran as efficiently as possible.
-
 \subsubsection{Random number generation} 
 
-Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums \cite{:2011zt}, I was surprised to see the difference in speed between different RNG (see Figure 8). Typically, the RNG I had chosen to use (arc4Random) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
-	
+Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums, I was surprised to see the difference in speed between different RNG (see Figure 8) \cite{:2011zt}. Typically, the RNG I had chosen to use (arc4Random) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
 	
 \begin{figure}[h!]
   \centering	
 	\begin{tabular}{|l|c|c|}
 \hline
-Algorithm & Device Time & Simulator Time \\ \hline
+Algorithm & Device Time (secs) & Simulator Time (secs)\\ \hline
 \multirow{5}{*}{Ranrot} & 0.037202 & 0.004751 \\
  & 0.036453 & 0.004786 \\
  & 0.037306 & 0.005023 \\
@@ -734,6 +914,12 @@ Algorithm & Device Time & Simulator Time \\ \hline
  & 2.785057 &  \\ \hline
 \end{tabular}    \caption{Performance Tests of Random Number Generators}
 \end{figure}
+
+\subsection{SlideViewer}
+
+As I had a number of screens which were intended to present information to the player, I wanted to design some kind of reusable asset which could be dropped into my game and used to display this information. To this end, I created the \emph{SlideViewer class}, which as the name suggests, consists of a number of `slides' (which are simply images), which can be navigated through at the player's leisure.
+
+The viewer is an extension of the base Sprite class, and so can be added to any other layer or sprite, and is extendable to cope with any number of slides.
 		
 \section{Problems Faced} 
 
@@ -743,7 +929,7 @@ I found that the biggest problem with memory leaks is that they can often go und
 
 I found another seemingly insignificant bug in my update method which was causing me to drop 15 frames per second after the game had been running for about 15 minutes. The bug was caused by a careless error I made when initialising the game. When the game was first initialised, I wanted to create a list of all collideable objects, for use in collision detection later. To do this, I put code in the update loop which added every object to a list. However, rather than just adding the objects once when the game was initialised, I found that I was re-adding each object every frame, causing a huge issue with performance. After just 10 seconds, I found that my list of collideable objects contained over 10,000 objects, which was obviously causing big problems when it came to my game trying to check for collisions.
 
-Luckily, Xcode comes with a very useful set of performance analysis tools called 'Instruments' which can be used to establish any memory-related or runtime issues, such as memory leaks etc. Instruments allows you to test your app in `profiling' mode, which tracks what memory has been allocated, and suggests areas where memory leaks may occur.
+Xcode comes with a very useful set of performance analysis tools called 'Instruments' which can be used to establish any memory-related or runtime issues, such as memory leaks etc. Instruments allows you to test your app in `profiling' mode, which tracks what memory has been allocated, and suggests areas where memory leaks may occur.
 
 Carrying out this project really taught me the importance of keeping a close eye on what memory I was allocating and where it was being released. What may at first seem like a negligible memory leak can build up over time, and combined with other similarly small memory leaks, can cause big problems with your programs performance. I would even go so far as to say that these smaller memory leaks are even more troublesome than the bigger ones, as they are much harder to track down, and are often more widely spread, and therefore more difficult to fix.
 
@@ -755,7 +941,7 @@ After the core game component had been implemented, I could start to build the A
 
 \section{Level Structure}
 
-In order to simplify the decision making process, I split my levels into a number of `nodes' (See Figure 9). These nodes represent decision points in my levels; areas where there are more than one possible path forward, where the agent has to decide which route to take. As trapdoors had already been placed in the level, these were used as one type of decision node. I also needed to create an additional invisible decision object which could be at the end of platforms or anywhere where I couldn't place a trapdoor. 
+In order to simplify the decision making process, I split my levels into a number of `nodes' similar to the navigation meshes used in many games (See Figure 9). These nodes represent decision points in my levels; areas where there are more than one possible path forward, where the agent has to decide which route to take. As trapdoors had already been placed in the level, these were used as one type of decision node. I also needed to create an additional invisible decision object which could be at the end of platforms or anywhere where I couldn't place a trapdoor. 
 
 \begin{figure}[h!]
   \centering
@@ -809,7 +995,16 @@ After all of the learning episodes have been completed, learning mode ends the a
 
 \subsection{Cogito Agents}
 
-I created a base class called \emph{CogitoAgent} to contain the common functionality which would be shared between all types of learning. Its most basic function is to detect when an agent has reached a decision node, at which point it chooses a random action from those avalable. The class also keeps track of the number of learning episodes used by the agent, and ends the learning mode when all episodes have been completed.
+I created a base class called \emph{CogitoAgent} to contain the common functionality which would be shared between all types of learning. Its most basic function is to detect when an agent has reached a decision node, at which point it chooses a random action from those avalable. The basic decision process is as follows:
+
+\begin{enumerate}
+	\item Agent collides with decision node
+	\item Agent gets the current state
+	\item Action chosen based on the current state
+	\item Takes action
+\end{enumerate}
+
+The class also keeps track of the number of learning episodes used by the agent, and ends the learning mode when all episodes have been completed.
 
 \subsection{Shortest Route Agents}
 
@@ -823,23 +1018,119 @@ Instead, I decided to use tree structures to allow my Decision Tree agents to fu
 
 To implement the tree structure, I created a \emph{TreeState} class. The class stores references to the parent and child nodes, and has code to add child nodes to the tree. There is also a boolean flag which stores whether the particular TreeState is a leaf node.
 
-When searching for the optimum route, the routes are all given `weightings'. The weighting for a route is based on the number of tools used in that route; a route with no tool uses has a weighting of 0, with the weighting being incremented by 1 for every tool used. 
+To calculate the shortest route, I need to search the tree. I do so by checking every node using a simple depth-first search. When a leaf node is found (and the node is an exit), I recursively move back up the tree to store the route. While this kind of search is very poor speed-wise, it ensures the tree is methodically searched. Were I traversing a much larger tree such that performance became an issue, I could a heuristic search method such as A* to provide an approximate solution. As it happens, my levels are small enough to make my brute-force search a feasible solution.
+
+When searching for the optimum route, the routes are all given `weightings'. The weighting for a route is based on the number of tools used in that route; a route with no tool uses has a weighting of 0, with the weighting being incremented by 1 for every tool used.
 
 \subsection{Reinforcement Agents}
 
-The reinforcement agents are the most complex agents in my system.
+The final and main type of learning which I implemented in my game was reinforcement learning. Based on my research, I decided that the Q-learning algorithm was the most appropriate for solving my problem.
 
-Asynchronous approach of updating the Q-values; updating a single pair at the end of every episode (synchronous - update all episodes once)
+I needed to decide upon what values to use for the rewards in my system. Although reinforcement learning systems tend to use values less than 1.0, I instead decided to use rewards of less than 100, just to make the values more manageable and avoid a lot of decimal places (see Figure 11 for values).
 
-\section{Other Features}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{| l | c |}
+  \hline
+  State  & Reward Value \\
+  \hline
+  Reached Exit    &  100.0 \\
+  Died   		  &  -100.0 \\
+  Used Tool       &  -7.0 \\
+  Other  		  &  -2.0 \\
+  \hline
+\end{tabular}
+\caption{Table of Reward Values}
+\end{figure}
 
-In addition to the agent classes, I also implemented a few other useful AI-related features into my game.
+I used the same values for the win/death rewards (albeit one +100 and one -100) so that both states were regarded equally `important' by my learning agents. In addition to these rewards, I also added a small negative reward for any tool uses by the agent (i.e. umbrella/helmet uses). This ensured that the agent resisted using a tool wherever possible; tools are a finite resource, and so should only be used where no `cheaper' alternative exists. Using this small negative reward ensures that the agent will always choose the standard basic actions (i.e. left, right, down) over using a tool. While conducting my research, I came across a lecture on reinforcement learning given by researcher Andrew Ng in which he proposes associating a small negative with all moves \cite{Ng:uq}. I decided to do this in my own game, as it encourages the agents to use the shortest route possible by adding a greater penalty to longer routes. The reward values are stored in my \emph{Constants file}.
 
-\subsection{Learning Knowledgebase}
+After setting up the rewards, I then needed to implement the actual learning. The basic operation of the reinforcement learning is as follows:
 
-\subsection{Learning Stats}
+\begin{enumerate}
+	\item Agent collides with decision node
+	\item Agent gets the current state
+	\item Q-values for previous state/action are updated according to outcome
+	\item Action chosen based on the current state
+	\item Takes action and updates state
+\end{enumerate}
+
+In my implementation, I chose to update the Q-values asynchronously (i.e. updating individual Q-values at each decision made), rather that to update all Q-values at set intervals (synchronously). I chose to update my Q-values asynchronously simply because I felt it was logical to do so, and was slightly simpler to implement. Both methods are acceptable to use with Q-learing, and have no major impact on the outcome of the algorithm.
+
+To calculate the new Q-values according to the algorithm described in my research:
+
+\begin{equation*}
+	Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + (1 -\alpha_t) + \alpha[R(s_t) + \gamma max Q(s_{t+1}, a_{t+1})]
+\end{equation*}
+
+To make my code more readable, I split the algorithm into logical parts and stored these parts in variables. For example, I created a variable for the old Q-value (i.e. $Q(s_t, a_t)$) and a variable with the maximum expected Q-value (i.e. $max Q(s_{t+1}, a_{t+1})$). My implementation of the algorithm is included in Figure 12.
+
+\begin{figure}[h!]
+\begin{lstlisting}
+/**
+ * Updates the Q-values
+ * @param the state to update
+ */
+-(void)updateQValues:(QState*)_newState
+{    
+    if(currentState == nil) return;
+            
+    float oldQValue = [currentState getQValueForAction:currentAction];
+    float maximumQValue = [_newState calculateMaxQValue];
+    float reward = [_newState getReward];
+    
+    // apply a negative reward if using a tool
+    if(reward == kQDefaultReward) 
+    {
+        switch (currentAction)
+        {
+            case kActionDownUmbrella:
+            case kActionEquipUmbrella:
+            case kActionLeftHelmet:
+            case kActionRightHelmet:
+                reward = kQToolReward;
+                break;
+                
+            default:
+                break;
+        } 
+    }
+        
+    float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate 
+    	* (reward + kQDiscountFactor * maximumQValue);
+    [currentState setQValue:updatedQValue forAction:currentAction];
+}
+\end{lstlisting}
+\caption{Method to Update Q-values}
+\end{figure}
+
+The learning rate which I use in my algorithm is largely down to trial and error, and is set at the value that I felt worked best in my game. My research was very helpful in guiding the values I chose, but I found that given the time restraints of implementing the learning in a game, I needed to use slightly different values than suggested. Due to said time contraints, it is highly unlikely that my agents reach convergence in a game. However, this does not mean that my agents are unable to calculate an optimal policy. I chose to use a fairly high (and static) learning rate as it meant that the Q-values were updated much quicker, thus an optimal policy is more likely to be found. Were my agents given the opportunity to perform thousands of iterations, I would have chosen different values, but I felt this was inappropriate for my chosen application area, in which a single game is very unlikely to last for an hour, much less several hours.
+
+The order in which I update the Q-values is slightly different to the standard method described in Watkins' paper \cite{Watkins:1989mi}. In the paper, when an agent moves to a new state, the Q-values for that state are updated (which requires knowledge of the next state). However, as my agents have no prior knowledge of their environment, they would be unable to ascertain the next state during the early stages of the game. To circumvent this, when an agent in my game moves to a new state, it instead updates the Q-values for the previous state, using the information it has for the current state. Although this is slightly different to the standard method, it has no negative impact on the actual learning. I also added the ability to export the shared knowledgebase to an external file saved in the iOS device's memory for later analysis.
+
+A key feature which I implemented in my reinforcement learning agents is the ability to use a shared knowledgebase. While in my other methods, the agents are restricted to only their own first-hand experiences, the reinforcement learning agents are able to contribute to a central knowledgebase. This meant that the rate of learning could be increased by a factor of the total number of agents. For example, 100 agents performing just 1 learning episode each is the equivalent to a single agent performing 100 episodes. This obviously meant that n optimal solution could be found a lot quicker.
+
+\section{Learning Stats}
+
+I added an additional game stats screen to the game's main menu which gives the player a simple summary of the performance of the agents. I do this using a number of visual bar graphs, which are updated dynamically using the data collected after every completed game. I display these stats using my \emph{SlideViewer} object (see Figure 13).
+
+\begin{figure}
+  \centering
+    \includegraphics[width=85mm]{sources/images/GraphSlide}
+    \caption{Game Stats Using the SlideViewer}
+\end{figure}
 
 \section{Problems Faced}
+	
+Fortunately, I didn't encounter any major issues when it came to implementing my learning. One fairly minor problem that I did come across was that I found it was possible for agents to get stuck in an `infinite decision loop'. After an agent had finished learning, it was possible for it to transition to a state whereby there was only one possible decision point (see Figure 14 for an example). If certain actions in this state led to certain death, then an agent could be forced to keep looping back and forth, which meant that the game couldn't be finished without the user prematurely quitting.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=85mm]{sources/images/InfiniteLoop}
+    \caption{An Example of a Possible `Infinite Decision Loop' State}
+\end{figure}
+
+The problem was being caused because I had programmed my agents to stop learning once the learning mode was over. My solution to this problem therefore was to allow the agents to continue to update the knowledgebase after the learning mode was complete. This worked because of the fact that I had applied a small negative reward to every action taken by the agent, meaning that were an agent caught in an infinite decision loop, the small negative rewards would build up and eventually filter to the previous states, meaning that agents would not fall into the same trap.
 	
 	
 	
@@ -851,13 +1142,22 @@ In addition to the agent classes, I also implemented a few other useful AI-relat
 
 \chapter{Testing \& Results}
 
-Show the results of usability testing (if any) and the learning results. Compare with the different types and no learning, show graphs to compare. Discuss the effectiveness, advantages/disadvantages to the learning algorithms used.
+In this section I present the results to my usability tests, in addition to the results from the AI testing. I initially planned to create some unit tests to test the functionality of my game. However, as the user-input was very limited, I didn't feel that this was necessary.
 
-\section{Usability Testing}
+\section{Usability Testing and Error Checking}
 
-Pause bug
+As a result of my iterative design approach, I was regularly testing my game as I implemented new features and fixing any bugs as they arose. As I was working alone, this was the most appropriate method. For this reason, I didn't make as much use of bug tracking software as I would if I was working in a development team. However, I did make some use of Github's built in issue-tracking to record major errors, or errors I couldn't fix at the time of finding.
+
+My game was designed as a test for machine learning in a game environment and as such, user interaction was always intended to be limited. Due to this, the usability tests which could be carried out were similarly limited; there was little other than basic user-interface testing which was needed.
+
+One bug that was picked up during the usability tests that I wasn't able to solve was a problem with the game pausing. I found that when resuming the game, it was possible for agents to fall though the environment. This occurred if the game was paused while the agents were mid-way through transitioning to a lower level. I think the problem was with a `delay' method I used when agents use an umbrella or drop to a lower level, the problem being that the delay was cut short if the game was paused.
+
+I came up with a partial solution to this problem, although the issue does still occur if there are many agents in the level. My solution was to change how I was pausing the game. To begin with, I was manually iterating through all of the objects in the game, and pausing them one by one. To try and fix the problem, I instead decided to use a function in Cocos2D's \emph{Director} class (the same method used by the engine when the user sends the app to the background by pressing the home button).
+
 
 \section{AI Testing}
+
+In addition to the usability tests, I also carried out extensive tests of my AI system. The primary aim of these tests being to check the effectiveness of the learning techniques, as well as to compare each technique against the others.
 
 
 
@@ -867,102 +1167,70 @@ Pause bug
 
 \chapter{Evaluation}
 
-A very competent evaluation of the whole project (with hindsight). Weak performance in the evaluation of product and process will result in a grade no higher than a B.
+In this section, I provide analysis of my learning techniques and their effectiveness, as well as a more general evaluation of my project as a whole.
 
 \section{Time Management}
 
-Initial plan was to use a waterfall development approach (discuss). Eventually took a slightly more incremental approach: developed game and AI together towards the end, some asset creation throughout. Discuss why, which would have been better - for one person rather than a team. As I was unfamiliar with the language and the engine, it was difficult to decide how best to approach the design/implementation. (see \url{http://en.wikipedia.org/wiki/Software_development_methodology})
-		
-- Waterfall: a linear framework
-- Incremental: a combined linear-iterative framework
-- Spiral: a combined linear-iterative framework
-		
-The biggest miscalculation with regards to my time-management and project schedule was that I failed to recognise just how much groundwork was needed to build the game component. Though I by no means expected the game development to be a trivial task, I wasn't prepared for the amount of work that was needed. This was exacerbated by the fact that I was also still getting to grips with Objective-C, and so my productivity wasn't as it could have been. However, although I slipped by a couple of weeks during the game development stage, I finished the AI component of the game under-schedule. Looking back at the volume of code that was needed to get the game running, it seems fairly that I should have at least allocated an equal amount of time to both the game and AI components. As it happens, I still finished my project to schedule with some time to spare.
+When planning the development of my project and creating my project schedule, I initially planned to take a linear `waterfall' development approach \cite{Rerych:gb}. I planned to develop the game and AI components separately, conducting testing at the end of development. However, during development I took a more incremental approach; developing individual features and testing as I went along. This change in approach was partly due to the fact that I was unfamilar with developing in Objective-C
 
-\section{Game Evaluation}
+In terms of sticking to my initial schedule, I feel that the development ran fairly smoothly, albeit with a few slight changes to my initial plan. As testing was carried out incrementally, there was no final testing stage at the end of development. 
 
-\section{Machine Learning Evaluation}
+The biggest miscalculation with regards to my time-management and project schedule was that I failed to recognise just how much groundwork was needed to build the game component. Though I by no means expected the game development to be a trivial task, I wasn't prepared for the amount of work that was needed. This was exacerbated by the fact that I was also still getting to grips with Objective-C, and so my productivity wasn't as it could have been. However, although I slipped by a couple of weeks during the game development stage, I finished the AI component of the game under-schedule. Looking back at the volume of code that was needed to get the game running, it seems fairly obvious that I should have at least allocated an equal amount of time to both the game and AI components. As it happens, I still finished my project to schedule with some time to spare.
 
-- space required for storage
-- pros
-- cons
-- possible improvements
+\section{Analysis of Machine Learning}
 
-\subsection{Analysis of Shortest Route Learning}
+Overall, I think the the learning element of my system was very effective, with all learning types implemented showing an improvement over the agents with no learning. In this section, I provide some more in-depth analysis of each technique.
 
-Shared knowledgebase
+\subsection{Shortest Route Learning}
 
-very naive, needs some way to compare different routes. If no route is found, the agent acts randomly. The larger the levels, the less likely it is that the agent will reach the exit alive.
+The shortest route technique is the most naive of those I implemented. This being said, it still provided a great improvement over the agents without learning, which was after all the ultimate goal. The main advantage to this method is that it is simple to implement, is quick and computationally cheap to function (there are no complex tree structures to search for example) and it yeilds effective results. 
 
-Quick to function - no need to traverse trees etc.
+However, this method also has some significant disadvantages. The biggest being the accuracy or indeed the optimality of the `optimal' routes it produces. The obvious flaw in this method being that the `optimum' route is completely dependant on the agent actually \emph{taking} the shortest route. Although this does not present a major problem with my levels, the greater the level size, the smaller the likelihood that the agent will discover the optimum route (or even any route at all). My results reveal that there were still appriximately $\frac{1}{5}$ of agents which were unable to find any safe path even in my small levels. This problem is only likely to increase with the size of the level. One of the biggest disadvantages to this method is that unsuccessful routes are disgarded and do not contribute to the knowledgebase, so are essentially a waste of time. 
 
-\subsection{Analysis of Decision Tree Learning}
+This being said, I feel that there are a number of changes which could be made to this method which would greatly improve it. One possible enhancement which would greadly reduce the space complexity of the method is to remove the need to store each individual route. Instead, a simple check could be made at the end of each learning episode to determine whether the new route is an improvement over the previous route. This way, only the optimum route would need to be stored. This would also remove the need to iterate through a long list of routes after the agent's learning is complete. Another possible enhancement to this method is to implement a shared knowledgebase. This could take the form of a shared list of all routes, or as with my previous recommendation, be a shared copy of the optimum route so far. The benefit to using a shared knowledgebase has been proven in my Q-learning implementation; it greatly improves the efficiency and speed of learning. Another area which I feel that this method falls down on is in the comparison of different routes. In it's current state, my shortest route method simply takes the route which has the smallest number of moves (or actions). If there are multiple optimum routes, then the first route found is used. This route selection could be greatly improved by using some kind of weighting system similar to what was used in the decision tree method; whereby each route is given a `weight', determined by the number of tool uses in that route. This encourages the selection of routes with less tool uses. A final area in which I feel that this method could be improved is by implementing some way to build a `hybrid' route using the stored routes. This way, a truly optimum route could be found, even if the agent hadn't actually taken it.
 
-Shared knowledgebase
+\subsection{Decision Tree Learning}
 
-Slower than Shortest Route
-Would like to implement more powerful route filtering; perhaps add the weighing onto the route length? Maybe implement A* search in anticipation of much larger levels.
+Unlike most decision tree learning methods which use classification techniques to learn, my decision tree implementation dynamically creates a map of the environment using a tree structure, and building a route from it. It takes a similar approach to the shortest route method but obviously using a more advanced method of storing the routes. However, it improves upon the storage space required by the shortest route method by only storing states once. One of the biggest advantages to this method over the shortest route is that even unsuccessful episodes contribute positively to the knowledgebase, and can be used later. Additionally, it improves over the shortest route method's route selection process by calculating `weightings' for the routes. This encourages the choice of routes with less tool uses. As with the shortest route method, it provides a considerable improvement over the agents with no learning. It also offers an improvement to the length of the optimum route when compared with the shortest route. 
 
-\subsection{Analysis of Reinforcement Learning}
+However, my decision tree method also shares some of the pitfalls of the shortest route method. One such problem being the fact that it is similarly reliant on the agents discovering an optimal route whilst they are exploring the environment. As with shortest route, the chance of even completing the level successfully decreases as the level size grows, so relying soley on this is not advisable. This method is also more computationally expensive and slower than the shortest route method, as the tree must be exhaustively searched and an `optimum' route built. In addition to this, the method doesn't provide a great improvement over the shortest route method, which makes the extra computation time unjustifiable.
 
-A big benefit to reinforcement learning is that every decision made, whether good or bad, contributes to the knowledgebase in a positive way; if an agent dies, that episode is still as helpful as if the agent had reached the exit (if not more, as it teaches the agent where \emph{not} to go)
+One improvement which could be made to improve this method could be to provide some more powerful route filtering to determine optimal routes. A simple way to do this is to incorporate the route's weighting into the its length; currently the algorithm only uses the weightings to compare two routes of the same length. This would produce `cheaper' routes than at present, as it would cause the system to choose routes which may be slighly longer, but don't use as many tools. Another improvement which could be made to this method is to introduce a shared knowledgebase. This would greatly increase the chance of an optimal route. I also think that a more efficient search method could be used in anticipation of the use of much larger levels. An heuristic algorithm such as A* would be appropriate.
 
-\subsection{}
+\subsection{Reinforcement Learning}
 
-My problem area is very limited
+Overall, my RL agents performed even better than expected, with the agents able to fairly quickly gather enough information to formulate an optimum policy. In addition, after a reasonable amount of episode, the method gave a 100\% survival rate which is as good as can be expected. A big advantage to this method is that every decision made by the agents contributes positively to the knowledgebase in a positive way; an agent dying is as helpful as if the agent had reached the exit, if not more so, as it teaches the agent where \emph{not} to go. In addition, the Q-learning algorithm is capable of functioning in much larger environments, given enough storage space. Another big advantage to this method is that it requires very little computation to build the optimum policy after the learning is complete, as the agent only needs to search through the actions currently avaliable to it for the current state; there is no need to search through vast knowledgebases, or build the complete route beforehand. For this reason, I feel that this method is particularly suited to a game environment, where high performance is paramount.
 
-+ it can handle uncertain and noisy domains
-+ it can interface with an external world more easily than other methods
-- slow learning rate as they rely on backwards propagation of rewards. The problem solver must pass through early parts of the problem space many times before any rewards at all reach those locales.
+However, there are also a number of areas which let this method down. One problem being the amount of storage space required. The algorithm requires that every action/state combination tried by the agent needs to be stored. While this is not an issue in my game due to the small environments, this could cause problems in much larger environments - especially if using mobile hardware. Another problem with my implementation is that it never truly converges; the route taken by the agent is not necessarily the optimum route. The main cause for this being the amount of time given for the system to learn. As the method relies on a backwards propagation of rewards, it can take some time for said rewards to transfer the rewards to certain areas of the level. In the majority of machine learning systems, the algorithms are run for several thousand iterations, which gives it enough time to converge on a solution. With each learning episode in my game taking between 1 and 1.5 minutes, there is not enough time to allow the AI system to run for this many iterations. My addition of a shared knowledgebase greatly helped with this, as it meant that I was essentially `threading' the learning process using many agents to simultaneously contribute to the same knowledgebase. This greatly reduced the time required for an optimal solution to be found. 
 
-1. Large state/action space. Since games usually have several different types of objects and characters and many different possible actions, the state/action space that RL must explore is extremely high dimensional. Dealing with high-dimensional spaces is a known challenge with RL in general (Sutton and Barto 1998), but in a real-time game there is the additional challenge of having to check the value of every possible action on every game tick for every agent in the game. Because traditional RL checks all such action values, the value estimator must execute several times (i.e. once for every possible action) for each agent in the game on every game tick. Action selection may thus incur a very large cost on the game engine, reducing the amount of computation available for the game itself.
-2. Diverse behaviors. Agents learning simultaneously in a simulated world should not all converge to the same behavior: A homogeneous population would make the game boring. Yet because many agents in video games have similar physical characteristics and are evaluated in a similar context, traditional RL techniques, many of which have convergence guarantees (Kaelbling et al. 1996), risk converging to largely homogeneous solution behaviors. Without explicitly maintaining diversity, such an outcome is likely.
-3. Consistent individual behaviors. RL depends on occasionally taking a random action in order to explore new behaviors. While this strategy works well in offline learning, players do not want to constantly see the same individual agent periodically making inexplicable and idiosyncratic moves relative to its usual policy.
-4. Fast adaptation and sophisticated behaviors. Because players do not want to wait hours for agents to adapt, it may be necessary to use a simple representation that can be learned quickly. However, a simple representation would limit the ability to learn sophisticated behaviors. Thus there is a trade-off between learning simple behaviors quickly and learning sophisticated behaviors more slowly, neither of which is desirable.
-5. Memory of past states. If agents remember past events, they can react more convincingly to the present situation. However, such memory requires keeping track of more than the current state, ruling out traditional Markovian methods. While methods for partially observable Markov processes exist, significant challenges remain in scaling them up to real-world tasks (Gomez 2003).
+Although my RL agents proved to be very effective, there are a few improvements which I would like to have made was I given more time. One such improvement being the addition of a variable learning rate. I discovered from my research that the general consensus is to begin the learning with a high learning rate, reducing it as time goes on, which has the effect of quicker learning early on, with more fine-tuning to the system later on. Using a variable learning rate would result in more accurate policies. However, I made a decision during the implementation stage to use a fixed rate for the simple reason that it would produce results much faster, which is key in a game environment; players don't have time to wait for hours for the AI to adjust. Another small enhancement I would like to make is to provide some way to save and load policies. Doing this and updating the same policies would allow the policies to converge, resulting in much more accuracy.
 
-There is no danger of my agents learning the `wrong' thing due to the fact that they learn entirely from their own experiences and take no input from the player.
+Test alternative reinforcement methods (bucket brigade, temporal difference) 
 
-\section{Areas For Enhancement}
+\section{General Areas For Enhancement}
 
 Although I'm very pleased with the outcome of my project, given extra development time, there are a number of areas which I feel I would like to extend further.
 
-The most obvious enhancement that I could make would be to extend the AI system to incorporate more learning types. Were I to do this, the next learning algorithm that I would like to try would be a genetic algorithm, as I think that it lends itself quite well to the context of my game. I could slightly alter the spawning of the lemmings so that they all spawn in waves, a certain number at a time - say 100. Then, at the end each wave, I could evaluate each lemming's performance, choosing to breed those with the most effective policy.
+The first and perhaps most obvious enhancement that I would make would be to extend the AI system to incorporate more learning types. Were I to do this, the next type that I would experiment with would be genetic algorithms, as I think that it lends itself quite well to the context of my game. Each individual agent could act as a gene, with only those agents with the most effective policies being chosen for `breeding'. The agents could spawn in waves representing a single generation of genes.
 
-Another enhancement that I think it would be interesting to make would be to allow for multiple learning types to be used in a single game, with separate agents able to use different algorithms. It would be interesting to compare the performance of the two. Following on from this idea, I also think it could be interesting to mix different methods of learning together in one lemming…
+Another enhancement that I think it would be interesting to make would be to allow for multiple learning types to be used in a single game, with separate agents able to use different algorithms. It would be interesting to compare the performance of the methods in a single game. 
 
-Something else which I'd like to implement would be some way for the agents to learn from each other - perhaps by watching other agents. This obviously wouldn't work with the shared knowledge base, but would be interesting to see the improvement of learning this way over the original.
+Something else which I'd like to implement would be some way for the agents to learn from each other - perhaps by `watching' (or being in the vicinity of) other agents. This wouldn't be as effective as using a shared knowledegbase, but it would create some more diverse behaviour among the agents, rather than every agent using the same route. While not necessarily appropriate to my problem area, it could definitely be useful in commercial games, where the AI agents need to appear realistic, by employing a diverse range of behaviour.
 
-Another enhancement that I could make to the game would be to extend the system to a 3D environment. This would obviously complicate things, but.
+Another much simpler enhancement which I would like to make to my game would be to introduce much bigger levels. Although the agents show a definite improvement in their traversal of the level, I don't feel that using such small levels allows my system to fully demostrate its capabilities. I did initially look into creating levels which were several screen-widths wide, with the player able to scroll along the level. However due to the size restrictions of the iPhone screen, I later decided against this as I thought that it would be bad from a usability point of view, as the majority of the game level would be obscured to the player. It would perhaps be more appropriate to create a version of the game for a desktop computer.
 
-\begin{itemize}
-	\item Implement additional learning types
-	\begin{itemize}
-		\item Mixed learning types between agents
-    	\item Use a combination of types
-    \end{itemize}
-    \item Remove the random learning episodes
-    \item Communication between agents (shared knowledge base?)
-    \item Extend to a 3D environment
-    \item Level editor
-    \item Bigger levels (multiple screens) - Although there's a definite improvement, I don't feel that the small levels allow my system to really show off what it can do. I would like to have maybe created levels which spanned multiple screens, although I made the decision not to do this for usability reasons (there'll always be some part of the screen which is obscured). 
-    \item Overfitting - design a more general system
-    \item "Start with a large correction factor (learning rate), and slowly decrease the parameter, which gives the algorithm a rough approximation during the early stages and allows fine tuning later in learning."
-    \item Test alternative reinforcement methods (bucket brigade, temporal difference) 
-\end{itemize}
-
-Negatives of using reinforcement learning: it doesn't generalise beyond specific states (over-fitting). Possible fix: use genetic algorithms - "the expected reward on production rules serves as their fitness, with more fit rules being selected for reproduction. The new rules are then evaluated by running them in an environment, with the best of them being selected to produce another generation, and so on. Such classifier systems are often used in conjunction with the bucket brigade algorithm for determining expected rewards."
+A small criticism I have of my system is that it is very specific to the individual levels; the information learnt about one level is completely useless for another (a problem known as over-fitting). This being said, it is very difficult to design such a system, especially in a problem area such as mine, where it is very difficult to generalise. Additionally, The task of discovering n optimum route in an environment is very difficult to solve without over-fitting. A possible solution could be to develop the AI in two components: one using Q-learning to learn the policy for that individual level, and another (possibly a genetic algorithm) to learn more general rules. 
 
 \section{Conclusion}
 
-I feel that the possibility of utilising academic machine learning techniques into commercial computer games is an often overlooked technique which is not only possible, but feasible with todays technology; something I have proven by showing this on a mobile platform. 
+I am very happy with how my final system turned out. All of the learning types I implemented showed a significant improvement over the agents with no learning, which was my main goal. The reinforcement agents in particular are very effective in finding the optimum solution in a relatively limited number of learning episodes. Particularly so when utilising the shared knowledgebase. 
 
-- Applications For Learning in games (possibly pre-release learning)
-- Performance on mobile device
+Learning aside, I was also very pleased with the core `game' component; especially given the fact that I had to create the artwork and character animations, and program the core game component myself. I feel that the final game is very robust, and serves well to demonstrate my AI system especially given the initial problems I encountered due to my inexperience of using Objective-C.
 
-Taught me important lessons about game design - things which may not be so necessary today with the powerful hardware as standard (with even mobile devices now sporting dual-core chips)
+I felt I learnt a great deal carrying out this project. Aside from the knowledge of AI and machine learning gained, I also learnt a great deal about software and game development more generally. Having never developed a software product to completion, carrying out the initial design, specification through to the development and testing was invaluable. I found this project to be particularly useful from a game development point of view. Due to the fact that I was developing for mobile hardware, there were a number of considerations which I had to make such as the reuse of assets and other optimisation; issues which are often forgotten because of the powerful hardware at our disposal.
 
-Machine learning in games could have many possible applications. The obvious use is to create much 'smarter' AI-controlled characters which are capable of modifying their behaviour dynamically to adapt to unforeseen scenarios. This could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to more intelligent enemy characters in a platform game. Some applications are often more pertinent than others; performance is still of paramount importance, and is still an issues; mostly so with console games where the hardware capabilities is strictly limited, and even more so on mobile devices.
+Most importantly of all, I feel that I suitably demonstrated that it is not only possible, but computationally feasible with today's technology to implement machine learning techniques in games. Even more so given the fact that I did so on a mobile device (although I accept that not all mobile games have the same amount of processor time to devote to the AI). Such techniques could have many possible applications in games to create much more `intelligent' AI systems which are capable of dynamically modifying their behaviour to adapt to the player. Given that machine learning techniques have been shown to be effective in commercial games (Lionhead's Black \& White is a good example), it is surprising to me that more developers haven't taken up the mantle and implemented similar techniques in their own games. Such techniques could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to enemy characters in a platform game. This, in addition to the increase in importance given to the AI in the form of more processor time, and programmers dedicated to AI development suggest to me that such techniques are likely to become more widespread in the near future. 
+
 
 %
 % New part 
@@ -972,7 +1240,7 @@ Machine learning in games could have many possible applications. The obvious use
 
 	\appendix
 	
-	\chapter{Code Listings}
+	%\chapter{Code Listings}
 
 	\chapter{Project Log}
 	

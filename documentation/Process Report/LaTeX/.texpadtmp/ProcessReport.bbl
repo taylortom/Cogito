@@ -87,6 +87,13 @@ T.~Mitchell.
 \newblock The discipline of machine learning.
 \newblock July 2006.
 
+\bibitem{Ng:uq}
+A.~Ng.
+\newblock Machine learning youtube playlist.
+\newblock YouTube playlist of the lectures for the CS229 module: Machine
+  Learning. Lots of useful information about the different types of learning,
+  algorithms etc.
+
 \bibitem{Ng:2004dz}
 A.~Y. Ng, A.~Coates, M.~Diel, V.~Ganapathi, J.~Schulte, B.~Tse, E.~Berger, and
   E.~Liang.
@@ -107,6 +114,10 @@ Nintendo.
 S.~Rabin, editor.
 \newblock {\em AI Game Programming Wisdom}.
 \newblock Charles River Media.
+
+\bibitem{Rerych:gb}
+M.~Rerych.
+\newblock Wasserfallmodell entstehungskontext.
 
 \bibitem{Samuel:1959qo}
 A.~L. Samuel.

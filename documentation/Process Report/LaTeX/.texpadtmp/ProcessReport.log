@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  8 APR 2012 01:46
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  12 APR 2012 23:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -265,18 +265,18 @@ LaTeX Warning: Label `screen' multiply defined.
 )
 \openout1 = `ProcessReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
  (/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
@@ -341,18 +341,18 @@ File: sources/images/cogito_logo_main.png Graphic file (type png)
 
 <use sources/images/cogito_logo_main.png>
 Package pdftex.def Info: sources/images/cogito_logo_main.png used on input line
- 73.
+ 72.
 (pdftex.def)             Requested size: 341.43306pt x 80.47623pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 80.
+(Font)              using `OT1/cmr/bx/n' instead on input line 79.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 84.
+LaTeX Font Info:    Try loading font information for U+msa on input line 83.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 84.
+LaTeX Font Info:    Try loading font information for U+msb on input line 83.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -367,24 +367,15 @@ oc [1
 \tf@toc=\write3
 \openout3 = `ProcessReport.toc'.
 
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
+ [2] [3] [1
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-[1
-
-
-] <sources/images/lemmings3.png, id=24, 510.90875pt x 289.08pt>
+]
+<sources/images/lemmings3.png, id=27, 510.90875pt x 289.08pt>
 File: sources/images/lemmings3.png Graphic file (type png)
 
 <use sources/images/lemmings3.png>
-Package pdftex.def Info: sources/images/lemmings3.png used on input line 151.
+Package pdftex.def Info: sources/images/lemmings3.png used on input line 148.
 (pdftex.def)             Requested size: 284.52756pt x 160.98825pt.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -392,143 +383,292 @@ Missing character: There is no ô in font cmr10!
  [2 <./sources/images/lemmings3.png (PNG copy)>] [3] [4] [5
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 200.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 197.
 
  (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 200.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 197.
 
-[6] [7] [8] <sources/images/RLDiagram.png, id=49, 153.4533pt x 122.1363pt>
+[6] [7] [8] <sources/images/RLDiagram.png, id=52, 153.4533pt x 122.1363pt>
 File: sources/images/RLDiagram.png Graphic file (type png)
 
 <use sources/images/RLDiagram.png>
-Package pdftex.def Info: sources/images/RLDiagram.png used on input line 256.
+Package pdftex.def Info: sources/images/RLDiagram.png used on input line 253.
 (pdftex.def)             Requested size: 199.16928pt x 158.53676pt.
  [9 <./sources/images/RLDiagram.png>]
-[10] [11] [12] [13]
+[10] [11] [12]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [14]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
+ [13]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
- [15] [16]
-<sources/images/TastyTree.png, id=87, 832.10875pt x 562.1pt>
+ [14] [15]
+<sources/images/TastyTree.png, id=86, 832.10875pt x 562.1pt>
 File: sources/images/TastyTree.png Graphic file (type png)
 
 <use sources/images/TastyTree.png>
-Package pdftex.def Info: sources/images/TastyTree.png used on input line 456.
-(pdftex.def)             Requested size: 284.52756pt x 192.20074pt.
+Package pdftex.def Info: sources/images/TastyTree.png used on input line 431.
+(pdftex.def)             Requested size: 227.62204pt x 153.75888pt.
 
-<sources/images/TastyTable.png, id=88, 622.325pt x 269.005pt>
+<sources/images/TastyTable.png, id=87, 622.325pt x 269.005pt>
 File: sources/images/TastyTable.png Graphic file (type png)
 
 <use sources/images/TastyTable.png>
-Package pdftex.def Info: sources/images/TastyTable.png used on input line 457.
-(pdftex.def)             Requested size: 284.52756pt x 122.98853pt.
+Package pdftex.def Info: sources/images/TastyTable.png used on input line 432.
+(pdftex.def)             Requested size: 227.62204pt x 98.38918pt.
+ [16 <./sources/images/TastyTree.png> <./sources/images/TastyTable.png>] [17] [
+18] [19
+
+]
+<sources/images/InitialTests.png, id=100, 1987.425pt x 682.55pt>
+File: sources/images/InitialTests.png Graphic file (type png)
+
+<use sources/images/InitialTests.png>
+Package pdftex.def Info: sources/images/InitialTests.png used on input line 476
+.
+(pdftex.def)             Requested size: 398.33858pt x 136.7992pt.
+ [20 <./sources/images/InitialTests.png>]
+[21] [22] [23]
+<sources/images/cogito_logo1.png, id=115, 958.58125pt x 839.135pt>
+File: sources/images/cogito_logo1.png Graphic file (type png)
+
+<use sources/images/cogito_logo1.png>
+Package pdftex.def Info: sources/images/cogito_logo1.png used on input line 524
+.
+(pdftex.def)             Requested size: 256.0748pt x 224.1623pt.
+
+<sources/images/Screens.png, id=116, 481.8pt x 327.624pt>
+File: sources/images/Screens.png Graphic file (type png)
+
+<use sources/images/Screens.png>
+Package pdftex.def Info: sources/images/Screens.png used on input line 534.
+(pdftex.def)             Requested size: 398.33858pt x 270.87802pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17] [18 <./sources/images/TastyTree.png> <./sources/images/TastyTable.png>]
-[19] [20
+[24
 
-] <sources/images/InitialTests.png, id=101, 1987.425pt x 682.55pt>
-File: sources/images/InitialTests.png Graphic file (type png)
+ <./sources/images/cogito_logo1.png>]
+<sources/images/LevelDesign.png, id=121, 271.7352pt x 154.176pt>
+File: sources/images/LevelDesign.png Graphic file (type png)
 
-<use sources/images/InitialTests.png>
-Package pdftex.def Info: sources/images/InitialTests.png used on input line 501
-.
-(pdftex.def)             Requested size: 398.33858pt x 136.7992pt.
- [21 <./sources/images/InitialTests.png>]
-[22] [23] [24] [25
+<use sources/images/LevelDesign.png>
+Package pdftex.def Info: sources/images/LevelDesign.png used on input line 542.
 
-] <sources/images/Final.png, id=119, 278.9622pt x 82.3878pt>
+(pdftex.def)             Requested size: 341.43306pt x 193.73108pt.
+ [25 <./sources/images/Screens.png> <./sources/images/LevelDesign.png>]
+<sources/images/lemmings-walker-sprites.png, id=127, 513.92pt x 64.24pt>
+File: sources/images/lemmings-walker-sprites.png Graphic file (type png)
+
+<use sources/images/lemmings-walker-sprites.png>
+Package pdftex.def Info: sources/images/lemmings-walker-sprites.png used on inp
+ut line 552.
+(pdftex.def)             Requested size: 227.62204pt x 28.4529pt.
+
+<sources/images/Final.png, id=128, 278.9622pt x 82.3878pt>
 File: sources/images/Final.png Graphic file (type png)
 
 <use sources/images/Final.png>
-Package pdftex.def Info: sources/images/Final.png used on input line 570.
-(pdftex.def)             Requested size: 227.62204pt x 67.22652pt.
- [26
+Package pdftex.def Info: sources/images/Final.png used on input line 560.
+(pdftex.def)             Requested size: 170.71652pt x 50.41989pt.
 
- <./sources/images/Final.png>] [27
-
-] [28]
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 610.
-
-[29
-
-] [30] [31
-
-] [32]
-<sources/images/Lemming_walk_anim.png, id=143, 289.08pt x 72.27pt>
+<sources/images/Lemming_walk_anim.png, id=129, 289.08pt x 72.27pt>
 File: sources/images/Lemming_walk_anim.png Graphic file (type png)
 
 <use sources/images/Lemming_walk_anim.png>
 Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
-e 687.
+e 568.
 (pdftex.def)             Requested size: 170.71652pt x 42.67862pt.
- [33 <./sources/images/Lemming_walk_anim.png>] <sources/images/Texture_atlas.pn
-g, id=148, 1027.84pt x 513.92pt>
+ [26 <./sources/images/lemmings-walker-sprites.png (PNG copy)> <./sources/image
+s/Final.png> <./sources/images/Lemming_walk_anim.png>] [27
+
+]
+<sources/images/Layers.png, id=139, 693.34032pt x 442.65375pt>
+File: sources/images/Layers.png Graphic file (type png)
+
+<use sources/images/Layers.png>
+Package pdftex.def Info: sources/images/Layers.png used on input line 642.
+(pdftex.def)             Requested size: 369.88582pt x 236.1521pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28] <sources/images/Singletons.png, id=143, 587.94656pt x 261.97874pt>
+File: sources/images/Singletons.png Graphic file (type png)
+
+<use sources/images/Singletons.png>
+Package pdftex.def Info: sources/images/Singletons.png used on input line 652.
+(pdftex.def)             Requested size: 312.9803pt x 139.45969pt.
+
+<sources/images/GameObjects.png, id=144, 822.07124pt x 573.64313pt>
+File: sources/images/GameObjects.png Graphic file (type png)
+
+<use sources/images/GameObjects.png>
+Package pdftex.def Info: sources/images/GameObjects.png used on input line 662.
+
+(pdftex.def)             Requested size: 398.33858pt x 277.96274pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<sources/images/LemmingStatemachine.png, id=145, 641.39626pt x 546.54187pt>
+File: sources/images/LemmingStatemachine.png Graphic file (type png)
+
+<use sources/images/LemmingStatemachine.png>
+Package pdftex.def Info: sources/images/LemmingStatemachine.png used on input l
+ine 672.
+(pdftex.def)             Requested size: 284.52756pt x 242.45563pt.
+ [29 <./sources/images/Layers.png (PNG copy)> <./sources/images/Singletons.png 
+(PNG copy)>] [30 <./sources/images/GameObjects.png (PNG copy)> <./sources/image
+s/LemmingStatemachine.png (PNG copy)>] [31
+
+] [32] <sources/images/Menu.png, id=158, 963.6pt x 642.4pt>
+File: sources/images/Menu.png Graphic file (type png)
+
+<use sources/images/Menu.png>
+Package pdftex.def Info: sources/images/Menu.png used on input line 715.
+(pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
+
+<sources/images/Stats.png, id=159, 963.6pt x 642.4pt>
+File: sources/images/Stats.png Graphic file (type png)
+
+<use sources/images/Stats.png>
+Package pdftex.def Info: sources/images/Stats.png used on input line 721.
+(pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
+
+<sources/images/Instructions.png, id=160, 963.6pt x 642.4pt>
+File: sources/images/Instructions.png Graphic file (type png)
+
+<use sources/images/Instructions.png>
+Package pdftex.def Info: sources/images/Instructions.png used on input line 727
+.
+(pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
+
+<sources/images/About.png, id=161, 231.264pt x 154.176pt>
+File: sources/images/About.png Graphic file (type png)
+
+<use sources/images/About.png>
+Package pdftex.def Info: sources/images/About.png used on input line 733.
+(pdftex.def)             Requested size: 199.16928pt x 132.78636pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<sources/images/NewGame.png, id=162, 963.6pt x 642.4pt>
+File: sources/images/NewGame.png Graphic file (type png)
+
+<use sources/images/NewGame.png>
+Package pdftex.def Info: sources/images/NewGame.png used on input line 741.
+(pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
+ [33 <./sources/images/Menu.png> <./sources/images/Stats.png> <./sources/images
+/Instructions.png>]
+<sources/images/DebugMode.png, id=170, 963.6pt x 642.4pt>
+File: sources/images/DebugMode.png Graphic file (type png)
+
+<use sources/images/DebugMode.png>
+Package pdftex.def Info: sources/images/DebugMode.png used on input line 749.
+(pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
+File: sources/images/DebugMode.png Graphic file (type png)
+ <use sources/images/DebugMode.png>
+Package pdftex.def Info: sources/images/DebugMode.png used on input line 755.
+(pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34 <./sources/images/About.png> <./sources/images/NewGame.png> <./sources/imag
+es/DebugMode.png>] [35]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 788.
+ [36
+
+] [37] [38
+
+] [39]
+File: sources/images/Lemming_walk_anim.png Graphic file (type png)
+
+<use sources/images/Lemming_walk_anim.png>
+Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
+e 865.
+(pdftex.def)             Requested size: 170.71652pt x 42.67862pt.
+ [40]
+<sources/images/Texture_atlas.png, id=196, 1027.84pt x 513.92pt>
 File: sources/images/Texture_atlas.png Graphic file (type png)
 
 <use sources/images/Texture_atlas.png>
-Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 70
-3.
+Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 88
+1.
 (pdftex.def)             Requested size: 284.52756pt x 142.26552pt.
- [34 <./sources/images/Texture_atlas.png>] [35] [36] <sources/images/LevelNodes
-.png, id=160, 980.66376pt x 340.27126pt>
+ [41 <./sources/images/Texture_atlas.png>] [42] [43] <sources/images/LevelNodes
+.png, id=207, 980.66376pt x 340.27126pt>
 File: sources/images/LevelNodes.png Graphic file (type png)
 
 <use sources/images/LevelNodes.png>
-Package pdftex.def Info: sources/images/LevelNodes.png used on input line 771.
+Package pdftex.def Info: sources/images/LevelNodes.png used on input line 952.
 (pdftex.def)             Requested size: 398.33858pt x 138.21408pt.
 
-Overfull \hbox (57.66606pt too wide) in paragraph at lines 787--788
+Overfull \hbox (57.66606pt too wide) in paragraph at lines 968--969
 [][][][][][][][][][][][][][][][][] 
+ []
+
+[44
+
+ <./sources/images/LevelNodes.png>] [45] [46] [47]
+Overfull \hbox (21.6657pt too wide) in paragraph at lines 1082--1083
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (51.666pt too wide) in paragraph at lines 1103--1104
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (3.66551pt too wide) in paragraph at lines 1105--1106
+[][][][][][][][][][][][][][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[37
+[48] <sources/images/GraphSlide.png, id=226, 963.6pt x 642.4pt>
+File: sources/images/GraphSlide.png Graphic file (type png)
 
- <./sources/images/LevelNodes.png>] [38] [39] [40] [41] [42
+<use sources/images/GraphSlide.png>
+Package pdftex.def Info: sources/images/GraphSlide.png used on input line 1123.
 
-] [43
+(pdftex.def)             Requested size: 241.84842pt x 161.22694pt.
+ [49]
+<sources/images/InfiniteLoop.png, id=230, 481.8pt x 321.2pt>
+File: sources/images/InfiniteLoop.png Graphic file (type png)
 
-] [44]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ¶ in font cmr10!
+<use sources/images/InfiniteLoop.png>
+Package pdftex.def Info: sources/images/InfiniteLoop.png used on input line 113
+3.
+(pdftex.def)             Requested size: 241.84842pt x 161.23184pt.
+ [50 <./sources/images/GraphSlide.png> <./sources/images/InfiniteLoop.png (PNG 
+copy)>] [51] [52
 
-[45] [46] [47] [48
+] [53
 
-] [49
+] [54] [55] [56]
+[57] [58] [59] [60
 
-] [50
+] [61
 
 ]
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.b
-bl [51
+bl [62
 
-]) [52]
+]) [63]
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.a
 ux)
 
@@ -540,41 +680,39 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 57 (\begingroup)
+### semi simple group (level 1) entered at line 56 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5582 strings out of 493633
- 78325 string characters out of 3143378
- 183513 words of memory out of 3000000
- 8761 multiletter control sequences out of 15000+200000
- 12030 words of font info for 46 fonts, out of 3000000 for 9000
+ 5710 strings out of 493633
+ 81554 string characters out of 3143378
+ 192513 words of memory out of 3000000
+ 8874 multiletter control sequences out of 15000+200000
+ 11862 words of font info for 45 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,11n,49p,1730b,1843s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,11n,49p,1812b,1865s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmex10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi5.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
-b></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-</usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
-sr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
-local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
-al/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/tex
-live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texl
-ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texli
-ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
-e/2011/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+m/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi5.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></
+usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
+/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
+cal/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texl
+ive/2011/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on "/Projects/Cogito/documentation/Process Report/LaTeX/.texpadt
-mp/ProcessReport.pdf" (55 pages, 753276 bytes).
+mp/ProcessReport.pdf" (67 pages, 2563627 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
+ 337 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
