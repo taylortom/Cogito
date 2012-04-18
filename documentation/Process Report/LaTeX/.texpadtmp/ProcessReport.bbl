@@ -26,6 +26,12 @@ D.~Bourg and G.~Seeman.
 \newblock {\em AI For Game Developers}.
 \newblock O'Reilly, July 2004.
 
+\bibitem{breiman1984classification}
+L.~Breiman.
+\newblock {\em Classification and regression trees}.
+\newblock The Wadsworth and Brooks-Cole statistics-probability series. Chapman
+  \& Hall, 1984.
+
 \bibitem{Crevier:1993kl}
 D.~Crevier.
 \newblock {\em Ai: The Tumultuous History of the Search for Artificial
@@ -71,12 +77,6 @@ J.~McCarthy, M.~L. Minsky, N.~Rochester, and C.~E. Shannon.
 Microsoft.
 \newblock Microsoft earnings release, 2012.
 
-\bibitem{millington2006artificial}
-I.~Millington.
-\newblock {\em Artificial intelligence for games}.
-\newblock The Morgan Kaufmann series in interactive 3D technology. Elsevier,
-  2006.
-
 \bibitem{mitchell1997machine}
 T.~Mitchell.
 \newblock {\em Machine Learning}.
@@ -109,6 +109,16 @@ N.~Nilsson.
 \bibitem{Nintendo:2012nx}
 Nintendo.
 \newblock Consolidated sales transition by region, 2012.
+
+\bibitem{Quinlan86inductionof}
+J.~R. Quinlan.
+\newblock Induction of decision trees.
+\newblock {\em Mach. Learn}, pages 81--106, 1986.
+
+\bibitem{Quinlan:1993:CPM:152181}
+J.~R. Quinlan.
+\newblock {\em C4.5: programs for machine learning}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1993.
 
 \bibitem{:hc}
 S.~Rabin, editor.
@@ -153,11 +163,6 @@ K.~O. Stanley, B.~D. Bryant, and R.~Miikkulainen.
 \newblock Real-time neuroevolution in the nero video game.
 \newblock {\em IEEE Transactions on Evolutionary Computation}, 9(6), December
   2005.
-
-\bibitem{Sutton:2005kl}
-R.~S. Sutton and A.~G. Barto.
-\newblock {\em Reinforcement Learning: An Introduction}.
-\newblock The MIT Press, 2005.
 
 \bibitem{Watkins:1989mi}
 C.~J. C.~H. Watkins.

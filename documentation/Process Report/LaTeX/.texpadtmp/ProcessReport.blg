@@ -4,67 +4,67 @@ The top-level auxiliary file: .texpadtmp/ProcessReport.aux
 The style file: abbrv.bst
 Database file #1: Cogito.bib
 Warning--entry type for "Rerych:gb" isn't style-file defined
---line 12 of file Cogito.bib
+--line 40 of file Cogito.bib
 Warning--entry type for "Woodcock:bs" isn't style-file defined
---line 188 of file Cogito.bib
+--line 218 of file Cogito.bib
 Warning--entry type for "Woodcock:oq" isn't style-file defined
---line 249 of file Cogito.bib
+--line 279 of file Cogito.bib
 Warning--entry type for ":cr" isn't style-file defined
---line 387 of file Cogito.bib
+--line 417 of file Cogito.bib
 Warning--entry type for "Nintendo:2012nx" isn't style-file defined
---line 395 of file Cogito.bib
+--line 425 of file Cogito.bib
 Warning--entry type for ":2012dq" isn't style-file defined
---line 403 of file Cogito.bib
+--line 433 of file Cogito.bib
 Warning--entry type for "Sheffield:2008fk" isn't style-file defined
---line 420 of file Cogito.bib
+--line 450 of file Cogito.bib
 Warning--entry type for "Ng:uq" isn't style-file defined
---line 590 of file Cogito.bib
+--line 620 of file Cogito.bib
 Warning--entry type for "McCarthy:1955ve" isn't style-file defined
---line 717 of file Cogito.bib
+--line 747 of file Cogito.bib
 Warning--to sort, need author or key in :2011zt
 Warning--empty author in :2011zt
 Warning--empty note in Mitchell:2006fv
 Warning--empty note in Nilsson:2010qa
 Warning--empty year in :hc
-You've used 34 entries,
+You've used 35 entries,
             2118 wiz_defined-function locations,
-            684 strings with 7927 characters,
-and the built_in function-call counts, 8004 in all, are:
-= -- 735
-> -- 373
-< -- 0
-+ -- 156
+            693 strings with 8079 characters,
+and the built_in function-call counts, 8331 in all, are:
+= -- 773
+> -- 374
+< -- 1
++ -- 157
 - -- 118
-* -- 432
-:= -- 1422
-add.period$ -- 98
-call.type$ -- 34
-change.case$ -- 151
+* -- 447
+:= -- 1470
+add.period$ -- 101
+call.type$ -- 35
+change.case$ -- 154
 chr.to.int$ -- 0
-cite$ -- 39
-duplicate$ -- 325
-empty$ -- 687
+cite$ -- 40
+duplicate$ -- 343
+empty$ -- 717
 format.name$ -- 118
-if$ -- 1647
+if$ -- 1723
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 28
-newline$ -- 163
-num.names$ -- 67
-pop$ -- 224
+int.to.str$ -- 35
+missing$ -- 29
+newline$ -- 168
+num.names$ -- 69
+pop$ -- 226
 preamble$ -- 1
-purify$ -- 127
+purify$ -- 129
 quote$ -- 0
-skip$ -- 238
+skip$ -- 253
 stack$ -- 0
-substring$ -- 196
-swap$ -- 33
-text.length$ -- 0
+substring$ -- 228
+swap$ -- 41
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 118
+type$ -- 122
 warning$ -- 5
-while$ -- 70
-width$ -- 36
-write$ -- 329
+while$ -- 75
+width$ -- 37
+write$ -- 341
 (There were 14 warnings)

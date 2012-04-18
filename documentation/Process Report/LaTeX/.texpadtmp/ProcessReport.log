@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  12 APR 2012 23:35
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  18 APR 2012 01:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -382,293 +382,305 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
  [2 <./sources/images/lemmings3.png (PNG copy)>] [3] [4] [5
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 197.
-
- (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 197.
-
-[6] [7] [8] <sources/images/RLDiagram.png, id=52, 153.4533pt x 122.1363pt>
+] [6] [7]
+<sources/images/RLDiagram.png, id=48, 153.4533pt x 122.1363pt>
 File: sources/images/RLDiagram.png Graphic file (type png)
 
 <use sources/images/RLDiagram.png>
-Package pdftex.def Info: sources/images/RLDiagram.png used on input line 253.
+Package pdftex.def Info: sources/images/RLDiagram.png used on input line 229.
 (pdftex.def)             Requested size: 199.16928pt x 158.53676pt.
- [9 <./sources/images/RLDiagram.png>]
-[10] [11] [12]
+ [8 <./sources/images/RLDiagram.png>]
+[9] [10]
+<sources/images/ReplicatedSubtrees.png, id=70, 260.975pt x 249.93375pt>
+File: sources/images/ReplicatedSubtrees.png Graphic file (type png)
+
+<use sources/images/ReplicatedSubtrees.png>
+Package pdftex.def Info: sources/images/ReplicatedSubtrees.png used on input li
+ne 297.
+(pdftex.def)             Requested size: 170.71652pt x 163.49614pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 307.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 307.
+ [11]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [13]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [14] [15]
-<sources/images/TastyTree.png, id=86, 832.10875pt x 562.1pt>
+ [12 <./sources/images/ReplicatedSubtrees.png>] [13]
+<sources/images/TastyTree.png, id=80, 832.10875pt x 562.1pt>
 File: sources/images/TastyTree.png Graphic file (type png)
 
 <use sources/images/TastyTree.png>
-Package pdftex.def Info: sources/images/TastyTree.png used on input line 431.
+Package pdftex.def Info: sources/images/TastyTree.png used on input line 365.
 (pdftex.def)             Requested size: 227.62204pt x 153.75888pt.
 
-<sources/images/TastyTable.png, id=87, 622.325pt x 269.005pt>
+<sources/images/TastyTable.png, id=81, 622.325pt x 269.005pt>
 File: sources/images/TastyTable.png Graphic file (type png)
 
 <use sources/images/TastyTable.png>
-Package pdftex.def Info: sources/images/TastyTable.png used on input line 432.
+Package pdftex.def Info: sources/images/TastyTable.png used on input line 366.
 (pdftex.def)             Requested size: 227.62204pt x 98.38918pt.
- [16 <./sources/images/TastyTree.png> <./sources/images/TastyTable.png>] [17] [
-18] [19
 
-]
-<sources/images/InitialTests.png, id=100, 1987.425pt x 682.55pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14] [15 <./sources/images/TastyTree.png> <./sources/images/TastyTable.png>]
+[16] [17
+
+] <sources/images/InitialTests.png, id=95, 1987.425pt x 682.55pt>
 File: sources/images/InitialTests.png Graphic file (type png)
 
 <use sources/images/InitialTests.png>
-Package pdftex.def Info: sources/images/InitialTests.png used on input line 476
+Package pdftex.def Info: sources/images/InitialTests.png used on input line 402
 .
 (pdftex.def)             Requested size: 398.33858pt x 136.7992pt.
- [20 <./sources/images/InitialTests.png>]
-[21] [22] [23]
-<sources/images/cogito_logo1.png, id=115, 958.58125pt x 839.135pt>
+ [18 <./sources/images/InitialTests.png>]
+[19] [20] <sources/images/cogito_logo1.png, id=106, 958.58125pt x 839.135pt>
 File: sources/images/cogito_logo1.png Graphic file (type png)
 
 <use sources/images/cogito_logo1.png>
-Package pdftex.def Info: sources/images/cogito_logo1.png used on input line 524
+Package pdftex.def Info: sources/images/cogito_logo1.png used on input line 440
 .
 (pdftex.def)             Requested size: 256.0748pt x 224.1623pt.
 
-<sources/images/Screens.png, id=116, 481.8pt x 327.624pt>
+<sources/images/Screens.png, id=107, 481.8pt x 327.624pt>
 File: sources/images/Screens.png Graphic file (type png)
 
 <use sources/images/Screens.png>
-Package pdftex.def Info: sources/images/Screens.png used on input line 534.
+Package pdftex.def Info: sources/images/Screens.png used on input line 450.
 (pdftex.def)             Requested size: 398.33858pt x 270.87802pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24
+[21
 
  <./sources/images/cogito_logo1.png>]
-<sources/images/LevelDesign.png, id=121, 271.7352pt x 154.176pt>
+<sources/images/LevelDesign.png, id=113, 271.7352pt x 154.176pt>
 File: sources/images/LevelDesign.png Graphic file (type png)
 
 <use sources/images/LevelDesign.png>
-Package pdftex.def Info: sources/images/LevelDesign.png used on input line 542.
+Package pdftex.def Info: sources/images/LevelDesign.png used on input line 458.
 
 (pdftex.def)             Requested size: 341.43306pt x 193.73108pt.
- [25 <./sources/images/Screens.png> <./sources/images/LevelDesign.png>]
-<sources/images/lemmings-walker-sprites.png, id=127, 513.92pt x 64.24pt>
+ [22 <./sources/images/Screens.png> <./sources/images/LevelDesign.png>]
+<sources/images/lemmings-walker-sprites.png, id=119, 513.92pt x 64.24pt>
 File: sources/images/lemmings-walker-sprites.png Graphic file (type png)
 
 <use sources/images/lemmings-walker-sprites.png>
 Package pdftex.def Info: sources/images/lemmings-walker-sprites.png used on inp
-ut line 552.
+ut line 468.
 (pdftex.def)             Requested size: 227.62204pt x 28.4529pt.
 
-<sources/images/Final.png, id=128, 278.9622pt x 82.3878pt>
+<sources/images/Final.png, id=120, 278.9622pt x 82.3878pt>
 File: sources/images/Final.png Graphic file (type png)
 
 <use sources/images/Final.png>
-Package pdftex.def Info: sources/images/Final.png used on input line 560.
+Package pdftex.def Info: sources/images/Final.png used on input line 476.
 (pdftex.def)             Requested size: 170.71652pt x 50.41989pt.
 
-<sources/images/Lemming_walk_anim.png, id=129, 289.08pt x 72.27pt>
+<sources/images/Lemming_walk_anim.png, id=121, 289.08pt x 72.27pt>
 File: sources/images/Lemming_walk_anim.png Graphic file (type png)
 
 <use sources/images/Lemming_walk_anim.png>
 Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
-e 568.
+e 484.
 (pdftex.def)             Requested size: 170.71652pt x 42.67862pt.
- [26 <./sources/images/lemmings-walker-sprites.png (PNG copy)> <./sources/image
-s/Final.png> <./sources/images/Lemming_walk_anim.png>] [27
+ [23 <./sources/images/lemmings-walker-sprites.png (PNG copy)> <./sources/image
+s/Final.png> <./sources/images/Lemming_walk_anim.png>] [24
 
 ]
-<sources/images/Layers.png, id=139, 693.34032pt x 442.65375pt>
+<sources/images/Layers.png, id=130, 693.34032pt x 442.65375pt>
 File: sources/images/Layers.png Graphic file (type png)
 
 <use sources/images/Layers.png>
-Package pdftex.def Info: sources/images/Layers.png used on input line 642.
+Package pdftex.def Info: sources/images/Layers.png used on input line 558.
 (pdftex.def)             Requested size: 369.88582pt x 236.1521pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28] <sources/images/Singletons.png, id=143, 587.94656pt x 261.97874pt>
+[25] <sources/images/Singletons.png, id=134, 587.94656pt x 261.97874pt>
 File: sources/images/Singletons.png Graphic file (type png)
 
 <use sources/images/Singletons.png>
-Package pdftex.def Info: sources/images/Singletons.png used on input line 652.
+Package pdftex.def Info: sources/images/Singletons.png used on input line 568.
 (pdftex.def)             Requested size: 312.9803pt x 139.45969pt.
 
-<sources/images/GameObjects.png, id=144, 822.07124pt x 573.64313pt>
+<sources/images/GameObjects.png, id=135, 822.07124pt x 573.64313pt>
 File: sources/images/GameObjects.png Graphic file (type png)
 
 <use sources/images/GameObjects.png>
-Package pdftex.def Info: sources/images/GameObjects.png used on input line 662.
+Package pdftex.def Info: sources/images/GameObjects.png used on input line 578.
 
 (pdftex.def)             Requested size: 398.33858pt x 277.96274pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<sources/images/LemmingStatemachine.png, id=145, 641.39626pt x 546.54187pt>
+<sources/images/LemmingStatemachine.png, id=136, 641.39626pt x 546.54187pt>
 File: sources/images/LemmingStatemachine.png Graphic file (type png)
 
 <use sources/images/LemmingStatemachine.png>
 Package pdftex.def Info: sources/images/LemmingStatemachine.png used on input l
-ine 672.
+ine 588.
 (pdftex.def)             Requested size: 284.52756pt x 242.45563pt.
- [29 <./sources/images/Layers.png (PNG copy)> <./sources/images/Singletons.png 
-(PNG copy)>] [30 <./sources/images/GameObjects.png (PNG copy)> <./sources/image
-s/LemmingStatemachine.png (PNG copy)>] [31
+ [26 <./sources/images/Layers.png (PNG copy)> <./sources/images/Singletons.png 
+(PNG copy)>] [27 <./sources/images/GameObjects.png (PNG copy)> <./sources/image
+s/LemmingStatemachine.png (PNG copy)>] [28
 
-] [32] <sources/images/Menu.png, id=158, 963.6pt x 642.4pt>
+] [29] <sources/images/Menu.png, id=150, 963.6pt x 642.4pt>
 File: sources/images/Menu.png Graphic file (type png)
 
 <use sources/images/Menu.png>
-Package pdftex.def Info: sources/images/Menu.png used on input line 715.
+Package pdftex.def Info: sources/images/Menu.png used on input line 631.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
 
-<sources/images/Stats.png, id=159, 963.6pt x 642.4pt>
+<sources/images/Stats.png, id=151, 963.6pt x 642.4pt>
 File: sources/images/Stats.png Graphic file (type png)
 
 <use sources/images/Stats.png>
-Package pdftex.def Info: sources/images/Stats.png used on input line 721.
+Package pdftex.def Info: sources/images/Stats.png used on input line 637.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
 
-<sources/images/Instructions.png, id=160, 963.6pt x 642.4pt>
+<sources/images/Instructions.png, id=152, 963.6pt x 642.4pt>
 File: sources/images/Instructions.png Graphic file (type png)
 
 <use sources/images/Instructions.png>
-Package pdftex.def Info: sources/images/Instructions.png used on input line 727
+Package pdftex.def Info: sources/images/Instructions.png used on input line 643
 .
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
 
-<sources/images/About.png, id=161, 231.264pt x 154.176pt>
+<sources/images/About.png, id=153, 231.264pt x 154.176pt>
 File: sources/images/About.png Graphic file (type png)
 
 <use sources/images/About.png>
-Package pdftex.def Info: sources/images/About.png used on input line 733.
+Package pdftex.def Info: sources/images/About.png used on input line 649.
 (pdftex.def)             Requested size: 199.16928pt x 132.78636pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<sources/images/NewGame.png, id=162, 963.6pt x 642.4pt>
+<sources/images/NewGame.png, id=154, 963.6pt x 642.4pt>
 File: sources/images/NewGame.png Graphic file (type png)
 
 <use sources/images/NewGame.png>
-Package pdftex.def Info: sources/images/NewGame.png used on input line 741.
+Package pdftex.def Info: sources/images/NewGame.png used on input line 657.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
- [33 <./sources/images/Menu.png> <./sources/images/Stats.png> <./sources/images
+ [30 <./sources/images/Menu.png> <./sources/images/Stats.png> <./sources/images
 /Instructions.png>]
-<sources/images/DebugMode.png, id=170, 963.6pt x 642.4pt>
+<sources/images/DebugMode.png, id=161, 963.6pt x 642.4pt>
 File: sources/images/DebugMode.png Graphic file (type png)
 
 <use sources/images/DebugMode.png>
-Package pdftex.def Info: sources/images/DebugMode.png used on input line 749.
+Package pdftex.def Info: sources/images/DebugMode.png used on input line 665.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
 File: sources/images/DebugMode.png Graphic file (type png)
  <use sources/images/DebugMode.png>
-Package pdftex.def Info: sources/images/DebugMode.png used on input line 755.
+Package pdftex.def Info: sources/images/DebugMode.png used on input line 671.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34 <./sources/images/About.png> <./sources/images/NewGame.png> <./sources/imag
-es/DebugMode.png>] [35]
+[31 <./sources/images/About.png> <./sources/images/NewGame.png> <./sources/imag
+es/DebugMode.png>] [32]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 788.
- [36
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 704.
+ [33
 
-] [37] [38
+] [34] [35
 
-] [39]
+] [36]
 File: sources/images/Lemming_walk_anim.png Graphic file (type png)
 
 <use sources/images/Lemming_walk_anim.png>
 Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
-e 865.
+e 781.
 (pdftex.def)             Requested size: 170.71652pt x 42.67862pt.
- [40]
-<sources/images/Texture_atlas.png, id=196, 1027.84pt x 513.92pt>
+ [37]
+<sources/images/Texture_atlas.png, id=187, 1027.84pt x 513.92pt>
 File: sources/images/Texture_atlas.png Graphic file (type png)
 
 <use sources/images/Texture_atlas.png>
-Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 88
-1.
+Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 79
+7.
 (pdftex.def)             Requested size: 284.52756pt x 142.26552pt.
- [41 <./sources/images/Texture_atlas.png>] [42] [43] <sources/images/LevelNodes
-.png, id=207, 980.66376pt x 340.27126pt>
+ [38 <./sources/images/Texture_atlas.png>] [39] [40] <sources/images/LevelNodes
+.png, id=199, 980.66376pt x 340.27126pt>
 File: sources/images/LevelNodes.png Graphic file (type png)
 
 <use sources/images/LevelNodes.png>
-Package pdftex.def Info: sources/images/LevelNodes.png used on input line 952.
+Package pdftex.def Info: sources/images/LevelNodes.png used on input line 868.
 (pdftex.def)             Requested size: 398.33858pt x 138.21408pt.
 
-Overfull \hbox (57.66606pt too wide) in paragraph at lines 968--969
+Overfull \hbox (57.66606pt too wide) in paragraph at lines 884--885
 [][][][][][][][][][][][][][][][][] 
  []
 
-[44
+[41
 
- <./sources/images/LevelNodes.png>] [45] [46] [47]
-Overfull \hbox (21.6657pt too wide) in paragraph at lines 1082--1083
+ <./sources/images/LevelNodes.png>] [42] [43] [44]
+Overfull \hbox (21.6657pt too wide) in paragraph at lines 998--999
 [][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (51.666pt too wide) in paragraph at lines 1103--1104
+Overfull \hbox (51.666pt too wide) in paragraph at lines 1019--1020
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (3.66551pt too wide) in paragraph at lines 1105--1106
+Overfull \hbox (3.66551pt too wide) in paragraph at lines 1021--1022
 [][][][][][][][][][][][][][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48] <sources/images/GraphSlide.png, id=226, 963.6pt x 642.4pt>
+[45] <sources/images/GraphSlide.png, id=217, 963.6pt x 642.4pt>
 File: sources/images/GraphSlide.png Graphic file (type png)
 
 <use sources/images/GraphSlide.png>
-Package pdftex.def Info: sources/images/GraphSlide.png used on input line 1123.
+Package pdftex.def Info: sources/images/GraphSlide.png used on input line 1039.
 
 (pdftex.def)             Requested size: 241.84842pt x 161.22694pt.
- [49]
-<sources/images/InfiniteLoop.png, id=230, 481.8pt x 321.2pt>
+ [46]
+<sources/images/InfiniteLoop.png, id=222, 481.8pt x 321.2pt>
 File: sources/images/InfiniteLoop.png Graphic file (type png)
 
 <use sources/images/InfiniteLoop.png>
-Package pdftex.def Info: sources/images/InfiniteLoop.png used on input line 113
-3.
+Package pdftex.def Info: sources/images/InfiniteLoop.png used on input line 104
+9.
 (pdftex.def)             Requested size: 241.84842pt x 161.23184pt.
- [50 <./sources/images/GraphSlide.png> <./sources/images/InfiniteLoop.png (PNG 
-copy)>] [51] [52
+ [47 <./sources/images/GraphSlide.png> <./sources/images/InfiniteLoop.png (PNG 
+copy)>] [48] [49
 
-] [53
+] [50
 
-] [54] [55] [56]
-[57] [58] [59] [60
+] [51] [52] [53]
+[54] [55] [56] [57
 
-] [61
+] [58
 
 ]
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.b
-bl [62
+bl [59
 
-]) [63]
+]) [60]
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.a
 ux)
 
@@ -683,10 +695,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### semi simple group (level 1) entered at line 56 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5710 strings out of 493633
- 81554 string characters out of 3143378
+ 5716 strings out of 493633
+ 81776 string characters out of 3143378
  192513 words of memory out of 3000000
- 8874 multiletter control sequences out of 15000+200000
+ 8879 multiletter control sequences out of 15000+200000
  11862 words of font info for 45 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  38i,11n,49p,1812b,1865s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -709,10 +721,10 @@ xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
 live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texl
 ive/2011/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on "/Projects/Cogito/documentation/Process Report/LaTeX/.texpadt
-mp/ProcessReport.pdf" (67 pages, 2563627 bytes).
+mp/ProcessReport.pdf" (64 pages, 2571043 bytes).
 PDF statistics:
- 337 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
+ 327 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
