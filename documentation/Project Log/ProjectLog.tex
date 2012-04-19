@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage[english]{babel}
 \usepackage{fancyhdr} 
+\usepackage{multirow}
 \usepackage[pdftex]{graphicx}
 \usepackage{listings}      
 \usepackage{pdfpages}
@@ -11,6 +12,7 @@
 \usepackage{url}
 
 \makeatletter
+
 
 %
 % Some custom definitions
@@ -55,38 +57,121 @@
 \topmargin -0.3in
 \setlength{\textwidth}{14cm}
 \setlength{\textheight}{23cm}
+\lstset{language=C} 
 
-\chapter{Project Log}
-	
-A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
+\begin{document}
 
-\subsection*{Week 10 (29th Jan)}
+%
+% Cover page
+%
+\begin{titlepage}
+\begin{center}
 
-I added a lot more to the AI code this week:
+\includegraphics[width=120mm]{sources/images/cogito_logo_main.png}
 
-\begin{itemize}
-	\item Added `decision nodes' which act as trigger objects in the environment (in addition to the trapdoors) - used at the end of platforms, but can be used anywhere.
-	\item Added code to calculate which options an agent has available (from: left, left w/helmet, right, right w/helmet, equip umbrella, down, down umbrella)
-	\item At the moment, the agents just pick a random action (no learning yet).
-	\item Added method to Utils class to convert an action enum into a string
-	\item Realised the game rating algorithm was almost useless (too much weighting in time taken), so fixed/simplified it.
-	\item I also removed the pause button, instead touching anywhere on-screen pauses the game.
+\HRuleLight\\[0.5cm]
+
+\begin{minipage}{0.45\textwidth}
+	\begin{flushleft}\large
+		\emph{Author:}\\
+			\textbf{Thomas \textsc{Taylor}}\\[0.27cm]
+			Computer Science (Games)
+			Student Number: 08813043
+	\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.43\textwidth}
+	\begin{flushright} \large
+		\emph{Supervisor:} \\
+		\textbf{Graham \textsc{Winstanley}}\\[0.25cm]
+	\end{flushright}
+\end{minipage}\\[0.75cm] 
+
+\HRuleLight\\[0.2cm]
+
+\large School of Computing, Engineering and Mathematics\\ \textbf{University of Brighton}
+
+\vfill
+\Huge Project Log\\
+\large April, 2012\\
+
+\end{center}
+\end{titlepage}
+
+
+
+%
+% Table of contents
+%
+{
+	\renewcommand\thepage{}
+	\setcounter{tocdepth}{0}
+	\tableofcontents
+	\clearpage
+}
+
+% reset page count
+\setcounter{page}{1}
+
+
+%
+% Start of content
+%
+
+\part{Development Diary}{This section contains a week-by-week diary of my project's development}
+
+
+
+\subsection{Week 10 [29th Jan]}
+
+This week I added a lot more code to the AI component of my project:
+
+\begin{itemize} 
+
+\item I added the `decision nodes' which act as trigger objects in the environment (as well as the trapdoors). These nodes are placed at the end of platforms, but can be used anwhere in the level.
+
+\item I added code to calculate which actions are available to an agent at any point (options are: left, left with helmet, right, right with helmet, equip umbrella, down, down with umbrella).
+
+\item Currently, the agents simply choose a random action from those available (no learning yet).
+
+\item I added a method to the Utils class to convert any action into its string equivalent (this is used for debugging purposes).
+
+\item I realised that the game rating algorithm was almost completely useless. It had far too much weighting on the time taken, so I simplified it slightly, and no works better.
+
+\item I also removed the pause button from the game, instead deciding to allow the player to pause the game by touching anywhere on screen (as I didn't need any other user-input).
+
 \end{itemize}
 
-\subsection*{Week 11 (5th Feb)}
 
-I found that there was an issue with the 'performSelector:withObject:afterDelay' method in the NSObject class; for some reason the method wasn't delaying for the correct amount of time, so I implemented my own method to do the same thing (changeState:afterDelay). The problem was causing my agents to look as though they were walking with air over the edge of platforms. However, my alternative version counts the frames so if for some reason I drop any frames for performance reasons, the agent wouldn't change state at the right time.
+\subsection{Week 11 [5th Feb]}
 
-\ \\I also changed the inheritance hierarchy to make more sense. It's now:\ \\
+This week I added a lot more code to the AI component of my project:
 
-\begin{center}
-GameObject\\
-Lemming\\
-CogitoAgent
-\end{center}
+\begin{itemize} 
 
-This meant that I could remove a few variables which had n place in the Cogito agent class (umbrellaUses/helmetUses).
+\item I found that there was an issue with the \emph{performSelector:withObject:afterDelay} method in the \emph{NSObject} class. I found that for some reason the method wasn't being delayed for the correct amount of time, so I implemented my own method to do the same thing (\emph{changeState:afterDelay}). The problem was causing my agents to look as if they were walking on air. My alternative version counts the frames, so if for some reason the game's framerate drops, there are still big problems (the agents wouldn't change state at the right time).
 
-I also added a lot of code for the Q-learning and created a State class to encapsulate the relevant data about a state (its associated GameObject for example).
+\item I also changed the inheritance heirarchy to make more sense. It is now:
+	
+
+\item Currently, the agents simply choose a random action from those available (no learning yet).
+
+\item I added a method to the Utils class to convert any action into its string equivalent (this is used for debugging purposes).
+
+\item I realised that the game rating algorithm was almost completely useless. It had far too much weighting on the time taken, so I simplified it slightly, and no works better.
+
+\item I also removed the pause button from the game, instead deciding to allow the player to pause the game by touching anywhere on screen (as I didn't need any other user-input).
+
+\end{itemize}
+
+
+
+
+%
+% New part
+%
+
+\part{Git Log}{This section contains a log of all of my git commits alon the course of my project's development}
+
+
 
 \end{document}

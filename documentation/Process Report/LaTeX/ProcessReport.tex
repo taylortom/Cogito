@@ -429,7 +429,7 @@ The first task I carried out when designing my game was to create some initial a
 	
 \section{Logo Design}
 	
-I went through a few different iterations (see Figure 5), settling on a blue/white/black colour scheme. I wanted the art style to be clean and unobtrusive, so didn't want to use a lot of bright colours. I went for a mainly monochromatic colour scheme, with the blue used sparingly for emphasis. This would be the colour scheme that I would use throughout my game.
+I went through a few different iterations (see Figure 6), settling on a blue/white/black colour scheme. I wanted the art style to be clean and unobtrusive, so didn't want to use a lot of bright colours. I went for a mainly monochromatic colour scheme, with the blue used sparingly for emphasis. This would be the colour scheme that I would use throughout my game.
 	
 \begin{figure}[h!]
   \centering
@@ -447,7 +447,7 @@ After settling on a colour scheme and basic art style, I then went about creatin
     \caption{Initial Screen Mockups and Art Direction}
 \end{figure}
 
-I also created a basic level design to give me more of an idea as to how a level might look. The idea of this was to get more of an idea of exactly how I might implement the level later; how the agents might transition between the different levels etc. I also decided to split the level into a number of `nodes' (visible in Figure 7). This would serve to simplify the agent's navigation, and is a similar idea to navigation meshes used in many games.  
+I also created a basic level design to give me more of an idea as to how a level might look. The idea of this was to get more of an idea of exactly how I might implement the level later; how the agents might transition between the different levels etc. I also decided to split the level into a number of `nodes' (visible in Figure 8). This would serve to simplify the agent's navigation, and is a similar idea to navigation meshes used in many games.  
 
 \begin{figure}[h!]
   \centering
@@ -457,7 +457,7 @@ I also created a basic level design to give me more of an idea as to how a level
 	
 \section{Sprite Design}
 		
-I took a lot of guidance from the original sprite style and animation used in the original Lemmings game (see Figure 8). I decided to stay with the simple 8-bit art style for the sake of simplicity.
+I took a lot of guidance from the original sprite style and animation used in the original Lemmings game (see Figure 9). I decided to stay with the simple 8-bit art style for the sake of simplicity.
 	
 \begin{figure}[h!]
   \centering
@@ -483,63 +483,23 @@ I later added a faint outline to the agents, as I found when testing the game th
 	
 \chapter{System Design}
 
-After creating the initial artwork, I had to create a more concrete outline of the intended functionality for my game. From this specification, I could then start to design my system, structuring in into logical interrelated classes. To create a basic specification of my game, I split it into 3 logic components: the menu structure, the game component, and the AI system. I outline each briefly in this section.
+After creating initial artwork, I created a `brief' or specification to give a more concrete outline of the functionality for my game. From this, I could then structure it in into logical interrelated classes. I split my game into 3 logical components: the menu structure, the game component, and the AI system. I outline each briefly in this section.
 
 \section{Menu}
 
-Rather than just simply have the game start as soon as it is loaded up, I wanted to implement a simple menu system. This would also allow me to add other screens such as instructions for the player. I wanted the main functionality of the menu system to be as follows:
-
-\begin{itemize}
-	\item Have a link to the new game screen
-	\item Have a link to game instructions
-	\item Have a link to an `about' screen
-	\item Be uncluttered
-	\item Only to have one `level' (i.e. no complex nested menus)
-\end{itemize}
-
-Included in the menu component were two screens: the instructions screen, and the `about' screen. The former giving the player some basic instructions as to how to `play' the game, and the latter providing a bit of background information about the project.
+Rather than start the game start as soon as it is loaded up, I wanted to implement a simple menu system. My menu needed to obviously contain a link to a new game scree, as well as links to the game instructions and an `about' screen. My menu needed to be uncluttered, and ideally have one `level' (i.e. no nested menus). Included in the menu component were two screens: the instructions screen to give basic information about playing the game, and the `about' screen to give a bit of background information about the project.
 
 \section{Game}
 
-The `game' component encompasses the core functionality of the game (without the AI capabilities) such as displaying the graphics, controlling animations etc. My game component need to encompass the following:
-
-\begin{itemize}
-	\item Load and transition between the different scenes (i.e. menu \& game over scene etc.)
-	\item Load game assets and external level file
-	\item Animate game assets
-	\item Build levels from the external assets
-	\item Control the running of the game (game timer, pausing/resuming and exiting)
-	\item Manage characters (adding, removing, watch for the end of the game)
-	\item Display a game over screen with game rating
-\end{itemize}
+My `game' component needed to be able to load and transition between different scenes (i.e. menu and instructions scenes). It also needed to load the external game assets and level files and build the levels from these. It also needed to be able to animate these assets. I also needed to control the actual running of the game (i.e a game timer, pausing/resuming and exiting). I needed to implement some way to add and remove the characters, and detect when the game has ended. Finally, I wanted to implement a game over screen with a game rating. I also needed some way to pause/exit the game.
 
 \subsection{Lemming Functionality}
 
-In addition to the basic game functionality outlined above, I also needed to specify how I wanted my lemming game characters to function. 
-
-\begin{itemize}
-	\item Be able to move around the level
-	\item Be able to change state as necessary
-	\item Have basic collision detection
-	\item Be able to animate
-	\item Be able to detect if an end condition's reached
-\end{itemize}
+The lemming characters needed to be able to move around the level, change state, have basic collision detection, play basic animations and to be able to detect if an end condition has been reached.
 
 \section{AI System}
 
-Rather than just simply have the game start as soon as it is loaded up, I wanted to implement a simple menu system. This would also allow me to add other screens such as instructions for the player. I wanted the main functionality of the menu system to be as follows:
-
-\begin{itemize}
-	\item Detect when agent has reached a decision point
-	\item Be able to generate a list of possible actions (and choose randomly)
-	\item Be able to dynamically create and maintain a knowledgebase of routes using the following learning types:
-	\begin{itemize}
-		\item Shortest route
-		\item Decision tree
-		\item Reinforcement learning (Q-learning)
-	\end{itemize}
-	\item Be able to use this knowledgebase to generate an optimum route
-\end{itemize}
+The AI system was required to generate a list of actions available to the agents, and detect when an agent has reached a `decision point'. The system also needed to be able to dynamically create and maintain a knowledgebase of routes using: shortest route, decision tree and reinforcement learning (Q-learning) methods. The agents should have a `learning mode' which is used to form the knowledgebase. This knowledgebase should then be used to generate an optmimum policy (or route).
 
 \section{Class Diagrams}
 
@@ -547,7 +507,7 @@ I created some initial class diagrams to specify how I intended to design the sy
 
 \subsection{Layers}
 
-The layers contain the actual game content, such as background sprites, the character sprites, menu items, text labels etc. These are the initial specifications for the layers in my game (Figure 11).
+The layers contain the actual game content, such as background sprites, the character sprites, menu items, text labels etc. These are the initial specifications for the layers in my game (Figure 12).
 
 \begin{figure}[h!]
   \centering
@@ -557,7 +517,7 @@ The layers contain the actual game content, such as background sprites, the char
 
 \subsection{Singletons}
 
-I intended to use a number of classes using the singleton design pattern to manage the shared data in my game. I initially decided to use LemmingManager and GameManager singletons, although I ended up adding more in my final system (Figure 12).
+I intended to use a number of classes using the singleton design pattern to manage the shared data in my game. I initially decided to use LemmingManager and GameManager singletons, although I ended up adding more in my final system (Figure 13).
 
 \begin{figure}[h!]
   \centering
@@ -567,7 +527,7 @@ I intended to use a number of classes using the singleton design pattern to mana
 
 \subsection{GameObjects}
 
-I planned to create a base class called `GameObject' which would be inherited by all of the game objects I would be using in my game. Objects such as the agents and the level terrain (Figure 13).
+I planned to create a base class called `GameObject' which would be inherited by all of the game objects I would be using in my game. Objects such as the agents and the level terrain (Figure 14).
 
 \begin{figure}[h!]
   \centering
@@ -577,7 +537,7 @@ I planned to create a base class called `GameObject' which would be inherited by
 	
 \section{Agent States}
 
-I also created a basic state diagram to map out the intended states for my game characters (Figure 14).
+I also created a basic state diagram to map out the intended states for my game characters (Figure 15).
 
 \begin{figure}[h!]
   \centering
@@ -586,23 +546,23 @@ I also created a basic state diagram to map out the intended states for my game 
 \end{figure}
 	
 	
-\chapter{Social, Legal, Ethical and Professional Issues}
+\section{Social, Legal, Ethical and Professional Issues}
 
 When designing my game, I had to consider a number of social, legal, ethical and professional issues to ensure that my product and its development complied to any applicable laws and ethical standards.
 
-\section{Intellectual Property}
+\subsection{Intellectual Property}
 
 All of the intellectual property used in my game is my own, with the exception of the Cocos2D framework which I used. I have cited that I have used the engine in the game itself on the `about' screen. I have also included a copy of the relevant license in the source code. The engine is published under the MIT licence, which states that it is free to use in proprietary software provided that all copies of the software also include a copy of the license. A big benefit of the MIT license is that software which uses MIT-licensed code has no obligation itself to be published using the same license, and can be completely closed-source.
 
-\section{Copyright Law}
+\subsection{Copyright Law}
 
 In order to ensure that my product complied with copyright laws, I decided to create all assets needed myself. This ensured that I didn't need permission from any third parties prior to developing/releasing my product. All of the assets such as the backgrounds, logos and animations have been created by me solely for the purpose of this project.
 
-\section{The Data Protection Act}
+\subsection{The Data Protection Act}
 
 I don't store any personal data about the user in my game, so there are no issues regarding the Data Protection Act. The only information I collect is data regarding the agent's learning in the game, which is not transmitted to any source, but is simply used within the game to provide some basic stats about the system.
 
-\section{Ethical Issues}
+\subsection{Ethical Issues}
 
 As I carried out my usability tests with the help of human subjects, I made sure that the subjects were kept completely anonymous and all information with regards to them confidential. There was no need for my to store any personal data about them, so this didn't present an issue.
 
@@ -614,60 +574,49 @@ As I carried out my usability tests with the help of human subjects, I made sure
 
 \part{The Product}{This section gives a detailed description of the actual product, along with screens.}
 
-\section{Introduction}
+\section{The Menu}
 
-
-
-\section{Navigating}
-
-Upon loading the game, you are greeted with the main menu screen. From here you can navigate to a number of other screens: start a new game, view game instructions, game stats and an `about' screen displaying some other useful information about the game.
+Upon loading the game, the player is presented with the main menu screen. From the menu, they can start a new game, view game instructions, view basic game stats and view some other useful information about the game on the `about' screen. The instructions and stats screens contain multiple pages of information, which can be navigated using the onscreen buttons (see Figure 16).
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=70mm]{sources/images/Menu}
-    \caption{Main Menu}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=70mm]{sources/images/Stats}
-    \caption{Game Stats}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=70mm]{sources/images/Instructions}
-    \caption{Instructions}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=70mm]{sources/images/About}
-    \caption{About}
+    \includegraphics[width=120mm]{sources/images/FinalScreens}
+    \caption{Main Menu and Related Screens}
 \end{figure}
 
 \section{Starting A Game}
 
+Before beginning a game, the player is presented with a new game screen allowing various game parameters to be tweaked (see Figure 17). On this screen, the player can move the sliders to adjust the number of agents and learning episodes in the game as well as the learning type. There is also the option to enable a shared knowledgebase (a feature currently only available when using reinforcement learning) to speed up learning, and an option to play the game in debug mode. In debug mode, the game displays the (usually invisible) `decision nodes' and the game framerate.
+
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=70mm]{sources/images/NewGame}
+    \includegraphics[width=80mm]{sources/images/Screen_NewGame}
     \caption{New Game}
 \end{figure}
 
 \section{Playing The Game}
 
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=70mm]{sources/images/DebugMode}
-    \caption{Game Screen}
-\end{figure}
+As soon as the parameters are confirmed on the new game screen, a level is chosen at random, and the game begins. When the game starts, the agents begin to spawn into the level at the top of the screen. The agents then begin to traverse the level and dynamically build up a knowledgebase according to the type of learning chosen. Initially, the agents are in `learning mode' and navigate the levels randomly, which helps to speed up the learning process. While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions. Based on these decisions, the agents will eventually reach an end condition: the agent either falls victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaches the level's exit; both signify the end of the current learning `episode'. This process repeats until the agent has completed the number of episodes (specified by the player when starting a new game), at which point the agent spawns for a final time (distinguishable by the `!' over the agent's head and highlighted in Figure 18). In this final episode, the agents use what they have learnt to create an optimal policy (or route). When all agents have completed this final episode, the game ends revealing a game over screen with some game statistics and a rating (see Figure 19).
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=70mm]{sources/images/DebugMode}
-    \caption{Debug Mode}
+    \includegraphics[width=140mm]{sources/images/Screen_Game}
+    \caption{In-game Screenshots}
 \end{figure}
 
+\begin{figure}
+  \centering
+    \includegraphics[width=80mm]{sources/images/Screen_GameOver}
+    \caption{The Game Over Screen}
+\end{figure}
+
+\paragraph{Pausing the game:} The game can be paused by simply touching the screen while in-game. Doing this brings up the pause `HUD' which displays useful data about the current game (see Figure 20). It also has the option to quit the game.
+
+\begin{figure}
+  \centering
+    \includegraphics[width=80mm]{sources/images/Screen_Pause}
+    \caption{The Pause Screen}
+\end{figure}
 
 %
 % New part
@@ -677,15 +626,11 @@ Upon loading the game, you are greeted with the main menu screen. From here you 
 
 \chapter{Coding Practices and Structure}
 
-When writing the code for my project, I tried to stick to standard code formatting conventions and use standard design patterns where possible, as outlined in this section.
+When writing the code for my project, I tried to stick to standard code formatting conventions and use standard design patterns where possible to ensure that my code was easily readible to others. 
 
-\subsection{Code Structure}
+\subsection{Commenting}
 
-When setting up all of my files, I followed a common layout/structure as standard good programming practice, to ensure that my code was as easily readible to others as possible. I tried to keep the formatting the same in all places, and used a clear informative commenting style.
-
-\subsubsection{Commenting}
-
-I made sure that all of my source code files follow a certain comment format. The filename, project name, class description and the date the class was created at the very top of the file. Each method is then commented, with a brief description and any parameters/return variables specified. I tried to avoid commenting variables wherever possible, instead choosing to use variable names which are self-descriptive. See below for comment formatting.
+I have used a universal comment format: filename, project name, class description and the date the class was created at the very top of the file. Each method is commented with a brief description and any parameters/return variables specified. I avoid commenting variables wherever possible by self-descriptive variable names.
 
 \begin{lstlisting}
 //
@@ -703,7 +648,7 @@ I made sure that all of my source code files follow a certain comment format. Th
  * @return the returned objects
  */\end{lstlisting}
 
-\subsubsection{Methods}
+\subsection{Methods}
 
 The format of my method headers is fairly standard, however, I prefix all method parameters with an underscore as it helps to clarify which variables in a method are parameters if quickly scanning the code.
 
@@ -732,37 +677,25 @@ I created a Utils class with some useful static-access 'utility' methods which I
 		
 \section{Code Structure/Features}
 
-Before I could build any learning into my project, I first had to create the underlying game component which would run it. As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of. For example, the direct OpenGL ES calls needed for loading and binding textures were all contained within the CCSprite class. However, I still needed to take care of loading levels, adding objects, game characters, animating characters etc.
+My first task was to create the underlying game component. As I was using the Cocos2D engine, a lot of the very low-level functionality had been taken care of such as the direct OpenGL ES calls needed for loading and binding textures. However, I still needed to take care of loading levels, adding objects, game characters, animating characters etc.
 
 \subsection{Cocos2D} 
 
-The Cocos2D framework comes with a very useful code library with various optimisations and utility methods which I made use of when implementing my game.
+The Cocos2D framework comes with a very useful code library with various optimisations and utility methods which I made use of when implementing my game. There a number of different base classes which can be used and take care of a lot of the very low-level OpenGL API calls. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual `level' in the game (called scenes). In addition to levels, scenes can also be menu systems, game over screens and so on. Each scene consists of one or more layers which contain the actual game objects (for example background images, any level terrain and the game characters). The game objects themselves (known as sprites) are at the bottom of the heirarchy and are just essentially an image with no real functionality by default. The Cocos2D framework is loaded via the AppDelegate singleton class, which controls with the basic running of the iOS application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc. 
 
-As previously mentioned, Cocos2D comes with a number of different base classes which can be used and take care of a lot of the very low-level OpenGL API calls. These classes have a heirarchical structure, using an analogy of film production to make this easy to understand. At the highest level is the CCDirector class which, as one would expect, controls the running of each individual level in the game (known as scenes). Scenes are essentially any new `screen' in the game, so are not necessarily just game levels, but can also me menu systems, game over screens and so on. Each scene consists of one or more layers which contain the actual game objects (for example background images, any level terrain and the game characters). The game objects (known as sprites) are at the bottom of the heirarchy and are just essentially an image with no real functionality by default.
-
-The Cocos2D framework is loaded via the AppDelegate singleton class, which controls with the basic running of the iOS application; what should happen when launching the app, when the user closes the app, when the app is sent to the background etc.
-
-In addition to the basic classes mentioned above, Cocos2D comes with a number of other useful features, such as the ability to add `transitions' in between scenes. The Cocos2D library also comes with a very useful CCAction class which allows the programmer to easily ass basic animations to sprite objects by simply specifying a start and end position and a duration. The class then creates an animation by interpolating between these two points. I use these actions in a number of places throughout my game, from animating the main menu items, switching graphs in the game stats screen, moving the agents in the game, and animating the game's pause menu. 
-
-There are also some highly optimised data structures available, the most prominent being the CCArray class, which is a basic collection class which has been optimised for high-performance, with some methods that allow fast enumeration.
+Cocos2D also includes a number of other useful features, such as the ability to add `transitions' in between scenes, and the CCAction class which allows the programmer to easily add an animation to sprite objects by simply specifying a start and end position and a duration. The class then creates an animation by interpolating between these two points. I use these actions in a number of places throughout my game, from animating the main menu items, switching graphs in the game stats screen, moving the agents in the game, and animating the game's pause menu. Cocos2D also includes some highly optimised data structures such as the CCArray class, a collection class which has been optimised for high-performance, with features such as fast enumeration.
 
 \subsection{Physics}
 
-I initially intended to use one of the physics engines bundled with Cocos2D for the physics in my game. However, as the only physics required in my game was some basic collision detection and some way to simulate the agents `falling', I decided to write the required code myself to cut down on the processor time required. The other benefit to programming the physics and more specifically the collision detection myself is that I could customise which objects were included in the collision checks. This meant that I could optimise performance even further by ignoring any agent-to-agent collisions for example.
+I initially intended to use one of the physics engines bundled with Cocos2D in my game. However, as the only physics I required was some basic collision detection and some way to simulate the agents `falling', I decided to write the required code myself to cut down on the processor time. Aother benefit to programming the physics and more specifically the collision detection myself is that I could customise which objects were included in the collision checks. This meant that I could optimise performance even further by ignoring any agent-to-agent collisions for example.
 
-For the actual collision detection itself, I used basic bounding box detection as I had no need for anything more accurate. I made use of a method in the CCNode class (which my agents inherit from) which generates a bounding box for any given sprite. To detect whether any two objects were colliding, I made used of a utility method from the iOS code library \emph{CGRectIntersectsRect} which as the name suggests, checks if two rectangle objects intersect each other.
-
-To simulate the agents `falling', I simply used a `CCAction' which basically creates an animation by interpolating between the start and end positions, similar to a `tween' in Adobe's ActionScript/Flash platform. 
+For the actual collision detection itself, I used basic bounding box detection as I had no need for anything more accurate. I made use of a method in the CCNode class (which my agents inherit from) to automatically generate a bounding box for each sprite. To detect whether any two objects were colliding, I made used of a utility method from the iOS code library \emph{CGRectIntersectsRect} which as the name suggests, checks if two rectangle objects intersect each other. To simulate the agents `falling', I used a `CCAction' animation, similar to a `tween' in Adobe's ActionScript/Flash platform. 
 
 \subsection{Levels} 
 
-When it came to designing how the levels would work in my game, I wanted something which was very flexible, so that I could easily add extra levels (or modify existing ones) with a minimal amount of work. The way that I decided to do this was to create a number of generic assets which I could re-use in each level. Things such as platforms, water hazards, trapdoors etc. This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. By using re-usable assets, not only was adding new levels a lot simpler, it also meant that I could drastically cut down on the amount of disk-space that my game needed.
+When designing the levels in my game, I wanted something flexible, so that I could easily add extra levels (or modify existing ones) with a minimal amount of work.I decided to do this by creating a number of generic reusable assets (platforms, water hazards, trapdoors etc.). This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. In addition to simplifying the adding of new levels, it also meant that I could drastically cut down on the amount of disk-space that my game required.
 
-To accompany the assets, I also needed some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects, consisting of a key object (usually a string), and a `value' object. One of the advantages to using the plist is that it's easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. Dictionaries can also be nested inside each other for even more flexibility. 
-
-I use one plist file which specifies the levels in my game, along with certain level-specific information such as difficulty, number of tool uses etc. This file is loaded in, which tells the system how many levels need to be loaded, as well as their names. I then created a plist file for each level, which stored the positions of each piece of terrain, the type of terrain, and in some cases whether the terrain was collideable (this was enabled by default, so was only included if the object was to be removed from collision detection).
-
-After loading in these plist files, I needed to translate the loaded data to into tangible game objects which could then be added to the game. To do this, I created terrain (i.e. platforms and floors) and obstacle (i.e. water, stampers etc.) classes which would encapsulate the required functionality. These classes contained the code necessary to create the sprites from the correct image files, and store the coordinates of the sprites according to the data loaded from the level's plist file. I also created a TerrainLayer class too keep all of the terrain objects separate from the other game objects. This class also deals with the actual loading of the plist files
+To accompany the assets, I also needed some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects (which consist of a key object and a `value' object). One of the advantages to using the plist is that it is easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. I use one plist file which specifies the levels in my game, along with certain level-specific information such as difficulty, number of tool uses etc. This file tells the system how many levels need to be loaded, as well as their names and the number of tool uses permitted. I also created a plist file for each level, which stored the positions of each piece of terrain, the type of terrain, and in some cases whether the terrain was collideable (this was enabled by default, so was only included if the object was to be removed from collision detection). After loading in these plist files, I needed to translate the loaded data to into tangible game objects which could then be added to the game. To do this, I created terrain (i.e. platforms and floors) and obstacle (i.e. water, stampers etc.) classes which would encapsulate the required functionality. These classes contained the code necessary to create the sprites from the correct image files, and store the coordinates of the sprites according to the data loaded from the level's plist file. I also created a TerrainLayer class too keep all of the terrain objects separate from the other game objects.
 
 Initially, I planned to have levels of varying difficulty, with an option on the new game screen to allow the user to select a difficulty. However, I found it difficult to determine what an 'easy' level should be for example, and so the final game just assumes all of the levels are the same difficulty. 
 
@@ -770,7 +703,7 @@ Initially, I planned to have levels of varying difficulty, with an option on the
 
 Before I could program any of the machine learning into my agents, I first needed to set up some basic functionality such as animating and moving the agents and the ability to change state as well as some other basic behaviour.
 
-I first programmed the animation for the characters, which involved splitting the animations into individual frames (see Figure 6) which could then be loaded into my game. To specify the frames needed for each animation, I created an external plist file which also listed the order of the frames, and the animation's length. 
+I first programmed the animation for the characters, which involved splitting the animations into individual frames (see Figure 21) which could then be loaded into my game. To specify the frames needed for each animation, I created an external plist file which also listed the order of the frames, and the animation's length. 
 
 \begin{figure}[h!]
   \centering
@@ -778,15 +711,13 @@ I first programmed the animation for the characters, which involved splitting th
     \caption{Frames Used for the Agent's Walking Animation}
 \end{figure}
 
-In addition to the animations, I also needed to set up some other basic behvaiour. I used a finite state machine which encapsulated all of the basic states for my agents: spawning, falling, idle, walking, floating, dead and win (i.e. reached the exit). Using this state machine, I could adjust the behaviour of the agents according to various in-game stimuli, and play any animations as appropriate. An example being when a falling agent collides with the ground, it transitions to the walking state. I also had to code a basic `fall timer', which counted how long an agent had fallen for, setting the next state to either walking, or dead if the fall was longer than a certain threshold. By this stage, I had set up my agents to spawn into the level at the correct point and move around the level from left to right, until they reach an immovable object at which point they turn around. I had added terrain objects and obstacles which changed the agent's state as appropriate (to `dead' if agent falls into water for example). The agents would respawn in killed, and the game would end if they successfully reached the level exit. At this point, my agents acted exactly as the characters in the original \emph{Lemmings} game, with no reasoning or other `intelligent' behaviour attached to them.
+In addition to the animations, I also needed to set up some other basic behvaiour. I used a finite state machine which encapsulated all of the basic states for my agents: spawning, falling, idle, walking, floating, dead and win (i.e. reached the exit). Using this, I could adjust the behaviour of the agents according to various in-game stimuli, and play any animations as appropriate. An example being when a falling agent collides with the ground, it transitions to the walking state. I also had to code a basic `fall timer', to count how long an agent had fallen for, setting the next state to either walking, or dead if the fall was too great. By this stage, I had set up my agents to spawn into the level at the correct point and move around the level from left to right (until they reach an immovable object at which point they turn around). I had added terrain objects and obstacles which changed the agent's state as appropriate (to `dead' if agent falls into water for example). The agents would respawn if killed, and the game would end if they successfully reached the level exit. At this point, my agents acted exactly as the characters in the original \emph{Lemmings} game, with no reasoning or other `intelligent' behaviour.
 
 \subsection{Performance Optimisations} 
 
-As already mentioned, Cocos2D offers a variety of performance optimisations specifically tailored for developing games. One such optimisation is the 'CCSpriteBatchNode'. It is not uncommon to experience poor performance when there are a large number of objects onscreen at once. 
+As already mentioned, Cocos2D offers a variety of performance optimisations specifically tailored for developing games. One such optimisation is the 'CCSpriteBatchNode'. It is not uncommon to experience poor performance when there are a large number of objects onscreen at once. This reason for this being that for each sprite, OpenGL ES must first bind to the texture, and then render the sprite. As more and more sprites are added to the screen, it isn't difficult to see that the number of calls to OpenGL will steeply increase too, with every call costing a few CPU cycles. Therefore, it is fairly obvious that the game will run faster the fewer calls are made to OpenGL. 
 
-For each sprite, OpenGL ES must first bind to the texture, and then render the sprite. As more and more sprites are added to the screen, it isn't difficult to see that the number of calls to OpenGL will steeply increase too, with every call costing a few CPU cycles. It is basic common sense to see that the game will run faster the fewer calls to OpenGL are made. 
-
-The CCSpriteBatchNode is a Cocos2D class which has been created to help with this problem. The CCSpriteBatchNode works by taking a single texture which contains all of the textures needed by the current scene (called a texture atlas, see Figure 7), and sends all of the images for rendering to OpenGL at once, rather than individually. This essentially reduces the number of bind calls needed from O(n) to O(1) (in Big-O notation). Using texture atlases also cuts down on the amount of memory needed to store each individual image. In some version of the iOS, textures were required to be stored in sizes of the poet of two (64, 128, 512 etc.). This meant that the textures would often have a lot of unnecessary white space around the image, which obviously takes up extra memory; something which even with todays devices is not a commodity. An additional optimisation which can be made regarding the textures is to use the compressed PVR CCZ file format. In addition to saving disk space in terms of the actual size of the image, the PVR CCZ format is supported natively by the iPhone's GPU, and can be loaded directly onto the GPU without the need for conversion.
+The CCSpriteBatchNode is a Cocos2D class which has been created to help with this problem. It works by taking a single `compound' texture which contains all of the textures needed by the current scene (called a texture atlas, see Figure 22), and sends all of the images for rendering to OpenGL at once, rather than individually. This essentially reduces the number of bind calls needed from O(n) to O(1) (where n represents the number of objects being rendered). Using texture atlases also cuts down on the amount of memory needed to store each individual image. An additional optimisation which can be made regarding the textures is to use the compressed PVR CCZ file format which in addition to saving disk space, is supported natively by the iPhone's GPU, and can be loaded directly onto the GPU without the need for conversion.
 
 \begin{figure}[h!]
   \centering
@@ -796,38 +727,18 @@ The CCSpriteBatchNode is a Cocos2D class which has been created to help with thi
 
 \subsubsection{Random number generation} 
 
-Although it may not seem like a likely source for a performance bottleneck, the random number generator (RNG) I chose to use could have a noticeable impact on performance. Based on some very quick tests carried out by a poster on the official Cocos2D forums, I was surprised to see the difference in speed between different RNG (see Figure 8) \cite{:2011zt}. Typically, the RNG I had chosen to use (arc4Random) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
+Based on some very quick tests carried out by a poster on the official Cocos2D forums, I was surprised to see the difference in speed between different random number generators (RNGs) (see Figure 23) \cite{:2011zt}. It turned out that the RNG I had chosen to use (arc4Random) was by far the slowest method tested. Based on the tests carried out, I instead decided to use the CCRANDOM\_0\_1 function, which was shown to be 5 times quicker. Although the tests carried out on the forum were tested by performing 5 million iterations of the algorithm, far more than I would ever need to use, every performance enhancement helps.
 	
 \begin{figure}[h!]
   \centering	
 	\begin{tabular}{|l|c|c|}
 \hline
-Algorithm & Device Time (secs) & Simulator Time (secs)\\ \hline
-\multirow{5}{*}{Ranrot} & 0.037202 & 0.004751 \\
- & 0.036453 & 0.004786 \\
- & 0.037306 & 0.005023 \\
- & 0.036244 & 0.005536 \\ 
- & 0.037261 & 0.005243 \\ \hline
-\multirow{5}{*}{UNI (multiply with carry)} & 0.287225 & 0.014551 \\
- & 0.286778 & 0.014798 \\
- & 0.285554 & 0.016061 \\
- & 0.286738 & 0.014633 \\
- & 0.288803 & 0.016177 \\ \hline
-\multirow{5}{*}{CCRANDOM\_0\_1 (C random)} & 0.504273 &  \\
- & 0.498741 &  \\
- & 0.572036 &  \\
- & 0.498766 &  \\
- & 0.503112 &  \\ \hline
-\multirow{5}{*}{xorrand} & 1.880982 & 0.093661 \\
- & 1.947728 & 0.101897 \\
- & 1.869296 & 0.090943 \\
- & 1.866257 & 0.091044 \\
- & 1.868058 & 0.096747 \\ \hline
-\multirow{5}{*}{arc4random} & 2.970779 &  \\
- & 2.782961 &  \\
- & 2.973706 &  \\
- & 2.781113 &  \\
- & 2.785057 &  \\ \hline
+Algorithm & Avg. Device Time (secs) & Avg. Simulator Time (secs)\\ \hline
+Ranrot & 0.037009 & 0.004949 \\ \hline
+UNI (multiply with carry) & 0.286865 & 0.015244 \\ \hline
+CCRANDOM\_0\_1 (C random) & 0.515386 &  \\ \hline
+xorrand & 1.886464 & 0.094858 \\ \hline
+arc4random & 2.858723 &  \\ \hline
 \end{tabular}    \caption{Performance Tests of Random Number Generators}
 \end{figure}
 
@@ -839,25 +750,19 @@ The viewer is an extension of the base Sprite class, and so can be added to any 
 		
 \section{Problems Faced} 
 
-Something which I found particularly tricky about using Objective-C over a language like Java was the memory management. Learning Objective-C really emphasised to me how much the Java runtime shields the programmer from the low-level bugs associated with memory management thanks to its garbage collector. In Java, memory is reserved for an object simply by using the 'new' keyword, and memory is automatically released when that object goes out of scope and is no longer accessible. On the other hand, languages such as Objective-C  require manual memory management, meaning that every object created needs to be manually released by the programmer when finished. While the Objective-C language does come with a few optimisations which make memory management easier, it still caused me a number of problems. 
+Something which I found particularly tricky about using Objective-C over a language like Java was the memory management. Learning Objective-C really emphasised to me how much the Java runtime shields the programmer from the low-level bugs associated with memory management thanks to its garbage collector. In Java, memory is reserved for an object simply by using the 'new' keyword, and memory is automatically released when that object goes out of scope and is no longer accessible. Languages such as Objective-C  require manual memory management, meaning that every object created needs to be manually released by the programmer. While Objective-C does come with a few optimisations which make memory management easier, it still caused me a number of problems. 
 
-I found that the biggest problem with memory leaks is that they can often go undetected, only to cause the program to unexpectedly crash later on down the line. For this reason, they can be notoriously difficult to track down. I discovered a particularly nasty bug for example in my game's update method for example, which is called every frame, whereby I was allocating an array to hold all of the game objects, but failing to release the memory at the end of the method. This was a relatively small leak, but it was causing my game to drop 10+ frames per second if run for over 10 minutes.
-
-I found another seemingly insignificant bug in my update method which was causing me to drop 15 frames per second after the game had been running for about 15 minutes. The bug was caused by a careless error I made when initialising the game. When the game was first initialised, I wanted to create a list of all collideable objects, for use in collision detection later. To do this, I put code in the update loop which added every object to a list. However, rather than just adding the objects once when the game was initialised, I found that I was re-adding each object every frame, causing a huge issue with performance. After just 10 seconds, I found that my list of collideable objects contained over 10,000 objects, which was obviously causing big problems when it came to my game trying to check for collisions.
+I found that the biggest problem with memory leaks is that they can often go undetected, only to cause the program to unexpectedly crash later on down the line, making them very difficult to track down. I discovered a particularly nasty bug for example in my game's update method (which is called every frame), whereby I was allocating an array to hold all of the game objects, but failing to release the memory at the end of the method. This was a relatively small leak, but it was causing my game to drop 10+ frames per second if run for over 10 minutes. I found another seemingly insignificant bug in my update method and was caused by a careless error I made when initialising the game. When a level was first loaded, I wanted to create a list of all collideable objects for use in collision detection later. To do this, I put code in the update loop which added every object to a list. However, rather than just adding the objects once when the game was initialised, I found that I was re-adding each object every frame, causing a huge issue with performance. After just 10 seconds, I found that my list of collideable objects contained over 10,000 objects, which was obviously causing big problems when it came to checking for collisions. Another problem I frequently came across which couldn't happen in memory-managed languages like Java was that of uninitialised variables. Whereas in Java, whenever you declare a new variable, it's automatically initialised with whatever the default value may be, you get no such privilege in Objective-C. When you declare a variable in Objective-C, it stays uninitialised until you specifically set it. This caused me the biggest problems with arrays; trying to access an uninitialised array wouldn't cause a compiler error, but would cause an unexpected crash at runtime.
 
 Xcode comes with a very useful set of performance analysis tools called 'Instruments' which can be used to establish any memory-related or runtime issues, such as memory leaks etc. Instruments allows you to test your app in `profiling' mode, which tracks what memory has been allocated, and suggests areas where memory leaks may occur.
 
-Carrying out this project really taught me the importance of keeping a close eye on what memory I was allocating and where it was being released. What may at first seem like a negligible memory leak can build up over time, and combined with other similarly small memory leaks, can cause big problems with your programs performance. I would even go so far as to say that these smaller memory leaks are even more troublesome than the bigger ones, as they are much harder to track down, and are often more widely spread, and therefore more difficult to fix.
-
-Another problem I frequently came across which couldn't happen in memory-managed languages like Java was that of uninitialised variables. Whereas in Java, whenever you declare a new variable, it's automatically initialised with whatever the default value may be, you get no such privilege in Objective-C. When you declare a variable in Objective-C, it stays uninitialised until you specifically set it. This caused me the biggest problems with arrays; trying to access an uninitialised array wouldn't cause a compiler error, but would cause an unexpected crash at runtime.
+Carrying out this project really taught me the importance of keeping a close eye on what memory is being allocated and where it was being released (if at all). What may at first seem like a negligible memory leak can build up over time, and combined with other similarly small memory leaks, can cause big problems with your programs performance. I would even go so far as to say that these smaller memory leaks are even more troublesome than the bigger ones, as they are much harder to track down, and are often more widely spread, and therefore more difficult to fix.
 
 \chapter{AI Component}
 
-After the core game component had been implemented, I could start to build the AI learning system. My first task was to update the levels 
-
 \section{Level Structure}
 
-In order to simplify the decision making process, I split my levels into a number of `nodes' similar to the navigation meshes used in many games (See Figure 9). These nodes represent decision points in my levels; areas where there are more than one possible path forward, where the agent has to decide which route to take. As trapdoors had already been placed in the level, these were used as one type of decision node. I also needed to create an additional invisible decision object which could be at the end of platforms or anywhere where I couldn't place a trapdoor. 
+In order to simplify the decision making process, I split my levels into a number of `nodes' similar to the navigation meshes used in many games (See Figure 24). These nodes represent decision points in my levels; areas where there is more than one possible action to choose from, and the agent has to decide which route to take. As trapdoors had already been placed in the level, these were used as one type of decision node. I also needed to create an additional invisible decision object which could be placed at the end of platforms (or anywhere where I couldn't place a trapdoor). 
 
 \begin{figure}[h!]
   \centering
@@ -867,9 +772,7 @@ In order to simplify the decision making process, I split my levels into a numbe
 
 \section{Learning Agents}
 
-In my final game, I implemented three alternative methods of learning: a shortest route method, a modified decision tree method, and a reinforcement learning method using the Q-learning algorithm. I explain the different implementations used in my game in this section.
-
-As I intended to implement more than one learning technique, I designed the code for my game characters in such a way that the AI was completely self-contained in its own class. Not only is this generally good object-oriented design, but it also meant that to use a different type of learning, all I had to do was to link the relevant class, no other changes were required. This functionality could be neatly implemented in a switch statement (See figure 9)
+In my final game, I implemented three alternative methods of learning: a shortest route method, a modified decision tree method, and a reinforcement learning method using the Q-learning algorithm. As I was implementing more than one learning technique, I designed the code for my game characters in such a way that the AI was completely self-contained in its own class. Not only is this generally good object-oriented design, but it also meant that to use a different type of learning, all I had to do was to link the relevant class, no other changes were required. This functionality could be neatly implemented in a switch statement (See figure 25)
 
 \begin{figure}[h!]
 \begin{lstlisting}
@@ -903,11 +806,7 @@ switch(learningType)
 \caption{Switch Statement for Setting Learning Type}
 \end{figure}
 
-As outlined in my initial design, the learning agents begin the game in a `learning mode', in which they have a set number of lives or `episodes'; the number of learning episodes is set by the player before the game begins. During learning mode, the agents navigate the level and choose actions at random, building up their knowledgebase. 
-
-I initially planned to set up the learning such that after the first episode, the agent would cease to act randomly and apply its knowledge. However, I found that doing this made it extremely difficult to measure the improvement in the characters, as once they reached the exit, the game was over. Instead, I decided to implement the learning mode which avoids this issue. Additionally, by programming the agents to act randomly throughout the learning mode meant that more optimal routes were found in less time, due to the fact that there was no `exploitation' of current knowledge at this stage. In many reinforcement learning systems, the system begins to exploit the learnt knowledge much earlier on, which brings with it the added issue of balancing the exloitation of existing knowledge with the exploration of new terrain. 
-
-After all of the learning episodes have been completed, learning mode ends the agent then applies the knowledge it has learnt to attempt to reach the exit safely.
+As outlined in my initial design, the learning agents begin the game in a `learning mode', in which they have a set number of lives or `episodes' (set by the player before the game begins). During the learning mode, the agents navigate the level and choose actions at random, building up their knowledgebase. I initially planned to set up the learning such that after the first episode, the agent would cease to act randomly and apply its knowledge. However, I found that doing this made it extremely difficult to measure the improvement in the agents, as once they reached the exit, the game was over; the learning mode avoids this issue. Additionally, by programming the agents to act randomly throughout the learning mode meant that more optimal routes were found in less time, due to the fact that there was no `exploitation' of current knowledge at this stage. In many reinforcement learning systems, the system begins to exploit the learnt knowledge much earlier on, which brings with it the added issue of balancing the exploitation of existing knowledge with the exploration of new terrain. After all of the learning episodes have been completed, learning mode ends the agent then applies the knowledge it has learnt to attempt to reach the exit safely.
 
 \subsection{Cogito Agents}
 
@@ -917,32 +816,24 @@ I created a base class called \emph{CogitoAgent} to contain the common functiona
 	\item Agent collides with decision node
 	\item Agent gets the current state
 	\item Action chosen based on the current state
-	\item Takes action
+	\item Action taken
 \end{enumerate}
 
 The class also keeps track of the number of learning episodes used by the agent, and ends the learning mode when all episodes have been completed.
 
 \subsection{Shortest Route Agents}
 
-The Shortest Route agent is the simplest and most naive of all of the learning types. Shortest Route agents record the routes which have been taken during the learning mode. I created a Route class to simplify this, which itself consists of an array of `nodes' and a boolean flag which stores whether or not the route was successful (i.e. if the agent survived or not). Upon completion of the learning mode, the Shortest Route agent checks all of the routes taken, chooses the shortest one, and takes it. If there happens to be several shortest routes of the same length, the agent doesn't attempt to compare the routes, but just picks the first one it finds. If the agent failed to reach the exit during the learning mode, it simply acts randomly.
+The Shortest Route agent is the simplest and most naive of all of the learning types, and simply records the routes which have been taken during the learning mode. I created a Route class to simplify this, which itself consists of an array of `nodes' and a boolean flag which stores whether or not the route was successful (i.e. if the agent survived or not). Upon completion of the learning mode, the Shortest Route agent checks all of the routes taken, chooses the shortest one, and takes it. If there happens to be several shortest routes of the same length, the agent doesn't attempt to compare the routes, but just picks the first one it finds. If the agent failed to reach the exit during the learning mode, it simply acts randomly.
 
 \subsection{Decision Tree Agents}
 
-As shown in my research, decision tree learning is usually used for classification problems, whereby an agent finds itself in a certain situation, and it uses a decision tree to try to `classify' the situation using knowledge it has gained from experience. Initially, I planned to use this approach in my game. However, I felt that it was an overly complex solution to what is a relatively simple game concept. I didn't think that there was any point in trying to create diverse obstacles which required the agent to have to classify them; it just seemed unrealistic. I felt that trying to use classification techniques to solve my problem of terrain navigation was inappropriate
- 
-Instead, I decided to use tree structures to allow my Decision Tree agents to function in a similar way to the Shortest Route Agents. Like the Shortest Route agents, the Decision Tree agents record the routes taken, with the shortest routes being chosen after the learning mode is complete. However, there are some subtle changes which make this method more accurate than the Shortest Route method. The obvious difference is that the routes are stored in a tree structure, which is built dynamically as the agent experiences the world. 
+As shown in my research, decision tree learning is usually used for classification problems, whereby an agent finds itself in a certain situation, and it uses a decision tree to try to `classify' the situation using knowledge it has gained from experience. Initially, I planned to use this approach in my game. However, I felt that it was an overly complex and somewhat inappropriate solution to what is a relatively simple problem, and think that it would be `overkill'to try and create complex obstacles which required the agent to have to classify them. Instead, I decided to use tree structures to allow my Decision Tree agents to function in a similar way to the Shortest Route Agents. Like the Shortest Route agents, the Decision Tree agents record the routes taken, with the shortest routes being chosen after the learning mode is complete. However, there are some subtle changes which make this method more accurate than the Shortest Route method. The obvious difference is that the routes are stored in a tree structure, which is built dynamically as the agent experiences the world. To implement the tree structure, I created a \emph{TreeState} class to encompass the functionality.
 
-To implement the tree structure, I created a \emph{TreeState} class. The class stores references to the parent and child nodes, and has code to add child nodes to the tree. There is also a boolean flag which stores whether the particular TreeState is a leaf node.
-
-To calculate the shortest route, I need to search the tree. I do so by checking every node using a simple depth-first search. When a leaf node is found (and the node is an exit), I recursively move back up the tree to store the route. While this kind of search is very poor speed-wise, it ensures the tree is methodically searched. Were I traversing a much larger tree such that performance became an issue, I could a heuristic search method such as A* to provide an approximate solution. As it happens, my levels are small enough to make my brute-force search a feasible solution.
-
-When searching for the optimum route, the routes are all given `weightings'. The weighting for a route is based on the number of tools used in that route; a route with no tool uses has a weighting of 0, with the weighting being incremented by 1 for every tool used.
+To calculate the shortest route, I need to search the tree, which is done by checking every node using a simple depth-first search. When a leaf node is found (and the node is an exit), I recursively move back up the tree to build the route. While this kind of search is quite poor speed-wise, it ensures the tree is methodically searched. Were I traversing a much larger tree, I could a heuristic search method such as A* to provide an approximate solution. As it happens, my levels are small enough to make my brute-force search a feasible solution. When searching for the optimum route, the routes are all given `weightings'. The weighting for a route is based on the number of tools used in that route; a route with no tool uses has a weighting of 0, with the weighting being incremented by 1 for every tool used. This ensures that routes with less tool uses are given preference.
 
 \subsection{Reinforcement Agents}
 
-The final and main type of learning which I implemented in my game was reinforcement learning. Based on my research, I decided that the Q-learning algorithm was the most appropriate for solving my problem.
-
-I needed to decide upon what values to use for the rewards in my system. Although reinforcement learning systems tend to use values less than 1.0, I instead decided to use rewards of less than 100, just to make the values more manageable and avoid a lot of decimal places (see Figure 11 for values).
+The final type of learning which I implemented in my game was reinforcement learning. Based on my research, I decided that the Q-learning algorithm was the most appropriate for solving my problem. First of all, I needed to decide upon what values to use for the rewards in my system. Although reinforcement learning systems tend to use values less than 1.0, I instead decided to use rewards of less than 100, just to make the values more manageable and avoid a lot of decimal places (see Figure 11 for values).
 
 \begin{figure}[h!]
 \centering
@@ -959,7 +850,7 @@ I needed to decide upon what values to use for the rewards in my system. Althoug
 \caption{Table of Reward Values}
 \end{figure}
 
-I used the same values for the win/death rewards (albeit one +100 and one -100) so that both states were regarded equally `important' by my learning agents. In addition to these rewards, I also added a small negative reward for any tool uses by the agent (i.e. umbrella/helmet uses). This ensured that the agent resisted using a tool wherever possible; tools are a finite resource, and so should only be used where no `cheaper' alternative exists. Using this small negative reward ensures that the agent will always choose the standard basic actions (i.e. left, right, down) over using a tool. While conducting my research, I came across a lecture on reinforcement learning given by researcher Andrew Ng in which he proposes associating a small negative with all moves \cite{Ng:uq}. I decided to do this in my own game, as it encourages the agents to use the shortest route possible by adding a greater penalty to longer routes. The reward values are stored in my \emph{Constants file}.
+I used equivalent values for the win/death rewards so that both states were regarded equally `important' by my learning agents. In addition to these main rewards, I added a small negative reward for any tool use by the agent. This ensured that the agent only used a tool where necessary; tools are a finite resource, and so should only be used where no `cheaper' alternative exists. Using this small negative reward ensures that the agent will always choose the standard basic actions (i.e. left, right, down) over using a tool. While conducting my research, I came across a lecture on reinforcement learning given by researcher Andrew Ng in which he proposes associating a small negative with all moves \cite{Ng:uq}. I decided to do this in my own game, as it encourages the agents to use the shortest route possible by adding a greater penalty to longer routes.
 
 After setting up the rewards, I then needed to implement the actual learning. The basic operation of the reinforcement learning is as follows:
 
@@ -971,15 +862,7 @@ After setting up the rewards, I then needed to implement the actual learning. Th
 	\item Takes action and updates state
 \end{enumerate}
 
-In my implementation, I chose to update the Q-values asynchronously (i.e. updating individual Q-values at each decision made), rather that to update all Q-values at set intervals (synchronously). I chose to update my Q-values asynchronously simply because I felt it was logical to do so, and was slightly simpler to implement. Both methods are acceptable to use with Q-learing, and have no major impact on the outcome of the algorithm.
-
-To calculate the new Q-values according to the algorithm described in my research:
-
-\begin{equation*}
-	Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + (1 -\alpha_t) + \alpha[R(s_t) + \gamma max Q(s_{t+1}, a_{t+1})]
-\end{equation*}
-
-To make my code more readable, I split the algorithm into logical parts and stored these parts in variables. For example, I created a variable for the old Q-value (i.e. $Q(s_t, a_t)$) and a variable with the maximum expected Q-value (i.e. $max Q(s_{t+1}, a_{t+1})$). My implementation of the algorithm is included in Figure 12.
+I calculated the new Q-values using the algorithm: $Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + (1 -\alpha_t) + \alpha[R(s_t) + \gamma max Q(s_{t+1}, a_{t+1})]$. To make my code more readable, I split the algorithm into logical parts and stored these parts in variables. For example, I created a variable for the old Q-value (i.e. $Q(s_t, a_t)$) and a variable with the maximum expected Q-value (i.e. $max Q(s_{t+1}, a_{t+1})$) (see Figure 24). I chose to update the Q-values asynchronously (i.e. updating individual Q-values at each decision made), rather that to update all Q-values at set intervals. I did this because I felt it was logical to do so, and was slightly simpler to implement. Both methods are acceptable to use with Q-learing, and have no major impact on the outcome of the algorithm.
 
 \begin{figure}[h!]
 \begin{lstlisting}
@@ -1020,29 +903,23 @@ To make my code more readable, I split the algorithm into logical parts and stor
 \caption{Method to Update Q-values}
 \end{figure}
 
-The learning rate which I use in my algorithm is largely down to trial and error, and is set at the value that I felt worked best in my game. My research was very helpful in guiding the values I chose, but I found that given the time restraints of implementing the learning in a game, I needed to use slightly different values than suggested. Due to said time contraints, it is highly unlikely that my agents reach convergence in a game. However, this does not mean that my agents are unable to calculate an optimal policy. I chose to use a fairly high (and static) learning rate as it meant that the Q-values were updated much quicker, thus an optimal policy is more likely to be found. Were my agents given the opportunity to perform thousands of iterations, I would have chosen different values, but I felt this was inappropriate for my chosen application area, in which a single game is very unlikely to last for an hour, much less several hours.
+The order in which I update the Q-values is slightly different to the standard method described in Watkins' paper \cite{Watkins:1989mi}. In the paper, when an agent moves to a new state, the Q-values for that state are updated (which requires knowledge of the next state). However, as my agents have no prior knowledge of their environment, they would be unable to ascertain the next state during the early stages of the game. To circumvent this, when an agent in my game moves to a new state, it instead updates the Q-values for the previous state, using the information it has for the current state. Although this is slightly different to the standard method, it has no negative impact on the actual learning. I added the ability to export the knowledgebase to an external file saved in the iOS device's memory for later analysis.
 
-The order in which I update the Q-values is slightly different to the standard method described in Watkins' paper \cite{Watkins:1989mi}. In the paper, when an agent moves to a new state, the Q-values for that state are updated (which requires knowledge of the next state). However, as my agents have no prior knowledge of their environment, they would be unable to ascertain the next state during the early stages of the game. To circumvent this, when an agent in my game moves to a new state, it instead updates the Q-values for the previous state, using the information it has for the current state. Although this is slightly different to the standard method, it has no negative impact on the actual learning. I also added the ability to export the shared knowledgebase to an external file saved in the iOS device's memory for later analysis.
+In my implementation of the algorithm, I used a different value for the learning rate than was recommended by my research. However, given the time restraints of implementing the learning in a game, it is highly unlikely that a policy will reach convergence in a game. However, this does not mean that my agents are unable to calculate an optimal policy. Therefore, I chose to use a high (and static) learning rate as it meant that the Q-values were updated much quicker, thus an optimal policy is more likely to be found. Were my agents able to perform thousands of iterations, I would have chosen different values, but I felt this was inappropriate for my chosen application area, in which a single game is very unlikely to last for an hour, much less several hours.
 
-A key feature which I implemented in my reinforcement learning agents is the ability to use a shared knowledgebase. While in my other methods, the agents are restricted to only their own first-hand experiences, the reinforcement learning agents are able to contribute to a central knowledgebase. This meant that the rate of learning could be increased by a factor of the total number of agents. For example, 100 agents performing just 1 learning episode each is the equivalent to a single agent performing 100 episodes. This obviously meant that n optimal solution could be found a lot quicker.
+While in my other methods, the agents are restricted to only their own first-hand experiences, the reinforcement learning agents are able to contribute to a central knowledgebase. This meant that the rate of learning could be greatly increased. 100 agents performing just 1 learning episode each is the equivalent to a single agent performing 100 episodes.
 
 \section{Learning Stats}
 
-I added an additional game stats screen to the game's main menu which gives the player a simple summary of the performance of the agents. I do this using a number of visual bar graphs, which are updated dynamically using the data collected after every completed game. I display these stats using my \emph{SlideViewer} object (see Figure 13).
-
-\begin{figure}
-  \centering
-    \includegraphics[width=85mm]{sources/images/GraphSlide}
-    \caption{Game Stats Using the SlideViewer}
-\end{figure}
+I added an additional game stats screen to the game's main menu which gives the player a simple summary of the performance of the agents. I do this using a number of visual bar graphs, which are updated dynamically using the data collected after every completed game. I display these stats using my \emph{SlideViewer} object.
 
 \section{Problems Faced}
 	
-Fortunately, I didn't encounter any major issues when it came to implementing my learning. One fairly minor problem that I did come across was that I found it was possible for agents to get stuck in an `infinite decision loop'. After an agent had finished learning, it was possible for it to transition to a state whereby there was only one possible decision point (see Figure 14 for an example). If certain actions in this state led to certain death, then an agent could be forced to keep looping back and forth, which meant that the game couldn't be finished without the user prematurely quitting.
+Fortunately, I didn't encounter any major issues when it came to implementing my learning. One fairly minor problem that I did come across was that I found it was possible for agents to get stuck in an `infinite decision loop'. After an agent had finished learning, it was possible for it to transition to a state whereby there was only one possible decision point (see Figure 28 for an example). If actions in this state led to death, an agent could keep moving back and forth, making it impossible to complete the game.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=85mm]{sources/images/InfiniteLoop}
+    \includegraphics[width=75mm]{sources/images/Screen_InfiniteLoop}
     \caption{An Example of a Possible `Infinite Decision Loop' State}
 \end{figure}
 
@@ -1062,18 +939,16 @@ In this section I present the results to my usability tests, in addition to the 
 
 \section{Usability Testing and Error Checking}
 
-As a result of my iterative design approach, I was regularly testing my game as I implemented new features and fixing any bugs as they arose. As I was working alone, this was the most appropriate method. For this reason, I didn't make as much use of bug tracking software as I would if I was working in a development team. However, I did make some use of Github's built in issue-tracking to record major errors, or errors I couldn't fix at the time of finding.
+As a result of my iterative development approach, the testing of my game was carried out as and when I implemented new features, fixing any bugs as they arose. As I was working alone, this was the most appropriate method. For this reason, I didn't make as much use of bug tracking software as I would if I was working in a development team. Although I did make some use of Github's built in issue-tracking to record major errors, or errors I couldn't fix at the time of their discovery.
 
-My game was designed as a test for machine learning in a game environment and as such, user interaction was always intended to be limited. Due to this, the usability tests which could be carried out were similarly limited; there was little other than basic user-interface testing which was needed.
+My game was largely designed as a test for machine learning in a game environment and as such, user interaction was always intended to be limited. Due to this, the usability tests which could be carried out were similarly limited; there was little other than basic user-interface testing needed (there was no need for unit testing).
 
-One bug that was picked up during the usability tests that I wasn't able to solve was a problem with the game pausing. I found that when resuming the game, it was possible for agents to fall though the environment. This occurred if the game was paused while the agents were mid-way through transitioning to a lower level. I think the problem was with a `delay' method I used when agents use an umbrella or drop to a lower level, the problem being that the delay was cut short if the game was paused.
-
-I came up with a partial solution to this problem, although the issue does still occur if there are many agents in the level. My solution was to change how I was pausing the game. To begin with, I was manually iterating through all of the objects in the game, and pausing them one by one. To try and fix the problem, I instead decided to use a function in Cocos2D's \emph{Director} class (the same method used by the engine when the user sends the app to the background by pressing the home button).
+One bug that was picked up during the usability tests that I wasn't able to solve was a problem with the game pausing. I found that when resuming the game, it was possible for agents to fall though the environment. This occurred if the game was paused while the agents were mid-way through transitioning to a lower level. I think the problem was with `delay' method I used when agents use an umbrella or drop to a lower level, the problem being that the delay was cut short if the game was paused. I came up with a partial solution to this problem, although the issue does still occur if there are many agents in the level. My solution was to change how I was pausing the game. To begin with, I was manually iterating through all of the objects in the game, and pausing them one by one. To try and fix the problem, I instead decided to use a function in Cocos2D's \emph{Director} class (the same method used by the engine when the user sends the app to the background by pressing the home button).
 
 
 \section{AI Testing}
 
-In addition to the usability tests, I also carried out extensive tests of my AI system. The primary aim of these tests being to check the effectiveness of the learning techniques, as well as to compare each technique against the others.
+In addition to the usability tests, I also carried out extensive tests of my AI system. The primary aim of these tests being to check the effectiveness of the learning techniques (i.e the level of improvement they offered), as well as to compare each technique against the others.
 
 
 
@@ -1087,11 +962,11 @@ In this section, I provide analysis of my learning techniques and their effectiv
 
 \section{Time Management}
 
-When planning the development of my project and creating my project schedule, I initially planned to take a linear `waterfall' development approach \cite{Rerych:gb}. I planned to develop the game and AI components separately, conducting testing at the end of development. However, during development I took a more incremental approach; developing individual features and testing as I went along. This change in approach was partly due to the fact that I was unfamilar with developing in Objective-C
+When planning the development of my project and creating my project schedule, I initially planned to take a linear `waterfall' development approach \cite{Rerych:gb}. I planned to develop the game and AI components separately, conducting testing at the end of whole development process. However, I actually ended up taking a more incremental approach: developing individual features and testing as I went along. This change in approach was partly due to the fact that I was unfamilar with the development of software in Objective-C.
 
-In terms of sticking to my initial schedule, I feel that the development ran fairly smoothly, albeit with a few slight changes to my initial plan. As testing was carried out incrementally, there was no final testing stage at the end of development. 
+In terms of sticking to my initial schedule, I feel that the development ran fairly smoothly, albeit with a few slight changes to my initial plan. The biggest change being that I didn't carry out the testing phase at the end. Additionally, the actual development itself wasn't quite as modular as planned.
 
-The biggest miscalculation with regards to my time-management and project schedule was that I failed to recognise just how much groundwork was needed to build the game component. Though I by no means expected the game development to be a trivial task, I wasn't prepared for the amount of work that was needed. This was exacerbated by the fact that I was also still getting to grips with Objective-C, and so my productivity wasn't as it could have been. However, although I slipped by a couple of weeks during the game development stage, I finished the AI component of the game under-schedule. Looking back at the volume of code that was needed to get the game running, it seems fairly obvious that I should have at least allocated an equal amount of time to both the game and AI components. As it happens, I still finished my project to schedule with some time to spare.
+The biggest miscalculation with regards to my time-management and project schedule was that I failed to recognise just how much groundwork was needed to build the game component. Though I by no means expected the game development to be a trivial task, I wasn't prepared for the amount of work that was needed. This was exacerbated by the fact that I was also still getting to grips with Objective-C, and so my productivity wasn't as it could have been. However, although I slipped by a couple of weeks during the game development stage, I finished the AI component of the game under-schedule. Looking back at the volume of code that was needed to get the game running, it seems fairly obvious now that I should have at least allocated an equal amount of time to both the game and AI components. As it happens, I still finished my project to schedule with some time to spare.
 
 \section{Analysis of Machine Learning}
 
@@ -1099,70 +974,62 @@ Overall, I think the the learning element of my system was very effective, with 
 
 \subsection{Shortest Route Learning}
 
-The shortest route technique is the most naive of those I implemented. This being said, it still provided a great improvement over the agents without learning, which was after all the ultimate goal. The main advantage to this method is that it is simple to implement, is quick and computationally cheap to function (there are no complex tree structures to search for example) and it yeilds effective results. 
+Despite being most naive method, the shortest route still provided a great improvement over the agents without learning (which was after all the ultimate goal). The main advantage to this method is that it is simple to implement, is quick and computationally cheap to function (there are no complex tree structures to search for example) and it clearly yeilds effective results. 
 
-However, this method also has some significant disadvantages. The biggest being the accuracy or indeed the optimality of the `optimal' routes it produces. The obvious flaw in this method being that the `optimum' route is completely dependant on the agent actually \emph{taking} the shortest route. Although this does not present a major problem with my levels, the greater the level size, the smaller the likelihood that the agent will discover the optimum route (or even any route at all). My results reveal that there were still appriximately $\frac{1}{5}$ of agents which were unable to find any safe path even in my small levels. This problem is only likely to increase with the size of the level. One of the biggest disadvantages to this method is that unsuccessful routes are disgarded and do not contribute to the knowledgebase, so are essentially a waste of time. 
+However, this method also has some significant disadvantages. The biggest being the accuracy or indeed the optimality of the `optimal' routes it produces. The obvious flaw in this method is that the `optimum' route is completely dependent on the agent actually \emph{taking} the shortest route themselves. Although this does not present a major problem with my levels, the greater the level size, the smaller the probability that the agent will discover the optimum route (or even any route at all). My results show this, although using a much greater number of learning episodes helps to avoid this. This is a problem which is only likely to increase with the size of the level. Another big disadvantage to this method is that unsuccessful routes do not contribute to the knowledgebase, so are essentially wasted time. 
 
-This being said, I feel that there are a number of changes which could be made to this method which would greatly improve it. One possible enhancement which would greadly reduce the space complexity of the method is to remove the need to store each individual route. Instead, a simple check could be made at the end of each learning episode to determine whether the new route is an improvement over the previous route. This way, only the optimum route would need to be stored. This would also remove the need to iterate through a long list of routes after the agent's learning is complete. Another possible enhancement to this method is to implement a shared knowledgebase. This could take the form of a shared list of all routes, or as with my previous recommendation, be a shared copy of the optimum route so far. The benefit to using a shared knowledgebase has been proven in my Q-learning implementation; it greatly improves the efficiency and speed of learning. Another area which I feel that this method falls down on is in the comparison of different routes. In it's current state, my shortest route method simply takes the route which has the smallest number of moves (or actions). If there are multiple optimum routes, then the first route found is used. This route selection could be greatly improved by using some kind of weighting system similar to what was used in the decision tree method; whereby each route is given a `weight', determined by the number of tool uses in that route. This encourages the selection of routes with less tool uses. A final area in which I feel that this method could be improved is by implementing some way to build a `hybrid' route using the stored routes. This way, a truly optimum route could be found, even if the agent hadn't actually taken it.
+There are a number of ways to greatly improve this method. One enhancement which would greadly reduce the space complexity of the method is to remove the need to store each individual route. Instead, a single route could be stored, with a simple check at the end of each episode to determine whether the new route improved over the stored one. This would also remove the need to iterate through a long list of routes at the end of learning. Another possible enhancement is to implement a shared knowledgebase, which could take the form of a shared list of all routes, or as mentioned, be a shared copy of the optimum route so far. The benefit to using a shared knowledgebase has been proven in my Q-learning implementation; it greatly improves the efficiency and most importantly the speed of learning. Another area for improvement is in the comparison of different routes. In it's current state, the optimum route is the one which has the smallest number of moves (or actions). If multiple optimum routes exist, the first one is used. This could be greatly improved by using a weighting system similar to the decision tree method, whereby each route is given a `weight' (determined by the number of tool uses in that route), encouraging the selection of routes with less tool uses. A final improvement could be to implement some way to build a `frankenstine' route using the pieces of the stored routes. This way, a truly optimum route could be found, even if the agent hadn't actually taken it.
 
 \subsection{Decision Tree Learning}
 
-Although I originally planned to implement decision tree learning, I didn't feel that my problem could be solved using classification, and so my tree method takes a slightly different approach. Unlike most decision tree learning methods which use classification techniques to learn, my decision tree implementation dynamically creates a map of the environment using a tree structure, and building a route from it. It takes a similar approach to the shortest route method but obviously using a more advanced method of storing the routes. However, it improves upon the storage space required by the shortest route method by only storing states once. One of the biggest advantages to this method over the shortest route is that even unsuccessful episodes contribute positively to the knowledgebase, and can be used later. Additionally, it improves over the shortest route method's route selection process by calculating `weightings' for the routes. This encourages the choice of routes with less tool uses. As with the shortest route method, it provides a considerable improvement over the agents with no learning. It also offers an improvement to the length of the optimum route when compared with the shortest route. 
+Although I originally planned to implement decision tree learning, I didn't feel that my problem could be solved using classification, and so my tree method takes a slightly different approach. Unlike most decision tree learning methods, my decision tree implementation dynamically creates a map of the environment as a tree structure, building a route from it. It takes a similar approach to the shortest route method but improves upon the storage space required by only storing states once. A big advantage to this method over the shortest route is that even unsuccessful episodes contribute to the knowledgebase to be used later. It also improves over the shortest route's route selection process by calculating `weightings' for the routes, which encourages the choice of routes with less tool uses. As with the shortest route method, it provides a considerable improvement over the agents with no learning. It also offers an improvement to the length of the optimum route when compared with the shortest route. 
 
-However, my decision tree method also shares some of the pitfalls of the shortest route method. One such problem being the fact that it is similarly reliant on the agents discovering an optimal route whilst they are exploring the environment. As with shortest route, the chance of even completing the level successfully decreases as the level size grows, so relying soley on this is not advisable. This method is also more computationally expensive and slower than the shortest route method, as the tree must be exhaustively searched and an `optimum' route built. In addition to this, the method doesn't provide a great improvement over the shortest route method, which makes the extra computation time unjustifiable.
+However, my decision tree method also shares some of the pitfalls of the shortest route method. One such problem being the fact that it is similarly reliant on the agents discovering an optimal route whilst they are exploring the environment. As with shortest route, the chance of even completing the level successfully decreases as the level size grows, so relying soley on this is not preferable. This method is also more computationally expensive and slower than the shortest route method, as the tree must be exhaustively searched and an `optimum' route built. Additionally, the method doesn't provide a great improvement over the shortest route method, which I think makes the extra computation time unjustifiable.
 
-One improvement which could be made to improve this method could be to provide some more powerful route filtering to determine optimal routes. A simple way to do this is to incorporate the route's weighting into the its length; currently the algorithm only uses the weightings to compare two routes of the same length. This would produce `cheaper' routes than at present, as it would cause the system to choose routes which may be slighly longer, but don't use as many tools. Another improvement which could be made to this method is to introduce a shared knowledgebase. This would greatly increase the chance of an optimal route. I also think that a more efficient search method could be used in anticipation of the use of much larger levels. An heuristic algorithm such as A* would be appropriate.
+One improvement which could be made could be to provide some more powerful route `filtering' to determine optimal routes. A simple way to do this is to incorporate the route's length into its weighting (currently the algorithm only uses the weightings to compare two routes of the same length). This would produce `cheaper' routes than at present, as it would prefer routes which may be slighly longer, but don't use as many tools. Another improvement could be to introduce a shared knowledgebase. This would greatly increase the chance of an optimal route. I also think that a more efficient search method could be used in anticipation of the use of much larger levels. An heuristic algorithm such as A* would be appropriate.
 
 \subsection{Reinforcement Learning}
 
-Overall, my RL agents performed even better than expected, with the agents able to fairly quickly gather enough information to formulate an optimum policy. In addition, after a reasonable amount of episode, the method gave a 100\% survival rate which is as good as can be expected. A big advantage to this method is that every decision made by the agents contributes positively to the knowledgebase in a positive way; an agent dying is as helpful as if the agent had reached the exit, if not more so, as it teaches the agent where \emph{not} to go. In addition, the Q-learning algorithm is capable of functioning in much larger environments, given enough storage space. Another big advantage to this method is that it requires very little computation to build the optimum policy after the learning is complete, as the agent only needs to search through the actions currently avaliable to it for the current state; there is no need to search through vast knowledgebases, or build the complete route beforehand. For this reason, I feel that this method is particularly suited to a game environment, where high performance is paramount.
+Overall, my RL agents performed even better than expected, with the agents able to fairly quickly gather enough information to formulate an optimum policy. In addition, after a reasonable amount of episodes, the method gave a 100\% survival rate which is as good as can be expected. Another big advantage to this method is that every decision made by the agents contributes to the knowledgebase in a positive way; an agent dying is as helpful as an agent reaching the exit, if not more so, as it teaches the agent where \emph{not} to go. The algorithm is also capable of functioning in much larger environments (given enough storage space). It also requires very little computation to build the optimum policy after the learning is complete, as the agent only needs to search through the actions currently avaliable to it for the current state. There is no need to search through vast knowledgebases, or build a route beforehand. For this reason, I feel that this method is particularly suited to a game environment, where high performance is paramount.
 
-However, there are also a number of areas which let this method down. One problem being the amount of storage space required. The algorithm requires that every action/state combination tried by the agent needs to be stored. While this is not an issue in my game due to the small environments, this could cause problems in much larger environments - especially if using mobile hardware. Another problem with my implementation is that it never truly converges; the route taken by the agent is not necessarily the optimum route. The main cause for this being the amount of time given for the system to learn. As the method relies on a backwards propagation of rewards, it can take some time for said rewards to transfer the rewards to certain areas of the level. In the majority of machine learning systems, the algorithms are run for several thousand iterations, which gives it enough time to converge on a solution. With each learning episode in my game taking between 1 and 1.5 minutes, there is not enough time to allow the AI system to run for this many iterations. My addition of a shared knowledgebase greatly helped with this, as it meant that I was essentially `threading' the learning process using many agents to simultaneously contribute to the same knowledgebase. This greatly reduced the time required for an optimal solution to be found. 
+However, there are also a few problems with this method. One being the amount of storage space required. The algorithm requires that a Q-value is stored for every action/state combination tried by the agent. While this is not an issue in my game due to the small environments, this could be problematic in much larger environments - especially if using mobile hardware. Another problem with my implementation is that it never truly converges, so the route taken by the agent is not necessarily the optimum route. The main cause for this is the limited amount of time given to learn; as the method relies on a backwards propagation of rewards, it can take some time for said rewards to transfer to the farthest corners of the level. Many machine learning systems are run for several thousand iterations, giving enough time for convergence. With each episode in my game taking 1-2 minutes, it isn't feasible for my AI system to run for this many iterations. My addition of a shared knowledgebase greatly helped with this, as it allowed me to `thread' the learning process using many agents to simultaneously contribute to the same knowledgebase, greatly reducing the time required for an optimal solution to be found. 
 
-Although my RL agents proved to be very effective, there are a few improvements which I would like to have made was I given more time. One such improvement being the addition of a variable learning rate. I discovered from my research that the general consensus is to begin the learning with a high learning rate, reducing it as time goes on, which has the effect of quicker learning early on, with more fine-tuning to the system later on. Using a variable learning rate would result in more accurate policies. However, I made a decision during the implementation stage to use a fixed rate for the simple reason that it would produce results much faster, which is key in a game environment; players don't have time to wait for hours for the AI to adjust. Another small enhancement I would like to make is to provide some way to save and load policies. Doing this and updating the same policies would allow the policies to converge, resulting in much more accuracy.
-
-Test alternative reinforcement methods (bucket brigade, temporal difference) 
+Although my RL agents proved to be very effective, there are a few improvements which I would make given more time. One such improvement being the addition of a variable learning rate. I discovered from my research that many RL systems begin the learning with a high learning rate, reducing it as time goes on, which makes learning quicker early on, with more fine-tuning to the system later, resulting in more accurate policies. I made the decision during the implementation stage to use a fixed rate as it would produce results much faster, which is key in a game environment; players don't have time to wait for hours for the AI to adjust. Another small enhancement I would make is to provide some way to save and load policies. Doing this and updating the same policies would allow the policies to converge, resulting in much more accuracy. The final enhancement that I'd like to make would be to implement some additional RL algorithms such as bucket brigade.
 
 \section{General Areas For Enhancement}
 
 Although I'm very pleased with the outcome of my project, given extra development time, there are a number of areas which I feel I would like to extend further.
 
-The first and perhaps most obvious enhancement that I would make would be to extend the AI system to incorporate more learning types. Were I to do this, the next type that I would experiment with would be genetic algorithms, as I think that it lends itself quite well to the context of my game. Each individual agent could act as a gene, with only those agents with the most effective policies being chosen for `breeding'. The agents could spawn in waves representing a single generation of genes.
+The first and perhaps most obvious enhancement that I would make would be to extend my system to use more learning types. I would like to experiment with genetic algorithms, as I think that it lends itself quite well to the context of my game. Each individual agent could act as a gene, with only those agents with the most effective policies being chosen for `breeding'. The agents could spawn in waves representing a single generation of genes.
 
-Another enhancement that I think it would be interesting to make would be to allow for multiple learning types to be used in a single game, with separate agents able to use different algorithms. It would be interesting to compare the performance of the methods in a single game. 
+Another enhancement that I think it would be interesting to make would be to allow for multiple learning types to be used in a single game, with separate agents able to use different algorithms. It would be interesting to compare the performance of the methods in real-time. 
 
-Something else which I'd like to implement would be some way for the agents to learn from each other - perhaps by `watching' (or being in the vicinity of) other agents. This wouldn't be as effective as using a shared knowledegbase, but it would create some more diverse behaviour among the agents, rather than every agent using the same route. While not necessarily appropriate to my problem area, it could definitely be useful in commercial games, where the AI agents need to appear realistic, by employing a diverse range of behaviour.
+I would also like to implement some way for the agents to learn from each other - perhaps by `watching' (or being in the vicinity of) other agents. This wouldn't be as effective as using a shared knowledegbase, but it would create some more diverse behaviour among the agents, rather than every agent using the same route. While not necessarily appropriate to my problem area, it could definitely be useful in commercial games, where the AI agents need to appear realistic by employing a diverse range of behaviour.
 
-Another much simpler enhancement which I would like to make to my game would be to introduce much bigger levels. Although the agents show a definite improvement in their traversal of the level, I don't feel that using such small levels allows my system to fully demostrate its capabilities. I did initially look into creating levels which were several screen-widths wide, with the player able to scroll along the level. However due to the size restrictions of the iPhone screen, I later decided against this as I thought that it would be bad from a usability point of view, as the majority of the game level would be obscured to the player. It would perhaps be more appropriate to create a version of the game for a desktop computer.
+I would also like to introduce much bigger levels into my game. Although the agents show a definite improvement in their traversal of the levels, I don't feel that such small levels allow my system to fully demostrate its capabilities. I did initially look into creating levels which were several screen-widths wide, with the player able to scroll along the level. However due to the size restrictions of the iPhone screen, I later decided against this as I thought that it would be bad from a usability point of view, as the majority of the game level would be obscured to the player. It would perhaps be more appropriate to create a version of the game for a desktop computer with much bigger levels.
 
-A small criticism I have of my system is that it is very specific to the individual levels; the information learnt about one level is completely useless for another (a problem known as over-fitting). This being said, it is very difficult to design such a system, especially in a problem area such as mine, where it is very difficult to generalise. Additionally, The task of discovering n optimum route in an environment is very difficult to solve without over-fitting. A possible solution could be to develop the AI in two components: one using Q-learning to learn the policy for that individual level, and another (possibly a genetic algorithm) to learn more general rules. 
+A small criticism I have of my system is that it is very specific to the individual levels; the information learnt about one level is completely useless for another (a problem known as overfitting). Overfitting is a known `flaw' of the Q-learning algorithm. In an ideal scenario, an agent would be able to generalise its experiences to apply the learnt knowledge in different scenarios, however, this would be virtually impossible in my case (of learning an optimum route). A possible solution to overfitting could be to develop the AI in two components: one using Q-learning to learn the policy for that individual level, and another (possibly a genetic algorithm) to learn more general rules. 
 
 \section{Conclusion}
 
-I am very happy with how my final system turned out. All of the learning types I implemented showed a significant improvement over the agents with no learning, which was my main goal. The reinforcement agents in particular are very effective in finding the optimum solution in a relatively limited number of learning episodes. Particularly so when utilising the shared knowledgebase. 
+I feel that overall, my project was a great success; I achieved my initial goal of creating AI agents capable of learning ow to traverse my game levels. Although some methods proved more effective than others, all of the techniques I implemented showed a marked improvement over the basic (non-learning) agents. I was particularly pleased with the reinforcement agents in particular, which have proven very effective in finding the optimum solution in a relatively limited number of learning episodes. Particularly so when utilising the shared knowledgebase. 
 
 Learning aside, I was also very pleased with the core `game' component; especially given the fact that I had to create the artwork and character animations, and program the core game component myself. I feel that the final game is very robust, and serves well to demonstrate my AI system especially given the initial problems I encountered due to my inexperience of using Objective-C.
 
-I felt I learnt a great deal carrying out this project. Aside from the knowledge of AI and machine learning gained, I also learnt a great deal about software and game development more generally. Having never developed a software product to completion, carrying out the initial design, specification through to the development and testing was invaluable. I found this project to be particularly useful from a game development point of view. Due to the fact that I was developing for mobile hardware, there were a number of considerations which I had to make such as the reuse of assets and other optimisation; issues which are often forgotten because of the powerful hardware at our disposal.
+I felt I learnt a great deal carrying out this project. Aside from the knowledge of AI and machine learning gained, I also learnt a great deal about more general software and game development. Having never developed a software product from concept to completion, carrying out the initial design, specification development and testing was invaluable and gave me an insight into the software development process. I found this project to be particularly useful from a game development point of view: due to the fact that I was developing for mobile hardware, there were a number of considerations which I had to make such as the reuse of assets and using optimised file format; issues which are often forgotten because of the powerful hardware at our disposal today.
 
-Most importantly of all, I feel that I suitably demonstrated that it is not only possible, but computationally feasible with today's technology to implement machine learning techniques in games. Even more so given the fact that I did so on a mobile device (although I accept that not all mobile games have the same amount of processor time to devote to the AI). Such techniques could have many possible applications in games to create much more `intelligent' AI systems which are capable of dynamically modifying their behaviour to adapt to the player. Given that machine learning techniques have been shown to be effective in commercial games (Lionhead's Black \& White is a good example), it is surprising to me that more developers haven't taken up the mantle and implemented similar techniques in their own games. Such techniques could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to enemy characters in a platform game. This, in addition to the increase in importance given to the AI in the form of more processor time, and programmers dedicated to AI development suggest to me that such techniques are likely to become more widespread in the near future. 
+In conclusion, I feel that I suitably demonstrated that it is not only possible, but computationally feasible with today's technology to implement machine learning techniques in games. This is made even more pertinent considering that I did so on a mobile device (although I accept that not all mobile games have the same amount of processor time to devote to the AI as my project). Such techniques could have many possible applications in games to create much more `intelligent' AI systems which are capable of dynamically modifying their behaviour to adapt to the player. Given that machine learning techniques have been shown to be effective in commercial games (Lionhead's Black \& White is the flagship example), it is surprising to me that more developers haven't taken up the mantle and implemented similar techniques in their own games. Such techniques could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game, to enemy characters in a platform game. Given the increase in priority of the AI (more processor time, and dedicated AI programmers) suggest to me that such techniques are likely to become more widespread in the near future. 
 
 
 %
 % New part 
 %
 
-\part{Appendices}{}
+%\part{Appendices}{}
 
-	\appendix
-	
-	%\chapter{Code Listings}
-
-	\chapter{Project Log}
-	
-A day-by-day work diary kept by you as the project is carried out. A log which has evidently been manufactured to be handed in rather than having been properly kept will result in a lower grade.
-
-	\chapter{Git Log}
+%\appendix
+%\chapter{Code Listings}
+%\chapter{Git Log}
 
 
 	

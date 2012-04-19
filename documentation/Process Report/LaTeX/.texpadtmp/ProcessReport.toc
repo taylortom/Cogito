@@ -46,64 +46,60 @@
 \contentsline {chapter}{System Design}{24}
 \contentsline {section}{Menu}{24}
 \contentsline {section}{Game}{24}
-\contentsline {subsection}{Lemming Functionality}{25}
-\contentsline {section}{AI System}{25}
+\contentsline {subsection}{Lemming Functionality}{24}
+\contentsline {section}{AI System}{24}
 \contentsline {section}{Class Diagrams}{25}
 \contentsline {subsection}{Layers}{25}
-\contentsline {subsection}{Singletons}{26}
-\contentsline {subsection}{GameObjects}{26}
-\contentsline {section}{Agent States}{27}
-\contentsline {chapter}{Social, Legal, Ethical and Professional Issues}{28}
-\contentsline {section}{Intellectual Property}{28}
-\contentsline {section}{Copyright Law}{28}
-\contentsline {section}{The Data Protection Act}{28}
-\contentsline {section}{Ethical Issues}{28}
+\contentsline {subsection}{Singletons}{25}
+\contentsline {subsection}{GameObjects}{25}
+\contentsline {section}{Agent States}{26}
+\contentsline {section}{Social, Legal, Ethical and Professional Issues}{26}
+\contentsline {subsection}{Intellectual Property}{27}
+\contentsline {subsection}{Copyright Law}{27}
+\contentsline {subsection}{The Data Protection Act}{27}
+\contentsline {subsection}{Ethical Issues}{28}
 \contentsline {part}{The Product}{29}
-\contentsline {section}{Introduction}{30}
-\contentsline {section}{Navigating}{30}
-\contentsline {section}{Starting A Game}{31}
-\contentsline {section}{Playing The Game}{31}
-\contentsline {part}{Implementation}{32}
-\contentsline {chapter}{Coding Practices and Structure}{33}
-\contentsline {subsection}{Code Structure}{33}
-\contentsline {subsubsection}{Commenting}{33}
-\contentsline {subsubsection}{Methods}{33}
+\contentsline {section}{The Menu}{30}
+\contentsline {section}{Starting A Game}{30}
+\contentsline {section}{Playing The Game}{30}
+\contentsline {paragraph}{Pausing the game:}{31}
+\contentsline {part}{Implementation}{33}
+\contentsline {chapter}{Coding Practices and Structure}{34}
+\contentsline {subsection}{Commenting}{34}
+\contentsline {subsection}{Methods}{34}
 \contentsline {subsection}{Singleton Classes}{34}
-\contentsline {subsection}{Constants}{34}
-\contentsline {subsection}{Datatypes}{34}
-\contentsline {subsection}{Utility Methods}{34}
-\contentsline {chapter}{Game Component}{35}
-\contentsline {section}{Code Structure/Features}{35}
-\contentsline {subsection}{Cocos2D}{35}
+\contentsline {subsection}{Constants}{35}
+\contentsline {subsection}{Datatypes}{35}
+\contentsline {subsection}{Utility Methods}{35}
+\contentsline {chapter}{Game Component}{36}
+\contentsline {section}{Code Structure/Features}{36}
+\contentsline {subsection}{Cocos2D}{36}
 \contentsline {subsection}{Physics}{36}
-\contentsline {subsection}{Levels}{36}
-\contentsline {subsection}{Basic Agent Functionality}{37}
+\contentsline {subsection}{Levels}{37}
+\contentsline {subsection}{Basic Agent Functionality}{38}
 \contentsline {subsection}{Performance Optimisations}{38}
-\contentsline {subsubsection}{Random number generation}{38}
+\contentsline {subsubsection}{Random number generation}{39}
 \contentsline {subsection}{SlideViewer}{39}
-\contentsline {section}{Problems Faced}{39}
+\contentsline {section}{Problems Faced}{40}
 \contentsline {chapter}{AI Component}{41}
 \contentsline {section}{Level Structure}{41}
 \contentsline {section}{Learning Agents}{41}
-\contentsline {subsection}{Cogito Agents}{43}
+\contentsline {subsection}{Cogito Agents}{42}
 \contentsline {subsection}{Shortest Route Agents}{43}
 \contentsline {subsection}{Decision Tree Agents}{43}
 \contentsline {subsection}{Reinforcement Agents}{44}
 \contentsline {section}{Learning Stats}{46}
-\contentsline {section}{Problems Faced}{47}
-\contentsline {part}{Testing \& Evaluation}{48}
-\contentsline {chapter}{Testing \& Results}{49}
-\contentsline {section}{Usability Testing and Error Checking}{49}
-\contentsline {section}{AI Testing}{49}
-\contentsline {chapter}{Evaluation}{50}
-\contentsline {section}{Time Management}{50}
-\contentsline {section}{Analysis of Machine Learning}{50}
-\contentsline {subsection}{Shortest Route Learning}{50}
-\contentsline {subsection}{Decision Tree Learning}{51}
-\contentsline {subsection}{Reinforcement Learning}{52}
-\contentsline {section}{General Areas For Enhancement}{53}
-\contentsline {section}{Conclusion}{54}
-\contentsline {part}{Appendices}{56}
-\contentsline {chapter}{Project Log}{57}
-\contentsline {chapter}{Git Log}{58}
-\contentsline {part}{Bibliography}{59}
+\contentsline {section}{Problems Faced}{46}
+\contentsline {part}{Testing \& Evaluation}{47}
+\contentsline {chapter}{Testing \& Results}{48}
+\contentsline {section}{Usability Testing and Error Checking}{48}
+\contentsline {section}{AI Testing}{48}
+\contentsline {chapter}{Evaluation}{49}
+\contentsline {section}{Time Management}{49}
+\contentsline {section}{Analysis of Machine Learning}{49}
+\contentsline {subsection}{Shortest Route Learning}{49}
+\contentsline {subsection}{Decision Tree Learning}{50}
+\contentsline {subsection}{Reinforcement Learning}{51}
+\contentsline {section}{General Areas For Enhancement}{52}
+\contentsline {section}{Conclusion}{53}
+\contentsline {part}{Bibliography}{54}
