@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  20 APR 2012 12:26
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  20 APR 2012 15:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -366,14 +366,439 @@ es/images/cogito_logo_main.png>]
 [1
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 132.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ˜ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ˜ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+ [2]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ˜ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 168.
 
  (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 132.
- [2] [3]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 168.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ˜ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+ [3]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ˜ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+
+[4] [5] [6] [7] [8] [9]
+<sources/git_log.pdf, id=51, page=1, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 1>
+Package pdftex.def Info: sources/git_log.pdf, page1 used on input line 361.
+(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 1>
+Package pdftex.def Info: sources/git_log.pdf, page1 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 1>
+Package pdftex.def Info: sources/git_log.pdf, page1 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 1>
+Package pdftex.def Info: sources/git_log.pdf, page1 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 1>
+Package pdftex.def Info: sources/git_log.pdf, page1 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [10 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=75, page=2, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 2>
+Package pdftex.def Info: sources/git_log.pdf, page2 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 2>
+Package pdftex.def Info: sources/git_log.pdf, page2 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 2>
+Package pdftex.def Info: sources/git_log.pdf, page2 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [11 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=80, page=3, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 3>
+Package pdftex.def Info: sources/git_log.pdf, page3 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 3>
+Package pdftex.def Info: sources/git_log.pdf, page3 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 3>
+Package pdftex.def Info: sources/git_log.pdf, page3 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [12 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=84, page=4, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 4>
+Package pdftex.def Info: sources/git_log.pdf, page4 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 4>
+Package pdftex.def Info: sources/git_log.pdf, page4 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 4>
+Package pdftex.def Info: sources/git_log.pdf, page4 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [13 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=88, page=5, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 5>
+Package pdftex.def Info: sources/git_log.pdf, page5 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 5>
+Package pdftex.def Info: sources/git_log.pdf, page5 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 5>
+Package pdftex.def Info: sources/git_log.pdf, page5 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [14 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=92, page=6, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 6>
+Package pdftex.def Info: sources/git_log.pdf, page6 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 6>
+Package pdftex.def Info: sources/git_log.pdf, page6 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 6>
+Package pdftex.def Info: sources/git_log.pdf, page6 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [15 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=96, page=7, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 7>
+Package pdftex.def Info: sources/git_log.pdf, page7 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 7>
+Package pdftex.def Info: sources/git_log.pdf, page7 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 7>
+Package pdftex.def Info: sources/git_log.pdf, page7 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [16 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=100, page=8, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 8>
+Package pdftex.def Info: sources/git_log.pdf, page8 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 8>
+Package pdftex.def Info: sources/git_log.pdf, page8 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 8>
+Package pdftex.def Info: sources/git_log.pdf, page8 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [17 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=105, page=9, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 9>
+Package pdftex.def Info: sources/git_log.pdf, page9 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 9>
+Package pdftex.def Info: sources/git_log.pdf, page9 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 9>
+Package pdftex.def Info: sources/git_log.pdf, page9 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [18 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=109, page=10, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 10>
+Package pdftex.def Info: sources/git_log.pdf, page10 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 10>
+Package pdftex.def Info: sources/git_log.pdf, page10 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 10>
+Package pdftex.def Info: sources/git_log.pdf, page10 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [19 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=113, page=11, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 11>
+Package pdftex.def Info: sources/git_log.pdf, page11 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 11>
+Package pdftex.def Info: sources/git_log.pdf, page11 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 11>
+Package pdftex.def Info: sources/git_log.pdf, page11 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [20 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=117, page=12, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 12>
+Package pdftex.def Info: sources/git_log.pdf, page12 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 12>
+Package pdftex.def Info: sources/git_log.pdf, page12 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 12>
+Package pdftex.def Info: sources/git_log.pdf, page12 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [21 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=121, page=13, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 13>
+Package pdftex.def Info: sources/git_log.pdf, page13 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 13>
+Package pdftex.def Info: sources/git_log.pdf, page13 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 13>
+Package pdftex.def Info: sources/git_log.pdf, page13 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [22 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=125, page=14, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 14>
+Package pdftex.def Info: sources/git_log.pdf, page14 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 14>
+Package pdftex.def Info: sources/git_log.pdf, page14 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 14>
+Package pdftex.def Info: sources/git_log.pdf, page14 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [23 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=130, page=15, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 15>
+Package pdftex.def Info: sources/git_log.pdf, page15 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 15>
+Package pdftex.def Info: sources/git_log.pdf, page15 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 15>
+Package pdftex.def Info: sources/git_log.pdf, page15 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [24 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=134, page=16, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 16>
+Package pdftex.def Info: sources/git_log.pdf, page16 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 16>
+Package pdftex.def Info: sources/git_log.pdf, page16 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 16>
+Package pdftex.def Info: sources/git_log.pdf, page16 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [25 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=138, page=17, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 17>
+Package pdftex.def Info: sources/git_log.pdf, page17 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 17>
+Package pdftex.def Info: sources/git_log.pdf, page17 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 17>
+Package pdftex.def Info: sources/git_log.pdf, page17 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [26 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=142, page=18, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 18>
+Package pdftex.def Info: sources/git_log.pdf, page18 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 18>
+Package pdftex.def Info: sources/git_log.pdf, page18 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 18>
+Package pdftex.def Info: sources/git_log.pdf, page18 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [27 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=146, page=19, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 19>
+Package pdftex.def Info: sources/git_log.pdf, page19 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 19>
+Package pdftex.def Info: sources/git_log.pdf, page19 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 19>
+Package pdftex.def Info: sources/git_log.pdf, page19 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [28 <./sources/git_log.pdf>]
+<sources/git_log.pdf, id=150, page=20, 597.23125pt x 845.1575pt>
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 20>
+Package pdftex.def Info: sources/git_log.pdf, page20 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+ <use sources/git_log.pdf, page 20>
+Package pdftex.def Info: sources/git_log.pdf, page20 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: sources/git_log.pdf Graphic file (type pdf)
+
+<use sources/git_log.pdf, page 20>
+Package pdftex.def Info: sources/git_log.pdf, page20 used on input line 361.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+ [29 <./sources/git_log.pdf>]
 (/Projects/Cogito/documentation/Project Log/.texpadtmp/ProjectLog.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -384,26 +809,28 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### semi simple group (level 1) entered at line 56 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5368 strings out of 493633
- 74524 string characters out of 3143378
- 166513 words of memory out of 3000000
- 8567 multiletter control sequences out of 15000+200000
+ 5433 strings out of 493633
+ 76324 string characters out of 3143378
+ 167513 words of memory out of 3000000
+ 8629 multiletter control sequences out of 15000+200000
  7551 words of font info for 29 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,6n,49p,595b,1117s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,18n,49p,815b,1260s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-2.pfb>
+/cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+17.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
+.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb>
 Output written on "/Projects/Cogito/documentation/Project Log/.texpadtmp/Projec
-tLog.pdf" (5 pages, 223843 bytes).
+tLog.pdf" (31 pages, 348189 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 186 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

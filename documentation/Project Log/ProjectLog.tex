@@ -119,6 +119,105 @@
 
 \part{Development Diary}{This section contains a week-by-week diary of my project's development}
 
+\subsection{Week 1 [27th Nov]}
+
+The first week of project development was spent mocking up concept artwork for the game. I went through a few different iterations/art styles before settling on my final direction. Initially, I was going to use lots of  ’cartoony’ visuals, with heavily patterned textures and colours. After creating some mock-ups, I decided this looked too ‘busy’ and just didn’t achieve the effect I was after.
+
+\paragraph{} With my second idea, I decided to take a completely different direction, and go for a much more minimalist style. I took my main inspiration from these promotional images for Portal, and wanted a high contrast art style akin to health and safety signs.
+
+\paragraph{}After creating a few designs using this style, I again decided it didn’t really feel right, and didn’t particularly fit in with the project logo/splash screen I had designed. Following this, I eventually settled on a similarly minimalist style, though somewhat less so than the stick-man signage theme. I also decided to change the colour scheme, and go with whites and blues as used in my project logo.
+
+\paragraph{} On the technical side, I spent some more time getting to grips with Objective-C and working through some examples. I also laid down some of the codebase for the project this week, although the game only loads the splash screen and a background image at the moment.
+
+
+
+\subsection{Week 2 [4th Dec]}
+
+\paragraph{} Spent some more time working on artwork this week, created a few mock-ups and possible level designs, brainstormed how different components would fit together in a level.
+
+\paragraph{} I also created the first iteration of my lemming character design. After the various changes/iterations in my art style, I eventually settled for using a design very similar to the original lemming design; albeit slightly toned down, and somewhat bluer.
+
+\paragraph{} After I’d created the first basic character design/walking animation, I wanted to to a simple performance test to check at this very early stage if there were likely to be any issues. I tested the very early ‘Hello World’ style demo I already had with some animated lemming sprites on screen. My initial plan was to have 20-25 lemmings at most in the level at any one time. This turned out very well; my app was running smoothly at 60 frames per second. I found that there was a performance bottleneck at 120+ characters, where the framerate dropped to below 30fps.
+
+\paragraph{} This was a perfect result; with 25 lemmings onscreen all animating at once, I was able to achieve 60fps, which I could easily drop to 30fps later on if I found performance to be an issue once the AI was added.
+
+
+
+\subsection{Week 3 [11th Dec]}
+
+\paragraph{} This week I started to build the basic code framework for the game, and built upon the code added last week. I added code code to load animation frames from external plist files.
+
+\paragraph{} Created the humble beginnings of the gameplay layer class, which contains all the boilerplate ‘gameplay’ stuff (surprise!). Stuff like adding the in-game UI, scoring etc. Also controls adding the lemming sprites.
+
+\paragraph{} I also created the graphics needed for the character animation this week.
+
+\paragraph{} I conducted a few basic performance tests – involving displaying multiple objects on-screen all animating at once. Results were promising; only achieved minor slow-down when 120+ objects were on-screen.
+
+
+
+\subsection{Week 4 [18th Dec]}
+
+\paragraph{} I finished setting up the lemming animations this week, which involved finishing the graphics for all lemming animations, and a bit of coding to finish it off.
+
+\paragraph{} I also made quite a few more tweak to the lemming class. Lemmings are now able to respawn, reappearing at the top of the screen and decrementing the spawn count (each lemming is limited to a fixed number of respawns). I also made numerous fixes to the lemming’s changeState method – added floating animation/movement (lemming now opens the umbrella and switches to a floating state).
+
+\paragraph{} I also added a few debugging features:
+\begin{itemize}
+	\item Ability to list available system fonts
+	\item Added a ‘debug label’ above each lemming to display state, life etc.
+\end{itemize}
+
+I also added the humble beginnings of the GameManager class – a singleton to handle many of the important game-related features: pause/resume game, time current game, run scenes, calculate the final game rating etc.
+
+\paragraph{} Finally, I added the initial version of the menu system, still needs work.
+
+
+
+\subsection{Week 5 [25th Dec]}
+
+\paragraph{} Did a fair bit of code this week, despite the fact that it was Christmas. I Added scene transitions to make everything look a bit prettier when changing between menu items/levels. I also added an intro scene which shows the game splash screen. I also added the final graphics for the menu system, pretty happy with how they’re looking. I’ve left out the high score screen for now as is not mission critical, will add it in at the end if I get time. I also decided not to include the settings screen as I didn’t think there was anything that needed changing settings-wise (no sound etc). I haven’t added the new game screen yet which will allow the user to modify certain game settings before play (things like lemming count, exploration etc.).
+
+\paragraph{} I also added the LemmingManager class, which will handle the lemmings(!), and basically take care of adding and removing lemmings, determining when the game’s over, calculates the game rating.
+
+\paragraph{} I also set up the game over screen, along with the game rating relevant code. Have set the game up to display an image according to which rating has been given (A,B,C,D,F). Haven’t yet implemented the actual algorithm to calculate the game rating.
+
+\paragraph{} I also added the game pause screen, which animates in/out quite nicely, gives the user the option to resume or quit.
+
+
+
+\subsection{Week 6 [1st Jan]}
+
+I gave myself a week off this week, on account of it being Christmas Day/Boxing Day/New Year’s Eve/New Year’s Day so have nothing to report!
+
+
+
+\subsection{Week 7 [8th Jan]}
+
+\paragraph{} Did quite a bit of coding this week. I added the basic ‘terrain’ code so that the lemming can actually traverse the level. I separated the terrain from the gameplay layer into a separate terrain layer. I also added code to load the level data from an external Plist file – to keep the level info separate, and also means that new levels can be loaded and swapped in and out easily. Also makes it easy to change the filenames of the graphics. Also means that I only need a single class which can deal with all levels, rather than a separate class for each level. In terms of the actual terrain code, I added code to deal with various terrain-related attributes which could be set via the Plist (position, terrain type, whether the object should ignore collisions).
+
+\paragraph{} I had a few problems with the lemming-platform collision code with the lemming changing states incorrectly (from walking to falling and vice versa) . This has now been fixed.
+
+\paragraph{} Final thing I added this week was the code to initialise obstacles. This was fairly similar to the terrain code, with a few slight changes. I needed to add code to deal with obstacle animation.
+
+
+
+\subsection{Week 8 [15th Jan]}
+
+\paragraph{} This week I added code to allow method calls to be delayed. It’s mainly used to delay killing a lemming character so that the lemming is given a bit of time to move under the obstacle before being killed. Essentially for aesthetic purposes.
+
+\paragraph{} I also fixed the code to animate obstacles, which is now working correctly, and created a test level with all obstacles and some platforms etc. Water is looking nice when animated.
+
+\paragraph{} I also discovered a major (and as of yet unsolved) performance issue. For some reason, when testing on the iPhone, there are big issues with the framerate dropping to very poor levels (< 10fps, in some cases even causing crashes). I narrowed this down to an issue with my build settings (I needed to turn off GCC thumb support, due to an issue with floating point number calculations). However, although this fixed the problem with the iPhone 5 simulator in Xcode, it still doesn’t fix the problem on the iPhone, which occurs even with one lemming. The problem seems to occur after a lemming has been killed. This is a huge problem, and really needs to be sorted ASAP.
+
+
+
+\subsection{Week 9 [22nd Jan]}
+
+An important job I did this week was to set up the AI code such that the \emph{Lemming} class inherits from it. The \emph{Lemming} class in turn inherits from \emph{GameObject}.
+
+\paragraph{} I also fixed a huge performance issue that I was having whereby I was dropping frames the longer that the game ran, which eventually caused a crash (after the framerate had dropped to about 10-15 fps). The problem was caused by me repeatedly adding the terrain/obstacles to the game objects list every frame, rather than once at the beginning of the game. For example, say I only had 5 collideable objects in the game, this meant that I was increasing the game objects list by 300/sec (i.e. 5 every frame at 60 fps). I found that the game understandably crashed as the list reached about 3000 objects, as the game was trying to calculate collisions between these objects. 
+
+
 
 
 \subsection{Week 10 [29th Jan]}
@@ -142,19 +241,112 @@ This week I added a lot more code to the AI component of my project:
 \end{itemize}
 
 
+
 \subsection{Week 11 [5th Feb]}
 
 This week I added a lot more code to the AI component of my project:
 
 \paragraph{} I found that there was an issue with the \emph{performSelector:withObject:afterDelay} method in the \emph{NSObject} class. I found that for some reason the method wasn't being delayed for the correct amount of time, so I implemented my own method to do the same thing (\emph{changeState:afterDelay}). The problem was causing my agents to look as if they were walking on air. My alternative version counts the frames, so if for some reason the game's framerate drops, there are still big problems (the agents wouldn't change state at the right time).
 
-\paragraph{} I also changed the inheritance heirarchy to make more sense. It is now:
+\paragraph{} I also changed the inheritance hierarchy to make more sense. It is now:
 
 \begin{center} GameObject \\ $\downarrow$ \\ Lemming \\ $\downarrow$ \\ CogitoAgent \end{center}
 
 \paragraph{}This meant that I was able to remove a few variables which had no place in the CogitoAgent class (umbrellaUses and helmetUses).
 
-\paragraph{} I also added a lot of code for the Q-learning and created a \emph{State}
+\paragraph{} I also added a lot of code for the Q-learning and created a \emph{State} class to encapsulate the relevant data about a state (for example it's associated GameObject).
+
+
+
+\subsection{Week 12 [12th Feb]}
+
+I added more to the actual Q-learning code this week. I now updated the Q-values when the agent is in learning mode. The max Q-vales etc. are also calculated correctly according to the Q-learning algorithm:
+
+\begin{equation*}
+	Q = Q(1 - \alpha) + \alpha(R + \gamma(maxQ))
+\end{equation*}
+
+Where:
+\begin{itemize}
+	\item \textbf{Q} is the Q value for the current state/action
+	\item \textbf{$\alpha$} is the learning rate
+	\item \textbf{R} is the reward for the next state
+	\item \textbf{$\gamma$} is the discount factor
+	\item \textbf{maxQ} is the maximum possible Q-value for the next state
+\end{itemize}
+
+When it comes to actually calculating the Q-values, I did so slightly differently to how the algorithm specifies. Rather than using the Q-values for the next state, I instead do so for the current state and previous state as I didn't want to store the information for the next state. This is because initially, the agent would have no knowledge of the game world (it would also take up more memory to store next states).
+
+\paragraph{} I also made a few more tweaks to the game rating algorithm: a bonus is now given for any spawns left unused.
+
+
+
+\subsection{Week 13 [19th Feb]}
+
+This week I made a lot of fairly minor changes:
+
+\begin{itemize}
+
+	\item I set up the agents to display the `idle' frame when falling so that they don't fall mid-stride (this looked odd)
+	
+	\item I added a few more string conversion methods to the Utils class
+	
+	\item I refactored the learning code in anticipation of adding more learning types. This involved moving a lot of code out of the CogitoAgent class, and into the new QLearningAgent class which is solely for the RL.
+	
+	\item I also added a `shortest route' method of learning which simply records each successful route the agent takes, and chooses whichever route is the shortest.
+	
+	\item Another addition I made to the Q-learning agents was to add a shared knowledgebase. Each agent can contribute to this rather than to store the information locally; this means much more effective learning (less episodes are needed per agent). 
+
+\end{itemize}
+
+
+
+\subsection{Week 14 [26th Feb]}
+
+This week I added decision tree learning. In the decision tree learning, I dynamically create a tree which maps the routes that the agent takes, as well as whether they are successful or not. At the moment, the class naively thinks that all routes of the same length are equal (i.e. it doesn't take into account the tool uses).
+
+\begin{itemize}
+
+\item I also added to the \emph{AgentStats} class which logs certain information about the learning episodes, and is used to calculate the averages using this data.
+
+\item I moved the random number generation code into the Utils class so that I could later change the algorithm for something more efficient. This also centralises the code.
+
+\item I also changed the method I was using to pause the game which was causing strange bugs (agent not stopping quickly enough and falling through the level terrain). There are still a few problems when resuming the game, but it's better than before.
+
+\item Another very useful addition I made to the game this week was the \emph{DataManager} class, which handles the saving and exporting of the learning data. It saves the data when the game over screen is displayed (not when the game hasn't finished). The game data is then loaded in again when the game is started.
+
+\item I added a new game screen this week which allows the user to tweak settings like how many agents are added, how many agents are added, how many learning episodes they have, what learning algorithm they use etc.
+
+\item I also added a Stats `HUD' to the pause screen which displays information from the \emph{AgentStats} class. I also added a popup when the game starts which tells the user how to pause the game.
+
+\item The final change I made this week was to the Q-learning algorithm; there is now a small negative reward associated with the agents using a tool. This encourages the agents to take a path with the least amount of tool uses.
+
+\end{itemize}
+
+
+
+\subsection{Week 15 [4th Mar]}
+
+I didn't add a great deal this week, as I was carrying out usability testing. A lot of the work I did was to tidy things up and fix bugs.
+
+\paragraph{} I added some more levels with a bit of variety in the layouts to test my agents in different environments.
+
+\paragraph{} I changed the random number generator to used the CC\_RANDOM\_0\_1 algorithm, which is much quicker than the arc4Random one I was using.
+
+\paragraph{} I set up the \emph{CogitoAgent} class to choose random actions by default when no learning is chosen and the ability to export the Q-values for a game.
+
+
+
+\subsection{Week 16 [11th Mar]}
+
+This week was similar to last week, and was mainly minor tweaks and bugfixing; not much overly noteworthy.
+
+\paragraph{} I added a method to the \emph{DecisionTreeAgent} class which basically creates a `cost' associated with each route. This means that routes which use more tools will be given a greater cost than those that use less.
+
+\paragraph{} Another change worth mentioning is that I changed my \emph{CCArray} initialisation code to use `arrayWithCapacity:0' rather than alloc/init, as the former gives me an autorelease array, rather than having to manually release the memory. This fixed a lot of memory leaks in my code.
+
+\paragraph{} A final thing I added this week was the stats screen which shows some very basic graphs of game stats. I created a nice \emph{SlideViewer} class to contain and animate between these graphs. I also changed the game instructions to use this viewer.
+
 
 
 
@@ -164,6 +356,7 @@ This week I added a lot more code to the AI component of my project:
 
 \part{Git Log}{This section contains a log of all of my git commits along the course of my project's development}
 
+\includepdf[pages=-]{sources/git_log.pdf}
 
 
 \end{document}
