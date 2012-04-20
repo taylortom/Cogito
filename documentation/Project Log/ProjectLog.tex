@@ -127,7 +127,7 @@ This week I added a lot more code to the AI component of my project:
 
 \begin{itemize} 
 
-\item I added the `decision nodes' which act as trigger objects in the environment (as well as the trapdoors). These nodes are placed at the end of platforms, but can be used anwhere in the level.
+\item I added the `decision nodes' which act as trigger objects in the environment (as well as the trapdoors). These nodes are placed at the end of platforms, but can be used anywhere in the level.
 
 \item I added code to calculate which actions are available to an agent at any point (options are: left, left with helmet, right, right with helmet, equip umbrella, down, down with umbrella).
 
@@ -146,23 +146,15 @@ This week I added a lot more code to the AI component of my project:
 
 This week I added a lot more code to the AI component of my project:
 
-\begin{itemize} 
+\paragraph{} I found that there was an issue with the \emph{performSelector:withObject:afterDelay} method in the \emph{NSObject} class. I found that for some reason the method wasn't being delayed for the correct amount of time, so I implemented my own method to do the same thing (\emph{changeState:afterDelay}). The problem was causing my agents to look as if they were walking on air. My alternative version counts the frames, so if for some reason the game's framerate drops, there are still big problems (the agents wouldn't change state at the right time).
 
-\item I found that there was an issue with the \emph{performSelector:withObject:afterDelay} method in the \emph{NSObject} class. I found that for some reason the method wasn't being delayed for the correct amount of time, so I implemented my own method to do the same thing (\emph{changeState:afterDelay}). The problem was causing my agents to look as if they were walking on air. My alternative version counts the frames, so if for some reason the game's framerate drops, there are still big problems (the agents wouldn't change state at the right time).
+\paragraph{} I also changed the inheritance heirarchy to make more sense. It is now:
 
-\item I also changed the inheritance heirarchy to make more sense. It is now:
-	
+\begin{center} GameObject \\ $\downarrow$ \\ Lemming \\ $\downarrow$ \\ CogitoAgent \end{center}
 
-\item Currently, the agents simply choose a random action from those available (no learning yet).
+\paragraph{}This meant that I was able to remove a few variables which had no place in the CogitoAgent class (umbrellaUses and helmetUses).
 
-\item I added a method to the Utils class to convert any action into its string equivalent (this is used for debugging purposes).
-
-\item I realised that the game rating algorithm was almost completely useless. It had far too much weighting on the time taken, so I simplified it slightly, and no works better.
-
-\item I also removed the pause button from the game, instead deciding to allow the player to pause the game by touching anywhere on screen (as I didn't need any other user-input).
-
-\end{itemize}
-
+\paragraph{} I also added a lot of code for the Q-learning and created a \emph{State}
 
 
 
@@ -170,7 +162,7 @@ This week I added a lot more code to the AI component of my project:
 % New part
 %
 
-\part{Git Log}{This section contains a log of all of my git commits alon the course of my project's development}
+\part{Git Log}{This section contains a log of all of my git commits along the course of my project's development}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  19 APR 2012 21:25
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  20 APR 2012 12:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,13 +384,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### semi simple group (level 1) entered at line 56 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5366 strings out of 493633
- 74503 string characters out of 3143378
- 167513 words of memory out of 3000000
- 8566 multiletter control sequences out of 15000+200000
- 7243 words of font info for 28 fonts, out of 3000000 for 9000
+ 5368 strings out of 493633
+ 74524 string characters out of 3143378
+ 166513 words of memory out of 3000000
+ 8567 multiletter control sequences out of 15000+200000
+ 7551 words of font info for 29 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,6n,49p,588b,1117s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,6n,49p,595b,1117s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -400,7 +400,7 @@ y10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 2.pfb>
 Output written on "/Projects/Cogito/documentation/Project Log/.texpadtmp/Projec
-tLog.pdf" (5 pages, 222936 bytes).
+tLog.pdf" (5 pages, 223843 bytes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream
