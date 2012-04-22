@@ -32,11 +32,24 @@ L.~Breiman.
 \newblock The Wadsworth and Brooks-Cole statistics-probability series. Chapman
   \& Hall, 1984.
 
+\bibitem{Cormode:fk}
+G.~Cormode.
+\newblock The hardness of the lemmings game, or oh no, more np-completeness
+  proofs.
+\newblock Technical report, Rutgers University.
+
 \bibitem{Crevier:1993kl}
 D.~Crevier.
 \newblock {\em Ai: The Tumultuous History of the Search for Artificial
   Intelligence}.
 \newblock Basic Books, 1993.
+
+\bibitem{Dawson:2000uq}
+C.~W. Dawson, R.~L. Wilby, C.~Harpham, M.~R. Brown, E.~Cranston, and E.~J.
+  Darby.
+\newblock Modelling ranunculus presence in the rivers test and itchen using
+  artificial neural networks.
+\newblock In {\em GeoComputation}, 2000.
 
 \bibitem{Association:2011uq}
 ESA.
