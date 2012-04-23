@@ -56,10 +56,19 @@ ESA.
 \newblock 2011 sales, demographic and usage data: Essential facts about the
   computer and video game industry, 2011.
 
+\bibitem{Even-Dar:2003jl}
+E.~Even-Dar and Y.~Mansour.
+\newblock Learning rates for q-learning.
+\newblock {\em Journal of Machine Learning Research}, 5, 2003.
+
 \bibitem{Fogel:2003fk}
 D.~B. Fogel.
 \newblock Evolutionary entertainment with intelligent agents.
 \newblock {\em Computer}, 36(6):3, June 2003.
+
+\bibitem{Koboldt:kx}
+D.~Koboldt.
+\newblock Dave and decision trees for ngs.
 
 \bibitem{Kurzweil:2005ly}
 R.~Kurzweil.
@@ -80,6 +89,10 @@ P.~Langley.
 L.~Liden.
 \newblock Artificial stupidity: The art of intentional mistakes.
 \newblock {\em AI Game Programming Wisdom}, 2(5):8, 2004.
+
+\bibitem{Marsh:vn}
+C.~Marsh.
+\newblock Animating sprites using css.
 
 \bibitem{McCarthy:1955ve}
 J.~McCarthy, M.~L. Minsky, N.~Rochester, and C.~E. Shannon.
@@ -176,6 +189,11 @@ K.~O. Stanley, B.~D. Bryant, and R.~Miikkulainen.
 \newblock Real-time neuroevolution in the nero video game.
 \newblock {\em IEEE Transactions on Evolutionary Computation}, 9(6), December
   2005.
+
+\bibitem{Strougo:2011ys}
+R.~Strougo and R.~Wenderlich.
+\newblock {\em Learning Cocos2D}.
+\newblock Addison Wesley, 2011.
 
 \bibitem{Watkins:1989mi}
 C.~J. C.~H. Watkins.

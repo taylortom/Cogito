@@ -3,69 +3,74 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ProcessReport.aux
 The style file: abbrv.bst
 Database file #1: ../Cogito.bib
+Warning--entry type for "Marsh:vn" isn't style-file defined
+--line 21 of file ../Cogito.bib
+Warning--entry type for "Koboldt:kx" isn't style-file defined
+--line 29 of file ../Cogito.bib
 Warning--entry type for "Rerych:gb" isn't style-file defined
---line 57 of file ../Cogito.bib
+--line 81 of file ../Cogito.bib
 Warning--entry type for "Woodcock:bs" isn't style-file defined
---line 235 of file ../Cogito.bib
+--line 259 of file ../Cogito.bib
 Warning--entry type for "Woodcock:oq" isn't style-file defined
---line 296 of file ../Cogito.bib
+--line 320 of file ../Cogito.bib
 Warning--entry type for ":cr" isn't style-file defined
---line 434 of file ../Cogito.bib
+--line 458 of file ../Cogito.bib
 Warning--entry type for "Nintendo:2012nx" isn't style-file defined
---line 442 of file ../Cogito.bib
+--line 466 of file ../Cogito.bib
 Warning--entry type for ":2012dq" isn't style-file defined
---line 450 of file ../Cogito.bib
+--line 474 of file ../Cogito.bib
 Warning--entry type for "Sheffield:2008fk" isn't style-file defined
---line 467 of file ../Cogito.bib
+--line 491 of file ../Cogito.bib
 Warning--entry type for "Ng:uq" isn't style-file defined
---line 637 of file ../Cogito.bib
+--line 661 of file ../Cogito.bib
 Warning--entry type for "McCarthy:1955ve" isn't style-file defined
---line 764 of file ../Cogito.bib
+--line 788 of file ../Cogito.bib
 Warning--to sort, need author or key in :2011zt
 Warning--empty author in :2011zt
 Warning--empty year in Cormode:fk
 Warning--empty note in Mitchell:2006fv
 Warning--empty note in Nilsson:2010qa
 Warning--empty year in :hc
-You've used 37 entries,
+Warning--can't use both author and editor fields in Strougo:2011ys
+You've used 41 entries,
             2118 wiz_defined-function locations,
-            703 strings with 8434 characters,
-and the built_in function-call counts, 8926 in all, are:
-= -- 824
-> -- 414
+            722 strings with 8774 characters,
+and the built_in function-call counts, 9812 in all, are:
+= -- 902
+> -- 454
 < -- 1
-+ -- 174
-- -- 132
-* -- 486
-:= -- 1578
-add.period$ -- 107
-call.type$ -- 37
-change.case$ -- 168
++ -- 190
+- -- 144
+* -- 524
+:= -- 1730
+add.period$ -- 117
+call.type$ -- 41
+change.case$ -- 185
 chr.to.int$ -- 0
-cite$ -- 43
-duplicate$ -- 365
-empty$ -- 760
-format.name$ -- 132
-if$ -- 1840
+cite$ -- 48
+duplicate$ -- 401
+empty$ -- 843
+format.name$ -- 144
+if$ -- 2026
 int.to.chr$ -- 0
-int.to.str$ -- 37
-missing$ -- 30
-newline$ -- 178
-num.names$ -- 73
-pop$ -- 244
+int.to.str$ -- 41
+missing$ -- 33
+newline$ -- 196
+num.names$ -- 81
+pop$ -- 271
 preamble$ -- 1
-purify$ -- 140
+purify$ -- 154
 quote$ -- 0
-skip$ -- 264
+skip$ -- 300
 stack$ -- 0
-substring$ -- 239
-swap$ -- 43
+substring$ -- 259
+swap$ -- 48
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 130
-warning$ -- 6
-while$ -- 79
-width$ -- 39
-write$ -- 361
-(There were 15 warnings)
+type$ -- 144
+warning$ -- 7
+while$ -- 87
+width$ -- 43
+write$ -- 396
+(There were 18 warnings)

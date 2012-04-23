@@ -22,8 +22,8 @@
 \contentsline {subsubsection}{Q-learning}{10}
 \contentsline {subsection}{Decision Trees}{11}
 \contentsline {subsection}{Genetic Algorithms}{12}
-\contentsline {subsection}{Artificial Neural networks}{13}
-\contentsline {subsection}{Applications For Machine Learning}{14}
+\contentsline {subsection}{Artificial Neural networks}{14}
+\contentsline {subsection}{Applications For Machine Learning}{15}
 \contentsline {paragraph}{Speech recognition:}{15}
 \contentsline {paragraph}{Computer vision:}{15}
 \contentsline {paragraph}{Robot control:}{15}
@@ -32,7 +32,7 @@
 \contentsline {subsubsection}{Academic Examples}{15}
 \contentsline {subsubsection}{Commercial Examples}{16}
 \contentsline {paragraph}{}{17}
-\contentsline {section}{Conclusion}{17}
+\contentsline {section}{Conclusion}{18}
 \contentsline {chapter}{Choice of Tools}{19}
 \contentsline {section}{Programming Languages \& Game Engines}{19}
 \contentsline {section}{Asset Production}{20}
@@ -53,20 +53,23 @@
 \contentsline {subsection}{Singletons}{27}
 \contentsline {subsection}{GameObjects}{27}
 \contentsline {section}{Agent States}{28}
-\contentsline {section}{Social, Legal, Ethical and Professional Issues}{28}
-\contentsline {subsection}{Intellectual Property}{29}
-\contentsline {subsection}{Copyright Law}{29}
-\contentsline {subsection}{The Data Protection Act}{29}
+\contentsline {section}{Scheduling}{29}
+\contentsline {section}{Contingency Plan}{29}
+\contentsline {section}{Social, Legal, Ethical and Professional Issues}{30}
+\contentsline {subsection}{Intellectual Property}{30}
+\contentsline {subsection}{Copyright Law}{30}
+\contentsline {subsection}{The Data Protection Act}{30}
 \contentsline {subsection}{Ethical Issues}{30}
 \contentsline {part}{The Product}{31}
 \contentsline {section}{The Menu}{32}
 \contentsline {section}{Starting A Game}{32}
-\contentsline {section}{Playing The Game}{32}
-\contentsline {paragraph}{Pausing the game:}{33}
+\contentsline {section}{Playing The Game}{33}
+\contentsline {paragraph}{Pausing the game:}{34}
 \contentsline {part}{Implementation}{35}
 \contentsline {chapter}{Coding Practices and Structure}{36}
 \contentsline {subsection}{Commenting}{36}
 \contentsline {subsection}{Methods}{36}
+\contentsline {paragraph}{}{36}
 \contentsline {subsection}{Singleton Classes}{36}
 \contentsline {subsection}{Constants}{37}
 \contentsline {subsection}{Datatypes}{37}
@@ -74,33 +77,40 @@
 \contentsline {chapter}{Game Component}{38}
 \contentsline {section}{Code Structure/Features}{38}
 \contentsline {subsection}{Cocos2D}{38}
-\contentsline {subsection}{Physics}{38}
+\contentsline {subsection}{Physics}{39}
 \contentsline {subsection}{Levels}{39}
-\contentsline {subsection}{Basic Agent Functionality}{40}
-\contentsline {subsection}{Performance Optimisations}{40}
-\contentsline {subsubsection}{Random number generation}{41}
-\contentsline {subsection}{SlideViewer}{41}
-\contentsline {section}{Problems Faced}{42}
-\contentsline {chapter}{AI Component}{43}
-\contentsline {section}{Level Structure}{43}
-\contentsline {section}{Learning Agents}{43}
-\contentsline {subsection}{Cogito Agents}{44}
-\contentsline {subsection}{Shortest Route Agents}{45}
-\contentsline {subsection}{Decision Tree Agents}{45}
-\contentsline {subsection}{Reinforcement Agents}{46}
-\contentsline {section}{Learning Stats}{48}
-\contentsline {section}{Problems Faced}{48}
-\contentsline {part}{Testing \& Evaluation}{49}
-\contentsline {chapter}{Testing \& Results}{50}
-\contentsline {section}{Usability Testing and Error Checking}{50}
-\contentsline {section}{AI Testing}{50}
-\contentsline {paragraph}{}{51}
-\contentsline {chapter}{Evaluation}{52}
-\contentsline {section}{Time Management}{52}
-\contentsline {section}{Analysis of Machine Learning}{52}
-\contentsline {subsection}{Shortest Route Learning}{52}
-\contentsline {subsection}{Decision Tree Learning}{53}
-\contentsline {subsection}{Reinforcement Learning}{54}
-\contentsline {section}{General Areas For Enhancement}{55}
-\contentsline {section}{Conclusion}{56}
-\contentsline {part}{Bibliography}{58}
+\contentsline {subsection}{Basic Agent Functionality}{41}
+\contentsline {subsection}{Game Rating}{41}
+\contentsline {subsection}{Performance Optimisations}{42}
+\contentsline {subsubsection}{Random number generation}{43}
+\contentsline {subsection}{SlideViewer}{43}
+\contentsline {section}{Problems Faced}{43}
+\contentsline {chapter}{AI Component}{45}
+\contentsline {section}{Level Structure}{45}
+\contentsline {section}{Learning Agents}{45}
+\contentsline {subsection}{Cogito Agents}{46}
+\contentsline {subsection}{Shortest Route Agents}{47}
+\contentsline {subsection}{Decision Tree Agents}{47}
+\contentsline {subsection}{Reinforcement Agents}{48}
+\contentsline {section}{Learning Stats}{50}
+\contentsline {section}{Problems Faced}{50}
+\contentsline {part}{Testing \& Evaluation}{51}
+\contentsline {chapter}{Testing \& Results}{52}
+\contentsline {section}{Usability Testing and Error Checking}{52}
+\contentsline {section}{AI Testing}{52}
+\contentsline {subsection}{Q-Learning Policies}{53}
+\contentsline {paragraph}{}{53}
+\contentsline {chapter}{Evaluation}{54}
+\contentsline {section}{Time Management}{54}
+\contentsline {section}{Analysis of Machine Learning}{54}
+\contentsline {subsection}{Shortest Route Learning}{54}
+\contentsline {subsection}{Decision Tree Learning}{55}
+\contentsline {subsection}{Reinforcement Learning}{56}
+\contentsline {section}{General Areas For Enhancement}{57}
+\contentsline {section}{Conclusion}{58}
+\contentsline {part}{Appendices}{59}
+\contentsline {section}{Appendix A: Project Schedule}{60}
+\contentsline {section}{Appendix B: Collision Detection}{61}
+\contentsline {section}{Appendix C: An Example Level List}{62}
+\contentsline {section}{Appendix D: Optimum Route Calculation (Tree)}{63}
+\contentsline {part}{Bibliography}{64}
