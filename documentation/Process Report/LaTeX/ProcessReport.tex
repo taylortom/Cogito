@@ -5,12 +5,14 @@
 \usepackage{caption}
 \usepackage[english]{babel}
 \usepackage{fancyhdr} 
+\usepackage{float}
 \usepackage{multirow}
 \usepackage[pdftex]{graphicx}
 \usepackage{listings}      
 \usepackage{pdfpages}
 \usepackage{setspace}
 \usepackage{url}
+\usepackage{wrapfig}
 
 \lstset{language=C,
 numberstyle=\footnotesize,
@@ -149,11 +151,11 @@ For my project, I wanted to develop an AI system which was capable of employing 
 
 I chose the classic Commodore Amiga game `Lemmings' as the context and main inspiration for my project.
 
-\begin{figure}[h!]
+\begin{wrapfigure}{r}{0.61\textwidth}
   \centering
-    \includegraphics[width=100mm]{sources/images/lemmings3}
+    \includegraphics[width=80mm]{sources/images/lemmings3}
     \caption{A typical level in Lemmings.\label{screen}}
-\end{figure}
+\end{wrapfigure}
 
 Originally released in 1991 for the PC and Commodore Amiga, `Lemmings' has a very simple premise: to guide a group of computer-controlled `Lemmings' across a level from the entrance-point to the exit. The Lemming characters themselves have very basic AI; capable of merely walking across the level map. The level itself consists of a number of platforms, along with a number of hazards which will kill the Lemmings (big drops, pits etc.). There are a number of tools at the player's disposal such as umbrellas for big drops, girders to cross pits etc. to help them in their task. Interestingly, a student at Rutgers University has shown that this is actually an NP-Hard problem \cite{Cormode:fk}.
 
@@ -230,12 +232,12 @@ The ability to learn is one of the central features of intelligence \cite{Langle
 
 Reinforcement learning (RL) is the name given to the subset of machine learning techniques which use a reward system to let the system know how it is performing. The overall aim of RL being to maximise the cumulative reward. RL uses a cause and effect loop whereby the system begins in a state, performs an action (receiving a reward), which causes the environment to change its state, repeating the cycle (see Figure \ref{fig:Screen}).
 
-\begin{figure}[h!]
+\begin{wrapfigure}{r}{0.5\textwidth}
   \centering
     \includegraphics[width=70mm]{sources/images/RLDiagram}
-    \caption{The Reinforcement Learning Loop \cite{Nilsson:2010qa}.}
+    \caption{Reinforcement Learning Loop \cite{Nilsson:2010qa}.}
     \label{fig:Screen}
-\end{figure}
+\end{wrapfigure}
 
 What sets RL apart from other types (supervised/unsupervised methods) is that the learner is never given correct input/output, nor are any incorrect actions ever corrected, leaving the system to deduce where an error has occurred. This can be particularly tricky to ascertain as an error can often occur due to a poor decision made several time-steps in the past. Similarly, the mistake could have been made as a result of 20 previous actions, all of which would have to be repeated in sequence to replicate the error. This is known as the `credit assignment problem', and results from the fact that RL uses a sequential style of learning, where a system makes many decisions which lead to an eventual goal condition. In an attempt to combat this, RL introduces the notion of `regret', by taking into account the long-term effects of actions. As a result of this, an RL system may choose an action with a negative immediate reward so as to maximise its long-term reward. RL also involves finding an acceptable compromise between exploration (of new undiscovered terrain) and exploitation (of the system's current knowledgebase).
 
@@ -326,12 +328,12 @@ Genetic algorithms are possibly one of the most interesting machine learning tec
 	\item The resulting chromosomes form the new `generation' of behaviour to be used in the next iteration of the algorithm. This process is then repeated an arbitrary number of times until a certain number of iterations has been reached, or until a certain level of fitness has been achieved (as specified by the fitness function).
 \end{enumerate}
   
-\begin{figure}[h!]
+\begin{wrapfigure}{l}{0.32\textwidth}
 	\centering
 		\includegraphics[width=50mm]{sources/images/Evolution}
     	\caption{Visual representation of the Breeding/Mutation Process}
     	\label{fig:Breeding}
-\end{figure}
+\end{wrapfigure}
 
 One of the biggest advantages to using genetic algorithms is that they encourage emergent behaviour through the breeding/mutation process. This is a big benefit to the programmer as they can be used in problems which don't necessarily have a clear solution. They are also fairly inexpensive computationally, so are well-suited to situations where it may be infeasible to explicitly calculate a decision. Genetic algorithms are often used to complement other AI techniques.
 
@@ -339,14 +341,14 @@ However, this being said, there are also a few disadvantages to using genetic al
 
 \subsection{Artificial Neural networks}
 
-Artificial Neural Networks (NNs) are another popular machine learning technique which are inspired by the parallel architecture of the brain. NNs consist of a group of processing nodes (or neurons) which are interconnected in a graph structure (see Figure \ref{fig:NeuralNet} for an example). These connections are known as synapses (named after their biological counterpart). As with biological neurons, the neurons have multiple inputs which map to a single binary output (which can exists in the two states: excited or not excited), similar to a flip-flop switch. Occasionally, NNs may have multiple outputs, although this can make learning more difficult. To determine its state, a neuron calculates a weighted total of all of its input signals. If this total reaches a certain threshold, the neuron fires (becomes excited), otherwise it remains not excited. 
-
-\begin{figure}[h!]
+\begin{wrapfigure}{r}{0.55\textwidth}
 	\centering
-		\includegraphics[width=90mm]{sources/images/NeuralNetwork}
+		\includegraphics[width=80mm]{sources/images/NeuralNetwork}
     	\caption{An Artificial Neural Network \cite{Dawson:2000uq}}
     	\label{fig:NeuralNet}
-\end{figure}
+\end{wrapfigure}
+
+Artificial Neural Networks (NNs) are another popular machine learning technique which are inspired by the parallel architecture of the brain. NNs consist of a group of processing nodes (or neurons) which are interconnected in a graph structure (see Figure \ref{fig:NeuralNet} for an example). These connections are known as synapses (named after their biological counterpart). As with biological neurons, the neurons have multiple inputs which map to a single binary output (which can exists in the two states: excited or not excited), similar to a flip-flop switch. Occasionally, NNs may have multiple outputs, although this can make learning more difficult. To determine its state, a neuron calculates a weighted total of all of its input signals. If this total reaches a certain threshold, the neuron fires (becomes excited), otherwise it remains not excited. 
 
 Conventional computing techniques take an algorithmic approach to problem solving by following a specific set of unambiguous instructions to calculate a solution. While this is a logical and easily debuggable approach, it is incredibly limiting, as it restricts problem solving to problems which are already understood and have solutions. NNs on the other hand are able to develop solutions by recognising patterns in the learning data which it can use in similar scenarios in the future. Key to the NNs' learning is a cost function which has a similar function to the fitness function in genetic algorithms, serving as a measure as to how close any given solution is to the optimum solution.
 
@@ -365,8 +367,6 @@ While it has yet to be utilised prominently in the game industry, machine learni
 
 \paragraph{Robot control:} Machine learning can also be used to control robots. Researchers at Stanford University have demonstrated a system capable of advanced helicopter flight \cite{Ng:2004dz, Abbeel07anapplication, Abbeel:fu}. This type of system could be very useful in space exploration.
 
-\paragraph{Accelerating empirical sciences} Machine learning is also being used to aid in scientific discovery, such as gene analysis, in the field of astronomy for sky surveillance and to analyse brain activity. Machine learning methods are particularly useful in data-intensive areas.
-
 \subsection{Machine Learning In Games}
 
 As discussed, machine learning techniques have been integrated into many different areas of computer science and indeed many other fields, but such techniques have yet to reach the same kind of penetration in the computer game industry. That being said, a fair amount of research has been conducted by the academic community into the application of machine learning in a computer game environment. 
@@ -383,21 +383,21 @@ A research group led by Robin Baumgarten developed an approach for ``simulating 
 
 \subsubsection{Commercial Examples}
 
-Despite the promising academic research over the last decade, few commercial developers have used machine learning in their games. One of the few commercial games to employ such techniques to real effect was Lionhead Studios' god game \emph{Black \& White} \cite{:hc}. In \emph{Black \& White}, the player becomes a deity tasked with watching over a group of followers. Over the course of the game, the player must recruit as many followers as possible in order to gain influence over the land. To aid with this task, the player is given an AI controlled `creature', which the player must train to do his bidding. Lionhead implemented this learning using an approach they call `representational promiscuity', which is based on the idea that no single method could be used to build a complete agent. The creatures use a `Belief-Desire-Opinion-Intention' architecture to represent the creature's knowledge about the environment. When the creature perceives information in its environment, it is stored in memory as a `belief'. The creature uses these beliefs to form opinions which alter their desires in-game to suit the player. To form opinions about its environment, the creature builds decision trees by looking at attributes that best categorise the knowledge into groups (see Figure \ref{fig:TastyTree} for an example).
+Despite the promising academic research over the last decade, few commercial developers have used machine learning in their games. One of the few commercial games to employ such techniques to real effect was Lionhead Studios' god game \emph{Black \& White} \cite{:hc}. In \emph{Black \& White}, the player becomes a deity tasked with watching over a group of followers. Over the course of the game, the player must recruit as many followers as possible in order to gain influence over the land. To aid with this task, the player is given an AI controlled `creature', which the player must train to do his bidding. Lionhead implemented this learning using an approach they call `representational promiscuity', which is based on the idea that no single method could be used to build a complete agent. The creatures use a `Belief-Desire-Opinion-Intention' architecture to represent the creature's knowledge about the environment. 
 
-\begin{figure}[h!]
+\begin{wrapfigure}{r}{0.50\textwidth}
 	\centering
-		\includegraphics[width=80mm]{sources/images/TastyTree}\paragraph{}
-    	\includegraphics[width=80mm]{sources/images/TastyTable}
-    	\caption{An example decision tree generated from the creature's experience eating objects \cite{:hc}.}
+		\includegraphics[width=70mm]{sources/images/TastyTree}\paragraph{}
+    	\includegraphics[width=70mm]{sources/images/TastyTable}
+    	\caption{An example decision tree for a creature's experience eating objects \cite{:hc}.}
     	\label{fig:TastyTree}
-\end{figure}
+\end{wrapfigure}
 
-From these trees, a creature is able to make a prediction as to the outcome of performing a certain action. In the case of the example above, the creature would deduce that inanimate objects taste worse than animate ones, making it less likely to eat them in the future. 
+\noindent When the creature perceives information in its environment, it is stored in memory as a `belief'. The creature uses these beliefs to form opinions which alter their desires in-game to suit the player. To form opinions about its environment, the creature builds decision trees by looking at attributes that best categorise the knowledge into groups (see Figure \ref{fig:TastyTree} for an example). From these trees, a creature is able to make a prediction as to the outcome of performing a certain action. In the case of the example above, the creature would deduce that inanimate objects taste worse than animate ones, making it less likely to eat them in the future. 
 
 The player also has the ability to reward or punish their creature when it performs certain tasks to further customise its learning. For example, if the player sees their creature eating a villager, they may choose to punish the creature to avoid the same thing happening in the future. This is accomplished using reinforcement learning. 
 
-In addition to this ``carrot and stick" method, the creature is also able to learn by watching the player's actions and deducing what desire may have motivated the player. This dual approach stops the creature from falling into ``learning traps" by accidentally teaching the creature the `wrong' thing. For example, say the player wanted to teach their creature to avoid wolf creatures, but to be friendly to cow creatures. To do this, the player may punish the creature if it is friendly to a wolf creature. The creature may generalise from this punishment, and assume that it shouldn't be friendly to \emph{any} creatures, with no way for the player to correct the mistake. This combination of different techniques (or `representational promiscuity') help the agents to avoid many of the pitfalls associated with machine learning.
+The creature is also able to learn by watching the player's actions and deducing what desire may have motivated the player. This dual approach stops the creature from falling into ``learning traps" by accidentally teaching the creature the `wrong' thing. For example, say the player wanted to teach their creature to avoid wolf creatures, but to be friendly to cow creatures. To do this, the player may punish the creature if it is friendly to a wolf creature. The creature may generalise from this punishment, and assume that it shouldn't be friendly to \emph{any} creatures, with no way for the player to correct the mistake. This combination of different techniques (or `representational promiscuity') help the agents to avoid many of the pitfalls associated with machine learning.
 
 \section{Conclusion}
 
@@ -460,14 +460,14 @@ The first task I carried out when designing my game was to create some initial a
 	
 \section{Logo Design}
 	
-I went through a few different iterations (see Figure \ref{fig:Logos}), settling on a blue/white/black colour scheme. I wanted the art style to be clean and unobtrusive, so didn't want to use a lot of bright colours. I went for a mainly monochromatic colour scheme, with the blue used sparingly for emphasis. This would be the colour scheme that I would use throughout my game.
-	
-\begin{figure}[h!]
+\begin{wrapfigure}{r}{0.55\textwidth}
   \centering
-    \includegraphics[width=90mm]{sources/images/cogito_logo1}
+    \includegraphics[width=65mm]{sources/images/cogito_logo1}
     \caption{Iterations of My Logo Design}
     \label{fig:Logos}
-\end{figure}
+\end{wrapfigure}
+	
+I went through a few different iterations of logos (see Figure \ref{fig:Logos}). I final settled on a blue/white/grey colour scheme. I wanted the art style to be clean and unobtrusive, so didn't want to use a lot of bright colours. For this reason, I went for a mainly monochromatic colour scheme, with the blue used sparingly for emphasis. I would use this colour scheme throughout my game for the menu, levels, characters and any other screens.
 
 \section{Game Design}
 
@@ -495,7 +495,7 @@ I took a lot of guidance from the original sprite style and animation used in th
 \begin{figure}[h!]
   \centering
     \includegraphics[width=80mm]{sources/images/lemmings-walker-sprites}
-    \caption{The Original Walking Animation Used in Lemmings \cite{Marsh:vn}}
+    \caption{The Original Lemming Walking Animation \cite{Marsh:vn}}
     \label{fig:LemmingWalkerSprites}
 \end{figure}
 		
@@ -635,46 +635,40 @@ Upon loading the game, the player is presented with the main menu screen. From t
 
 \section{Starting A Game}
 
-Before beginning a game, the player is presented with a new game screen allowing various game parameters to be tweaked (see Figure \ref{fig:NewGame}).
-
-\begin{figure}[h!]
+\begin{wrapfigure}{r}{0.55\textwidth}
   \centering
-    \includegraphics[width=80mm]{sources/images/Screen_NewGame}
+    \includegraphics[width=70mm]{sources/images/Screen_NewGame}
     \caption{New Game}
     \label{fig:NewGame}
-\end{figure}
+\end{wrapfigure}
 
-On this screen, the player can move the sliders to adjust the number of agents and learning episodes in the game as well as the learning type. There is also the option to enable a shared knowledgebase to speed up learning (a feature currently only available when using reinforcement learning), and an option to play the game in debug mode. In debug mode, the game displays the (usually invisible) `decision nodes' and the game framerate.
+Before beginning a game, the player is presented with a new game screen allowing various game parameters to be tweaked (see Figure \ref{fig:NewGame}). On this screen, the player can move the sliders to adjust the number of agents and learning episodes in the game as well as the learning type. There is also the option to enable a shared knowledgebase to speed up learning (a feature currently only available when using reinforcement learning), and an option to play the game in debug mode. In debug mode, the game displays the (usually invisible) `decision nodes' and the game framerate.
 
 \section{Playing The Game}
 
-As soon as the parameters are confirmed on the new game screen, a level is chosen at random, and the game begins. When the game starts, the agents begin to spawn into the level at the top of the screen. The agents then begin to traverse the level and dynamically build up a knowledgebase according to the type of learning chosen. 
+When the new game parameters are confirmed, a level is chosen at random and the game begins. The agents begin to spawn into the level at the top of the screen, and begin to traverse the level, forming a knowledgebase as they go. 
 
-Initially, the agents are in `learning mode' and navigate the levels randomly, which helps to speed up the learning process. While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions. They also have the option to use two tools: a helmet to protect from the stampers, and an umbrella to protect from big drops. Based on their actions, the agents will eventually reach an end condition; either the agent either falls victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaches the level's exit - both signify the end of the current learning `episode'. This process repeats until the agent has completed the number of episodes specified by the player when starting a new game. 
+Initially, the agents are in `learning mode' and navigate the levels randomly, which helps to speed up the learning process. While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions. They also have the option to use two tools: a helmet to protect from the stampers, and an umbrella to protect from big drops. Based on their actions, the agents will eventually reach an end condition; either the agent either falls victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaches the level's exit - both signify the end of the current learning `episode'. This process repeats until the agent has completed the number of episodes specified by the player when starting a new game. At this point the agent spawns for a final time, distinguishable by the `!'  or `?' over the agent's head (highlighted in Figure \ref{fig:GameScreen}). The question mark is used in the decision tree/shortest route methods, and signifies that an agent was unable to find safe route in the allotted learning episodes. In this final episode, the agents use what they have learnt to create an optimal route to the exit. When all agents have completed this final episode, the game ends revealing a game over screen which displays some game statistics and a rating of the agents' performance (see Figure \ref{fig:GameOver}).
 
-At this point the agent spawns for a final time, distinguishable by the `!'  or `?' over the agent's head (highlighted in Figure \ref{fig:GameScreen}). The question mark is used in the decision tree/shortest route methods, and signifies that an agent was unable to find safe route in the allotted learning episodes. In this final episode, the agents use what they have learnt to create an optimal route to the exit. When all agents have completed this final episode, the game ends revealing a game over screen which displays some game statistics and a rating of the agents' performance (see Figure \ref{fig:GameOver}).
-
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
     \includegraphics[width=140mm]{sources/images/Screen_Game}
     \caption{In-game Screenshots}
     \label{fig:GameScreen}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
   \centering
-    \includegraphics[width=80mm]{sources/images/Screen_GameOver}
+    \includegraphics[width=70mm]{sources/images/Screen_GameOver}
     \caption{The Game Over Screen}
     \label{fig:GameOver}
 \end{figure}
 
-\ \\
+\paragraph{Pausing the game:} The game can be paused by simply touching the screen while in-game. Doing this brings up the pause `HUD' which displays useful data about the current game (see Figure \ref{fig:PauseScreen}). It also has the option to quit the game. \\
 
-\paragraph{Pausing the game:} The game can be paused by simply touching the screen while in-game. Doing this brings up the pause `HUD' which displays useful data about the current game (see Figure \ref{fig:PauseScreen}). It also has the option to quit the game.
-
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=80mm]{sources/images/Screen_Pause}
+    \includegraphics[width=70mm]{sources/images/Screen_Pause}
     \caption{The Pause Screen}
     \label{fig:PauseScreen}
 \end{figure}
@@ -743,12 +737,12 @@ My first task was to create the underlying game component. As I was using the Co
 
 The Cocos2D framework comes with a very useful code library with various optimisations and utility methods which I made use of when implementing my game. There a number of different base classes which can be used and take care of a lot of the very low-level functionality such as OpenGL API calls. These classes are organised into a hierarchy (see Figure \ref{fig:Hierarchy}). 
 
-\begin{figure}[h!]
+\begin{wrapfigure}{l}{0.5\textwidth}
   \centering
     \includegraphics[width=70mm]{sources/images/Cocos2DHierarchy}
     \caption{Cocos2D Scenes, Layers and Sprites Hierarchy \cite{Strougo:2011ys}}
     \label{fig:Hierarchy}
-\end{figure}
+\end{wrapfigure}
 
 At the highest level is the CCDirector class which, as one would expect, controls the running of each individual `level' in the game (called scenes). In addition to actual game levels, scenes can also be menu systems, game over screens and so on. Each scene consists of one or more layers which contain the actual game objects (for example background images, any level terrain and the game characters). The game objects themselves (known as sprites) are at the bottom of the hierarchy and are just essentially an image with no real functionality by default. 
 
@@ -766,7 +760,8 @@ For the actual collision detection itself, I used basic bounding box detection a
 
 When designing the levels in my game, I wanted something flexible, so that I could easily add extra levels (or modify existing ones) with a minimal amount of work. I decided to do this by creating a number of generic reusable assets (platforms, water hazards, trapdoors etc.). This meant that when I wanted to add an additional level to the game, I could simply specify the positioning of these existing elements, rather than having to create new level assets per level. In addition to simplifying the adding of new levels, it also meant that I could drastically cut down on the amount of disk-space that my game required.
 
-To accompany the assets, I also needed some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects (which consist of a key object and a `value' object). One of the advantages to using a plist file is that it is easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. I use one plist file which specifies the levels in my game, along with certain level-specific information such as difficulty, number of tool uses etc. (see Listing \ref{lst:Levels}). 
+To accompany the assets, I also needed some way to specify the layout of each level, as well as other level specific data. To accomplish this, I used the natively supported Property List (plist) file format. Plist files are simply XML files of dictionary objects (which consist of a key object and a `value' object). One of the advantages to using a plist file is that it is easily editable in any text editor. It also supports a variety of datatypes, such as strings, numbers (ints, floats, etc) and dates. I use one plist file which specifies the levels in my game, along with certain level-specific information such as difficulty, number of tool uses etc. (see Listing \ref{lst:Levels}).
+\newpage
 
 \begin{lstlisting}[label={lst:Levels},caption=An Example Level List]
     <dict>
@@ -964,7 +959,7 @@ To calculate the shortest route, I need to search the tree, which is done by che
 
 The final type of learning which I implemented in my game was reinforcement learning. Based on my research, I decided that the Q-learning algorithm was the most appropriate for solving my problem. First of all, I needed to decide upon what values to use for the rewards in my system. Although reinforcement learning systems tend to use values less than 1.0, I instead decided to use rewards of less than 100, just to make the values more manageable (see Figure \ref{fig:Rewards} for reward values).
 
-\begin{figure}[h!]
+\begin{wrapfigure}{l}{0.42\textwidth}
 \centering
 \begin{tabular}{| l | c |}
   \hline
@@ -978,7 +973,7 @@ The final type of learning which I implemented in my game was reinforcement lear
 \end{tabular}
 \caption{Table of Reward Values}
 \label{fig:Rewards}
-\end{figure}
+\end{wrapfigure}
 
 I used equivalent values for the win/death rewards so that both states were regarded equally `important' by my learning agents. In addition to these main rewards, I added a small negative reward for any tool use by the agent. This ensured that the agent only used a tool where necessary; tools are a finite resource, and so should only be used where no `cheaper' alternative exists. Using this small negative reward ensures that the agent will always choose the standard basic actions (i.e. left, right, down) over using a tool. While conducting my research, I came across a lecture on reinforcement learning given by researcher Andrew Ng in which he proposes associating a small negative with all moves \cite{Ng:uq}. I decided to do this in my own game, as it encourages the agents to use the shortest route possible by adding a greater penalty to longer routes.
 
@@ -1046,12 +1041,12 @@ I added an additional game stats screen to the game's main menu which gives the 
 	
 Fortunately, I didn't encounter any major issues when it came to implementing my learning. One fairly minor problem that I did come across was that I found it was possible for agents to get stuck in an `infinite decision loop'. After an agent had finished learning, it was possible for it to transition to a state whereby there was only one possible decision point (see Figure \ref{fig:InfiniteDecisionLoop} for an example). If actions in this state led to death, an agent could keep moving back and forth, making it impossible to complete the game.
 
-\begin{figure}[h!]
+\begin{wrapfigure}{l}{0.52\textwidth}
   \centering
-    \includegraphics[width=75mm]{sources/images/Screen_InfiniteLoop}
+    \includegraphics[width=70mm]{sources/images/Screen_InfiniteLoop}
     \caption{An Example of a Possible `Infinite Decision Loop' State}
     \label{fig:InfiniteDecisionLoop}
-\end{figure}
+\end{wrapfigure}
 
 The problem was being caused because I had programmed my agents to stop learning once the learning mode was over. My solution to this problem therefore was to allow the agents to continue to update the knowledgebase after the learning mode was complete. This worked because of the fact that I had applied a small negative reward to every action taken by the agent, meaning that were an agent caught in an infinite decision loop, the small negative rewards would build up and eventually filter to the previous states, meaning that agents would not fall into the same trap.
 	
@@ -1079,15 +1074,80 @@ One bug that was picked up during the usability tests that I wasn't able to solv
 
 In addition to the usability tests, I also carried out extensive tests of my AI system. The primary aim of these tests being to check the effectiveness of the learning techniques (i.e the level of improvement they offered), as well as to compare each technique against the others.
 
+I first provide a summary and brief analysis of my results, which are proceeded by a series of graphs showing the results to my AI testing.
+
+In addition to testing the learning agents, I also tested my agents without any learning. This acted as a point of comparison to measure the improvement in my learning agents. As the non-learning agents actions were completely random, it is not a surprise that their success rate was approximately 50\% (it was actually 57\%). I also recorded the average number of actions, and the average length of each learning episode for comparison purposes. As the reinforcement agents have the added option of a shared knowledgebase, I wanted to see how this affected the learning. Figure \ref{fig:SA_RL} shows how the number of agents correlates with the success rate of the agents. The results in this graph are even more impressive due to the fact that the agents only used one learning episode.
+
+I was particularly impressed with the reinforcement learning agents, which showed the biggest improvement of all techniques. Looking at Figure \ref{fig:AvgSuccess}, we see that the reinforcement agents showed a 99\% success rate compared with just 57\% without learning. The reinforcement agents also showed a great improvement in the actual length of the routes, with the optimum routes averaging 2-3 actions, and 26 seconds. Compared with the non-learning average of 4 actions and 55 seconds, this is a considerable improvement.
+
+The decision tree agents also showed improvement over the basic agents, with an average agent success rate of 85\%. The optimum routes were also an improvement, albeit less of an improvement when compared with the reinforcement agents. The decision tree agents' optimum routes showed an improvement of 8 seconds. In Figure \ref{fig:SE_Tree}, we see a definite correlation to suggest a greater success rate the more learning episodes are used.
+
+I most surprised with the results for my shortest route agents. While they were by far the simplest and most naive method of those implemented, they still showed an impressive improvement over the basic agents, and even showed to be more effective than the decision tree agents (although I think this second point may be a coincidence, and would like to conduct a more in-depth analysis). The shortest route agents showed an impressive 88\% success rate. The optimum routes they chose also showed improvement over the basic agents, with an average length of 41 seconds, and using 4 actions. The shortest route agents also showed a definite correlation between the success rate of the agents and the number of learning episodes they used.
+
+Overall, I feel that my results were very encouraging. All learning techniques which I implemented have shown a considerable improvement in all areas over the agents without any learning. All methods show an improvement in not only the percentage of agents successfully reaching the exit, but also the optimum routes found by all agents are shorter (in both time and number of actions required). My reinforcement agents proved by far the most effective technique, with a success rate of almost 100\%. I was slightly disappointed to see that my tree agents didn't really offer any improvement over the shortest route agents, despite their use of route `weighting' and the tree structure itself. I would have expected to see at least some improvement over the shortest route agents.
+\newpage
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/AvgActions}
+    \caption{Average Actions Taken Per Episode}
+    \label{fig:AvgActions}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/AvgEpisode}
+    \caption{Average Episode Time}
+    \label{fig:AvgTime}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/AvgSuccess}
+    \caption{Average Success Rate of Agents}
+    \label{fig:AvgSuccess}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/SE_Tree}
+    \caption{Comparing Success Rate and Number of Episodes (Decision Tree)}
+    \label{fig:SE_Tree}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/SE_SR}
+    \caption{Comparing Success Rate and Number of Episodes (Shortest Route)}
+    \label{fig:SE_SR}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/SE_RL}
+    \caption{Comparing Success Rate and Number of Episodes (Reinforcement)}
+    \label{fig:SE_RL}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=130mm]{sources/images/SA_RL}
+    \caption{Comparing Success Rate and Number of Agents (Reinforcement)}
+    \label{fig:SA_RL}
+\end{figure}
+
 \subsection{Q-Learning Policies}
 
 As mentioned in the implementation section, I added the functionality to export the Q-values for a game. Below is an example of one such policy. I have also included a screenshot of the level in question with each obstacle labelled according to the table for further clarity.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering    
-
 \includegraphics[width=90mm]{sources/images/Level2} \paragraph{}
+\caption{Screenshot Displaying Labelled Obstacles}
+\end{figure}
 
+\begin{figure}[H]
+\centering    
 \begin{tabular}{|l|l|c|}
 \hline
 Object & Actions & Q-value \\ \hline
@@ -1355,6 +1415,10 @@ In conclusion, I feel that I suitably demonstrated that it is not only possible,
 }
 \end{lstlisting}
 \newpage
+
+\section{Appendix E: Resources Disk}
+
+
 
 
 	
