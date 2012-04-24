@@ -7,8 +7,6 @@ Warning--entry type for "Marsh:vn" isn't style-file defined
 --line 21 of file ../Cogito.bib
 Warning--entry type for "Koboldt:kx" isn't style-file defined
 --line 29 of file ../Cogito.bib
-Warning--entry type for "Rerych:gb" isn't style-file defined
---line 81 of file ../Cogito.bib
 Warning--entry type for "Woodcock:bs" isn't style-file defined
 --line 259 of file ../Cogito.bib
 Warning--entry type for "Woodcock:oq" isn't style-file defined
@@ -32,45 +30,45 @@ Warning--empty note in Mitchell:2006fv
 Warning--empty note in Nilsson:2010qa
 Warning--empty year in :hc
 Warning--can't use both author and editor fields in Strougo:2011ys
-You've used 41 entries,
+You've used 40 entries,
             2118 wiz_defined-function locations,
-            722 strings with 8774 characters,
-and the built_in function-call counts, 9812 in all, are:
-= -- 902
-> -- 454
+            718 strings with 8708 characters,
+and the built_in function-call counts, 9619 in all, are:
+= -- 886
+> -- 447
 < -- 1
-+ -- 190
-- -- 144
-* -- 524
-:= -- 1730
-add.period$ -- 117
-call.type$ -- 41
-change.case$ -- 185
++ -- 187
+- -- 142
+* -- 519
+:= -- 1699
+add.period$ -- 115
+call.type$ -- 40
+change.case$ -- 181
 chr.to.int$ -- 0
-cite$ -- 48
-duplicate$ -- 401
-empty$ -- 843
-format.name$ -- 144
-if$ -- 2026
+cite$ -- 47
+duplicate$ -- 394
+empty$ -- 821
+format.name$ -- 142
+if$ -- 1984
 int.to.chr$ -- 0
-int.to.str$ -- 41
+int.to.str$ -- 40
 missing$ -- 33
-newline$ -- 196
-num.names$ -- 81
-pop$ -- 271
+newline$ -- 192
+num.names$ -- 79
+pop$ -- 263
 preamble$ -- 1
-purify$ -- 154
+purify$ -- 151
 quote$ -- 0
-skip$ -- 300
+skip$ -- 290
 stack$ -- 0
-substring$ -- 259
-swap$ -- 48
+substring$ -- 254
+swap$ -- 47
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
+type$ -- 140
 warning$ -- 7
-while$ -- 87
-width$ -- 43
-write$ -- 396
-(There were 18 warnings)
+while$ -- 85
+width$ -- 42
+write$ -- 389
+(There were 17 warnings)

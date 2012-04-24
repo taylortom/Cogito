@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  23 APR 2012 14:36
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  24 APR 2012 10:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -289,7 +289,11 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.a
-ux)
+ux
+
+LaTeX Warning: Label `fig:TextureAtlas' multiply defined.
+
+)
 \openout1 = `ProcessReport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -516,7 +520,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: sources/images/LevelDesign.png Graphic file (type png)
 
 <use sources/images/LevelDesign.png>
-Package pdftex.def Info: sources/images/LevelDesign.png used on input line 490.
+Package pdftex.def Info: sources/images/LevelDesign.png used on input line 491.
 
 (pdftex.def)             Requested size: 341.43306pt x 193.73108pt.
 
@@ -531,7 +535,7 @@ File: sources/images/lemmings-walker-sprites.png Graphic file (type png)
 
 <use sources/images/lemmings-walker-sprites.png>
 Package pdftex.def Info: sources/images/lemmings-walker-sprites.png used on inp
-ut line 501.
+ut line 502.
 (pdftex.def)             Requested size: 227.62204pt x 28.4529pt.
 
 
@@ -541,7 +545,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: sources/images/Final.png Graphic file (type png)
 
 <use sources/images/Final.png>
-Package pdftex.def Info: sources/images/Final.png used on input line 510.
+Package pdftex.def Info: sources/images/Final.png used on input line 511.
 (pdftex.def)             Requested size: 170.71652pt x 50.41989pt.
 
 
@@ -553,7 +557,7 @@ File: sources/images/Lemming_walk_anim.png Graphic file (type png)
 
 <use sources/images/Lemming_walk_anim.png>
 Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
-e 518.
+e 519.
 (pdftex.def)             Requested size: 170.71652pt x 42.67862pt.
  [24 <./sources/images/lemmings-walker-sprites.png (PNG copy)> <./sources/image
 s/Final.png> <./sources/images/Lemming_walk_anim.png>] [25
@@ -563,14 +567,14 @@ s/Final.png> <./sources/images/Lemming_walk_anim.png>] [25
 File: sources/images/Layers.png Graphic file (type png)
 
 <use sources/images/Layers.png>
-Package pdftex.def Info: sources/images/Layers.png used on input line 552.
+Package pdftex.def Info: sources/images/Layers.png used on input line 553.
 (pdftex.def)             Requested size: 398.33858pt x 254.32129pt.
 
 <sources/images/Singletons.png, id=134, 587.94656pt x 261.97874pt>
 File: sources/images/Singletons.png Graphic file (type png)
 
 <use sources/images/Singletons.png>
-Package pdftex.def Info: sources/images/Singletons.png used on input line 563.
+Package pdftex.def Info: sources/images/Singletons.png used on input line 564.
 (pdftex.def)             Requested size: 341.43306pt x 152.13565pt.
 
 
@@ -580,11 +584,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: sources/images/GameObjects.png Graphic file (type png)
 
 <use sources/images/GameObjects.png>
-Package pdftex.def Info: sources/images/GameObjects.png used on input line 574.
+Package pdftex.def Info: sources/images/GameObjects.png used on input line 575.
 
 (pdftex.def)             Requested size: 426.79134pt x 297.81473pt.
 
-Overfull \hbox (28.45276pt too wide) in paragraph at lines 574--575
+Overfull \hbox (28.45276pt too wide) in paragraph at lines 575--576
  [][] 
  []
 
@@ -596,7 +600,7 @@ File: sources/images/LemmingStatemachine.png Graphic file (type png)
 
 <use sources/images/LemmingStatemachine.png>
 Package pdftex.def Info: sources/images/LemmingStatemachine.png used on input l
-ine 585.
+ine 586.
 (pdftex.def)             Requested size: 369.88582pt x 315.19316pt.
  [26 <./sources/images/Layers.png (PNG copy)>]
 
@@ -608,7 +612,7 @@ png (PNG copy)>] [28 <./sources/images/LemmingStatemachine.png (PNG copy)>]
 File: sources/images/FinalScreens.png Graphic file (type png)
 
 <use sources/images/FinalScreens.png>
-Package pdftex.def Info: sources/images/FinalScreens.png used on input line 635
+Package pdftex.def Info: sources/images/FinalScreens.png used on input line 636
 .
 (pdftex.def)             Requested size: 341.43306pt x 232.17973pt.
 
@@ -617,7 +621,7 @@ File: sources/images/Screen_NewGame.png Graphic file (type png)
 
 <use sources/images/Screen_NewGame.png>
 Package pdftex.def Info: sources/images/Screen_NewGame.png used on input line 6
-44.
+45.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
  [31 <./sources/images/FinalScreens.png> <./sources/images/Screen_NewGame.png>]
 
@@ -625,7 +629,7 @@ Package pdftex.def Info: sources/images/Screen_NewGame.png used on input line 6
 File: sources/images/Screen_Game.png Graphic file (type png)
 
 <use sources/images/Screen_Game.png>
-Package pdftex.def Info: sources/images/Screen_Game.png used on input line 659.
+Package pdftex.def Info: sources/images/Screen_Game.png used on input line 660.
 
 (pdftex.def)             Requested size: 398.33858pt x 136.43486pt.
 
@@ -634,10 +638,10 @@ File: sources/images/Screen_GameOver.png Graphic file (type png)
 
 <use sources/images/Screen_GameOver.png>
 Package pdftex.def Info: sources/images/Screen_GameOver.png used on input line 
-666.
+667.
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 671--672
+Underfull \hbox (badness 10000) in paragraph at lines 672--673
 
  []
 
@@ -646,167 +650,212 @@ Underfull \hbox (badness 10000) in paragraph at lines 671--672
 File: sources/images/Screen_Pause.png Graphic file (type png)
 
 <use sources/images/Screen_Pause.png>
-Package pdftex.def Info: sources/images/Screen_Pause.png used on input line 675
+Package pdftex.def Info: sources/images/Screen_Pause.png used on input line 676
 .
 (pdftex.def)             Requested size: 199.16928pt x 132.77109pt.
  [33 <./sources/images/Screen_Pause.png>]
 [34]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 704.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 705.
 
  (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 704.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 705.
  [35
 
 ]
+Overfull \hbox (26.60672pt too wide) in paragraph at lines 739--760
+ [][] 
+ []
+
 [36] <sources/images/Cocos2DHierarchy.png, id=184, 401.5pt x 466.74374pt>
 File: sources/images/Cocos2DHierarchy.png Graphic file (type png)
 
 <use sources/images/Cocos2DHierarchy.png>
 Package pdftex.def Info: sources/images/Cocos2DHierarchy.png used on input line
- 746.
+ 776.
 (pdftex.def)             Requested size: 199.16928pt x 231.54095pt.
 
-Underfull \hbox (badness 1609) in paragraph at lines 747--747
-[]\OT1/cmr/m/n/10 Figure 24: |Co-cos2D Scenes, Lay-ers and
+Underfull \hbox (badness 1609) in paragraph at lines 777--777
+[]\OT1/cmr/m/n/10 Figure 25: |Co-cos2D Scenes, Lay-ers and
  []
 
 [37
 
  <./sources/images/Cocos2DHierarchy.png>] [38]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 771.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 801.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 771.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 801.
  [39]
 File: sources/images/Lemming_walk_anim.png Graphic file (type png)
 
 <use sources/images/Lemming_walk_anim.png>
 Package pdftex.def Info: sources/images/Lemming_walk_anim.png used on input lin
-e 809.
+e 839.
 (pdftex.def)             Requested size: 170.71652pt x 42.67862pt.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 822.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 852.
  [40]
 <sources/images/Texture_atlas.png, id=200, 1027.84pt x 513.92pt>
 File: sources/images/Texture_atlas.png Graphic file (type png)
 
 <use sources/images/Texture_atlas.png>
-Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 84
+Package pdftex.def Info: sources/images/Texture_atlas.png used on input line 87
 9.
 (pdftex.def)             Requested size: 284.52756pt x 142.26552pt.
  [41 <./sources/images/Texture_atlas.png>]
-Overfull \hbox (0.83429pt too wide) in paragraph at lines 860--869
+Overfull \hbox (0.83429pt too wide) in paragraph at lines 890--899
  [][] 
  []
 
-[42] [43] <sources/images/LevelNodes.png, id=211, 980.66376pt x 340.27126pt>
+[42] <sources/images/Instruments.png, id=208, 1086.0575pt x 823.075pt>
+File: sources/images/Instruments.png Graphic file (type png)
+
+<use sources/images/Instruments.png>
+Package pdftex.def Info: sources/images/Instruments.png used on input line 919.
+
+(pdftex.def)             Requested size: 256.0748pt x 194.06316pt.
+ [43 <./sources/images/Instruments.png>]
+<sources/images/LevelNodes.png, id=212, 980.66376pt x 340.27126pt>
 File: sources/images/LevelNodes.png Graphic file (type png)
 
 <use sources/images/LevelNodes.png>
-Package pdftex.def Info: sources/images/LevelNodes.png used on input line 899.
+Package pdftex.def Info: sources/images/LevelNodes.png used on input line 936.
 (pdftex.def)             Requested size: 398.33858pt x 138.21408pt.
+
+<sources/images/GameObject.png, id=213, 479.54156pt x 316.93407pt>
+File: sources/images/GameObject.png Graphic file (type png)
+
+<use sources/images/GameObject.png>
+Package pdftex.def Info: sources/images/GameObject.png used on input line 947.
+(pdftex.def)             Requested size: 256.0748pt x 169.24129pt.
  [44
 
  <./sources/images/LevelNodes.png>]
-[45] [46] [47] [48]
-<sources/images/Screen_InfiniteLoop.png, id=230, 481.8pt x 321.2pt>
+[45 <./sources/images/GameObject.png (PNG copy)>] [46]
+<sources/images/TreeSample.png, id=225, 569.0058pt x 361.35pt>
+File: sources/images/TreeSample.png Graphic file (type png)
+
+<use sources/images/TreeSample.png>
+Package pdftex.def Info: sources/images/TreeSample.png used on input line 1014.
+
+(pdftex.def)             Requested size: 341.43306pt x 216.82822pt.
+ [47 <./sources/images/TreeSample.png>]
+[48] [49] <sources/images/Screen_InfiniteLoop.png, id=236, 481.8pt x 321.2pt>
 File: sources/images/Screen_InfiniteLoop.png Graphic file (type png)
 
 <use sources/images/Screen_InfiniteLoop.png>
 Package pdftex.def Info: sources/images/Screen_InfiniteLoop.png used on input l
-ine 1050.
+ine 1109.
 (pdftex.def)             Requested size: 199.16928pt x 132.776pt.
- [49 <./sources/images/Screen_InfiniteLoop.png (PNG copy)>] [50] [51
+ [50 <./sources/images/Screen_InfiniteLoop.png (PNG copy)>] [51] [52
 
-] [52]
-<sources/images/AvgActions.png, id=244, 1038.88126pt x 653.44125pt>
+] [53]
+<sources/images/AvgActions.png, id=250, 1038.88126pt x 653.44125pt>
 File: sources/images/AvgActions.png Graphic file (type png)
 
 <use sources/images/AvgActions.png>
-Package pdftex.def Info: sources/images/AvgActions.png used on input line 1096.
+Package pdftex.def Info: sources/images/AvgActions.png used on input line 1155.
 
 (pdftex.def)             Requested size: 369.88582pt x 232.64629pt.
 
-<sources/images/AvgEpisode.png, id=245, 894.34125pt x 614.295pt>
+<sources/images/AvgEpisode.png, id=251, 894.34125pt x 614.295pt>
 File: sources/images/AvgEpisode.png Graphic file (type png)
 
 <use sources/images/AvgEpisode.png>
-Package pdftex.def Info: sources/images/AvgEpisode.png used on input line 1103.
+Package pdftex.def Info: sources/images/AvgEpisode.png used on input line 1162.
 
 (pdftex.def)             Requested size: 369.88582pt x 254.0653pt.
 
-<sources/images/AvgSuccess.png, id=246, 928.46875pt x 623.32875pt>
+<sources/images/AvgSuccess.png, id=252, 928.46875pt x 623.32875pt>
 File: sources/images/AvgSuccess.png Graphic file (type png)
 
 <use sources/images/AvgSuccess.png>
-Package pdftex.def Info: sources/images/AvgSuccess.png used on input line 1110.
+Package pdftex.def Info: sources/images/AvgSuccess.png used on input line 1169.
 
 (pdftex.def)             Requested size: 369.88582pt x 248.3284pt.
- [53 <./sources/images/AvgActions.png> <./sources/images/AvgEpisode.png>]
-<sources/images/SE_Tree.png, id=250, 915.42pt x 546.04pt>
+ [54 <./sources/images/AvgActions.png> <./sources/images/AvgEpisode.png>]
+<sources/images/SE_Tree.png, id=256, 915.42pt x 546.04pt>
 File: sources/images/SE_Tree.png Graphic file (type png)
 
 <use sources/images/SE_Tree.png>
-Package pdftex.def Info: sources/images/SE_Tree.png used on input line 1117.
+Package pdftex.def Info: sources/images/SE_Tree.png used on input line 1176.
 (pdftex.def)             Requested size: 369.88582pt x 220.6284pt.
 
-<sources/images/SE_SR.png, id=251, 910.40125pt x 569.12625pt>
+<sources/images/SE_SR.png, id=257, 910.40125pt x 569.12625pt>
 File: sources/images/SE_SR.png Graphic file (type png)
 
 <use sources/images/SE_SR.png>
-Package pdftex.def Info: sources/images/SE_SR.png used on input line 1124.
+Package pdftex.def Info: sources/images/SE_SR.png used on input line 1183.
 (pdftex.def)             Requested size: 369.88582pt x 231.23302pt.
- [54 <./sources/images/AvgSuccess.png> <./sources/images/SE_Tree.png>]
-<sources/images/SE_RL.png, id=255, 942.52126pt x 621.32124pt>
+ [55 <./sources/images/AvgSuccess.png> <./sources/images/SE_Tree.png>]
+<sources/images/SE_RL.png, id=261, 942.52126pt x 621.32124pt>
 File: sources/images/SE_RL.png Graphic file (type png)
 
 <use sources/images/SE_RL.png>
-Package pdftex.def Info: sources/images/SE_RL.png used on input line 1131.
+Package pdftex.def Info: sources/images/SE_RL.png used on input line 1190.
 (pdftex.def)             Requested size: 369.88582pt x 243.8312pt.
 
-<sources/images/SA_RL.png, id=256, 936.49875pt x 612.2875pt>
+<sources/images/SA_RL.png, id=262, 936.49875pt x 612.2875pt>
 File: sources/images/SA_RL.png Graphic file (type png)
 
 <use sources/images/SA_RL.png>
-Package pdftex.def Info: sources/images/SA_RL.png used on input line 1138.
+Package pdftex.def Info: sources/images/SA_RL.png used on input line 1197.
 (pdftex.def)             Requested size: 369.88582pt x 241.8369pt.
- [55 <./sources/images/SE_SR.png> <./sources/images/SE_RL.png>] <sources/images
-/Level2.png, id=260, 963.6pt x 642.4pt>
+ [56 <./sources/images/SE_SR.png> <./sources/images/SE_RL.png>] [57 <./sources/
+images/SA_RL.png>]
+<sources/images/Level2.png, id=269, 963.6pt x 642.4pt>
 File: sources/images/Level2.png Graphic file (type png)
 
 <use sources/images/Level2.png>
-Package pdftex.def Info: sources/images/Level2.png used on input line 1149.
-(pdftex.def)             Requested size: 256.0748pt x 170.7155pt.
- [56 <./sources/images/SA_RL.png> <./sources/images/Level2.png (PNG copy)>] [57
-] [58
+Package pdftex.def Info: sources/images/Level2.png used on input line 1210.
+(pdftex.def)             Requested size: 241.84842pt x 161.22694pt.
+ [58 <./sources/images/Level2.png (PNG copy)>]
+[59
 
-] [59] [60] [61] [62] [63]
-<sources/images/Schedule.png, id=286, 496.254pt x 820.5054pt>
+] [60] [61] [62] [63] [64]
+<sources/images/Schedule.png, id=293, 496.254pt x 820.5054pt>
 File: sources/images/Schedule.png Graphic file (type png)
 
 <use sources/images/Schedule.png>
-Package pdftex.def Info: sources/images/Schedule.png used on input line 1271.
+Package pdftex.def Info: sources/images/Schedule.png used on input line 1328.
 (pdftex.def)             Requested size: 398.33858pt x 658.60872pt.
 
 Overfull \vbox (27.89809pt too high) has occurred while \output is active []
 
 
-[64 <./sources/images/Schedule.png>] [65] [66] [67] [68]
-(/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.b
-bl [69
+[65 <./sources/images/Schedule.png>] [66] [67] [68]
+Underfull \hbox (badness 10000) in paragraph at lines 1488--1489
 
-]) [70]
+ []
+
+
+Overfull \hbox (30.07698pt too wide) in paragraph at lines 1492--1493
+\OT1/cmr/m/n/10 men-ta-tion is in HTML for-mat, and can be run from the in-dex.
+html file lo-cated at: $\OT1/cmtt/m/n/10 /documentation /
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1503.
+
+[69]
+(/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.b
+bl [70
+
+]) [71]
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.a
 ux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
 
  )
 (\end occurred inside a group at level 1)
@@ -814,13 +863,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### semi simple group (level 1) entered at line 68 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7032 strings out of 493633
- 105248 string characters out of 3143378
+ 7080 strings out of 493633
+ 106128 string characters out of 3143378
  405915 words of memory out of 3000000
- 10165 multiletter control sequences out of 15000+200000
- 12523 words of font info for 47 fonts, out of 3000000 for 9000
+ 10209 multiletter control sequences out of 15000+200000
+ 12691 words of font info for 48 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,10n,49p,1839b,2498s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,10n,49p,1839b,2494s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/c
@@ -841,12 +890,13 @@ ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/
 2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/20
-11/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+11/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/201
+1/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on "/Projects/Cogito/documentation/Process Report/LaTeX/.texpadt
-mp/ProcessReport.pdf" (73 pages, 3484354 bytes).
+mp/ProcessReport.pdf" (74 pages, 3859304 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 228 compressed objects within 3 object streams
+ 390 PDF objects out of 1000 (max. 8388607)
+ 233 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 191 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

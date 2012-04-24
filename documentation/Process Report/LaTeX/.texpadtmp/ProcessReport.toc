@@ -70,9 +70,9 @@
 \contentsline {subsection}{Methods}{35}
 \contentsline {paragraph}{}{35}
 \contentsline {subsection}{Singleton Classes}{35}
-\contentsline {subsection}{Constants}{36}
-\contentsline {subsection}{Datatypes}{36}
+\contentsline {subsection}{Constants and Datatypes}{36}
 \contentsline {subsection}{Utility Methods}{36}
+\contentsline {subsection}{Class Listing}{36}
 \contentsline {chapter}{Game Component}{37}
 \contentsline {section}{Code Structure/Features}{37}
 \contentsline {subsection}{Cocos2D}{37}
@@ -87,29 +87,34 @@
 \contentsline {chapter}{AI Component}{44}
 \contentsline {section}{Level Structure}{44}
 \contentsline {section}{Learning Agents}{44}
-\contentsline {subsection}{Cogito Agents}{45}
+\contentsline {subsection}{Cogito Agents}{46}
 \contentsline {subsection}{Shortest Route Agents}{46}
 \contentsline {subsection}{Decision Tree Agents}{46}
-\contentsline {subsection}{Reinforcement Agents}{47}
-\contentsline {section}{Learning Stats}{49}
-\contentsline {section}{Problems Faced}{49}
-\contentsline {part}{Testing \& Evaluation}{50}
-\contentsline {chapter}{Testing \& Results}{51}
-\contentsline {section}{Usability Testing and Error Checking}{51}
-\contentsline {section}{AI Testing}{51}
-\contentsline {subsection}{Q-Learning Policies}{56}
-\contentsline {chapter}{Evaluation}{58}
-\contentsline {section}{Time Management}{58}
-\contentsline {section}{Analysis of Machine Learning}{58}
-\contentsline {subsection}{Shortest Route Learning}{58}
-\contentsline {subsection}{Decision Tree Learning}{59}
-\contentsline {subsection}{Reinforcement Learning}{60}
-\contentsline {section}{General Areas For Enhancement}{61}
-\contentsline {section}{Conclusion}{62}
-\contentsline {part}{Appendices}{63}
-\contentsline {section}{Appendix A: Project Schedule}{64}
-\contentsline {section}{Appendix B: Collision Detection}{65}
-\contentsline {section}{Appendix C: An Example Level List}{66}
-\contentsline {section}{Appendix D: Optimum Route Calculation (Tree)}{67}
-\contentsline {section}{Appendix E: Resources Disk}{68}
-\contentsline {part}{Bibliography}{69}
+\contentsline {subsection}{Reinforcement Agents}{48}
+\contentsline {section}{Learning Stats}{50}
+\contentsline {section}{Problems Faced}{50}
+\contentsline {part}{Testing \& Evaluation}{51}
+\contentsline {chapter}{Testing \& Results}{52}
+\contentsline {section}{Usability Testing and Error Checking}{52}
+\contentsline {section}{AI Testing}{52}
+\contentsline {subsection}{Q-Learning Policies}{58}
+\contentsline {paragraph}{}{58}
+\contentsline {chapter}{Evaluation}{59}
+\contentsline {section}{Time Management}{59}
+\contentsline {section}{Analysis of Machine Learning}{59}
+\contentsline {subsection}{Shortest Route Learning}{59}
+\contentsline {subsection}{Decision Tree Learning}{60}
+\contentsline {subsection}{Reinforcement Learning}{61}
+\contentsline {section}{General Areas For Enhancement}{62}
+\contentsline {section}{Conclusion}{63}
+\contentsline {part}{Appendices}{64}
+\contentsline {section}{Appendix A: Project Schedule}{65}
+\contentsline {section}{Appendix B: Collision Detection}{66}
+\contentsline {section}{Appendix C: An Example Level Specification}{67}
+\contentsline {section}{Appendix D: Optimum Route Calculation (Tree)}{68}
+\contentsline {section}{Appendix E: Resources Disk}{69}
+\contentsline {subsection}{documentation}{69}
+\contentsline {subsection}{media}{69}
+\contentsline {subsection}{src}{69}
+\contentsline {subsection}{System Requirements}{69}
+\contentsline {part}{Bibliography}{70}

@@ -471,12 +471,13 @@ I went through a few different iterations of logos (see Figure \ref{fig:Logos}).
 
 \section{Game Design}
 
-After settling on a colour scheme and basic art style, I then went about creating some mockups of various screens that I would be using in my game.
+After settling on a colour scheme and basic art style, I then went about creating some mockups of various screens that I would be using in my game (see Figure \ref{fig:ScreenMockups}).
 	
 \begin{figure}[h!]
   \centering
     \includegraphics[width=140mm]{sources/images/Screens}
     \caption{Initial Screen Mockups and Art Direction}
+    \label{fig:ScreenMockups}
 \end{figure}
 
 I also created a basic level design to give me more of an idea as to how a level might look. The idea of this was to get more of an idea of exactly how I might implement the level later; how the agents might transition between the different levels etc. I also decided to split the level into a number of `nodes' (visible in Figure \ref{fig:LevelDesign}). This would serve to simplify the agent's navigation, and is a similar idea to navigation meshes used in many games.  
@@ -590,7 +591,7 @@ I created a schedule for the development of my project. In it, I outlined the ma
 
 \section{Contingency Plan}
 
-To avoid any problems arising due to data loss, I was sure to make sure that I had sufficient back-ups of all components of my project. The code itself was maintained using git and stored on a Github server. This meant that I always had a copy of my project stored online. In addition, I also created a weekly archive of my code and uploaded it to a cloud storage service. As the source files for my graphical assets were very large in size, I decided not to store them on the git server, and instead kept them locally on my development computer, backing them up to a cloud storage service weekly. In addition to this, I also made weekly backups of my computer to an external hard-drive.
+To avoid any problems arising due to data loss, I was sure to make sure that I had sufficient back-ups of all components of my project. The code itself was maintained using git and stored on a Github server. This meant that I always had a complete history of my project online. Additionally, I created a weekly archive of my code and uploaded it to a cloud storage service. As the source files for my graphical assets were very large in size, I decided not to store them on the git server, and instead kept them locally on my development computer, also backing them up to a cloud storage service. I also made weekly backups of my computer to an external hard-drive.
 
 As I was developing my project alone, it was difficult to create a contingency plan to account for a loss of development time (due to illness etc.). My solution was to increase my time-estimates for each development state by 20\%.
 	
@@ -620,7 +621,7 @@ As I carried out my usability tests with the help of human subjects, I made sure
 % New part
 %
 
-\part{The Product}{This section gives a detailed description of the actual product, along with screens.}
+\part{The Product}{This section gives a detailed description of my actual product, along with relevant screenshots.}
 
 \section{The Menu}
 
@@ -648,7 +649,7 @@ Before beginning a game, the player is presented with a new game screen allowing
 
 When the new game parameters are confirmed, a level is chosen at random and the game begins. The agents begin to spawn into the level at the top of the screen, and begin to traverse the level, forming a knowledgebase as they go. 
 
-Initially, the agents are in `learning mode' and navigate the levels randomly, which helps to speed up the learning process. While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions. They also have the option to use two tools: a helmet to protect from the stampers, and an umbrella to protect from big drops. Based on their actions, the agents will eventually reach an end condition; either the agent either falls victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaches the level's exit - both signify the end of the current learning `episode'. This process repeats until the agent has completed the number of episodes specified by the player when starting a new game. At this point the agent spawns for a final time, distinguishable by the `!'  or `?' over the agent's head (highlighted in Figure \ref{fig:GameScreen}). The question mark is used in the decision tree/shortest route methods, and signifies that an agent was unable to find safe route in the allotted learning episodes. In this final episode, the agents use what they have learnt to create an optimal route to the exit. When all agents have completed this final episode, the game ends revealing a game over screen which displays some game statistics and a rating of the agents' performance (see Figure \ref{fig:GameOver}).
+The agents begin in `learning mode' and navigate the levels randomly (which speeds up the learning process). While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions (from: left, left with helmet, right, right with helmet, equip umbrella, down - which are available depends on the current state). Two tools aid the agents to overcome obstacles: the helmet to protect from the stampers, and the umbrella to protect from big drops. Based on their actions, the agents will eventually reach an end condition: either falling victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaching the level exit - both signify the end of the learning `episode'. This process repeats until all learning episodes have been completed, at which point the agent spawns for a final time, distinguishable by the `!'  or `?' over the agent's head (highlighted in Figure \ref{fig:GameScreen}). The question mark is used in the decision tree/shortest route methods, and signifies that an agent was unable to find safe route in the allotted learning episodes. In this final episode, the agents use what they have learnt to create an optimal route to the exit. When all agents have completed this final episode, the game ends revealing a game over screen which displays some game statistics and a rating of the agents' performance (see Figure \ref{fig:GameOver}).
 
 \begin{figure}[H]
   \centering
@@ -685,7 +686,7 @@ When writing the code for my project, I tried to stick to standard code formatti
 
 \subsection{Commenting}
 
-I have used a universal comment format: filename, project name, class description and the date the class was created at the very top of the file. Each method is commented with a brief description and any parameters/return variables specified. I avoid commenting variables wherever possible by self-descriptive variable names.
+I have used a universal comment format in my program to improve readability. I also avoid commenting variables wherever possible by self-descriptive variable names.
 
 \begin{lstlisting}[label=some-code,caption=Comment Formatting]
 //
@@ -715,17 +716,46 @@ The format of my method headers is fairly standard. However, I prefix all method
 
 I made a lot of use of the singleton design pattern throughout my project to create various `manager' classes to deal with the shared data in my system. A singleton class is a special kind of class which only has one instance; calling a singleton instance will always return the one instance of the class, regardless of which class called it. The major benefit of using the singleton pattern being that you only need to store the data in one location, which can then be accessed by any class anywhere in the program (provided that the access to the data is restricted to a single thread at a time to avoid concurrency issues). My LemmingManager class which handles all of the agents in the game is an example of where I have used this pattern. It holds the only list of the characters in the game, and contains the functionality to add and remove lemmings among other things.
 
-\subsection{Constants} 
+\subsection{Constants and Datatypes} 
 
-I created a file to contain the read-only constant variables used in my program (for example the framerate, the default font filename and the various rewards associated with reinforcement learning). Moving all of these variables into a single separate file means that they can all easily be found/modified in a central location. It also meant that I only needed to alter the actual values in one place, rather than having to search for every occurrence. Each constant in this file follows the standard naming convention (i.e. starting with a "k"). This is a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. 
+I put all of the read-only `constant' variables (framerate, reinforcement learning rewards etc.) into a file so that they are easily be found and modified. It also meant that I only needed to alter the values in one place, rather than having to search every source file. Each constant follows the standard naming convention (i.e. starting with a "k"), a legacy feature from the pre-Mac OS X days, possibly back when the Mac OS was written mostly in Pascal. 
 
-\subsection{Datatypes} 
-
-In addition to the constants file, I also created a similar file which contained many common datatypes which I would be using in my game. Types such as machine learning type, terrain type, character state, game rating and so on. As with the constants, this meant that I could keep all of the needed datatypes in a common location for easy access.
+I also created a similar file which contained many common datatypes which I would be using in my game, such as machine learning type, terrain type, character state, game rating and so on. As with the constants, this meant that I could keep all of the needed datatypes in a common location for easy access.
 
 \subsection{Utility Methods} 
 
-I created a Utils class with some useful static-access `utility' methods which I was likely to want to use a lot in my game; functions such as random number generation, enumeration-to-string conversions, and timestamp generation. It made sense to create a separate class with all of these types of methods because it not only cut down on the amount of code that I had to write, but also meant that were I to find a bug in one of the methods, I would only need to fix the bug in one place, rather than having to go and search every source file for occurrences of the broken code. 
+I created a Utils class with some static-access `utility' methods which I would be usng a lot in my game (random number generation, enumeration-to-string conversions, timestamp generation etc.). I created a separate class with these methods to not only cut down on the amount of code that I had to write, but also so that I would only need to fix any bugs with the code in one place, rather than having searching every source file. 
+
+\subsection{Class Listing}
+
+Below is a list of the classes used in my program. More detailed information can be found in the HTML documentation on the resources disk (see Appendix E).
+
+\begin{figure}[H]
+  \centering	
+	\begin{tabular}{l|l|l|l|l}
+		\hline
+		\textbf{Layers} & \textbf{Scenes} & \textbf{Objects} & Singletons & \textbf{Misc} \\ \hline
+		AboutLayer & AboutScene & GameObject & AgentStats & Constants \\ 
+		BackgroundLayer & GameScene & Lemming & DataManager & Datatypes\\
+		GameOverLayer & GameOverScene & CogitoAgent & GameManager & Utils \\
+		GameplayLayer & InstructionsScene & DecisionTreeAgent & KnowledgeBase \\
+		InstructionsLayer & StatsScene & QLearningAgent & LemmingManager \\
+		MainMenuLayer & StingScene & ShortestRouteAgent & \\
+		NewGameLayer & MainMenuScene & Obstacle & \\
+		PauseMenuLayer & NewGameScene & Terrain & \\
+		StatsLayer &  & Level & \\
+		StingLayer &  & Route & \\
+		TerrainLayer &  & Slide & \\
+		 &  & GraphSlide & \\
+		 &  & SlideViewer & \\
+		 &  & State & \\
+		 &  & QState & \\
+		 &  & TreeState & \\
+		
+	\end{tabular}    
+	\caption{Classes Used in Cogito}
+	\label{fig:ClassList}
+\end{figure}
 
 \chapter{Game Component}
 		
@@ -880,7 +910,14 @@ I found that the biggest problem with memory leaks is that they can often go und
 
 Xcode comes with a very useful set of performance analysis tools called 'Instruments' which can be used to establish any memory-related or runtime issues, such as memory leaks etc. Instruments allows you to test your app in `profiling' mode, which tracks what memory has been allocated, and suggests areas where memory leaks may occur.
 
-Memory management aside, I had another ongoing issue with my game rating algorithm. 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=90mm]{sources/images/Instruments}
+    \caption{The Instruments Tool}
+    \label{fig:TextureAtlas}
+\end{figure}
+
+Memory management aside, I had another ongoing issue with my game rating algorithm. The issue arised because I introduced a time penalty for longer games. This meant that every game to use many learning episodes was given an `F' rating, even if all agents survived. For simplicity, it would be easiest to just remove this time penalty. 
 
 Carrying out this project really taught me the importance of keeping a close eye on what memory is being allocated and where it was being released (if at all). What may at first seem like a negligible memory leak can build up over time, and combined with other similarly small memory leaks, can cause big problems with your programs performance. I would even go so far as to say that these smaller memory leaks are even more troublesome than the bigger ones, as they are much harder to track down, and are often more widely spread, and therefore more difficult to fix.
 
@@ -899,7 +936,14 @@ In order to simplify the decision making process, I split my levels into a numbe
 
 \section{Learning Agents}
 
-In my final game, I implemented three alternative methods of learning: a shortest route method, a modified decision tree method, and a reinforcement learning method using the Q-learning algorithm. As I was implementing more than one learning technique, I designed the code for my game characters in such a way that the AI was completely self-contained in its own class. Not only is this generally good object-oriented design, but it also meant that to use a different type of learning, all I had to do was to link the relevant class, no other changes were required. This functionality could be neatly implemented in a switch statement (See Listing \ref{lst:LearningType}).
+In my final game, I implemented three alternative methods of learning: a shortest route method, a modified decision tree method, and a reinforcement learning method using the Q-learning algorithm. As I was implementing more than one learning technique, I designed the code for my game characters in such a way that the AI was completely self-contained in its own class (see Figure \ref{fig:AgentHierarchy} for the hierarchy). Not only is this generally good object-oriented design, but it also meant that to use a different type of learning, all I had to do was to link the relevant class, no other changes were required. This functionality could be neatly implemented in a switch statement (See Listing \ref{lst:LearningType}).
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=90mm]{sources/images/GameObject}
+    \caption{Learning Agent Class Hierarchy}
+    \label{fig:AgentHierarchy}
+\end{figure}
 
 \begin{lstlisting}[label={lst:LearningType},caption=Switch Statement for Setting Learning Type]
 switch(learningType) 
@@ -947,13 +991,28 @@ The class also keeps track of the number of learning episodes used by the agent,
 
 \subsection{Shortest Route Agents}
 
-The Shortest Route agent is the simplest and most naive of all of the learning types, and simply records the routes which have been taken during the learning mode. I created a Route class to simplify this, which itself consists of an array of `nodes' and a boolean flag which stores whether or not the route was successful (i.e. if the agent survived or not). Upon completion of the learning mode, the Shortest Route agent checks all of the routes taken, chooses the shortest one, and takes it. If there happens to be several shortest routes of the same length, the agent doesn't attempt to compare the routes, but just picks the first one it finds. If the agent failed to reach the exit during the learning mode, it simply acts randomly.
+The Shortest Route agent is by far the simplest of all of the learning types. It simply records the routes which have been taken during the learning mode, and chooses the shortest one at the end. I created a Route class to simplify this which consists of an array of `nodes' and a boolean flag which stores whether or not the route was successful (i.e. if the agent survived or not). As the agent progresses through the level, each visited state is added to the route array. At the end of an episode, the complete route is added to a list of taken routes. Upon completion of the learning mode, the Shortest Route agent checks the array of taken routes, and takes the shortest one. If there happens to be several shortest routes of the same length, the agent doesn't attempt to compare the two, but just picks the first one it finds. If the agent failed to reach the exit during the learning mode, it simply acts randomly.
 
 \subsection{Decision Tree Agents}
 
-As shown in my research, decision tree learning is usually used for classification problems, whereby an agent finds itself in a certain situation, and it uses a decision tree to try to `classify' the situation using knowledge it has gained from experience. Initially, I planned to use this approach in my game. However, I felt that it was an overly complex and somewhat inappropriate solution to what is a relatively simple problem, and think that it would be `overkill' to try and create complex obstacles which required the agent to have to classify them. Instead, I decided to use tree structures to allow my Decision Tree agents to function in a similar way to the Shortest Route Agents. Like the Shortest Route agents, the Decision Tree agents record the routes taken, with the shortest routes being chosen after the learning mode is complete. However, there are some subtle changes which make this method more accurate than the Shortest Route method. The obvious difference is that the routes are stored in a tree structure, which is built dynamically as the agent experiences the world. To implement the tree structure, I created a \emph{TreeState} class to encompass the functionality. As the agent makes decisions and progresses through the level, it builds up a tree, with each branch in the tree representing a possible action for the agent to take (see Figure ).
+As shown in my research, decision tree learning is uses classification to solve a problem using knowledge it gained from experience. I initially planned to use this approach in my game, but decided that it was an overly complex and somewhat inappropriate solution to what is a relatively simple problem. I didn't feel that there was any need for agents to have to try and work out exactly what an obstacle was in order to progress. Instead, I decided to use a tree structure to dynamically build a model of the environment as the agents traverse it. As decisons are made, more nodes are added to the tree, with the root node representing the first state in the level. At the end of the learning, the `route tree' is searched, and any successful routes are stored. To do this, I perform a simple depth-first search on the tree checking every node. While this kind of search is quite poor speed-wise, it ensures the tree is methodically searched. Were I traversing a much larger tree, I could a heuristic search method such as A* to provide an approximate solution. As it happens, my levels are small enough to make my brute-force search a feasible solution. When a leaf node is found (and the node is an exit), I recursively move back up the tree to build the route (see Appendix C for the code), storing each required action in an array. The search continues until all nodes have been searched. After the routes have been found, I then calculate a `weight' for each route, which represents the number of tool used in that route. The final step is to find the shortest (or optimal) route in the list. Initially, only route lengths are checked; if there is more than one shortest route, the one with the lowest weighting value is chosen. This encourages the agents to choose `cheaper' routes.
 
-To calculate the shortest route, I need to search the tree, which is done by checking every node using a simple depth-first search. When a leaf node is found (and the node is an exit), I recursively move back up the tree to build the route (see Appendix C for the code). While this kind of search is quite poor speed-wise, it ensures the tree is methodically searched. Were I traversing a much larger tree, I could a heuristic search method such as A* to provide an approximate solution. As it happens, my levels are small enough to make my brute-force search a feasible solution. When searching for the optimum route, the routes are all given `weightings'. The weighting for a route is based on the number of tools used in that route; a route with no tool uses has a weighting of 0, with the weighting being incremented by 1 for every tool used. This ensures that routes with less tool uses are given preference.
+The basic operation of the learning is as follows:
+
+\begin{enumerate}
+	\item The Agent collides with a decision node
+	\item If the tree is uninitialised, it sets the current state as the root of the tree. Otherwise, the current state is added as a child of the previous state.
+	\item The agent chooses an action randomly from those available, and takes it
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=120mm]{sources/images/TreeSample}
+    \caption{A Partially-Built Level Tree}
+    \label{fig:TreeSample}
+\end{figure}
+
+\newpage
 
 \subsection{Reinforcement Agents}
 
@@ -981,7 +1040,7 @@ After setting up the rewards, I then needed to implement the actual learning. Th
 
 \begin{enumerate}
 	\item Agent collides with decision node
-	\item Agent gets the current state
+	\item Agent checks if it has visited this state before. If so, it gets the state, otherwise it creates a new one
 	\item Q-values for previous state/action are updated according to outcome
 	\item Action chosen based on the current state
 	\item Takes action and updates state
@@ -1136,18 +1195,16 @@ Overall, I feel that my results were very encouraging. All learning techniques w
     \label{fig:SA_RL}
 \end{figure}
 
+\newpage
+
 \subsection{Q-Learning Policies}
 
 As mentioned in the implementation section, I added the functionality to export the Q-values for a game. Below is an example of one such policy. I have also included a screenshot of the level in question with each obstacle labelled according to the table for further clarity.
 
 \begin{figure}[H]
 \centering    
-\includegraphics[width=90mm]{sources/images/Level2} \paragraph{}
-\caption{Screenshot Displaying Labelled Obstacles}
-\end{figure}
-
-\begin{figure}[H]
-\centering    
+\includegraphics[width=85mm]{sources/images/Level2} \paragraph{}
+    
 \begin{tabular}{|l|l|c|}
 \hline
 Object & Actions & Q-value \\ \hline
@@ -1317,52 +1374,58 @@ In conclusion, I feel that I suitably demonstrated that it is not only possible,
 \end{lstlisting}
 \newpage
 
-\section{Appendix C: An Example Level List}
+\section{Appendix C: An Example Level Specification}
 \begin{lstlisting}
 <dict>
-	<key>Level1</key>
+	<key>Entrance</key>
 	<dict>
-		<key>name</key>
-		<string>Level1</string>
-		<key>difficulty</key>
-		<string>easy</string>
-		<key>umbrellaUses</key>
-		<integer>3</integer>
-		<key>helmetUses</key>
-		<integer>3</integer>
+		<key>type</key>
+		<string>terrain</string>
+		<key>isCollideable</key>
+		<false/>
+		<key>x</key>
+		<integer>240</integer>
+		<key>y</key>
+		<integer>310</integer>
+		<key>filename</key>
+		<string>entrance</string>
+		<key>objectType</key>
+		<string>entrance</string>
 	</dict>
-	<key>Level2</key>
+	<key>Level2_Platform1</key>
 	<dict>
-		<key>name</key>
-		<string>Level2</string>
-		<key>difficulty</key>
-		<string>easy</string>
-		<key>umbrellaUses</key>
-		<integer>3</integer>
-		<key>helmetUses</key>
-		<integer>3</integer>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>71</integer>
+		<key>y</key>
+		<integer>160</integer>
+		<key>filename</key>
+		<string>platform_medium</string>
 	</dict>
-	<key>Level3</key>
+	<key>FloorPiece1</key>
 	<dict>
-		<key>name</key>
-		<string>Level3</string>
-		<key>difficulty</key>
-		<string>easy</string>
-		<key>umbrellaUses</key>
-		<integer>3</integer>
-		<key>helmetUses</key>
-		<integer>3</integer>
+		<key>type</key>
+		<string>terrain</string>
+		<key>x</key>
+		<integer>-60</integer>
+		<key>y</key>
+		<integer>10</integer>
+		<key>filename</key>
+		<string>floor</string>
 	</dict>
-	<key>Level4</key>
+	<key>Exit</key>
 	<dict>
-		<key>name</key>
-		<string>Level4</string>
-		<key>difficulty</key>
-		<string>easy</string>
-		<key>umbrellaUses</key>
-		<integer>3</integer>
-		<key>helmetUses</key>
-		<integer>3</integer>
+		<key>type</key>
+		<string>terrain</string>
+		<key>objectType</key>
+		<string>exit</string>
+		<key>x</key>
+		<integer>40</integer>
+		<key>y</key>
+		<integer>50</integer>
+		<key>filename</key>
+		<string>exit</string>
 	</dict>
 </dict>
 \end{lstlisting}
@@ -1418,6 +1481,25 @@ In conclusion, I feel that I suitably demonstrated that it is not only possible,
 
 \section{Appendix E: Resources Disk}
 
+\textbf{[the resources disk can be found inside the back cover of this report]} \\
+
+The attached resources disk contains a variety of useful resources, including the full source code, graphical assets and generated HTML documentation. There are three folders in the root level of the disk: 
+
+\subsection{documentation} The documentation folder contains the documentation generated using \emph{Doxygen}. The documentation is in HTML format, and can be run from the index.html file located at: \url{/documentation/html/index.html}. This HTML documentation lists every class used in my program, and gives a summary of every method and variable used. The documentation folder also includes PDF copies of the Process Report and the Project Log.
+
+\subsection{media} The media folder contains some additional multimedia assets. I have included a short video which highlights the functionality of my system, which can be found here: \url{/media/CogitoTrailer.mov} (I have also included MP4 and WMV versions of the video). I have also included some sample data collected from my program in the form of the raw plist files, which can be found in: \url{/media/GameData}. The main \emph{GameData.plist} file contains a list of the played games and relevant stats. There are also 10 example policies output by my reinforcement learning system. 
+
+\subsection{src} The src folder contains all of the source code for my project, the content graphics, the level data and the Cocos2D framework code. I have also included the Xcode project file in this folder for reference.
+
+\subsection{System Requirements}
+
+My system requires a Macintosh system to build and run. The system can be tested using the iOS Simulator program included with Apple's Xcode IDE or an iOS device.
+
+\begin{itemize}
+	\item Intel-based Mac running Mac OS Snow Leopard or later
+	\item Xcode 4 or later installed
+	\item To test on iOS devices, an iPhone 3GS or later running iOS 4+ is required (must also be registered in the Apple Developer Program to test on iOS devices).
+\end{itemize}
 
 
 
