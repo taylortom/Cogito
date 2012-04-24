@@ -107,14 +107,14 @@
 \contentsline {subsection}{Reinforcement Learning}{61}
 \contentsline {section}{General Areas For Enhancement}{62}
 \contentsline {section}{Conclusion}{63}
-\contentsline {part}{Appendices}{64}
-\contentsline {section}{Appendix A: Project Schedule}{65}
-\contentsline {section}{Appendix B: Collision Detection}{66}
-\contentsline {section}{Appendix C: An Example Level Specification}{67}
-\contentsline {section}{Appendix D: Optimum Route Calculation (Tree)}{68}
-\contentsline {section}{Appendix E: Resources Disk}{69}
-\contentsline {subsection}{documentation}{69}
-\contentsline {subsection}{media}{69}
-\contentsline {subsection}{src}{69}
-\contentsline {subsection}{System Requirements}{69}
-\contentsline {part}{Bibliography}{70}
+\contentsline {part}{Bibliography}{64}
+\contentsline {part}{Appendices}{66}
+\contentsline {section}{Appendix A: Project Schedule}{67}
+\contentsline {section}{Appendix B: Collision Detection}{68}
+\contentsline {section}{Appendix C: An Example Level Specification}{69}
+\contentsline {section}{Appendix D: Optimum Route Calculation (Tree)}{70}
+\contentsline {section}{Appendix E: Resources Disk}{71}
+\contentsline {subsection}{documentation}{71}
+\contentsline {subsection}{media}{71}
+\contentsline {subsection}{src}{71}
+\contentsline {subsection}{System Requirements}{71}

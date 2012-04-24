@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  24 APR 2012 10:56
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  24 APR 2012 11:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -819,36 +819,36 @@ Package pdftex.def Info: sources/images/Level2.png used on input line 1210.
  [58 <./sources/images/Level2.png (PNG copy)>]
 [59
 
-] [60] [61] [62] [63] [64]
-<sources/images/Schedule.png, id=293, 496.254pt x 820.5054pt>
+] [60] [61] [62] [63]
+(/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.b
+bl [64
+
+]) [65] [66]
+<sources/images/Schedule.png, id=299, 496.254pt x 820.5054pt>
 File: sources/images/Schedule.png Graphic file (type png)
 
 <use sources/images/Schedule.png>
-Package pdftex.def Info: sources/images/Schedule.png used on input line 1328.
+Package pdftex.def Info: sources/images/Schedule.png used on input line 1343.
 (pdftex.def)             Requested size: 398.33858pt x 658.60872pt.
 
 Overfull \vbox (27.89809pt too high) has occurred while \output is active []
 
 
-[65 <./sources/images/Schedule.png>] [66] [67] [68]
-Underfull \hbox (badness 10000) in paragraph at lines 1488--1489
+[67 <./sources/images/Schedule.png>] [68] [69] [70]
+Underfull \hbox (badness 10000) in paragraph at lines 1503--1504
 
  []
 
 
-Overfull \hbox (30.07698pt too wide) in paragraph at lines 1492--1493
+Overfull \hbox (30.07698pt too wide) in paragraph at lines 1507--1508
 \OT1/cmr/m/n/10 men-ta-tion is in HTML for-mat, and can be run from the in-dex.
 html file lo-cated at: $\OT1/cmtt/m/n/10 /documentation /
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1503.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1518.
 
-[69]
-(/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.b
-bl [70
-
-]) [71]
+[71]
 (/Projects/Cogito/documentation/Process Report/LaTeX/.texpadtmp/ProcessReport.a
 ux)
 
@@ -858,8 +858,9 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
  )
-(\end occurred inside a group at level 1)
+(\end occurred inside a group at level 2)
 
+### semi simple group (level 2) entered at line 1340 (\begingroup)
 ### semi simple group (level 1) entered at line 68 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
@@ -893,7 +894,7 @@ e/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 11/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/201
 1/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on "/Projects/Cogito/documentation/Process Report/LaTeX/.texpadt
-mp/ProcessReport.pdf" (74 pages, 3859304 bytes).
+mp/ProcessReport.pdf" (74 pages, 3859147 bytes).
 PDF statistics:
  390 PDF objects out of 1000 (max. 8388607)
  233 compressed objects within 3 object streams
