@@ -133,9 +133,9 @@ breaklines=true}
 
 \chapter{Introduction}
 
-The artificial intelligence (AI) techniques used by game developers today are often called archaic by academic AI researchers, which may be true, however, it is important to view such techniques in the context of which they are used. While academic AI researchers are able to use as much processing power as the hardware can afford them, game developers are much more limited, and have to work simultaneously with many other processes such as physics, sound, networking and graphics. For this reason, it is understandable that game developers need to squeeze as much functionality as possible using the least amount of processor time. Indeed, the A* search algorithm is still one of the most popular AI algorithms used in games today, and was first introduced over 30 years ago. In many cases, modern game AI programming is more a skill of utilising the (computationally) cheapest techniques, and often means that shortcuts and workarounds are a necessity in order to achieve a `believable' AI. 
+The artificial intelligence (AI) techniques used by game developers today are archaic in comparison to the techniques used by academic AI researchers. Indeed, the A* search algorithm is still one of the most popular AI algorithms used in games today, and was first introduced in academic AI over 30 years ago. That being said, it is important to view such techniques in the context of which they are used: while academic AI researchers are free to use as much processing power as the hardware can afford them, game developers are much more limited, as said resources must be shared with many other processes such as physics, sound, networking and graphics. For this reason, it is understandable that game developers want to squeeze as much functionality as possible from the least amount of processor time. The fact is that modern game AI programming is more a skill of giving the illusion of intelligence than actually providing it. This means that shortcuts and workarounds are a common necessity in order to achieve `believable' AI with the resources available. 
 
-That being said, we are starting to see a change taking place in the computer game industry which suggests that the processing time available for AI is starting to increase. One such factor in this change is the so-called `graphics plateau'; it has been said that we have now reached an `acceptable' level of graphical complexity whereby we are unlikely to see any more major advances in the field, but rather more minor `iterations' \cite{Sheffield:2008fk}. Given the rate of hardware advancement, we are sure to see much more processor time freed up for those processes such as AI which have been treated as `extraneous' in the past. Another important factor in this change is the emergence of the `casual' gamer. With casual games now accounting for a considerable proportion game sales, the consumer has shown that there is a big market for games which have less emphasis on complex graphics effects, and more emphasis on interesting gameplay mechanics \cite{Association:2011uq}. Indeed, with Nintendo's Wii home console having far outsold both Sony's PlayStation 3 and Microsoft's Xbox, the consumer has shown that they value unique gameplay and accessibility over advanced graphics \cite{:2012dq, Nintendo:2012nx, :cr}. 
+That being said, we are starting to see a change taking place in the computer game industry which suggests that AI is being taken more seriously, and given much higher priority than it has in the past. One factor in this change is the so-called `graphics plateau': it has been said that we have now reached an `acceptable' level of graphical complexity such that we are unlikely to see any more major advances in the field \cite{Sheffield:2008fk}. This being true, and given the current rate of hardware advancement, we are sure to see much more processor time freed up for those processes such as AI which have been treated as `extraneous' in the past. Another important factor in this change is the emergence of the `casual' gamer. With casual games now accounting for a considerable proportion game sales, the consumer has shown that there is a big market for games which have less emphasis on complex graphics effects, and more emphasis on interesting gameplay mechanics \cite{Association:2011uq}. Indeed, with Nintendo's Wii home console having far outsold both Sony's PlayStation 3 and Microsoft's Xbox, the consumer has shown that they value unique gameplay and accessibility over advanced graphics \cite{:2012dq, Nintendo:2012nx, :cr}. 
 
 With these factors already starting to bring about a change in the priority that developers give to the components of their games, I believe that now is as good a time as any for developers to introduce some more advanced AI techniques into their games.
 
@@ -157,23 +157,9 @@ I chose the classic Commodore Amiga game `Lemmings' as the context and main insp
     \caption{A typical level in Lemmings.\label{screen}}
 \end{wrapfigure}
 
-Originally released in 1991 for the PC and Commodore Amiga, `Lemmings' has a very simple premise: to guide a group of computer-controlled `Lemmings' across a level from the entrance-point to the exit. The Lemming characters themselves have very basic AI; capable of merely walking across the level map. The level itself consists of a number of platforms, along with a number of hazards which will kill the Lemmings (big drops, pits etc.). There are a number of tools at the player's disposal such as umbrellas for big drops, girders to cross pits etc. to help them in their task. Interestingly, a student at Rutgers University has shown that this is actually an NP-Hard problem \cite{Cormode:fk}.
+Originally released in 1991 for the PC and Commodore Amiga, `Lemmings' has a very simple premise: to guide a group of computer-controlled `Lemmings' across a level from the entrance-point to the exit. The Lemming characters themselves have no real AI to speak of, and are capable of merely walking across the level. The level itself consists of a number of platforms which the Lemmings must navigate whilst avoiding various hazards (such as big drops, pits etc.). To aid in this task, the player is given a number of tools such as umbrellas for big drops and girders to cross pits. Interestingly, a student at Rutgers University has shown that this is actually an NP-Hard problem \cite{Cormode:fk}.
 
 For my project, I planned to take this concept, simplify it by removing some of the tools and obstacles, and program some AI agents to learn for themselves how to best traverse the level, without any human interaction.
-		
-\section{The Project in Context}
-	
-Throughout the development of my project, I needed to utilise skills which I had gained from modules I had studied during my course.
-
-There was obviously a lot of knowledge that I gained in the AI-related modules I have studied (CI213 - Intelligent Systems and CI342 - Advanced AI) which I could directly apply to my project. Techniques such as pathfinding algorithms, and generally approaching AI-based problems from an academic angle.
-
-I was also able to apply a lot of useful knowledge that I had gained from the programming-based modules from my course (CI101 - Introduction to Programming, CI228 - Object-Oriented Software Design and Specification and CI346 - Programming, Concurrency and Client-Server Computing). I applied a lot of the `good' object-oriented design practices which were learnt in these modules: principles such as inheritance and design patterns like the singleton. I also found the knowledge learnt this year in CI346 very useful to overcome some concurrency issues I had using multiple threads in my system.
-
-Another module I have found to be very useful is CI224 (Games Development). Many of the game design concepts: physics, object transformations, model loading, and various other useful skills. The project we did in CI224 was particularly useful, as it introduced me to the processes involved in developing a game from scratch. I was also introduced to source control systems in CI224, which has proven to be invaluable knowledge to have.
-
-I also used the knowledge of object-oriented software design and UML learnt in CI228 and CI231 (Formal Underpinnings and Specification) to design my system. Although I didn't actually use the formal specification language learnt in my system specification, I could still apply the concepts learnt to my own designs.
-
-I learnt a great deal about data access and performance optimisation in the CI312 (Computer Graphics Algorithms) module. It really helped me too look at my code at a lower level, and analyse the best and most efficient ways to access and manipulate data; something which I have found to be incredibly important, especially in a game context, where some functions can be called 60 times every second.
 
 
 
@@ -294,7 +280,7 @@ Updating the old Q-values ensures that the system retains all previously obtaine
 Q-learning converges with probability 1, meaning that after sufficient iterations of the algorithm, the learner will have formulated an optimal policy such that they can move towards the most desirable state from any other state.
 \subsection{Decision Trees}
 
-Another popular type of machine learning is Decision Tree Learning. Decision Tree Learning approaches problem solving using classification to label input data. A tree structure is used to do this, with each node of the tree representing a test. The leaf nodes usually represent categories, although they can also represent numerical values. Each of these tests serve the function of sorting (or refining) the input data, with each possible answer being mutually exclusive (i.e only one answer can be satisfiable per test). See Figure \ref{fig:DecisionTree}. The tests can be multivariate, where multiple attributes are tested at once, or univariate where only a single attribute is tested. As the input data moves down the tree, it will eventually filter through to a leaf (or category) node. 
+Another popular type of machine learning is Decision Tree Learning. Decision Tree Learning approaches problem solving using classification to label input data. A tree structure is used to do this, with each node of the tree representing a test. The leaf nodes usually represent categories, although they can also represent numerical values. Each of these tests serve the function of sorting (or refining) the input data, with each possible answer being mutually exclusive (i.e only one answer can be satisfiable per test). The tests can be multivariate, where multiple attributes are tested at once, or univariate where only a single attribute is tested. As the input data moves down the tree, it will eventually filter through to a leaf (or category) node. See Figure \ref{fig:DecisionTree} for an example decision tree.
 
 \begin{figure}[h!]
 	\centering
@@ -321,7 +307,7 @@ However, decision trees can lack accuracy; the size of the tree will increase tr
 Genetic algorithms are possibly one of the most interesting machine learning techniques. Taking inspiration from the process of natural evolution, they use a selection-reproduction-mutation process to create systems which are capable of not only determining the optimum behaviour from pre-programmed behaviour, but are also able to develop new emergent behaviour by cross-breeding and mutating existing behaviour. As with natural evolution, the process begins with an initial population of `chromosomes'. This initial population is often initialised randomly, but can be initialised to any arbitrary values desired by the programmer. After initialisation, the process uses a `generational' approach:
 
 \begin{enumerate}
-	\item Each chromosome in the population is evaluated using a `fitness' function which evaluate its effectiveness.
+	\item Each chromosome in the population is evaluated using a `fitness' function which evaluates its effectiveness.
 	\item From this, the system identifies the `fittest' chromosomes, and selects them to breed a new generation of chromosomes.
 	\item The system then `breeds' the selected individuals. This process involves combining two `parent' chromosomes to create a child with a mixture of behaviour from both parents. See Figure \ref{fig:Breeding} for a graphical representation of this process.
 	\item \emph{Many systems also introduce a `mutation' function which randomly selects individuals from the population and slightly alters them. This encourages emergent behaviour.}
@@ -331,7 +317,7 @@ Genetic algorithms are possibly one of the most interesting machine learning tec
 \begin{wrapfigure}{l}{0.32\textwidth}
 	\centering
 		\includegraphics[width=50mm]{sources/images/Evolution}
-    	\caption{Visual representation of the Breeding/Mutation Process}
+    	\caption{The Breeding/Mutation Process}
     	\label{fig:Breeding}
 \end{wrapfigure}
 
@@ -348,7 +334,7 @@ However, this being said, there are also a few disadvantages to using genetic al
     	\label{fig:NeuralNet}
 \end{wrapfigure}
 
-Artificial Neural Networks (NNs) are another popular machine learning technique which are inspired by the parallel architecture of the brain. NNs consist of a group of processing nodes (or neurons) which are interconnected in a graph structure (see Figure \ref{fig:NeuralNet} for an example). These connections are known as synapses (named after their biological counterpart). As with biological neurons, the neurons have multiple inputs which map to a single binary output (which can exists in the two states: excited or not excited), similar to a flip-flop switch. Occasionally, NNs may have multiple outputs, although this can make learning more difficult. To determine its state, a neuron calculates a weighted total of all of its input signals. If this total reaches a certain threshold, the neuron fires (becomes excited), otherwise it remains not excited. 
+Artificial Neural Networks (NNs) are another popular machine learning technique which are inspired by the parallel architecture of the brain. NNs consist of a group of processing nodes (or neurons) which are interconnected in a graph structure (see Figure \ref{fig:NeuralNet} for an example). These connections are known as synapses (named after their biological counterpart). As with biological neurons, the artificial neurons have multiple inputs which map to a single binary output (which can exists in the two states: excited or not excited), similar to a flip-flop switch. Occasionally, NNs may have multiple outputs, although this makes learning more difficult due to increased  processing `noise'. To determine its state, a neuron calculates a weighted total of all of its input signals. If this total reaches a certain threshold, the neuron fires (becomes excited), otherwise it remains not excited. 
 
 Conventional computing techniques take an algorithmic approach to problem solving by following a specific set of unambiguous instructions to calculate a solution. While this is a logical and easily debuggable approach, it is incredibly limiting, as it restricts problem solving to problems which are already understood and have solutions. NNs on the other hand are able to develop solutions by recognising patterns in the learning data which it can use in similar scenarios in the future. Key to the NNs' learning is a cost function which has a similar function to the fitness function in genetic algorithms, serving as a measure as to how close any given solution is to the optimum solution.
 
@@ -401,7 +387,7 @@ The creature is also able to learn by watching the player's actions and deducing
 
 \section{Conclusion}
 
-After researching different machine learning techniques, I feel that reinforcement learning, and more specifically Q-learning is the most appropriate method for my problem area. One of the key reasons for this is that reinforcement learning methods excel at discovering optimal solutions to problems because of their use of the discount factor to take into account future rewards; encouraging the system to act optimally from the start. Another reason for choosing Q-learning is that it excels in situations where the system has no prior knowledge of its environment (as with my game). Additionally, as my problem area is fairly limited with a relatively small number of possible action/state combinations per level, I will be able to store the state/action/Q-value data fairly easily in a table format; had I chosen a more complex problem with thousands of possible states, trying to store every combination may be impractical.
+After researching different machine learning techniques, I feel that reinforcement learning, and more specifically Q-learning is the most appropriate method for my problem area. One of the key reasons for this is that reinforcement learning methods' use of the discount factor to take into account future rewards ensures truly optimal solutions, encouraging the system to act optimally from the start. Another reason for choosing Q-learning is that it excels in situations where the system has no prior knowledge of its environment (as with my game). Additionally, as my problem area is fairly limited with a relatively small number of possible action/state combinations per level, I will be able to store the state/action/Q-value data fairly easily in a table format. Had I chosen a more complex problem with thousands of possible states, trying to store every combination may be impractical.
 
 Of the other methods I researched, I feel that decision tree learning is also suitable for my problem. However, I don't feel that using them for classification would fit my problem, as it would introduce unnecessary complexity; the obstacles that I'm using in my game are fairly basic, and trying to classify them would be unreasonable. Also, I don't feel that classification trees are suitable to the problem of learning an optimum route. Instead, I could use trees to dynamically map out the routes taken by an agent.
 
@@ -566,25 +552,26 @@ I intended to use a number of classes using the singleton design pattern to mana
 
 I planned to create a base class called `GameObject' which would be inherited by all of the game objects I would be using in my game. Objects such as the agents and the level terrain (Figure \ref{fig:GameObjects}).
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
     \includegraphics[width=150mm]{sources/images/GameObjects}
     \caption{The Game Objects}
     \label{fig:GameObjects}
 \end{figure}
 	
+\newpage
+	
 \section{Agent States}
 
 I also created a basic state diagram to map out the intended states for my game characters (see Figure \ref{fig:LemmingFSM}).
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/LemmingStatemachine}
+    \includegraphics[width=120mm]{sources/images/LemmingStatemachine}
     \caption{Character States}
     \label{fig:LemmingFSM}
 \end{figure}
 	
-\newpage
 \section{Scheduling}
 
 I created a schedule for the development of my project. In it, I outlined the major processes involved in the development stage: planning/research, game development, AI development and testing/debugging. I then split each stage into a series of sub-tasks, such as `asset production' and `research frameworks'. See Appendix A for my initial project schedule.
@@ -649,18 +636,20 @@ Before beginning a game, the player is presented with a new game screen allowing
 
 When the new game parameters are confirmed, a level is chosen at random and the game begins. The agents begin to spawn into the level at the top of the screen, and begin to traverse the level, forming a knowledgebase as they go. 
 
-The agents begin in `learning mode' and navigate the levels randomly (which speeds up the learning process). While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions (from: left, left with helmet, right, right with helmet, equip umbrella, down - which are available depends on the current state). Two tools aid the agents to overcome obstacles: the helmet to protect from the stampers, and the umbrella to protect from big drops. Based on their actions, the agents will eventually reach an end condition: either falling victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaching the level exit - both signify the end of the learning `episode'. This process repeats until all learning episodes have been completed, at which point the agent spawns for a final time, distinguishable by the `!'  or `?' over the agent's head (highlighted in Figure \ref{fig:GameScreen}). The question mark is used in the decision tree/shortest route methods, and signifies that an agent was unable to find safe route in the allotted learning episodes. In this final episode, the agents use what they have learnt to create an optimal route to the exit. When all agents have completed this final episode, the game ends revealing a game over screen which displays some game statistics and a rating of the agents' performance (see Figure \ref{fig:GameOver}).
+The agents begin in `learning mode' and navigate the levels randomly (which speeds up the learning process). While navigating the level, the agents will come to various decision points (trapdoors and the end of platforms) where they must decide from a number of possible actions (from: left, left with helmet, right, right with helmet, equip umbrella, down - which are available depends on the current state). Two tools aid the agents to overcome obstacles: the helmet to protect from the stampers, and the umbrella to protect from big drops. Based on their actions, the agents will eventually reach an end condition: either falling victim to an obstacle (water, stamper, or a big drop) resulting in instant death, or reaching the level exit - both signify the end of the learning `episode'. This process repeats until all learning episodes have been completed, at which point the agent spawns for a final time, distinguishable by the `!'  or `?' over the agent's head (highlighted in Figure \ref{fig:GameScreen}). The question mark is used in the decision tree/shortest route methods, and signifies that an agent was unable to find safe route in the allotted learning episodes. In this final episode, the agents use what they have learnt to create an optimal route to the exit.
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=140mm]{sources/images/Screen_Game}
+    \includegraphics[width=130mm]{sources/images/Screen_Game}
     \caption{In-game Screenshots}
     \label{fig:GameScreen}
 \end{figure}
 
+When all agents have completed this final episode, the game ends revealing a game over screen which displays some game statistics and a rating of the agents' performance (see Figure \ref{fig:GameOver}).
+
 \begin{figure}[H]
   \centering
-    \includegraphics[width=70mm]{sources/images/Screen_GameOver}
+    \includegraphics[width=65mm]{sources/images/Screen_GameOver}
     \caption{The Game Over Screen}
     \label{fig:GameOver}
 \end{figure}
@@ -912,7 +901,7 @@ Xcode comes with a very useful set of performance analysis tools called 'Instrum
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=90mm]{sources/images/Instruments}
+    \includegraphics[width=100mm]{sources/images/Instruments}
     \caption{The Instruments Tool}
     \label{fig:TextureAtlas}
 \end{figure}
@@ -974,51 +963,71 @@ switch(learningType)
 }
 \end{lstlisting}
 
-As outlined in my initial design, the learning agents begin the game in a `learning mode', in which they have a set number of lives or `episodes' (set by the player before the game begins). During the learning mode, the agents navigate the level and choose actions at random, building up their knowledgebase. I initially planned to set up the learning such that after the first episode, the agent would cease to act randomly and apply its knowledge. However, I found that doing this made it extremely difficult to measure the improvement in the agents, as once they reached the exit, the game was over; the learning mode avoids this issue. Additionally, by programming the agents to act randomly throughout the learning mode meant that more optimal routes could be found in less time, due to the fact that there was no `exploitation' of current knowledge at this stage. In many reinforcement learning systems, the system begins to exploit the learnt knowledge much earlier on, which brings with it the added issue of balancing the exploitation of existing knowledge with the exploration of new terrain. After all of the learning episodes have been completed, learning mode ends and the agent then applies the knowledge it has learnt to attempt to reach the exit safely.
+As outlined in my initial design, the learning agents begin the game in a `learning mode', in which they have a set number of lives or `episodes' (set by the player before the game begins). During the learning mode, the agents navigate the level and choose actions at random, building up their knowledgebase. I initially planned to set up the learning such that after the first episode, the agent would cease to act randomly and apply its knowledge. However, I found that doing this made it extremely difficult to measure the improvement in the agents, as once they reached the exit, the game was over; the learning mode avoids issue. Programming the agents to act randomly during the learning mode removes the `exploitation' element, and ensures that optimal routes are be found much quicker. Many RL systems begin to exploit learnt knowledge much earlier on, and so must balance the exploitation of existing knowledge with the exploration of new terrain. After all learning episodes have been completed, the agent then uses its knowledge to attempt to reach the exit safely.
 
 \subsection{Cogito Agents}
 
-I created a base class called \emph{CogitoAgent} to contain the common functionality which would be shared between all types of learning. Its most basic function is to detect when an agent has reached a decision node, at which point it chooses a random action from those available. The basic decision process is as follows:
-
-\begin{enumerate}
-	\item Agent collides with decision node
-	\item Agent gets the current state
-	\item Action chosen based on the current state
-	\item Action taken
-\end{enumerate}
-
-The class also keeps track of the number of learning episodes used by the agent, and ends the learning mode when all episodes have been completed.
+I created a base class called \emph{CogitoAgent} to contain the common functionality which would be shared between all types of learning. Its main function is to detect when an agent has reached a decision node object and build an array of the available actions.
 
 \subsection{Shortest Route Agents}
 
-The Shortest Route agent is by far the simplest of all of the learning types. It simply records the routes which have been taken during the learning mode, and chooses the shortest one at the end. I created a Route class to simplify this which consists of an array of `nodes' and a boolean flag which stores whether or not the route was successful (i.e. if the agent survived or not). As the agent progresses through the level, each visited state is added to the route array. At the end of an episode, the complete route is added to a list of taken routes. Upon completion of the learning mode, the Shortest Route agent checks the array of taken routes, and takes the shortest one. If there happens to be several shortest routes of the same length, the agent doesn't attempt to compare the two, but just picks the first one it finds. If the agent failed to reach the exit during the learning mode, it simply acts randomly.
+The Shortest Route agent is by far the simplest of all of the learning types. It simply records each taken route, and chooses the shortest one. I created a Route class to simplify this which consists of an array of visited `nodes' and a boolean flag which stores whether the agent survived. As the agent progresses through the level, each visited state is added to the route array. At the end of an episode, the complete route is added to a list of taken routes (see Listing \ref{lst:Shortest}). When the learning is over, the agent checks the array of taken routes, and takes the shortest one. If there happen to be several routes of the same length, the agent just picks the first one it finds, making no attempt to analyse further. If the agent failed to reach the exit at all during the learning mode, it simply acts randomly.
+
+\begin{lstlisting}[label={lst:Shortest},caption=Updating the Route]
+// add the state to the current route
+[currentRoute addState:_state withAction:action];
+        
+if(endConditionReached) 
+{
+    // set the end condition
+    if([_state getGameObject].gameObjectType == kObjectExit) [currentRoute setSurvived:YES];
+    else if(self.state != kStateDead) [currentRoute setSurvived:NO];
+            
+    // add the route to routes
+    [routes addObject:currentRoute];
+                        
+    // start new route
+    currentRoute = [[Route alloc] init];
+}
+\end{lstlisting}
+
 
 \subsection{Decision Tree Agents}
 
-As shown in my research, decision tree learning is uses classification to solve a problem using knowledge it gained from experience. I initially planned to use this approach in my game, but decided that it was an overly complex and somewhat inappropriate solution to what is a relatively simple problem. I didn't feel that there was any need for agents to have to try and work out exactly what an obstacle was in order to progress. Instead, I decided to use a tree structure to dynamically build a model of the environment as the agents traverse it. As decisons are made, more nodes are added to the tree, with the root node representing the first state in the level. At the end of the learning, the `route tree' is searched, and any successful routes are stored. To do this, I perform a simple depth-first search on the tree checking every node. While this kind of search is quite poor speed-wise, it ensures the tree is methodically searched. Were I traversing a much larger tree, I could a heuristic search method such as A* to provide an approximate solution. As it happens, my levels are small enough to make my brute-force search a feasible solution. When a leaf node is found (and the node is an exit), I recursively move back up the tree to build the route (see Appendix C for the code), storing each required action in an array. The search continues until all nodes have been searched. After the routes have been found, I then calculate a `weight' for each route, which represents the number of tool used in that route. The final step is to find the shortest (or optimal) route in the list. Initially, only route lengths are checked; if there is more than one shortest route, the one with the lowest weighting value is chosen. This encourages the agents to choose `cheaper' routes.
+As discussed in the planning section, my decision tree implementation doesn't use classification, but instead uses a tree structure to dynamically build a model of the environment as the agents explore it. When the agent begins to explore, it sets the first state it reaches as the root node of the tree. Each succeeding state is then added to the tree in sequence (see Listing \ref{lst:TreeRoute} for a slightly simplified version of the code). If the agent has died or reached the exit, the node is set as a leaf.
 
-The basic operation of the learning is as follows:
+\begin{lstlisting}[label={lst:TreeRoute},caption=Building a Route Tree]                       
+if(levelTree == nil) levelTree = treeState; // if the root isn't set
+else
+{
+	// add the state to the tree
+    [treeState setAction:currentAction];
+    [currentState addChild:treeState]; 
+}
+            
+// update the current state/action variable
+currentState = treeState;
+                        
+if(endConditionReached)
+{
+    // if we've reached an end condition, make a leaf node
+    if(self.state == kStateDead) [treeState setAsLeafNode:kStateDead];
+    else if([_state getGameObject].gameObjectType == kObjectExit) [treeState setAsLeafNode:kStateWin];
+}        
+\end{lstlisting}
 
-\begin{enumerate}
-	\item The Agent collides with a decision node
-	\item If the tree is uninitialised, it sets the current state as the root of the tree. Otherwise, the current state is added as a child of the previous state.
-	\item The agent chooses an action randomly from those available, and takes it
-\end{enumerate}
-
+At the end of the learning mode, the `route tree' is searched, with any successful routes stored. I do this using a simple depth-first search. While this kind of search is poor speed-wise, it doesn't prove an issue with the size of my levels. If I was traversing a much larger tree, I would use a heuristic search such as A* to provide an approximate solution. Upon finding a leaf node, I recursively move back up the tree building the route (see Appendix C for the code). The search of the tree continues until all nodes have been searched. After the routes have been found, I then calculate a `weight' for each route, which represents the number of tools used in that route. The final step is to find the shortest route of those found. Initially, only route lengths are checked; if there is more than one shortest route, the one with the lowest weight is chosen. This encourages the agents to choose `cheaper' routes.
+  
 \begin{figure}[H]
   \centering
-    \includegraphics[width=120mm]{sources/images/TreeSample}
+    \includegraphics[width=100mm]{sources/images/TreeSample}
     \caption{A Partially-Built Level Tree}
     \label{fig:TreeSample}
 \end{figure}
 
-\newpage
-
 \subsection{Reinforcement Agents}
 
-The final type of learning which I implemented in my game was reinforcement learning. Based on my research, I decided that the Q-learning algorithm was the most appropriate for solving my problem. First of all, I needed to decide upon what values to use for the rewards in my system. Although reinforcement learning systems tend to use values less than 1.0, I instead decided to use rewards of less than 100, just to make the values more manageable (see Figure \ref{fig:Rewards} for reward values).
-
-\begin{wrapfigure}{l}{0.42\textwidth}
+\begin{wrapfigure}{r}{0.42\textwidth}
 \centering
 \begin{tabular}{| l | c |}
   \hline
@@ -1034,25 +1043,36 @@ The final type of learning which I implemented in my game was reinforcement lear
 \label{fig:Rewards}
 \end{wrapfigure}
 
-I used equivalent values for the win/death rewards so that both states were regarded equally `important' by my learning agents. In addition to these main rewards, I added a small negative reward for any tool use by the agent. This ensured that the agent only used a tool where necessary; tools are a finite resource, and so should only be used where no `cheaper' alternative exists. Using this small negative reward ensures that the agent will always choose the standard basic actions (i.e. left, right, down) over using a tool. While conducting my research, I came across a lecture on reinforcement learning given by researcher Andrew Ng in which he proposes associating a small negative with all moves \cite{Ng:uq}. I decided to do this in my own game, as it encourages the agents to use the shortest route possible by adding a greater penalty to longer routes.
+The reinforcement agents are the most advanced of those implemented. Based on my research, I decided to use the Q-learning algorithm because I initially specified that my agents wouldn't have access to a model of the environment. The first step in implementing the algorithm was to set the reward values for my system. I used equivalent values for the win/death rewards so that both states were regarded equally `important' by my agents. In addition to these main rewards, I added a small negative reward for any tool use by the agent, to encourage less tool uses (as tools are a finite resource). As a result of my research, I also decided to give a small negative reward for every action taken by the agent, as it encourages the agents to take the shortest possible route \cite{Ng:uq}. See Figure \ref{fig:Rewards} for the values.
 
-After setting up the rewards, I then needed to implement the actual learning. The basic operation of the reinforcement learning is as follows:
-
-\begin{enumerate}
-	\item Agent collides with decision node
-	\item Agent checks if it has visited this state before. If so, it gets the state, otherwise it creates a new one
-	\item Q-values for previous state/action are updated according to outcome
-	\item Action chosen based on the current state
-	\item Takes action and updates state
-\end{enumerate}
-
-I calculated the new Q-values using the algorithm: 
+The agents' learning process is actually fairly simple: at the beginning of the game, the agents explore randomly. When they reach a decision node, they update the Q-value for the current state and action pair the Q-learning algorithm:
 
 \begin{equation*}
 Q(s_t,a_t) \Leftarrow Q(s_t, a_t) + (1 -\alpha_t) + \alpha[R(s_t) + \gamma max Q(s_{t+1}, a_{t+1})] 
 \end{equation*}
 
-To make my code more readable, I split the algorithm into logical parts and stored these parts in variables. I created a variable for the old Q-value (i.e. $Q(s_t, a_t)$), a variable for the maximum expected Q-value (i.e. $max Q(s_{t+1}, a_{t+1})$) and a variable for the reward (i.e $R(s_t)$). I chose to update the Q-values asynchronously (i.e. updating individual Q-values at each decision made), rather that to update all Q-values at set intervals. I did this because I felt it was logical to do so, and was slightly simpler to implement. Both methods are acceptable to use with Q-learning, and have no major impact on the outcome of the algorithm. My implementation of the Q-Learning update algorithm can be seen in Listing \ref{lst:QLearning}.
+According to the outcome of the previous action, the Q-value will either increase or decrease, with a higher value signifying a more effective action. Q-learning's use of the maximum Q-value causes a backward propagation of rewards, meaning that as more exploration takes place, the rewards `diffuse' to the other states, essentially leaving a trail to the goal. The agents continue to navigate the level and update the Q-values until they have completed all learning episodes. Unlike my other learning methods, there is no need to calculate and store the optimum route beforehand. All that is needed is for the agent to begin traversing the level as usual. Upon reaching a decision node, the agent simply checks the Q-values of the actions available, and chooses the action with the highest Q-value (see Listing \ref{lst:OptimumQ} for the code). This process is repeated until the agent (hopefully) reaches the exit. 
+
+\begin{lstlisting}[label={lst:OptimumQ},caption=Finding the Optimum Action For the Current State]                       
+Action optimumAction = -1;
+float maxQValue = -1000000;
+CCArray* actions = [self getActions];
+    
+for (int i = 0; i < [actions count]; i++) 
+{
+    float qValue = [self getQValueForAction:[[actions objectAtIndex:i] intValue]];
+    if(qValue > maxQValue) 
+    {
+        maxQValue = qValue;
+        optimumAction = [[actions objectAtIndex:i] intValue];
+    }
+}
+return optimumAction;
+\end{lstlisting}
+
+My implementation of the algorithm is slightly different to that described in Watkins' paper \cite{Watkins:1989mi}. In the paper, when an agent moves to a new state, the Q-values for \emph{that} state are updated. As my agents have no prior knowledge of their environment, this would be impossible. To circumvent this, the agent instead updates the Q-values for the previous state. Although this is slightly different to the standard method, it has no impact on the actual learning.
+
+To make my code more readable, I split the algorithm into logical parts and stored these parts in variables. I created a variable for the old Q-value (i.e. $Q(s_t, a_t)$), a variable for the maximum expected Q-value (i.e. $max Q(s_{t+1}, a_{t+1})$) and a variable for the reward (i.e $R(s_t)$). I chose to update the Q-values asynchronously (i.e. updating individual Q-values at each decision made), rather that to update all Q-values at set intervals because I felt it was more logical and also slightly simpler to implement this way. My implementation of the Q-Learning update algorithm can be seen in Listing \ref{lst:QLearning} (I have omitted a large switch statement for the sake of readability). Although it was contrary to my research I chose to use a high (and static) learning rate as it meant that the Q-values altered by a large amount at each update, thus increasing the likelihood of an optimal policy being found. Were my agents able to perform thousands of iterations, I would have chosen different values, but I felt this was inappropriate for my chosen application area, in which a single game is very unlikely to last for an hour, much less several hours.
 
 \begin{lstlisting}[label={lst:QLearning},caption=Implementation of The Q-Learning Algorithm]
 -(void)updateQValues:(QState*)_newState
@@ -1064,21 +1084,9 @@ To make my code more readable, I split the algorithm into logical parts and stor
     float reward = [_newState getReward];
     
     // apply a negative reward if using a tool
-    if(reward == kQDefaultReward) 
-    {
-        switch (currentAction)
-        {
-            case kActionDownUmbrella:
-            case kActionEquipUmbrella:
-            case kActionLeftHelmet:
-            case kActionRightHelmet:
-                reward = kQToolReward;
-                break;
-                
-            default:
-                break;
-        } 
-    }
+    ...
+    SWITCH STATEMENT OMITTED 
+    ...
         
     float updatedQValue = oldQValue * (1 - kQLearningRate) + kQLearningRate 
     	* (reward + kQDiscountFactor * maximumQValue);
@@ -1086,11 +1094,7 @@ To make my code more readable, I split the algorithm into logical parts and stor
 }
 \end{lstlisting}
 
-The order in which I update the Q-values is slightly different to the standard method described in Watkins' paper \cite{Watkins:1989mi}. In the paper, when an agent moves to a new state, the Q-values for \emph{that} state are updated (which requires knowledge of the next state). However, as my agents have no prior knowledge of their environment, they would be unable to ascertain the next state during the early stages of the game. To circumvent this, when an agent in my game moves to a new state, it instead updates the Q-values for the previous state, using the information it has for the current state. Although this is slightly different to the standard method, it has no negative impact on the actual learning. I added the ability to export the knowledgebase to an external file saved in the iOS device's memory for later analysis.
-
-In my implementation of the algorithm, I used a different value for the learning rate than was recommended by my research. Given the time restraints of implementing the learning in a game, it is highly unlikely that a policy will reach convergence in a game. Therefore, I chose to use a high (and static) learning rate as it meant that the Q-values were updated much quicker, thus an optimal policy is more likely to be found. Were my agents able to perform thousands of iterations, I would have chosen different values, but I felt this was inappropriate for my chosen application area, in which a single game is very unlikely to last for an hour, much less several hours.
-
-While in my other methods, the agents are restricted to only their own first-hand experiences, the reinforcement learning agents are able to contribute to a central knowledgebase. This meant that the rate of learning could be greatly increased. 100 agents performing just one learning episode each is the equivalent to a single agent performing 100 episodes. This obviously greatly increased the rate of learning.
+In addition to a more powerful algorithm, my reinforcement agents are also able to utilise a central knowledgebase. This meant that the rate of learning could be greatly increased, with 100 agents performing just one learning episode each being the equivalent to a single agent performing 100 episodes. I also added the ability to export the knowledgebase to an external file saved in the iOS device's memory for later analysis.
 
 \section{Learning Stats}
 
@@ -1148,49 +1152,49 @@ Overall, I feel that my results were very encouraging. All learning techniques w
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/AvgActions}
+    \includegraphics[width=140mm]{sources/images/AvgActions}
     \caption{Average Actions Taken Per Episode}
     \label{fig:AvgActions}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/AvgEpisode}
+    \includegraphics[width=140mm]{sources/images/AvgEpisode}
     \caption{Average Episode Time}
     \label{fig:AvgTime}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/AvgSuccess}
+    \includegraphics[width=140mm]{sources/images/AvgSuccess}
     \caption{Average Success Rate of Agents}
     \label{fig:AvgSuccess}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/SE_Tree}
+    \includegraphics[width=140mm]{sources/images/SE_Tree}
     \caption{Comparing Success Rate and Number of Episodes (Decision Tree)}
     \label{fig:SE_Tree}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/SE_SR}
+    \includegraphics[width=140mm]{sources/images/SE_SR}
     \caption{Comparing Success Rate and Number of Episodes (Shortest Route)}
     \label{fig:SE_SR}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/SE_RL}
+    \includegraphics[width=140mm]{sources/images/SE_RL}
     \caption{Comparing Success Rate and Number of Episodes (Reinforcement)}
     \label{fig:SE_RL}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width=130mm]{sources/images/SA_RL}
+    \includegraphics[width=140mm]{sources/images/SA_RL}
     \caption{Comparing Success Rate and Number of Agents (Reinforcement)}
     \label{fig:SA_RL}
 \end{figure}
@@ -1302,15 +1306,29 @@ I would also like to introduce much bigger levels into my game with more diverse
 
 A small criticism I have of my system is that it is very specific to the individual levels; the information learnt about one level is completely useless for another (a problem known as overfitting). Overfitting is a known `flaw' of the Q-learning algorithm. In an ideal scenario, an agent would be able to generalise its experiences to apply the learnt knowledge in different scenarios, however, this would be virtually impossible in my case. A possible solution to overfitting could be to develop the AI in two components: one using Q-learning to learn the policy for that individual level, and another (possibly a genetic algorithm) to learn more general rules. 
 
+\section{The Project in Context}
+	
+I feel that the modules studied throughout my course set me up well for carrying out this project, and there are many skills I have learnt along the way which I took advantage of when developing my product.
+
+There was obviously a lot of knowledge that I gained in the AI-related modules I have studied (CI213 - Intelligent Systems and CI342 - Advanced AI) which I could directly apply to my project. Techniques such as pathfinding algorithms, and generally approaching AI-based problems from an academic angle.
+
+I was also able to apply a lot of useful knowledge that I had gained from the programming-based modules from my course (CI101 - Introduction to Programming, CI228 - Object-Oriented Software Design and Specification and CI346 - Programming, Concurrency and Client-Server Computing). I applied a lot of the `good' object-oriented design practices which were learnt in these modules: principles such as inheritance and design patterns like the singleton. I also found the knowledge learnt this year in CI346 very useful to overcome some concurrency issues I had using multiple threads in my system.
+
+Another module I have found to be very useful is CI224 (Games Development). Many of the game design concepts: physics, object transformations, model loading, and various other useful skills. The project we did in CI224 was particularly useful, as it introduced me to the processes involved in developing a game from scratch. I was also introduced to source control systems in CI224, which has proven to be invaluable knowledge to have.
+
+I also used the knowledge of object-oriented software design and UML learnt in CI228 and CI231 (Formal Underpinnings and Specification) to design my system. Although I didn't actually use the formal specification language learnt in my system specification, I could still apply the concepts learnt to my own designs.
+
+I learnt a great deal about data access and performance optimisation in the CI312 (Computer Graphics Algorithms) module. It really helped me too look at my code at a lower level, and analyse the best and most efficient ways to access and manipulate data; something which I have found to be incredibly important, especially in a game context, where some functions can be called 60 times every second.
+
 \section{Conclusion}
 
 I feel that overall, my project was a great success; I achieved my initial goal of creating AI agents capable of learning how to traverse my game levels. Although some methods proved more effective than others, all of the techniques I implemented showed a marked improvement over the basic (non-learning) agents. I was particularly pleased with the reinforcement agents, which have proven very effective in finding the optimum solution in a relatively limited number of learning episodes. Particularly so when utilising the shared knowledgebase. 
 
-Learning aside, I was also very pleased with the core `game' component; especially given the fact that I had to create the artwork and character animations, and program the core game myself. I feel that the final game is very robust, and serves well to demonstrate my AI system especially given the initial problems I encountered due to my inexperience of using Objective-C.
+Learning aside, I was also very pleased with the core `game' component; especially given the fact that I had to create the artwork and character animations, and program the core game myself. I feel that the final game is very robust, and serves well to demonstrate my AI system especially given the initial problems I encountered due to my inexperience in using Objective-C.
 
-I felt I learnt a great deal carrying out this project. Aside from the knowledge of AI and machine learning, I also learnt a great deal about more general software and game development. Having never developed a software product from concept to completion, carrying out the initial design, specification development and testing was invaluable and gave me an insight into the software development process. I found this project to be particularly useful from a game development point of view. Due to the fact that I was developing for mobile hardware, there were a number of considerations which I had to make such as the reuse of assets and using optimised file formats; issues which are often forgotten because of the powerful hardware at our disposal today.
+I feel I have learnt a great deal carrying out this project. Aside from the knowledge of AI and machine learning, I have also learnt a considerable amount about more general software and game development. Having never developed a software product from concept to completion, carrying out the initial design, specification development and testing was invaluable and gave me an insight into the development process. I found this project to be particularly useful from a game development point of view, due to the fact that I was developing for mobile hardware. Because of this, there were a number of considerations which I had to make such as the reuse of assets and using optimised file formats; issues which are often forgotten because of the powerful hardware at our disposal today.
 
-In conclusion, I feel that I suitably demonstrated that it is not only possible, but computationally feasible with today's technology to implement machine learning techniques in games. This is made even more pertinent considering that I did so on a mobile device (although I accept that not many games have the same amount of processor time to devote to the AI as my project). Such techniques could have many possible applications in games to create much more `intelligent' AI systems capable of dynamically modifying their behaviour to adapt to the player. Given that machine learning techniques have been shown to be effective in commercial games (Lionhead's Black \& White is the flagship example), it is surprising to me that more developers haven't taken up the mantle and implemented similar techniques in their own games. Such techniques could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game. Given the increase in priority of the AI (more processor time, and dedicated AI programmers), such techniques are likely to become more widespread in the near future. 
+In conclusion, I feel that I suitably demonstrated that it is not only possible, but computationally feasible with today's technology to implement machine learning techniques in games. This is made even more pertinent considering that I did so on a mobile device (although I accept that not many games have the same amount of processor time to devote to the AI as my project). Such techniques could have many possible applications in games to create much more `intelligent' AI systems capable of dynamically modifying their behaviour to adapt to the player. Given that machine learning techniques have been shown to be effective in commercial games (Lionhead's Black \& White being the flagship example), it is surprising to me that more developers haven't taken up the mantle and implemented similar techniques in their own games. Such techniques could be applied to virtually any game genre, from enemy commanders in a real-time strategy war game, to the AI-controlled players in a football game. Given the increase in priority of the AI (more processor time, and dedicated AI programmers), such techniques are likely to become more widespread in the near future. 
 
 
 

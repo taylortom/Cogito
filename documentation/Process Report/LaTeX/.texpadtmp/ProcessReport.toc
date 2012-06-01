@@ -2,111 +2,111 @@
 \contentsline {chapter}{Introduction}{1}
 \contentsline {section}{Project Aims and Objectives}{1}
 \contentsline {section}{Background}{2}
-\contentsline {section}{The Project in Context}{2}
-\contentsline {part}{Research}{4}
-\contentsline {chapter}{Artificial Intelligence}{5}
-\contentsline {section}{AI In Games}{5}
-\contentsline {subsection}{Finite State Machines}{6}
-\contentsline {subsection}{Search and Planning Systems}{6}
-\contentsline {subsection}{Artificial Life}{6}
-\contentsline {subsection}{Scripting}{6}
-\contentsline {subsection}{Cheating The System}{7}
-\contentsline {subsection}{The Future of Game AI}{7}
-\contentsline {section}{Machine Learning}{7}
-\contentsline {paragraph}{Online and Offline:}{8}
-\contentsline {paragraph}{Supervised and Unsupervised:}{8}
-\contentsline {subsection}{Reinforcement Learning}{8}
-\contentsline {subsubsection}{Markov Decision Processes:}{9}
-\contentsline {subsubsection}{The Theory}{9}
-\contentsline {subsubsection}{Algorithms}{10}
-\contentsline {subsubsection}{Q-learning}{10}
-\contentsline {subsection}{Decision Trees}{11}
-\contentsline {subsection}{Genetic Algorithms}{12}
-\contentsline {subsection}{Artificial Neural networks}{13}
-\contentsline {subsection}{Applications For Machine Learning}{14}
-\contentsline {paragraph}{Speech recognition:}{14}
-\contentsline {paragraph}{Computer vision:}{14}
-\contentsline {paragraph}{Robot control:}{14}
-\contentsline {subsection}{Machine Learning In Games}{15}
-\contentsline {subsubsection}{Academic Examples}{15}
-\contentsline {subsubsection}{Commercial Examples}{16}
-\contentsline {paragraph}{}{16}
-\contentsline {section}{Conclusion}{17}
-\contentsline {chapter}{Choice of Tools}{18}
-\contentsline {section}{Programming Languages \& Game Engines}{18}
-\contentsline {section}{Asset Production}{19}
-\contentsline {section}{Version Control}{20}
-\contentsline {section}{Project Management}{20}
-\contentsline {part}{Planning}{21}
-\contentsline {chapter}{Artwork}{22}
-\contentsline {section}{Logo Design}{22}
-\contentsline {section}{Game Design}{22}
-\contentsline {section}{Sprite Design}{23}
-\contentsline {chapter}{System Design}{25}
-\contentsline {section}{Menu}{25}
-\contentsline {section}{Game}{25}
-\contentsline {subsection}{Lemming Functionality}{25}
-\contentsline {section}{AI System}{25}
-\contentsline {section}{Class Diagrams}{26}
-\contentsline {subsection}{Layers}{26}
-\contentsline {subsection}{Singletons}{26}
-\contentsline {subsection}{GameObjects}{26}
+\contentsline {part}{Research}{3}
+\contentsline {chapter}{Artificial Intelligence}{4}
+\contentsline {section}{AI In Games}{4}
+\contentsline {subsection}{Finite State Machines}{5}
+\contentsline {subsection}{Search and Planning Systems}{5}
+\contentsline {subsection}{Artificial Life}{5}
+\contentsline {subsection}{Scripting}{5}
+\contentsline {subsection}{Cheating The System}{6}
+\contentsline {subsection}{The Future of Game AI}{6}
+\contentsline {section}{Machine Learning}{6}
+\contentsline {paragraph}{Online and Offline:}{7}
+\contentsline {paragraph}{Supervised and Unsupervised:}{7}
+\contentsline {subsection}{Reinforcement Learning}{7}
+\contentsline {subsubsection}{Markov Decision Processes:}{8}
+\contentsline {subsubsection}{The Theory}{8}
+\contentsline {subsubsection}{Algorithms}{9}
+\contentsline {subsubsection}{Q-learning}{9}
+\contentsline {subsection}{Decision Trees}{10}
+\contentsline {subsection}{Genetic Algorithms}{11}
+\contentsline {subsection}{Artificial Neural networks}{12}
+\contentsline {subsection}{Applications For Machine Learning}{13}
+\contentsline {paragraph}{Speech recognition:}{13}
+\contentsline {paragraph}{Computer vision:}{13}
+\contentsline {paragraph}{Robot control:}{13}
+\contentsline {subsection}{Machine Learning In Games}{14}
+\contentsline {subsubsection}{Academic Examples}{14}
+\contentsline {subsubsection}{Commercial Examples}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {section}{Conclusion}{16}
+\contentsline {chapter}{Choice of Tools}{17}
+\contentsline {section}{Programming Languages \& Game Engines}{17}
+\contentsline {section}{Asset Production}{18}
+\contentsline {section}{Version Control}{19}
+\contentsline {section}{Project Management}{19}
+\contentsline {part}{Planning}{20}
+\contentsline {chapter}{Artwork}{21}
+\contentsline {section}{Logo Design}{21}
+\contentsline {section}{Game Design}{21}
+\contentsline {section}{Sprite Design}{22}
+\contentsline {chapter}{System Design}{24}
+\contentsline {section}{Menu}{24}
+\contentsline {section}{Game}{24}
+\contentsline {subsection}{Lemming Functionality}{24}
+\contentsline {section}{AI System}{24}
+\contentsline {section}{Class Diagrams}{25}
+\contentsline {subsection}{Layers}{25}
+\contentsline {subsection}{Singletons}{25}
+\contentsline {subsection}{GameObjects}{25}
 \contentsline {section}{Agent States}{27}
-\contentsline {section}{Scheduling}{28}
-\contentsline {section}{Contingency Plan}{28}
-\contentsline {section}{Social, Legal, Ethical and Professional Issues}{29}
-\contentsline {subsection}{Intellectual Property}{29}
-\contentsline {subsection}{Copyright Law}{29}
-\contentsline {subsection}{The Data Protection Act}{29}
-\contentsline {subsection}{Ethical Issues}{29}
-\contentsline {part}{The Product}{30}
-\contentsline {section}{The Menu}{31}
-\contentsline {section}{Starting A Game}{31}
-\contentsline {section}{Playing The Game}{32}
-\contentsline {paragraph}{Pausing the game:}{33}
-\contentsline {part}{Implementation}{34}
-\contentsline {chapter}{Coding Practices and Structure}{35}
-\contentsline {subsection}{Commenting}{35}
-\contentsline {subsection}{Methods}{35}
-\contentsline {paragraph}{}{35}
-\contentsline {subsection}{Singleton Classes}{35}
-\contentsline {subsection}{Constants and Datatypes}{36}
-\contentsline {subsection}{Utility Methods}{36}
-\contentsline {subsection}{Class Listing}{36}
-\contentsline {chapter}{Game Component}{37}
-\contentsline {section}{Code Structure/Features}{37}
-\contentsline {subsection}{Cocos2D}{37}
-\contentsline {subsection}{Physics}{38}
-\contentsline {subsection}{Levels}{38}
-\contentsline {subsection}{Basic Agent Functionality}{39}
-\contentsline {subsection}{Game Rating}{40}
-\contentsline {subsection}{Performance Optimisations}{41}
-\contentsline {subsubsection}{Random number generation}{41}
-\contentsline {subsection}{SlideViewer}{42}
-\contentsline {section}{Problems Faced}{42}
-\contentsline {chapter}{AI Component}{44}
-\contentsline {section}{Level Structure}{44}
-\contentsline {section}{Learning Agents}{44}
-\contentsline {subsection}{Cogito Agents}{46}
-\contentsline {subsection}{Shortest Route Agents}{46}
-\contentsline {subsection}{Decision Tree Agents}{46}
-\contentsline {subsection}{Reinforcement Agents}{48}
-\contentsline {section}{Learning Stats}{50}
-\contentsline {section}{Problems Faced}{50}
-\contentsline {part}{Testing \& Evaluation}{51}
-\contentsline {chapter}{Testing \& Results}{52}
-\contentsline {section}{Usability Testing and Error Checking}{52}
-\contentsline {section}{AI Testing}{52}
-\contentsline {subsection}{Q-Learning Policies}{58}
-\contentsline {paragraph}{}{58}
-\contentsline {chapter}{Evaluation}{59}
-\contentsline {section}{Time Management}{59}
-\contentsline {section}{Analysis of Machine Learning}{59}
-\contentsline {subsection}{Shortest Route Learning}{59}
-\contentsline {subsection}{Decision Tree Learning}{60}
-\contentsline {subsection}{Reinforcement Learning}{61}
-\contentsline {section}{General Areas For Enhancement}{62}
-\contentsline {section}{Conclusion}{63}
+\contentsline {section}{Scheduling}{27}
+\contentsline {section}{Contingency Plan}{27}
+\contentsline {section}{Social, Legal, Ethical and Professional Issues}{28}
+\contentsline {subsection}{Intellectual Property}{28}
+\contentsline {subsection}{Copyright Law}{28}
+\contentsline {subsection}{The Data Protection Act}{28}
+\contentsline {subsection}{Ethical Issues}{28}
+\contentsline {part}{The Product}{29}
+\contentsline {section}{The Menu}{30}
+\contentsline {section}{Starting A Game}{30}
+\contentsline {section}{Playing The Game}{31}
+\contentsline {paragraph}{Pausing the game:}{32}
+\contentsline {part}{Implementation}{33}
+\contentsline {chapter}{Coding Practices and Structure}{34}
+\contentsline {subsection}{Commenting}{34}
+\contentsline {subsection}{Methods}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {subsection}{Singleton Classes}{34}
+\contentsline {subsection}{Constants and Datatypes}{35}
+\contentsline {subsection}{Utility Methods}{35}
+\contentsline {subsection}{Class Listing}{35}
+\contentsline {chapter}{Game Component}{36}
+\contentsline {section}{Code Structure/Features}{36}
+\contentsline {subsection}{Cocos2D}{36}
+\contentsline {subsection}{Physics}{37}
+\contentsline {subsection}{Levels}{37}
+\contentsline {subsection}{Basic Agent Functionality}{38}
+\contentsline {subsection}{Game Rating}{39}
+\contentsline {subsection}{Performance Optimisations}{40}
+\contentsline {subsubsection}{Random number generation}{40}
+\contentsline {subsection}{SlideViewer}{41}
+\contentsline {section}{Problems Faced}{41}
+\contentsline {chapter}{AI Component}{43}
+\contentsline {section}{Level Structure}{43}
+\contentsline {section}{Learning Agents}{43}
+\contentsline {subsection}{Cogito Agents}{45}
+\contentsline {subsection}{Shortest Route Agents}{45}
+\contentsline {subsection}{Decision Tree Agents}{45}
+\contentsline {subsection}{Reinforcement Agents}{47}
+\contentsline {section}{Learning Stats}{49}
+\contentsline {section}{Problems Faced}{49}
+\contentsline {part}{Testing \& Evaluation}{50}
+\contentsline {chapter}{Testing \& Results}{51}
+\contentsline {section}{Usability Testing and Error Checking}{51}
+\contentsline {section}{AI Testing}{51}
+\contentsline {subsection}{Q-Learning Policies}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {chapter}{Evaluation}{58}
+\contentsline {section}{Time Management}{58}
+\contentsline {section}{Analysis of Machine Learning}{58}
+\contentsline {subsection}{Shortest Route Learning}{58}
+\contentsline {subsection}{Decision Tree Learning}{59}
+\contentsline {subsection}{Reinforcement Learning}{60}
+\contentsline {section}{General Areas For Enhancement}{61}
+\contentsline {section}{The Project in Context}{62}
+\contentsline {section}{Conclusion}{62}
 \contentsline {part}{Bibliography}{64}
 \contentsline {part}{Appendices}{66}
 \contentsline {section}{Appendix A: Project Schedule}{67}
