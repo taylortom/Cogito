@@ -14,7 +14,7 @@
 	<array>
 		<string>Icon_57.png</string>
 		<string>Icon_114.png</string>
-		<string>Icon-72.png</string>
+		<string>Icon_72.png</string>
 		<string>Icon_50.png</string>
 		<string>Icon_29.png</string>
 		<string>Icon_58.png</string>
@@ -29,7 +29,7 @@
 				<string>Icon_114.png</string>
 				<string>Icon_72.png</string>
 				<string>Icon_50.png</string>
-				<string>Icon-Small.png</string>
+				<string>Icon_58.png</string>
 				<string>Icon_114.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
@@ -45,7 +45,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
