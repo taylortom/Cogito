@@ -511,10 +511,10 @@
 		E2A5705D1506C243008FF275 /* AgentsSaved.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AgentsSaved.png; sourceTree = "<group>"; };
 		E2A570621506C2FC008FF275 /* ActionsGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionsGraph.png; sourceTree = "<group>"; };
 		E2A570641506C304008FF275 /* EpisodeGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EpisodeGraph.png; sourceTree = "<group>"; };
-		E2A570661507A6C1008FF275 /* SlideViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideViewer.h; path = Objects/SlideViewer.h; sourceTree = "<group>"; };
-		E2A570671507A6C1008FF275 /* SlideViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideViewer.m; path = Objects/SlideViewer.m; sourceTree = "<group>"; };
-		E2A570691507B188008FF275 /* GraphSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphSlide.h; path = Objects/GraphSlide.h; sourceTree = "<group>"; };
-		E2A5706A1507B189008FF275 /* GraphSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphSlide.m; path = Objects/GraphSlide.m; sourceTree = "<group>"; };
+		E2A570661507A6C1008FF275 /* SlideViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewer.h; sourceTree = "<group>"; };
+		E2A570671507A6C1008FF275 /* SlideViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewer.m; sourceTree = "<group>"; };
+		E2A570691507B188008FF275 /* GraphSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphSlide.h; sourceTree = "<group>"; };
+		E2A5706A1507B189008FF275 /* GraphSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphSlide.m; sourceTree = "<group>"; };
 		E2A5707D1507E8C5008FF275 /* InstructionsGameOver-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstructionsGameOver-hd.png"; sourceTree = "<group>"; };
 		E2A5707E1507E8C5008FF275 /* InstructionsGameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsGameOver.png; sourceTree = "<group>"; };
 		E2A5707F1507E8C5008FF275 /* InstructionsLevel-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstructionsLevel-hd.png"; sourceTree = "<group>"; };
@@ -783,8 +783,8 @@
 		E2D7CE5815065D3A006A4E3C /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
 		E2D7CE5D150664AF006A4E3C /* StatsBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StatsBackground-hd.png"; sourceTree = "<group>"; };
 		E2D7CE5E150664AF006A4E3C /* StatsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsBackground.png; sourceTree = "<group>"; };
-		E2D7CE611506681B006A4E3C /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Slide.h; path = Objects/Slide.h; sourceTree = "<group>"; };
-		E2D7CE621506681B006A4E3C /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Slide.m; path = Objects/Slide.m; sourceTree = "<group>"; };
+		E2D7CE611506681B006A4E3C /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
+		E2D7CE621506681B006A4E3C /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
 		E2D7CE70150671A8006A4E3C /* ActionsGraph-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionsGraph-hd.png"; sourceTree = "<group>"; };
 		E2D7CE72150671A8006A4E3C /* EpisodeGraph-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EpisodeGraph-hd.png"; sourceTree = "<group>"; };
 		E2D7CE78150673B6006A4E3C /* StatsSlide-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StatsSlide-hd.png"; sourceTree = "<group>"; };
@@ -908,7 +908,7 @@
 			isa = PBXGroup;
 			children = (
 				E294DF56150D5E2800E5C5F5 /* States */,
-				E294DF55150D5E1900E5C5F5 /* Slides */,
+				E294DF55150D5E1900E5C5F5 /* SlideViewer */,
 				E20153D614EFD9DC00DC2A0F /* Route.h */,
 				E20153D514EFD9DC00DC2A0F /* Route.m */,
 				E2372CAC14C9B58B00B07B31 /* Level.h */,
@@ -1175,7 +1175,7 @@
 			path = "Texture Atlases";
 			sourceTree = "<group>";
 		};
-		E294DF55150D5E1900E5C5F5 /* Slides */ = {
+		E294DF55150D5E1900E5C5F5 /* SlideViewer */ = {
 			isa = PBXGroup;
 			children = (
 				E2A570661507A6C1008FF275 /* SlideViewer.h */,
@@ -1185,7 +1185,8 @@
 				E2A570691507B188008FF275 /* GraphSlide.h */,
 				E2A5706A1507B189008FF275 /* GraphSlide.m */,
 			);
-			name = Slides;
+			name = SlideViewer;
+			path = Objects/SlideViewer;
 			sourceTree = "<group>";
 		};
 		E294DF56150D5E2800E5C5F5 /* States */ = {
