@@ -32,5 +32,6 @@
 }
 
 -(id)initWithSlides:(CCArray*)_slides;
+-(int)currentSlide;
 
 @end
