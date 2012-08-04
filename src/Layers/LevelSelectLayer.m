@@ -15,6 +15,7 @@
 -(void)initButtons;
 -(void)initLevelSelect;
 -(void)onContinueButtonPressed;
+-(void)onBackButtonPressed;
 
 @end
 
@@ -48,10 +49,16 @@
 {
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
-    // add the bacground image
+    // add the background image
     CCSprite *background = [CCSprite spriteWithFile:@"DefaultBackground.png"];
     [background setPosition:ccp(winSize.width/2, winSize.height/2)];
     [self addChild:background];
+    
+    // add the banner with the titles
+    CCSprite *banner = [CCSprite spriteWithFile:@"LevelSelectBanner.png"];
+    [banner setAnchorPoint:ccp(0,0.5)];
+    [banner setPosition:ccp(0, 255)];
+    [self addChild:banner z:kUIZValue];
 }
 
 /**
@@ -59,15 +66,19 @@
  */
 -(void)initButtons
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    CCMenuItemImage* backButton = [CCMenuItemImage itemFromNormalImage:@"Back.png" selectedImage:@"Back_down.png" disabledImage:nil target:self selector:@selector(onBackButtonPressed)];
+    CCMenuItemImage* continueButton = [CCMenuItemImage itemFromNormalImage:@"Continue.png" selectedImage:@"Continue_down.png" disabledImage:nil target:self selector:@selector(onContinueButtonPressed)];
     
-    CCMenuItemImage *continueButton = [CCMenuItemImage itemFromNormalImage:@"Continue.png" selectedImage:@"Continue_down.png" disabledImage:nil target:self selector:@selector(onContinueButtonPressed)];
-    buttons = [CCMenu menuWithItems:continueButton, nil];
-    [buttons alignItemsVerticallyWithPadding:winSize.height * 0.059f];
-    [buttons setPosition: ccp(winSize.width * 0.9, winSize.height * 0.065)];
+    // intialise the menu
+    buttons = [CCMenu menuWithItems:backButton, continueButton, nil];
+    [buttons setPosition:ccp(0,0)];
+    
+    // position the buttons
+    [backButton setPosition: ccp(80, 25)];
+    [continueButton setPosition: ccp(420, 25)];
     
     // add the menu
-    [self addChild:buttons];
+    [self addChild:buttons z:kUIZValue];
 }
 
 /**
@@ -81,8 +92,7 @@
     CCArray* slides = [CCArray arrayWithCapacity:levelCount];
 
     for (int i = 1; i <= levelCount; i++)
-        [slides addObject:[[Slide alloc] initWithImage:[NSString stringWithFormat:@"InstructionsLevel.png"]]];
-//    [slides addObject:[[Slide alloc] initWithImage:[NSString stringWithFormat:@"Level%i.png", i]]];
+        [slides addObject:[[Slide alloc] initWithImage:[NSString stringWithFormat:@"Level%i.png", i]]];
     
     slideViewer = [[SlideViewer alloc] initWithSlides:slides];
     [self addChild:slideViewer];
@@ -93,9 +103,16 @@
  */
 -(void)onContinueButtonPressed
 {
-    CCLOG(@"%@.onContinueButtonPressed: %i", NSStringFromClass([self class]), [slideViewer currentSlide]);
     [[GameManager sharedGameManager] loadLevel:[slideViewer currentSlide]+1];
 	[[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
+}
+
+/**
+ * Loads the new game scene
+ */
+-(void)onBackButtonPressed
+{
+    [[GameManager sharedGameManager] runSceneWithID:kNewGameScene];
 }
 
 @end

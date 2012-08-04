@@ -8,6 +8,7 @@
 //
 
 #import "cocos2d.h"
+#import "Constants.h"
 #import <Foundation/Foundation.h>
 #import "GameManager.h"
 #import "SlideViewer.h"
