@@ -42,8 +42,8 @@
 		E209043815CD7ED100AC0B36 /* Level5.png in Resources */ = {isa = PBXBuildFile; fileRef = E209042C15CD7ECF00AC0B36 /* Level5.png */; };
 		E209043915CD7ED100AC0B36 /* Level6-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E209042D15CD7ECF00AC0B36 /* Level6-hd.png */; };
 		E209043A15CD7ED100AC0B36 /* Level6.png in Resources */ = {isa = PBXBuildFile; fileRef = E209042E15CD7ECF00AC0B36 /* Level6.png */; };
-		E209043D15CD843200AC0B36 /* LevelSelectBanner-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E209043B15CD843000AC0B36 /* LevelSelectBanner-hd.png */; };
-		E209043E15CD843200AC0B36 /* LevelSelectBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = E209043C15CD843000AC0B36 /* LevelSelectBanner.png */; };
+		E209044115CD879A00AC0B36 /* LevelSelectBanner-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E209043F15CD878D00AC0B36 /* LevelSelectBanner-hd.png */; };
+		E209044215CD879A00AC0B36 /* LevelSelectBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = E209044015CD879100AC0B36 /* LevelSelectBanner.png */; };
 		E211D08B14C88C3300970AEC /* TerrainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E211D08A14C88C3300970AEC /* TerrainLayer.m */; };
 		E211D08D14C8A15700970AEC /* LevelData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E211D08C14C8A15700970AEC /* LevelData.plist */; };
 		E211D09314C8D49100970AEC /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = E211D09214C8D49100970AEC /* Level2.plist */; };
@@ -364,8 +364,8 @@
 		E209042C15CD7ECF00AC0B36 /* Level5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Level5.png; sourceTree = "<group>"; };
 		E209042D15CD7ECF00AC0B36 /* Level6-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level6-hd.png"; sourceTree = "<group>"; };
 		E209042E15CD7ECF00AC0B36 /* Level6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Level6.png; sourceTree = "<group>"; };
-		E209043B15CD843000AC0B36 /* LevelSelectBanner-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelSelectBanner-hd.png"; sourceTree = "<group>"; };
-		E209043C15CD843000AC0B36 /* LevelSelectBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LevelSelectBanner.png; sourceTree = "<group>"; };
+		E209043F15CD878D00AC0B36 /* LevelSelectBanner-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LevelSelectBanner-hd.png"; sourceTree = "<group>"; };
+		E209044015CD879100AC0B36 /* LevelSelectBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LevelSelectBanner.png; sourceTree = "<group>"; };
 		E211D08914C88C3300970AEC /* TerrainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainLayer.h; sourceTree = "<group>"; };
 		E211D08A14C88C3300970AEC /* TerrainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainLayer.m; sourceTree = "<group>"; };
 		E211D08C14C8A15700970AEC /* LevelData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelData.plist; sourceTree = "<group>"; };
@@ -886,8 +886,8 @@
 		E209041615CD7B7100AC0B36 /* LevelSelect */ = {
 			isa = PBXGroup;
 			children = (
-				E209043B15CD843000AC0B36 /* LevelSelectBanner-hd.png */,
-				E209043C15CD843000AC0B36 /* LevelSelectBanner.png */,
+				E209043F15CD878D00AC0B36 /* LevelSelectBanner-hd.png */,
+				E209044015CD879100AC0B36 /* LevelSelectBanner.png */,
 				E209042315CD7ECC00AC0B36 /* Level1-hd.png */,
 				E209042415CD7ECC00AC0B36 /* Level1.png */,
 				E209042515CD7ECD00AC0B36 /* Level2-hd.png */,
@@ -1991,8 +1991,8 @@
 				E209043815CD7ED100AC0B36 /* Level5.png in Resources */,
 				E209043915CD7ED100AC0B36 /* Level6-hd.png in Resources */,
 				E209043A15CD7ED100AC0B36 /* Level6.png in Resources */,
-				E209043D15CD843200AC0B36 /* LevelSelectBanner-hd.png in Resources */,
-				E209043E15CD843200AC0B36 /* LevelSelectBanner.png in Resources */,
+				E209044115CD879A00AC0B36 /* LevelSelectBanner-hd.png in Resources */,
+				E209044215CD879A00AC0B36 /* LevelSelectBanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
