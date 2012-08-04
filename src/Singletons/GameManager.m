@@ -144,7 +144,28 @@ static int secondsPlayed;
 -(void)loadLevel:(int)levelID
 {
     CCLOG(@"%@.loadLevel: %i", NSStringFromClass([self class]), levelID);
-    currentLevel = [levelData objectAtIndex:levelID];
+    
+    Level* level = [levelData objectAtIndex:levelID-1];
+    if(level.id == levelID)
+    {
+        currentLevel = [levelData objectAtIndex:levelID-1];
+        return;
+    }
+    else
+    {
+        CCLOG(@"Levels not sorted, searching...");
+        for (int i = 0; i < [levelData count]; i++)
+        {
+            level = [levelData objectAtIndex:i];
+            if (level.id == levelID)
+            {
+                currentLevel = level;
+                return;
+            }
+        }
+        CCLOG(@"Error: level %i not found, loading first level", levelID);
+        currentLevel = [levelData objectAtIndex:0];
+    }
 }
 
 /**

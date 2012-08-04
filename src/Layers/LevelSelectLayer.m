@@ -80,7 +80,7 @@
     int levelCount = [[GameManager sharedGameManager] getLevelCount];
     CCArray* slides = [CCArray arrayWithCapacity:levelCount];
 
-    for (int i = 0; i < levelCount; i++)
+    for (int i = 1; i <= levelCount; i++)
         [slides addObject:[[Slide alloc] initWithImage:[NSString stringWithFormat:@"InstructionsLevel.png"]]];
 //    [slides addObject:[[Slide alloc] initWithImage:[NSString stringWithFormat:@"Level%i.png", i]]];
     
@@ -93,8 +93,8 @@
  */
 -(void)onContinueButtonPressed
 {
-    CCLOG(@"%@.onContinueButtonPressed", NSStringFromClass([self class]));
-    [[GameManager sharedGameManager] loadLevel:[slideViewer currentSlide]];
+    CCLOG(@"%@.onContinueButtonPressed: %i", NSStringFromClass([self class]), [slideViewer currentSlide]);
+    [[GameManager sharedGameManager] loadLevel:[slideViewer currentSlide]+1];
 	[[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
 }
 
