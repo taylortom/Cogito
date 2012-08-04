@@ -296,4 +296,13 @@ static int secondsPlayed;
     levelDifficulty = _difficulty;
 }
 
+/**
+ * The number of levels in the game
+ * @return number of levels
+ */
+-(int)getLevelCount
+{
+    return [levelData count];
+}
+
 @end

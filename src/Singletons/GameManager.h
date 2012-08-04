@@ -39,5 +39,6 @@
 -(NSString*)getGameTimeInMins;
 -(int)getGameTimeInSecs;
 -(void)setLevelDifficulty:(Difficulty)_difficulty;
+-(int)getLevelCount;
 
 @end
