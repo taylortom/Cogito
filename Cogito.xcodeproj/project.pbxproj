@@ -28,6 +28,8 @@
 		E2084CB714A2ADC700C699A9 /* Resume_down-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084CB314A2ADC600C699A9 /* Resume_down-hd.png */; };
 		E2084CB814A2ADC700C699A9 /* Resume-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2084CB414A2ADC600C699A9 /* Resume-hd.png */; };
 		E2084CBB14A3580100C699A9 /* PauseMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2084CBA14A3580000C699A9 /* PauseMenuLayer.m */; };
+		E209040D15CD4EE900AC0B36 /* LevelSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E209040C15CD4EE900AC0B36 /* LevelSelectScene.m */; };
+		E209041015CD524600AC0B36 /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E209040F15CD524600AC0B36 /* LevelSelectLayer.m */; };
 		E211D08B14C88C3300970AEC /* TerrainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E211D08A14C88C3300970AEC /* TerrainLayer.m */; };
 		E211D08D14C8A15700970AEC /* LevelData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E211D08C14C8A15700970AEC /* LevelData.plist */; };
 		E211D09314C8D49100970AEC /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = E211D09214C8D49100970AEC /* Level2.plist */; };
@@ -332,6 +334,10 @@
 		E2084CB414A2ADC600C699A9 /* Resume-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resume-hd.png"; sourceTree = "<group>"; };
 		E2084CB914A3580000C699A9 /* PauseMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseMenuLayer.h; sourceTree = "<group>"; };
 		E2084CBA14A3580000C699A9 /* PauseMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseMenuLayer.m; sourceTree = "<group>"; };
+		E209040B15CD4EE900AC0B36 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelectScene.h; path = ../LevelSelectScene.h; sourceTree = "<group>"; };
+		E209040C15CD4EE900AC0B36 /* LevelSelectScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelectScene.m; path = ../LevelSelectScene.m; sourceTree = "<group>"; };
+		E209040E15CD524600AC0B36 /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelectLayer.h; path = ../LevelSelectLayer.h; sourceTree = "<group>"; };
+		E209040F15CD524600AC0B36 /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelectLayer.m; path = ../LevelSelectLayer.m; sourceTree = "<group>"; };
 		E211D08914C88C3300970AEC /* TerrainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainLayer.h; sourceTree = "<group>"; };
 		E211D08A14C88C3300970AEC /* TerrainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainLayer.m; sourceTree = "<group>"; };
 		E211D08C14C8A15700970AEC /* LevelData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LevelData.plist; sourceTree = "<group>"; };
@@ -976,6 +982,8 @@
 				E2389A21149B89F7004DCA32 /* AboutLayer.m */,
 				E2372C8814C97D0F00B07B31 /* InstructionsLayer.h */,
 				E2372C8914C97D0F00B07B31 /* InstructionsLayer.m */,
+				E209040E15CD524600AC0B36 /* LevelSelectLayer.h */,
+				E209040F15CD524600AC0B36 /* LevelSelectLayer.m */,
 				E2389A1D149B7175004DCA32 /* MainMenuLayer.h */,
 				E2389A1E149B7175004DCA32 /* MainMenuLayer.m */,
 				E2389A51149BA328004DCA32 /* NewGameLayer.h */,
@@ -1074,6 +1082,8 @@
 				E2389A4D149BA2AE004DCA32 /* NewGameScene.m */,
 				E211D09714C8F6E700970AEC /* InstructionsScene.h */,
 				E211D09814C8F6E700970AEC /* InstructionsScene.m */,
+				E209040B15CD4EE900AC0B36 /* LevelSelectScene.h */,
+				E209040C15CD4EE900AC0B36 /* LevelSelectScene.m */,
 				E2D7CE4A150658A5006A4E3C /* StatsScene.h */,
 				E2D7CE4B150658A5006A4E3C /* StatsScene.m */,
 			);
@@ -2069,6 +2079,8 @@
 				E2D7CE631506681B006A4E3C /* Slide.m in Sources */,
 				E2A570681507A6C1008FF275 /* SlideViewer.m in Sources */,
 				E2A5706B1507B189008FF275 /* GraphSlide.m in Sources */,
+				E209040D15CD4EE900AC0B36 /* LevelSelectScene.m in Sources */,
+				E209041015CD524600AC0B36 /* LevelSelectLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

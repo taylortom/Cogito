@@ -12,6 +12,7 @@
 #import "GameManager.h"
 #import "GameScene.h"
 #import "InstructionsScene.h"
+#import "LevelSelectScene.h"
 #import "MainMenuScene.h"
 #import "NewGameScene.h"
 #import "StatsScene.h"
@@ -137,6 +138,16 @@ static int secondsPlayed;
 }
 
 /**
+ * Loads the level specified
+ * @param level id to load
+ */
+-(void)loadLevel:(int)levelID
+{
+    CCLOG(@"%@.loadLevel: %i", NSStringFromClass([self class]), levelID);
+    currentLevel = [levelData objectAtIndex:levelID];
+}
+
+/**
  * Randomly selects a level with the difficulty chosen by the player
  */
 -(void)loadRandomLevel
@@ -201,6 +212,10 @@ static int secondsPlayed;
             
         case kGameOverScene:
             sceneToRun = [GameOverScene node];
+            break;
+        
+        case kLevelSelectScene:
+            sceneToRun = [LevelSelectScene node];
             break;
             
         case kGameLevelScene:

@@ -67,10 +67,8 @@
         // set up the labels/buttons
         //[self initDisplay];
         
-        // Get the level data from GameManager
-        [gm loadRandomLevel];
-        
-        // initialise the terrain layer
+        // initialise the terrain layer, load the selected level
+        CCLOG(@"Loading level: %@", [gm currentLevel]);
         currentTerrainLayer = [[TerrainLayer alloc] init:[gm currentLevel].id];
         [self addChild:currentTerrainLayer z:kTerrainZValue];
         

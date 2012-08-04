@@ -102,10 +102,11 @@ typedef enum
     kStingScene                 = 1,
     kMainMenuScene              = 2,
     kNewGameScene               = 3,
-    kStatsScene                 = 4,
-    kInstructionsScene          = 5,
-    kSettingsScene              = 6,
-    kAboutScene                 = 7,
-    kGameOverScene              = 8,
+    kLevelSelectScene           = 4,
+    kStatsScene                 = 5,
+    kInstructionsScene          = 6,
+    kSettingsScene              = 7,
+    kAboutScene                 = 8,
+    kGameOverScene              = 9,
     kGameLevelScene             = 101
 } SceneTypes;

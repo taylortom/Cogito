@@ -30,6 +30,7 @@
 
 +(GameManager*)sharedGameManager;
 -(void)loadLevelData;
+-(void)loadLevel:(int)levelID;
 -(void)loadRandomLevel;
 -(void)runSceneWithID:(SceneTypes)_sceneID;
 -(void)pauseGame;
