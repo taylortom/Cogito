@@ -13,14 +13,14 @@
 @interface Level : NSObject
 
 {
-    NSString* name;
+    int id;
     Difficulty difficulty;
     CGPoint spawnPosition;
     int umbrellaUses;
     int helmetUses;
 }
 
-@property (readwrite, retain) NSString* name;
+@property (readwrite) int id;
 @property (readwrite) Difficulty difficulty;
 @property (readwrite) CGPoint spawnPoint;
 @property (readwrite) int umbrellaUses;

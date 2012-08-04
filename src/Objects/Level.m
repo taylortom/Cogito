@@ -11,7 +11,7 @@
 
 @implementation Level
 
-@synthesize name;
+@synthesize id;
 @synthesize difficulty;
 @synthesize spawnPoint;
 @synthesize umbrellaUses;

@@ -36,13 +36,13 @@
  * @param the level plist
  * @return self
  */
--(id)init:(NSString*)_plist 
+-(id)init:(int)_levelId
 {    
 	self = [super init];
     
 	if (self != nil) 
 	{
-        plistFilename = _plist;
+        plistFilename = [NSString stringWithFormat:@"Level%i", _levelId];
         
         terrain = [[CCArray alloc] init];
         obstacles = [[CCArray alloc] init];

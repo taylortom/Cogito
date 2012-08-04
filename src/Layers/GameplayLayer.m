@@ -71,7 +71,7 @@
         [gm loadRandomLevel];
         
         // initialise the terrain layer
-        currentTerrainLayer = [[TerrainLayer alloc] init:[gm currentLevel].name];
+        currentTerrainLayer = [[TerrainLayer alloc] init:[gm currentLevel].id];
         [self addChild:currentTerrainLayer z:kTerrainZValue];
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings

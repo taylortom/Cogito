@@ -70,7 +70,6 @@ static int secondsPlayed;
         [[CCDirector sharedDirector] setAnimationInterval:1.0/kFrameRate];
         
         currentScene = kNoSceneUninitialised; 
-        levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
         debug = NO;
     }
@@ -108,11 +107,13 @@ static int secondsPlayed;
     // if plistDictionary is empty, display error message
     if(plistDictionary == nil) { CCLOG(@"GameManager.loadLevelData: Error loading LevelData.plist"); return; }
     
+    levelData = [[CCArray alloc] initWithCapacity:[plistDictionary count]];
+    
     for(NSDictionary *object in plistDictionary)
     {
         NSDictionary *objectDictionary = [plistDictionary objectForKey:object];        
 
-        NSString* name = [objectDictionary objectForKey:@"name"];
+        int id = [[objectDictionary objectForKey:@"id"] intValue];
         int umbrellaUses = [[objectDictionary objectForKey:@"umbrellaUses"] intValue];
         int helmetUses = [[objectDictionary objectForKey:@"helmetUses"] intValue];
         
@@ -124,12 +125,14 @@ static int secondsPlayed;
         
         // set the data, and add to levelData
         Level* level = [[Level alloc] init];
-        level.name = name;
+        level.id = id;
         level.difficulty = difficulty;
         level.umbrellaUses = umbrellaUses;
         level.helmetUses = helmetUses;
         
-        [levelData addObject:level];
+        // add the level at the correct point in the array
+        int indexForLevel = ([levelData count] < id-1) ? [levelData count]: id-1;
+        [levelData insertObject:level atIndex:indexForLevel];
     }    
 }
 
