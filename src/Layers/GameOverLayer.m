@@ -74,7 +74,7 @@
                 break;
                 
             default:
-                CCLOG(@"Unknown rating: %@", [[LemmingManager sharedLemmingManager] calculateGameRating]);
+                CCLOG(@"Unknown rating: %i", [[LemmingManager sharedLemmingManager] calculateGameRating]);
                 break;
         }
 		

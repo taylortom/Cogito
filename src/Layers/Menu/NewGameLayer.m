@@ -341,7 +341,7 @@
     [self animateOutComponents];
     
     // load the game scene
-	[[GameManager sharedGameManager] runSceneWithID:kGameLevelScene];
+	[[GameManager sharedGameManager] runSceneWithID:kLevelSelectScene];
 }
 
 /**

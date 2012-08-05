@@ -30,6 +30,7 @@
 
 +(GameManager*)sharedGameManager;
 -(void)loadLevelData;
+-(void)loadLevel:(int)levelID;
 -(void)loadRandomLevel;
 -(void)runSceneWithID:(SceneTypes)_sceneID;
 -(void)pauseGame;
@@ -39,5 +40,6 @@
 -(NSString*)getGameTimeInMins;
 -(int)getGameTimeInSecs;
 -(void)setLevelDifficulty:(Difficulty)_difficulty;
+-(int)getLevelCount;
 
 @end

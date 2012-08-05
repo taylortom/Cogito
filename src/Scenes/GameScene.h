@@ -8,7 +8,6 @@
 //
 
 #import "cocos2d.h"
-#import "CCScene.h"
 #import "BackgroundLayer.h"
 #import "GameplayLayer.h"
 

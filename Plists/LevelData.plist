@@ -4,8 +4,8 @@
 <dict>
 	<key>Level1</key>
 	<dict>
-		<key>name</key>
-		<string>Level1</string>
+		<key>id</key>
+		<integer>1</integer>
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>
@@ -15,8 +15,8 @@
 	</dict>
 	<key>Level2</key>
 	<dict>
-		<key>name</key>
-		<string>Level2</string>
+		<key>id</key>
+		<integer>2</integer>
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>
@@ -26,8 +26,8 @@
 	</dict>
 	<key>Level3</key>
 	<dict>
-		<key>name</key>
-		<string>Level3</string>
+		<key>id</key>
+		<integer>3</integer>
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>
@@ -37,8 +37,8 @@
 	</dict>
 	<key>Level4</key>
 	<dict>
-		<key>name</key>
-		<string>Level4</string>
+		<key>id</key>
+		<integer>4</integer>
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>
@@ -48,8 +48,8 @@
 	</dict>
 	<key>Level5</key>
 	<dict>
-		<key>name</key>
-		<string>Level5</string>
+		<key>id</key>
+		<integer>5</integer>
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>
@@ -59,8 +59,8 @@
 	</dict>
 	<key>Level6</key>
 	<dict>
-		<key>name</key>
-		<string>Level6</string>
+		<key>id</key>
+		<integer>6</integer>
 		<key>difficulty</key>
 		<string>easy</string>
 		<key>umbrellaUses</key>

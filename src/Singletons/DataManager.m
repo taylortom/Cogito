@@ -241,7 +241,7 @@ static DataManager* _instance = nil;
     switch (learningType) 
     {
         case kLearningReinforcement:
-            [reinforcementData setObject:gameData forKey:[NSString stringWithFormat:@"%@ %@", [gm currentLevel].name, timeStamp]];
+            [reinforcementData setObject:gameData forKey:[NSString stringWithFormat:@"Level%i %@", [gm currentLevel].id, timeStamp]];
             break;
             
         case kLearningTree:

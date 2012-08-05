@@ -169,4 +169,16 @@
     [nextButton setOpacity:(nextEnabled) ? 255 : disabledOpacity];
 }
 
+#pragma mark -
+#pragma mark Getters/Setters
+
+/**
+ * Returns the current slide number
+ * @return currentSlide
+ */
+-(int)currentSlide
+{
+    return slideNumber;
+}
+
 @end

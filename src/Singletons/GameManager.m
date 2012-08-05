@@ -12,6 +12,7 @@
 #import "GameManager.h"
 #import "GameScene.h"
 #import "InstructionsScene.h"
+#import "LevelSelectScene.h"
 #import "MainMenuScene.h"
 #import "NewGameScene.h"
 #import "StatsScene.h"
@@ -70,7 +71,6 @@ static int secondsPlayed;
         [[CCDirector sharedDirector] setAnimationInterval:1.0/kFrameRate];
         
         currentScene = kNoSceneUninitialised; 
-        levelData = [[CCArray alloc] init];
         secondsPlayed = 0;
         debug = NO;
     }
@@ -108,11 +108,13 @@ static int secondsPlayed;
     // if plistDictionary is empty, display error message
     if(plistDictionary == nil) { CCLOG(@"GameManager.loadLevelData: Error loading LevelData.plist"); return; }
     
+    levelData = [[CCArray alloc] initWithCapacity:[plistDictionary count]];
+    
     for(NSDictionary *object in plistDictionary)
     {
         NSDictionary *objectDictionary = [plistDictionary objectForKey:object];        
 
-        NSString* name = [objectDictionary objectForKey:@"name"];
+        int id = [[objectDictionary objectForKey:@"id"] intValue];
         int umbrellaUses = [[objectDictionary objectForKey:@"umbrellaUses"] intValue];
         int helmetUses = [[objectDictionary objectForKey:@"helmetUses"] intValue];
         
@@ -124,13 +126,46 @@ static int secondsPlayed;
         
         // set the data, and add to levelData
         Level* level = [[Level alloc] init];
-        level.name = name;
+        level.id = id;
         level.difficulty = difficulty;
         level.umbrellaUses = umbrellaUses;
         level.helmetUses = helmetUses;
         
-        [levelData addObject:level];
+        // add the level at the correct point in the array
+        int indexForLevel = ([levelData count] < id-1) ? [levelData count]: id-1;
+        [levelData insertObject:level atIndex:indexForLevel];
     }    
+}
+
+/**
+ * Loads the level specified
+ * @param level id to load
+ */
+-(void)loadLevel:(int)levelID
+{
+    CCLOG(@"%@.loadLevel: %i", NSStringFromClass([self class]), levelID);
+    
+    Level* level = [levelData objectAtIndex:levelID-1];
+    if(level.id == levelID)
+    {
+        currentLevel = [levelData objectAtIndex:levelID-1];
+        return;
+    }
+    else
+    {
+        CCLOG(@"Levels not sorted, searching...");
+        for (int i = 0; i < [levelData count]; i++)
+        {
+            level = [levelData objectAtIndex:i];
+            if (level.id == levelID)
+            {
+                currentLevel = level;
+                return;
+            }
+        }
+        CCLOG(@"Error: level %i not found, loading first level", levelID);
+        currentLevel = [levelData objectAtIndex:0];
+    }
 }
 
 /**
@@ -198,6 +233,10 @@ static int secondsPlayed;
             
         case kGameOverScene:
             sceneToRun = [GameOverScene node];
+            break;
+        
+        case kLevelSelectScene:
+            sceneToRun = [LevelSelectScene node];
             break;
             
         case kGameLevelScene:
@@ -291,6 +330,15 @@ static int secondsPlayed;
 -(void)setLevelDifficulty:(Difficulty)_difficulty
 {
     levelDifficulty = _difficulty;
+}
+
+/**
+ * The number of levels in the game
+ * @return number of levels
+ */
+-(int)getLevelCount
+{
+    return [levelData count];
 }
 
 @end

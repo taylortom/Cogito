@@ -67,11 +67,9 @@
         // set up the labels/buttons
         //[self initDisplay];
         
-        // Get the level data from GameManager
-        [gm loadRandomLevel];
-        
-        // initialise the terrain layer
-        currentTerrainLayer = [[TerrainLayer alloc] init:[gm currentLevel].name];
+        // initialise the terrain layer, load the selected level
+        CCLOG(@"Loading level: %@", [gm currentLevel]);
+        currentTerrainLayer = [[TerrainLayer alloc] init:[gm currentLevel].id];
         [self addChild:currentTerrainLayer z:kTerrainZValue];
         
         [self schedule:@selector(addLemming) interval:kLemmingSpawnSpeed]; // create some lemmings

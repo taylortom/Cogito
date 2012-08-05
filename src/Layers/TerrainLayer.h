@@ -22,7 +22,7 @@
     CCArray *obstacles; 
 }
     
--(id)init:(NSString*)_plist;
+-(id)init:(int)_levelId;
 -(CCArray*)terrain;
 -(CCArray*)obstacles;
 

@@ -123,7 +123,7 @@ static KnowledgeBase* _instance = nil;
 {    
     // get the documents path
     NSString* documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"KnowledgeBase_%@_%@.plist", [[GameManager sharedGameManager] currentLevel].name, [Utils getTimeStampWithFormat:@"yyyy_MM_dd-HHmm"]]];
+    NSString* filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"KnowledgeBase_Level%i_%@.plist", [[GameManager sharedGameManager] currentLevel].id, [Utils getTimeStampWithFormat:@"yyyy_MM_dd-HHmm"]]];
     
     // the dictionary to export
     NSMutableDictionary* exportData = [[NSMutableDictionary alloc] init];
