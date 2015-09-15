@@ -24,7 +24,9 @@
     
     if (self != nil) 
     {
-        respawns = [[LemmingManager sharedLemmingManager] learningEpisodes];
+        bool demoMode = [[GameManager sharedGameManager] demo];
+        
+        respawns = (!demoMode) ? [[LemmingManager sharedLemmingManager] learningEpisodes] : 0;
         learningMode = YES;
     }
     return self;

@@ -55,6 +55,9 @@ static KnowledgeBase* _instance = nil;
     if (self != nil) 
     {
         [self clearKnowledgeBase];
+        
+        if([[LemmingManager sharedLemmingManager] sharedKnowledge])
+            [self importKnowledgeBase];
     }
     
     return self;
@@ -114,6 +117,25 @@ static KnowledgeBase* _instance = nil;
     [gameStates addObject:returnState];
 
     return returnState;
+}
+
+/**
+ * Loads in a knowledge base from a previous game
+ */
+-(void)importKnowledgeBase
+{    
+    /*
+     
+    1. Load in a file for the current level
+     - choose 'best' file
+     - load in file without filename
+    
+    2. Parse file
+     - Load as a dictionary
+     - Link each sub-dictionary to the relevant game object (perhaps by coord)
+     - Restore the Q-value
+     
+     */
 }
 
 /**

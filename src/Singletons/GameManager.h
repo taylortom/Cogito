@@ -21,12 +21,14 @@
     Level* currentLevel;
     BOOL gamePaused;
     BOOL debug;
+    BOOL demo;
 }
 
 @property (readonly) SceneTypes currentScene;
 @property (readwrite, retain) Level* currentLevel;
 @property (readwrite) BOOL gamePaused;
 @property (readwrite) BOOL debug;
+@property (readwrite) BOOL demo;
 
 +(GameManager*)sharedGameManager;
 -(void)loadLevelData;

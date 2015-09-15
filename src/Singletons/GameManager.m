@@ -24,6 +24,7 @@
 @synthesize currentLevel;
 @synthesize gamePaused;
 @synthesize debug;
+@synthesize demo;
 
 static GameManager* _instance = nil;
 static int secondsPlayed;

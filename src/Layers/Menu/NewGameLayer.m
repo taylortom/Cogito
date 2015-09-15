@@ -56,7 +56,8 @@
         lemmingCount = kLemmingTotal;
         learningEpisodes = KLearningEpisodes;
         sharedKnowledge = YES;
-        debugMode = NO;
+        //debugMode = NO;
+        demoMode = NO;
         learningType = kLearningReinforcement;
         
         [self performSelector:@selector(initGUI) withObject:nil afterDelay:0.6f];
@@ -84,7 +85,8 @@
          [learningEpisodesSlider setAlpha:1.0f];
          [learningTypeControl setAlpha:1.0f];
          [sharedKnowledgeSwitch setAlpha:1.0f];
-         [debugSwitch setAlpha:1.0f]; 
+         //[debugSwitch setAlpha:1.0f];
+         [demoSwitch setAlpha:1.0f];
      }
                      completion:^(BOOL finished)
                      { 
@@ -225,6 +227,22 @@
      */
     
     // switch
+    demoSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(374, (320-80), 200, 71)];
+    [demoSwitch setAlpha:0.0f];
+    [demoSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
+    [demoSwitch addTarget:self action:@selector(onSwitchUpdated:)forControlEvents:UIControlEventValueChanged];
+    [[[CCDirector sharedDirector] openGLView] addSubview:demoSwitch];
+    
+    // label
+    demoModeLabel = [CCLabelBMFont labelWithString:@"demo mode" fntFile:kFilenameDefFontLarge];
+    [demoModeLabel setPosition:ccp(315, 61)];
+    [self addChild:demoModeLabel];
+    
+    /**
+     * Debug mode switch
+     *
+    
+    // switch
     debugSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(374, (320-80), 200, 71)];
     [debugSwitch setAlpha:0.0f];
     [debugSwitch setOnTintColor:[Utils getUIColourFromRed:102 green:153 blue:204]];
@@ -235,6 +253,7 @@
     debugModeLabel = [CCLabelBMFont labelWithString:@"debug mode" fntFile:kFilenameDefFontLarge];
     [debugModeLabel setPosition:ccp(315, 61)];
     [self addChild:debugModeLabel];
+     */
 }
 
 #pragma mark -
@@ -258,7 +277,8 @@
             [learningEpisodesSlider setAlpha:0.0f];
             [learningTypeControl setAlpha:0.0f];
             [sharedKnowledgeSwitch setAlpha:0.0f];
-            [debugSwitch setAlpha:0.0f]; 
+            //[debugSwitch setAlpha:0.0f];
+            [demoSwitch setAlpha:0.0f];
         }
         completion:^(BOOL finished)
         {
@@ -305,7 +325,24 @@
  */
 - (IBAction)onSwitchUpdated:(UISwitch*)sender
 {   
-    if(sender == debugSwitch) debugMode = sender.on;  
+    //if(sender == debugSwitch) debugMode = sender.on;
+    if(sender == demoSwitch)
+    {
+        demoMode = sharedKnowledge = sender.on;
+        sharedKnowledgeSwitch.on = true;
+        sharedKnowledgeSwitch.enabled = learningEpisodesSlider.enabled = !sender.on;
+        
+        if(sender.on)
+        {
+            [learningEpisodesSlider setValue:0];
+            [learningEpisodesLabel setString:@"0"];
+        }
+        else
+        {
+            [learningEpisodesSlider setValue:KLearningEpisodes];
+            [learningEpisodesLabel setString:[NSString stringWithFormat:@"%i", KLearningEpisodes]];
+        }
+    }
     else if(sender == sharedKnowledgeSwitch) sharedKnowledge = sender.on;
 }
 
@@ -335,7 +372,8 @@
     [[LemmingManager sharedLemmingManager] setTotalNumberOfLemmings:lemmingCount];
     [[LemmingManager sharedLemmingManager] setLearningEpisodes:learningEpisodes];
     [[LemmingManager sharedLemmingManager] setSharedKnowledge:sharedKnowledge];
-    [[GameManager sharedGameManager] setDebug:debugMode];
+    //[[GameManager sharedGameManager] setDebug:debugMode];
+    [[GameManager sharedGameManager] setDemo:demoMode];
     
     // fade out the UIComponents
     [self animateOutComponents];
