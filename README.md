@@ -1,9 +1,9 @@
+**PLEASE NOTE THAT THIS PROJECT IS NOT ACTIVELY MAINTAINED**
+
 Cogito Machine Learning
 =======================
 
 Cogito is an experiment into utilising academic machine learning techniques in a game context. The aim of the game is to train a number of AI-controlled agents to safely navigate the game world.
-
-More information is available at the * Cogito project homepage[2]
 
 Main features
 -------------
@@ -26,9 +26,4 @@ Fairly self-explanatory, but you can start a new game, view game stats, and furt
 How to contribute to the project
 --------------------------------
 
-Find a bug? Have feature request? Want to contribute to the project?
-
-  * Contact me via my github account[1]
-
-[1]: http://www.cogito.taylortom.co.uk "Cogito project homepage"
-[2]: http://www.github.com/taylortom "taylortom at github"
+Find a bug? Have feature request? Want to contribute to the project? Contact me via [my github account](http://www.github.com/taylortom).
